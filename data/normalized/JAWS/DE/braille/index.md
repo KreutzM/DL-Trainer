@@ -1773,7 +1773,10 @@ Quelle: focus_nav_ex.htm
 
 Die Focus Braillezeilen verfügen über viele hilfreiche Funktionen, mit denen Sie durch Dokumente wandern, Text markieren, den Cursor auf eine Bildschirmposition bewegen können und vieles mehr. Zusätzlich sind alle Modelle mit einer Brailletastatur ausgestattet, um Text einzugeben und Befehle auszuführen. Weitere Informationen über das Zusammenspiel Ihrer Focus Braillezeile mit JAWS finden Sie in den folgenden Hilfethemen:
 
-[Steuerelemente für Focus 14, Focus 40 und Focus 80 Blue](Controls_for_Focus_14_40_and_80_Blue.htm) [Steuerelemente für die klassische Focus 40 Blue](Controls_for_Focus_40_Blue.htm) [Steuerelemente für Focus 40 und 80](Controls_for_Focus_40_and_80.htm) [Steuerelemente für Focus 44, 70 und 84](focus_ww_ab_crk.htm)
+[Steuerelemente für Focus 14, Focus 40 und Focus 80 Blue](Controls_for_Focus_14_40_and_80_Blue.htm)
+[Steuerelemente für die klassische Focus 40 Blue](Controls_for_Focus_40_Blue.htm)
+[Steuerelemente für Focus 40 und 80](Controls_for_Focus_40_and_80.htm)
+[Steuerelemente für Focus 44, 70 und 84](focus_ww_ab_crk.htm)
 
 **Hinweis:** Einen Überblick über die Bluetooth-Konfiguration finden Sie unter [Focus Bluetooth-Verbindung](Focus_Bluetooth_Connection.htm).
 

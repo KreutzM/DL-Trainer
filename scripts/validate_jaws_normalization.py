@@ -14,6 +14,9 @@ def validate_markdown_structure(md_path: Path) -> None:
     lines = text.splitlines()
 
     for idx, line in enumerate(lines, start=1):
+        if line.startswith("#") and re.search(r"\s#{1,6}\s", line):
+            raise SystemExit(f"Multiple headings on one line in {md_path}:{idx}")
+
         if line.startswith("#") and idx < len(lines):
             next_line = lines[idx]
             if next_line and not next_line.startswith(("#", "-", "*", ">", "```", "|")) and not next_line[:2].isdigit():
@@ -21,15 +24,18 @@ def validate_markdown_structure(md_path: Path) -> None:
                 if prev_line != "":
                     raise SystemExit(f"Heading not separated by blank line in {md_path}:{idx}")
 
+        if line.startswith("#") and len(line) > 120 and re.search(r"[.!?]\s+\w+\s+\w+\s+\w+", line):
+            raise SystemExit(f"Heading appears merged with prose in {md_path}:{idx}")
+
         if line.startswith("Quelle:") and idx < len(lines):
             next_line = lines[idx]
             if next_line.startswith("#"):
                 raise SystemExit(f"Source marker glued to following heading in {md_path}:{idx}")
 
-        if re.search(r"Quelle:\s+#+\s", line):
+        if re.search(r"Quelle:\s+#+\s", line) or (line.startswith("Quelle:") and re.search(r"\s#{1,6}\s", line)):
             raise SystemExit(f"Source marker merged with heading in {md_path}:{idx}")
 
-        if re.search(r"^(?:- |\d+\.) .+ (?:- |\d+\.) ", line):
+        if re.search(r"^(?:- |\d+\.) .+ (?:- |\d+\.) ", line) or re.search(r"^\d+\..+\s\d+\.\s", line):
             raise SystemExit(f"Suspicious merged list items in {md_path}:{idx}")
 
         if re.search(r"^(?:- |\d+\.) .+ Quelle:", line):

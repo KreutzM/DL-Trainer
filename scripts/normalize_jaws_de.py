@@ -90,7 +90,22 @@ def render_inline(node: Tag | NavigableString) -> str:
 
 
 def render_paragraph(node: Tag) -> str:
-    return tighten_inline_spacing("".join(render_inline(child) for child in node.children))
+    raw = "".join(render_inline(child) for child in node.children).replace("\r\n", "\n")
+    lines = raw.split("\n")
+    normalized_lines: list[str] = []
+    blank_pending = False
+
+    for line in lines:
+        cleaned = tighten_inline_spacing(line) if line.strip() else ""
+        if cleaned:
+            if blank_pending and normalized_lines:
+                normalized_lines.append("")
+            normalized_lines.append(cleaned)
+            blank_pending = False
+        elif normalized_lines:
+            blank_pending = True
+
+    return "\n".join(normalized_lines).strip()
 
 
 def format_table(table: Tag) -> str:
@@ -227,7 +242,7 @@ def render_list_item(node: Tag, level: int) -> list[str]:
             if child_name == "p":
                 paragraph = render_paragraph(child)
                 if paragraph:
-                    blocks.append(paragraph)
+                    blocks.extend(blockify_text(paragraph))
             else:
                 rendered = render_node(child, level).strip()
                 if rendered:

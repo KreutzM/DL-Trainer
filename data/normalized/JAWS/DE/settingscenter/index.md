@@ -1041,7 +1041,9 @@ Um die Einstellungsverwaltung zu nutzen, gehen Sie bitte folgendermaßen vor:
 1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung. Es werden die Einstellungen für die fokussierte Anwendung angezeigt. Der Cursor befindet sich im Suchen-Eingabefeld.
 2. Wenn Sie die Einstellungen kennen, die Sie ändern möchten, schreiben Sie ein Wort dafür in das Eingabefeld. Beispiel: Schreiben Sie das Wort "braille" ohne Anführungsstriche, um eine gefilterte Liste der Brailleeinstellungen zu erhalten. Anschließend drücken Sie **PFEIL RUNTER**, um zu den gefilterten Ergebnissen der Strukturansicht zu springen.
 
-**Hinweis:** Um die Standardeinstellungen von JAWS zu laden, drücken Sie **STRG+UMSCHALT+D** und suchen Sie dann, wie bereits beschrieben, nach der Einstellung. Um eine andere Anwendung auszuwählen, drücken Sie **UMSCHALT+TAB**, um zur Ausklappliste der Anwendungen zu springen. Nutzen Sie die **PFEILTASTEN** oder die Navigation über den Anfangsbuchstaben und drücken Sie dann **STRG+E** zum Suchen nach der Einstellung wie bereits beschrieben.
+**Hinweis:** Um die Standardeinstellungen von JAWS zu laden, drücken Sie **STRG+UMSCHALT+D** und suchen Sie dann, wie bereits beschrieben, nach der Einstellung.
+
+Um eine andere Anwendung auszuwählen, drücken Sie **UMSCHALT+TAB**, um zur Ausklappliste der Anwendungen zu springen. Nutzen Sie die **PFEILTASTEN** oder die Navigation über den Anfangsbuchstaben und drücken Sie dann **STRG+E** zum Suchen nach der Einstellung wie bereits beschrieben.
 
 1. Drücken Sie **LEERTASTE**, um Kontrollfelder, Auswahlschalter oder andere Schalter zu aktivieren und drücken Sie **F6**, um zwischen einem Eingabefeld und der Strukturansicht zu springen, um Einstellungen zu ändern.
 2. Wählen Sie Übernehmen, um Änderungen zu übernehmen und in der Einstellungsverwaltung zu bleiben, wählen Sie OK, um Änderungen zu speichern und die Einstellungsverwaltung zu schließen, oder wählen Sie Abbrechen, um die Einstellungsverwaltung zu schließen, ohne die Änderungen zu speichern. Die neuen Einstellungen werden in der jeweiligen JCF Datei gespeichert.

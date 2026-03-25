@@ -860,9 +860,11 @@ Auswertungsregeln werden auf unterschiedliche Informationen angewendet, die in I
 
 **Fenstertitel**: Fenstertitel sind der Text, der in der Titelzeile von Programm- oder Dialogfenstern steht. Fenstertitel verändern sich in Anwendungen, in denen man Dateien öffnet. Zum Beispiel wird immer der Name des geöffneten Dokuments in der Microsoft Word Titelzeile angezeigt. Wenn ein Rahmen in Word unabhängig von der gerade geöffneten Datei aktiv werden soll, dann müssen Sie das berücksichtigen, wenn die Auswertungsregel auf Fenstertitel basiert.
 
-**Fensterklasse**: Fensterklassen sind Beschriftungen, die auf Programmierebene jedem Steuerelement und Fenster zugeordnet werden. Um die Fensterklasse eines Steuerelements oder Fensters zu überprüfen, platzieren Sie den Fokus auf das entsprechende Objekt und drücken **JAWS TASTE+STRG+F1**. In dem dann folgenden Meldungsfenster steht in der Zeile "Klasse" die Fensterklasse. Fensterklassen verändern sich in der Regel nicht, so dass Auswertungsregeln, die auf Fensterklassen basieren, normalerweise gut funktionieren. Es gibt jedoch Anwendungen, in denen die Fensterklassen dynamisch erzeugt werden. In solchen Anwendungen kann sich die Fensterklasse eines Steuerelements oder Fensters bei jedem Start des Programms verändern. In einigen Anwendungen verändern sich die Fensterklassen auch von Version zu Version.
+**Fensterklasse**: Fensterklassen sind Beschriftungen, die auf Programmierebene jedem Steuerelement und Fenster zugeordnet werden. Um die Fensterklasse eines Steuerelements oder Fensters zu überprüfen, platzieren Sie den Fokus auf das entsprechende Objekt und drücken **JAWS TASTE+STRG+F1**. In dem dann folgenden Meldungsfenster steht in der Zeile "Klasse" die Fensterklasse.
+Fensterklassen verändern sich in der Regel nicht, so dass Auswertungsregeln, die auf Fensterklassen basieren, normalerweise gut funktionieren. Es gibt jedoch Anwendungen, in denen die Fensterklassen dynamisch erzeugt werden. In solchen Anwendungen kann sich die Fensterklasse eines Steuerelements oder Fensters bei jedem Start des Programms verändern. In einigen Anwendungen verändern sich die Fensterklassen auch von Version zu Version.
 
-**Fenstertext**: Fenstertext ist der Text, der in einem Fenster erscheint. Wenn Sie diese Regel auswählen, durchsucht JAWS das gesamte Fenster nach diesem Text, um festzustellen, ob Ihr Rahmen aktiv werden muss oder nicht. Wir empfehlen, diese Auswertungsregel immer zusammen mit anderen Regeln einzusetzen, und diesen Regeln dann eine höhere Priorität zu verleihen, damit Rahmen in Anwendungen, in denen sie nicht gebraucht werden, schneller als inaktiv erkannt werden.
+**Fenstertext**: Fenstertext ist der Text, der in einem Fenster erscheint. Wenn Sie diese Regel auswählen, durchsucht JAWS das gesamte Fenster nach diesem Text, um festzustellen, ob Ihr Rahmen aktiv werden muss oder nicht.
+Wir empfehlen, diese Auswertungsregel immer zusammen mit anderen Regeln einzusetzen, und diesen Regeln dann eine höhere Priorität zu verleihen, damit Rahmen in Anwendungen, in denen sie nicht gebraucht werden, schneller als inaktiv erkannt werden.
 
 **Rahmentext**: Rahmentext ist der Text, der innerhalb der Rahmenbegrenzung erscheint. Wenn Sie diese Regel auswählen, durchsucht JAWS den Rahmen nach diesem Text, um festzustellen, ob Ihr Rahmen aktiv werden muss oder nicht. Wir empfehlen, bei dieser Auswertungsregel die gleiche Vorsicht walten zu lassen, wie bei Regeln, die auf Fenstertext basieren.
 
@@ -1190,7 +1192,16 @@ Quelle: Quick_Settings.htm
 
 Für einen Schnelleinstieg lesen Sie [Research It Schnellstart](#OnTheFly), oder fahren Sie mit der folgenden Einführung fort.
 
-Research It ist eine vielseitige Funktion, mit der man auf der einen Seite schnellen Zugriff auf Daten erhält, andererseits aber auch schnell wieder zur vorherigen Aufgabe zurückkehren kann. Es benutzt etwas, dass als Nachschlagewerk bekannt ist und den Ergebnisbetrachter, um nach Informationen zu suchen, ob dieses nun Bedeutungen von Wörtern, die lokale Wettervorhersage, Nachrichtenschlagzeilen oder Sportergebnisse sind. Unter Verwendung von wenigen Kurztasten können Sie Research It aus jeder Anwendung Ihres Computers heraus starten. Im Folgenden finden Sie Kurztasten, verfügbare Nachschlagwerke und verschiedene Wege, Research It zu starten und zu verwenden.
+Research It ist eine vielseitige Funktion, mit der man auf der einen
+Seite schnellen Zugriff auf Daten erhält, andererseits aber auch schnell
+wieder zur vorherigen Aufgabe zurückkehren kann. Es benutzt etwas, dass
+als Nachschlagewerk bekannt ist und den Ergebnisbetrachter, um nach Informationen
+zu suchen, ob dieses nun Bedeutungen von Wörtern, die lokale Wettervorhersage,
+Nachrichtenschlagzeilen oder Sportergebnisse sind. Unter Verwendung von
+wenigen Kurztasten können Sie Research It aus jeder Anwendung Ihres Computers
+heraus starten. Im
+Folgenden finden Sie Kurztasten, verfügbare Nachschlagwerke und verschiedene
+Wege, Research It zu starten und zu verwenden.
 
 - [Tastaturbefehle](#Keystrokes)
 - [Nachschlagequellen](#Sources)
@@ -1200,7 +1211,8 @@ Research It ist eine vielseitige Funktion, mit der man auf der einen Seite schne
 
 ## Research It Schnellstart
 
-Um schnell ein Element von Interesse nachzuschlagen, gehen Sie wie folgt vor:
+Um schnell ein Element von Interesse nachzuschlagen, gehen Sie wie folgt
+vor:
 
 1. Drücken Sie **EINFÜGEN+LEERTASTE**, **R**. Das Research It Dialogfenster öffnet sich, wobei der Focus im kombinierten Eingabefeld für Wort oder Satz platziert wird.
 2. Befolgen Sie eine der folgenden Möglichkeiten:
@@ -1213,7 +1225,10 @@ Um schnell ein Element von Interesse nachzuschlagen, gehen Sie wie folgt vor:
 
 ## Tastaturbefehle
 
-Im Folgenden erklären wir kurz, welche Research It Tastaturbefehle zur Verfügung stehen. Beachten Sie, dass JAWS die **Einfüge-Taste** durch **CAPS LOCK** ersetzt, wenn JAWS für das Laptop Layout konfiguriert ist.
+Im Folgenden erklären wir kurz, welche Research It Tastaturbefehle zur
+Verfügung stehen. Beachten Sie, dass JAWS die **Einfüge-Taste**
+durch **CAPS LOCK** ersetzt, wenn JAWS für das Laptop Layout
+konfiguriert ist.
 
 - **EINFÜGEN+LEERTASTE**, **R**: Öffnet das Dialogfeld Research It, in dem Sie dann ein Wort oder Ausdruck von Interesse eingeben und ein Nachschlagewerk für die Suche auswählen können. Dieses kann eine Postleitzahl, Stadt oder Bundesland sein, für das Sie die Wettervorhersage nachschlagen möchten, oder ein Datum, welches für Fußballergebnisse oder Ligatabellen verwendet wird, oder ein Wort, welches bei einer Wikipedia Suchanfrage genutzt werden soll. Diese praktische Kurztaste bietet den effizientesten Weg, nach einem Begriff zu suchen. **Hinweis:** Wenn Sie diese Kurztaste verwenden, drücken Sie **EINFÜGEN+LEERTASTE** und lassen Sie diese wieder los und drücken Sie dann **R**.
 - **EINFÜGEN+WINDOWSTASTE+R**: Startet Research It und verwendet das Standard-Nachschlagewerk, um die Ergebnisse direkt im Ergebnisbetrachter anzuzeigen. Diese Kurztaste umgeht das Research It Dialogfenster. Standardmäßig ist Wiktionary das primäre Nachschlagewerk. Das bedeutet, dass Sie, während der Cursor sich in einem Dokument oder einer Webseite auf einem Wort befindet, diese Tastenkombination drücken können, um schnell eine Wiktionary Beschreibung dieses Wortes nachschlagen können. Sie können das Standardnachschlagewerk jederzeit über den [Schalter Optionen](#Default), oder die JAWS Einstellungsverwaltung ändern, wo Sie festlegen können, welches Nachschlagewerk als JAWS Standard oder als Standard für individuelle Anwendungen genutzt werden soll. Beispiel: Wenn Sie die meiste Zeit damit verbringen, mit medizinischen Fachausdrücken zu arbeiten, dann ist vielleicht das Health Search on WebMD eine gute Wahl für das Nachschlagewerk. Gleiches gilt, wenn Sie z.B. in Ihrem Beruf häufig UPS Trackingnummern nachschlagen müssen, dann wäre vielleicht die UPS Paketverfolgung eine gute Wahl als Standard-Nachschlagewerk. Wenn Sie sich mit Research It mehr vertraut gemacht haben, und mehr Nachschlagewerke erstellt und für Sie zugänglich gemacht werden, dann möchten Sie vielleicht das von JAWS verwendete Standard-Nachschlagewerk ändern, oder einfach schnell auf ein anderes Nachschlagewerk umschalten.
@@ -1244,15 +1259,28 @@ JAWS bietet die folgenden Nachschlagewerke, die uns freundlicherweise von [**Pro
 - **Währungsrechner**: Nutzen Sie dieses Nachschlagewerk, um einen Betrag einer Währung in den Betrag einer anderen Währung zu konvertieren. Die Umrechnung erfolgt dabei zum aktuellen Tagesumrechnungskurs. **Hinweis:** Internationale Währungen werden durch eine dreistellige Währungsabkürzung eingegeben, z.B. USD für Amerikanische Dollar, GBP für Britische Pfund oder EUR für Euro. Um eine Liste der gültigen Währungscodes zu erhalten, rufen Sie den Währungsrechner ohne eine Eingabe im Eingabefeld auf. Research It wird Sie dann darauf hinweisen, dass Sie einen gültigen Wert und die jeweiligen Währungscodes eingeben müssen und zeigt dann eine Liste der akuellen Währungsabkürzungen. Starten Sie dann den Währungsrechner erneut, aber geben Sie diesmal gewünschten Betrag und Währung ein, gefolgt von dem Währungscode, in den der Betrag konvertiert werden soll. Beispiel: Um 100 Amerikanische Dollar in Britische Pfund umzurechnen, geben Sie 100 USD GBP, jeweils mit einem Leerzeichen getrennt ein. Das Ergebnis sieht dann z.B. wie folgt aus: 100 Amerikanische Dollar = 61. 2070021 Britische Pfund.
 - **Aktienkurse**: Abfrage des aktuellen Aktienkurses anhand des Firmennamens oder der WKN.
 
-Sind Sie Software-Entwickler oder Skripter, dann können Sie Ihre eigenen Nachschlagewerke erstellen und anpassen und diese auf Ihre Bedürfnisse zuschneiden. Eine Rechtsanwaltskanzlei könnte so nach Rechtsbegriffen suchen, eine Arztpraxis nach medizinischen Begriffen, während eine Schule oder Behörde Nachschlagewerke speziell für deren jeweiligen Arbeitsbereiche verwenden könnte. Besuchen Sie die [amerikanische JAWS Dokumentationswebseite](https://support.freedomscientific.com/Products/Blindness/JawsDocumentation), um eine Entwicklungsanleitung zum Entwickeln der Regeln und zur Fehlersuche zu erhalten.
+Sind Sie Software-Entwickler oder Skripter, dann können Sie Ihre eigenen
+Nachschlagewerke erstellen und anpassen und diese auf Ihre Bedürfnisse
+zuschneiden. Eine Rechtsanwaltskanzlei könnte so nach Rechtsbegriffen
+suchen, eine Arztpraxis nach medizinischen Begriffen, während eine Schule
+oder Behörde Nachschlagewerke speziell für deren jeweiligen Arbeitsbereiche
+verwenden könnte. Besuchen Sie die [amerikanische JAWS Dokumentationswebseite](https://support.freedomscientific.com/Products/Blindness/JawsDocumentation), um eine Entwicklungsanleitung zum Entwickeln
+der Regeln und zur Fehlersuche zu erhalten.
 
 ## Research It Beispiele
 
-Es gibt verschiedene Möglichkeiten, Research It zu starten. Sie können das Standard-Nachschlagewerk nutzen, oder Sie können ein Nachschlagewerk aus der Research It Liste auswählen. Die folgenden Beispiele zeigen unterschiedliche Wege, um nach bestimmten Informationen zu suchen. Für andere Ideen und Wege Research It zu verwenden, hören Sie der Demonstration dieser Funktion im [August 2009 FSCast](https://www.freedomscientific.com/About/FSCast/FullListing#Episode33) zu.
+Es gibt verschiedene Möglichkeiten, Research It zu starten. Sie können
+das Standard-Nachschlagewerk nutzen, oder Sie können ein Nachschlagewerk
+aus der Research It Liste auswählen. Die folgenden Beispiele zeigen unterschiedliche
+Wege, um nach bestimmten Informationen zu suchen. Für andere Ideen und
+Wege Research It zu verwenden, hören Sie der Demonstration dieser Funktion
+im [August 2009 FSCast](https://www.freedomscientific.com/About/FSCast/FullListing#Episode33) zu.
 
 ### Wiktionary
 
-Stellen Sie sich vor, Sie lesen ein Dokument und Sie stoßen auf ein Ihnen unbekanntes Wort. Ist Wiktionary als Standard-Nachschlagewerk gesetzt, dann können Sie das Folgende tun:
+Stellen Sie sich vor, Sie lesen ein Dokument und Sie stoßen auf ein
+Ihnen unbekanntes Wort. Ist Wiktionary als Standard-Nachschlagewerk gesetzt,
+dann können Sie das Folgende tun:
 
 1. Während der Cursor sich auf dem Wort befindet, drücken Sie **EINFÜGEN+WINDOWSTASTE+R**, um Research It zu starten. Nach ein paar Sekunden öffnet sich der Ergebnisbetrachter und zeigt eine auf Wiktionary-basierende Beschreibung des Worts. Im geöffneten Ergebnisbetrachter können Sie Informationen markieren und in die Windows-Zwischenablage kopieren.
 2. Nach dem Lesen der Beschreibung drücken Sie zum Schließen des Ergebnisbetrachters **ESC** und JAWS kehrt zur Cursorposition in Ihrem Dokument zurück.
@@ -1266,22 +1294,31 @@ Sie können auch Wikipedia nutzen, um schnell etwas nachzuschlagen.
 3. Nutzen Sie die **PFEILTASTEN RAUF** und **RUNTER** oder die Navigation über den Anfangsbuchstaben, um Wikipedia auszuwählen, und drücken Sie **EINGABE**.
 4. Nach ein paar Sekunden öffnet sich der Ergebnisbetrachter und zeigt die Ergebnisse der Wikipedia-Abfrage an. Drücken Sie **ESCAPE**, um den Ergebnisbetrachter zu schließen.
 
-Lesen Sie [Dialogfeld Research It Optionen](SettingsCenter.chm::/ResearchIt/Research_It_Options_Dialog.htm) für weitere Information zu Einstellungen in der Einstellungsverwaltung.
+Lesen Sie [Dialogfeld Research It Optionen](SettingsCenter.chm::/ResearchIt/Research_It_Options_Dialog.htm) für weitere Information zu Einstellungen in der
+Einstellungsverwaltung.
 
 ## Das Standard-Nachschlagewerk ändern
 
-Der schnellste Weg, das Standardnachschlagewerk zu ändern, geht über das Research It Dialogfeld bei Beachtung der folgenden Schritte. Beachten Sie aber, dass man das Standardnachschlagewerk auch über die [Einstellungsverwaltung](#SC) festlegen kann.
+Der schnellste Weg, das Standardnachschlagewerk zu ändern, geht über
+das Research It Dialogfeld bei Beachtung der folgenden Schritte. Beachten
+Sie aber, dass man das Standardnachschlagewerk auch über die [Einstellungsverwaltung](#SC)
+festlegen kann.
 
 1. Drücken Sie **EINFÜGEN+LEERTASTE**, **R**. Das Research It Dialogfenster öffnet sich.
 2. Mit **TAB** springen Sie auf den Optionen Schalter und drücken **EINGABE**. Das Research It Optionen Dialogfenster öffnet sich.
 3. Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER**, um ein Nachschlagewerk auszuwählen und drücken Sie dann **TAB**, um zum Schalter Als Standard setzen zu springen.
 4. Drücken Sie **LEERTASTE**, um das ausgewählte Nachschlagewerk als Standard zu setzen, und wählen Sie dann OK, um die Änderungen zu speichern und das Dialogfenster Research It Optionen zu schließen.
 
-**Hinweis:** Nachdem Sie ein Standardnachschlagewerk gesetzt haben, können Sie **EINFÜGEN+WINDOWS TASTE+R** verwenden, welches den Research It Dialog überspringt und automatisch den Ergebnisbetrachter mit dem neuen Standard startet. Sie können auch weiterhin **EINFÜGEN+LEERTASTE**, **R** verwenden, um Research It auszuführen.
+**Hinweis:** Nachdem
+Sie ein Standardnachschlagewerk gesetzt haben, können Sie **EINFÜGEN+WINDOWS TASTE+R** verwenden, welches den Research It Dialog überspringt
+und automatisch den Ergebnisbetrachter mit dem neuen Standard startet.
+Sie können auch weiterhin **EINFÜGEN+LEERTASTE**, **R**
+verwenden, um Research It auszuführen.
 
 ### Die Einstellungsverwaltung verwenden
 
-Um ein Standardnachschlagewerk über die Einstellungsverwaltung zuzuweisen, gehen Sie wie folgt vor:
+Um ein Standardnachschlagewerk über die Einstellungsverwaltung zuzuweisen,
+gehen Sie wie folgt vor:
 
 1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung.
 2. Drücken Sie **STRG+UMSCHALT+D**, um die JAWS Standardeinstellungen zu laden.
@@ -1292,11 +1329,13 @@ Um ein Standardnachschlagewerk über die Einstellungsverwaltung zuzuweisen, gehe
 7. Wählen Sie OK, um die Änderungen zu speichern und das Dialogfeld Research It Optionen zu schließen.
 8. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
 
-Lesen Sie [Dialogfeld Research It Optionen](SettingsCenter.chm::/ResearchIt/Research_It_Options_Dialog.htm) für weitere Information zu Einstellungen in der Einstellungsverwaltung.
+Lesen Sie [Dialogfeld Research It Optionen](SettingsCenter.chm::/ResearchIt/Research_It_Options_Dialog.htm) für weitere Information zu Einstellungen in der
+Einstellungsverwaltung.
 
 ## Ein Nachschlagewerk entfernen oder hinzufügen
 
-Um ein Nachschlagewerk der Liste hinzuzufügen oder es zu entfernen, gehen Sie wie folgt vor:
+Um ein Nachschlagewerk der Liste hinzuzufügen oder es zu entfernen,
+gehen Sie wie folgt vor:
 
 1. Drücken Sie **EINFÜGEN+LEERTASTE**, **R**. Das Research It Dialogfenster öffnet sich.
 2. Gehen Sie mit **TAB** auf den Schalter Optionen und drücken Sie dann die **LEERTASTE**. Das Research It Optionen Dialogfenster öffnet sich.
@@ -2085,7 +2124,9 @@ Tabelle: Lese-Befehle
 | Markierten Text nach FSClipboard kopieren (STRG+C) | EINFÜGEN+WINDOWSTASTE+C |
 | Akkustatus und Status der Netzwerkverbindung ansagen | EINFÜGEN+UMSCHALT+B |
 
-*Lesen Sie auch:* [Befehle für die Zwischenablage](../standard_windows_keystrokes/keystrokes_for_using_the_clipboard.htm) [Windows Befehle zur Textbearbeitung](../standard_windows_keystrokes/windows_keystrokes_for_working_with_text.htm)
+*Lesen Sie auch:*
+[Befehle für die Zwischenablage](../standard_windows_keystrokes/keystrokes_for_using_the_clipboard.htm)
+[Windows Befehle zur Textbearbeitung](../standard_windows_keystrokes/windows_keystrokes_for_working_with_text.htm)
 
 Quelle: jaws_keystrokes_for_reading_text.htm
 
@@ -2144,7 +2185,8 @@ Tabelle: Befehle zum Arbeiten in Dialogen
 
 **Tipp:** Wenn Sie auf einem Steuerelement des Dialogfensters **JAWS-TASTE+F1** drücken, erhalten Sie eine kontextabhängige Hilfe.
 
-*Siehe auch:* [Windows Befehle für das Arbeiten in Dialogfeldern](../standard_windows_keystrokes/windows_keystrokes_for_working_in_dialog_boxes.htm)
+*Siehe auch:*
+[Windows Befehle für das Arbeiten in Dialogfeldern](../standard_windows_keystrokes/windows_keystrokes_for_working_in_dialog_boxes.htm)
 
 Quelle: jaws_keystrokes_for_working_in_dialog_boxes.htm
 
@@ -4357,11 +4399,23 @@ Startet JAWS automatisch starten, auch unter dem Begriff bekannt JAWS als Servic
 - **JAWS im Anmeldedialog automatisch starten**: Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald der Windows Anmeldedialog erscheint. Dieses Kontrollfeld ist standardmäßig aktiviert. Es sind Administratorrechte erforderlich, um diese Einstellung zu ändern. Verfügen Sie über Standard-Anwenderrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören. Deaktivieren Sie dieses Kontrollfeld, wenn JAWS beim Erscheinen des Anmeldebildschirms ausgeschaltet sein soll. Der Wert des Kontrollfeldes gilt für alle Anwender, die sich für diese JAWS Version auf diesem Computer anmelden.
 - **JAWS nach dem Anmelden für alle Anwender starten**: Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald Sie sich bei Windows anmelden. Diese Option ist standardmäßig deaktiviert.
 
-**Hinweis:** Sie müssen nur einmal den Wert dieses Kontrollfelds ändern, wenn Sie ein Administratorkonto auf diesem Computer haben, und Sie festlegen möchten, wie JAWS für alle nachfolgenden Anwender starten soll, die sich bei Windows auf diesem Computer anmelden. Verfügen Sie über keine Administratorrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören. Verfügen Sie über Standard-Anwenderrechte auf diesem Computer, dann erhalten Sie über die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten** Informationen darüber, wie JAWS nach dem Anmelden bei Windows starten soll.
+**Hinweis:** Sie müssen nur einmal den Wert dieses Kontrollfelds ändern, wenn Sie ein Administratorkonto auf diesem Computer haben, und Sie festlegen möchten, wie JAWS für alle nachfolgenden Anwender starten soll, die sich bei Windows auf diesem Computer anmelden. Verfügen Sie über keine Administratorrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören.
+
+Verfügen Sie über Standard-Anwenderrechte auf diesem Computer, dann erhalten Sie über die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten** Informationen darüber, wie JAWS nach dem Anmelden bei Windows starten soll.
 
 - **JAWS nach dem Anmelden für diesen Anwender starten**: Mithilfe dieser Ausklappliste kann ein individueller Anwender festlegen, ob JAWS startet, nachdem er oder sie sich bei Windows angemeldet hat. Diese Ausklappliste enthält drei Einträge: Immer, Nie und Benutzereinstellung für alle Anwender. Der Standardwert ist Immer.
 
-**Hinweis:** Diese Ausklappliste steht für Anwender mit Administrator- und Standardrechten zur Verfügung. Der ausgewählte Eintrag der Ausklappliste überschreibt den Wert des Kontrollfelds **JAWS nach dem Anmelden für alle Anwender starten**. Ist Immer ausgewählt, dann startet JAWS immer dann, wenn sich der aktuelle Anwender bei Windows anmeldet. Ist Nie ausgewählt, dann startet JAWS nicht, wenn sich der aktuelle Anwender bei Windows anmeldet. Hat der aktuelle Anwender den Eintrag Benutzereinstellung für alle Anwender gewählt, dann kann Folgendes passieren: JAWS startet, nachdem sich der aktuelle Anwender angemeldet hat, sofern der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** aktiviert hat. JAWS startet nicht, nachdem sich der aktuelle Anwender angemeldet hat, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** deaktiviert hat.
+**Hinweis:** Diese Ausklappliste steht für Anwender mit Administrator- und Standardrechten zur Verfügung. Der ausgewählte Eintrag der Ausklappliste überschreibt den Wert des Kontrollfelds **JAWS nach dem Anmelden für alle Anwender starten**.
+
+Ist Immer ausgewählt, dann startet JAWS immer dann, wenn sich der aktuelle Anwender bei Windows anmeldet.
+
+Ist Nie ausgewählt, dann startet JAWS nicht, wenn sich der aktuelle Anwender bei Windows anmeldet.
+
+Hat der aktuelle Anwender den Eintrag Benutzereinstellung für alle Anwender gewählt, dann kann Folgendes passieren:
+
+JAWS startet, nachdem sich der aktuelle Anwender angemeldet hat, sofern der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** aktiviert hat.
+
+JAWS startet nicht, nachdem sich der aktuelle Anwender angemeldet hat, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** deaktiviert hat.
 
 ### JAWS aus dem Infobereich starten
 
@@ -5021,11 +5075,21 @@ Startet JAWS automatisch starten, auch unter dem Begriff bekannt JAWS als Servic
 - **JAWS im Anmeldedialog automatisch starten**: Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald der Windows Anmeldedialog erscheint. Dieses Kontrollfeld ist standardmäßig aktiviert. Es sind Administratorrechte erforderlich, um diese Einstellung zu ändern. Verfügen Sie über Standard-Anwenderrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören. Deaktivieren Sie dieses Kontrollfeld, wenn JAWS beim Erscheinen des Anmeldebildschirms ausgeschaltet sein soll. Der Wert des Kontrollfeldes gilt für alle Anwender, die sich für diese JAWS Version auf diesem Computer anmelden.
 - **JAWS nach dem Anmelden für alle Anwender starten**: Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald Sie sich bei Windows anmelden. Diese Option ist standardmäßig deaktiviert.
 
-**Hinweis:** Sie müssen nur einmal den Wert dieses Kontrollfelds ändern, wenn Sie ein Administratorkonto auf diesem Computer haben, und Sie festlegen möchten, wie JAWS für alle nachfolgenden Anwender starten soll, die sich bei Windows auf diesem Computer anmelden. Verfügen Sie über keine Administratorrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören. Verfügen Sie über Standard-Anwenderrechte auf diesem Computer, dann erhalten Sie über die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten** Informationen darüber, wie JAWS nach dem Anmelden bei Windows starten soll.
+**Hinweis:** Sie müssen nur einmal den Wert dieses Kontrollfelds ändern, wenn Sie ein Administratorkonto auf diesem Computer haben, und Sie festlegen möchten, wie JAWS für alle nachfolgenden Anwender starten soll, die sich bei Windows auf diesem Computer anmelden. Verfügen Sie über keine Administratorrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören.
+
+Verfügen Sie über Standard-Anwenderrechte auf diesem Computer, dann erhalten Sie über die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten** Informationen darüber, wie JAWS nach dem Anmelden bei Windows starten soll.
 
 - **JAWS nach dem Anmelden für diesen Anwender starten**: Mithilfe dieser Ausklappliste kann ein individueller Anwender festlegen, ob JAWS startet, nachdem er oder sie sich bei Windows angemeldet hat. Diese Ausklappliste enthält drei Einträge: Immer, Nie und Benutzereinstellung für alle Anwender. Der Standardwert ist Immer.
 
-**Hinweis:** Diese Ausklappliste steht für Anwender mit Administrator- und Standardrechten zur Verfügung. Der ausgewählte Eintrag der Ausklappliste überschreibt den Wert des Kontrollfelds **JAWS nach dem Anmelden für alle Anwender starten**. Ist Immer ausgewählt, dann startet JAWS immer dann, wenn sich der aktuelle Anwender bei Windows anmeldet. Ist Nie ausgewählt, dann startet JAWS nicht, wenn sich der aktuelle Anwender bei Windows anmeldet. Hat der aktuelle Anwender den Eintrag Benutzereinstellung für alle Anwender gewählt, dann kann Folgendes passieren: JAWS wird beim Einloggen des aktuelle Anwenders gestartet, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** aktiviert hat, oder JAWS wird für den aktuellen Anwender nicht gestartet, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** deaktiviert hat.
+**Hinweis:** Diese Ausklappliste steht für Anwender mit Administrator- und Standardrechten zur Verfügung. Der ausgewählte Eintrag der Ausklappliste überschreibt den Wert des Kontrollfelds **JAWS nach dem Anmelden für alle Anwender starten**.
+
+Ist Immer ausgewählt, dann startet JAWS immer dann, wenn sich der aktuelle Anwender bei Windows anmeldet.
+
+Ist Nie ausgewählt, dann startet JAWS nicht, wenn sich der aktuelle Anwender bei Windows anmeldet.
+
+Hat der aktuelle Anwender den Eintrag Benutzereinstellung für alle Anwender gewählt, dann kann Folgendes passieren:
+
+JAWS wird beim Einloggen des aktuelle Anwenders gestartet, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** aktiviert hat, oder JAWS wird für den aktuellen Anwender nicht gestartet, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** deaktiviert hat.
 
 ## Beenden von JAWS immer bestätigen
 
