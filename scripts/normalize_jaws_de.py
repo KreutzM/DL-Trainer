@@ -15,6 +15,7 @@ LANGUAGE = "de"
 RAW_DIR = Path("data/raw/JAWS/DE/Converted-Help-Files")
 OUTPUT_DIR = Path("data/normalized/JAWS/DE")
 MANIFEST_PATH = RAW_DIR / "collection_manifest.json"
+HEADING_PROSE_RE = re.compile(r"^(#{1,6}\s+.+?[.!?:])\s+(\S.*)$")
 
 
 def slugify(value: str) -> str:
@@ -249,13 +250,24 @@ def split_structural_line(line: str) -> list[str]:
     return [part for part in parts if part]
 
 
+def split_heading_prose_line(line: str) -> list[str]:
+    match = HEADING_PROSE_RE.match(line.strip())
+    if not match:
+        return [line]
+    heading, prose = match.groups()
+    if len(prose.split()) < 3:
+        return [line]
+    return [heading, prose]
+
+
 def repair_markdown_blocks(markdown: str) -> str:
     repaired_blocks: list[str] = []
 
     for block in blockify_text(markdown):
         split_lines: list[str] = []
         for line in block.splitlines():
-            split_lines.extend(split_structural_line(line))
+            for structural_line in split_structural_line(line):
+                split_lines.extend(split_heading_prose_line(structural_line))
 
         if not split_lines:
             continue

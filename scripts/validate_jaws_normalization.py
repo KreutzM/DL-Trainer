@@ -7,6 +7,7 @@ from common import make_parser, read_json
 
 RAW_DIR = Path("data/raw/JAWS/DE/Converted-Help-Files")
 OUTPUT_DIR = Path("data/normalized/JAWS/DE")
+HEADING_PROSE_RE = re.compile(r"^#{1,6}\s+.+?[.!?:]\s+\S")
 
 
 def validate_markdown_structure(md_path: Path) -> None:
@@ -31,6 +32,9 @@ def validate_markdown_structure(md_path: Path) -> None:
 
         if line.startswith("#") and len(line) > 120 and re.search(r"[.!?]\s+\w+\s+\w+\s+\w+", line):
             raise SystemExit(f"Heading appears merged with prose in {md_path}:{idx}")
+
+        if HEADING_PROSE_RE.search(line):
+            raise SystemExit(f"Heading appears merged with trailing prose in {md_path}:{idx}")
 
         if line.startswith("Quelle:") and prev_line != "":
             raise SystemExit(f"Source marker not separated from previous block in {md_path}:{idx}")
