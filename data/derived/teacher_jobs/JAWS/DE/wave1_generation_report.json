@@ -1,0 +1,36 @@
+{
+  "wave_id": "jaws_de_teacher_wave_v1",
+  "transform_pipeline_version": "0.5.0",
+  "train_targets": {
+    "clarification": 36,
+    "uncertainty_escalation": 36,
+    "step_by_step": 64,
+    "troubleshooting": 72,
+    "faq_direct_answer": 132
+  },
+  "eval_targets": {
+    "clarification": 8,
+    "uncertainty_escalation": 10,
+    "step_by_step": 10,
+    "troubleshooting": 10,
+    "faq_direct_answer": 22
+  },
+  "selected_jobs": 400,
+  "selected_by_split": {
+    "eval": 60,
+    "train": 340
+  },
+  "selected_by_task_type": {
+    "clarification": 44,
+    "uncertainty_escalation": 46,
+    "step_by_step": 74,
+    "troubleshooting": 82,
+    "faq_direct_answer": 154
+  },
+  "selected_by_doc": {
+    "jaws_de_braille": 105,
+    "jaws_de_settingscenter": 110,
+    "jaws_de_hilfe_kernfunktionen": 132,
+    "jaws_de_tutorial_basics": 53
+  }
+}
