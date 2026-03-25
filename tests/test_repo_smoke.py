@@ -9,6 +9,8 @@ def test_expected_paths_exist():
         "schemas/qwen_sft_record.schema.json",
         "scripts/validate_jsonl.py",
         "scripts/export_qwen_sft.py",
+        "scripts/build_jaws_teacher_wave.py",
+        "scripts/select_teacher_wave_review_ids.py",
         "scripts/smoke_test_qwen_sft.py",
         "prompts/teacher/support_answer.md",
         "training/ms-swift/qwen3_8b_jaws_de_lora.yaml",

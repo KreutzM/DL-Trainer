@@ -21,6 +21,8 @@ def parse_args() -> Any:
     parser.add_argument("--reviewer", required=True)
     parser.add_argument("--approve-id", action="append", default=[])
     parser.add_argument("--reject-id", action="append", default=[])
+    parser.add_argument("--approve-file", action="append", default=[])
+    parser.add_argument("--reject-file", action="append", default=[])
     return parser.parse_args()
 
 
@@ -28,6 +30,18 @@ def main() -> None:
     args = parse_args()
     approve_ids = set(args.approve_id)
     reject_ids = set(args.reject_id)
+    for path_str in args.approve_file:
+        approve_ids.update(
+            line.strip()
+            for line in Path(path_str).read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        )
+    for path_str in args.reject_file:
+        reject_ids.update(
+            line.strip()
+            for line in Path(path_str).read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        )
     overlap = approve_ids & reject_ids
     if overlap:
         raise SystemExit("IDs cannot be both approved and rejected: " + ", ".join(sorted(overlap)))

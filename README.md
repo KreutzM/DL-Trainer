@@ -59,7 +59,17 @@ python scripts/run_teacher_jobs.py --jobs data/derived/teacher_jobs/JAWS/DE/seed
 python scripts/validate_teacher_pipeline.py --jobs data/derived/teacher_jobs/JAWS/DE/seed_generation_jobs.jsonl --outputs data/derived/teacher_outputs/JAWS/DE/seed_teacher_outputs.jsonl
 ```
 
-### 6. Qwen-SFT-Export und Dry-Run vorbereiten
+### 6. Erste groeßere Teacher-Welle fuer JAWS-DE erzeugen
+
+```bash
+python scripts/build_jaws_teacher_wave.py
+python scripts/run_teacher_jobs.py --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl --output data/derived/teacher_outputs/JAWS/DE/wave1_teacher_outputs.jsonl --mode stub --teacher-model teacher-stub-no-llm --teacher-run-id jaws_de_teacher_wave_stub_run_v1
+python scripts/select_teacher_wave_review_ids.py --input data/derived/teacher_outputs/JAWS/DE/wave1_teacher_outputs.jsonl --approve-output data/derived/teacher_outputs/JAWS/DE/wave1_approve_ids.txt --reject-output data/derived/teacher_outputs/JAWS/DE/wave1_reject_ids.txt --report-output data/derived/teacher_outputs/JAWS/DE/wave1_review_selection_report.json
+python scripts/review_teacher_outputs.py --input data/derived/teacher_outputs/JAWS/DE/wave1_teacher_outputs.jsonl --output data/derived/teacher_outputs/JAWS/DE/wave1_reviewed_teacher_outputs.jsonl --reviewer codex-demo-wave1 --approve-file data/derived/teacher_outputs/JAWS/DE/wave1_approve_ids.txt --reject-file data/derived/teacher_outputs/JAWS/DE/wave1_reject_ids.txt
+python scripts/promote_teacher_outputs.py --input data/derived/teacher_outputs/JAWS/DE/wave1_reviewed_teacher_outputs.jsonl --train-output data/gold/train/sft/JAWS/DE/promoted_teacher_wave_v1_sft_samples.jsonl --eval-output data/gold/eval/JAWS/DE/promoted_teacher_wave_v1_eval_cases.jsonl
+```
+
+### 7. Qwen-SFT-Export und Dry-Run vorbereiten
 
 ```bash
 python scripts/export_qwen_sft.py --train-input data/gold/train/sft/JAWS/DE/promoted_seed_sft_samples.jsonl --eval-input data/gold/eval/JAWS/DE/promoted_seed_eval_cases.jsonl --output-dir data/exports/qwen_sft/JAWS/DE/gold_v1 --export-id jaws_de_qwen_sft_gold_v1

@@ -34,10 +34,15 @@ def validate_chunk_links(prefix: str, row: dict, chunk_index: dict[str, dict], f
 def validate_jobs(rows: list[dict], validator: Draft202012Validator, chunk_index: dict[str, dict]) -> tuple[list[str], dict[str, dict]]:
     failures: list[str] = []
     job_index: dict[str, dict] = {}
+    job_keys: set[tuple[str, str, tuple[str, ...]]] = set()
     for idx, row in enumerate(rows, start=1):
         for error in validator.iter_errors(row):
             failures.append(f"Job row {idx}: {error.message}")
         job_index[row["job_id"]] = row
+        key = (row.get("target_split"), row.get("task_type"), tuple(row.get("source_chunk_ids", [])))
+        if key in job_keys:
+            failures.append(f"Job row {idx}: duplicate split/task/chunk combination")
+        job_keys.add(key)
         if row.get("job_status") not in REVIEW_STATUSES:
             failures.append(f"Job row {idx}: invalid job_status {row.get('job_status')}")
         if row.get("review_status") not in REVIEW_STATUSES:
@@ -67,10 +72,15 @@ def validate_outputs(
 ) -> tuple[list[str], dict[str, dict]]:
     failures: list[str] = []
     output_index: dict[str, dict] = {}
+    output_keys: set[tuple[str, str, tuple[str, ...]]] = set()
     for idx, row in enumerate(rows, start=1):
         for error in validator.iter_errors(row):
             failures.append(f"Output row {idx}: {error.message}")
         output_index[row["output_id"]] = row
+        key = (row.get("target_split"), row.get("task_type"), tuple(row.get("source_chunk_ids", [])))
+        if key in output_keys:
+            failures.append(f"Output row {idx}: duplicate split/task/chunk combination")
+        output_keys.add(key)
         job = job_index.get(row["job_id"])
         if job is None:
             failures.append(f"Output row {idx}: unknown job_id {row['job_id']}")
@@ -130,6 +140,7 @@ def parse_args() -> Any:
     parser.add_argument("--eval-schema", default="schemas/eval_case.schema.json")
     parser.add_argument("--gold-sft")
     parser.add_argument("--gold-eval")
+    parser.add_argument("--require-all-task-types", action="store_true")
     return parser.parse_args()
 
 
@@ -169,6 +180,32 @@ def main() -> None:
     overlap = sorted(train_chunk_ids & eval_chunk_ids)
     if overlap:
         failures.append("Gold train/eval chunk overlap detected: " + ", ".join(overlap[:10]))
+
+    if args.require_all_task_types:
+        expected = {
+            "faq_direct_answer",
+            "troubleshooting",
+            "step_by_step",
+            "clarification",
+            "uncertainty_escalation",
+        }
+        job_types = {row.get("task_type") for row in jobs}
+        output_types = {row.get("task_type") for row in outputs}
+        missing_jobs = sorted(expected - job_types)
+        missing_outputs = sorted(expected - output_types)
+        if missing_jobs:
+            failures.append("Missing task types in jobs: " + ", ".join(missing_jobs))
+        if missing_outputs:
+            failures.append("Missing task types in outputs: " + ", ".join(missing_outputs))
+        if gold_train_rows:
+            missing_gold_train = sorted(expected - {row.get("task_type") for row in gold_train_rows})
+            if missing_gold_train:
+                failures.append("Missing task types in gold train: " + ", ".join(missing_gold_train))
+        if gold_eval_rows:
+            eval_types = {row.get("case_type") for row in gold_eval_rows}
+            missing_gold_eval = sorted(expected - eval_types)
+            if missing_gold_eval:
+                failures.append("Missing task types in gold eval: " + ", ".join(missing_gold_eval))
 
     if failures:
         print("\n".join(failures))
