@@ -2,11 +2,12 @@
 
 ## Grundsatz
 
-Das Student-Modell soll primär **Verhalten** lernen:
+Das Student-Modell soll primaer **Verhalten** lernen:
+
 - Ton
 - Struktur
 - Diagnosemuster
-- Rückfrageverhalten
+- Rueckfrageverhalten
 - Eskalationslogik
 
 Produktwissen bleibt in erster Linie im RAG-Korpus.
@@ -15,7 +16,7 @@ Produktwissen bleibt in erster Linie im RAG-Korpus.
 
 1. SFT auf hochwertigen Supportbeispielen
 2. optional Preference-/Ranking-Tuning
-3. Eval gegen Goldfälle
+3. Eval gegen Gold-Faelle
 4. Fehleranalyse und Datenpflege
 
 ## Nicht trainieren
@@ -26,6 +27,7 @@ Produktwissen bleibt in erster Linie im RAG-Korpus.
 
 ## JAWS-DE Baseline
 
-- Seed-SFT und Seed-Evals entstehen zuerst unter `data/derived/teacher_outputs/JAWS/DE/`
-- Freigabe in `data/gold/train/` und `data/gold/eval/` bleibt ein eigener Review-Schritt
-- LoRA soll Supportverhalten lernen; Faktenbindung bleibt an Chunk- und RAG-Provenance geknüpft
+- Seed-Jobs entstehen zuerst unter `data/derived/teacher_jobs/JAWS/DE/`
+- Seed-Preview-Faelle und Teacher-Outputs leben unter `data/derived/teacher_outputs/JAWS/DE/`
+- Freigabe in `data/gold/train/` und `data/gold/eval/` bleibt ein eigener Review- und Promotion-Schritt
+- LoRA soll Supportverhalten lernen; Faktenbindung bleibt an Chunk- und RAG-Provenance geknuepft

@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Teacher Job",
+  "type": "object",
+  "required": [
+    "job_id",
+    "job_status",
+    "review_status",
+    "target_split",
+    "expected_output_kind",
+    "task_type",
+    "product",
+    "language",
+    "behavior_spec_path",
+    "prompt_template_path",
+    "teacher_prompt_version",
+    "generation_mode",
+    "source_doc_ids",
+    "source_chunk_ids",
+    "runner_input",
+    "fixture_payload",
+    "provenance"
+  ],
+  "properties": {
+    "job_id": { "type": "string" },
+    "job_status": {
+      "type": "string",
+      "enum": ["draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"]
+    },
+    "review_status": {
+      "type": "string",
+      "enum": ["draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"]
+    },
+    "target_split": {
+      "type": "string",
+      "enum": ["train", "eval"]
+    },
+    "expected_output_kind": {
+      "type": "string",
+      "enum": ["sft_sample", "eval_case"]
+    },
+    "task_type": {
+      "type": "string",
+      "enum": [
+        "faq_direct_answer",
+        "troubleshooting",
+        "step_by_step",
+        "clarification",
+        "uncertainty_escalation"
+      ]
+    },
+    "product": { "type": "string" },
+    "language": { "type": "string" },
+    "behavior_spec_path": { "type": "string" },
+    "prompt_template_path": { "type": "string" },
+    "teacher_prompt_version": { "type": "string" },
+    "generation_mode": { "type": "string" },
+    "source_doc_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "source_chunk_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "source_excerpt": { "type": "string" },
+    "runner_input": {
+      "type": "object",
+      "required": ["system_message", "user_message"],
+      "properties": {
+        "system_message": { "type": "string", "minLength": 1 },
+        "user_message": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "fixture_payload": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["source_records", "transform_pipeline_version"],
+      "properties": {
+        "transform_pipeline_version": { "type": "string" },
+        "source_records": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["doc_id", "chunk_id", "normalized_path", "source_spans"],
+            "properties": {
+              "doc_id": { "type": "string" },
+              "chunk_id": { "type": "string" },
+              "section_id": { "type": "string" },
+              "section_title": { "type": "string" },
+              "normalized_path": { "type": "string" },
+              "source_spans": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string" }
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

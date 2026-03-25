@@ -1,0 +1,184 @@
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+from jsonschema import Draft202012Validator
+
+from common import make_parser, read_json, read_jsonl
+
+
+REVIEW_STATUSES = {"draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"}
+
+
+def load_chunks(chunks_root: Path) -> dict[str, dict]:
+    chunk_index: dict[str, dict] = {}
+    for path in sorted(chunks_root.glob("*/chunks.jsonl")):
+        for row in read_jsonl(path):
+            chunk_index[row["chunk_id"]] = row
+    if not chunk_index:
+        raise SystemExit(f"No chunk files found under {chunks_root}")
+    return chunk_index
+
+
+def validate_chunk_links(prefix: str, row: dict, chunk_index: dict[str, dict], failures: list[str]) -> None:
+    for chunk_id in row.get("source_chunk_ids", []):
+        if chunk_id not in chunk_index:
+            failures.append(f"{prefix}: unknown chunk_id {chunk_id}")
+            continue
+        chunk = chunk_index[chunk_id]
+        if chunk["doc_id"] not in row.get("source_doc_ids", []):
+            failures.append(f"{prefix}: doc/chunk mismatch for {chunk_id}")
+
+
+def validate_jobs(rows: list[dict], validator: Draft202012Validator, chunk_index: dict[str, dict]) -> tuple[list[str], dict[str, dict]]:
+    failures: list[str] = []
+    job_index: dict[str, dict] = {}
+    for idx, row in enumerate(rows, start=1):
+        for error in validator.iter_errors(row):
+            failures.append(f"Job row {idx}: {error.message}")
+        job_index[row["job_id"]] = row
+        if row.get("job_status") not in REVIEW_STATUSES:
+            failures.append(f"Job row {idx}: invalid job_status {row.get('job_status')}")
+        if row.get("review_status") not in REVIEW_STATUSES:
+            failures.append(f"Job row {idx}: invalid review_status {row.get('review_status')}")
+        if row.get("job_status") != row.get("review_status"):
+            failures.append(f"Job row {idx}: job_status/review_status mismatch")
+        validate_chunk_links(f"Job row {idx}", row, chunk_index, failures)
+    return failures, job_index
+
+
+def validate_candidate(candidate: dict, record_type: str, sft_validator: Draft202012Validator, eval_validator: Draft202012Validator) -> list[str]:
+    errors: list[str] = []
+    validator = sft_validator if record_type == "sft_sample" else eval_validator
+    label = "SFT candidate" if record_type == "sft_sample" else "Eval candidate"
+    for error in validator.iter_errors(candidate):
+        errors.append(f"{label}: {error.message}")
+    return errors
+
+
+def validate_outputs(
+    rows: list[dict],
+    validator: Draft202012Validator,
+    job_index: dict[str, dict],
+    chunk_index: dict[str, dict],
+    sft_validator: Draft202012Validator,
+    eval_validator: Draft202012Validator,
+) -> tuple[list[str], dict[str, dict]]:
+    failures: list[str] = []
+    output_index: dict[str, dict] = {}
+    for idx, row in enumerate(rows, start=1):
+        for error in validator.iter_errors(row):
+            failures.append(f"Output row {idx}: {error.message}")
+        output_index[row["output_id"]] = row
+        job = job_index.get(row["job_id"])
+        if job is None:
+            failures.append(f"Output row {idx}: unknown job_id {row['job_id']}")
+            continue
+        if row.get("review_status") not in REVIEW_STATUSES:
+            failures.append(f"Output row {idx}: invalid review_status {row.get('review_status')}")
+        if row.get("record_type") != job.get("expected_output_kind"):
+            failures.append(f"Output row {idx}: record_type does not match job")
+        if row.get("target_split") != job.get("target_split"):
+            failures.append(f"Output row {idx}: target_split does not match job")
+        if row.get("source_chunk_ids") != job.get("source_chunk_ids"):
+            failures.append(f"Output row {idx}: source_chunk_ids differ from job")
+        candidate = row.get("candidate", {})
+        failures.extend(f"Output row {idx}: {err}" for err in validate_candidate(candidate, row["record_type"], sft_validator, eval_validator))
+        if candidate.get("review_status") != row.get("review_status"):
+            failures.append(f"Output row {idx}: candidate review_status mismatch")
+        if row.get("review_status") in {"human_reviewed", "rejected"} and not row.get("approved_by"):
+            failures.append(f"Output row {idx}: approved_by required for reviewed outputs")
+        validate_chunk_links(f"Output row {idx}", row, chunk_index, failures)
+    return failures, output_index
+
+
+def validate_gold(
+    rows: list[dict],
+    validator: Draft202012Validator,
+    output_index: dict[str, dict],
+    kind: str,
+) -> list[str]:
+    failures: list[str] = []
+    for idx, row in enumerate(rows, start=1):
+        for error in validator.iter_errors(row):
+            failures.append(f"{kind} gold row {idx}: {error.message}")
+        if row.get("review_status") != "promoted":
+            failures.append(f"{kind} gold row {idx}: review_status must be promoted")
+        promoted_from = row.get("promoted_from") or {}
+        output_id = promoted_from.get("output_id")
+        if not output_id:
+            failures.append(f"{kind} gold row {idx}: missing promoted_from.output_id")
+            continue
+        source_output = output_index.get(output_id)
+        if source_output is None:
+            failures.append(f"{kind} gold row {idx}: promoted_from.output_id not found")
+            continue
+        if source_output.get("review_status") != "human_reviewed":
+            failures.append(f"{kind} gold row {idx}: source output is not human_reviewed")
+    return failures
+
+
+def parse_args() -> Any:
+    parser = make_parser("Validate teacher jobs, teacher outputs and promoted gold artifacts.")
+    parser.add_argument("--jobs", required=True)
+    parser.add_argument("--outputs", required=True)
+    parser.add_argument("--chunks-root", default="data/derived/chunks/JAWS/DE")
+    parser.add_argument("--job-schema", default="schemas/teacher_job.schema.json")
+    parser.add_argument("--output-schema", default="schemas/teacher_output.schema.json")
+    parser.add_argument("--sft-schema", default="schemas/sft_sample.schema.json")
+    parser.add_argument("--eval-schema", default="schemas/eval_case.schema.json")
+    parser.add_argument("--gold-sft")
+    parser.add_argument("--gold-eval")
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    chunk_index = load_chunks(Path(args.chunks_root))
+    jobs = read_jsonl(Path(args.jobs))
+    outputs = read_jsonl(Path(args.outputs))
+
+    job_validator = Draft202012Validator(read_json(Path(args.job_schema)))
+    output_validator = Draft202012Validator(read_json(Path(args.output_schema)))
+    sft_validator = Draft202012Validator(read_json(Path(args.sft_schema)))
+    eval_validator = Draft202012Validator(read_json(Path(args.eval_schema)))
+
+    failures, job_index = validate_jobs(jobs, job_validator, chunk_index)
+    output_failures, output_index = validate_outputs(
+        outputs,
+        output_validator,
+        job_index,
+        chunk_index,
+        sft_validator,
+        eval_validator,
+    )
+    failures.extend(output_failures)
+
+    gold_train_rows: list[dict] = []
+    gold_eval_rows: list[dict] = []
+    if args.gold_sft:
+        gold_train_rows = read_jsonl(Path(args.gold_sft))
+        failures.extend(validate_gold(gold_train_rows, sft_validator, output_index, "Train"))
+    if args.gold_eval:
+        gold_eval_rows = read_jsonl(Path(args.gold_eval))
+        failures.extend(validate_gold(gold_eval_rows, eval_validator, output_index, "Eval"))
+
+    train_chunk_ids = {chunk_id for row in gold_train_rows for chunk_id in row.get("source_chunk_ids", [])}
+    eval_chunk_ids = {chunk_id for row in gold_eval_rows for chunk_id in row.get("source_chunk_ids", [])}
+    overlap = sorted(train_chunk_ids & eval_chunk_ids)
+    if overlap:
+        failures.append("Gold train/eval chunk overlap detected: " + ", ".join(overlap[:10]))
+
+    if failures:
+        print("\n".join(failures))
+        raise SystemExit(1)
+
+    print(
+        f"OK: {len(jobs)} jobs, {len(outputs)} teacher outputs, "
+        f"{len(gold_train_rows)} gold train, {len(gold_eval_rows)} gold eval"
+    )
+
+
+if __name__ == "__main__":
+    main()

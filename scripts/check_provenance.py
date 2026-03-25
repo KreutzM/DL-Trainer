@@ -4,7 +4,9 @@ from pathlib import Path
 
 from common import make_parser, read_jsonl
 
-REQUIRED = ["doc_id", "source_spans", "review_status"]
+
+def has_source_records(row: dict) -> bool:
+    return bool(row.get("provenance", {}).get("source_records"))
 
 
 def main() -> None:
@@ -21,9 +23,20 @@ def main() -> None:
                 failures.append(f"Row {idx}: missing meta.source_doc_ids")
             if not meta.get("review_status"):
                 failures.append(f"Row {idx}: missing meta.review_status")
+            if not has_source_records(row):
+                failures.append(f"Row {idx}: missing provenance.source_records")
             continue
 
-        for key in REQUIRED:
+        if "prompt" in row and "source_doc_ids" in row:
+            if not row.get("source_doc_ids"):
+                failures.append(f"Row {idx}: missing source_doc_ids")
+            if not row.get("review_status"):
+                failures.append(f"Row {idx}: missing review_status")
+            if not has_source_records(row):
+                failures.append(f"Row {idx}: missing provenance.source_records")
+            continue
+
+        for key in ["doc_id", "source_spans", "review_status"]:
             if key not in row or row.get(key) in (None, "", []):
                 failures.append(f"Row {idx}: missing {key}")
 

@@ -6,6 +6,8 @@ from jsonschema import Draft202012Validator
 
 from common import make_parser, read_json, read_jsonl
 
+REVIEW_STATUSES = {"draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"}
+
 
 def load_chunks(chunks_root: Path) -> dict[str, dict]:
     chunk_index: dict[str, dict] = {}
@@ -41,6 +43,10 @@ def validate_sft(rows: list[dict], validator: Draft202012Validator, chunk_index:
             failures.append(f"SFT row {idx}: source_chunk_ids mismatch between top level and meta")
         if row.get("source_doc_ids") != meta.get("source_doc_ids"):
             failures.append(f"SFT row {idx}: source_doc_ids mismatch between top level and meta")
+        if row.get("review_status") not in REVIEW_STATUSES:
+            failures.append(f"SFT row {idx}: invalid review_status {row.get('review_status')}")
+        if meta.get("review_status") != row.get("review_status"):
+            failures.append(f"SFT row {idx}: review_status mismatch between top level and meta")
 
         for chunk_id in row.get("source_chunk_ids", []):
             if chunk_id not in chunk_index:
@@ -66,6 +72,8 @@ def validate_eval(rows: list[dict], validator: Draft202012Validator, chunk_index
             failures.append(f"Eval row {idx}: empty prompt")
         if not row.get("expected_behavior", "").strip():
             failures.append(f"Eval row {idx}: empty expected_behavior")
+        if row.get("review_status") not in REVIEW_STATUSES:
+            failures.append(f"Eval row {idx}: invalid review_status {row.get('review_status')}")
 
         for chunk_id in row.get("source_chunk_ids", []):
             if chunk_id not in chunk_index:

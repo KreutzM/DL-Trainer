@@ -10,9 +10,12 @@
     "messages",
     "source_doc_ids",
     "source_chunk_ids",
+    "teacher_model",
+    "teacher_run_id",
     "teacher_prompt_version",
     "generation_mode",
     "review_status",
+    "split",
     "provenance",
     "meta"
   ],
@@ -59,9 +62,28 @@
       "items": { "type": "string" },
       "minItems": 1
     },
-    "teacher_prompt_version": { "type": "string" },
-    "generation_mode": { "type": "string" },
-    "review_status": { "type": "string" },
+    "teacher_model": { "type": "string", "minLength": 1 },
+    "teacher_run_id": { "type": "string", "minLength": 1 },
+    "teacher_prompt_version": { "type": "string", "minLength": 1 },
+    "generation_mode": { "type": "string", "minLength": 1 },
+    "review_status": {
+      "type": "string",
+      "enum": ["draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"]
+    },
+    "split": { "type": "string", "minLength": 1 },
+    "approved_by": {
+      "type": ["string", "null"]
+    },
+    "promoted_from": {
+      "type": ["object", "null"],
+      "properties": {
+        "teacher_output_path": { "type": "string" },
+        "output_id": { "type": "string" },
+        "job_id": { "type": "string" },
+        "teacher_run_id": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
     "provenance": {
       "type": "object",
       "required": ["source_records", "transform_pipeline_version"],
@@ -99,11 +121,14 @@
         "product",
         "language",
         "task_type",
+        "teacher_model",
+        "teacher_run_id",
         "source_doc_ids",
         "source_chunk_ids",
         "teacher_prompt_version",
         "generation_mode",
         "review_status",
+        "split",
         "provenance"
       ],
       "properties": {
@@ -111,6 +136,7 @@
         "language": { "type": "string" },
         "task_type": { "type": "string" },
         "teacher_model": { "type": "string" },
+        "teacher_run_id": { "type": "string" },
         "source_doc_ids": {
           "type": "array",
           "items": { "type": "string" },
@@ -124,8 +150,17 @@
         "teacher_prompt_version": { "type": "string" },
         "generation_mode": { "type": "string" },
         "needs_clarification": { "type": "boolean" },
-        "review_status": { "type": "string" },
+        "review_status": {
+          "type": "string",
+          "enum": ["draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"]
+        },
         "split": { "type": "string" },
+        "approved_by": {
+          "type": ["string", "null"]
+        },
+        "promoted_from": {
+          "type": ["object", "null"]
+        },
         "provenance": { "type": "object" }
       },
       "additionalProperties": true

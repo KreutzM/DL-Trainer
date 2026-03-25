@@ -7,9 +7,12 @@ from typing import Any, Callable
 from common import make_parser, read_jsonl, write_jsonl
 
 
-TRANSFORM_PIPELINE_VERSION = "0.3.0"
-TEACHER_PROMPT_VERSION = "jaws_de_support_seed_v1"
+TRANSFORM_PIPELINE_VERSION = "0.4.0"
+TEACHER_PROMPT_VERSION = "jaws_de_support_seed_v2"
 BEHAVIOR_SPEC_PATH = "docs/support_behavior_spec.md"
+SEED_TEACHER_MODEL = "template-seed-no-llm"
+SEED_TEACHER_RUN_ID = "jaws_de_seed_preview_run_v1"
+REVIEW_STATUS_SEED = "seed"
 
 
 @dataclass
@@ -54,23 +57,46 @@ def build_source_record(chunk: dict) -> dict:
     }
 
 
-def build_job(recipe: Recipe, chunk: dict) -> dict:
+def build_job(recipe: Recipe, chunk: dict, system_prompt: str) -> dict:
+    fixture_payload: dict[str, Any]
+    target_split = "train" if recipe.split == "sft" else "eval"
+    expected_output_kind = "sft_sample" if recipe.split == "sft" else "eval_case"
+    if recipe.split == "sft":
+        fixture_payload = {
+            "assistant_message": recipe.assistant_message or "",
+        }
+    else:
+        fixture_payload = {
+            "case_description": recipe.case_description or "",
+            "expected_behavior": recipe.expected_behavior or "",
+            "reference_answer": recipe.reference_answer or "",
+            "rubric": recipe.rubric or {
+                "must_include": [],
+                "must_not_include": ["erfundene Fakten"],
+                "style": "präzise, vorsichtig, dokumentationsgestützt",
+            },
+        }
     return {
         "job_id": recipe.recipe_id,
-        "target_split": recipe.split,
+        "job_status": REVIEW_STATUS_SEED,
+        "review_status": REVIEW_STATUS_SEED,
+        "target_split": target_split,
+        "expected_output_kind": expected_output_kind,
         "task_type": recipe.task_type,
         "product": chunk["product"],
         "language": chunk["language"],
         "behavior_spec_path": BEHAVIOR_SPEC_PATH,
         "prompt_template_path": recipe.prompt_template_path,
         "teacher_prompt_version": TEACHER_PROMPT_VERSION,
-        "generation_mode": "dry_run_prompt_job_v1",
-        "user_message": recipe.user_message,
+        "generation_mode": "seed_job_fixture_v1",
         "source_doc_ids": [chunk["doc_id"]],
         "source_chunk_ids": [chunk["chunk_id"]],
         "source_excerpt": chunk["content"][:1200],
-        "expected_output_kind": "sft_sample" if recipe.split == "sft" else "eval_case",
-        "review_status": "draft",
+        "runner_input": {
+            "system_message": system_prompt,
+            "user_message": recipe.user_message,
+        },
+        "fixture_payload": fixture_payload,
         "provenance": {
             "transform_pipeline_version": TRANSFORM_PIPELINE_VERSION,
             "source_records": [build_source_record(chunk)],
@@ -78,25 +104,32 @@ def build_job(recipe: Recipe, chunk: dict) -> dict:
     }
 
 
-def build_sft_row(recipe: Recipe, chunk: dict, system_prompt: str, index: int) -> dict:
-    provenance = {
+def build_common_provenance(chunk: dict, prompt_template_path: str) -> dict:
+    return {
         "transform_pipeline_version": TRANSFORM_PIPELINE_VERSION,
         "behavior_spec_path": BEHAVIOR_SPEC_PATH,
-        "prompt_template_path": recipe.prompt_template_path,
+        "prompt_template_path": prompt_template_path,
         "source_records": [build_source_record(chunk)],
     }
+
+
+def build_sft_row(recipe: Recipe, chunk: dict, system_prompt: str, index: int) -> dict:
+    provenance = build_common_provenance(chunk, recipe.prompt_template_path)
     meta = {
         "product": chunk["product"],
         "language": chunk["language"],
         "task_type": recipe.task_type,
-        "teacher_model": "template-seed-no-llm",
+        "teacher_model": SEED_TEACHER_MODEL,
+        "teacher_run_id": SEED_TEACHER_RUN_ID,
         "source_doc_ids": [chunk["doc_id"]],
         "source_chunk_ids": [chunk["chunk_id"]],
         "teacher_prompt_version": TEACHER_PROMPT_VERSION,
-        "generation_mode": "template_seed_v1",
+        "generation_mode": "seed_preview_v1",
         "needs_clarification": recipe.task_type == "clarification",
-        "review_status": "draft",
+        "review_status": REVIEW_STATUS_SEED,
         "split": "seed_train",
+        "approved_by": None,
+        "promoted_from": None,
         "provenance": provenance,
     }
     return {
@@ -111,9 +144,14 @@ def build_sft_row(recipe: Recipe, chunk: dict, system_prompt: str, index: int) -
         ],
         "source_doc_ids": [chunk["doc_id"]],
         "source_chunk_ids": [chunk["chunk_id"]],
+        "teacher_model": SEED_TEACHER_MODEL,
+        "teacher_run_id": SEED_TEACHER_RUN_ID,
         "teacher_prompt_version": TEACHER_PROMPT_VERSION,
-        "generation_mode": "template_seed_v1",
-        "review_status": "draft",
+        "generation_mode": "seed_preview_v1",
+        "review_status": REVIEW_STATUS_SEED,
+        "split": "seed_train",
+        "approved_by": None,
+        "promoted_from": None,
         "provenance": provenance,
         "meta": meta,
     }
@@ -130,19 +168,21 @@ def build_eval_row(recipe: Recipe, chunk: dict, index: int) -> dict:
         "expected_behavior": recipe.expected_behavior or "",
         "source_doc_ids": [chunk["doc_id"]],
         "source_chunk_ids": [chunk["chunk_id"]],
-        "review_status": "draft",
+        "teacher_model": SEED_TEACHER_MODEL,
+        "teacher_run_id": SEED_TEACHER_RUN_ID,
+        "teacher_prompt_version": TEACHER_PROMPT_VERSION,
+        "generation_mode": "seed_preview_v1",
+        "review_status": REVIEW_STATUS_SEED,
+        "split": "seed_eval",
+        "approved_by": None,
+        "promoted_from": None,
         "reference_answer": recipe.reference_answer or "",
         "rubric": recipe.rubric or {
             "must_include": [],
             "must_not_include": ["erfundene Fakten"],
             "style": "präzise, vorsichtig, dokumentationsgestützt",
         },
-        "provenance": {
-            "transform_pipeline_version": TRANSFORM_PIPELINE_VERSION,
-            "behavior_spec_path": BEHAVIOR_SPEC_PATH,
-            "prompt_template_path": recipe.prompt_template_path,
-            "source_records": [build_source_record(chunk)],
-        },
+        "provenance": build_common_provenance(chunk, recipe.prompt_template_path),
     }
 
 
@@ -253,7 +293,7 @@ def make_recipes() -> list[Recipe]:
                 "must_include": ["ohne den Fokus zu verschieben", "NUM MINUS"],
                 "must_not_include": ["erfundene zusätzliche Kurztasten"],
                 "style": "präzise, vorsichtig, dokumentationsgestützt",
-                "scoring_notes": "Nicht nur den Namen nennen, sondern Zweck plus Aktivierung."
+                "scoring_notes": "Nicht nur den Namen nennen, sondern Zweck plus Aktivierung.",
             },
         ),
         Recipe(
@@ -271,7 +311,7 @@ def make_recipes() -> list[Recipe]:
                 "must_include": ["Kontrollfeld", "automatisch", "deaktivieren"],
                 "must_not_include": ["nicht belegte Menüpfade"],
                 "style": "präzise, vorsichtig, dokumentationsgestützt",
-                "scoring_notes": "Outlook-Hinweis ist optional, aber keine falschen Navigationsebenen erfinden."
+                "scoring_notes": "Outlook-Hinweis ist optional, aber keine falschen Navigationsebenen erfinden.",
             },
         ),
         Recipe(
@@ -289,7 +329,7 @@ def make_recipes() -> list[Recipe]:
                 "must_include": ["grafische Umgebung", "Reihenfolge"],
                 "must_not_include": ["frei erfundene Braille-Regeln"],
                 "style": "präzise, vorsichtig, dokumentationsgestützt",
-                "scoring_notes": "Der Kern ist die unterschiedliche Struktur von Braillezeile und Sprachausgabe."
+                "scoring_notes": "Der Kern ist die unterschiedliche Struktur von Braillezeile und Sprachausgabe.",
             },
         ),
         Recipe(
@@ -307,7 +347,7 @@ def make_recipes() -> list[Recipe]:
                 "must_include": ["virtuellen Cursor", "standardmäßig aktiviert"],
                 "must_not_include": ["erfundene Nebenwirkungen"],
                 "style": "präzise, vorsichtig, dokumentationsgestützt",
-                "scoring_notes": "Soll die konkrete Funktion, nicht nur ein allgemeines Ja, nennen."
+                "scoring_notes": "Soll die konkrete Funktion, nicht nur ein allgemeines Ja, nennen.",
             },
         ),
         Recipe(
@@ -325,16 +365,16 @@ def make_recipes() -> list[Recipe]:
                 "must_include": ["virtuellen PC Cursor", "hervorheben"],
                 "must_not_include": ["erfundene Programme oder Optionen"],
                 "style": "präzise, vorsichtig, dokumentationsgestützt",
-                "scoring_notes": "Mindestens Funktion und Kontext Web/PDF nennen."
+                "scoring_notes": "Mindestens Funktion und Kontext Web/PDF nennen.",
             },
         ),
     ]
 
 
 def parse_args() -> Any:
-    parser = make_parser("Build a small JAWS-DE support seed pipeline from chunk artifacts.")
+    parser = make_parser("Build JAWS-DE teacher jobs plus small seed preview artifacts from chunk data.")
     parser.add_argument("--chunks-root", default="data/derived/chunks/JAWS/DE")
-    parser.add_argument("--jobs-output", default="data/derived/teacher_outputs/JAWS/DE/seed_generation_jobs.jsonl")
+    parser.add_argument("--jobs-output", default="data/derived/teacher_jobs/JAWS/DE/seed_generation_jobs.jsonl")
     parser.add_argument("--sft-output", default="data/derived/teacher_outputs/JAWS/DE/seed_sft_candidates.jsonl")
     parser.add_argument("--eval-output", default="data/derived/teacher_outputs/JAWS/DE/seed_eval_cases.jsonl")
     parser.add_argument("--mode", choices=["seed", "dry-run"], default="seed")
@@ -355,7 +395,7 @@ def main() -> None:
 
     for recipe in recipes:
         chunk = first_chunk(chunks, recipe.selector)
-        jobs.append(build_job(recipe, chunk))
+        jobs.append(build_job(recipe, chunk, system_prompt))
         if args.mode == "dry-run":
             continue
         if recipe.split == "sft":
@@ -366,12 +406,12 @@ def main() -> None:
             eval_rows.append(build_eval_row(recipe, chunk, eval_index))
 
     write_jsonl(Path(args.jobs_output), jobs)
-    print(f"Wrote {len(jobs)} generation jobs -> {args.jobs_output}")
+    print(f"Wrote {len(jobs)} teacher jobs -> {args.jobs_output}")
     if args.mode == "seed":
         write_jsonl(Path(args.sft_output), sft_rows)
         write_jsonl(Path(args.eval_output), eval_rows)
-        print(f"Wrote {len(sft_rows)} SFT seed rows -> {args.sft_output}")
-        print(f"Wrote {len(eval_rows)} eval seed rows -> {args.eval_output}")
+        print(f"Wrote {len(sft_rows)} SFT seed previews -> {args.sft_output}")
+        print(f"Wrote {len(eval_rows)} eval seed previews -> {args.eval_output}")
 
 
 if __name__ == "__main__":

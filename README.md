@@ -1,21 +1,20 @@
 # Support Data Pipeline Starter Repo
 
-Dieses Repository ist ein Startgerüst für eine lokale Datenaufbereitungs- und Trainingspipeline für
-Produkt-Support-Assistenten mit:
+Dieses Repository ist ein Startgeruest fuer eine lokale Datenaufbereitungs- und Trainingspipeline fuer Produktsupport-Assistenten mit:
 
-- **RAG-Korpus** aus Produkthandbüchern
+- **RAG-Korpus** aus Produkthandbuechern
 - **Teacher-generierten SFT-/LoRA-Daten**
 - **Qwen3-8B** als lokales Student-Modell
 - **Codex CLI** als repo-zentrierte Orchestrierungsschicht
 
 ## Zielbild
 
-1. Produkthandbücher oder dokumentierte Importquellen kanonisch unter `data/raw/` ablegen.
-2. In maschinenfreundliche Markdown-Normalform unter `data/normalized/` überführen.
-3. Daraus zitierfähige Chunks, Task-Cards und Synonym-Layer unter `data/derived/` bauen.
-4. Mit einem starken Teacher-Modell qualitätsgesicherte Supportdaten erzeugen.
-5. SFT-/LoRA-Datensätze unter `data/gold/train/` und Evals unter `data/gold/eval/` pflegen.
-6. Student-Modell trainieren und gegen definierte Evals prüfen.
+1. Produkthandbuecher oder dokumentierte Importquellen kanonisch unter `data/raw/` ablegen.
+2. In maschinenfreundliche Markdown-Normalform unter `data/normalized/` ueberfuehren.
+3. Daraus zitierfaehige Chunks, Task-Cards und Synonym-Layer unter `data/derived/` bauen.
+4. Mit einem starken Teacher-Modell qualitaetsgesicherte Supportdaten erzeugen.
+5. SFT-/LoRA-Datensaetze unter `data/gold/train/` und Evals unter `data/gold/eval/` pflegen.
+6. Student-Modell trainieren und gegen definierte Evals pruefen.
 
 ## Schnellstart
 
@@ -44,14 +43,22 @@ python scripts/build_jaws_de_chunks.py
 python scripts/validate_jaws_de_chunks.py
 ```
 
-### 4. JAWS-DE Support-Seed-Daten aufbauen
+### 4. JAWS-DE Teacher-Jobs und Seed-Preview-Daten aufbauen
 
 ```bash
 python scripts/build_jaws_support_data.py
 python scripts/validate_support_datasets.py --sft data/derived/teacher_outputs/JAWS/DE/seed_sft_candidates.jsonl --eval data/derived/teacher_outputs/JAWS/DE/seed_eval_cases.jsonl
+python scripts/validate_jsonl.py --schema schemas/teacher_job.schema.json --input data/derived/teacher_jobs/JAWS/DE/seed_generation_jobs.jsonl
 ```
 
-### 5. Beispiel-Export für Training erzeugen
+### 5. Teacher-Runner und Gold-Promotion pruefen
+
+```bash
+python scripts/run_teacher_jobs.py --jobs data/derived/teacher_jobs/JAWS/DE/seed_generation_jobs.jsonl --output data/derived/teacher_outputs/JAWS/DE/seed_teacher_outputs.jsonl --mode stub --teacher-model teacher-stub-no-llm --teacher-run-id jaws_de_teacher_stub_run_v1
+python scripts/validate_teacher_pipeline.py --jobs data/derived/teacher_jobs/JAWS/DE/seed_generation_jobs.jsonl --outputs data/derived/teacher_outputs/JAWS/DE/seed_teacher_outputs.jsonl
+```
+
+### 6. Beispiel-Export fuer Training erzeugen
 
 ```bash
 python scripts/export_for_training.py --input data/gold/train/sft/demo_sft_samples.jsonl --output training/exports/demo_train.jsonl
@@ -60,25 +67,25 @@ python scripts/export_for_training.py --input data/gold/train/sft/demo_sft_sampl
 ## Repo-Navigation
 
 - `docs/` - Architektur, Policies, Review-Regeln, Repo-Spezifikation
-- `schemas/` - JSON-Schemas für Kernartefakte
+- `schemas/` - JSON-Schemas fuer Kernartefakte
 - `prompts/` - Teacher- und Judge-Prompts
 - `scripts/` - reproduzierbare ETL-/Validierungs-/Export-Skripte
 - `.codex/` - Codex-Konfiguration und Subagents
-- `.agents/skills/` - task-spezifische Skills für Codex
+- `.agents/skills/` - task-spezifische Skills fuer Codex
 - `data/` - Datenzonen (`raw`, `normalized`, `derived`, `gold`, `reports`)
-- `training/` - Startpunkte für MS-SWIFT, Unsloth, Axolotl
+- `training/` - Startpunkte fuer MS-SWIFT, Unsloth, Axolotl
 
 ## Arbeitsprinzipien
 
 - **Source of truth** bleibt immer im Korpus, nicht im LoRA.
-- **Alle abgeleiteten Artefakte** benötigen Provenance.
-- **Nichts erfinden**: Fakten dürfen nur aus dokumentierter Quelle stammen.
-- **Reviewbarkeit vor Automatisierung**: jeder Datensatz soll zurückverfolgbar und diffbar sein.
+- **Alle abgeleiteten Artefakte** benoetigen Provenance.
+- **Nichts erfinden**: Fakten duerfen nur aus dokumentierter Quelle stammen.
+- **Reviewbarkeit vor Automatisierung**: jeder Datensatz soll zurueckverfolgbar und diffbar sein.
 
-## Nächste sinnvolle Schritte
+## Naechste sinnvolle Schritte
 
-1. Eigenes Produkthandbuch oder dokumentierte Importquelle unter `data/raw/<produkt>/...` ablegen
-2. `docs/metadata_schema.md`, `docs/chunking_policy.md` und die Support-Behavior-Spec anpassen
-3. Teacher-Prompts im Ordner `prompts/teacher/` verfeinern
-4. Seed-Drafts aus `data/derived/teacher_outputs/` reviewen und gezielt nach `data/gold/` übernehmen
-5. Evals in `data/gold/eval/` aus echten Supportfällen aufbauen
+1. Eigenes Produkthandbuch oder dokumentierte Importquelle unter `data/raw/<produkt>/...` ablegen.
+2. `docs/metadata_schema.md`, `docs/chunking_policy.md` und die Support-Behavior-Spec anpassen.
+3. Teacher-Prompts im Ordner `prompts/teacher/` verfeinern.
+4. Teacher-Jobs aus `data/derived/teacher_jobs/` laufen lassen, Outputs in `data/derived/teacher_outputs/` reviewen und gezielt nach `data/gold/` uebernehmen.
+5. Evals in `data/gold/eval/` aus echten Supportfaellen aufbauen.
