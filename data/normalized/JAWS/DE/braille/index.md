@@ -5,21 +5,21 @@
 Obwohl JAWS die am häufigsten genutzten Braillesymbole ordnungsgemäß darstellt, kann es vorkommen, dass Sie die Brailledarstellung bestimmter Symbole verändern oder neue hinzufügen müssen. Wenn beim Lesen eines Dokuments ein bestimmtes Symbol nicht richtig in Braille dargestellt wird, oder wenn Ihre Braillezeile ein leeres Modul anstatt eines Symbols anzeigt, dann gehen Sie bitte folgendermaßen vor:
 
 1. Stellen Sie sicher, dass die Brailleübersetzung ausgeschaltet ist. Das ist vor allem dann wichtig, wenn Sie mit fremdsprachlichen Dokumenten und mathematischen und wissenschaftlichen Texten arbeiten.
-2. Drücken Sie **EINFÜGEN+V **, um die Schnelleinstellung zu öffnen und geben Sie "Übersetzungstabelle" ohne die Anführungsstriche in das Sucheingabefeld ein.
-3. Anschließend drücken Sie **PFEIL RUNTER **, um zur bevorzugten Übersetzungstabelle in der Strukturansicht zu springen.
-4. Drücken Sie **LEERTASTE **, um eine passende Tabelle auszuwählen. Sie müssen eine Tabelle auswählen, die das Wort "unicode" im Titel enthält.
+2. Drücken Sie **EINFÜGEN+V**, um die Schnelleinstellung zu öffnen und geben Sie "Übersetzungstabelle" ohne die Anführungsstriche in das Sucheingabefeld ein.
+3. Anschließend drücken Sie **PFEIL RUNTER**, um zur bevorzugten Übersetzungstabelle in der Strukturansicht zu springen.
+4. Drücken Sie **LEERTASTE**, um eine passende Tabelle auszuwählen. Sie müssen eine Tabelle auswählen, die das Wort "unicode" im Titel enthält.
 5. Betätigen Sie den OK Schalter.
 
 **Hinweis:** Wenn die Einstellung für die bevorzugte Übersetzungstabelle in der Schnelleinstellung nicht verfügbar ist, dann müssen Sie zuerst mindestens eine weitere bevorzugte Übersetzungstabelle in der Einstellungsverwaltung konfigurieren. Lesen Sie das Kapitel [Brailletabellen](SettingsCenter.chm::/Braille/Advanced/Braille_Tables_Dialog.htm) für weitere Informationen.
 
 Lesen Sie das Symbol in Ihrem Dokument erneut. Sollte das Symbol immer noch als leeres Modul erscheinen, gehen Sie bitte folgendermaßen vor:
 
-1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2 **) und erweitern Sie die Gruppe Bilder und Symbole.
+1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**) und erweitern Sie die Gruppe Bilder und Symbole.
 2. Aktivieren Sie das Kontrollfeld Zeichenwert hexadezimal sprechen.
 3. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
-4. Kehren Sie in das Dokument zurück. Bewegen Sie den Cursor auf ein kleines "a" (sollte keines vorhanden sein, dann geben Sie eins ein) und drücken Sie **NUM 5 ** dreimal hintereinander. JAWS sollte "Zeichen U+61HEX" ansagen. Wenn Sie irgendeine andere Meldung hören, dürfen Sie diese Schritte nicht weiter ausführen.
-5. Bewegen Sie den Cursor auf das Zeichen, dessen Brailledarstellung geändert werden soll und drücken Sie **NUM 5 ** dreimal schnell hintereinander, damit Sie den Hexadezimal Unicode Wert des Zeichen erhalten. Notieren Sie sich sicherheitshalber den Wert, da Sie diesen für die nächsten Schritte benötigen.
-6. Öffnen Sie mit einem Texteditor wie Notepad die zur Zeit aktive Brailletabelle. Die Tabellen werden in Dateien mit der Endung.jbt im JAWS Verzeichnis (standardmäßig C:\Programme\Freedom Scientific\JAWS\ *X * (wobei * X * für Ihre JAWS Versionsnummer steht)) gespeichert.Die Standard Brailletabellen-Datei heißt EURO_Unicode.jbt. Die Tabellendateien legen die Brailledarstellung für eine Reihe von Symbolen fest. Der erste Abschnitt enthält die grundlegenden 127 ANSI Zeichen. Danach folgen die Unicode-Einträge. Das Format der Einträge lautet:
+4. Kehren Sie in das Dokument zurück. Bewegen Sie den Cursor auf ein kleines "a" (sollte keines vorhanden sein, dann geben Sie eins ein) und drücken Sie **NUM 5** dreimal hintereinander. JAWS sollte "Zeichen U+61HEX" ansagen. Wenn Sie irgendeine andere Meldung hören, dürfen Sie diese Schritte nicht weiter ausführen.
+5. Bewegen Sie den Cursor auf das Zeichen, dessen Brailledarstellung geändert werden soll und drücken Sie **NUM 5** dreimal schnell hintereinander, damit Sie den Hexadezimal Unicode Wert des Zeichen erhalten. Notieren Sie sich sicherheitshalber den Wert, da Sie diesen für die nächsten Schritte benötigen.
+6. Öffnen Sie mit einem Texteditor wie Notepad die zur Zeit aktive Brailletabelle. Die Tabellen werden in Dateien mit der Endung.jbt im JAWS Verzeichnis (standardmäßig C:\Programme\Freedom Scientific\JAWS\ *X* (wobei *X* für Ihre JAWS Versionsnummer steht)) gespeichert.Die Standard Brailletabellen-Datei heißt EURO_Unicode.jbt. Die Tabellendateien legen die Brailledarstellung für eine Reihe von Symbolen fest. Der erste Abschnitt enthält die grundlegenden 127 ANSI Zeichen. Danach folgen die Unicode-Einträge. Das Format der Einträge lautet:
 
 U+XXX=YYYYYY
 
@@ -82,7 +82,7 @@ Der strukturierte Modus liefert ein- oder zweizeilige beschreibende Informatione
 
 ### Ein Beispiel für eine strukturierte Zeile
 
-Nachdem Sie **ALT+EINGABE ** auf der Taskleiste gedrückt haben, wird eine ähnliche Zeile wie die folgende auf Ihrer Braillezeile erscheinen:
+Nachdem Sie **ALT+EINGABE** auf der Taskleiste gedrückt haben, wird eine ähnliche Zeile wie die folgende auf Ihrer Braillezeile erscheinen:
 
 > "kf Eigenschaften von Taskleiste und Startmenü Taskleiste Taskleistendarstellung gf [x] Taskleiste fixieren"
 
@@ -102,22 +102,22 @@ In der Einstellungsverwaltung können Sie konfigurieren, wie Informationen im st
 
 Erfahrenere Anwender können nun auch die Braillesymbole für Steuerelemente, die Reihenfolge, in der sie angezeigt werden und die Braille-Darstellung des Status' von Steuerelementen modifizieren. Damit legen Sie für jede Anwendung auf Ihrem Computer fest, wie und welche Informationen auf Ihrer Braillezeile dargestellt werden.
 
-Um auf die Einstellungen für den Strukturierten Modus zuzugreifen, öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2 **), erweitern Sie die Gruppe Braille und wählen Sie dann die Gruppe Strukturierter Modus. Sie können jetzt die folgenden Elemente ändern.
+Um auf die Einstellungen für den Strukturierten Modus zuzugreifen, öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**), erweitern Sie die Gruppe Braille und wählen Sie dann die Gruppe Strukturierter Modus. Sie können jetzt die folgenden Elemente ändern.
 
 - Öffnen sie die Gruppe Optionale Komponenten einbeziehen, um zu konfigurieren, welche Elementinformationen auf der Braillezeile angezeigt werden. Hierzu gehören Steuerelemente, Level und Positionen, Kurztasten, Hinweise, Dialogtitel, beschreibende Dialogtexte und Steuerungsgruppen.
 - Legen Sie fest, ob JAWS die Anzeige am strukturierten Element ausrichten soll, wenn das Element den Fokus erhält.
 - Legen Sie fest, ob die strukturierte Zeile in umgekehrter Reihenfolge dargestellt werden soll. Wenn ja, dann wird zuerst die Steuerelementinfo gezeigt, gefolgt von der Gruppe und erst dann die Dialogfensterinformationen.
-- Drücken Sie **LEERTASTE ** auf Erweitert, um das Dialogfenster Optionen für Elementtypen zu öffnen, in dem Sie Symbole anpassen können, die auf Ihrer Braillezeile die Elemente darstellen, wie auch die Symbole, die den Elementstatus anzeigen – wie aktiviert oder deaktiviert bei einem Kontrollfeld.
+- Drücken Sie **LEERTASTE** auf Erweitert, um das Dialogfenster Optionen für Elementtypen zu öffnen, in dem Sie Symbole anpassen können, die auf Ihrer Braillezeile die Elemente darstellen, wie auch die Symbole, die den Elementstatus anzeigen – wie aktiviert oder deaktiviert bei einem Kontrollfeld.
 
 Für weitere Informationen lesen Sie bitte: [Der strukturierte Modus](SettingsCenter.chm::/Braille/braille_options_dialog.htm#StructuredMode). Weitere Informationen zum Konfigurieren anderer Brailleoptionen finden Sie unter [Braillegruppeneinstellungen.](SettingsCenter.chm::/Braille/braille_options_dialog.htm)
 
 ### Eine strukturierte Zeile navigieren
 
-Wenn die strukturierte Zeile auf der Braillezeile erscheint, dann wir sie an der fokussierten Steuerelementinformation ausgerichtet, wie zum Beispiel dem Status oder dem Kontrollfeldnamen, da diese als für den Anwender am informativsten angenommen wird. Es kann sein, dass Sie die **LINKE LESETASTE ** drücken müssen, damit Sie den Dialogfenstertitel und den Seitentitel bei mehrseitigen Dialogen sehen können. In einer strukturierte Zeile können Sie mit den Ausschnitt-Tasten auch die Informationen erreichen, die auf der Braillezeile nicht mehr angezeigt werden. Dieses ist speziell für Braillezeilen mit 40 oder weniger Zellen hilfreich.
+Wenn die strukturierte Zeile auf der Braillezeile erscheint, dann wir sie an der fokussierten Steuerelementinformation ausgerichtet, wie zum Beispiel dem Status oder dem Kontrollfeldnamen, da diese als für den Anwender am informativsten angenommen wird. Es kann sein, dass Sie die **LINKE LESETASTE** drücken müssen, damit Sie den Dialogfenstertitel und den Seitentitel bei mehrseitigen Dialogen sehen können. In einer strukturierte Zeile können Sie mit den Ausschnitt-Tasten auch die Informationen erreichen, die auf der Braillezeile nicht mehr angezeigt werden. Dieses ist speziell für Braillezeilen mit 40 oder weniger Zellen hilfreich.
 
-Darüber hinaus können Sie, während Sie auf einer strukturierten Zeile stehen, segmentweise lesen. Eine Zeile könnte beispielsweise den Dialogtitel, den Titel eines Gruppenfelds mit verschiedenen Elementen und den aktuellen Elementstatus des fokussierten Objekts enthalten. Wenn Sie eine Freedom Scientific Focus Braillezeile verwenden, dann können Sie die **UMSCHALT ** Taste in Verbindung mit der ** LINKEN ** oder ** RECHTEN LESETASTE ** drücken, um sich im strukturierten Segment zu bewegen. Das nächste oder vorherige Segment startet dann ganz links auf der Braillezeile in der ersten Zelle, die nicht als Statuszelle verwendet wird. Besitzen Sie eine andere Braillezeile als die Focus, dann können Sie diesen Befehl über den JAWS Tastaturmanager zuweisen.
+Darüber hinaus können Sie, während Sie auf einer strukturierten Zeile stehen, segmentweise lesen. Eine Zeile könnte beispielsweise den Dialogtitel, den Titel eines Gruppenfelds mit verschiedenen Elementen und den aktuellen Elementstatus des fokussierten Objekts enthalten. Wenn Sie eine Freedom Scientific Focus Braillezeile verwenden, dann können Sie die **UMSCHALT** Taste in Verbindung mit der **LINKEN** oder **RECHTEN LESETASTE** drücken, um sich im strukturierten Segment zu bewegen. Das nächste oder vorherige Segment startet dann ganz links auf der Braillezeile in der ersten Zelle, die nicht als Statuszelle verwendet wird. Besitzen Sie eine andere Braillezeile als die Focus, dann können Sie diesen Befehl über den JAWS Tastaturmanager zuweisen.
 
-Beachten Sie bitte, dass man im strukturierten Modus mit den Tasten für **BRAILLE RAUF ** und ** BRAILLE RUNTER **, mit denen man sich genauso wie mit den Pfeiltasten auf der Tastatur zwischen Steuerelementen bewegt, eine strukturierte Zeile nicht navigieren kann. Sie können jedoch mit den Routingtasten Schalter aktivieren, Text in einem Eingabefeld hervorheben und den Status von Kontrollfeldern umschalten.
+Beachten Sie bitte, dass man im strukturierten Modus mit den Tasten für **BRAILLE RAUF** und **BRAILLE RUNTER**, mit denen man sich genauso wie mit den Pfeiltasten auf der Tastatur zwischen Steuerelementen bewegt, eine strukturierte Zeile nicht navigieren kann. Sie können jedoch mit den Routingtasten Schalter aktivieren, Text in einem Eingabefeld hervorheben und den Status von Kontrollfeldern umschalten.
 
 ## Flächenmodus
 
@@ -170,15 +170,15 @@ Quelle: Braille_Flash_Messages.htm
 
 ## Braille-Formatierung
 
-Mit der Option **8 Pixel Pro Leerschritt Umschalten **, eine komfortable und effiziente Methode, Braille zu lesen, können Sie die Leerzellen auf Ihrer Braillezeile optimieren, wodurch mehr Informationen in einem Stück angezeigt werden.
+Mit der Option **8 Pixel Pro Leerschritt Umschalten**, eine komfortable und effiziente Methode, Braille zu lesen, können Sie die Leerzellen auf Ihrer Braillezeile optimieren, wodurch mehr Informationen in einem Stück angezeigt werden.
 
 JAWS muss häufig die Anzahl der Leerzellen in einer Zeile oder in einem Teil einer Zeile schätzen. Diese Schätzung basiert auf der Pixelweite. Acht leere Pixel werden als eine Leerzelle angesehen. Indem die Brailleinformationen auf diese Art und Weise angezeigt werden, erhalten Sie eine Rückmeldung darüber, wie diese Informationen optisch präsentiert werden.
 
-Drücken Sie die **8 Pixel Pro Leerschritt Umschalten ** Taste, wird die Meldung "Unbegrenzte Pixel pro Leerschritt" angesagt. Mit der Option Unbegrenzte Pixel pro Leerschritt können Sie sich im Text rauf und runter bewegen, und die Zeile ohne Leerzellen lesen. Nur die Leer- und Tabzeichen, die im Dokument gesetzt wurden, werden als Leerzellen angezeigt.
+Drücken Sie die **8 Pixel Pro Leerschritt Umschalten** Taste, wird die Meldung "Unbegrenzte Pixel pro Leerschritt" angesagt. Mit der Option Unbegrenzte Pixel pro Leerschritt können Sie sich im Text rauf und runter bewegen, und die Zeile ohne Leerzellen lesen. Nur die Leer- und Tabzeichen, die im Dokument gesetzt wurden, werden als Leerzellen angezeigt.
 
-Wenn die Einstellung 8 Pixel pro Leerschritt gewählt ist, können sich Zeilen in ihrer Pixellänge unterscheiden. Wenn Sie also die **BRAILLE RAUF ** und ** BRAILLE RUNTER ** Tasten verwenden, kann es passieren, dass Sie nicht an der gleichen Zeichenposition landen wie bei der vorangegangenen Zeile.
+Wenn die Einstellung 8 Pixel pro Leerschritt gewählt ist, können sich Zeilen in ihrer Pixellänge unterscheiden. Wenn Sie also die **BRAILLE RAUF** und **BRAILLE RUNTER** Tasten verwenden, kann es passieren, dass Sie nicht an der gleichen Zeichenposition landen wie bei der vorangegangenen Zeile.
 
-Sie können diese Einstellung jederzeit verändern, indem Sie die Tastenkombination für das Umschalten drücken. Weitere Informationen über die Tastenkombination **8 Pixel Pro Leerschritt Umschalten ** finden Sie in der Hilfe für Ihre Braillezeile.
+Sie können diese Einstellung jederzeit verändern, indem Sie die Tastenkombination für das Umschalten drücken. Weitere Informationen über die Tastenkombination **8 Pixel Pro Leerschritt Umschalten** finden Sie in der Hilfe für Ihre Braillezeile.
 
 Quelle: Braille_Formatting.htm
 
@@ -191,9 +191,9 @@ Der Braille Lern-Modus ist ein Programm zum Unterrichten und zum Lernen von Brai
 Der Braille Lern-Modus ist standardmäßig ausgeschaltet. Um den Lern-Modus zu starten, gehen Sie bitte folgendermaßen vor:
 
 1. Es muss eine PAC Mate PBD oder eine Focus Braillezeile am Computer angeschlossen sein.
-2. Drücken Sie **EINFÜGEN+V **, um die Schnelleinstellung zu öffnen.
+2. Drücken Sie **EINFÜGEN+V**, um die Schnelleinstellung zu öffnen.
 3. Im Sucheingabefeld geben Sie "Lernmodus" ohne Anführungsstriche ein.
-4. Drücken Sie **PFEIL RUNTER **, um zum Lernmodus in der Strukturansicht zu wechseln und drücken Sie dann ** LEERTASTE **, um den Lernmodus einzuschalten. Der Lern-Modus bleibt so lange eingeschaltet, bis Sie ihn wieder ausschalten oder JAWS neu gestartet wird.
+4. Drücken Sie **PFEIL RUNTER**, um zum Lernmodus in der Strukturansicht zu wechseln und drücken Sie dann **LEERTASTE**, um den Lernmodus einzuschalten. Der Lern-Modus bleibt so lange eingeschaltet, bis Sie ihn wieder ausschalten oder JAWS neu gestartet wird.
 
 ## Schneller Zugriff auf den Braille Lern-Modus
 
@@ -201,13 +201,13 @@ Ist der Braille Lern-Modus deaktiviert, dann können Sie jederzeit eine Cursor R
 
 Um den schnellen Zugriff auf den Braille Lern-Modus mit der Focus 40 Blue oder der Focus 14 Blue Braillezeile zu nutzen, gehen Sie wie folgt vor:
 
-- Drücken Sie **MODUS+CURSORROUTING **, damit JAWS das Braillesymbol im Zeilenmodul ansagt, oder
-- Drücken Sie **CURSORROUTING+AUSWAHLTASTE **, damit JAWS das Braillewort ansagt und buchstabiert.
+- Drücken Sie **MODUS+CURSORROUTING**, damit JAWS das Braillesymbol im Zeilenmodul ansagt, oder
+- Drücken Sie **CURSORROUTING+AUSWAHLTASTE**, damit JAWS das Braillewort ansagt und buchstabiert.
 
 Um den schnellen Zugriff auf den Braille Lern-Modus mit der PAC Mate Braillezeile, der klassischen Focus 40 Blue und den Focus 40 und 80 zu nutzen, gehen Sie wie folgt vor:
 
-- Drücken Sie **SCROLLRAD+CURSORROUTING **, damit JAWS das Braillesymbol im Zeilenmodul ansagt, oder
-- Drücken Sie **SCROLLRAD+NAVIGATIONSTASTE **, damit JAWS das Braillewort ansagt und buchstabiert.
+- Drücken Sie **SCROLLRAD+CURSORROUTING**, damit JAWS das Braillesymbol im Zeilenmodul ansagt, oder
+- Drücken Sie **SCROLLRAD+NAVIGATIONSTASTE**, damit JAWS das Braillewort ansagt und buchstabiert.
 
 **Hinweis:** JAWS arbeitet nach dem Lesen des Braillesymbols oder -wortes normal weiter.
 
@@ -219,7 +219,7 @@ Der JAWS Braillebetrachter ist ein Programm, das alles visuell in Textform auf d
 
 Der Braillebetrachter gibt die Anzahl der Zellen der aktuell eingesetzten Braillezeile wieder, sofern eine angeschlossen und aktiv ist. Beachten Sie bitte, dass der Braillebetrachter standardmäßig 40 Zellen anzeigt, wenn keine Braillezeile installiert ist, oder wenn diese nicht angeschlossen oder ausgeschaltet ist.
 
-Um den Braillebetrachter zu aktivieren, navigieren Sie in das Menü Hilfsprogramm im JAWS Programmfenster, öffnen Sie das Untermenü Braille- und Textbetrachter und wählen Sie dann den Eintrag Braillebetrachter am Bildschirm anzeigen. Sie können auch die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE **, gefolgt von ** B ** und dann ** B ** drücken, um den Braillebetrachter zwischen Ein oder Aus umzuschalten.
+Um den Braillebetrachter zu aktivieren, navigieren Sie in das Menü Hilfsprogramm im JAWS Programmfenster, öffnen Sie das Untermenü Braille- und Textbetrachter und wählen Sie dann den Eintrag Braillebetrachter am Bildschirm anzeigen. Sie können auch die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **B** und dann **B** drücken, um den Braillebetrachter zwischen Ein oder Aus umzuschalten.
 
 Aktiviert erscheint ein Fenster am oberen Rand des Bildschirms, welches exakt das anzeigt, was an die Zellen der Braillezeile gesendet wird. Der Braillebetrachter verkleinert Ihr Anwendungsfenster, um zu vermeiden, dass irgendein Bereich überdeckt wird, den man vielleicht zum Arbeiten braucht, und wird der Braillebetrachter geschlossen, dann wird das Fenster wieder auf Vollbild geschaltet. Sie können festlegen, ob das Fenster am unteren Rand des Bildschirms angezeigt werden soll und Sie können auch die Schriftart, die Schriftgröße und die Vorder- und Hintergrundfarbe des angezeigten Textes anpassen.
 
@@ -231,13 +231,13 @@ Um die Einstellungen des Braillebetrachters zu konfigurieren, navigieren Sie in 
 
 ## Braillebetrachter Befehle
 
-Drücken Sie **EINFÜGEN+LEERTASTE **, gefolgt von ** B **, um die Ebene für den Braille- und Textbetrachter zu aktivieren. Nachdem Sie diese Ebene aktiviert haben, stehen folgende Befehle zur Verfügung:
+Drücken Sie **EINFÜGEN+LEERTASTE**, gefolgt von **B**, um die Ebene für den Braille- und Textbetrachter zu aktivieren. Nachdem Sie diese Ebene aktiviert haben, stehen folgende Befehle zur Verfügung:
 
-- Braillebetrachter ein- oder ausblenden **B **
-- Ausschnitt nach links: **PFEIL LINKS **
-- Ausschnitt nach rechts: **PFEIL RECHTS **
-- Vorherige Zeile: **PFEIL RAUF **
-- Nächste Zeile: **PFEIL RUNTER **
+- Braillebetrachter ein- oder ausblenden **B**
+- Ausschnitt nach links: **PFEIL LINKS**
+- Ausschnitt nach rechts: **PFEIL RECHTS**
+- Vorherige Zeile: **PFEIL RAUF**
+- Nächste Zeile: **PFEIL RUNTER**
 
 **Hinweis:** Diese Ebene bleibt aktiviert, während Sie Befehle zum Schwenken oder zur Zeilennavigieren verwenden.
 
@@ -253,13 +253,13 @@ Mit BrailleIn werden Ihre Eingaben umgehend in der aktuellen E-Mail, im Dokument
 
 Die Eingabe in Computer-Braille ist standardmäßig ausgewählt. Um die Braillekurzschrift zu verwenden, gehen Sie bitte folgendermaßen vor:
 
-1. Drücken Sie **EINFÜGEN+F2 ** und wählen Sie Einstellungsverwaltung.
-2. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D **, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste Anwendungen.
+1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung.
+2. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste Anwendungen.
 3. Im Sucheingabefeld geben Sie "Übersetzung" ohne Anführungsstriche ein.
-4. Drücken Sie **PFEIL RUNTER **, um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen und drücken Sie dann ** EINGABE **, um den Fokus direkt in die Gruppe Übersetzung zu platzieren. Mit ** PFEIL RECHTS ** erweitern Sie die Gruppe.
-5. Drücken Sie **LEERTASTE **, um durch die einzelnen Einstellungen in der Ausklappliste Ausgabe zu schalten, um den Modus zum Lesen von Braille auf Ihrer Braillezeile festzulegen.
+4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen und drücken Sie dann **EINGABE**, um den Fokus direkt in die Gruppe Übersetzung zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.
+5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einstellungen in der Ausklappliste Ausgabe zu schalten, um den Modus zum Lesen von Braille auf Ihrer Braillezeile festzulegen.
   Die erste Option ist immer Computer Braille. Die anderen zur Verfügung stehenden Einstellungen hängen von der aktuell gewählten Sprache ab. Wenn beispielsweise die Sprache auf Deutsch - Deutschland gesetzt ist, was der Standardeinstellung entspricht, dann sind die verfügbaren Ausgabemodi Deutsch Basisschrift, Deutsch Vollschrift und Deutsch Kurzschrift. Wenn Sie die Sprache auf US Englisch einstellen, dann stehen Ihnen Amerikanisches Englisch Grade 1, Amerikanisches Englisch Grade 2, Vereinheitlichtes Englisch Braille Grade 1 und Vereinheitlichtes Englisch Braille Grade 2 zur Verfügung.
-6. Drücken Sie **LEERTASTE **, um durch die einzelnen Einstellungen in der Ausklappliste Eingabe zu schalten, um den Eingabemodus für die Brailleeingabe über die Perkins-Tastatur Ihrer Braillezeile festzulegen.
+6. Drücken Sie **LEERTASTE**, um durch die einzelnen Einstellungen in der Ausklappliste Eingabe zu schalten, um den Eingabemodus für die Brailleeingabe über die Perkins-Tastatur Ihrer Braillezeile festzulegen.
   Die erste Option ist immer Computer Braille. Die anderen zur Verfügung stehenden Einstellungen hängen vom aktuell gewählten Ausgabemodus ab. Wenn Sie beispielsweise ausgewählt haben, dass Braille in Deutsch Kurzschrift angezeigt wird, dann können Sie für die Eingabe entweder Computerbraille oder Deutsch Kurzschrift wählen. Diese Einstellung ist nicht verfügbar, wenn der gewählte Ausgabemodus Computer Braille ist, oder wenn der gewählte Ausgabemodus keine Eingabe unterstützt.
 7. Wählen Sie OK, um Ihre Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
 
@@ -270,9 +270,9 @@ Quelle: JAWS_BrailleIn.htm
 Die folgenden Braillesymbole werden im strukturierten Modus verwendet, um die unterschiedlichen Steuerelemente zu kennzeichnen. All diese Symbole können Sie im Dialog Optionen für Elementtypen der Einstellungsverwaltung ändern. Um diesen Dialog zu öffnen, gehen Sie bitte folgendermaßen vor:
 
 1. Öffnen Sie die Einstellungsverwaltung und geben Sie "Strukturierten Modus erweitern" im Sucheingabefeld ohne Anführungsstriche ein.
-2. Drücken Sie **PFEIL RUNTER **, um zu Erweitert in den gefilterten Suchergebnissen der Strukturansicht zu gelangen.
-3. Drücken Sie die **LEERTASTE **. Das Dialogfeld Optionen für Elementtypen wird geöffnet.
-4. Drücken Sie **STRG+TAB **, um zwischen den Registerkarten Elementeigenschaften, Statuseigenschaften und HTML Attribute zu wechseln. Lesen Sie [Strukturierten Modus definieren](SettingsCenter.chm::/Braille/General/defining_structured_mode.htm), um mehr Informationen über diese Registerkarten zu erhalten.
+2. Drücken Sie **PFEIL RUNTER**, um zu Erweitert in den gefilterten Suchergebnissen der Strukturansicht zu gelangen.
+3. Drücken Sie die **LEERTASTE**. Das Dialogfeld Optionen für Elementtypen wird geöffnet.
+4. Drücken Sie **STRG+TAB**, um zwischen den Registerkarten Elementeigenschaften, Statuseigenschaften und HTML Attribute zu wechseln. Lesen Sie [Strukturierten Modus definieren](SettingsCenter.chm::/Braille/General/defining_structured_mode.htm), um mehr Informationen über diese Registerkarten zu erhalten.
 
 Die folgenden Tabellen enthalten die Braillesymbole.
 
@@ -414,7 +414,7 @@ Es gibt zwei Einstellungen, die festlegen, wie eine Braillezeile den Cursor, ode
 
 Jede dieser Einstellungen kann dauerhaft über die Einstellungsverwaltung oder temporär über die Schnelleinstellung geändert werden. Für weitere Informationen lesen Sie bitte [Brailleeinstellungen anpassen](braille/adjust_braille_options.htm).
 
-Es gibt auch Befehle, mit denen diese Einstellung über Tasten der meisten Braillezeilen umgeschaltet werden können. Bei einer Focus Braillezeile drücken Sie zum Beispiel **T **, um den aktiven Cursor an den Braillecursor zu koppeln, und ** F **, um den Braillecursor an den aktiven Cursor zu koppeln. Werden diese Befehle genutzt, dann bleiben diese Einstellungen solange aktiv, bis Sie die Einstellung erneut umschalten, oder wenn Sie JAWS schließen und erneut starten. Lesen Sie auch das JAWS Hilfethema für die von Ihnen verwendete Braillezeile, um die speziellen Befehle zum Umschalten dieser Einstellung zu erfahren.
+Es gibt auch Befehle, mit denen diese Einstellung über Tasten der meisten Braillezeilen umgeschaltet werden können. Bei einer Focus Braillezeile drücken Sie zum Beispiel **T**, um den aktiven Cursor an den Braillecursor zu koppeln, und **F**, um den Braillecursor an den aktiven Cursor zu koppeln. Werden diese Befehle genutzt, dann bleiben diese Einstellungen solange aktiv, bis Sie die Einstellung erneut umschalten, oder wenn Sie JAWS schließen und erneut starten. Lesen Sie auch das JAWS Hilfethema für die von Ihnen verwendete Braillezeile, um die speziellen Befehle zum Umschalten dieser Einstellung zu erfahren.
 
 ## Weitere Informationen
 
@@ -459,20 +459,20 @@ JAWS verwendet automatisch den geeigneten Modus, je nachdem, was Sie gerade lese
 
 Insbesondere in Excel wird ausschließlich der Zugeschnittene Modus zum Lesen von Tabellenkalkulationen verwendet, und ein Wechsel zwischen den Modi ist nicht möglich. Dadurch können Spalten- und Zeilendaten zusammen mit ihren Koordinaten in Arbeitsblättern und Tabellen korrekt angezeigt werden. Außerdem bleiben die Zellüberschriften oben auf dem Bildschirm fixiert, während die übrigen Zeilen mit den Zeilen und Koordinaten der aktiven Zelle aktualisiert werden, während Sie navigieren. Wenn Monitorzellen in den JAWS-Schnelleinstellungen definiert wurden, werden diese ebenfalls zur schnellen Referenz in der letzten Zeile angezeigt.
 
-Um den aktiven Modus zu bestätigen, drücken Sie **ALT+EINFÜGEN+V **, um das Dialogfeld Braille-Ansicht auswählen zu öffnen. Der aktuell verwendete Modus wird in der Liste ausgewählt. Da JAWS den Modus automatisch entsprechend dem Lesekontext umschaltet, sollten Sie den Lesemodus nur unter ganz bestimmten Umständen manuell einstellen müssen. Beispielsweise möchten Sie möglicherweise vorübergehend den zugeschnittenen Modus verwenden, um die vertikale Ausrichtung einer Liste in Microsoft Word zu überprüfen.
+Um den aktiven Modus zu bestätigen, drücken Sie **ALT+EINFÜGEN+V**, um das Dialogfeld Braille-Ansicht auswählen zu öffnen. Der aktuell verwendete Modus wird in der Liste ausgewählt. Da JAWS den Modus automatisch entsprechend dem Lesekontext umschaltet, sollten Sie den Lesemodus nur unter ganz bestimmten Umständen manuell einstellen müssen. Beispielsweise möchten Sie möglicherweise vorübergehend den zugeschnittenen Modus verwenden, um die vertikale Ausrichtung einer Liste in Microsoft Word zu überprüfen.
 
 ## Einstellungen für den Zugeschnittenen Modus konfigurieren
 
 Wenn der Zugeschnittene Modus aktiv ist, stehen zusätzliche Einstellungen zur Verfügung, mit denen Sie die Anzeige strukturierter Inhalte anpassen können.
 
-1. Drücken Sie **ALT+EINFÜGEN+V **, um den Dialog Braille-Ansicht auswählen zu öffnen.
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
 2. Wählen Sie Optionen.
-3. Navigieren Sie zu einer der folgenden Optionen und ändern Sie die Einstellungen mit der **LEERTASTE **.
+3. Navigieren Sie zu einer der folgenden Optionen und ändern Sie die Einstellungen mit der **LEERTASTE**.
 
-- **Ausrichtungsbegrenzer ** - Nützlich beim Anzeigen einer CSV-Datei (Komma-getrennte-Werte) in Notepad oder einem anderen Texteditor. Damit können Sie das Zeichen auswählen, welches die Grenze zwischen den Spalten darstellt. Verfügbare Optionen sind Keine Ausrichtung, Tabulatorzeichen, Komma, Vertikaler Balken oder Semikolon. Wenn Sie beispielsweise eine Reihe von durch Kommas getrennten Zahlen gefolgt von einer Reihe größerer Zahlen haben, sorgt die Wahl des Kommas als Trennzeichen dafür, dass alles korrekt auf dem Display ausgerichtet wird.
-    - **Spaltenanzeiger ** - Verwenden Sie diese Option, um auszuwählen, ob die Spaltentrennzeichenanzeige (Punkte 4-5-6-8) in Excel-Tabellen oder für Tabellen in Microsoft Word und Google Docs angezeigt werden soll.
-    - **Punkte zur Orientierung ** - Wenn diese Option aktiviert ist, wird eine Reihe von drei Punkten angezeigt, die zu der rechtsbündigen Nummer führen, ähnlich wie in einem Inhaltsverzeichnis. Nützlich, wenn die Finger eines Schülers beim Lesen von Zahlenkolonnen dazu neigen, von der aktuellen Zeile abzuweichen.
-4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE **, um den Dialog zu schließen.
+- **Ausrichtungsbegrenzer** - Nützlich beim Anzeigen einer CSV-Datei (Komma-getrennte-Werte) in Notepad oder einem anderen Texteditor. Damit können Sie das Zeichen auswählen, welches die Grenze zwischen den Spalten darstellt. Verfügbare Optionen sind Keine Ausrichtung, Tabulatorzeichen, Komma, Vertikaler Balken oder Semikolon. Wenn Sie beispielsweise eine Reihe von durch Kommas getrennten Zahlen gefolgt von einer Reihe größerer Zahlen haben, sorgt die Wahl des Kommas als Trennzeichen dafür, dass alles korrekt auf dem Display ausgerichtet wird.
+    - **Spaltenanzeiger** - Verwenden Sie diese Option, um auszuwählen, ob die Spaltentrennzeichenanzeige (Punkte 4-5-6-8) in Excel-Tabellen oder für Tabellen in Microsoft Word und Google Docs angezeigt werden soll.
+    - **Punkte zur Orientierung** - Wenn diese Option aktiviert ist, wird eine Reihe von drei Punkten angezeigt, die zu der rechtsbündigen Nummer führen, ähnlich wie in einem Inhaltsverzeichnis. Nützlich, wenn die Finger eines Schülers beim Lesen von Zahlenkolonnen dazu neigen, von der aktuellen Zeile abzuweichen.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
 
 Quelle: Multiline_Braille.htm
 
@@ -481,9 +481,9 @@ Quelle: Multiline_Braille.htm
 JAWS verwendet die Cursorroutingtasten auf Ihrer Braillezeile auch zum Markieren von Text. Gehen Sie folgendermaßen vor, wenn Sie Text markieren möchten:
 
 1. Bewegen Sie die Braillezeile so weit, bis der Text erscheint, den Sie markieren möchten.
-2. Halten Sie die **LINKE UMSCHALTTASTE ** gedrückt und drücken Sie die Cursorroutingtaste über dem Zeichen, welches Sie als Beginn der Auswahl verwenden möchten.
+2. Halten Sie die **LINKE UMSCHALTTASTE** gedrückt und drücken Sie die Cursorroutingtaste über dem Zeichen, welches Sie als Beginn der Auswahl verwenden möchten.
 3. Lesen Sie so lange weiter, bis Sie den Text erreicht haben, bei dem die Markierung enden soll.
-4. Halten Sie die **LINKE UMSCHALTTASTE ** gedrückt und drücken Sie die Cursorroutingtaste über dem Zeichen, welches Sie als Ende der Auswahl verwenden möchten. JAWS markiert dann den gesamten Text zwischen dem ersten und letzten Zeichen.
+4. Halten Sie die **LINKE UMSCHALTTASTE** gedrückt und drücken Sie die Cursorroutingtaste über dem Zeichen, welches Sie als Ende der Auswahl verwenden möchten. JAWS markiert dann den gesamten Text zwischen dem ersten und letzten Zeichen.
 
 Unterschiedliche Braillezeilen können über andere Methoden zum Textmarkieren verfügen. Lesen Sie die Dokumentation zu Ihrer speziellen Braillezeile, um eine Liste aller Befehle zu erhalten.
 
@@ -500,7 +500,7 @@ Mit der Freedom Scientific Funktion Braille-Teilung können Sie Inhalte aus zwei
 
 ## Auswahl einer geteilten Braille-Ansicht
 
-Um die geteilte Braille-Ansicht einzuschalten, drücken Sie **ALT+EINFÜGEN+V ** (** ALT+FESTSTELLTASTE+V ** im Laptop Layout), um das Dialogfenster Braille-Ansicht auswählen zu öffnen. Sobald sich dieses Dialogfenster öffnet, befinden Sie sich in einer Liste mit verfügbaren Ansichten. Wählen Sie die Ansicht, die Sie verwenden möchten und drücken Sie dann ** EINGABE **. Die aktive Ansicht bleibt für die aktuelle JAWS Sitzung bestehen. Wenn Sie JAWS neu starten, werden alle Standardeinstellungen wiederhergestellt, die vor der Aktivierung einer bestimmten Ansicht genutzt wurden.
+Um die geteilte Braille-Ansicht einzuschalten, drücken Sie **ALT+EINFÜGEN+V** (**ALT+FESTSTELLTASTE+V** im Laptop Layout), um das Dialogfenster Braille-Ansicht auswählen zu öffnen. Sobald sich dieses Dialogfenster öffnet, befinden Sie sich in einer Liste mit verfügbaren Ansichten. Wählen Sie die Ansicht, die Sie verwenden möchten und drücken Sie dann **EINGABE**. Die aktive Ansicht bleibt für die aktuelle JAWS Sitzung bestehen. Wenn Sie JAWS neu starten, werden alle Standardeinstellungen wiederhergestellt, die vor der Aktivierung einer bestimmten Ansicht genutzt wurden.
 
 Im Folgenden finden Sie eine Übersicht über die verfügbaren geteilten Ansichten, die im Dialogfeld Braille-Ansicht auswählen aufgeführt sind.
 
@@ -512,34 +512,34 @@ Bei mehrzeiligen Anzeigen wird Keine Teilung durch die Optionen Umgebrochener un
 
 ### Gepufferter Text
 
-Diese Ansicht erfasst den Text an der aktuellen Position und legt ihn in einem Puffer ab, der im Bereich 2 der geteilten Zeile angezeigt wird. Sobald der Puffer erstellt ist, können Sie zu einer anderen Stelle im aktuellen Dokument navigieren und sogar zu einem völlig anderen Dokument oder Anwendungen wechseln, während der gepufferte Text verfügbar bleibt. So können Sie beispielsweise Text auf einer Webseite puffern, mit **ALT+TAB ** zu einem geöffneten Dokument in Word oder im Editor wechseln und Ihr gepufferter Text bleibt in Region 2 Ihrer Braillezeile verfügbar.
+Diese Ansicht erfasst den Text an der aktuellen Position und legt ihn in einem Puffer ab, der im Bereich 2 der geteilten Zeile angezeigt wird. Sobald der Puffer erstellt ist, können Sie zu einer anderen Stelle im aktuellen Dokument navigieren und sogar zu einem völlig anderen Dokument oder Anwendungen wechseln, während der gepufferte Text verfügbar bleibt. So können Sie beispielsweise Text auf einer Webseite puffern, mit **ALT+TAB** zu einem geöffneten Dokument in Word oder im Editor wechseln und Ihr gepufferter Text bleibt in Region 2 Ihrer Braillezeile verfügbar.
 
 - Schnelles Vergleichen von Informationen zwischen zwei Quellen.
 - Halten Sie einen Textblock oder eine Zahlenfolge zum einfachen Nachschlagen bereit, damit Sie sich diese nicht merken müssen.
 - Behalten Sie beim Verfassen einer Antwort eine Prüfungsfrage oder eine mathematische Gleichung im Blick, wenn die Antwort an einer anderen Stelle als die Frage platziert werden muss.
 - Text bei der Recherche zu einem Thema verfügbar halten.
 
-Standardmäßig puffert diese Ansicht das aktuelle Dokument. Um den Textbereich, der gepuffert werden soll, zu ändern, öffnen Sie das Dialogfenster Braille-Ansicht auswählen, stellen Sie sicher, dass in der Liste der Ansichten **Gepufferter Text ** ausgewählt ist, wählen Sie dann ** Einstellungen ** und ändern Sie die ** Puffer-Einheit **. Die Auswahlmöglichkeiten sind:
+Standardmäßig puffert diese Ansicht das aktuelle Dokument. Um den Textbereich, der gepuffert werden soll, zu ändern, öffnen Sie das Dialogfenster Braille-Ansicht auswählen, stellen Sie sicher, dass in der Liste der Ansichten **Gepufferter Text** ausgewählt ist, wählen Sie dann **Einstellungen** und ändern Sie die **Puffer-Einheit**. Die Auswahlmöglichkeiten sind:
 
-- **Absatz **: Puffert den aktuellen Absatz.
-- **Dokument **: Puffert bis zu 64 KB des aktuellen Dokuments.
-- **Gewählten Text **: Puffert jeden aktuell gewählten Text.
-  Beachten Sie, dass der ausgewählte Text in Bereich 2 nicht automatisch aktualisiert wird, wenn sich die Auswahl ändert. Wenn Sie einen anderen Text auswählen, dann müssen Sie im Dialogfenster Braille-Ansicht auswählen wieder **Gepufferter Text ** wählen und dann ** Gewählten Text ** im Einstellungsdialog wählen, um den Puffer zu aktualisieren.
-- **Zwischenablagetext **: Puffert den Inhalt der Windows-Zwischenablage, so dass Sie den zweiten Bereich effektiv als Notizenbereich nutzen können, in dem Sie Inhalte von verschiedenen Positionen einbringen und leicht darauf verweisen können. So können Sie beispielsweise Text mit ** STRG+C ** kopieren, weiteren Text von anderen Quellen auswählen und mit ** EINFÜGEN+WINDOWS+C ** an die Zwischenablage anhängen, dann die Ansicht Gepufferten Text aktivieren und Zwischenablagetext auswählen, um alle Ihrer gesammelten Informationen im Bereich 2 anzuzeigen und nach Bedarf zu verwenden.
+- **Absatz**: Puffert den aktuellen Absatz.
+- **Dokument**: Puffert bis zu 64 KB des aktuellen Dokuments.
+- **Gewählten Text**: Puffert jeden aktuell gewählten Text.
+  Beachten Sie, dass der ausgewählte Text in Bereich 2 nicht automatisch aktualisiert wird, wenn sich die Auswahl ändert. Wenn Sie einen anderen Text auswählen, dann müssen Sie im Dialogfenster Braille-Ansicht auswählen wieder **Gepufferter Text** wählen und dann **Gewählten Text** im Einstellungsdialog wählen, um den Puffer zu aktualisieren.
+- **Zwischenablagetext**: Puffert den Inhalt der Windows-Zwischenablage, so dass Sie den zweiten Bereich effektiv als Notizenbereich nutzen können, in dem Sie Inhalte von verschiedenen Positionen einbringen und leicht darauf verweisen können. So können Sie beispielsweise Text mit **STRG+C** kopieren, weiteren Text von anderen Quellen auswählen und mit **EINFÜGEN+WINDOWS+C** an die Zwischenablage anhängen, dann die Ansicht Gepufferten Text aktivieren und Zwischenablagetext auswählen, um alle Ihrer gesammelten Informationen im Bereich 2 anzuzeigen und nach Bedarf zu verwenden.
 
-Um den Puffer zu aktualisieren, öffnen Sie das Dialogfeld Braille-Ansicht auswählen und wählen Sie erneut die Option **Gepufferter Text **, um den Puffer mit den neuesten Inhalten zu aktualisieren. Aklternativ öffnen Sie das Dialogfenster Teilungs-Ansicht auswählen, stellen sicher, dass ** Gepufferter Text ** ausgewählt ist, wählen Sie ** Einstellungen ** und wählen Sie dann die Einstellung ** Zwischengespeichertes Dokument mit Eingabetaste aktualisieren **. Sobald diese Funktion aktiviert ist, wird das aktuelle Dokument gepuffert und der Puffer wird automatisch mit dem neuesten Text aktualisiert, sobald Sie die ** Eingabetaste ** drücken. Dies ist in Situationen nützlich, in denen der Puffer während der Eingabe ständig aktualisiert werden soll.
+Um den Puffer zu aktualisieren, öffnen Sie das Dialogfeld Braille-Ansicht auswählen und wählen Sie erneut die Option **Gepufferter Text**, um den Puffer mit den neuesten Inhalten zu aktualisieren. Aklternativ öffnen Sie das Dialogfenster Teilungs-Ansicht auswählen, stellen sicher, dass **Gepufferter Text** ausgewählt ist, wählen Sie **Einstellungen** und wählen Sie dann die Einstellung **Zwischengespeichertes Dokument mit Eingabetaste aktualisieren**. Sobald diese Funktion aktiviert ist, wird das aktuelle Dokument gepuffert und der Puffer wird automatisch mit dem neuesten Text aktualisiert, sobald Sie die **Eingabetaste** drücken. Dies ist in Situationen nützlich, in denen der Puffer während der Eingabe ständig aktualisiert werden soll.
 
-Sie verwenden beispielsweise ein Word-Dokument, um ein komplexes mathematisches Problem Schritt für Schritt zu lösen, wobei jeder Schritt in eine eigene Zeile gesetzt wird. In diesem Fall wird nach der Eingabe des mathematischen Ausdrucks für einen Schritt und dem Drücken von **ENTER ** der neueste mathematische Inhalt in den Puffer im Bereich 2 eingefügt. Während Sie mit der Lösung des Problems fortfahren, können Sie unabhängig voneinander durch den Puffer blättern, um Ihre Arbeit zu überprüfen, während Sie weiterhin an der aktuellen Position im aktiven Dokument bleiben.
+Sie verwenden beispielsweise ein Word-Dokument, um ein komplexes mathematisches Problem Schritt für Schritt zu lösen, wobei jeder Schritt in eine eigene Zeile gesetzt wird. In diesem Fall wird nach der Eingabe des mathematischen Ausdrucks für einen Schritt und dem Drücken von **ENTER** der neueste mathematische Inhalt in den Puffer im Bereich 2 eingefügt. Während Sie mit der Lösung des Problems fortfahren, können Sie unabhängig voneinander durch den Puffer blättern, um Ihre Arbeit zu überprüfen, während Sie weiterhin an der aktuellen Position im aktiven Dokument bleiben.
 
 ### Anmerkungen
 
 Diese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.
 
-**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf ** Markup: alle ** einstellen.
+**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.
 
 ### Attributkennzeichen
 
-In dieser Ansicht wird der Text der aktuellen Zeile in der ersten Region angezeigt, während alle Textattribute wie fett, kursiv oder unterstrichen, die der aktuellen Zeile entsprechen, in der zweiten Region angezeigt werden. Das Drücken einer **Cursorroutingtaste ** auf einem Attribut bewegt den Cursor automatisch zu dem Zeichen, das mit dem Attribut übereinstimmt. Beim Navigieren durch das Dokument werden auch die Attribute aktualisiert.
+In dieser Ansicht wird der Text der aktuellen Zeile in der ersten Region angezeigt, während alle Textattribute wie fett, kursiv oder unterstrichen, die der aktuellen Zeile entsprechen, in der zweiten Region angezeigt werden. Das Drücken einer **Cursorroutingtaste** auf einem Attribut bewegt den Cursor automatisch zu dem Zeichen, das mit dem Attribut übereinstimmt. Beim Navigieren durch das Dokument werden auch die Attribute aktualisiert.
 
 Bei Verwendung dieser Ansicht auf einer mehrzeiligen Braillezeile werden Attribute direkt unterhalb der aktiven Zeile angezeigt, die den zugehörigen Text enthält, ohne dass dazwischen ein Trennzeichen steht. Wenn Sie sich beispielsweise in einem Dokument auf einer Zeile befinden, die sowohl fettgedruckten als auch normalen Text enthält, können Sie Ihre Finger zwischen der aktiven Zeile und der darunter liegenden Zeile bewegen, um die Textattribute schnell zu überprüfen.
 
@@ -559,7 +559,7 @@ Wenn diese Ansicht aktiviert ist, dann zeigt die erste Region den aktuell fokuss
 
 Diese Ansicht ist vorteilhaft für Lehrer, Studenten und andere Benutzer, die die Brailleschrift lernen, da sie zwei verschiedene Übersetzungsausgaben des aktuellen Textes anzeigt. Wenn JAWS z.B. so konfiguriert ist, dass deutsche Braillekurzschrift verwendet wird, dann wird dies in der ersten Anzeigeregion angezeigt, während die Darstellung in Computerbraille desselben Textes in der zweiten Region angezeigt wird.
 
-Um die in der zweiten Region angezeigte Übersetzungsausgabe anzupassen, öffnen Sie das Dialogfenster Braille-Ansicht auswählen, stellen Sie sicher, dass in der Liste der Ansichten die Option **Übersetzungsteilung ** ausgewählt ist, aktivieren Sie dann den Schalter ** Einstellungen ** und wählen Sie aus der Liste ** Geteilte Übersetzung Region 2 ** den gewünschten Übersetzungsmodus. Standardmäßig ist Computerbraille ausgewählt. Die übrigen Auswahlmöglichkeiten hängen von Ihrem derzeit konfigurierten Übersetzungsausgabemodus und Ihrem derzeit aktiven Braille-Sprachprofil ab.
+Um die in der zweiten Region angezeigte Übersetzungsausgabe anzupassen, öffnen Sie das Dialogfenster Braille-Ansicht auswählen, stellen Sie sicher, dass in der Liste der Ansichten die Option **Übersetzungsteilung** ausgewählt ist, aktivieren Sie dann den Schalter **Einstellungen** und wählen Sie aus der Liste **Geteilte Übersetzung Region 2** den gewünschten Übersetzungsmodus. Standardmäßig ist Computerbraille ausgewählt. Die übrigen Auswahlmöglichkeiten hängen von Ihrem derzeit konfigurierten Übersetzungsausgabemodus und Ihrem derzeit aktiven Braille-Sprachprofil ab.
 
 Wenn JAWS zum Beispiel so konfiguriert ist, dass es Text in Kurzschrift anzeigt, dann können Sie wählen, ob Sie Computerbraille, oder eine andere Kurzschriftvariante in Region zwei anzeigen möchten.
 
@@ -588,31 +588,31 @@ Für Excel, Outlook, PowerPoint und Teams stehen zusätzliche anwendungsabhängi
 
 Sie können die Position des Bereichs, der den geteilten Inhalt enthält, anpassen.
 
-1. Drücken Sie **ALT+EINFÜGEN+V **, um den Dialog Braille-Ansicht auswählen zu öffnen.
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
 2. Wählen Sie Optionen.
-3. Navigieren Sie in der Liste der Optionen zu Geteilte Daten anzeigen und verwenden Sie die **LEERTASTE **, um die Einstellung umzuschalten.
+3. Navigieren Sie in der Liste der Optionen zu Geteilte Daten anzeigen und verwenden Sie die **LEERTASTE**, um die Einstellung umzuschalten.
 
 - Bei einzeiligen Braillezeilen können Sie wählen, ob der geteilte Bereich rechts (Standardeinstellung) oder links angezeigt werden soll.
     - Bei mehrzeiligen Braillezeilen können Sie wählen, ob der geteilte Bereich unten (Standardeinstellung), oben oder unterhalb der aktiven Zeile mit dem Cursor angezeigt werden soll.
-4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE **, um den Dialog zu schließen.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
 
 ## Konfigurieren des Trennzeichens
 
 Sie können wählen, ob die Zeichen, die die Trennung zwischen den beiden Anzeigebereichen anzeigen, angezeigt werden sollen oder nicht.
 
-1. Drücken Sie **ALT+EINFÜGEN+V **, um den Dialog Braille-Ansicht auswählen zu öffnen.
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
 2. Wählen Sie Optionen.
-3. Navigieren Sie in der Liste der Optionen zu Trennungslinie anzeigen und verwenden Sie die **LEERTASTE **, um die Einstellung umzuschalten. Diese Einstellung ist standardmäßig aktiviert.
-4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE **, um den Dialog zu schließen.
+3. Navigieren Sie in der Liste der Optionen zu Trennungslinie anzeigen und verwenden Sie die **LEERTASTE**, um die Einstellung umzuschalten. Diese Einstellung ist standardmäßig aktiviert.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
 
 ## Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)
 
 Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:
 
-1. Drücken Sie **ALT+EINFÜGEN+V **, um den Dialog Braille-Ansicht auswählen zu öffnen.
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
 2. Wählen Sie Optionen.
-3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE ** die Anzahl der Zeilen aus.
-4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE **, um den Dialog zu schließen.
+3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
 
 ## Braillezeilenbefehle für die Braille-Teilung
 
@@ -672,7 +672,7 @@ Quelle: Split_Braille.htm
 
 ## Statuszellen
 
-Die meisten Braillezeilen verfügen über **Statuszellen **, die sich im allgemeinen auf der linken Seite der Braillezeile befinden. Diese Zellen erweitern auf hervorragende Weise das Lesen mit Braille und das Erkennen von Textformatierungen. Die Anzahl der Statuszellen auf Ihrer Braillezeile beeinflusst die Art und den Umfang der angezeigten Informationen.
+Die meisten Braillezeilen verfügen über **Statuszellen**, die sich im allgemeinen auf der linken Seite der Braillezeile befinden. Diese Zellen erweitern auf hervorragende Weise das Lesen mit Braille und das Erkennen von Textformatierungen. Die Anzahl der Statuszellen auf Ihrer Braillezeile beeinflusst die Art und den Umfang der angezeigten Informationen.
 
 Wenn Ihre Braillezeile über fünf Statuszellen verfügt, zeigen die Zellen 1 bis 3 Ihre horizontale (x-Achse) Pixelposition (wenn Sie einen Bildschirmcursor verwenden), die Zeilennummer (wenn Sie den virtuellen Cursor verwenden) und/oder die Indexnummer der Sprachausgabe (wenn Sie den Sprachausgabemodus verwenden) an. Die vierte Zelle meldet den aktiven Cursor: PC Cursor (p), Virtueller Cursor (v), JAWS Cursor (j), Unsichtbarer Cursor (i) oder Braillecursor (b). Die fünfte Zelle meldet den aktiven Braillemodus: Fläche (l), Strukturiert (s), Sprachausgabe (x) oder Attribut (i).
 
@@ -680,19 +680,19 @@ Wenn Ihre Braillezeile über vier Statuszellen verfügt, zeigt JAWS die gleichen
 
 Wenn Sie ein Element im Strukturierten Modus fokussieren, dann wir der Elementtyp standardmäßig in den Statuszellen angezeigt. Beispielsweise wird kf für Kontrollfeld oder sltr für Schalter angezeigt, wenn Sie auf diesen Steuerelementtypen landen. Wenn Sie auf mehrere Typen treffen, die in den Statuszellen angezeigt werden müssen, dann werden die Symbole für jeden einzelnen Typ mit einem einzelnen Zeichen kombiniert, damit diese in die Statuszellen der Braillezeile passen. Wenn Sie zum Beispiel innerhalb eines Links auf eine Grafik treffen, dann würden Sie ilnk angezeigt bekommen. Wenn die Grafik Teil einer Überschrift der Ebene 1 ist, dann würden Sie iü1 sehen. Wenn der grafische Link Teil einer Überschrift der Ebene 2 wäre, dann würden Sie ilü2 sehen, wenn die Braillezeile über 4 Statuszellen verfügt, oder nur ilü, wenn die Braillezeile nur über drei Statuszellen verfügt.
 
-Zusammen mit den Statuszellen zeigen die **Punkte 7 ** und ** 8 ** an, ob es auf der aktuellen Zeile mehr Text gibt als auf der Braillezeile dargestellt werden kann.
+Zusammen mit den Statuszellen zeigen die **Punkte 7** und **8** an, ob es auf der aktuellen Zeile mehr Text gibt als auf der Braillezeile dargestellt werden kann.
 
 Beispiel:
 
-- Wenn die **Punkte 7 ** und ** 8 ** in allen Zellen auf Ihrer Braillezeile gesetzt sind, dann wird die strukturierte oder aktuelle Textzeile vollständig dargestellt.
-- Wenn der Text nur auf einer Seite Ihrer Braillezeile angezeigt wird, dann sind die **Punkte 7 ** und ** 8 ** auf den Statuszellen für jene Seite gesetzt, und für die andere nicht.
-- Wenn noch eine weitere Textzeile auf der rechten Seite der Braillezeile angezeigt werden soll, dann sind die **Punkte 7 ** und ** 8 ** in der letzten Statuszelle nicht gesetzt.
-- Wenn zwei oder mehr komplette Textzeilen auf der rechten Seite Ihrer Braillezeile angezeigt werden sollen, dann sind die **Punkte 7 ** und ** 8 ** in den letzten beiden Statuszellen nicht gesetzt.
-- Ein blinkender **Punkt 7 ** und ein blinkender ** Punkt 8 ** kennzeichnen die Position der Statuszelle und des Braillecursors, die dem Zeichen auf dem Bildschirm entspricht.
+- Wenn die **Punkte 7** und **8** in allen Zellen auf Ihrer Braillezeile gesetzt sind, dann wird die strukturierte oder aktuelle Textzeile vollständig dargestellt.
+- Wenn der Text nur auf einer Seite Ihrer Braillezeile angezeigt wird, dann sind die **Punkte 7** und **8** auf den Statuszellen für jene Seite gesetzt, und für die andere nicht.
+- Wenn noch eine weitere Textzeile auf der rechten Seite der Braillezeile angezeigt werden soll, dann sind die **Punkte 7** und **8** in der letzten Statuszelle nicht gesetzt.
+- Wenn zwei oder mehr komplette Textzeilen auf der rechten Seite Ihrer Braillezeile angezeigt werden sollen, dann sind die **Punkte 7** und **8** in den letzten beiden Statuszellen nicht gesetzt.
+- Ein blinkender **Punkt 7** und ein blinkender **Punkt 8** kennzeichnen die Position der Statuszelle und des Braillecursors, die dem Zeichen auf dem Bildschirm entspricht.
 
 Sie können auch auswählen, dass die Systemzeit in den Statuszellen angezeigt wird, wo diese fortlaufend aktualisiert wird. Eine laufende Uhr direkt auf der Braillezeile kann nützlich sein, wenn Sie eine Präsentation halten oder bis zu einer bestimmten Zeit sprechen müssen, so dass Sie die Zeit schnell überprüfen können, ähnlich wie ein Benutzer, der auf die Bildschirmuhr schaut.
 
-Um die Anzeige der Uhrzeit in den Statuszellen ein- oder auszuschalten, drücken Sie **EINFÜGEN+UMSCHALT+F12 **, oder ** LINKE UMSCHALT+RECHTE UMSCHALT+PUNKTE 1-2-3 **, wenn Sie eine Fokus Braillezeile verwenden. Um diese Funktion zu aktivieren, können Sie auch das Kontrollfeld Zeit in Statuszellen anzeigen in der Einstellungsverwaltung verwenden. Wenn Ihre Statuszellen deaktiviert sind, werden sie durch das Einschalten dieser Funktion vorübergehend aktiviert, bis Sie die Funktion wieder ausschalten. Das Ein- und Ausschalten der Uhrzeitanzeige wirkt sich auf alle Anwendungen aus.
+Um die Anzeige der Uhrzeit in den Statuszellen ein- oder auszuschalten, drücken Sie **EINFÜGEN+UMSCHALT+F12**, oder **LINKE UMSCHALT+RECHTE UMSCHALT+PUNKTE 1-2-3**, wenn Sie eine Fokus Braillezeile verwenden. Um diese Funktion zu aktivieren, können Sie auch das Kontrollfeld Zeit in Statuszellen anzeigen in der Einstellungsverwaltung verwenden. Wenn Ihre Statuszellen deaktiviert sind, werden sie durch das Einschalten dieser Funktion vorübergehend aktiviert, bis Sie die Funktion wieder ausschalten. Das Ein- und Ausschalten der Uhrzeitanzeige wirkt sich auf alle Anwendungen aus.
 
 Um die Darstellung der Uhr zu ändern, öffnen Sie die Einstellungsverwaltung, suchen Sie nach "uhr" und verwenden Sie die folgenden Optionen:
 
@@ -701,7 +701,7 @@ Um die Darstellung der Uhr zu ändern, öffnen Sie die Einstellungsverwaltung, s
 
 Beide Einstellungen können für eine jeweilige Anwendung konfiguriert werden. So können Sie beispielsweise in einer Anwendung das Zeitformat auf Minuten und Sekunden nutzen, in allen anderen Anwendungen aber Stunden und Minuten beibehalten.
 
-Wenn Sie es vorziehen, die Uhr nicht ständig anzuzeigen, können Sie auf den meisten Braillezeilen durch Drücken der **Cursorroutingtaste ** über dem Statuszellenbereich kurz die Uhrzeit als Blitzmeldung anzeigen und dann zur aktuellen Anzeige zurückkehren. Wenn die Uhr gerade angezeigt wird, kann auch eine ** Cursorroutingtaste ** über einer Statuszelle gedrückt werden, damit das, was normalerweise angezeigt wird, kurz als Blitzmeldung angezeigt wird.
+Wenn Sie es vorziehen, die Uhr nicht ständig anzuzeigen, können Sie auf den meisten Braillezeilen durch Drücken der **Cursorroutingtaste** über dem Statuszellenbereich kurz die Uhrzeit als Blitzmeldung anzeigen und dann zur aktuellen Anzeige zurückkehren. Wenn die Uhr gerade angezeigt wird, kann auch eine **Cursorroutingtaste** über einer Statuszelle gedrückt werden, damit das, was normalerweise angezeigt wird, kurz als Blitzmeldung angezeigt wird.
 
 **Hinweis:** Auf bestimmten Braillezeilen können die Cursorroutungtasten und die Statuszellen eine besondere Funktion haben, was die Funktion auf der jeweiligen Braillezeile beeinträchtigen kann.
 
@@ -709,7 +709,7 @@ Quelle: Status_Cells.htm
 
 ## Brailleeinstellungen anpassen
 
-Zum temporären Anpassen der Brailleeinstellungen nutzen Sie die Schnelleinstellung (**EINFÜGEN+V **) und dort das Sucheingabefeld, in dem Sie nach Brailleeinstellungen suchen können. Das Suchergebnis wird in einer Strukturansicht angezeigt. Die Einstellungen, die über die Schnelleinstellung vorgenommen werden, beziehen sich nur auf die aktuelle Anwendung oder das aktuell genutzte Dokument. Um Änderungen vorzunehmen, die global wirksam werden, öffnen Sie die Einstellungsverwaltung und wählen dort die Braille Gruppe.
+Zum temporären Anpassen der Brailleeinstellungen nutzen Sie die Schnelleinstellung (**EINFÜGEN+V**) und dort das Sucheingabefeld, in dem Sie nach Brailleeinstellungen suchen können. Das Suchergebnis wird in einer Strukturansicht angezeigt. Die Einstellungen, die über die Schnelleinstellung vorgenommen werden, beziehen sich nur auf die aktuelle Anwendung oder das aktuell genutzte Dokument. Um Änderungen vorzunehmen, die global wirksam werden, öffnen Sie die Einstellungsverwaltung und wählen dort die Braille Gruppe.
 
 ## Braillemodus
 
@@ -717,11 +717,11 @@ Wählen Sie das Format, in dem Informationen zur Braillezeile gesendet werden. W
 
 ## Acht Punkt Braille
 
-Diese Option legt fest, JAWS 8-Punkt-Braille anzeigen soll oder nicht. 8-Punkt-Braille verwendet **PUNKT 7 ** für Großbuchstaben in Computerbraille, und ** PUNKT 7 ** und ** PUNKT 8 ** zur Darstellung von nicht alphanumerischen Zeichen. Selbst wenn 8-Punkt-Braille ausgeschaltet ist, wird die Braillemarkierung immer noch angezeigt, sofern sie eingeschaltet ist.
+Diese Option legt fest, JAWS 8-Punkt-Braille anzeigen soll oder nicht. 8-Punkt-Braille verwendet **PUNKT 7** für Großbuchstaben in Computerbraille, und **PUNKT 7** und **PUNKT 8** zur Darstellung von nicht alphanumerischen Zeichen. Selbst wenn 8-Punkt-Braille ausgeschaltet ist, wird die Braillemarkierung immer noch angezeigt, sofern sie eingeschaltet ist.
 
 ## Markieren mit Punkten 7 und 8
 
-Textattribute wie hervorgehoben, fett, kursiv und unterstrichen können auf der Braillezeile mit angehobenen **Punkten 7 und 8 ** dargestellt werden. Diese Option legt fest, ob JAWS Text mit Attributen markieren soll oder nicht. Wählen Sie entweder an oder aus. Ist diese Option eingeschaltet, dann können Sie unterschiedliche Attribute festlegen, die markiert werden sollen.
+Textattribute wie hervorgehoben, fett, kursiv und unterstrichen können auf der Braillezeile mit angehobenen **Punkten 7 und 8** dargestellt werden. Diese Option legt fest, ob JAWS Text mit Attributen markieren soll oder nicht. Wählen Sie entweder an oder aus. Ist diese Option eingeschaltet, dann können Sie unterschiedliche Attribute festlegen, die markiert werden sollen.
 
 ## Blitzmeldungen
 
@@ -751,7 +751,7 @@ Ist diese Option ausgeschaltet, dann können Sie sich mit der Braillezeile an ei
 
 ### Braille folgt Aktivem Cursor
 
-Diese Option legt fest, ob die Braillezeile automatisch dem aktiven Cursor folgen soll oder nicht. Ist diese Option eingeschaltet, dann folgt die Braillezeile automatisch dem Cursor, sobald Sie sich mit den Navigationstasten auf der Tastatur bewegen. So springt der Braillecursor in einem Dialogfeld immer zum aktuellen Element, wenn Sie mit **TAB ** darauf gehen.
+Diese Option legt fest, ob die Braillezeile automatisch dem aktiven Cursor folgen soll oder nicht. Ist diese Option eingeschaltet, dann folgt die Braillezeile automatisch dem Cursor, sobald Sie sich mit den Navigationstasten auf der Tastatur bewegen. So springt der Braillecursor in einem Dialogfeld immer zum aktuellen Element, wenn Sie mit **TAB** darauf gehen.
 
 ## Weiterbewegen Einstellungen
 
@@ -780,7 +780,7 @@ Diese Einstellung legt fest, wie sich die Braillezeile verhält, wenn der Cursor
 
 ## Markieren Einstellungen
 
-Diese Gruppe enthält die Einstellungen, mit denen man festlegen kann, welche Attribute mit den **PUNKT 7 ** und ** PUNKT 8 ** auf Ihrer Braillezeile markiert werden. Bei Attributen handelt es sich um Textmodifikationen wie Hervorgehoben, Fett, Unterstrichen, Kursiv und Durchgestrichen. Diese Gruppe enthält zudem Optionen für Skript definierte Markierung und Farbmarkierung. Wählen Sie die Attribute, die durch ** PUNKTE 7 und 8 ** angezeigt werden sollen und deaktivieren Sie diejenigen, die nicht angezeigt werden sollen.
+Diese Gruppe enthält die Einstellungen, mit denen man festlegen kann, welche Attribute mit den **PUNKT 7** und **PUNKT 8** auf Ihrer Braillezeile markiert werden. Bei Attributen handelt es sich um Textmodifikationen wie Hervorgehoben, Fett, Unterstrichen, Kursiv und Durchgestrichen. Diese Gruppe enthält zudem Optionen für Skript definierte Markierung und Farbmarkierung. Wählen Sie die Attribute, die durch **PUNKTE 7 und 8** angezeigt werden sollen und deaktivieren Sie diejenigen, die nicht angezeigt werden sollen.
 
 ## Tabellen Einstellungen
 
@@ -810,10 +810,10 @@ Um eine Unterstützung für die PAC Mate Braillezeilen während der JAWS Install
 
 Um die Unterstützung der PAC Mate Braillezeile nach Installation von JAWS einzurichten:
 
-1. Drücken Sie **JAWS TASTE+J **, um das JAWS Anwendungsfenster zu öffnen.
-2. Drücken Sie **ALT+O, L **, um den Dialog Brailleeinstellungen zu öffnen.
-3. Gehen Sie auf den Schalter Braillezeile hinzufügen und drücken Sie die **LEERTASTE **.
-4. Sobald das JAWS Setup den Dialog Braillekomponenten auswählen geöffnet hat, drücken Sie die **LEERTASTE **, um das Kontrollfeld "PAC Mate 20 oder 40 Zellen" zu markieren, danach drücken Sie dann ** EINGABE **.
+1. Drücken Sie **JAWS TASTE+J**, um das JAWS Anwendungsfenster zu öffnen.
+2. Drücken Sie **ALT+O, L**, um den Dialog Brailleeinstellungen zu öffnen.
+3. Gehen Sie auf den Schalter Braillezeile hinzufügen und drücken Sie die **LEERTASTE**.
+4. Sobald das JAWS Setup den Dialog Braillekomponenten auswählen geöffnet hat, drücken Sie die **LEERTASTE**, um das Kontrollfeld "PAC Mate 20 oder 40 Zellen" zu markieren, danach drücken Sie dann **EINGABE**.
 
 Sobald das Setup die Unterstützung für die PAC Mate Braillezeile installiert hat und JAWS neu gestartet wurde, können Sie Ihre PAC Mate Braillezeile einsetzen.
 
@@ -1018,7 +1018,7 @@ Das Bildschirmleseprogramm JAWS ermöglicht dem Anwender einen taktilen Zugang z
 
 JAWS bietet viele Funktionen zum Verbessern des Lesens auf Ihrer Braillezeile. So können Sie jetzt zum Beispiel festlegen, wie im [strukturierten Modus](Braille_Display_Modes.htm#Structured_Mode) Steuerelemente in Dialogen angezeigt werden sollen. Sie können JAWS jetzt auch so einstellen, dass Textattribute wie zum Beispiel Farben, kursiv, fett, usw. angezeigt werden. Zudem können Sie jetzt auch die Vergrößerung der Ausschnittslänge und die Textausrichtung für Ihre Braillezeile festlegen. Um mehr über JAWS und die Einstellungen für Ihre Braillezeile zu erfahren, machen Sie sich mit dem Dialog [Braille Grundeinstellungen](jfw.chm::/using_jaws/the_jaws_application_window/braille_basics_dialog.htm) im Menü Optionen vertraut. Wenn Sie anwendungsbezogene Braille-Einstellungen vornehmen möchten, erkunden Sie die [Gruppe Brailleoptionen](SettingsCenter.chm::/Braille/braille_options_dialog.htm), die Sie in der Gruppe Braille der Einstellungsverwaltung finden können.
 
-Die meisten Braillezeilen werden von JAWS automatisch erkennt, so dass direkt nach dem Anschließen der Braillezeile an Ihren Computer Informationen an die Braillezeile gesendet werden. Bei Braillezeilen, die über USB oder Bluetooth angeschlossen sind, erkennt JAWS die Braillezeile beim Start automatisch und beginnt, diese zu verwenden. Braillezeilen werden auch erkannt, wenn JAWS gerade ausgeführt wird und Sie eine Verbindung über USB oder Bluetooth herstellen. Damit JAWS jedoch Braillezeilen über Bluetooth im laufenden Betrieb erkennen kann, muss die Option **Autoerkennung der Braillezeile über Bluetooth ** in der Einstellungsverwaltung aktiviert werden.
+Die meisten Braillezeilen werden von JAWS automatisch erkennt, so dass direkt nach dem Anschließen der Braillezeile an Ihren Computer Informationen an die Braillezeile gesendet werden. Bei Braillezeilen, die über USB oder Bluetooth angeschlossen sind, erkennt JAWS die Braillezeile beim Start automatisch und beginnt, diese zu verwenden. Braillezeilen werden auch erkannt, wenn JAWS gerade ausgeführt wird und Sie eine Verbindung über USB oder Bluetooth herstellen. Damit JAWS jedoch Braillezeilen über Bluetooth im laufenden Betrieb erkennen kann, muss die Option **Autoerkennung der Braillezeile über Bluetooth** in der Einstellungsverwaltung aktiviert werden.
 
 Wenn Ihre spezielle Braillezeile nicht automatisch von JAWS erkannt wird, können Sie sie mit dem [JAWS Sprachausgaben- und Braillezeilen-Manager](jfw.CHM::/customizing_jaws_for_windows/Synth_Braille_Manager/Synthesizer_and_Braille_Manager.htm) hinzufügen. Lesen Sie die Dokumentation zu Ihrer Braillezeile, um mehr Informationen darüber zu erhalten, wie Sie die Braillezeile für die Verwendung mit JAWS hinzufügen können.
 
@@ -1057,14 +1057,14 @@ Quelle: braille_start.htm
 
 JAWS unterstützt eine Reihe von Kurztasten, die es Ihnen ermöglichen, Braillebefehle einzugeben, wie auch Ihren Computer zu steuern. Nutzen Sie diese Kurztasten mit den Focus Braillezeilen von Freedom Scientific. Für andere Braillezeilen kontaktieren Sie bitte den Hersteller der Braillezeile, um eine Liste der Kurztasten zu erhalten.
 
-Viele Befehle, die hier gelistet sind, beinhalten das Wort "CHORD". Um einen CHORD-Befehl auszuführen, verwenden Sie stets die **LEERTASTE ** als Teil des Befehls. Um beispielsweise ein ** L CHORD ** auszuführen, drücken Sie ** PUNKTE 1-2-3 ** gleichzeitig mit der ** LEERTASTE **.
+Viele Befehle, die hier gelistet sind, beinhalten das Wort "CHORD". Um einen CHORD-Befehl auszuführen, verwenden Sie stets die **LEERTASTE** als Teil des Befehls. Um beispielsweise ein **L CHORD** auszuführen, drücken Sie **PUNKTE 1-2-3** gleichzeitig mit der **LEERTASTE**.
 
 ## Steuerungstasten
 
-Verwenden Sie die Steuerungstasten **STRG **, ** ALT **, ** WINDOWSTASTE **, ** UMSCHALT **, oder der JAWS TASTE (** EINFÜGEN **) zum Simulieren von Tastenkombinationen. Um diese Steuerungstasten bei Eingabe einer Kurztaste zu nutzen, gehen Sie wie folgt vor:
+Verwenden Sie die Steuerungstasten **STRG**, **ALT**, **WINDOWSTASTE**, **UMSCHALT**, oder der JAWS TASTE (**EINFÜGEN**) zum Simulieren von Tastenkombinationen. Um diese Steuerungstasten bei Eingabe einer Kurztaste zu nutzen, gehen Sie wie folgt vor:
 
-1. Halten Sie **PUNKT 8 CHORD ** gedrückt und drücken dann die korrespondierenden Steuerungstasten. Steuerungskurztasten sind in der folgenden Tabelle aufgelistet.
-2. Nachdem Sie den Steuerungsteil der Kurztaste gedrückt haben, lassen Sie diese los und drücken Sie die restlichen Tasten der Tastenkombination. Um zum Beispiel **STRG+UMSCHALT+V ** auszuführen, drücken Sie ** PUNKTE 3-7-8 CHORD **, lassen die Tasten los, und drücken dann ** V ** (** PUNKTE 1-2-3-6 **).
+1. Halten Sie **PUNKT 8 CHORD** gedrückt und drücken dann die korrespondierenden Steuerungstasten. Steuerungskurztasten sind in der folgenden Tabelle aufgelistet.
+2. Nachdem Sie den Steuerungsteil der Kurztaste gedrückt haben, lassen Sie diese los und drücken Sie die restlichen Tasten der Tastenkombination. Um zum Beispiel **STRG+UMSCHALT+V** auszuführen, drücken Sie **PUNKTE 3-7-8 CHORD**, lassen die Tasten los, und drücken dann **V** (**PUNKTE 1-2-3-6**).
 
 Tabelle: Eine Tabelle mit dem Tastennamen in der ersten Spalte und dem Braille-Kurztastenbefehl in der zweiten Spalte.
 
@@ -1092,15 +1092,15 @@ Tabelle: Eine Tabelle mit dem Tastennamen in der ersten Spalte und der Fingerpos
 | ALT | Rechter Ringfinger |
 | UMSCHALT | Linker, kleiner Finger |
 
-Beachten Sie, dass Sie in dieser Beschreibung eine ziemlich lockere Korrelation zwischen Fingerpaaren herstellen können. Sie ist zum Beispiel der linke Zeigefinger für die **Funktionstasten **, während der rechte Zeigefinger für die ** WINDOWS-Taste ** ist. Eine stärkere Wechselbeziehung kann zwischen linken und rechten Mittelfingern festgestellt werden. Links ist die ** EINFÜGETASTE ** und rechts ist die ** JAWS **-Taste, die bei der Verwendung von JAWS häufig denselben Zweck erfüllen. Zu guter Letzt sind der linke und der rechte Ringfinger die Tasten ** STRG ** und ** ALT **, wodurch diese beiden Positionen leichter zu merken sind.
+Beachten Sie, dass Sie in dieser Beschreibung eine ziemlich lockere Korrelation zwischen Fingerpaaren herstellen können. Sie ist zum Beispiel der linke Zeigefinger für die **Funktionstasten**, während der rechte Zeigefinger für die **WINDOWS-Taste** ist. Eine stärkere Wechselbeziehung kann zwischen linken und rechten Mittelfingern festgestellt werden. Links ist die **EINFÜGETASTE** und rechts ist die **JAWS** -Taste, die bei der Verwendung von JAWS häufig denselben Zweck erfüllen. Zu guter Letzt sind der linke und der rechte Ringfinger die Tasten **STRG** und **ALT**, wodurch diese beiden Positionen leichter zu merken sind.
 
-Sobald dieses Layout verstanden wurde, ist es leicht zu verstehen, dass jedes Mal, wenn eine Steuerungstaste oder eine Kombination von Steuerungstasten als Teil eines Befehls verwendet wird, **PUNKT 8 CHORD ** immer enthalten ist.
+Sobald dieses Layout verstanden wurde, ist es leicht zu verstehen, dass jedes Mal, wenn eine Steuerungstaste oder eine Kombination von Steuerungstasten als Teil eines Befehls verwendet wird, **PUNKT 8 CHORD** immer enthalten ist.
 
-Das Drücken einer dieser Steuerungstasten mit **PUNKT 8 CHORD ** entspricht dem gleichen Drücken und Halten einer der entsprechenden Tasten auf der QWERTZ-Tastatur. Der Computer wartet auf den Schlüssel oder die Schlüssel, die durch die Steuerungstasten geändert werden. Somit ist das Drücken von ** PUNKTE 3-8 CHORD ** gleich dem Drücken der ** STRG ** Taste. Windows wartet dann auf die Taste, die diese STRG-Kombination vervollständigt, wie etwa die Taste ** A **, um als ** STRG+A ** alles zu markieren, oder die Taste ** C **, um als ** STRG+C ** den gewählten Text in die Zwischenablage zu kopieren. Wiederholungen der häufig verwendeten Kurztasten, wie die bereits erwähnte Tastenkombinationen mit ** STRG **, der Windows-Befehle wie ** WINDOWS-Taste+M ** und den JAWS-Befehlen wie ** EINFÜGEN+T ** sollten diese Schlüsselzuweisungen sich fest in Ihr Gedächtnis einprägen.
+Das Drücken einer dieser Steuerungstasten mit **PUNKT 8 CHORD** entspricht dem gleichen Drücken und Halten einer der entsprechenden Tasten auf der QWERTZ-Tastatur. Der Computer wartet auf den Schlüssel oder die Schlüssel, die durch die Steuerungstasten geändert werden. Somit ist das Drücken von **PUNKTE 3-8 CHORD** gleich dem Drücken der **STRG** Taste. Windows wartet dann auf die Taste, die diese STRG-Kombination vervollständigt, wie etwa die Taste **A**, um als **STRG+A** alles zu markieren, oder die Taste **C**, um als **STRG+C** den gewählten Text in die Zwischenablage zu kopieren. Wiederholungen der häufig verwendeten Kurztasten, wie die bereits erwähnte Tastenkombinationen mit **STRG**, der Windows-Befehle wie **WINDOWS-Taste+M** und den JAWS-Befehlen wie **EINFÜGEN+T** sollten diese Schlüsselzuweisungen sich fest in Ihr Gedächtnis einprägen.
 
 ### Funktionstasten
 
-Um die Funktionstasten (**F1 ** bis ** F12 **) zu simulieren, drücken Sie ** PUNKTE 1-8 CHORD ** gefolgt von ** A ** bis ** L ** (was 1 bis 12 entspricht). Um zum Beispiel ** F6 ** zu simulieren, drücken Sie ** PUNKTE 1-8 CHORD **, dann ** F ** (** PUNKTE 1-2-4 **). Wenn die Funktionstaste Bestandteil eines Befehls ist, drücken Sie die entsprechenden Steuerungstasten während Sie ** PUNKTE 1-8 CHORD ** drücken. Um zum Beispiel ** JAWS TASTE (EINFÜGEN)+F2 ** zu simulieren, drücken Sie ** PUNKTE 1-2-8 CHORD **, dann ** B **(** PUNKTE 1-2 **).
+Um die Funktionstasten (**F1** bis **F12**) zu simulieren, drücken Sie **PUNKTE 1-8 CHORD** gefolgt von **A** bis **L** (was 1 bis 12 entspricht). Um zum Beispiel **F6** zu simulieren, drücken Sie **PUNKTE 1-8 CHORD**, dann **F** (**PUNKTE 1-2-4**). Wenn die Funktionstaste Bestandteil eines Befehls ist, drücken Sie die entsprechenden Steuerungstasten während Sie **PUNKTE 1-8 CHORD** drücken. Um zum Beispiel **JAWS TASTE (EINFÜGEN)+F2** zu simulieren, drücken Sie **PUNKTE 1-2-8 CHORD**, dann **B** (**PUNKTE 1-2**).
 
 ## Spezielle Tasten
 
@@ -1181,7 +1181,7 @@ Tabelle: Eine Tabelle mit dem Tastennamen für den Navigationsbefehl in der erst
 
 ## Microsoft Word Schnellnavigationstasten
 
-Mit diesen Tastenkombinationen navigieren Sie in Microsoft Word Dokumenten. Die Schnellnavigationstasten müssen aktiviert sein, damit Sie diese Befehle ausführen können (**PUNKTE 2-8 CHORD ** gefolgt von ** PUNKTEN 1-3-5-6 **). Beachten Sie, dass Sie ** PUNKT 7 ** zu vielen unten aufgeführten Tastenkombinationen hinzufügen können, um auf das vorherige Element dieses Typs im Dokument zu springen. In der Tabelle bieten wir Ihnen beide Kurztasten und Punktmuster. Steht keine Entsprechung über Brailleeingabe zur Verfügung, dann erscheint ein Bindestrich in der Tabellenzelle.
+Mit diesen Tastenkombinationen navigieren Sie in Microsoft Word Dokumenten. Die Schnellnavigationstasten müssen aktiviert sein, damit Sie diese Befehle ausführen können (**PUNKTE 2-8 CHORD** gefolgt von **PUNKTEN 1-3-5-6**). Beachten Sie, dass Sie **PUNKT 7** zu vielen unten aufgeführten Tastenkombinationen hinzufügen können, um auf das vorherige Element dieses Typs im Dokument zu springen. In der Tabelle bieten wir Ihnen beide Kurztasten und Punktmuster. Steht keine Entsprechung über Brailleeingabe zur Verfügung, dann erscheint ein Bindestrich in der Tabellenzelle.
 
 Tabelle: Eine Tabelle mit dem Word Schnellnavigationstastennamen in der ersten Spalte, dem Kurztastenbefehl in der zweiten Spalte und dem Punktmuster in der dritten Spalte.
 
@@ -1410,13 +1410,13 @@ Cursorroutingtasten befinden sich über jedem Braillemodul. Drücken Sie eine Cu
 
 ## Focus Blue Tastatur
 
-Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE **. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der ** LEERTASTE ** an der Vorderkante der Braillezeile befinden sich zwei ** UMSCHALT ** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.
+Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.
 
 ### Die Perkins-Braille-Tastatur sperren
 
 Wenn Sie Ihre Focus Blue vor der QWERTZ Tastatur Ihres Rechners verwenden, dann können Sie die Perkins-Tastaen auf der Braillezeile sperren, um ein unbeabsichtigtes Drücken und damit die ungewünschte Eingabe von Text oder Befehlen zu vermeiden.
 
-Um die Tastatur der Focus Blue zu sperren, drücken Sie den Power-Schalter, um die Statusinformationen anzuzeigen, und dann gleichzeitig eine Cursorroutingtaste und die linke Modustaste. Um anzuzeigen, dass die Tastatur gesperrt ist, werden PUNKTE 2-3-4-6-7-8 und PUNKTE 1-3-5-6-7-8 in zwei Zellen am rechten Ende der Braillezeile angezeigt, direkt vor dem Verbindungsstatus. Drücken Sie irgendeine andere Taste, um zur normalen Ausführung zurückzukehren. Einmal gesperrt, wird das Drücken der **PUNKTE 1 ** bis ** 8 ** oder der ** LEERTASTE ** keine Tasten mehr an den Computer senden.
+Um die Tastatur der Focus Blue zu sperren, drücken Sie den Power-Schalter, um die Statusinformationen anzuzeigen, und dann gleichzeitig eine Cursorroutingtaste und die linke Modustaste. Um anzuzeigen, dass die Tastatur gesperrt ist, werden PUNKTE 2-3-4-6-7-8 und PUNKTE 1-3-5-6-7-8 in zwei Zellen am rechten Ende der Braillezeile angezeigt, direkt vor dem Verbindungsstatus. Drücken Sie irgendeine andere Taste, um zur normalen Ausführung zurückzukehren. Einmal gesperrt, wird das Drücken der **PUNKTE 1** bis **8** oder der **LEERTASTE** keine Tasten mehr an den Computer senden.
 
 Um die Tastatur wieder zu entsperren, damit Sie wieder Text eingeben oder Befehle über die Focus Blue ausführen können, drücken Sie den Power Schalter, um die Statusinformationen anzuzeigen, und dann gleichzeitig eine Cursorroutingtaste und die rechte Modustaste. Drücken Sie irgendeine andere Taste, um zur normalen Ausführung zurückzukehren und Sie sind wieder in der Lage, über die Tastatur der Focus Blue Text einzugeben.
 
@@ -1446,7 +1446,7 @@ Wenn Sie alleine betätigt werden, steuern die Auswahltasten das Automatische We
 
 Cursorroutingtasten befinden sich über jedem Braillemodul. Drücken Sie eine Cursorroutingtaste, um den Cursor an diesen Punkt zu ziehen, oder um einen Link auf einer Webseite oder in einer E-Mail zu aktivieren. Im Flächenmodus können Sie durch Druck auf eine Cursorroutingtaste ein Menü öffnen oder Menüeinträge auswählen.
 
-Drücken und halten Sie die **RECHTE AUSWAHLTASTE **, während Sie gleichzeitig eine ** CURSORROUTINGTASTE ** drücken, um einen rechten Mausklick an der Stelle auszuführen.
+Drücken und halten Sie die **RECHTE AUSWAHLTASTE**, während Sie gleichzeitig eine **CURSORROUTINGTASTE** drücken, um einen rechten Mausklick an der Stelle auszuführen.
 
 ## Navigationstasten
 
@@ -1531,13 +1531,13 @@ Die beiden Kipp-Lesetasten auf der Focus 80 dienen als zusätzliche Lesetasten. 
 
 ## Brailletastatur
 
-Zwischen den Braillemodulen und dem vorderen Ende des Gerätes, unter einer abnehmbaren Plastikklappe, befinden sich acht Tasten, die einer Perkins Brailletastatur ähneln. Diese Tasten sind für die Eingabe von Befehlen vorgesehen. Am vorderen Ende der Zeile finden Sie drei Tasten **LINKE UMSCHALT **, ** LEERTASTE ** und ** RECHTE UMSCHALT **. Diese drei Tasten werden zusammen mit den Brailletasten zur Eingabe von Befehlen verwendet.
+Zwischen den Braillemodulen und dem vorderen Ende des Gerätes, unter einer abnehmbaren Plastikklappe, befinden sich acht Tasten, die einer Perkins Brailletastatur ähneln. Diese Tasten sind für die Eingabe von Befehlen vorgesehen. Am vorderen Ende der Zeile finden Sie drei Tasten **LINKE UMSCHALT**, **LEERTASTE** und **RECHTE UMSCHALT**. Diese drei Tasten werden zusammen mit den Brailletasten zur Eingabe von Befehlen verwendet.
 
 ## Cursorroutingtasten
 
 Über den Braillemodulen befinden sich die Cursorroutingtasten. Drücken Sie eine Cursorroutingtaste, um den Cursor an diesen Punkt zu ziehen, oder um einen Link auf einer Webseite oder in einer E-Mail zu aktivieren. Im Flächenmodus können Sie durch Druck auf eine Cursorroutingtaste ein Menü öffnen oder Menüeinträge auswählen.
 
-Drücken und halten Sie die **RECHTE AUSWAHLTASTE **, während Sie gleichzeitig eine ** CURSORROUTINGTASTE ** drücken, um einen rechten Mausklick an der Stelle auszuführen.
+Drücken und halten Sie die **RECHTE AUSWAHLTASTE**, während Sie gleichzeitig eine **CURSORROUTINGTASTE** drücken, um einen rechten Mausklick an der Stelle auszuführen.
 
 ## Navigationstasten
 
@@ -1597,19 +1597,19 @@ Damit Sie die Focus Blue kabellos mit JAWS über Bluetooth nutzen können, müss
 
 Gehen Sie bitte folgendermaßen vor, um eine Bluetooth-Partnerschaft zwischen der Focus Braillezeile und dem Rechner einzurichten:
 
-1. Drücken Sie die **WINDOWSTASTE **, schreiben Sie "Bluetooth" in das Sucheingabefeld und drücken Sie ** EINGABE **, um auf die Bluetooth-Einstellungen Ihres Computers zuzugreifen.
-2. Drücken Sie **TAB **, um zum Bluetooth-Schalter zu springen und ist dieser deaktiviert, dann schalten Sie ihn mit der ** LEERTASTE ** ein.
+1. Drücken Sie die **WINDOWSTASTE**, schreiben Sie "Bluetooth" in das Sucheingabefeld und drücken Sie **EINGABE**, um auf die Bluetooth-Einstellungen Ihres Computers zuzugreifen.
+2. Drücken Sie **TAB**, um zum Bluetooth-Schalter zu springen und ist dieser deaktiviert, dann schalten Sie ihn mit der **LEERTASTE** ein.
 3. Schalten Sie die Focus ein. Die Statusinformationen werden angezeigt.
-4. Drücken Sie **UMSCHALT+TAB **, um auf den Schalter Bluetooth. oder anderes Gerät hinzufügen springen und drücken Sie die ** LEERTASTE **. Drücken Sie noch einmal die ** Leertaste ** auf Bluetooth.
-5. Drücken Sie **TAB **, um auf die Liste der verfügbaren Geräte zu springen.
-6. Verwenden Sie die **PFEILTASTEN **, um Ihre Focus Braillezeile in der Liste auszuwählen und drücken Sie dann ** EINGABE **, um das Koppeln der Braillezeile abzuschließen. Wurde die Focus nicht gefunden, dann stellen Sie sicher, dass diese eingeschaltet ist.
+4. Drücken Sie **UMSCHALT+TAB**, um auf den Schalter Bluetooth. oder anderes Gerät hinzufügen springen und drücken Sie die **LEERTASTE**. Drücken Sie noch einmal die **Leertaste** auf Bluetooth.
+5. Drücken Sie **TAB**, um auf die Liste der verfügbaren Geräte zu springen.
+6. Verwenden Sie die **PFEILTASTEN**, um Ihre Focus Braillezeile in der Liste auszuwählen und drücken Sie dann **EINGABE**, um das Koppeln der Braillezeile abzuschließen. Wurde die Focus nicht gefunden, dann stellen Sie sicher, dass diese eingeschaltet ist.
 
 Jetzt müssen Sie JAWS für die Nutzung der Bluetooth Verbindung konfigurieren. Beachten Sie, dass es nicht notwendig ist, zuerst eine USB Verbindung herzustellen, um Bluetooth zu nutzen. Wenn Sie bisher noch keine USB Verbindung mit der Focus Braillezeile eingerichtet haben, gehen Sie wie folgt vor:
 
-1. Drücken Sie **JAWS TASTE+J **, um das JAWS Programmfenster zu öffnen.
-2. Öffnen Sie mit **ALT+O ** das Menü Optionen, gehen Sie auf den Eintrag Braille und drücken Sie EINGABE, um den Dialog Braille Grundeinstellungen zu öffnen.
-3. Gehen Sie mit **TAB ** auf Braillezeile hinzufügen und drücken Sie ** EINGABE **.
-4. Wählen Sie Focus in der Liste der Braillezeilen und drücken Sie **LEERTASTE **, um diese auszuwählen, gehen Sie dann auf Weiter.
+1. Drücken Sie **JAWS TASTE+J**, um das JAWS Programmfenster zu öffnen.
+2. Öffnen Sie mit **ALT+O** das Menü Optionen, gehen Sie auf den Eintrag Braille und drücken Sie EINGABE, um den Dialog Braille Grundeinstellungen zu öffnen.
+3. Gehen Sie mit **TAB** auf Braillezeile hinzufügen und drücken Sie **EINGABE**.
+4. Wählen Sie Focus in der Liste der Braillezeilen und drücken Sie **LEERTASTE**, um diese auszuwählen, gehen Sie dann auf Weiter.
 5. Im kombinierten Eingabefeld für die Ausgabeschnittstelle wählen Sie Bluetooth.
 6. Wählen Sie Weiter und stellen Sie sicher, dass die Focus als erste Braillezeile ausgewählt ist.
 7. Aktivieren Sie den Schalter Fertigstellen, und Sie werden aufgefordert, JAWS neu zu starten, damit diese Änderungen wirksam werden. Aktivieren Sie den OK Schalter erneut, um diese Meldung zu schließen und noch einmal, um den Dialog Braille Grundeinstellungen zu schließen.
@@ -1617,8 +1617,8 @@ Jetzt müssen Sie JAWS für die Nutzung der Bluetooth Verbindung konfigurieren. 
 
 Wenn Sie gegenwärtig die Focus Braillezeile über USB verwenden und Sie möchten die Verbindung auf Bluetooth umschalten, gehen Sie wie folgt vor:
 
-1. Drücken Sie **JAWS TASTE+J **, um das JAWS Programmfenster zu öffnen.
-2. Öffnen Sie mit **ALT+O ** das Menü Optionen, gehen Sie auf den Eintrag Braille und drücken Sie EINGABE, um den Dialog Braille Grundeinstellungen zu öffnen.
+1. Drücken Sie **JAWS TASTE+J**, um das JAWS Programmfenster zu öffnen.
+2. Öffnen Sie mit **ALT+O** das Menü Optionen, gehen Sie auf den Eintrag Braille und drücken Sie EINGABE, um den Dialog Braille Grundeinstellungen zu öffnen.
 3. Überprüfen Sie, ob in der Ausklappliste Standard Braillezeile Focus steht, dann aktivieren Sie den Schalter Einstellungen ändern.
 4. Im kombinierten Eingabefeld für die Ausgabeschnittstelle wählen Sie Bluetooth.
 5. Aktivieren Sie den OK Schalter, und Sie werden aufgefordert, JAWS neu zu starten, damit diese Änderungen wirksam werden. Aktivieren Sie den OK Schalter erneut, um diese Meldung zu schließen und noch einmal, um den Dialog Braille Grundeinstellungen zu schließen.
@@ -1662,9 +1662,9 @@ Quelle: focus.htm
 
 ## Focus Braille Befehle
 
-All diese Befehle verwenden die **LEERTASTE ** der Focus Braillezeile. Wir verwenden den Begriff Chord, um dies anzuzeigen. Ein Chord ist lediglich eine Folge von Tasten, die zusammen mit der ** LEERTASTE ** gedrückt werden.
+All diese Befehle verwenden die **LEERTASTE** der Focus Braillezeile. Wir verwenden den Begriff Chord, um dies anzuzeigen. Ein Chord ist lediglich eine Folge von Tasten, die zusammen mit der **LEERTASTE** gedrückt werden.
 
-**Hinweis:** Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie ** ALT+STRG+PFEIL RUNTER **, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt.
+**Hinweis:** Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER**, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt.
 
 Tabelle: Focus Braille Befehle
 
@@ -1686,7 +1686,7 @@ Quelle: focus_brl_cmd.htm
 
 Die Focus und PAC Mate Braillezeilen ermöglichen es Ihnen, die Position der Statusmodule, wie auch die Festigkeit der Braillestifte auf ihre individuellen Bedürfnisse anzupassen.
 
-Um diese Einstellungen anzupassen, öffnen Sie die Einstellungsverwaltung, erweitern die Braille-Gruppe und wählen die Gruppe Erweitert. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D **, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste Anwendungen.
+Um diese Einstellungen anzupassen, öffnen Sie die Einstellungsverwaltung, erweitern die Braille-Gruppe und wählen die Gruppe Erweitert. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste Anwendungen.
 
 ## Lage der Statusmodule
 
@@ -1702,7 +1702,7 @@ Quelle: focus_config.htm
 
 ## Focus Befehle für Webseiten
 
-Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER **, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt. Verwenden Sie Computerbraille für die Zahlen in der Spalte Braillesymbole.
+Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER**, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt. Verwenden Sie Computerbraille für die Zahlen in der Spalte Braillesymbole.
 
 Tabelle: Focus Internet Explorer Befehle
 
@@ -1718,9 +1718,9 @@ Quelle: focus_ie_cmd.htm
 
 ## Focus JAWS Befehle
 
-Alle JAWS Befehle verwenden die **RECHTE UMSCHALT ** Taste als Teil des Befehls.
+Alle JAWS Befehle verwenden die **RECHTE UMSCHALT** Taste als Teil des Befehls.
 
-**Hinweis:** Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie ** ALT+STRG+PFEIL RUNTER **, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt. Verwenden Sie Computerbraille für die Zahlen in der Spalte Braillesymbole.
+**Hinweis:** Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER**, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt. Verwenden Sie Computerbraille für die Zahlen in der Spalte Braillesymbole.
 
 ## Allgemeine Befehle
 
@@ -1770,13 +1770,13 @@ Quelle: focus_jaws_cmd.htm
 
 # Navigationsbeispiel
 
-1. Drücken Sie **RECHTE UMSCHALT+RUNTERGERUTSCHTE 2 ** (** RECHTE UMSCHALT+PUNKTE 2-3 **), um das Dialogfeld JAWS Manager starten zu öffnen.
+1. Drücken Sie **RECHTE UMSCHALT+RUNTERGERUTSCHTE 2** (**RECHTE UMSCHALT+PUNKTE 2-3**), um das Dialogfeld JAWS Manager starten zu öffnen.
 2. Scrollen Sie mit den Scrollrädern durch die Liste, bis Sie den Tastaturmanager gefunden haben.
-3. Drücken Sie **PUNKT 8 ** für ** EINGABE **.
-4. Drücken Sie **PUNKTE 4-5 **, um mit ** TAB ** zur Liste der zugewiesenen Tasten zu gelangen.
+3. Drücken Sie **PUNKT 8** für **EINGABE**.
+4. Drücken Sie **PUNKTE 4-5**, um mit **TAB** zur Liste der zugewiesenen Tasten zu gelangen.
 5. Scrollen Sie mit den Scrollrädern durch die Liste, bis Sie zu der Tastenkombination gelangen, die Sie sich ansehen möchten.
-6. Verwenden Sie den Befehl Braillezeile auf letzte Fensterzeile (**PUNKTE 4-5-6 CHORD **), um sich die Kurzbeschreibung auf der Statuszeile durchzulesen.
-7. Kehren Sie mit dem Befehl Ziehe Braillezeile zu aktivem Cursor, dem Buchstaben **R ** auf Ihrer Braillezeile (** PUNKTE 1-2-3-5 **), zur ausgewählten Tastenkombination zurück.
+6. Verwenden Sie den Befehl Braillezeile auf letzte Fensterzeile (**PUNKTE 4-5-6 CHORD**), um sich die Kurzbeschreibung auf der Statuszeile durchzulesen.
+7. Kehren Sie mit dem Befehl Ziehe Braillezeile zu aktivem Cursor, dem Buchstaben **R** auf Ihrer Braillezeile (**PUNKTE 1-2-3-5**), zur ausgewählten Tastenkombination zurück.
 
 Wenn Sie dem Beispiel gefolgt sind, haben Sie die Informationen erhalten, ohne zwischen der Tastatur und der Focus Braillezeile hin und her wechseln zu müssen.
 
@@ -1799,15 +1799,15 @@ Die folgenden Informationen beschreiben, wie die Befehle für JAWS und die Focus
 
 Wenn Sie bereits mit JAWS vertraut sind, sind diese Befehle einfach zu erlernen. Und wenn Sie gerade beginnen, sich mit Ihrer Focus Braillezeile und JAWS vertraut zu machen, unterstützen diese Befehle Sie auch beim Erlernen der JAWS Tastaturbefehle.
 
-Die **RECHTE UMSCHALT ** Taste auf Ihrer Focus Braillezeile entspricht der ** EINFÜGEN ** Taste auf Ihrer Tastatur. Der JAWS Befehl zum Aktivieren des JAWS-Fensters ist ** JAWS TASTE+J **. Der entsprechende Focus Befehl lautet also ** RECHTE UMSCHALT+J ** (** RECHTE UMSCHALT+PUNKTE 2-4-5 **).
+Die **RECHTE UMSCHALT** Taste auf Ihrer Focus Braillezeile entspricht der **EINFÜGEN** Taste auf Ihrer Tastatur. Der JAWS Befehl zum Aktivieren des JAWS-Fensters ist **JAWS TASTE+J**. Der entsprechende Focus Befehl lautet also **RECHTE UMSCHALT+J** (**RECHTE UMSCHALT+PUNKTE 2-4-5**).
 
-Viele JAWS Befehle verwenden **EINFÜGEN ** zusammen mit den Funktionstasten ** F1 ** bis ** F12 **. Für Befehle, die ** JAWS TASTE+F1 ** bis ** F9 ** verwenden, drücken Sie einfach die ** RECHTE UMSCHALT ** und tippen die runtergerutschte Ziffer, die der Funktionstaste entspricht. So ist zum Beispiel der JAWS-Befehl für den Aufruf der JAWS Hilfsprogramme ** JAWS TASTE+F2 **. Der Focus Befehl lautet also ** RECHTE UMSCHALT+2 ** (** RECHTE UMSCHALT+PUNKTE 2-3 **).
+Viele JAWS Befehle verwenden **EINFÜGEN** zusammen mit den Funktionstasten **F1** bis **F12**. Für Befehle, die **JAWS TASTE+F1** bis **F9** verwenden, drücken Sie einfach die **RECHTE UMSCHALT** und tippen die runtergerutschte Ziffer, die der Funktionstaste entspricht. So ist zum Beispiel der JAWS-Befehl für den Aufruf der JAWS Hilfsprogramme **JAWS TASTE+F2**. Der Focus Befehl lautet also **RECHTE UMSCHALT+2** (**RECHTE UMSCHALT+PUNKTE 2-3**).
 
 Lesen Sie bitte hierzu [JAWS Befehle für die Focus Serie](focus_jaws_cmd.htm).
 
 ## Windows Befehle
 
-Die Windows Befehle folgen einer ähnlichen Konvention. Viele Windows Befehle verwenden **STRG **,** ALT ** oder ** UMSCHALT ** als Teil des Befehls. Auf der Focus-Braillezeile wird die ** LINKE UMSCHALT **-Taste für diese Befehle verwendet. Der Windows Befehl, um markierten Text in die Zwischenablage zu kopieren, lautet ** STRG+C **. Der Focus Befehl lautet also ** LINKE UMSCHALT+C ** (** LINKE UMSCHALT+PUNKTE 1-4 **).
+Die Windows Befehle folgen einer ähnlichen Konvention. Viele Windows Befehle verwenden **STRG**, **ALT** oder **UMSCHALT** als Teil des Befehls. Auf der Focus-Braillezeile wird die **LINKE UMSCHALT** -Taste für diese Befehle verwendet. Der Windows Befehl, um markierten Text in die Zwischenablage zu kopieren, lautet **STRG+C**. Der Focus Befehl lautet also **LINKE UMSCHALT+C** (**LINKE UMSCHALT+PUNKTE 1-4**).
 
 Um den Umgang mit den Focus Braillezeilen oder das Erlernen von Windows so einfach wie möglich zu gestalten, werden für die Focus Befehle die gleichen Buchstaben verwendet wie für die Windows Befehle.
 
@@ -1815,15 +1815,15 @@ Lesen Sie hierzu bitte [Focus Windows-Befehle](focus_win_cmd.htm).
 
 ## Braille Befehle
 
-Vorrangig ändern diese Befehle Einstellungen Ihrer Braillezeile. Diese Tastenkombinationen entstehen aus der Kombination mit der **LEERTASTE **. Sie werden auch als Chord-Befehle bezeichnet. Verwenden Sie die ** LEERTASTE ** wie andere Umschalter-Tasten (** UMSCHALT **, ** STRG **, ** ALT **, usw.). Drücken Sie zuerst die ** LEERTASTE **, halten Sie diese gedrückt, und drücken Sie dann die andere Taste oder Tasten, die Bestandteile des Befehls sind. All diese Befehle verändern die Einstellungen, wie Informationen auf Ihrer Braillezeile formatiert, übersetzt oder präsentiert werden.
+Vorrangig ändern diese Befehle Einstellungen Ihrer Braillezeile. Diese Tastenkombinationen entstehen aus der Kombination mit der **LEERTASTE**. Sie werden auch als Chord-Befehle bezeichnet. Verwenden Sie die **LEERTASTE** wie andere Umschalter-Tasten (**UMSCHALT**, **STRG**, **ALT**, usw.). Drücken Sie zuerst die **LEERTASTE**, halten Sie diese gedrückt, und drücken Sie dann die andere Taste oder Tasten, die Bestandteile des Befehls sind. All diese Befehle verändern die Einstellungen, wie Informationen auf Ihrer Braillezeile formatiert, übersetzt oder präsentiert werden.
 
 Lesen Sie bitte hierzu [Focus Braille Befehle](focus_brl_cmd.htm).
 
 ## Ausnahmen
 
-Die Beziehung zwischen den Funktionstasten und den heruntergerutschten Ziffern schließt nicht den Befehl zum Auflisten der Symbole des Infobereichs, **JAWS TASTE+F11 ** auf der Tastatur, ein. Wir haben diesem Befehl die Tastenkombination ** RECHTE UMSCHALT+K ** (** RECHTE UMSCHALT+PUNKTE 1-3 **) zugewiesen.
+Die Beziehung zwischen den Funktionstasten und den heruntergerutschten Ziffern schließt nicht den Befehl zum Auflisten der Symbole des Infobereichs, **JAWS TASTE+F11** auf der Tastatur, ein. Wir haben diesem Befehl die Tastenkombination **RECHTE UMSCHALT+K** (**RECHTE UMSCHALT+PUNKTE 1-3**) zugewiesen.
 
-Der Befehl zum Öffnen der Fensterliste, **JAWS TASTE+F10 **, ist ** RECHTE UMSCHALT+RUNTERGERUTSCHTE 0 ** (** RECHTE UMSCHALT+PUNKTE 3-5-6 **).
+Der Befehl zum Öffnen der Fensterliste, **JAWS TASTE+F10**, ist **RECHTE UMSCHALT+RUNTERGERUTSCHTE 0** (**RECHTE UMSCHALT+PUNKTE 3-5-6**).
 
 Durch Beschränkungen bei der Verfügbarkeit von Tasten gibt es weitere Ausnahmen. Wir haben uns jedoch bemüht, die Konsistenz mit den JAWS oder Windows Befehlen weitestgehend einzuhalten.
 
@@ -1837,7 +1837,7 @@ Quelle: focus_overview.htm
 
 # Focus Befehle für Microsoft Powerpoint
 
-Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER **, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt. Verwenden Sie Computerbraille für die Zahlen in der Spalte Braillesymbole.
+Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER**, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt. Verwenden Sie Computerbraille für die Zahlen in der Spalte Braillesymbole.
 
 Tabelle: Fokus Powerpoint Befehle
 
@@ -1857,7 +1857,7 @@ Quelle: focus_ppt_cmd.htm
 
 ## Focus Befehle für Microsoft Word
 
-Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER **, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt. Verwenden Sie Computerbraille für die Zahlen in der Spalte Braillesymbole.
+Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER**, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt. Verwenden Sie Computerbraille für die Zahlen in der Spalte Braillesymbole.
 
 Tabelle: Focus Word Befehle
 
@@ -1890,9 +1890,9 @@ Quelle: focus_wd_cmd.htm
 
 # Windows Befehle
 
-Alle Windows Befehle verwenden die **LINKE UMSCHALT ** Taste als Teil des Befehls.
+Alle Windows Befehle verwenden die **LINKE UMSCHALT** Taste als Teil des Befehls.
 
-**Hinweis:** Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie ** ALT+STRG+PFEIL RUNTER **, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt.
+**Hinweis:** Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER**, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt.
 
 ## Navigations- und Bearbeitungsbefehle
 
@@ -1930,7 +1930,7 @@ Tabelle: Befehle zum Markieren
 
 ### Mit den Cursorroutingtasten markieren
 
-Um Text mit Hilfe der Cursorroutingtasten zu markieren, drücken Sie die **LINKE UMSCHALT **, halten diese gedrückt und drücken die Routingtaste über dem Text, bei dem Sie die Markierung beginnen möchten. Lassen Sie beide Tasten los. Gehen Sie zu dem Punkt, an dem Sie die Markierung beenden möchten, und drücken Sie ** LINKE UMSCHALT ** plus die Cursorroutingtaste an dieser Stelle. Sie können alle Navigationsbefehle verwenden, um vom Startpunkt der Markierung zum Endpunkt zu gelangen, sogar mit den Scrollrädern. Wenn jedoch das Fenster, das den Text enthält, zu scrollen beginnt, hat dies Auswirkungen darauf, was tatsächlich markiert wird.
+Um Text mit Hilfe der Cursorroutingtasten zu markieren, drücken Sie die **LINKE UMSCHALT**, halten diese gedrückt und drücken die Routingtaste über dem Text, bei dem Sie die Markierung beginnen möchten. Lassen Sie beide Tasten los. Gehen Sie zu dem Punkt, an dem Sie die Markierung beenden möchten, und drücken Sie **LINKE UMSCHALT** plus die Cursorroutingtaste an dieser Stelle. Sie können alle Navigationsbefehle verwenden, um vom Startpunkt der Markierung zum Endpunkt zu gelangen, sogar mit den Scrollrädern. Wenn jedoch das Fenster, das den Text enthält, zu scrollen beginnt, hat dies Auswirkungen darauf, was tatsächlich markiert wird.
 
 Quelle: focus_win_cmd.htm
 
@@ -1968,21 +1968,21 @@ Um das Weiterbewegen zu aktivieren, drücken Sie die Scrollräder so lange nach 
 
 ## Lesetasten
 
-Mit den Lesetasten der Focus Braillezeile können Sie sich durch eine Datei, ein Menü oder eine Liste bewegen, während Sie sich im Flächenmodus befinden. Drücken Sie die **LINKE LESETASTE **, um auf einer Zeile nach links zu springen oder um rückwärts durch ein Dokument zu wandern. Drücken Sie die ** RECHTE LESETASTE **, um auf einer Zeile nach rechts zu springen oder um vorwärts durch ein Dokument zu wandern. Drücken Sie beide Lesetasten gleichzeitig, um die zuletzt angezeigte Braille Blitzmeldung zu wiederholen.
+Mit den Lesetasten der Focus Braillezeile können Sie sich durch eine Datei, ein Menü oder eine Liste bewegen, während Sie sich im Flächenmodus befinden. Drücken Sie die **LINKE LESETASTE**, um auf einer Zeile nach links zu springen oder um rückwärts durch ein Dokument zu wandern. Drücken Sie die **RECHTE LESETASTE**, um auf einer Zeile nach rechts zu springen oder um vorwärts durch ein Dokument zu wandern. Drücken Sie beide Lesetasten gleichzeitig, um die zuletzt angezeigte Braille Blitzmeldung zu wiederholen.
 
 ## Funktionstasten
 
-Die beiden Funktionstasten befinden sich zwischen den Braillemodulen und der Rückseite jedes Geräts. Drücken Sie **RECHTE FUNKTIONSTASTE+LINKE FUNKTIONSTASTE **, um den Modus Automatisches Weiterbewegen zu starten. Um die Lesegeschwindigkeit während des Automatischen Weiterbewegens zu erhöhen, drücken Sie die ** RECHTE FUNKTIONSTASTE **. Um die Lesegeschwindigkeit zu verringern, drücken Sie die ** LINKE FUNKTIONSTASTE **.
+Die beiden Funktionstasten befinden sich zwischen den Braillemodulen und der Rückseite jedes Geräts. Drücken Sie **RECHTE FUNKTIONSTASTE+LINKE FUNKTIONSTASTE**, um den Modus Automatisches Weiterbewegen zu starten. Um die Lesegeschwindigkeit während des Automatischen Weiterbewegens zu erhöhen, drücken Sie die **RECHTE FUNKTIONSTASTE**. Um die Lesegeschwindigkeit zu verringern, drücken Sie die **LINKE FUNKTIONSTASTE**.
 
 ## Brailletastatur
 
-Zwischen den Braillemodulen und dem vorderen Ende der Zeile befinden sich acht Tasten, die einer Perkins Brailletastatur ähneln. Diese Tasten sind für die Eingabe von Befehlen vorgesehen. Am vorderen Ende der Zeile finden Sie drei Tasten **LINKE UMSCHALT **, ** LEERTASTE ** und ** RECHTE UMSCHALT **. Diese drei Tasten werden zusammen mit den Brailletasten zur Eingabe von Befehlen verwendet.
+Zwischen den Braillemodulen und dem vorderen Ende der Zeile befinden sich acht Tasten, die einer Perkins Brailletastatur ähneln. Diese Tasten sind für die Eingabe von Befehlen vorgesehen. Am vorderen Ende der Zeile finden Sie drei Tasten **LINKE UMSCHALT**, **LEERTASTE** und **RECHTE UMSCHALT**. Diese drei Tasten werden zusammen mit den Brailletasten zur Eingabe von Befehlen verwendet.
 
 ## Cursorroutingtasten
 
 Über jedem Braillemodul der Focus Braillezeile befindet sich eine Cursorroutingtaste. Drücken Sie eine Cursorroutingtaste, um den Cursor an diesen Punkt zu ziehen, oder um einen Link auf einer Webseite oder in einer E-Mail zu aktivieren. Im Flächenmodus können Sie durch Druck auf eine Cursorroutingtaste ein Menü öffnen oder Menüeinträge auswählen.
 
-Drücken Sie die **RECHTE FUNKTIONSTASTE ** zusammen mit einer Cursorroutingtaste, um einen rechten Mausklick an diesem Punkt zu simulieren.
+Drücken Sie die **RECHTE FUNKTIONSTASTE** zusammen mit einer Cursorroutingtaste, um einen rechten Mausklick an diesem Punkt zu simulieren.
 
 ## Mehrfach-Funktionen
 
@@ -2005,7 +2005,7 @@ Quelle: focus_ww_ab_crk.htm
 
 ## Focus Befehle für Microsoft Excel
 
-Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER **, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt. Verwenden Sie Computerbraille für die Zahlen in der Spalte Braillesymbole.
+Um das Lesen für Sie zu vereinfachen, haben wir sowohl das Braillesymbol als auch die Punktekombination angegeben. Navigieren Sie einfach zu der Spaltenüberschrift der Darstellungsweise, die Sie bevorzugen, und drücken Sie **ALT+STRG+PFEIL RUNTER**, um sich durch die Befehlsliste zu bewegen. Sie hören dann lediglich die Befehlsbeschreibung und entweder das Braillesymbol oder die Punktekombination, nicht jedoch beides. Gibt es für eine Punktekombination kein Braillesymbol, wird die Punktekombination in beiden Spalten angezeigt. Verwenden Sie Computerbraille für die Zahlen in der Spalte Braillesymbole.
 
 Tabelle: Focus Excel Befehle
 

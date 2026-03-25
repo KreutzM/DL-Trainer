@@ -54,8 +54,6 @@ def collapse_inline(text: str) -> str:
 
 def tighten_inline_spacing(text: str) -> str:
     text = collapse_inline(text)
-    text = re.sub(r"(?<=[0-9A-Za-zÄÖÜäöüß])(\*\*|\*|`)", r" \1", text)
-    text = re.sub(r"(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)(?=[0-9A-Za-zÄÖÜäöüß])", r"\1 ", text)
     text = re.sub(r"\s+([,.;:!?])", r"\1", text)
     text = re.sub(r"([(\[]) +", r"\1", text)
     text = re.sub(r" +([)\]])", r"\1", text)
@@ -73,11 +71,11 @@ def render_inline(node: Tag | NavigableString) -> str:
     if name == "br":
         return "\n"
     if name in {"strong", "b"}:
-        return f"**{tighten_inline_spacing(node.get_text(' ', strip=True))}**"
+        return f" **{tighten_inline_spacing(node.get_text(' ', strip=True))}** "
     if name in {"em", "i"}:
-        return f"*{tighten_inline_spacing(node.get_text(' ', strip=True))}*"
+        return f" *{tighten_inline_spacing(node.get_text(' ', strip=True))}* "
     if name == "code" and node.parent and node.parent.name != "pre":
-        return f"`{tighten_inline_spacing(node.get_text(' ', strip=True))}`"
+        return f" `{tighten_inline_spacing(node.get_text(' ', strip=True))}` "
     if name == "a":
         text = tighten_inline_spacing("".join(render_inline(child) for child in node.children))
         href = node.get("href")
@@ -143,6 +141,10 @@ def blockify_text(text: str) -> list[str]:
     if not normalized:
         return []
     return normalized.split("\n\n")
+
+
+def normalize_markdown_inline_spacing(text: str) -> str:
+    return text
 
 
 def blockify_inline_fragments(fragments: list[str]) -> list[str]:
@@ -272,7 +274,8 @@ def repair_markdown_blocks(markdown: str) -> str:
         if current_block:
             repaired_blocks.append("\n".join(current_block).strip())
 
-    return normalize_text("\n\n".join(block for block in repaired_blocks if block))
+    normalized = normalize_text("\n\n".join(block for block in repaired_blocks if block))
+    return normalize_text(normalize_markdown_inline_spacing(normalized))
 
 
 def render_node(node: Tag | NavigableString, level: int = 0) -> str:
