@@ -9,7 +9,7 @@ Die Funktion der einfachen Texterkennung (OCR) ermöglicht es Ihnen, auf Bilddat
 - Ein nicht zugängliches PDF Dokument erkennen, das aktuell im Adobe Reader geöffnet ist und den erkannten Text im Ergebnisbetrachter anzeigen.
 - Erkennen Sie Bilder auf dem Bildschirm, die Text enthalten können, z. B. das Installationsfenster einer Anwendung.
 
-Um die Texterkennung (OCR) zu verwenden, drücken Sie **EINFÜGEN+LEERTASTE** gefolgt von **O** , um auf die Ebene der Texterkennung (OCR) zuzugreifen und nutzen Sie dann eine der folgenden Kurztasten:
+Um die Texterkennung (OCR) zu verwenden, drücken Sie **EINFÜGEN+LEERTASTE** gefolgt von **O**, um auf die Ebene der Texterkennung (OCR) zuzugreifen und nutzen Sie dann eine der folgenden Kurztasten:
 
 - **A** - Führt die Texterkennung auf Bildern aus, die über Kamera oder Scanner aufgenommen wurden.
 - **F** - Führt die Texterkennung in der aktuell gewählten Bild-Datei aus.
@@ -23,21 +23,21 @@ Um die Texterkennung (OCR) zu verwenden, drücken Sie **EINFÜGEN+LEERTASTE** ge
 - **Q** - Bricht die Erkennung während der Verarbeitung ab.
 - **FRAGEZEICHEN** - Zeigt Hilfe für die Ebene Texterkennung (OCR) an.
 
-Zum korrekten Erkennen von Text in anderen Sprachen können Sie eine erste und eine zweite Erkennungssprache konfigurieren. Die Einstellungen für Einfache Texterkennung finden Sie in der Strukturansicht der [Einstellungsverwaltung](SettingsCenter.chm::/ConvenientOCR/Convenient_OCR.htm) . Wenn Sie dieses Element erweitern, dann gelangen Sie zu den Einstellungen der Ersten und Zweiten Erkennungssprache. Drücken Sie **LEERTASTE** , um zwischen den verfügbaren Sprachen zu wechseln bis Sie die gewünschte Sprache hören, oder Sie drücken **F6** , um zur Ausklappliste der Sprachen zu springen.
+Zum korrekten Erkennen von Text in anderen Sprachen können Sie eine erste und eine zweite Erkennungssprache konfigurieren. Die Einstellungen für Einfache Texterkennung finden Sie in der Strukturansicht der [Einstellungsverwaltung](SettingsCenter.chm::/ConvenientOCR/Convenient_OCR.htm). Wenn Sie dieses Element erweitern, dann gelangen Sie zu den Einstellungen der Ersten und Zweiten Erkennungssprache. Drücken Sie **LEERTASTE**, um zwischen den verfügbaren Sprachen zu wechseln bis Sie die gewünschte Sprache hören, oder Sie drücken **F6**, um zur Ausklappliste der Sprachen zu springen.
 
 ## Erkennung von Bildern über die PEARL Kamera oder einen Scanner
 
-Zum Aufnehmen und Lesen eines Dokuments mit der PEARL Kamera legen Sie eine Seite unter die Kamera und richten Sie diese an der Seitenführung aus, drücken Sie dann **EINFÜGEN+LEERTASTE, O, A** , um das Dialogfenster Erkennung über Kamera und Scanner zu öffnen. Stellen Sie sicher, dass in der Ausklappliste Kameras und Scanner PEARL ausgewählt ist und drücken Sie dann **EINGABE** oder drücken Sie den Aufnahmeschalter, um eine einseitige Texterkennung zu starten. Sobald die Erkennung abgeschlossen ist zeigt JAWS den Text im Ergebnisbetrachter, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren. Während des Erkennungsvorgangs wird JAWS Ihnen die Seitenausrichtung ansagen, wie etwa "quer", "auf dem Kopf" oder "richtig herum". Dies ist besonders hilfreich für Benutzer, die sicherstellen müssen, dass eine Seite korrekt für das Falten und Einlegen in einen Umschlag positioniert ist, so dass die korrekten Informationen durch das Fenster angezeigt werden.
+Zum Aufnehmen und Lesen eines Dokuments mit der PEARL Kamera legen Sie eine Seite unter die Kamera und richten Sie diese an der Seitenführung aus, drücken Sie dann **EINFÜGEN+LEERTASTE, O, A**, um das Dialogfenster Erkennung über Kamera und Scanner zu öffnen. Stellen Sie sicher, dass in der Ausklappliste Kameras und Scanner PEARL ausgewählt ist und drücken Sie dann **EINGABE** oder drücken Sie den Aufnahmeschalter, um eine einseitige Texterkennung zu starten. Sobald die Erkennung abgeschlossen ist zeigt JAWS den Text im Ergebnisbetrachter, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren. Während des Erkennungsvorgangs wird JAWS Ihnen die Seitenausrichtung ansagen, wie etwa "quer", "auf dem Kopf" oder "richtig herum". Dies ist besonders hilfreich für Benutzer, die sicherstellen müssen, dass eine Seite korrekt für das Falten und Einlegen in einen Umschlag positioniert ist, so dass die korrekten Informationen durch das Fenster angezeigt werden.
 
 **Hinweis:** Der Dokumentbereich, der von der PEARL Kamera aufgenommen werden kann, beträgt 22 cm mal 30 cm.
 
-Um mehrere Seiten aufzunehmen, aktivieren Sie nach dem Drücken von **EINFÜGEN+LEERTASTE, O, A** das Kontrollfeld Bewegungen bei mehrseitiger Erkennung feststellen, bevor Sie den Aufnahmeschalter zum Aufnehmen von Dokumenten drücken. Wenn Sie von JAWS den Ton eines Kameraklicks hören, dann wurde das aktuelle Bild aufgenommen und Sie können eine neue Seite unter die Kamera legen, oder die Seite in einem Buch umblättern. Sobald die PEARL Kamera keine weitere Bewegung mehr feststellt, wird das nächste Bild aufgenommen und erkannt. Sobald Sie mit dem Erkennen von Seiten fertig sind, drücken Sie erneut **EINFÜGEN+LEERTASTE, O, A** , um die Erkennung zu stoppen. Sie können auch das Kontrollfeld für Zeitüberschreitung aktivieren, damit die Erkennung automatisch stoppt, wenn die PEARL Kamera 30 Sekunden lang keine Bewegungen festgestellt hat.
+Um mehrere Seiten aufzunehmen, aktivieren Sie nach dem Drücken von **EINFÜGEN+LEERTASTE, O, A** das Kontrollfeld Bewegungen bei mehrseitiger Erkennung feststellen, bevor Sie den Aufnahmeschalter zum Aufnehmen von Dokumenten drücken. Wenn Sie von JAWS den Ton eines Kameraklicks hören, dann wurde das aktuelle Bild aufgenommen und Sie können eine neue Seite unter die Kamera legen, oder die Seite in einem Buch umblättern. Sobald die PEARL Kamera keine weitere Bewegung mehr feststellt, wird das nächste Bild aufgenommen und erkannt. Sobald Sie mit dem Erkennen von Seiten fertig sind, drücken Sie erneut **EINFÜGEN+LEERTASTE, O, A**, um die Erkennung zu stoppen. Sie können auch das Kontrollfeld für Zeitüberschreitung aktivieren, damit die Erkennung automatisch stoppt, wenn die PEARL Kamera 30 Sekunden lang keine Bewegungen festgestellt hat.
 
 Die eingebauten Lampen sind während der Bildaufnahme und der Texterkennung standardmäßig eingeschaltet. Wenn Sie möchten, dass das Licht sich nur dann automatisch einschaltet, wenn die Kamera schlechte Lichtbedingungen feststellt, oder wenn Sie es bevorzugen, dass die Lampen immer aus sind, dann können Sie diese Einstellungen in der Ausklappliste Licht festlegen.
 
 Befinden Sie sich an einem Ort mit fluoreszierender Beleuchtung, dann aktivieren Sie bitte den Schalter Erweitert, wodurch ein Dialog geöffnet wird, in welchem Sie die Lichtkorrektur für flackerndes und fluoreszierendes Licht festlegen können. Wenn Sie fertig sind, dann wählen Sie OK oder Abbrechen, um zum Hauptfenster des Dialogs zur Kamera- und Scanner-Erkennung zurückzukehren.
 
-Zum Aufnehmen eines Bildes über einen Scanner, legen Sie die Seite auf das Scanfenster und drücken Sie dann **EINFÜGEN+LEERTASTE, O, A** , um das Dialogfenster zur Kamera- und Scanner-Erkennung zu öffnen. Stellen Sie sicher, dass in der Kamera- und Scanner-Ausklappliste ihr Scanner ausgewählt ist und aktivieren Sie dann den Schalter zum Starten des Aufnahmevorgangs. Wie beim Aufnehmen von Bildern über die PEARL, sagt JAWS auch hier die Ausrichtung der Seite an. Sobald die Erkennung abgeschlossen ist zeigt JAWS den Text im Ergebnisbetrachter, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren. Wenn Ihr Scanner über einen automatischen Seitenvorschub verfügt, wählen Sie das Kontrollfeld "Auto Seitenvorschub verwenden, wenn verfügbar", um mehrere Seiten aufzunehmen und zu erkennen.
+Zum Aufnehmen eines Bildes über einen Scanner, legen Sie die Seite auf das Scanfenster und drücken Sie dann **EINFÜGEN+LEERTASTE, O, A**, um das Dialogfenster zur Kamera- und Scanner-Erkennung zu öffnen. Stellen Sie sicher, dass in der Kamera- und Scanner-Ausklappliste ihr Scanner ausgewählt ist und aktivieren Sie dann den Schalter zum Starten des Aufnahmevorgangs. Wie beim Aufnehmen von Bildern über die PEARL, sagt JAWS auch hier die Ausrichtung der Seite an. Sobald die Erkennung abgeschlossen ist zeigt JAWS den Text im Ergebnisbetrachter, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren. Wenn Ihr Scanner über einen automatischen Seitenvorschub verfügt, wählen Sie das Kontrollfeld "Auto Seitenvorschub verwenden, wenn verfügbar", um mehrere Seiten aufzunehmen und zu erkennen.
 
 Aktivieren Sie den Schalter Erweitert, um ein Dialogfenster zu öffnen, in dem Sie zusätzliche Scanner-Einstellungen konfigurieren können, einschließlich der Unterbrechung des aktuellen Scans bei Abbruch der Erkennung, anpassen des Kontrasts basierend auf Helligkeit statt Schwellenwert und schließen der TWAIN-Schnittstelle nach jedem Scan. Beachten Sie bitte, dass diese Einstellungen nicht von allen Scannern unterstützt werden. Wenn Sie fertig sind, dann wählen Sie OK oder Abbrechen, um zum Hauptfenster des Dialogs zur Kamera- und Scanner-Erkennung zurückzukehren.
 
@@ -45,13 +45,13 @@ Aktivieren Sie den Schalter Erweitert, um ein Dialogfenster zu öffnen, in dem S
 
 ## Bilddateien erkennen
 
-JAWS kann Text in Bilddateien erkennen, die als BMP, JPG, JPEG, GIF, TIF, TIFF, PNG, PCX oder PDF gespeichert wurden. Um den Text einer Datei zu erkennen, drücken Sie **EINFÜGEN+LEERTASTE, O, F** , während die ausgewählte Datei im Explorer oder auf dem Desktop fokussiert ist. Der erkannte Text wird im Ergebnisbetrachter angezeigt, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren. Alternativ drücken Sie die **ANWENDUNGSTASTE** , um das Kontextmenü zu öffnen und wählen dann "Datei mit JAWS erkennen" oder "Datei mit Fusion erkennen", wenn Fusion ausgeführt wird.
+JAWS kann Text in Bilddateien erkennen, die als BMP, JPG, JPEG, GIF, TIF, TIFF, PNG, PCX oder PDF gespeichert wurden. Um den Text einer Datei zu erkennen, drücken Sie **EINFÜGEN+LEERTASTE, O, F**, während die ausgewählte Datei im Explorer oder auf dem Desktop fokussiert ist. Der erkannte Text wird im Ergebnisbetrachter angezeigt, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren. Alternativ drücken Sie die **ANWENDUNGSTASTE**, um das Kontextmenü zu öffnen und wählen dann "Datei mit JAWS erkennen" oder "Datei mit Fusion erkennen", wenn Fusion ausgeführt wird.
 
-**Hinweis:** Wenn JAWS die Texterkennung einer PDF-Datei aufgrund ihrer Sicherheitseinstellungen nicht durchführen kann, versuchen Sie das PDF im Adobe Reader zu öffnen und drücken Sie dann den Befehl **EINFÜGEN+LEERTASTE, O, D** , um PDF Dokumente zu erkennen.
+**Hinweis:** Wenn JAWS die Texterkennung einer PDF-Datei aufgrund ihrer Sicherheitseinstellungen nicht durchführen kann, versuchen Sie das PDF im Adobe Reader zu öffnen und drücken Sie dann den Befehl **EINFÜGEN+LEERTASTE, O, D**, um PDF Dokumente zu erkennen.
 
 ## Texterkennung eines geöffneten PDF Dokuments
 
-Wenn Sie ein PDF im Adobe Reader öffnen und es stellt sich heraus, dass dieses nicht zugänglich ist, dann drücken Sie **EINFÜGEN+LEERTASTE, O, D** , damit JAWS mit einer Texterkennung des gesamten Dokuments startet. Nach einigen Sekunden zeigt JAWS den Inhalt der PDF Datei im Ergebnisbetrachter, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren.
+Wenn Sie ein PDF im Adobe Reader öffnen und es stellt sich heraus, dass dieses nicht zugänglich ist, dann drücken Sie **EINFÜGEN+LEERTASTE, O, D**, damit JAWS mit einer Texterkennung des gesamten Dokuments startet. Nach einigen Sekunden zeigt JAWS den Inhalt der PDF Datei im Ergebnisbetrachter, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren.
 
 **Hinweis:** Der OCR Vorgang dauert bei großen PDF Dateien länger. Wenn Text erkannt wird, dann wird dieser am Ende des bereits im Ergebnisbetrachter bestehenden Textes hinzugefügt. Dieses ermöglicht Ihnen, das Lesen ohne Unterbrechungen fortzusetzen, während das Dokument verarbeitet wird. Lesen Sie aktuell nicht über den Befehl Alles Lesen, dann spricht JAWS die aktuelle Zeile wenn neuer Text dem Ergebnisbetrachter hinzugefügt wurde, was anzeigt, dass die Texterkennung noch nicht abgeschlossen ist.
 
@@ -59,61 +59,64 @@ Wenn Sie ein PDF im Adobe Reader öffnen und es stellt sich heraus, dass dieses 
 
 ## Erkennung von Bildschirminhalten
 
-Manchmal werden Sie auf Anwendungsoberflächen oder Steuerelemente treffen, die nur ein Bild mit Text sind. Wenn dieses auftritt, dann können Sie **EINFÜGEN+LEERTASTE, O, W** drücken, um das aktuelle Anwendungsfenster zu erkennen, **EINFÜGEN+LEERTASTE, O, S** , um den gesamtem Bildschirm zu erkennen, oder **EINFÜGEN+LEERTASTE, O, C** , um das aktuelle Steuerelement zu erkennen. JAWS wird das Bild schnell erkennen und den JAWS Cursor aktivieren, so dass Sie im Ergebnistext navigieren können. Der erkannte Text wird an der gleichen Position stehen, wie die aktuelle Grafik auf dem Bildschirm. Um den erkannten Text von anderem Text, der im Fenster stehen kann, zu unterscheiden, wird JAWS eine andere Stimme verwenden, wenn ein auf diese Weise erkannter Text festgestellt wird. Wenn Sie den PC Cursor aktivieren, oder zu einer anderen Anwendung oder einem anderen Dialogfenster wechseln, dann wird der Text entfernt und Sie müssen die Einfache Texterkennung erneut durchführen.
+Manchmal werden Sie auf Anwendungsoberflächen oder Steuerelemente treffen, die nur ein Bild mit Text sind. Wenn dieses auftritt, dann können Sie **EINFÜGEN+LEERTASTE, O, W** drücken, um das aktuelle Anwendungsfenster zu erkennen, **EINFÜGEN+LEERTASTE, O, S**, um den gesamtem Bildschirm zu erkennen, oder **EINFÜGEN+LEERTASTE, O, C**, um das aktuelle Steuerelement zu erkennen. JAWS wird das Bild schnell erkennen und den JAWS Cursor aktivieren, so dass Sie im Ergebnistext navigieren können. Der erkannte Text wird an der gleichen Position stehen, wie die aktuelle Grafik auf dem Bildschirm. Um den erkannten Text von anderem Text, der im Fenster stehen kann, zu unterscheiden, wird JAWS eine andere Stimme verwenden, wenn ein auf diese Weise erkannter Text festgestellt wird. Wenn Sie den PC Cursor aktivieren, oder zu einer anderen Anwendung oder einem anderen Dialogfenster wechseln, dann wird der Text entfernt und Sie müssen die Einfache Texterkennung erneut durchführen.
 
-Wenn Sie beispielsweise eine Anwendung installieren und der Installationsvorgang scheint keinen lesbaren Text zu beinhalten wenn Sie **TAB** drücken oder den JAWS Cursor verwenden, dann können Sie es mit Einfache Texterkennung (OCR) versuchen. Starten Sie mit dem PC Cursor und drücken Sie **EINFÜGEN+LEERTASTE, O, W** , um den Text auf der Willkommensgrafik zu erkennen. Sie können dann den JAWS Cursor und **NUM SCHRÄGSTRICH** (linker Mausklick) verwenden, um zu möglichen Schaltern und Links zu navigieren und diese auszuwählen.
+Wenn Sie beispielsweise eine Anwendung installieren und der Installationsvorgang scheint keinen lesbaren Text zu beinhalten wenn Sie **TAB** drücken oder den JAWS Cursor verwenden, dann können Sie es mit Einfache Texterkennung (OCR) versuchen. Starten Sie mit dem PC Cursor und drücken Sie **EINFÜGEN+LEERTASTE, O, W**, um den Text auf der Willkommensgrafik zu erkennen. Sie können dann den JAWS Cursor und **NUM SCHRÄGSTRICH** (linker Mausklick) verwenden, um zu möglichen Schaltern und Links zu navigieren und diese auszuwählen.
 
-Wenn Sie keine klaren Erkennungsergebnisse erhalten, oder der Text nicht sauber getrennt wird, lesen Sie bitte [FAQ 63556](https://www.freedomscientific.com/Support/TechnicalSupport/Bulletin/1457) , um mehr über Wege zu einer besseren Erkennung zu erfahren. Beim Erkennen eines PDF Dokuments oder anderer Bilddateien verwendet die Einfache Texterkennung nicht das physikalische Bild, welches aktuell auf dem Bildschirm zu sehen ist, so dass die Erkennung eine höhere Erkennungsgenauigkeit liefert, da diese nicht von der aktuellen Bildschirmauflösung abhängig ist.
+Wenn Sie keine klaren Erkennungsergebnisse erhalten, oder der Text nicht sauber getrennt wird, lesen Sie bitte [FAQ 63556](https://www.freedomscientific.com/Support/TechnicalSupport/Bulletin/1457), um mehr über Wege zu einer besseren Erkennung zu erfahren. Beim Erkennen eines PDF Dokuments oder anderer Bilddateien verwendet die Einfache Texterkennung nicht das physikalische Bild, welches aktuell auf dem Bildschirm zu sehen ist, so dass die Erkennung eine höhere Erkennungsgenauigkeit liefert, da diese nicht von der aktuellen Bildschirmauflösung abhängig ist.
 
 ### Hintergrund-OCR
 
 Sie können JAWS kontinuierlich den Text im Hintergrund erkennen lassen, um sicherzustellen, dass Sie nahtlos auf Bildschirminhalte zugreifen und mit ihnen interagieren können. Diese Funktion ist vor allem bei Anwendungen nützlich, bei denen der Bildschirminhalt teilweise oder ganz unzugänglich ist. Beispiele hierfür sind Sicherheitstools, Messaging-Plattformen, Dienstprogramme für die Dateiverwaltung, Systemwartungssoftware, Multimedia-Bearbeitungsprogramme, proprietäre Laptop-Dienstprogramme, Spiele oder gemeinsame Bildschirminhalte.
 
-Zum Starten der Hintergrund-OCR, drücken Sie **EINFÜGEN+LEERTASTE, O, B** . Um die OCR-Ergebnisse zu überprüfen, aktivieren Sie den JAWS Cursor oder den unsichtbaren Cursor. Navigieren Sie weiter mit dem JAWS Cursor oder dem unsichtbaren Cursor, um den erkannten Text zu lesen, während er aktualisiert wird. Benutzer von Braillezeilen können sich auch auf einer Zeile positionieren und beobachten, wie diese in Echtzeit aktualisiert wird, sobald neuer Text erkannt wird.
+Zum Starten der Hintergrund-OCR, drücken Sie **EINFÜGEN+LEERTASTE, O, B**. Um die OCR-Ergebnisse zu überprüfen, aktivieren Sie den JAWS Cursor oder den unsichtbaren Cursor. Navigieren Sie weiter mit dem JAWS Cursor oder dem unsichtbaren Cursor, um den erkannten Text zu lesen, während er aktualisiert wird. Benutzer von Braillezeilen können sich auch auf einer Zeile positionieren und beobachten, wie diese in Echtzeit aktualisiert wird, sobald neuer Text erkannt wird.
 
 **Tipp:** Das Drücken von **EINFÜGEN+LEERTASTE, O, STRG+B** startet ebenfalls die Hintergrund-OCR, allerdings zusätzlich mit einem leisen Klickgeräusch, das anzeigt, dass der OCR-Vorgang ausgeführt wird.
 
 Die Hintergrund-OCR bleibt solange aktiv, bis Sie den Fokus in ein anderes Fenster bewegen. Ansonsten können Sie die OCR auch durch Drücken von **EINFÜGEN+LEERTASTE, O, Q** stoppen.
 
-Eine häufige Anwendung für die Hintergrund-OCR ist die Verwendung des Befehls **EINFÜGEN+LEERTASTE** , **O** , **EINGABE** , um auf Textinhalte zuzugreifen, die in YouTube-Videos eingebettet sind, sowie auf Bildschirminhalte, die in Teams oder Zoom freigegeben wurden.
+Eine häufige Anwendung für die Hintergrund-OCR ist die Verwendung des Befehls **EINFÜGEN+LEERTASTE**, **O**, **EINGABE**, um auf Textinhalte zuzugreifen, die in YouTube-Videos eingebettet sind, sowie auf Bildschirminhalte, die in Teams oder Zoom freigegeben wurden.
 
-**Hinweis:** Obwohl **EINFÜGEN+LEERTASTE** , **O** , **B** auch für den Zugriff auf Video- oder freigegebene Bildschirminhalte funktioniert, empfehlen wir die Verwendung von **EINFÜGEN+LEERTASTE** , **O** , **EINGABE** , da es die Hintergrunderkennung auf den Bereich mit dem Video oder der Bildschirmfreigabe beschränkt. Der unsichtbare Cursor wird automatisch aktiviert und ist auf diesen Bereich beschränkt, um Ablenkungen zu minimieren. Die Verwendung von **EINFÜGEN+LEERTASTE** , **O** , **B** erfasst den Text aus dem Inhalt, kann ihn aber mit anderem Text auf dem Bildschirm vermischen.
+**Hinweis:** Obwohl **EINFÜGEN+LEERTASTE**, **O**, **B** auch für den Zugriff auf Video- oder freigegebene Bildschirminhalte funktioniert, empfehlen wir die Verwendung von **EINFÜGEN+LEERTASTE**, **O**, **EINGABE**, da es die Hintergrunderkennung auf den Bereich mit dem Video oder der Bildschirmfreigabe beschränkt. Der unsichtbare Cursor wird automatisch aktiviert und ist auf diesen Bereich beschränkt, um Ablenkungen zu minimieren. Die Verwendung von **EINFÜGEN+LEERTASTE**, **O**, **B** erfasst den Text aus dem Inhalt, kann ihn aber mit anderem Text auf dem Bildschirm vermischen.
 
 ### Beispiel für YouTube
 
 So verwenden Sie Hintergrund-OCR, um Text in einem YouTube-Video zu erkennen:
 
 1. Starten Sie die Wiedergabe eines Videos auf YouTube.com.
-2. Drücken Sie **EINFÜGEN+LEERTASTE** , **O** , **EINGABE** . JAWS startet die Hintergrund-OCR, aktiviert dann den unsichtbaren Cursor und bewegt ihn zum Video.
-3. Verwenden Sie Ihre **Pfeiltasten** , um den erkannten Text zu erkunden.
+2. Drücken Sie **EINFÜGEN+LEERTASTE**, **O**, **EINGABE**. JAWS startet die Hintergrund-OCR, aktiviert dann den unsichtbaren Cursor und bewegt ihn zum Video.
+3. Verwenden Sie Ihre **Pfeiltasten**, um den erkannten Text zu erkunden.
 4. Sie können jederzeit überprüfen, ob die Hintergrund-OCR aktiv ist, indem Sie **ALT+ENTFERNEN** drücken. Wenn die Hintergrund-OCR aktiviert ist, wird dies gefolgt von Informationen über den aktiven Cursor und dessen Position angesagt.
 5. Brechen Sie die Hintergrund-OCR ab, indem Sie einen der folgenden Schritte ausführen:
-  - Drücken Sie **EINFÜGEN+LEERTASTE** , **O** , **Q** , um die Erkennung abzubrechen.
-  - Schalten Sie auf den PC oder Virtuellen PC Cursor um.
-  - Aktualisieren Sie die Seite.
-  - Laden Sie ein neues Video oder eine neue Seite.
-  - Bewegen Sie den Fokus in eine andere Anwendung oder ein anderes Fenster.
+
+  - Drücken Sie **EINFÜGEN+LEERTASTE**, **O**, **Q**, um die Erkennung abzubrechen.
+    - Schalten Sie auf den PC oder Virtuellen PC Cursor um.
+    - Aktualisieren Sie die Seite.
+    - Laden Sie ein neues Video oder eine neue Seite.
+    - Bewegen Sie den Fokus in eine andere Anwendung oder ein anderes Fenster.
 
 ### Beispiel für geteilte Folien in Teams und Zoom
 
 So verwenden Sie die Hintergrund-OCR, um Text eines freigegebenen Bildschirms oder einer Präsentation in einer Teams- oder Zoom-Besprechung zu erkennen:
 
 1. Nehmen Sie an einem Teams- oder Zoom-Meeting teil, in dem Inhalte geteilt oder freigegeben werden.
-2. Drücken Sie **EINFÜGEN+LEERTASTE** , **O** , **EINGABE** . JAWS startet die Hintergrund-OCR, aktiviert dann den unsichtbaren Cursor und bewegt ihn zum geteilten Inhaltsbereich.
-3. Verwenden Sie Ihre **Pfeiltasten** , um den erkannten Text zu erkunden.
+2. Drücken Sie **EINFÜGEN+LEERTASTE**, **O**, **EINGABE**. JAWS startet die Hintergrund-OCR, aktiviert dann den unsichtbaren Cursor und bewegt ihn zum geteilten Inhaltsbereich.
+3. Verwenden Sie Ihre **Pfeiltasten**, um den erkannten Text zu erkunden.
 4. Sie können jederzeit überprüfen, ob die Hintergrund-OCR aktiv ist, indem Sie **ALT+ENTFERNEN** drücken. Wenn die Hintergrund-OCR aktiviert ist, wird dies gefolgt von Informationen über den aktiven Cursor und dessen Position angesagt.
 5. Brechen Sie die Hintergrund-OCR ab, indem Sie einen der folgenden Schritte ausführen:
-  - Drücken Sie **EINFÜGEN+LEERTASTE** , **O** , **Q** , um die Erkennung abzubrechen.
-  - Schalten Sie auf den PC oder Virtuellen PC Cursor um.
-  - Bewegen Sie den Fokus in eine andere Anwendung oder ein anderes Fenster.
+
+  - Drücken Sie **EINFÜGEN+LEERTASTE**, **O**, **Q**, um die Erkennung abzubrechen.
+    - Schalten Sie auf den PC oder Virtuellen PC Cursor um.
+    - Bewegen Sie den Fokus in eine andere Anwendung oder ein anderes Fenster.
 
 ## Mausmodus (nur für Fusion)
 
 Der Mausmodus in Fusion bietet eine alternative Methode, um auf die Texterkennung (OCR) zuzugreifen und es zu verwenden, ohne auf JAWS Kurztasten angewiesen zu sein. Durch die Verwendung des Mausmodus können Sie die Notwendigkeit von Tastenkombinationen umgehen, was den Zugriff auf die Texterkennung (OCR) erleichtert, wenn Sie die Navigation mit der Maus bevorzugen oder wenn Sie Probleme mit Kurztasten haben. Diese Methode stellt sicher, dass die Funktion für Fusion-Nutzer mit unterschiedlichen Präferenzen und Bedürfnissen zugänglich ist.
 
 1. Um die Texterkennung (OCR) über den Mausmodus zu starten und zu verwenden, führen Sie einen der folgenden Schritte aus:
-  - Wählen Sie auf der Registerkarte Werkzeuge, den Schalter **OCR** .
-  - Drücken Sie **FESTSTELL+STRG+O** .
+
+  - Wählen Sie auf der Registerkarte Werkzeuge, den Schalter **OCR**.
+    - Drücken Sie **FESTSTELL+STRG+O**.
 2. Nachdem Fusion “OCR Mausmodus” angesagt hat, klicken und ziehen den Mauszeiger über ein Element, welches Sie sich beschreiben lassen möchten.
 3. Nach der Verarbeitung wird die Beschreibung im Fenster des Ergebnisbetrachters angezeigt und auch vorgelesen.
 
@@ -127,7 +130,7 @@ Quelle: Convenient_OCR.htm
 
 Im Dialog Überschriften für Listenfelder anpassen können Sie festlegen, wie JAWS Überschriften für Listenfelder in Braille anzeigen und über die Sprachausgabe ansagen soll. Diese Anpassungen werden gespeichert, so dass Sie die Änderungen nicht jedes Mal wiederholen müssen, wenn Sie eine Listenansicht verwenden möchten.
 
-Um eine Listenansicht anzupassen, muss sie im Fokus sein und Sie drücken dann **JAWS TASTE+F2** . Wählen Sie Listenansicht anpassen und drücken Sie **EINGABE** . Das Dialogfeld Überschriften für Listenfelder anpassen wird geöffnet. Lesen Sie die folgenden Themen, um weitere Informationen über dieses Dialogfeld zu erhalten.
+Um eine Listenansicht anzupassen, muss sie im Fokus sein und Sie drücken dann **JAWS TASTE+F2**. Wählen Sie Listenansicht anpassen und drücken Sie **EINGABE**. Das Dialogfeld Überschriften für Listenfelder anpassen wird geöffnet. Lesen Sie die folgenden Themen, um weitere Informationen über dieses Dialogfeld zu erhalten.
 
 [Die Reihenfolge der Spalten ändern](#1)
 
@@ -143,7 +146,7 @@ JAWS liest die Spalten des Dialogs Überschriften für Listenfelder anpassen von
 
 1. Wählen Sie auf der Registerkarte Sprache mit **PFEIL RAUF** und **RUNTER** eine Spalte aus.
 2. Verändern Sie mit den Schaltern Nach oben und Nach unten die Position der Spalte in der Liste. JAWS liest zuerst die Spalten am Anfang der Liste.
-3. Drücken Sie **STRG+TAB** , um die Registerkarte Braille zu öffnen. Die Liste auf dieser Registerkarte zeigt die Reihenfolge an, in der JAWS Spalten in Braille darstellt.
+3. Drücken Sie **STRG+TAB**, um die Registerkarte Braille zu öffnen. Die Liste auf dieser Registerkarte zeigt die Reihenfolge an, in der JAWS Spalten in Braille darstellt.
 4. Mit **PFEIL RAUF** und **RUNTER** wählen Sie eine Spalte in der Liste aus.
 5. Verändern Sie mit den Schaltern Nach oben und Nach unten die Position der Spalte in der Liste. JAWS zeigt zuerst die Spalten am Anfang der Liste in Braille an.
 6. Betätigen Sie den OK Schalter.
@@ -154,7 +157,7 @@ Wenn JAWS eine bestimmte Spalte nicht lesen und/oder in Braille anzeigen soll, g
 
 1. Wählen Sie auf der Registerkarte Sprache mit **PFEIL RAUF** und **RUNTER** die Spalte aus.
 2. Aktivieren Sie den Schalter Sprache umschalten. Dadurch wird die Spalte auf "Nicht sprechen" umgeschaltet. Sie können diesen Schalter erneut aktivieren, um die Eigenschaft wieder auf "Spalte sprechen" zu setzen.
-3. Drücken Sie **STRG+TAB** , um auf die Registerkarte Braille zu wechseln und wählen Sie die Spalte aus der Liste.
+3. Drücken Sie **STRG+TAB**, um auf die Registerkarte Braille zu wechseln und wählen Sie die Spalte aus der Liste.
 4. Aktivieren Sie den Schalter Braille umschalten. Dadurch wird die Spalte auf "Kein Braille" umgeschaltet. Sie können diesen Schalter erneut aktivieren, um die Eigenschaft wieder auf "Braille Spalte" zu setzen.
 5. Betätigen Sie den OK Schalter.
 
@@ -174,18 +177,20 @@ JAWS kann anstelle der oder zusätzlich zur Spaltenüberschrift benutzerdefinier
 1. Wählen Sie auf der Registerkarte Sprache mit **PFEIL RAUF** und **RUNTER** die Spalte aus, der Sie Text zuweisen möchten.
 2. Im Eingabefeld Benutzerdefinierter Text, geben Sie den Text ein, den JAWS ansagen soll, wenn die Spalte gelesen wird. Sie können die Schritte 1 und 2 wiederholen, um jeder Spaltenüberschrift einen anderen Text zuzuweisen.
 3. Wählen Sie im Gruppenfeld Spaltenüberschriften einen der folgenden Auswahlschalter:
+
   - **Ignorieren** - JAWS liest keine Überschriften und keinen benutzerdefinierten Text in Listenfeldern.
-  - **Benutzerdefinierten Text ODER Überschrift lesen** - Wenn Sie einer Spalte benutzerdefinierten Text zugewiesen haben, liest JAWS diesen Text und nicht die ursprüngliche Überschrift. Wenn Sie keinen benutzerdefinierten Text zugewiesen haben, liest JAWS die originale Spaltenüberschrift.
-  - **Benutzerdefinierten Text UND Überschrift lesen** - JAWS liest die Spaltenüberschrift und den benutzerdefinierten Text, sofern Sie welchen zugewiesen haben.
-  - **Nur benutzerdefinierten Text lesen** - JAWS liest nur den benutzerdefinierten Text und nicht die ursprüngliche Spaltenüberschrift.
-4. Wenn JAWS benutzerdefinierten Text in Braille anzeigen soll, drücken Sie **STRG+TAB** , um auf die Registerkarte Braille zu wechseln.
+    - **Benutzerdefinierten Text ODER Überschrift lesen** - Wenn Sie einer Spalte benutzerdefinierten Text zugewiesen haben, liest JAWS diesen Text und nicht die ursprüngliche Überschrift. Wenn Sie keinen benutzerdefinierten Text zugewiesen haben, liest JAWS die originale Spaltenüberschrift.
+    - **Benutzerdefinierten Text UND Überschrift lesen** - JAWS liest die Spaltenüberschrift und den benutzerdefinierten Text, sofern Sie welchen zugewiesen haben.
+    - **Nur benutzerdefinierten Text lesen** - JAWS liest nur den benutzerdefinierten Text und nicht die ursprüngliche Spaltenüberschrift.
+4. Wenn JAWS benutzerdefinierten Text in Braille anzeigen soll, drücken Sie **STRG+TAB**, um auf die Registerkarte Braille zu wechseln.
 5. Wählen Sie mit **PFEIL RAUF** und **RUNTER** die Spalte aus, der Sie Text zuweisen möchten.
 6. Im Eingabefeld Benutzerdefinierter Text geben Sie den Text ein, den JAWS in Braille anzeigen soll, wenn die Spalte gelesen wird. Sie können die Schritte 5 und 6 wiederholen, um jeder Spaltenüberschrift einen anderen Text zuzuweisen.
 7. Wählen Sie im Gruppenfeld Spaltenüberschriften einen der folgenden Auswahlschalter:
+
   - **Ignorieren** - JAWS zeigt keine Überschriften und keinen benutzerdefinierten Text in Braille an.
-  - **Benutzerdefinierten Text ODER Überschrift** - Wenn Sie einer Spalte benutzerdefinierten Text zugewiesen haben, zeigt JAWS diesen Text in Braille an und nicht die ursprüngliche Überschrift. Wenn Sie keinen benutzerdefinierten Text zugewiesen haben, zeigt JAWS die originale Spaltenüberschrift an.
-  - **Benutzerdefinierten Text UND Überschrift** - JAWS zeigt die Spaltenüberschrift und den benutzerdefinierten Text an, sofern Sie welchen zugewiesen haben.
-  - **Nur benutzerdefinierten Text anzeigen** - JAWS zeigt nur den benutzerdefinierten Text und nicht die ursprüngliche Spaltenüberschrift an.
+    - **Benutzerdefinierten Text ODER Überschrift** - Wenn Sie einer Spalte benutzerdefinierten Text zugewiesen haben, zeigt JAWS diesen Text in Braille an und nicht die ursprüngliche Überschrift. Wenn Sie keinen benutzerdefinierten Text zugewiesen haben, zeigt JAWS die originale Spaltenüberschrift an.
+    - **Benutzerdefinierten Text UND Überschrift** - JAWS zeigt die Spaltenüberschrift und den benutzerdefinierten Text an, sofern Sie welchen zugewiesen haben.
+    - **Nur benutzerdefinierten Text anzeigen** - JAWS zeigt nur den benutzerdefinierten Text und nicht die ursprüngliche Spaltenüberschrift an.
 8. Betätigen Sie den OK Schalter.
 
 Quelle: Customize_Column_Headers_Dialog.htm
@@ -200,19 +205,19 @@ Eine Listenansicht ist ein Bereich in einem Fenster oder einem Dialog, der ein o
 - Entscheiden, ob JAWS Spaltenüberschriften lesen und/oder in Braille anzeigen soll.
 - Jeder Spalte benutzerdefinierten Text zuweisen, den JAWS lesen und/oder auf der Braillezeile darstellen kann.
 
-**Hinweis:** Listenfelder lassen sich nicht anpassen, wenn das Kontrollfeld MSAA für Listenansichten verwenden in der Gruppe [Weitere Optionen](SettingsCenter.chm::/Miscellaneous/Miscellaneous_Group.htm) der Einstellungsverwaltung aktiviert ist.
+**Hinweis:**Listenfelder lassen sich nicht anpassen, wenn das Kontrollfeld MSAA für Listenansichten verwenden in der Gruppe [Weitere Optionen](SettingsCenter.chm::/Miscellaneous/Miscellaneous_Group.htm) der Einstellungsverwaltung aktiviert ist.
 
 Um ein Listenfeld anzupassen, gehen Sie bitte folgendermaßen vor:
 
 1. Starten Sie das Programm, in dem sich das Listenfeld befindet, das Sie verändern möchten.
-2. Gehen Sie auf das Listenfeld und drücken Sie **JAWS TASTE+F2** .
-3. Wählen Sie Listenansicht anpassen und drücken Sie **EINGABE** . Das Dialogfeld Überschriften für Listenfelder anpassen wird geöffnet.
+2. Gehen Sie auf das Listenfeld und drücken Sie **JAWS TASTE+F2**.
+3. Wählen Sie Listenansicht anpassen und drücken Sie **EINGABE**. Das Dialogfeld Überschriften für Listenfelder anpassen wird geöffnet.
 
-Weitere Informationen über dieses Dialogfeld erhalten Sie unter [Der Dialog Überschriften für Listenfelder anpassen](Customize_Column_Headers_Dialog.htm) . Nachdem Sie ein Listenfeld angepasst haben, speichert JAWS Ihre Einstellungen und weist diese jedes Mal zu, wenn Sie dieses Listenfeld verwenden. Sie können für jedes Listenfeld verschiedene benutzerdefinierte Einstellungen vornehmen.
+Weitere Informationen über dieses Dialogfeld erhalten Sie unter [Der Dialog Überschriften für Listenfelder anpassen](Customize_Column_Headers_Dialog.htm). Nachdem Sie ein Listenfeld angepasst haben, speichert JAWS Ihre Einstellungen und weist diese jedes Mal zu, wenn Sie dieses Listenfeld verwenden. Sie können für jedes Listenfeld verschiedene benutzerdefinierte Einstellungen vornehmen.
 
-Um die benutzerdefinierten Einstellungen eines Listenfelds zu hören, drücken Sie **PFEIL RAUF** und **PFEIL RUNTER** , um Einträge im Listenfeld zu markieren. JAWS liest die Inhalte der markierten Reihe. Um die Inhalte einer bestimmten Spalte einer Reihe zu hören, halten Sie **STRG+JAWS TASTE** gedrückt und drücken dann die Spaltennummer, die Sie lesen möchten. Um zum Beispiel die erste Spalte im Listenfeld zu lesen, drücken Sie **STRG+JAWS TASTE+1** .
+Um die benutzerdefinierten Einstellungen eines Listenfelds zu hören, drücken Sie **PFEIL RAUF** und **PFEIL RUNTER**, um Einträge im Listenfeld zu markieren. JAWS liest die Inhalte der markierten Reihe. Um die Inhalte einer bestimmten Spalte einer Reihe zu hören, halten Sie **STRG+JAWS TASTE** gedrückt und drücken dann die Spaltennummer, die Sie lesen möchten. Um zum Beispiel die erste Spalte im Listenfeld zu lesen, drücken Sie **STRG+JAWS TASTE+1**.
 
-**Tipp:** Wenn Sie ein Listenfeld dahingehend angepasst haben, dass bestimmte Spalten gar nicht gelesen werden, können Sie mit **JAWS TASTE+SEITE RAUF** die Informationen in allen Spalten für das markierte Element lesen.
+**Tipp:**Wenn Sie ein Listenfeld dahingehend angepasst haben, dass bestimmte Spalten gar nicht gelesen werden, können Sie mit **JAWS TASTE+SEITE RAUF** die Informationen in allen Spalten für das markierte Element lesen.
 
 Quelle: Customizing_List_Views.htm
 
@@ -245,8 +250,8 @@ Quelle: Custom_Tutor_Messages.htm
 Um eine Promptbezeichnung zu löschen, gehen Sie bitte folgendermaßen vor:
 
 1. Öffnen Sie den Dialog oder das Anwendungsfenster, in dem sich das Steuerelement befindet, für welches Sie eine Promptbezeichnung erstellt haben.
-2. Drücken Sie **JAWS TASTE+F2** , wählen Sie in der Liste die Option Rahmenbetrachter. Drücken Sie **EINGABE** .
-3. Drücken Sie so lange **TAB** , bis Sie sich auf dem Rahmen befinden, der die Promptbezeichnung enthält, die Sie löschen möchten. Drücken Sie **ENTFERNEN** .
+2. Drücken Sie **JAWS TASTE+F2**, wählen Sie in der Liste die Option Rahmenbetrachter. Drücken Sie **EINGABE**.
+3. Drücken Sie so lange **TAB**, bis Sie sich auf dem Rahmen befinden, der die Promptbezeichnung enthält, die Sie löschen möchten. Drücken Sie **ENTFERNEN**.
 
 Quelle: Deleting_Prompts.htm
 
@@ -262,12 +267,12 @@ Alle anderen Rahmenereignisse, die zugewiesen werden, hängen davon ab, welche O
 
 Auf der fünften Registerkarte des Dialogs Rahmen erstellen werden Sie aufgefordert, den Umfang des Tastaturechos im Rahmen festzulegen. Die von Ihnen getroffene Auswahl beeinflusst das Rahmenereignis, das hinzugefügt wird.
 
-- **Stumm** : Das Ereignis "Bei Text" wird hinzugefügt, wenn die Aktion "Skriptereignis unterdrücken" ausgewählt wird. Dadurch wird verhindert, dass durch das JAWS Skript New Text Event Text gesprochen wird.
-- **Hervorgehoben** : Für die Aktion "Textfilter sprechen" wird das Ereignis "Bei Text" hinzugefügt, wenn der Filter auf Hervorgehoben gesetzt ist. Dieses Ereignis spricht den Text, der bewirkt, dass das Ereignis eintritt - in diesem Fall den hervorgehobenen Text.
-- **Alle** : Für die Aktion "Textfilter sprechen" wird das Ereignis "Bei Text" hinzugefügt, das keinen bestimmten Text filtert. In diesem Fall wird jedes Mal, wenn neuer Text im Rahmen angezeigt wird, der gesamte Text gesprochen.
-- **JAWS Bildschirmecho** : Es wird kein Rahmenereignis hinzugefügt, wenn diese Auswahl getroffen wird, denn das JAWS Tastaturecho für neuen Text richtet sich nach den Standardeinstellungen des JAWS Bildschirmechos.
+- **Stumm**: Das Ereignis "Bei Text" wird hinzugefügt, wenn die Aktion "Skriptereignis unterdrücken" ausgewählt wird. Dadurch wird verhindert, dass durch das JAWS Skript New Text Event Text gesprochen wird.
+- **Hervorgehoben**: Für die Aktion "Textfilter sprechen" wird das Ereignis "Bei Text" hinzugefügt, wenn der Filter auf Hervorgehoben gesetzt ist. Dieses Ereignis spricht den Text, der bewirkt, dass das Ereignis eintritt - in diesem Fall den hervorgehobenen Text.
+- **Alle**: Für die Aktion "Textfilter sprechen" wird das Ereignis "Bei Text" hinzugefügt, das keinen bestimmten Text filtert. In diesem Fall wird jedes Mal, wenn neuer Text im Rahmen angezeigt wird, der gesamte Text gesprochen.
+- **JAWS Bildschirmecho**: Es wird kein Rahmenereignis hinzugefügt, wenn diese Auswahl getroffen wird, denn das JAWS Tastaturecho für neuen Text richtet sich nach den Standardeinstellungen des JAWS Bildschirmechos.
 
-Lesen Sie dazu bitte auch [Rahmenereignisse](events.htm) .
+Lesen Sie dazu bitte auch [Rahmenereignisse](events.htm).
 
 ## Standardeinstellungen für Auswertungsregeln
 
@@ -276,7 +281,7 @@ Bei der Rahmenerstellung werden zwei Standard-Auswertungsregeln hinzugefügt:
 - Einer Regel liegt der Fenstertitel der Anwendung zugrunde. Wenn Sie später diesen Rahmen verwenden, wird er aktiv, sobald der Fenstertitel der Anwendung den gleichen Text enthält, der auch Bestandteil des Fenstertitels bei der Erstellung des Rahmens war. Wenn Sie in einer Anwendung einen Rahmen erstellen und der Name eines geöffneten Dokuments in der Titelzeile enthalten ist, müssen Sie diese Regel verändern, ansonsten wird Ihr Rahmen nur dann aktiv, wenn das Dokument geöffnet ist.
 - Der zweiten Regel liegt die Fensterklasse des Anwendungsfensters oder des Steuerelements zugrunde. Wenn Sie später diesen Rahmen verwenden, wird er aktiv, sobald die Fensterklasse des Anwendungsfensters oder des Steuerelements die gleichen Informationen wie bei der Rahmenerstellung enthält.
 
-Lesen Sie dazu bitte auch [Auswertungsregeln](rules.htm) .
+Lesen Sie dazu bitte auch [Auswertungsregeln](rules.htm).
 
 Quelle: Frame_Defaults.htm
 
@@ -299,17 +304,17 @@ Beim Erstellen von Promptbezeichnungen wird der Text der Titelzeile des Dialogfe
 Um dies zu korrigieren:
 
 1. Öffnen Sie das Dialogfenster, in dem Sie die Promptbezeichnung erstellt haben.
-2. Öffnen Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen, wählen Sie die Option Rahmenbetrachter und drücken Sie **EINGABE** .
-3. Drücken Sie so lange **TAB** , bis Sie sich auf dem Rahmen befinden, der die Promptbezeichnung enthält.
-4. Drücken Sie **ALT+EINGABE** , um den Dialog Eigenschaften zu öffnen.
-5. Drücken Sie **STRG+TAB** , um die Registerkarte Auswertungsregeln zu öffnen.
+2. Öffnen Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen, wählen Sie die Option Rahmenbetrachter und drücken Sie **EINGABE**.
+3. Drücken Sie so lange **TAB**, bis Sie sich auf dem Rahmen befinden, der die Promptbezeichnung enthält.
+4. Drücken Sie **ALT+EINGABE**, um den Dialog Eigenschaften zu öffnen.
+5. Drücken Sie **STRG+TAB**, um die Registerkarte Auswertungsregeln zu öffnen.
 6. Markieren Sie Fenstertitel und drücken Sie **ALT+B** für Bearbeiten.
-7. Ändern Sie nicht die Auswertungsregel. Gehen Sie mit TAB auf den Schalter Weiter und drücken Sie **EINGABE** .
+7. Ändern Sie nicht die Auswertungsregel. Gehen Sie mit TAB auf den Schalter Weiter und drücken Sie **EINGABE**.
 8. Ändern Sie nun den Vergleichstyp von "enthält" in "ist".
 9. Ändern Sie nicht den Vergleichswert. Gehen Sie mit TAB auf den Schalter Fertigstellen und drücken Sie EINGABE.
-10. Sie befinden sich wieder auf der Registerkarte Auswertungsregeln im Dialog Eigenschaften. Drücken Sie **EINGABE** .
-11. Drücken Sie **STRG+S** , um den Rahmen zu speichern.
-12. Drücken Sie **ESCAPE** , um diese Meldung zu schließen.
+10. Sie befinden sich wieder auf der Registerkarte Auswertungsregeln im Dialog Eigenschaften. Drücken Sie **EINGABE**.
+11. Drücken Sie **STRG+S**, um den Rahmen zu speichern.
+12. Drücken Sie **ESCAPE**, um diese Meldung zu schließen.
 
 Die Promptbezeichnung wird nun nur in dem Dialogfenster, in dem sie erstellt wurde, angesagt.
 
@@ -320,17 +325,17 @@ Es kann vorkommen, dass Promptbezeichnungen, die in mehrseitigen Dialogen erstel
 Um dies zu verhindern, muss die Promptbezeichnung einem eindeutigen Text auf der Registerkarte zugeordnet werden. Wir empfehlen, dass Sie auf der entsprechenden Registerkarte nach Text suchen, der auf keiner anderen Registerkarte dieses Dialogfensters vorhanden ist. Sobald Sie solchen Text gefunden haben, gehen Sie bitte folgendermaßen vor, damit Ihre Promptbezeichnungen nur diesem eindeutigen Text zugeordnet werden:
 
 1. Öffnen Sie im Dialogfenster die Registerkarte, auf der Sie die Promptbezeichnung erstellt haben.
-2. Öffnen Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen, wählen Sie die Option Rahmenbetrachter und drücken Sie **EINGABE** .
-3. Drücken Sie so lange **TAB** , bis Sie sich auf dem Rahmen befinden, der die Promptbezeichnung enthält.
-4. Drücken Sie **ALT+EINGABE** , um den Dialog Eigenschaften zu öffnen.
-5. Drücken Sie **STRG+TAB** , um die Registerkarte Auswertungsregeln zu öffnen.
-6. Drücken Sie **ALT+H** , um eine neue Regel hinzuzufügen.
-7. Markieren Sie den Auswahlschalter Fenstertext. Gehen Sie mit TAB auf den Schalter Weiter und drücken Sie **EINGABE** .
+2. Öffnen Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen, wählen Sie die Option Rahmenbetrachter und drücken Sie **EINGABE**.
+3. Drücken Sie so lange **TAB**, bis Sie sich auf dem Rahmen befinden, der die Promptbezeichnung enthält.
+4. Drücken Sie **ALT+EINGABE**, um den Dialog Eigenschaften zu öffnen.
+5. Drücken Sie **STRG+TAB**, um die Registerkarte Auswertungsregeln zu öffnen.
+6. Drücken Sie **ALT+H**, um eine neue Regel hinzuzufügen.
+7. Markieren Sie den Auswahlschalter Fenstertext. Gehen Sie mit TAB auf den Schalter Weiter und drücken Sie **EINGABE**.
 8. Belassen Sie die Einstellung Vergleichstyp auf "enthält".
-9. Im Feld Vergleichswert geben Sie den Text ein, der auf der Registerkarte eindeutig der Promptbezeichnung zugeordnet werden kann. Gehen Sie mit **TAB** auf Hinzufügen und drücken Sie **EINGABE** . Gehen Sie dann mit TAB auf Fertigstellen und drücken Sie EINGABE.
-10. Sie befinden sich wieder auf der Registerkarte Auswertungsregeln im Dialog Eigenschaften. Drücken Sie **EINGABE** .
-11. Drücken Sie **STRG+S** , um den Rahmen zu speichern.
-12. Drücken Sie **ESCAPE** , um diese Meldung zu schließen.
+9. Im Feld Vergleichswert geben Sie den Text ein, der auf der Registerkarte eindeutig der Promptbezeichnung zugeordnet werden kann. Gehen Sie mit **TAB** auf Hinzufügen und drücken Sie **EINGABE**. Gehen Sie dann mit TAB auf Fertigstellen und drücken Sie EINGABE.
+10. Sie befinden sich wieder auf der Registerkarte Auswertungsregeln im Dialog Eigenschaften. Drücken Sie **EINGABE**.
+11. Drücken Sie **STRG+S**, um den Rahmen zu speichern.
+12. Drücken Sie **ESCAPE**, um diese Meldung zu schließen.
 
 ## Bereich der Promptbezeichnung passt nicht zu den Ausmaßen des Elements
 
@@ -339,8 +344,8 @@ Es kann vorkommen, dass Promptbezeichnungen, die Sie erstellen, nicht genau mit 
 Mit dem JAWS Cursor legen Sie die genaue Position der oberen linken und unteren rechten Ecken des Bereichs fest, auf den sich Ihre Promptbezeichnung beziehen soll.
 
 1. Bewegen Sie den JAWS Cursor zur linken oberen Ecke des Bereichs, den Sie eingrenzen wollen.
-2. Drücken Sie **STRG+UMSCHALT+Ü** .
-3. Navigieren Sie mit dem JAWS Cursor zur unteren rechten Ecke des Bereichs, für den die Promptbezeichnung gelten soll, und drücken Sie **STRG+UMSCHALT+PLUS** .
+2. Drücken Sie **STRG+UMSCHALT+Ü**.
+3. Navigieren Sie mit dem JAWS Cursor zur unteren rechten Ecke des Bereichs, für den die Promptbezeichnung gelten soll, und drücken Sie **STRG+UMSCHALT+PLUS**.
 4. Der Dialog Rahmen oder Prompt erstellen wird geöffnet. Wählen Sie die Option Rahmen erstellen. Wählen Sie Prompt erstellen.
 
 Der Standard-Dialog "Prompt für Element erstellen" wird geöffnet. Tragen Sie auf jeder Seite die gewünschten Informationen wie für jede andere Promptbezeichnung ein.
@@ -352,7 +357,7 @@ Quelle: Troubleshooting_Prompts.htm
 Wenn Sie eine Promptbezeichnung erstellen möchten, gehen Sie bitte folgendermaßen vor:
 
 1. Gehen Sie auf das gewünschte Steuerelement.
-2. Drücken Sie **STRG+JAWS TASTE+TAB** .
+2. Drücken Sie **STRG+JAWS TASTE+TAB**.
 3. Der Dialog "Prompt für Element erstellen" wird geöffnet. Geben Sie auf der ersten Seite die Promptbezeichnung so ein, wie sie von JAWS gesprochen werden soll. Danach aktivieren Sie den Schalter Weiter.
 4. Auf der zweiten Seite geben Sie nun die Promptbezeichnung so ein, wie sie von JAWS auf der Braillezeile angezeigt werden soll. Danach aktivieren Sie den Schalter Weiter.
 5. Auf der dritten Seite können Sie nun eine individuelle Tutormeldung eingeben, die Ihnen später beim Navigieren als Erklärung für dieses Steuerelement angesagt wird. Wenn Sie keine Tutormeldung eingeben, wird eine Standardmeldung angesagt. Aktivieren Sie den Schalter Fertigstellen, um die Promptbezeichnung zu erstellen.
@@ -366,8 +371,8 @@ Quelle: create_a_prompt.htm
 ## Einen Rahmen erstellen
 
 1. Bewegen Sie den JAWS Cursor zur linken oberen Ecke des Bereichs, den Sie eingrenzen wollen.
-2. Drücken Sie **STRG+UMSCHALT+Ü** .
-3. Bewegen Sie dann den JAWS Cursor zur rechten unteren Ecke des Bereichs und drücken **STRG+UMSCHALT+PLUS** .
+2. Drücken Sie **STRG+UMSCHALT+Ü**.
+3. Bewegen Sie dann den JAWS Cursor zur rechten unteren Ecke des Bereichs und drücken **STRG+UMSCHALT+PLUS**.
 4. Der Dialog Rahmen oder Prompt erstellen wird geöffnet. Wählen Sie die Option Rahmen erstellen. Wählen Sie Rahmen erstellen und drücken Sie EINGABE.
 5. Der Dialog Neuen Rahmen erstellen wird geöffnet, in dem Sie die Eigenschaften für Ihren Rahmen festlegen. Geben Sie auf der ersten Seite den Rahmennamen ein und aktivieren Sie dann den Schalter Weiter.
 
@@ -376,11 +381,11 @@ Quelle: create_a_prompt.htm
 1. Auf der zweiten Seite tragen Sie eine Kurzbeschreibung der Rahmenfunktion ein. Tragen Sie die notwendigen Informationen in das Feld ein und aktivieren Sie danach den Schalter Weiter. Diese Informationen sind besonders dann wichtig, wenn jemand anderes den Rahmen einsetzen soll.
 2. Auf der dritten Seite geben Sie eine detaillierte Beschreibung der Rahmenfunktion ein. Tragen Sie die notwendigen Informationen in das Feld ein und aktivieren Sie danach den Schalter Weiter. Diese Informationen sind besonders dann wichtig, wenn jemand anderes den Rahmen einsetzen soll.
 3. Auf der vierten Seite dieses Dialogs können Sie Ihrem Rahmen eine Tastenkombination zuweisen. Wenn Sie eine Tastenkombination zuweisen, wird der Text innerhalb des Rahmens gesprochen, sobald Sie die Tastenkombination ausführen. Diese Eigenschaft wird als Rahmenereignis hinzugefügt und kann später modifiziert werden.
-4. Auf der fünften Seite legen Sie fest, wie JAWS Text bei der Eingabe im Rahmen sprechen soll. Wählen Sie zwischen JAWS Bildschirmecho, Stumm, Hervorgehoben oder Alle. Diese Einstellungen entsprechen dem Gebrauch der aktuellen JAWS Bildschirmecho-Einstellung, oder es soll festgelegt werden, welche Einstellung verwendet werden soll. Diese Einstellung zählt zu den Rahmenereignissen und kann später verändert werden. Weitere Informationen darüber, welches Rahmenereignis aufgrund Ihrer Auswahl hinzugefügt wird, finden Sie im Hilfethema [Standardeinstellungen für Rahmen](Frame_Defaults.htm#events) . Nachdem Sie im Gruppenfeld Echo einen Auswahlschalter markiert haben, aktivieren Sie zum Fortfahren den Schalter Fertigstellen.
+4. Auf der fünften Seite legen Sie fest, wie JAWS Text bei der Eingabe im Rahmen sprechen soll. Wählen Sie zwischen JAWS Bildschirmecho, Stumm, Hervorgehoben oder Alle. Diese Einstellungen entsprechen dem Gebrauch der aktuellen JAWS Bildschirmecho-Einstellung, oder es soll festgelegt werden, welche Einstellung verwendet werden soll. Diese Einstellung zählt zu den Rahmenereignissen und kann später verändert werden. Weitere Informationen darüber, welches Rahmenereignis aufgrund Ihrer Auswahl hinzugefügt wird, finden Sie im Hilfethema [Standardeinstellungen für Rahmen](Frame_Defaults.htm#events). Nachdem Sie im Gruppenfeld Echo einen Auswahlschalter markiert haben, aktivieren Sie zum Fortfahren den Schalter Fertigstellen.
 
 **Tipp:** Wenn Sie in einem Eingabefeld zweimal **STRG+UMSCHALT+Ü** drücken, wird ein Rahmen für das aktuelle Eingabefeld erstellt. Danach geben Sie die oben aufgeführten Informationen ein.
 
-Als letzten Schritt muss der Rahmen noch gespeichert werden. Der Fokus befindet sich im Rahmen und der Rahmenbetrachter ist aktiv. Drücken Sie die Windows **APPLIKATIONSTASTE** , um das Rahmen Kontextmenü zu öffnen.
+Als letzten Schritt muss der Rahmen noch gespeichert werden. Der Fokus befindet sich im Rahmen und der Rahmenbetrachter ist aktiv. Drücken Sie die Windows **APPLIKATIONSTASTE**, um das Rahmen Kontextmenü zu öffnen.
 
 - Gehen Sie mit PFEIL RUNTER auf den Eintrag Änderungen speichern.
 - Wählen Sie Eigenschaften, um die Einstellungen für den Rahmen zu verändern.
@@ -398,9 +403,9 @@ Für Rahmen werden nur genau bezeichnete Ereignisse verwendet. Der Anwender legt
 
 Es gibt mehrere Komponenten für jedes Rahmenereignis.
 
-- **Ereignistyp** : Es gibt vier Arten von Rahmenereignissen: Bei Fokuserhalt, Bei Rahmentaste, Beim Ausführen und Bei Text. Die Art des Rahmenereignisses bestimmt, wodurch Aktionen in Ihrem Rahmen ausgelöst werden. Wenn Sie zum Beispiel möchten, dass eine bestimmte Aktion immer dann durchgeführt wird, wenn Sie mit **TAB** auf ein Steuerelement im Rahmen springen, wählen Sie das Ereignis "Bei Fokuserhalt", damit die Aktion ausgelöst wird.
-- **Rahmenaktionen** : Rahmenaktionen werden immer dann durchgeführt, wenn das zugeordnete Rahmenereignis eintritt. Jedes Ereignis kann nur eine Aktion auslösen. Wenn Sie möchten, dass mehrere Aktionen in einem Rahmen durchgeführt werden, wenn der Fokus in den Rahmen springt, müssen Sie das Ereignis "Bei Fokuserhalt" mehrmals auswählen und jedem Ereignis eine andere Aktion zuweisen.
-- **Aktionsattribute** : Einige Aktionen müssen zusätzlich mit Attributen versehen werden. Wenn Sie zum Beispiel einen Rahmen erstellen, der den Inhalt eines Fensters sprechen soll, sobald ein bestimmtes Ereignis eintritt, müssen Sie beim Zuweisen der Aktion "Say Window" festlegen, welches Fenster gesprochen werden soll.
+- **Ereignistyp**: Es gibt vier Arten von Rahmenereignissen: Bei Fokuserhalt, Bei Rahmentaste, Beim Ausführen und Bei Text. Die Art des Rahmenereignisses bestimmt, wodurch Aktionen in Ihrem Rahmen ausgelöst werden. Wenn Sie zum Beispiel möchten, dass eine bestimmte Aktion immer dann durchgeführt wird, wenn Sie mit **TAB** auf ein Steuerelement im Rahmen springen, wählen Sie das Ereignis "Bei Fokuserhalt", damit die Aktion ausgelöst wird.
+- **Rahmenaktionen**: Rahmenaktionen werden immer dann durchgeführt, wenn das zugeordnete Rahmenereignis eintritt. Jedes Ereignis kann nur eine Aktion auslösen. Wenn Sie möchten, dass mehrere Aktionen in einem Rahmen durchgeführt werden, wenn der Fokus in den Rahmen springt, müssen Sie das Ereignis "Bei Fokuserhalt" mehrmals auswählen und jedem Ereignis eine andere Aktion zuweisen.
+- **Aktionsattribute**: Einige Aktionen müssen zusätzlich mit Attributen versehen werden. Wenn Sie zum Beispiel einen Rahmen erstellen, der den Inhalt eines Fensters sprechen soll, sobald ein bestimmtes Ereignis eintritt, müssen Sie beim Zuweisen der Aktion "Say Window" festlegen, welches Fenster gesprochen werden soll.
 
 [Ereignistypen](#_Frame_Event_Types)
 
@@ -475,10 +480,10 @@ Wenn Sie ein Ereignis hinzufügen und die Aktion auswählen, die diesem Ereignis
 
 Aktionen, um folgende Informationen anzusagen oder in Braille anzuzeigen:
 
-- **Text in einem Rahmen oder Fenster** : Sie bestimmen den Rahmen oder das Fenster.
-- **Text mit bestimmten Attributen in einem Rahmen oder Fenster** : Sie bestimmen den Rahmen oder das Fenster und legen die Textattribute oder Textfarben fest.
-- **Eine Textfolge** : Sie legen fest, was gesprochen oder in Braille angezeigt werden soll.
-- **Eine strukturierte Meldung** : Sie legen die Kombination von bestimmtem Text mit Informationen, die durch die Anwendung von Skriptfunktionen zusammengetragen werden, fest.
+- **Text in einem Rahmen oder Fenster**: Sie bestimmen den Rahmen oder das Fenster.
+- **Text mit bestimmten Attributen in einem Rahmen oder Fenster**: Sie bestimmen den Rahmen oder das Fenster und legen die Textattribute oder Textfarben fest.
+- **Eine Textfolge**: Sie legen fest, was gesprochen oder in Braille angezeigt werden soll.
+- **Eine strukturierte Meldung**: Sie legen die Kombination von bestimmtem Text mit Informationen, die durch die Anwendung von Skriptfunktionen zusammengetragen werden, fest.
 
 **Hinweis:** Die auf Braille bezogenen Aktionen werden nur durchgeführt, wenn der strukturierte Braillemodus eingeschaltet ist.
 
@@ -496,10 +501,10 @@ Aktionen, um individuell ausgewählte Klänge und Systemklänge abzuspielen oder
 
 ### Andere
 
-- **JAWS Konfiguration laden** : Sie wählen Konfigurationsdateien aus, die Sie verwenden möchten.
-- **Aktionen aus anderen Rahmen ausführen** : Ein Ereignis, das für einen Rahmen festgelegt wurde, kann ausgewählt werden, damit Aktionen in einem anderen Rahmen ausgelöst werden.
-- **JAWS Skript ausführen** : Erweitern Sie den Aktionsradius Ihres Rahmens, indem Sie auch JAWS Skripts einbinden.
-- **Skriptereignis unterdrücken** : Verhindern Sie, dass durch Skriptereignisse Informationen gesprochen oder in Braille angezeigt werden, falls diese schon durch einen Rahmen geliefert werden.
+- **JAWS Konfiguration laden**: Sie wählen Konfigurationsdateien aus, die Sie verwenden möchten.
+- **Aktionen aus anderen Rahmen ausführen**: Ein Ereignis, das für einen Rahmen festgelegt wurde, kann ausgewählt werden, damit Aktionen in einem anderen Rahmen ausgelöst werden.
+- **JAWS Skript ausführen**: Erweitern Sie den Aktionsradius Ihres Rahmens, indem Sie auch JAWS Skripts einbinden.
+- **Skriptereignis unterdrücken**: Verhindern Sie, dass durch Skriptereignisse Informationen gesprochen oder in Braille angezeigt werden, falls diese schon durch einen Rahmen geliefert werden.
 
 Quelle: events.htm
 
@@ -509,7 +514,7 @@ Quelle: events.htm
 
 Der Dialog Rahmeneigenschaften besteht aus mehreren Registerkarten. Verwenden Sie diesen Dialog, um allgemeine Einstellungen, Auswertungsregeln und Ereignisse zu modifizieren, oder um Feineinstellungen an der Rahmenposition und -größe vorzunehmen.
 
-Um auf die Rahmeneigenschaften zugreifen zu können, öffnen Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen. Wählen Sie aus der Liste den Eintrag Rahmenbetrachter und drücken Sie **EINGABE** . Mit **TAB** gehen Sie auf den gewünschten Rahmen und drücken **ALT+EINGABE** .
+Um auf die Rahmeneigenschaften zugreifen zu können, öffnen Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen. Wählen Sie aus der Liste den Eintrag Rahmenbetrachter und drücken Sie **EINGABE**. Mit **TAB** gehen Sie auf den gewünschten Rahmen und drücken **ALT+EINGABE**.
 
 [Allgemeine Eigenschaften](#_General_Properties)
 
@@ -523,15 +528,15 @@ Um auf die Rahmeneigenschaften zugreifen zu können, öffnen Sie mit **JAWS TAST
 
 Auf der Registerkarte Allgemein werden Grundeinstellungen vorgenommen. Die meisten dieser Einstellungen enthalten die Informationen, die bei der Erstellung des Rahmens eingegeben wurden. Verwenden Sie diese Registerkarte, um gegebenenfalls die Einstellungen für einen bereits erstellten Rahmen zu verändern.
 
-**Name des Rahmens** : Dieses Feld enthält den Rahmennamen, den Sie bei der Erstellung vergeben haben.
+**Name des Rahmens**: Dieses Feld enthält den Rahmennamen, den Sie bei der Erstellung vergeben haben.
 
-**Zusammenfassung und Beschreibung** : Hier werden die Informationen angezeigt, die von der Tastaturhilfe, **JAWS TASTE+1** , angesagt werden, wenn Sie die Tastenkombination drücken, die Sie dem Rahmen zugewiesen haben.
+**Zusammenfassung und Beschreibung**: Hier werden die Informationen angezeigt, die von der Tastaturhilfe, **JAWS TASTE+1**, angesagt werden, wenn Sie die Tastenkombination drücken, die Sie dem Rahmen zugewiesen haben.
 
-**Aufforderungen - Gesprochen, Brailleausgabe, Tutor** : Listet Informationen für den Rahmen auf, die benötigt werden, um Steuerelemente mit Prompt-Informationen zu versorgen.
+**Aufforderungen - Gesprochen, Brailleausgabe, Tutor**: Listet Informationen für den Rahmen auf, die benötigt werden, um Steuerelemente mit Prompt-Informationen zu versorgen.
 
-**Tastenzuweisung** : Zeigt die Tastenkombination an, durch die ein Rahmenereignis aktiviert wird. Wenn Sie einen Rahmen aus einer anderen Version von JAWS oder von einem anderen Computer, auf dem JAWS läuft, kopieren, müssen Sie die Tastenkombination erneut zuweisen.
+**Tastenzuweisung**: Zeigt die Tastenkombination an, durch die ein Rahmenereignis aktiviert wird. Wenn Sie einen Rahmen aus einer anderen Version von JAWS oder von einem anderen Computer, auf dem JAWS läuft, kopieren, müssen Sie die Tastenkombination erneut zuweisen.
 
-**Priorität** : Bestimmt die relative Priorität der Rahmen. Dies kann dann hilfreich sein, wenn es mehrere Rahmen innerhalb des gleichen Bereiches in einer Anwendung gibt, da Sie festlegen, welcher Rahmen Vorrang vor den anderen hat. Je niedriger der Wert in diesem Feld, desto höher ist die Priorität.
+**Priorität**: Bestimmt die relative Priorität der Rahmen. Dies kann dann hilfreich sein, wenn es mehrere Rahmen innerhalb des gleichen Bereiches in einer Anwendung gibt, da Sie festlegen, welcher Rahmen Vorrang vor den anderen hat. Je niedriger der Wert in diesem Feld, desto höher ist die Priorität.
 
 ## Eigenschaften für Auswertungsregeln
 
@@ -548,7 +553,7 @@ Die Liste besteht aus vier Spalten: Regel an/aus, Regeltyp, Vergleichstyp und Ve
 | Regel nach unten | ALT+PFEIL RUNTER |
 | Vergleichswert bearbeiten | F2 |
 
-Wenn Sie die Option Regel hinzufügen oder bearbeiten wählen, werden Sie durch eine Abfolge von Dialogfenstern geführt, in denen Sie alle Einstellungen für die Auswertungsregel vornehmen können. Aktivieren Sie den Schalter Weiter, nachdem Sie alle Einstellungen ausgewählt haben, und aktivieren Sie den Schalter Fertigstellen, wenn Sie alle Dialoge abgearbeitet haben. Lesen Sie dazu bitte auch [Auswertungsregeln](rules.htm) .
+Wenn Sie die Option Regel hinzufügen oder bearbeiten wählen, werden Sie durch eine Abfolge von Dialogfenstern geführt, in denen Sie alle Einstellungen für die Auswertungsregel vornehmen können. Aktivieren Sie den Schalter Weiter, nachdem Sie alle Einstellungen ausgewählt haben, und aktivieren Sie den Schalter Fertigstellen, wenn Sie alle Dialoge abgearbeitet haben. Lesen Sie dazu bitte auch [Auswertungsregeln](rules.htm).
 
 ## Eigenschaften für Ereignisse
 
@@ -564,7 +569,7 @@ Die Registerkarte Ereignisse enthält eine Liste der Rahmenereignisse, die für 
 
 Wenn Sie die Option Ereignis hinzufügen oder bearbeiten wählen, werden Sie durch eine Abfolge von Dialogfenstern geführt, in denen Sie alle Einstellungen für die Ereignisse vornehmen müssen. Aktivieren Sie den Schalter Weiter, nachdem Sie alle Einstellungen ausgewählt haben, und aktivieren Sie den Schalter Fertigstellen, wenn Sie alle Dialoge abgearbeitet haben. Wenn Sie einem Ereignistyp mehrere Aktionen zuweisen, gehen Sie mit **TAB** auf den Schalter Eine weitere Aktion hinzufügen. Sie kehren dann in den Dialog zurück, in dem Sie dem Ereignis eine weitere Aktion zuweisen können. Im Dialog Ereignis Eigenschaften wird das Ereignis für jede Aktion, die Sie zugewiesen haben, aufgelistet, Die Reihenfolge richtet sich nach der Reihenfolge der Eingabe.
 
-Lesen Sie dazu bitte auch [Rahmenereignisse](events.htm) .
+Lesen Sie dazu bitte auch [Rahmenereignisse](events.htm).
 
 ## Eigenschaften für Position
 
@@ -602,9 +607,9 @@ Quelle: frame_properties.htm
 
 Der Rahmenbetrachter ist immer dort aktiv, wo Sie mit Rahmen arbeiten. Sie können zwischen verschiedenen Rahmen wechseln, Rahmen verschieben, die Größe oder die Rahmeneigenschaften verändern.
 
-Zum Öffnen des Rahmenbetrachters drücken Sie **JAWS TASTE+F2** , gehen auf den Eintrag Rahmenbetrachter und drücken **EINGABE** .
+Zum Öffnen des Rahmenbetrachters drücken Sie **JAWS TASTE+F2**, gehen auf den Eintrag Rahmenbetrachter und drücken **EINGABE**.
 
-Außerdem werden alle aktiven Rahmen der aktuell laufenden Anwendung auf dem entsprechenden Kontrollfeld oder Fenster angezeigt. Der Fokus befindet sich auf dem ersten Rahmen. (Die Rahmen sind in der Reihenfolge ihrer Erstellung nummeriert). Drücken Sie **TAB** , um auf die einzelnen Rahmen zu springen. Drücken Sie so lange **TAB** , bis die Schalter des Rahmenbetrachters im Fokus sind.
+Außerdem werden alle aktiven Rahmen der aktuell laufenden Anwendung auf dem entsprechenden Kontrollfeld oder Fenster angezeigt. Der Fokus befindet sich auf dem ersten Rahmen. (Die Rahmen sind in der Reihenfolge ihrer Erstellung nummeriert). Drücken Sie **TAB**, um auf die einzelnen Rahmen zu springen. Drücken Sie so lange **TAB**, bis die Schalter des Rahmenbetrachters im Fokus sind.
 
 Es gibt vier Schalter im Rahmenbetrachter: Optionen, Rahmenliste, Hilfe und Schließen. Über diese Schalter erhalten Sie Zugriff auf alle Funktionen, um neue Rahmen zu erstellen oder vorhandene Rahmen zu verändern. Wenn beim Öffnen des Rahmenbetrachters keine Rahmen aktiv sind, befindet sich der Fokus auf dem Schalter Optionen.
 
@@ -629,35 +634,35 @@ Es gibt vier Schalter im Rahmenbetrachter: Optionen, Rahmenliste, Hilfe und Schl
 
 ## Kontextmenü Rahmen
 
-Das Kontextmenü für Rahmen wird mit der **APPLIKATIONSTASTE** geöffnet. Folgende Optionen stehen im Kontextmenü zur Verfügung.
+Das Kontextmenü für Rahmen wird mit der **APPLIKATIONSTASTE**geöffnet. Folgende Optionen stehen im Kontextmenü zur Verfügung.
 
-**Eigenschaften** : Öffnet ein mehrseitiges Dialogfenster mit den Registerkarten Allgemein, Auswertungsregeln, Ereignisse und Position. Lesen Sie dazu bitte das Hilfethema [Rahmeneigenschaften](frame_properties.htm) .
+**Eigenschaften**: Öffnet ein mehrseitiges Dialogfenster mit den Registerkarten Allgemein, Auswertungsregeln, Ereignisse und Position. Lesen Sie dazu bitte das Hilfethema [Rahmeneigenschaften](frame_properties.htm).
 
-**Status** : In diesem Untermenü können Sie Rahmen aktivieren oder deaktivieren.
+**Status**: In diesem Untermenü können Sie Rahmen aktivieren oder deaktivieren.
 
-**Verschieben** : Mit dieser Option verschieben Sie den Rahmen direkt über die Tastatur, wobei JAWS Rückmeldungen ansagt. Lesen Sie dazu bitte [Rahmen verschieben](#_Moving_Frames) .
+**Verschieben**: Mit dieser Option verschieben Sie den Rahmen direkt über die Tastatur, wobei JAWS Rückmeldungen ansagt. Lesen Sie dazu bitte [Rahmen verschieben](#_Moving_Frames).
 
-**Größe verändern** : Mit dieser Option verändern Sie die Rahmengröße direkt über die Tastatur, wobei JAWS Rückmeldungen ansagt. Lesen Sie dazu bitte [Rahmengröße verändern](#_Resizing_Frames) .
+**Größe verändern**: Mit dieser Option verändern Sie die Rahmengröße direkt über die Tastatur, wobei JAWS Rückmeldungen ansagt. Lesen Sie dazu bitte [Rahmengröße verändern](#_Resizing_Frames).
 
-**Ereignisse** : Öffnet das Dialogfenster Rahmeneigenschaften auf der Registerkarte Ereignisse. Lesen Sie dazu bitte [Eigenschaften für Ereignisse](frame_properties.htm#_Events_Properties) .
+**Ereignisse**: Öffnet das Dialogfenster Rahmeneigenschaften auf der Registerkarte Ereignisse. Lesen Sie dazu bitte [Eigenschaften für Ereignisse](frame_properties.htm#_Events_Properties).
 
-**Änderungen speichern** : Speichert alle Änderungen an den Rahmen.
+**Änderungen speichern**: Speichert alle Änderungen an den Rahmen.
 
-**Rahmenliste** : Öffnet das Dialogfenster Rahmenliste, in dem alle zur Zeit aktiven oder für die laufende Anwendung vorhandenen Rahmen aufgelistet werden. Lesen Sie dazu bitte [Rahmenliste](#_Frames_List) .
+**Rahmenliste**: Öffnet das Dialogfenster Rahmenliste, in dem alle zur Zeit aktiven oder für die laufende Anwendung vorhandenen Rahmen aufgelistet werden. Lesen Sie dazu bitte [Rahmenliste](#_Frames_List).
 
-**Entfernen** : Entfernt den aktiven Rahmen.
+**Entfernen**: Entfernt den aktiven Rahmen.
 
-**Titel ausblenden** : Blendet vorübergehend die Rahmentitel aus.
+**Titel ausblenden**: Blendet vorübergehend die Rahmentitel aus.
 
-**Rahmenbetrachter beenden** : Schließt den Rahmenbetrachter. Wenn Sie die Änderungen noch nicht gespeichert haben, werden Sie dazu aufgefordert.
+**Rahmenbetrachter beenden**: Schließt den Rahmenbetrachter. Wenn Sie die Änderungen noch nicht gespeichert haben, werden Sie dazu aufgefordert.
 
 ## Rahmen positionieren
 
 Damit ein Rahmen auch die gewünschten Aktionen bestmöglich ausführen kann, muss er korrekt positioniert werden. Rahmen werden wie folgt positioniert:
 
-- Wenn Sie einen Rahmen erstellen, können Sie die Größe und Position des Rahmens automatisch an das aktuelle Steuerelement oder Fenster anpassen oder Sie legen die genaue Position der linken oberen und rechten unteren Rahmenecke fest. Lesen Sie dazu bitte das Hilfethema [Einen Rahmen erstellen](creating_a_frame.htm) .
-- Öffnen Sie den Rahmenbetrachter und drücken Sie **TAB** , um auf einen vorhandenen Rahmen zu springen. Drücken Sie **ALT+EINGABE** , um das Dialogfenster Rahmeneigenschaften zu öffnen, und drücken Sie **STRG+TAB** , um die Registerkarte Position zu öffnen. Hier verändern Sie die Einstellungen für Position und Größe. Lesen Sie dazu bitte [Eigenschaften für Position](frame_properties.htm#_Position_Properties) .
-- Öffnen Sie den Rahmenbetrachter und drücken Sie **TAB** , um auf einen vorhandenen Rahmen zu springen. Drücken Sie die APPLIKATIONSTASTE und wählen Sie im Kontextmenü die Option Verschieben oder Größe ändern. Mit den PFEILTASTEN verändern Sie die Position oder Größe des Rahmens . Mit dieser Methode verändern Sie die Größe und/oder die Position interaktiv im Rahmenbetrachter, wobei JAWS Rückmeldungen wiedergibt.
+- Wenn Sie einen Rahmen erstellen, können Sie die Größe und Position des Rahmens automatisch an das aktuelle Steuerelement oder Fenster anpassen oder Sie legen die genaue Position der linken oberen und rechten unteren Rahmenecke fest. Lesen Sie dazu bitte das Hilfethema [Einen Rahmen erstellen](creating_a_frame.htm).
+- Öffnen Sie den Rahmenbetrachter und drücken Sie **TAB**, um auf einen vorhandenen Rahmen zu springen. Drücken Sie **ALT+EINGABE**, um das Dialogfenster Rahmeneigenschaften zu öffnen, und drücken Sie **STRG+TAB**, um die Registerkarte Position zu öffnen. Hier verändern Sie die Einstellungen für Position und Größe. Lesen Sie dazu bitte [Eigenschaften für Position](frame_properties.htm#_Position_Properties).
+- Öffnen Sie den Rahmenbetrachter und drücken Sie **TAB**, um auf einen vorhandenen Rahmen zu springen. Drücken Sie die APPLIKATIONSTASTE und wählen Sie im Kontextmenü die Option Verschieben oder Größe ändern. Mit den PFEILTASTEN verändern Sie die Position oder Größe des Rahmens. Mit dieser Methode verändern Sie die Größe und/oder die Position interaktiv im Rahmenbetrachter, wobei JAWS Rückmeldungen wiedergibt.
 - Der sehende Anwender kann mit der Maus den Rahmen in der Titelzeile anfassen und manuell verschieben oder mit der Maus den Rand des Rahmens nach rechts, links oben oder unten ziehen, um ihn zu vergrößern oder zu verkleinern.
 
 **Tipp:** Wenn ein sehender Anwender den Mauszeiger über den Rand des Rahmens bewegt, verwandelt sich der Mauszeiger in einen Doppelpfeil. Mit gedrückter linker Maustaste kann man den Rand nun nach rechts, links, oben oder unten ziehen, und somit den Rahmen vergrößern oder verkleinern. Nach dem Loslassen der linken Maustaste wird die veränderte Größe automatisch übernommen. Man kann diesen Vorgang beliebig oft wiederholen. Wenn man den Rahmen einfach nur verschieben will, muss man die Maus auf der Titelzeile des Rahmens positionieren und dann die linke Maustaste gedrückt halten. Mit gedrückter Maustaste kann man nun den Rahmen frei über den Bildschirm bewegen. Lässt man die linke Maustaste wieder los, wird die neue Position automatisch übernommen.
@@ -669,7 +674,7 @@ Wenn Sie im Kontextmenü Rahmen die Option Verschieben oder Größe ändern gew�
 1. Drücken Sie die **WINDOWSTASTE** auf Ihrer Tastatur, um das Windows Startmenü zu öffnen.
 2. Wählen Sie den Eintrag Einstellungen und im Untermenü den Eintrag Systemsteuerung.
 3. Wählen Sie Anzeige.
-4. Drücken Sie **STRG+TAB** , bis Sie die Registerkarte Darstellung geöffnet haben. Drücken Sie so lange TAB, bis Sie auf dem Schalter Effekte gelandet sind und drücken Sie dann EINGABE.
+4. Drücken Sie **STRG+TAB**, bis Sie die Registerkarte Darstellung geöffnet haben. Drücken Sie so lange TAB, bis Sie auf dem Schalter Effekte gelandet sind und drücken Sie dann EINGABE.
 5. Gehen Sie mit **TAB** auf die Option "Fensterinhalt beim Ziehen anzeigen" und aktivieren Sie gegebenenfalls mit **LEERTASTE** das Kontrollkästchen.
 
 Dadurch stellen Sie sicher, dass beim Verschieben und/oder Vergrößern/Verkleinern eines Rahmens mit den Pfeiltasten korrekte Rückmeldungen gesprochen werden. Wenn dieses Kontrollfeld nicht aktiviert wurde, hören Sie zwar die Rückmeldungen, aber erst, nachdem Sie den Vorgang abgeschlossen haben.
@@ -678,27 +683,27 @@ Dadurch stellen Sie sicher, dass beim Verschieben und/oder Vergrößern/Verklein
 
 Wenn Sie Rahmen mit den PFEILTASTEN am Bildschirm verschieben möchten, gehen Sie bitte folgendermaßen vor:
 
-1. Drücken Sie **JAWS TASTE+F2** , wählen Sie den Eintrag Rahmenbetrachter und drücken Sie **EINGABE** .
+1. Drücken Sie **JAWS TASTE+F2**, wählen Sie den Eintrag Rahmenbetrachter und drücken Sie **EINGABE**.
 2. Gehen Sie mit **TAB** auf den Rahmen, den Sie verschieben möchten.
 3. Drücken Sie die **APPLIKATIONSTASTE** auf Ihrer Tastatur. Danach drücken Sie **V** für Verschieben.
 4. Drücken Sie die PFEILTASTEN, je nachdem, in welche Richtung Sie den Rahmen verschieben möchten. Während Sie die PFEILTASTEN betätigen, um den Rahmen zu verschieben, sagt JAWS die Entfernung in Pixel an.
-5. Drücken Sie **JAWS TASTE+PFEIL RUNTER** , damit JAWS den Text innerhalb der Rahmenbegrenzung vorliest. Dadurch können Sie überprüfen, ob der Rahmen an der korrekten Position sitzt.
-6. Drücken Sie **EINGABE** , wenn der Rahmen an der korrekten Position sitzt oder drücken Sie **ESCAPE** , um den Vorgang abzubrechen.
+5. Drücken Sie **JAWS TASTE+PFEIL RUNTER**, damit JAWS den Text innerhalb der Rahmenbegrenzung vorliest. Dadurch können Sie überprüfen, ob der Rahmen an der korrekten Position sitzt.
+6. Drücken Sie **EINGABE**, wenn der Rahmen an der korrekten Position sitzt oder drücken Sie **ESCAPE**, um den Vorgang abzubrechen.
 
 ### Rahmen vergrößern und verkleinern
 
 Wenn Sie Rahmen mit den PFEILTASTEN vergrößern oder verkleinern möchten, gehen Sie bitte folgendermaßen vor:
 
-1. Drücken Sie **JAWS TASTE+F2** , wählen Sie den Eintrag Rahmenbetrachter und drücken Sie **EINGABE** .
+1. Drücken Sie **JAWS TASTE+F2**, wählen Sie den Eintrag Rahmenbetrachter und drücken Sie **EINGABE**.
 2. Gehen Sie mit **TAB** auf den Rahmen, dessen Größe Sie verändern möchten.
 3. Drücken Sie die **APPLIKATIONSTASTE** auf Ihrer Tastatur. Danach drücken Sie **G** für Größe ändern.
 4. Drücken Sie die PFEILTASTEN, je nachdem welche Begrenzung Sie verändern möchten.
 5. Drücken Sie die PFEILTASTEN, je nachdem, ob Sie verkleinern oder vergrößern möchten.
 
-Wenn Sie zum Beispiel die rechte Rahmenbegrenzung nach links ziehen möchten (um den Rahmen zu verkleinern), drücken Sie zuerst **PFEIL RECHTS** , dann drücken Sie **PFEIL LINKS** , um die Begrenzung des Rahmens nach links zu ziehen. Während Sie die Pfeiltasten betätigen, um die Begrenzung zu verschieben, sagt JAWS die Entfernung in Pixel an.
+Wenn Sie zum Beispiel die rechte Rahmenbegrenzung nach links ziehen möchten (um den Rahmen zu verkleinern), drücken Sie zuerst **PFEIL RECHTS**, dann drücken Sie **PFEIL LINKS**, um die Begrenzung des Rahmens nach links zu ziehen. Während Sie die Pfeiltasten betätigen, um die Begrenzung zu verschieben, sagt JAWS die Entfernung in Pixel an.
 
-1. Drücken Sie **JAWS TASTE+PFEIL RUNTER** , damit JAWS den Text innerhalb der Rahmenbegrenzung vorliest. Dadurch können Sie überprüfen, ob der Rahmen die korrekte Größe besitzt.
-2. Drücken Sie **EINGABE** , wenn der Rahmen die korrekte Größe besitzt oder drücken Sie **ESCAPE** , um den Vorgang abzubrechen.
+1. Drücken Sie **JAWS TASTE+PFEIL RUNTER**, damit JAWS den Text innerhalb der Rahmenbegrenzung vorliest. Dadurch können Sie überprüfen, ob der Rahmen die korrekte Größe besitzt.
+2. Drücken Sie **EINGABE**, wenn der Rahmen die korrekte Größe besitzt oder drücken Sie **ESCAPE**, um den Vorgang abzubrechen.
 
 ## Die Werkzeuge des Rahmenbetrachters
 
@@ -708,17 +713,17 @@ Der Rahmenbetrachter verfügt über eine Werkzeugsammlung, die vier Schalter bei
 
 Aktivieren Sie den Schalter Optionen, um ein Kontextmenü zu öffnen, das folgende Menüpunkte enthält:
 
-**Neuen Rahmen erstellen** : Mit dieser Option erstellt man automatisch einen neuen Rahmen an der gleichen Position und in der gleichen Größe wie das Steuerelement oder Fenster, welches beim Öffnen des Rahmenbetrachters aktiv war.
+**Neuen Rahmen erstellen**: Mit dieser Option erstellt man automatisch einen neuen Rahmen an der gleichen Position und in der gleichen Größe wie das Steuerelement oder Fenster, welches beim Öffnen des Rahmenbetrachters aktiv war.
 
-**Rahmenliste einsehen** : Dieser Menüpunkt öffnet das Dialogfenster Rahmenliste.
+**Rahmenliste einsehen**: Dieser Menüpunkt öffnet das Dialogfenster Rahmenliste.
 
-**Änderungen speichern** : Dieser Menüpunkt speichert die Änderungen für alle Rahmen.
+**Änderungen speichern**: Dieser Menüpunkt speichert die Änderungen für alle Rahmen.
 
-**Rahmenbetrachter beenden** : Dieser Menüpunkt schließt den Rahmenbetrachter. Wenn Einstellungen für Rahmen geändert, aber nicht gespeichert wurden, werden Sie aufgefordert, die Änderungen zu speichern.
+**Rahmenbetrachter beenden**: Dieser Menüpunkt schließt den Rahmenbetrachter. Wenn Einstellungen für Rahmen geändert, aber nicht gespeichert wurden, werden Sie aufgefordert, die Änderungen zu speichern.
 
-**Status** : Dieser Menüpunkt öffnet ein Untermenü, in dem man alle Rahmen aktivieren oder deaktivieren kann.
+**Status**: Dieser Menüpunkt öffnet ein Untermenü, in dem man alle Rahmen aktivieren oder deaktivieren kann.
 
-**Titel ausblenden** : Dieser Menüpunkt blendet vorübergehend die Titelzeile für alle Rahmen aus.
+**Titel ausblenden**: Dieser Menüpunkt blendet vorübergehend die Titelzeile für alle Rahmen aus.
 
 ### Rahmenliste
 
@@ -759,10 +764,10 @@ Wird ein Rahmen beim Öffnen des Rahmenbetrachters oder in dem Bereich, in dem S
 
 Wenn Sie den Rahmenbetrachter öffnen, und die Rahmen sind inaktiv, kann man sich nicht auf die Rahmen bewegen.
 
-1. Gehen Sie mit **TAB** auf den Schalter Rahmenliste und drücken Sie **LEERTASTE** .
-2. Gehen Sie auf den Rahmen, den Sie einsetzen möchten, und drücken Sie **ALT+G** , um die Rahmeneigenschaften zu öffnen.
+1. Gehen Sie mit **TAB** auf den Schalter Rahmenliste und drücken Sie **LEERTASTE**.
+2. Gehen Sie auf den Rahmen, den Sie einsetzen möchten, und drücken Sie **ALT+G**, um die Rahmeneigenschaften zu öffnen.
 
-Wenn Sie einen neuen Rahmen erstellen, werden zwei Auswertungsregeln automatisch gesetzt. Eine Regel überprüft, ob im Fenstertitel der gleiche Text wie bei der Rahmenerstellung enthalten ist. Eine weitere Regel überprüft, ob die Fensterklasse den gleichen Text wie bei der Rahmenerstellung enthält. Kontrollieren Sie bitte, ob diese Information in der Anwendung nicht verändert wurde, oder schalten Sie eine der beiden Regel aus. Wählen Sie auf der Registerkarte Auswertungsregeln im Dialog Eigenschaften eine Regel aus der Liste und drücken Sie **LEERTASTE** , um sie ein- oder auszuschalten.
+Wenn Sie einen neuen Rahmen erstellen, werden zwei Auswertungsregeln automatisch gesetzt. Eine Regel überprüft, ob im Fenstertitel der gleiche Text wie bei der Rahmenerstellung enthalten ist. Eine weitere Regel überprüft, ob die Fensterklasse den gleichen Text wie bei der Rahmenerstellung enthält. Kontrollieren Sie bitte, ob diese Information in der Anwendung nicht verändert wurde, oder schalten Sie eine der beiden Regel aus. Wählen Sie auf der Registerkarte Auswertungsregeln im Dialog Eigenschaften eine Regel aus der Liste und drücken Sie **LEERTASTE**, um sie ein- oder auszuschalten.
 
 Fügen Sie einen anderen Vergleichswert hinzu. Die Regel wird dann gültig, wenn entweder der eine oder der andere Wert mit der Information in der Anwendung übereinstimmt.
 
@@ -770,7 +775,7 @@ Verändern Sie den Vergleichstyp in eine etwas allgemeinere Einstellung, zum Bei
 
 ## Wenn ein Rahmen dort, wo Sie ihn nicht einsetzen wollen, aktiv wird
 
-Wenn Ihr Rahmen dort aktiv wird, wo Sie keine Informationen gesprochen oder andere Aktionen durchgeführt haben möchten, sind die Auswertungsregeln zu allgemein gesetzt. Überprüfen Sie den Fenstertitel ( **JAWS TASTE+T** ), die Fensterklasse ( **STRG+JAWS TASTE+F1** ) oder den Text in dem Bereich (oder den Bereichen), in dem der Rahmen arbeiten soll. Suchen Sie nach etwas Einzigartigem in diesem Bereich. Vergeben Sie eine Auswertungsregel für diese einzigartige Information.
+Wenn Ihr Rahmen dort aktiv wird, wo Sie keine Informationen gesprochen oder andere Aktionen durchgeführt haben möchten, sind die Auswertungsregeln zu allgemein gesetzt. Überprüfen Sie den Fenstertitel (**JAWS TASTE+T**), die Fensterklasse (**STRG+JAWS TASTE+F1**) oder den Text in dem Bereich (oder den Bereichen), in dem der Rahmen arbeiten soll. Suchen Sie nach etwas Einzigartigem in diesem Bereich. Vergeben Sie eine Auswertungsregel für diese einzigartige Information.
 
 ## Wenn ein Rahmen nicht die Aktionen durchführt, die Sie ausgewählt haben
 
@@ -807,25 +812,25 @@ Rahmen können sehr viel: Einige der am häufigsten Einsatzmöglichkeiten sind:
 - Informationen sprechen oder in Braille anzeigen, wenn neuer Text innerhalb der Rahmenbegrenzung angezeigt wird.
 - verhindern, dass Informationen automatisch gesprochen werden.
 
-Mit **JAWS TASTE+F9** wird der Dialog Bildschirmrahmen auswählen geöffnet, das eine Liste aller aktiven Rahmen für diese Anwendung enthält. Markieren Sie einen Rahmen in dieser Liste und drücken Sie **EINGABE** . Der JAWS Cursor wird dann in diesem Rahmen positioniert.
+Mit **JAWS TASTE+F9** wird der Dialog Bildschirmrahmen auswählen geöffnet, das eine Liste aller aktiven Rahmen für diese Anwendung enthält. Markieren Sie einen Rahmen in dieser Liste und drücken Sie **EINGABE**. Der JAWS Cursor wird dann in diesem Rahmen positioniert.
 
 Mit **STRG+JAWS TASTE+A** wird das Fenster Virtueller Betrachter geöffnet, in dem die Namen und der textliche Inhalt aller zur Zeit aktiven Rahmen angezeigt werden. Hier können Sie nun Text markieren und in die Zwischenablage kopieren. Verwenden Sie die Standard-Lesebefehle, um die Information zu lesen. Jeder Rahmenname ist ein Link, den man auswählen kann, so dass der JAWS Cursor in den Rahmen bewegt wird. Mit Hilfe dieser Funktion kann man bequem Text bearbeiten, ohne dass man den Fokus vom Steuerelement oder aus dem Fenster, auf dem man sich gerade befindet, wegbewegen muss.
 
 ## Mit Rahmen arbeiten
 
-Mit Rahmen kann man nun viel einfacher arbeiten. Es gibt jetzt eine neue, bedienerfreundliche Oberfläche, die auch von Neueinsteigern ohne große Einarbeitungszeit genutzt werden kann. Mit Hilfe des Rahmenbetrachters werden die Rahmen auf dem Bildschirm sichtbar gemacht, so dass Sie sich mit Standard-Befehlen mühelos zwischen ihnen bewegen können, sie verschieben, die Rahmengröße verändern und auf die Rahmeneigenschaften zugreifen können. Lesen Sie dazu bitte auch [Der Rahmenbetrachter](frame_viewer.htm) .
+Mit Rahmen kann man nun viel einfacher arbeiten. Es gibt jetzt eine neue, bedienerfreundliche Oberfläche, die auch von Neueinsteigern ohne große Einarbeitungszeit genutzt werden kann. Mit Hilfe des Rahmenbetrachters werden die Rahmen auf dem Bildschirm sichtbar gemacht, so dass Sie sich mit Standard-Befehlen mühelos zwischen ihnen bewegen können, sie verschieben, die Rahmengröße verändern und auf die Rahmeneigenschaften zugreifen können. Lesen Sie dazu bitte auch [Der Rahmenbetrachter](frame_viewer.htm).
 
-Rahmen sind auch dann hilfreich, wenn Sie für Prompts, die nicht gesprochen werden oder für die unzulängliche Informationen angesagt werden, Bezeichnungen erstellen möchten. Lesen Sie dazu bitte auch [Promptbezeichnungen hinzufügen oder ändern](Add_and_Change_Prompts.htm) .
+Rahmen sind auch dann hilfreich, wenn Sie für Prompts, die nicht gesprochen werden oder für die unzulängliche Informationen angesagt werden, Bezeichnungen erstellen möchten. Lesen Sie dazu bitte auch [Promptbezeichnungen hinzufügen oder ändern](Add_and_Change_Prompts.htm).
 
 ## Effektive Rahmen erstellen
 
 Beim Erstellen von Rahmen müssen Sie drei wichtige Kriterien beachten:
 
-**Position** : Ihr Rahmen muss richtig positioniert sein. Durch die Rahmengröße und -Position wird festgelegt, welche Bereiche des Bildschirms oder Fensters überwacht werden. Die Position des Rahmens sollte sich danach richten, wie viel Informationen angesagt werden sollen, was der Rahmen überhaupt bewirken soll und welche Ereignisse in einer Anwendung die Aktionen des Rahmens auslösen sollen. Die Position legen Sie als ersten Schritt bei der Rahmenerzeugung fest. Im Rahmenbetrachter kann man im nachhinein auf einfache Art einen Rahmen verschieben, vergrößern oder verkleinern.
+**Position**: Ihr Rahmen muss richtig positioniert sein. Durch die Rahmengröße und -Position wird festgelegt, welche Bereiche des Bildschirms oder Fensters überwacht werden. Die Position des Rahmens sollte sich danach richten, wie viel Informationen angesagt werden sollen, was der Rahmen überhaupt bewirken soll und welche Ereignisse in einer Anwendung die Aktionen des Rahmens auslösen sollen. Die Position legen Sie als ersten Schritt bei der Rahmenerzeugung fest. Im Rahmenbetrachter kann man im nachhinein auf einfache Art einen Rahmen verschieben, vergrößern oder verkleinern.
 
-**Auswertungsregeln** : Rahmen benötigen Regeln, um die Informationen in Ihrer Anwendung mit den Informationen zu vergleichen, die bei der Rahmenerstellung von Ihnen festgelegt wurden. Damit wird sichergestellt, dass der Rahmen nur dort aktiv wird, wo Sie ihn auch benötigen. Das Aktionsfeld eines Rahmens sollte begrenzt werden, so dass er nur dort aktiv wird, wo Sie es möchten. Wenn Sie eine Serie von drei oder vier Rahmen erzeugen, um auf ein bestimmtes Dialogfenster in Microsoft Word besser zugreifen zu können, sollten die Rahmen auch nur in diesem Dialogfenster aktiv werden. Wenn die Rahmen auch in anderen Word-Dialogen aktiviert werden, erhalten Sie unvorhersehbare und verwirrende Informationen.
+**Auswertungsregeln**: Rahmen benötigen Regeln, um die Informationen in Ihrer Anwendung mit den Informationen zu vergleichen, die bei der Rahmenerstellung von Ihnen festgelegt wurden. Damit wird sichergestellt, dass der Rahmen nur dort aktiv wird, wo Sie ihn auch benötigen. Das Aktionsfeld eines Rahmens sollte begrenzt werden, so dass er nur dort aktiv wird, wo Sie es möchten. Wenn Sie eine Serie von drei oder vier Rahmen erzeugen, um auf ein bestimmtes Dialogfenster in Microsoft Word besser zugreifen zu können, sollten die Rahmen auch nur in diesem Dialogfenster aktiv werden. Wenn die Rahmen auch in anderen Word-Dialogen aktiviert werden, erhalten Sie unvorhersehbare und verwirrende Informationen.
 
-**Rahmenereignisse und Aktionen** : Rahmenereignisse sind die Aktivitäten, die eine bestimmte Aktion auslösen. Legen Sie fest, dass Ihr Rahmen immer dann in Aktion tritt, wenn eine bestimmte Tastenkombination gedrückt wird, wenn neuer Text innerhalb des Rahmens angezeigt wird, wenn Sie auf ein Steuerelement innerhalb des Rahmens springen oder wenn eines dieser Ereignisse innerhalb eines anderen Rahmens auftritt. Sie weisen Ihrem Rahmen Aktionen zu, die beim Auftreten des Ereignisses ausgelöst werden.
+**Rahmenereignisse und Aktionen**: Rahmenereignisse sind die Aktivitäten, die eine bestimmte Aktion auslösen. Legen Sie fest, dass Ihr Rahmen immer dann in Aktion tritt, wenn eine bestimmte Tastenkombination gedrückt wird, wenn neuer Text innerhalb des Rahmens angezeigt wird, wenn Sie auf ein Steuerelement innerhalb des Rahmens springen oder wenn eines dieser Ereignisse innerhalb eines anderen Rahmens auftritt. Sie weisen Ihrem Rahmen Aktionen zu, die beim Auftreten des Ereignisses ausgelöst werden.
 
 Quelle: introduction_to_frames.htm
 
@@ -837,11 +842,11 @@ Wenn der Rahmenbetrachter geöffnet wird, werden nur aktive Rahmen angezeigt. Au
 
 Es gibt drei Komponenten für alle Auswertungsregeln:
 
-**Art der Information** : Die Informationsart, die in Ihrer Anwendung vorkommt, bestimmt, ob Rahmen aktiv oder inaktiv sind.
+**Art der Information**: Die Informationsart, die in Ihrer Anwendung vorkommt, bestimmt, ob Rahmen aktiv oder inaktiv sind.
 
-**Vergleichstyp** : Der Vergleichstyp verknüpft die in Ihren Anwendungen vorgefundene Informationsart mit dem von Ihnen definierten Vergleichswert.
+**Vergleichstyp**: Der Vergleichstyp verknüpft die in Ihren Anwendungen vorgefundene Informationsart mit dem von Ihnen definierten Vergleichswert.
 
-**Vergleichswert** : Der von Ihnen definierte Vergleichswert wird mit der in Ihren Anwendungen vorgefundenen Informationsart verglichen.
+**Vergleichswert**: Der von Ihnen definierte Vergleichswert wird mit der in Ihren Anwendungen vorgefundenen Informationsart verglichen.
 
 [Informationsarten](#_Information_Types)
 
@@ -853,25 +858,25 @@ Es gibt drei Komponenten für alle Auswertungsregeln:
 
 Auswertungsregeln werden auf unterschiedliche Informationen angewendet, die in Ihren Anwendungen gefunden werden.
 
-**Fenstertitel** : Fenstertitel sind der Text, der in der Titelzeile von Programm- oder Dialogfenstern steht. Fenstertitel verändern sich in Anwendungen, in denen man Dateien öffnet. Zum Beispiel wird immer der Name des geöffneten Dokuments in der Microsoft Word Titelzeile angezeigt. Wenn ein Rahmen in Word unabhängig von der gerade geöffneten Datei aktiv werden soll, dann müssen Sie das berücksichtigen, wenn die Auswertungsregel auf Fenstertitel basiert.
+**Fenstertitel**: Fenstertitel sind der Text, der in der Titelzeile von Programm- oder Dialogfenstern steht. Fenstertitel verändern sich in Anwendungen, in denen man Dateien öffnet. Zum Beispiel wird immer der Name des geöffneten Dokuments in der Microsoft Word Titelzeile angezeigt. Wenn ein Rahmen in Word unabhängig von der gerade geöffneten Datei aktiv werden soll, dann müssen Sie das berücksichtigen, wenn die Auswertungsregel auf Fenstertitel basiert.
 
-**Fensterklasse** : Fensterklassen sind Beschriftungen, die auf Programmierebene jedem Steuerelement und Fenster zugeordnet werden. Um die Fensterklasse eines Steuerelements oder Fensters zu überprüfen, platzieren Sie den Fokus auf das entsprechende Objekt und drücken **JAWS TASTE+STRG+F1** . In dem dann folgenden Meldungsfenster steht in der Zeile "Klasse" die Fensterklasse. Fensterklassen verändern sich in der Regel nicht, so dass Auswertungsregeln, die auf Fensterklassen basieren, normalerweise gut funktionieren. Es gibt jedoch Anwendungen, in denen die Fensterklassen dynamisch erzeugt werden. In solchen Anwendungen kann sich die Fensterklasse eines Steuerelements oder Fensters bei jedem Start des Programms verändern. In einigen Anwendungen verändern sich die Fensterklassen auch von Version zu Version.
+**Fensterklasse**: Fensterklassen sind Beschriftungen, die auf Programmierebene jedem Steuerelement und Fenster zugeordnet werden. Um die Fensterklasse eines Steuerelements oder Fensters zu überprüfen, platzieren Sie den Fokus auf das entsprechende Objekt und drücken **JAWS TASTE+STRG+F1**. In dem dann folgenden Meldungsfenster steht in der Zeile "Klasse" die Fensterklasse. Fensterklassen verändern sich in der Regel nicht, so dass Auswertungsregeln, die auf Fensterklassen basieren, normalerweise gut funktionieren. Es gibt jedoch Anwendungen, in denen die Fensterklassen dynamisch erzeugt werden. In solchen Anwendungen kann sich die Fensterklasse eines Steuerelements oder Fensters bei jedem Start des Programms verändern. In einigen Anwendungen verändern sich die Fensterklassen auch von Version zu Version.
 
-**Fenstertext** : Fenstertext ist der Text, der in einem Fenster erscheint. Wenn Sie diese Regel auswählen, durchsucht JAWS das gesamte Fenster nach diesem Text, um festzustellen, ob Ihr Rahmen aktiv werden muss oder nicht. Wir empfehlen, diese Auswertungsregel immer zusammen mit anderen Regeln einzusetzen, und diesen Regeln dann eine höhere Priorität zu verleihen, damit Rahmen in Anwendungen, in denen sie nicht gebraucht werden, schneller als inaktiv erkannt werden.
+**Fenstertext**: Fenstertext ist der Text, der in einem Fenster erscheint. Wenn Sie diese Regel auswählen, durchsucht JAWS das gesamte Fenster nach diesem Text, um festzustellen, ob Ihr Rahmen aktiv werden muss oder nicht. Wir empfehlen, diese Auswertungsregel immer zusammen mit anderen Regeln einzusetzen, und diesen Regeln dann eine höhere Priorität zu verleihen, damit Rahmen in Anwendungen, in denen sie nicht gebraucht werden, schneller als inaktiv erkannt werden.
 
-**Rahmentext** : Rahmentext ist der Text, der innerhalb der Rahmenbegrenzung erscheint. Wenn Sie diese Regel auswählen, durchsucht JAWS den Rahmen nach diesem Text, um festzustellen, ob Ihr Rahmen aktiv werden muss oder nicht. Wir empfehlen, bei dieser Auswertungsregel die gleiche Vorsicht walten zu lassen, wie bei Regeln, die auf Fenstertext basieren.
+**Rahmentext**: Rahmentext ist der Text, der innerhalb der Rahmenbegrenzung erscheint. Wenn Sie diese Regel auswählen, durchsucht JAWS den Rahmen nach diesem Text, um festzustellen, ob Ihr Rahmen aktiv werden muss oder nicht. Wir empfehlen, bei dieser Auswertungsregel die gleiche Vorsicht walten zu lassen, wie bei Regeln, die auf Fenstertext basieren.
 
 ## Vergleichstypen
 
 Auswertungsregeln vergleichen Informationen aus der aktuell laufenden Anwendung oder des aktuellen Bildschirms mit Informationen, die von Ihnen festgelegt wurden. Ebenso legen Sie den Vergleichstyp fest, auf den die Regel angewendet werden soll. Folgende Vergleichstypen stehen zur Auswahl:
 
-**Ist** : Der von Ihnen festgelegte Wert muss genau mit der Information in der Anwendung übereinstimmen, damit die Regel bestätigt wird.
+**Ist**: Der von Ihnen festgelegte Wert muss genau mit der Information in der Anwendung übereinstimmen, damit die Regel bestätigt wird.
 
-**Ist Nicht** : Die Regel wird bestätigt, wenn es keine genaue Übereinstimmung zwischen dem von Ihnen festgelegten Wert und der Information in der Anwendung gibt.
+**Ist Nicht**: Die Regel wird bestätigt, wenn es keine genaue Übereinstimmung zwischen dem von Ihnen festgelegten Wert und der Information in der Anwendung gibt.
 
-**Enthält** : Die Regel wird bestätigt, wenn die Information in der Anwendung den von Ihnen festgelegten Wert enthält.
+**Enthält**: Die Regel wird bestätigt, wenn die Information in der Anwendung den von Ihnen festgelegten Wert enthält.
 
-**Enthält nicht** : Die Regel wird bestätigt, wenn die Information in der Anwendung den von Ihnen festgelegten Wert nicht enthält.
+**Enthält nicht**: Die Regel wird bestätigt, wenn die Information in der Anwendung den von Ihnen festgelegten Wert nicht enthält.
 
 ## Vergleichswerte
 
@@ -884,7 +889,7 @@ Zum Beispiel verwenden alle Steuerelemente in einigen Dialogfeldern in Microsoft
 - Sie fügen den zweiten Vergleichswert "bosa_sdm_Microsoft Word 8.0" zur Regel hinzu. Dies hat den Vorteil, dass Sie keinen anderen Bestandteil der Regel verändern müssen. Beide Werte werden mit der aktuellen Fensterklasse verglichen, und wenn eine von beiden zutrifft, wird die Regel bestätigt.
 - Sie ändern den Vergleichstyp der Regel in Enthält und den Vergleichswert in der Regel in "bosa_sdm_Microsoft Word". Da beide Word-Versionen eine Fensterklasse verwenden, die diese Information enthält, wird die Regel bestätigt.
 
-**Tipp:** Wenn Sie einen Vergleichswert schnell ändern möchten, gehen Sie im Dialog Rahmeneigenschaften auf die Registerkarte Auswertungsregel, markieren die entsprechende Regel in der Liste und drücken **F2** . Dann geben Sie den neuen Wert ein, mit dem die Information in Ihrer Anwendung verglichen werden soll, und drücken **EINGABE** .
+**Tipp:** Wenn Sie einen Vergleichswert schnell ändern möchten, gehen Sie im Dialog Rahmeneigenschaften auf die Registerkarte Auswertungsregel, markieren die entsprechende Regel in der Liste und drücken **F2**. Dann geben Sie den neuen Wert ein, mit dem die Information in Ihrer Anwendung verglichen werden soll, und drücken **EINGABE**.
 
 Quelle: rules.htm
 
@@ -892,14 +897,14 @@ Quelle: rules.htm
 
 Schnellnavigationstasten sind bequeme Tastaturbefehle, mit denen man sich auf Webseiten, in PDF Dateien, Word Dokumenten and Outlook E-Mails schnell bewegen kann. Drücken Sie zum Beispiel **H** auf einer Webseite, dann springt JAWS auf die nächste Überschrift auf der Seite und liest sie. Wenn Sie **UMSCHALT+H** drücken, dann springt JAWS auf die vorherige Überschrift und liest sie.
 
-Im Schnellnavigationstasten-Manager können Sie die aktuellen Tastenzuweisungen überprüfen, [bearbeiten](#Edit) , oder [löschen](#Delete) .
+Im Schnellnavigationstasten-Manager können Sie die aktuellen Tastenzuweisungen überprüfen, [bearbeiten](#Edit), oder [löschen](#Delete).
 
 ## Den Schnellnavigationstasten-Manager öffnen
 
 Um den Schnellnavigationstasten-Manager zu öffnen, gehen Sie bitte folgendermaßen vor:
 
-- Drücken Sie **JAWS TASTE+F2** , **N** , und dann **EINGABE** .
-- Drücken Sie im JAWS Programmfenster **ALT+P** zum Öffnen des Menüs Hilfsprogramme, springen mit **N** auf den Schnellnavigationstasten-Manager, und drücken dann **H** , um HTML/PDF Tasten zu öffnen, **O** zum Öffnen von Microsoft Outlook Tasten oder **W** zum Öffnen von Microsoft Word Tasten.
+- Drücken Sie **JAWS TASTE+F2**, **N**, und dann **EINGABE**.
+- Drücken Sie im JAWS Programmfenster **ALT+P** zum Öffnen des Menüs Hilfsprogramme, springen mit **N** auf den Schnellnavigationstasten-Manager, und drücken dann **H**, um HTML/PDF Tasten zu öffnen, **O** zum Öffnen von Microsoft Outlook Tasten oder **W** zum Öffnen von Microsoft Word Tasten.
 
 Eine Liste aller Schnellnavigationstasten für Webseiten und PDF Dokumente, Outlook E-Mails oder für Word Dokumente erscheint in dem geöffneten Dialog. Mit **PFEIL RAUF** und **RUNTER** gehen Sie auf die Tasten in der Liste.
 
@@ -910,21 +915,21 @@ Sie können einen noch nicht verwendeten Buchstaben oder eine Ziffer einer Aktio
 Gehen Sie bitte folgendermaßen vor, wenn Sie einer Aktion eine Taste zuweisen möchten:
 
 1. Gehen Sie mit **PFEIL RAUF** oder **RUNTER** auf eine Aktion in der Liste.
-2. Gehen Sie mit **TAB** auf den Schalter Tastenzuweisung bearbeiten und drücken Sie die **LEERTASTE** . Der Dialog Schnellnavigationstasten-Zuweisung bearbeiten wird geöffnet.
-3. In der Ausklappliste Tastenzuweisung drücken Sie **PFEIL RAUF** oder **RUNTER** , um durch die Liste der vorhandenen Buchstaben und Ziffern zu wandern, die der Aktion zugewiesen werden können. Drücken Sie **EINGABE** , nachdem Sie einen Eintrag in der Liste ausgewählt haben. Die neue Tastenzuweisung erscheint jetzt in der Spalte Zuweisung im Dialog Schnellnavigationstasten-Manager.
-4. Um die Änderungen zu speichern, gehen Sie auf den OK Schalter im Dialog Schnellnavigationstasten-Manager und drücken **EINGABE** . Die neue Zuweisung wird augenblicklich wirksam.
+2. Gehen Sie mit **TAB** auf den Schalter Tastenzuweisung bearbeiten und drücken Sie die **LEERTASTE**. Der Dialog Schnellnavigationstasten-Zuweisung bearbeiten wird geöffnet.
+3. In der Ausklappliste Tastenzuweisung drücken Sie **PFEIL RAUF** oder **RUNTER**, um durch die Liste der vorhandenen Buchstaben und Ziffern zu wandern, die der Aktion zugewiesen werden können. Drücken Sie **EINGABE**, nachdem Sie einen Eintrag in der Liste ausgewählt haben. Die neue Tastenzuweisung erscheint jetzt in der Spalte Zuweisung im Dialog Schnellnavigationstasten-Manager.
+4. Um die Änderungen zu speichern, gehen Sie auf den OK Schalter im Dialog Schnellnavigationstasten-Manager und drücken **EINGABE**. Die neue Zuweisung wird augenblicklich wirksam.
 
 ## Tastenzuweisungen löschen
 
 Gehen Sie bitte folgendermaßen vor, wenn Sie eine Schnellnavigationstaste von einer Aktion löschen möchten:
 
 1. Gehen Sie mit **PFEIL RAUF** oder **RUNTER** auf eine Aktion in der Liste.
-2. Gehen Sie mit **TAB** auf den Schalter Tastenzuweisung löschen und drücken Sie die **LEERTASTE** . Die Wörter Nicht zugewiesen erscheinen neben der Tastenaktion im Dialog Schnellnavigationstasten-Manager.
-3. Um die Änderungen zu speichern, gehen Sie auf den OK Schalter und drücken **EINGABE** . Die Änderungen werden augenblicklich wirksam.
+2. Gehen Sie mit **TAB** auf den Schalter Tastenzuweisung löschen und drücken Sie die **LEERTASTE**. Die Wörter Nicht zugewiesen erscheinen neben der Tastenaktion im Dialog Schnellnavigationstasten-Manager.
+3. Um die Änderungen zu speichern, gehen Sie auf den OK Schalter und drücken **EINGABE**. Die Änderungen werden augenblicklich wirksam.
 
-Lesen Sie [Schnellnavigationstasten](popapps.chm::/internet/internet_explorer_5/qk_nav_ie.htm) , um eine Liste der Schnelltasten für Webseiten und PDF Dokumente zu erhalten.
+Lesen Sie [Schnellnavigationstasten](popapps.chm::/internet/internet_explorer_5/qk_nav_ie.htm), um eine Liste der Schnelltasten für Webseiten und PDF Dokumente zu erhalten.
 
-Lesen Sie [Schnellnavigationstasten in Word](popapps.chm::/word_processing/microsoft_word/Navigation_Quick_Keys_in_Word.htm#Nav_Quick_Keys) , um eine Liste von Schnelltasten für Word Dokumente zu erhalten.
+Lesen Sie [Schnellnavigationstasten in Word](popapps.chm::/word_processing/microsoft_word/Navigation_Quick_Keys_in_Word.htm#Nav_Quick_Keys), um eine Liste von Schnelltasten für Word Dokumente zu erhalten.
 
 Quelle: Navigation_Quick_Key_Manager.htm
 
@@ -934,60 +939,64 @@ Mit dem JAWS Benachrichtigungsverlauf können Sie die vielen Benachrichtigungen,
 
 ## Letzte Benachrichtigungen überprüfen
 
-Um das Dialogfenster Benachrichtigungsverlauf zu öffnen, drücken Sie EINFÜGEN+LEERTASTE, gefolgt von **N** . Diese Funktion kann auch über das Menü Hilfsprogramme im JAWS Hauptfenster oder über das JAWS Manager aufrufen Dialogfenster ( **EINFÜGEN+F2** ) gestartet werden. Sobald diese Funktion aufgerufen wurde, wird der Fokus auf eine Liste gelegt, die Benachrichtigungen enthält, die in den letzten 24 Stunden von Windows und anderen Anwendungen empfangen wurden, wenn in der Zeit JAWS oder Fusion ausgeführt wurden. Verwenden Sie die **PFEILTASTEN** , um in der Liste zu navigieren und die Elemente zu lesen. Darüberhinaus stehen die folgenden Optionen zur Verfügung:
+Um das Dialogfenster Benachrichtigungsverlauf zu öffnen, drücken Sie EINFÜGEN+LEERTASTE, gefolgt von **N**. Diese Funktion kann auch über das Menü Hilfsprogramme im JAWS Hauptfenster oder über das JAWS Manager aufrufen Dialogfenster (**EINFÜGEN+F2**) gestartet werden. Sobald diese Funktion aufgerufen wurde, wird der Fokus auf eine Liste gelegt, die Benachrichtigungen enthält, die in den letzten 24 Stunden von Windows und anderen Anwendungen empfangen wurden, wenn in der Zeit JAWS oder Fusion ausgeführt wurden. Verwenden Sie die **PFEILTASTEN**, um in der Liste zu navigieren und die Elemente zu lesen. Darüberhinaus stehen die folgenden Optionen zur Verfügung:
 
 - Drücken Sie die **ANWENDUNGSTASTE** auf einer ausgewählten Benachrichtigung um ein Kontextmenü zu öffnen, über das Sie eine Regel erstellen können, die die Art und Weise, wie diese Benachrichtigung gesprochen oder auf der Brallezeile angezeigt wird, anpasst, oder Sie legen fest, dass diese ausgewählte Benachrichtigung überhaupt nicht im Verlauf angezeigt werden soll.
-- Drücken Sie auf einer Benachrichtigung die **EINGABETASTE** , um weitere Details anzuzeigen. Das beinhaltet den vollen Benachrichtigungstext, die Anwendung, von der die Benachrichtigung stammt und die Uhrzeit, zu der man sie erhalten hat.
-- Löschen Sie alle Benachrichtigungen aus dem Verlauf, indem Sie erst **TAB** drücken, um zum Schalter **Verlauf löschen** zu springen und aktivieren Sie dann diesen Schalter mit der **EINGABETASTE** .
+- Drücken Sie auf einer Benachrichtigung die **EINGABETASTE**, um weitere Details anzuzeigen. Das beinhaltet den vollen Benachrichtigungstext, die Anwendung, von der die Benachrichtigung stammt und die Uhrzeit, zu der man sie erhalten hat.
+- Löschen Sie alle Benachrichtigungen aus dem Verlauf, indem Sie erst **TAB** drücken, um zum Schalter **Verlauf löschen** zu springen und aktivieren Sie dann diesen Schalter mit der **EINGABETASTE**.
 
-Wenn Sie die Benachrichtigungen durchgesehen haben, drücken Sie **ESC** , um den Benachrichtigungsverlauf zu schließen.
+Wenn Sie die Benachrichtigungen durchgesehen haben, drücken Sie **ESC**, um den Benachrichtigungsverlauf zu schließen.
 
 Sie können den Benachrichtigungsverlauf auch über den Sprachassistenten aufrufen, indem Sie "Hey Sharky, Benachrichtigungsverlauf" oder "Hey Sharky, Benachrichtigungen" sagen.
 
-Wenn Sie die letzten Benachrichtigungen nur hören möchten ohne dafür ein Dialogfenster zu öffnen, drücken Sie **EINFÜGEN+LEERTASTE** , gefolgt von **UMSCHALT+N** .
+Wenn Sie die letzten Benachrichtigungen nur hören möchten ohne dafür ein Dialogfenster zu öffnen, drücken Sie **EINFÜGEN+LEERTASTE**, gefolgt von **UMSCHALT+N**.
 
 ## Ansagen von Popup-Benachrichtigungen umschalten
 
-Popups sind eine gängige Art von Benachrichtigungen, die von Windows und bestimmten anderen Anwendungen verwendet werden. So informiert Sie Microsoft Outlook beispielsweise per Popup, wenn eine neue E-Mail eingegangen ist. Um die Benachrichtigungen schnell stummzuschalten, drücken Sie **EINFÜGEN+LEERTASTE** gefolgt von **STRG+N** . Sobald diese Funktion deaktiviert ist, meldet JAWS eingehende Benachrichtigungen von Outlook oder anderen Anwendungen, die Popups verwenden, nicht mehr automatisch. Die Benachrichtigungen werden weiterhin zum Benachrichtigungsverlauf hinzugefügt, so dass Sie sie bei Bedarf noch einmal überprüfen können. Die Ansage der Popup-Benachrichtigungen bleibt ausgeschaltet, bis Sie diese Tastenkombination erneut ausführen oder JAWS neu starten.
+Popups sind eine gängige Art von Benachrichtigungen, die von Windows und bestimmten anderen Anwendungen verwendet werden. So informiert Sie Microsoft Outlook beispielsweise per Popup, wenn eine neue E-Mail eingegangen ist. Um die Benachrichtigungen schnell stummzuschalten, drücken Sie **EINFÜGEN+LEERTASTE** gefolgt von **STRG+N**. Sobald diese Funktion deaktiviert ist, meldet JAWS eingehende Benachrichtigungen von Outlook oder anderen Anwendungen, die Popups verwenden, nicht mehr automatisch. Die Benachrichtigungen werden weiterhin zum Benachrichtigungsverlauf hinzugefügt, so dass Sie sie bei Bedarf noch einmal überprüfen können. Die Ansage der Popup-Benachrichtigungen bleibt ausgeschaltet, bis Sie diese Tastenkombination erneut ausführen oder JAWS neu starten.
 
-**Hinweis:** Die Tastenkombination **EINFÜGEN+LEERTASTE** , **STRG+N** schaltet nur die Ansage dieser Popup-Benachrichtigungen um. Es funktioniert nicht für Anwendungen wie Teams, die UIA (User Interface Automation) für die Anzeige von Benachrichtigungen verwenden. Für diese Anwendungen können Sie über das Dialogfeld JAWS Benachrichtigungsverlauf eine Regel erstellen, um sie stumm zu schalten, oder sie über die Einstellungen in der Anwendung ausschalten.
+**Hinweis:** Die Tastenkombination **EINFÜGEN+LEERTASTE**, **STRG+N** schaltet nur die Ansage dieser Popup-Benachrichtigungen um. Es funktioniert nicht für Anwendungen wie Teams, die UIA (User Interface Automation) für die Anzeige von Benachrichtigungen verwenden. Für diese Anwendungen können Sie über das Dialogfeld JAWS Benachrichtigungsverlauf eine Regel erstellen, um sie stumm zu schalten, oder sie über die Einstellungen in der Anwendung ausschalten.
 
 ## Erstellen einer Benachrichtigungsregel
 
 Standardmäßig sagen JAWS und Fusion Benachrichtigungen an, sobald diese empfangen werden und zeigen sie auf der Braillezeile als Blitzmeldungen an. Benachrichtigungen werden standardmäßig auch in die Liste der letzten Benachrichtigungen aufgenommen. Um festzulegen, wie eine bestimmte Benachrichtigung in Zukunft behandelt werden soll, können Sie eine Regel erstellen, indem Sie wie folgt vorgehen:
 
-1. Drücken Sie **EINFÜGEN+LEERTASTE** , **N** , um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.
-2. Wählen Sie eine Benachrichtigung aus, für die Sie eine Regel erstellen möchten, drücken Sie die Taste **ANWENDUNGSTASTE** , um das Kontextmenü zu öffnen, und wählen Sie Regel erstellen. Ein Dialogfenster öffnet sich mit dem Fokus auf der Ausklappliste **Regeltyp** .
+1. Drücken Sie **EINFÜGEN+LEERTASTE**, **N**, um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.
+2. Wählen Sie eine Benachrichtigung aus, für die Sie eine Regel erstellen möchten, drücken Sie die Taste **ANWENDUNGSTASTE**, um das Kontextmenü zu öffnen, und wählen Sie Regel erstellen. Ein Dialogfenster öffnet sich mit dem Fokus auf der Ausklappliste **Regeltyp**.
 3. Wählen Sie in der Ausklappliste **Regeltyp** eine der folgenden Optionen in Abhängigkeit des Regeltyps, den Sie für die ausgewählte Banchrichtigung erstellen möchten:
+
   - **Enthält** - Erstellt eine Regel, die sich auf eine Benachrichtigung auswirkt, die den Text des folgenden Eingabefelds enthält.
-  - **Fängt an mit** - Erstellt eine Regel, die sich auf eine Benachrichtigung auswirkt, die mit dem Text des folgenden Eingabefelds beginnt.
-  - **Hört auf mit** - Erstellt eine Regel, die sich auf eine Benachrichtigung auswirkt, die mit dem Text des folgenden Eingabefelds endet.
-  - **Entspricht Muster** - Verwendet das folgende Eingabefeld, um einen regulären Ausdruck zu erstellen, mit dem alle eingehenden Benachrichtigungen abgeglichen werden.
+    - **Fängt an mit** - Erstellt eine Regel, die sich auf eine Benachrichtigung auswirkt, die mit dem Text des folgenden Eingabefelds beginnt.
+    - **Hört auf mit** - Erstellt eine Regel, die sich auf eine Benachrichtigung auswirkt, die mit dem Text des folgenden Eingabefelds endet.
+    - **Entspricht Muster** - Verwendet das folgende Eingabefeld, um einen regulären Ausdruck zu erstellen, mit dem alle eingehenden Benachrichtigungen abgeglichen werden.
 4. Das nächste Eingabefeld enthält den vollständigen Text der Benachrichtigung, für die Sie die Regel erstellen. Wie dieser Text verwendet wird, hängt jedoch davon ab, was Sie in der Ausklappliste **Regelart** ausgewählt haben:
+
   - **Wenn Sie Enthält ausgewählt haben:** Je nach Art der Benachrichtigung können Sie den Text unverändert lassen oder ihn so ändern, dass er etwas allgemeiner ist. Wenn Sie beispielsweise eine Regel für eine Benachrichtigung von Outlook erstellen möchten, die das Wort "Vorschlag:" irgendwo in der Benachrichtigung enthält, dann können Sie alles außer "Vorschlag:" löschen.
-  - **Wenn Sie Beginnt mit ausgewählt haben:** Je nach Art der Benachrichtigung können Sie den Text unverändert lassen oder ihn so ändern, dass er etwas allgemeiner ist. Wenn Sie beispielsweise eine Regel für eine Benachrichtigung von Outlook erstellen möchten, die mit dem Wort "Vorschlag:" beginnt und dem beliebiger Text folgt, dann können Sie alles außer "Vorschlag:" löschen.
-  - **Wenn Sie Hört auf mit ausgewählt haben:** Je nach Art der Benachrichtigung können Sie den Text unverändert lassen oder ihn so ändern, dass er etwas allgemeiner ist. Wenn Sie beispielsweise eine Regel für eine Benachrichtigung von Teams erstellen möchten, die mit dem Wörtern "Drücken Sie STRG+UMSCHALT+J um beizutreten" endet und vor dem beliebiger Text steht, dann können Sie alles außer "Drücken Sie STRG+UMSCHALT+J um beizutreten" löschen.
-  - **Wenn Sie Entspricht Muster ausgewählt haben:** Dieses Eingabefeld enthält zwar den Text für die Meldung, es wird jedoch empfohlen, ihn in einen regulären Ausdruck mit Elementen aus der Meldung abzuändern. Wenn Sie den Benachrichtigungstext oder Teile davon verwenden möchten, sollten Sie eine der anderen Regelarten verwenden. Ein Beispiel für einen regulären Ausdruck ist der reguläre Ausdruck zur Erfassung des Absendernamens in einer Outlook-Benachrichtigung: "^Neue Benachrichtigung von Outlook, (.*?)," ohne die Anführungszeichen.
-5. Verwenden Sie das Kontrollfeld **Nur Benachrichtigungen von** , um festzulegen, ob diese Regel nur für die mit der aktuellen Benachrichtigung verbundene Anwendung (Standardeinstellung) oder global für alle Anwendungen gilt.
-6. Verwenden Sie die Ausklappliste **Sprach- oder Sound-Aktion** , um festzulegen, was JAWS oder Fusion ansagt, wenn diese Benachrichtigung empfangen wird. Die folgenden Optionen stehen zur Verfügung:
+    - **Wenn Sie Beginnt mit ausgewählt haben:** Je nach Art der Benachrichtigung können Sie den Text unverändert lassen oder ihn so ändern, dass er etwas allgemeiner ist. Wenn Sie beispielsweise eine Regel für eine Benachrichtigung von Outlook erstellen möchten, die mit dem Wort "Vorschlag:" beginnt und dem beliebiger Text folgt, dann können Sie alles außer "Vorschlag:" löschen.
+    - **Wenn Sie Hört auf mit ausgewählt haben:** Je nach Art der Benachrichtigung können Sie den Text unverändert lassen oder ihn so ändern, dass er etwas allgemeiner ist. Wenn Sie beispielsweise eine Regel für eine Benachrichtigung von Teams erstellen möchten, die mit dem Wörtern "Drücken Sie STRG+UMSCHALT+J um beizutreten" endet und vor dem beliebiger Text steht, dann können Sie alles außer "Drücken Sie STRG+UMSCHALT+J um beizutreten" löschen.
+    - **Wenn Sie Entspricht Muster ausgewählt haben:** Dieses Eingabefeld enthält zwar den Text für die Meldung, es wird jedoch empfohlen, ihn in einen regulären Ausdruck mit Elementen aus der Meldung abzuändern. Wenn Sie den Benachrichtigungstext oder Teile davon verwenden möchten, sollten Sie eine der anderen Regelarten verwenden. Ein Beispiel für einen regulären Ausdruck ist der reguläre Ausdruck zur Erfassung des Absendernamens in einer Outlook-Benachrichtigung: "^Neue Benachrichtigung von Outlook, (.*?)," ohne die Anführungszeichen.
+5. Verwenden Sie das Kontrollfeld **Nur Benachrichtigungen von**, um festzulegen, ob diese Regel nur für die mit der aktuellen Benachrichtigung verbundene Anwendung (Standardeinstellung) oder global für alle Anwendungen gilt.
+6. Verwenden Sie die Ausklappliste **Sprach- oder Sound-Aktion**, um festzulegen, was JAWS oder Fusion ansagt, wenn diese Benachrichtigung empfangen wird. Die folgenden Optionen stehen zur Verfügung:
+
   - **Stumm** - JAWS oder Fusion sagt gar nichts, wenn diese Benachrichtigung empfangen wird. Dieses ist die Standardeinstellung für neue Regeln.
-  - **Kürzen** - Ermöglicht die Angabe einer alternativen Nachricht, die angesagt wird, wenn diese Benachrichtigung empfangen wird. Drücken Sie nach dem Auswählen dieser Option **TAB** , um in das Eingabefeld **Verkürzter Text** zu springen, in dem Sie eine eigene Meldung eingeben können.
-  - **Sound abspielen** - JAWS oder Fusion spielt eine bestimmte Sounddatei ab, anstatt etwas anzusagen, wenn diese Benachrichtigung empfangen wird. Drücken Sie nach dem Auswählen dieser Option **TAB** , um zu weiteren Optionen für die Auswahl einer Sounddatei und deren Hörbeispiel zu gelangen.
-  - **Vollständige Meldung ansagen** - JAWS oder Fusion sagt den gesamten Text für die ausgewählte Banchrichtigung an wenn diese empfangen wird. Dies ist die Standardeinstellung, wenn **Nicht im Verlauf anzeigen** über das Kontextmenü für die aktuelle Benachrichtigung in der Liste der letzten Benachrichtigungen ausgewählt wurde.
+    - **Kürzen** - Ermöglicht die Angabe einer alternativen Nachricht, die angesagt wird, wenn diese Benachrichtigung empfangen wird. Drücken Sie nach dem Auswählen dieser Option **TAB**, um in das Eingabefeld **Verkürzter Text** zu springen, in dem Sie eine eigene Meldung eingeben können.
+    - **Sound abspielen** - JAWS oder Fusion spielt eine bestimmte Sounddatei ab, anstatt etwas anzusagen, wenn diese Benachrichtigung empfangen wird. Drücken Sie nach dem Auswählen dieser Option **TAB**, um zu weiteren Optionen für die Auswahl einer Sounddatei und deren Hörbeispiel zu gelangen.
+    - **Vollständige Meldung ansagen** - JAWS oder Fusion sagt den gesamten Text für die ausgewählte Banchrichtigung an wenn diese empfangen wird. Dies ist die Standardeinstellung, wenn **Nicht im Verlauf anzeigen** über das Kontextmenü für die aktuelle Benachrichtigung in der Liste der letzten Benachrichtigungen ausgewählt wurde.
 
-**Hinweis:** Wenn Sie einen alternativen Benachrichtigungstext eingeben möchten, der gesprochen werden soll, und im Kombinationsfeld **Regeltyp** die Option Entspricht Muster ausgewählt ist, können Sie erfasste Variablen in Ihren gekürzten Text aufnehmen. Dies geschieht durch Hinzufügen von \n zu Ihrem verkürzten Text, wobei n der Index der Variablen in der Erfassungsgruppe ist. So ist \1 die erste Variable, \2 ist die Zweite und so weiter. Wenn Sie den wörtlichen Text \1 zu Ihrer gekürzten Meldung hinzufügen möchten, können Sie einen weiteren Schrägstrich verwenden, um ihn auszulassen, zum Beispiel \\1. Wählen Sie dann den Schalter **Ergebnisvorschau** , um zu hören, wie JAWS die Meldung mit Ihrem regulären Ausdruck und dem gekürzten Text verarbeitet hat.
+**Hinweis:** Wenn Sie einen alternativen Benachrichtigungstext eingeben möchten, der gesprochen werden soll, und im Kombinationsfeld **Regeltyp** die Option Entspricht Muster ausgewählt ist, können Sie erfasste Variablen in Ihren gekürzten Text aufnehmen. Dies geschieht durch Hinzufügen von \n zu Ihrem verkürzten Text, wobei n der Index der Variablen in der Erfassungsgruppe ist. So ist \1 die erste Variable, \2 ist die Zweite und so weiter. Wenn Sie den wörtlichen Text \1 zu Ihrer gekürzten Meldung hinzufügen möchten, können Sie einen weiteren Schrägstrich verwenden, um ihn auszulassen, zum Beispiel \\1. Wählen Sie dann den Schalter **Ergebnisvorschau**, um zu hören, wie JAWS die Meldung mit Ihrem regulären Ausdruck und dem gekürzten Text verarbeitet hat.
 
-1. Verwenden Sie die Ausklappliste **Braille-Aktion** , um auszuwählen, was auf einer Braillezeile angezeigt wird, wenn diese Benachrichtigung empfangen wird. Die folgenden Optionen sind verfügbar.
+1. Verwenden Sie die Ausklappliste **Braille-Aktion**, um auszuwählen, was auf einer Braillezeile angezeigt wird, wenn diese Benachrichtigung empfangen wird. Die folgenden Optionen sind verfügbar.
+
   - **Nichts anzeigen** - Es wird keinerlei Text auf der Braillezeile angezeigt, wenn diese Benachrichtigung empfangen wird.
-  - **Blitzmeldung anzeigen** - Der Text der Benachrichtigung wird auf der Braillezeile als Blitzmeldung angezeigt, wenn die Benachrichtigung empfangen wird. Dieses ist die Standardeinstellung für neue Regeln.
-  - **Verkürzte Blitzmeldung anzeigen** - Ermöglicht die Angabe einer alternativen Blitzmeldung, die auf der Braillezeile angezeigt wird, wenn diese Benachrichtigung empfangen wird. Drücken Sie nach dem Auswählen dieser Option **TAB** , um in das Eingabefeld **Blitzmeldung** zu springen, in dem Sie eine eigene Meldung eingeben können.
+    - **Blitzmeldung anzeigen** - Der Text der Benachrichtigung wird auf der Braillezeile als Blitzmeldung angezeigt, wenn die Benachrichtigung empfangen wird. Dieses ist die Standardeinstellung für neue Regeln.
+    - **Verkürzte Blitzmeldung anzeigen** - Ermöglicht die Angabe einer alternativen Blitzmeldung, die auf der Braillezeile angezeigt wird, wenn diese Benachrichtigung empfangen wird. Drücken Sie nach dem Auswählen dieser Option **TAB**, um in das Eingabefeld **Blitzmeldung** zu springen, in dem Sie eine eigene Meldung eingeben können.
 
-**Hinweis:** Wenn Sie einen alternativen Benachrichtigungstext eingeben möchten, der als Braille Blitzmeldung angezeigt werden soll, und im Kombinationsfeld **Regeltyp** die Option Entspricht Muster ausgewählt ist, können Sie erfasste Variablen in Ihren gekürzten Text aufnehmen. Dies geschieht durch Hinzufügen von \n zu Ihrem verkürzten Text, wobei n der Index der Variablen in der Erfassungsgruppe ist. So ist \1 die erste Variable, \2 ist die Zweite und so weiter. Wenn Sie den wörtlichen Text \1 zu Ihrer gekürzten Meldung hinzufügen möchten, können Sie einen weiteren Schrägstrich verwenden, um ihn auszulassen, zum Beispiel \\1. Wählen Sie dann den Schalter **Ergebnisvorschau** , damit JAWS die Ergebnisse der Verarbeitung der Meldung mit Ihrem regulären Ausdruck und Ihrem gekürzten Text als Blitzmeldung auf der Braillezeile anzeigt.
+**Hinweis:** Wenn Sie einen alternativen Benachrichtigungstext eingeben möchten, der als Braille Blitzmeldung angezeigt werden soll, und im Kombinationsfeld **Regeltyp** die Option Entspricht Muster ausgewählt ist, können Sie erfasste Variablen in Ihren gekürzten Text aufnehmen. Dies geschieht durch Hinzufügen von \n zu Ihrem verkürzten Text, wobei n der Index der Variablen in der Erfassungsgruppe ist. So ist \1 die erste Variable, \2 ist die Zweite und so weiter. Wenn Sie den wörtlichen Text \1 zu Ihrer gekürzten Meldung hinzufügen möchten, können Sie einen weiteren Schrägstrich verwenden, um ihn auszulassen, zum Beispiel \\1. Wählen Sie dann den Schalter **Ergebnisvorschau**, damit JAWS die Ergebnisse der Verarbeitung der Meldung mit Ihrem regulären Ausdruck und Ihrem gekürzten Text als Blitzmeldung auf der Braillezeile anzeigt.
 
-1. Wenn Sie nicht möchten, dass empfangene Benachrichtigungen, die den Kriterien der aktuellen Regel entsprechen, in die Liste der letzten Benachrichtigungen aufgenommen werden, aktivieren Sie das Kontrollfeld **Nicht im Verlauf anzeigen** . Dieses Kontrollfeld ist standardmäßig nicht aktiviert, es sei denn **Nicht im Verlauf anzeigen** wird über das Kontextmenü für die aktuelle Benachrichtigung in der Liste der letzten Benachrichtigungen ausgewählt.
-2. Nachdem Sie ihre Auswahl getroffen haben, drücken Sie **OK** .
-3. Ein Dialogfeld fordert Sie dann auf, einen Namen für die Regel einzugeben. Geben Sie den Namen ein, den Sie für diese Regel verwenden möchten und drücken Sie dann **OK** , um ihn zu speichern.
-4. Drücken Sie **ESC** , um das Dialogfenster Benachrichtigungsverlauf zu schließen.
+1. Wenn Sie nicht möchten, dass empfangene Benachrichtigungen, die den Kriterien der aktuellen Regel entsprechen, in die Liste der letzten Benachrichtigungen aufgenommen werden, aktivieren Sie das Kontrollfeld **Nicht im Verlauf anzeigen**. Dieses Kontrollfeld ist standardmäßig nicht aktiviert, es sei denn **Nicht im Verlauf anzeigen** wird über das Kontextmenü für die aktuelle Benachrichtigung in der Liste der letzten Benachrichtigungen ausgewählt.
+2. Nachdem Sie ihre Auswahl getroffen haben, drücken Sie **OK**.
+3. Ein Dialogfeld fordert Sie dann auf, einen Namen für die Regel einzugeben. Geben Sie den Namen ein, den Sie für diese Regel verwenden möchten und drücken Sie dann **OK**, um ihn zu speichern.
+4. Drücken Sie **ESC**, um das Dialogfenster Benachrichtigungsverlauf zu schließen.
 
 Ab jetzt wird diese Regel automatisch auf alle empfangenen Meldungen angewandt, die ihren Kriterien entsprechen.
 
@@ -995,13 +1004,14 @@ Ab jetzt wird diese Regel automatisch auf alle empfangenen Meldungen angewandt, 
 
 Um eine Regel umzubenennen, deren Kriterien zu ändern, oder diese vollständig zu löschen, gehen Sie wie folgt vor:
 
-1. Drücken Sie **EINFÜGEN+LEERTASTE** , **N** , um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.
-2. Drücken Sie **TAB** , um auf Regeln verwalten zu springen und drücken Sie **EINGABE** . Beachten Sie, dass diese Option erst dann verfügbar ist, wenn Sie mindestens eine Regel erstellt haben.
-3. Der Fokus befindet sich in der Liste Ihrer Regeln. Wählen Sie die Regel, die Sie ändern möchten, drücken Sie die **ANWENDUNGSTASTE** , um das Kontextmenü zu öffnen, und wählen Sie eine der folgenden Optionen:
-  - **Bearbeiten** - Öffnet ein Dialogfeld mit denselben Optionen wie oben beschrieben, wenn Sie eine neue Regel erstellen. Nehmen Sie alle erforderlichen Änderungen für die aktuelle Regel vor und wählen Sie dann **OK** .
-  - **Löschen** - Entfernt die ausgewählte Regel. Sie können auch die Taste **ENTFERNEN** auf der ausgewählten Regel in der Liste drücken, um sie zu löschen.
-  - **Umbenennen** - Ermöglicht Ihnen die Eingabe eines anderen Namens für die gewählte Regel. Sie können in der Liste auch **F2** auf der ausgewählten Regel drücken, um sie umzubenennen.
-4. Nachdem Sie Ihre Regeln überprüft und gegebenenfalls geändert haben, wählen Sie **Schließen** , um das Dialogfenster Regeln verwalten zu schließen, und drücken Sie dann **ESC** , um den Benachrichtigungsverlauf zu schließen.
+1. Drücken Sie **EINFÜGEN+LEERTASTE**, **N**, um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.
+2. Drücken Sie **TAB**, um auf Regeln verwalten zu springen und drücken Sie **EINGABE**. Beachten Sie, dass diese Option erst dann verfügbar ist, wenn Sie mindestens eine Regel erstellt haben.
+3. Der Fokus befindet sich in der Liste Ihrer Regeln. Wählen Sie die Regel, die Sie ändern möchten, drücken Sie die **ANWENDUNGSTASTE**, um das Kontextmenü zu öffnen, und wählen Sie eine der folgenden Optionen:
+
+  - **Bearbeiten** - Öffnet ein Dialogfeld mit denselben Optionen wie oben beschrieben, wenn Sie eine neue Regel erstellen. Nehmen Sie alle erforderlichen Änderungen für die aktuelle Regel vor und wählen Sie dann **OK**.
+    - **Löschen** - Entfernt die ausgewählte Regel. Sie können auch die Taste **ENTFERNEN** auf der ausgewählten Regel in der Liste drücken, um sie zu löschen.
+    - **Umbenennen** - Ermöglicht Ihnen die Eingabe eines anderen Namens für die gewählte Regel. Sie können in der Liste auch **F2** auf der ausgewählten Regel drücken, um sie umzubenennen.
+4. Nachdem Sie Ihre Regeln überprüft und gegebenenfalls geändert haben, wählen Sie **Schließen**, um das Dialogfenster Regeln verwalten zu schließen, und drücken Sie dann **ESC**, um den Benachrichtigungsverlauf zu schließen.
 
 ## Regeln neu ordnen
 
@@ -1009,31 +1019,32 @@ Sie können die Reihenfolge individuell anpassen, in der die Benachrichtigungsre
 
 So ordnen Sie Regeln neu:
 
-1. Drücken Sie **EINFÜGEN+LEERTASTE** , **N** , um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.
-2. Drücken Sie **TAB** , um auf Regeln verwalten zu springen und drücken Sie **EINGABE** . Der Fokus befindet sich in der Liste Ihrer Regeln.
+1. Drücken Sie **EINFÜGEN+LEERTASTE**, **N**, um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.
+2. Drücken Sie **TAB**, um auf Regeln verwalten zu springen und drücken Sie **EINGABE**. Der Fokus befindet sich in der Liste Ihrer Regeln.
 3. Suchen Sie die Regel, die Sie verschieben möchten, und führen Sie einen der folgenden Schritte aus:
-  - Drücken Sie **STRG+UMSCHALT+PFEIL RAUF** oder **ALT+U** , um die ausgewählte Regel in der Liste nach oben zu bewegen.
-  - Drücken Sie **STRG+UMSCHALT+PFEIL RUNTER** oder **ALT+R** , um die ausgewählte Regel in der Liste nach unten zu bewegen.
-4. Wenn Sie dieses abgeschlossen haben, dann drücken Sie Schließen, um das Dialogfenster zum Verwalten der Regeln zu schließen und drücken dann **ESC** , um den Benachrichtigungsverlauf zu schließen.
+
+  - Drücken Sie **STRG+UMSCHALT+PFEIL RAUF** oder **ALT+U**, um die ausgewählte Regel in der Liste nach oben zu bewegen.
+    - Drücken Sie **STRG+UMSCHALT+PFEIL RUNTER** oder **ALT+R**, um die ausgewählte Regel in der Liste nach unten zu bewegen.
+4. Wenn Sie dieses abgeschlossen haben, dann drücken Sie Schließen, um das Dialogfenster zum Verwalten der Regeln zu schließen und drücken dann **ESC**, um den Benachrichtigungsverlauf zu schließen.
 
 ## Regeln deaktivieren
 
 Es kann vorkommen, dass Sie die Verarbeitung einer oder mehrerer benutzerdefinierter Benachrichtigungsregeln abschalten und JAWS oder Fusion alle Benachrichtigungen ankündigen lassen möchten, sobald sie empfangen werden. So deaktivieren Sie individuelle Regeln:
 
-1. Drücken Sie **EINFÜGEN+LEERTASTE** , **N** , um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.
-2. Drücken Sie **TAB** , um auf Regeln verwalten zu springen und drücken Sie **EINGABE** . Der Fokus befindet sich in der Liste Ihrer Regeln. Beim Navigieren in der Liste sagt JAWS den aktuellen aktiviert/deaktiviert Status der aktuellen Regel an.
-3. Wählen Sie die Regel, die Sie deaktivieren möchten, drücken Sie die **ANWENDUNGSTASTE** , um das Kontextmenü zu öffnen, und wählen Sie **Deaktivieren** .
-4. Wenn Sie dieses abgeschlossen haben, dann drücken Sie **Schließen** , um das Dialogfenster zum Verwalten der Regeln zu schließen und drücken dann **ESC** , um den Benachrichtigungsverlauf zu schließen.
+1. Drücken Sie **EINFÜGEN+LEERTASTE**, **N**, um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.
+2. Drücken Sie **TAB**, um auf Regeln verwalten zu springen und drücken Sie **EINGABE**. Der Fokus befindet sich in der Liste Ihrer Regeln. Beim Navigieren in der Liste sagt JAWS den aktuellen aktiviert/deaktiviert Status der aktuellen Regel an.
+3. Wählen Sie die Regel, die Sie deaktivieren möchten, drücken Sie die **ANWENDUNGSTASTE**, um das Kontextmenü zu öffnen, und wählen Sie **Deaktivieren**.
+4. Wenn Sie dieses abgeschlossen haben, dann drücken Sie **Schließen**, um das Dialogfenster zum Verwalten der Regeln zu schließen und drücken dann **ESC**, um den Benachrichtigungsverlauf zu schließen.
 
-Folgen Sie diesen Schritten erneut, um eine Regel zu aktivieren. Wenn Sie die **ANWENDUNGSTASTE** drücken, um das Kontextmenü einer bereits deaktivierten Regel zu öffnen, dann wählen Sie **Aktivieren** , um diese wieder zu reaktivieren.
+Folgen Sie diesen Schritten erneut, um eine Regel zu aktivieren. Wenn Sie die **ANWENDUNGSTASTE** drücken, um das Kontextmenü einer bereits deaktivierten Regel zu öffnen, dann wählen Sie **Aktivieren**, um diese wieder zu reaktivieren.
 
 Um schnell alle Regeln zu deaktivieren, gehen Sie wie folgt vor:
 
-1. Drücken Sie **EINFÜGEN+LEERTASTE** , **N** , um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.
-2. Drücken Sie **TAB** , um auf das Kontrollfeld **Regeln aktivieren** zu springen und drücken Sie **LEERTASTE** , um dieses zu deaktivieren.
-3. Drücken Sie **ESC** , um den Benachrichtigungsverlauf zu schließen.
+1. Drücken Sie **EINFÜGEN+LEERTASTE**, **N**, um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.
+2. Drücken Sie **TAB**, um auf das Kontrollfeld **Regeln aktivieren** zu springen und drücken Sie **LEERTASTE**, um dieses zu deaktivieren.
+3. Drücken Sie **ESC**, um den Benachrichtigungsverlauf zu schließen.
 
-Alternativ können Sie die Einstellungsverwaltung öffnen ( **EINGABE+6** der Zahlenreihe), "regeln" in das Sucheingabefeld schreiben und das Kontrollfeld **Benachrichtigungsregeln aktivieren** deaktivieren.
+Alternativ können Sie die Einstellungsverwaltung öffnen (**EINGABE+6** der Zahlenreihe), "regeln" in das Sucheingabefeld schreiben und das Kontrollfeld **Benachrichtigungsregeln aktivieren** deaktivieren.
 
 Sobald die Regeln deaktiviert sind, sind die Optionen zum Erstellen und Verwalten von Regeln nicht mehr verfügbar, bis Sie sie wieder aktivieren.
 
@@ -1041,13 +1052,13 @@ Quelle: Notification_History.htm
 
 ## Sprechendes Bild KI
 
-Eine kurze Einführung in das sprechende Bild KI finden Sie in englischer Sprache in unserem [YouTube-Video](https://www.youtube.com/watch?v=eTWNtEChnt0) .
+Eine kurze Einführung in das sprechende Bild KI finden Sie in englischer Sprache in unserem [YouTube-Video](https://www.youtube.com/watch?v=eTWNtEChnt0).
 
 Wenn Sie sich in digitalen Umgebungen bewegen, stoßen Sie vielleicht auf Fotos, Diagramme und andere visuelle Elemente ohne alternative Beschreibung. Dies kann es schwierig machen, an Informationen zu kommen, die der visuelle Inhalt liefert. Die JAWS Funktion Sprechendes Bild KI ermöglicht es Ihnen, ein Foto zur Analyse einzureichen, um dann eine Beschreibung des Bildes im JAWS Ergebnisbetrachter zu lesen.
 
 Diese revolutionäre Aktualisierung der ursprünglichen Funktion des sprechenden Bildes, die 2019 eingeführt wurde, integriert die neueste Technologie der künstlichen Intelligenz (KI) von Diensten wie ChatGPT von Open AI und Claude von Anthropic, um eine ganz neue Ebene der Zugänglichkeit zu grafischen Informationen zu ermöglichen. Beschreibungen können Details wie die Anzahl der Personen auf dem Foto einschließlich ihres Aussehens und ihrer Aktivitäten, erkennbare Orientierungspunkte, Landschaftsdetails wie die Farbe des Himmels, des Rasens oder der Bäume, die Anordnung der Informationen in einem Diagramm oder einer Folie und vieles mehr enthalten. Darüber hinaus kann jeder Text auf dem Bild, wie z. B. der Schriftzug auf einem Schild oder einem Kleidungsstück, in die Beschreibung aufgenommen werden.
 
-Um das sprechende Bild KI zu verwenden, drücken Sie **EINFÜGEN+LEERTASTE** gefolgt von **P** , um auf die Ebene des sprechenden Bildes zuzugreifen und nutzen Sie dann eine der folgenden Kurztasten:
+Um das sprechende Bild KI zu verwenden, drücken Sie **EINFÜGEN+LEERTASTE** gefolgt von **P**, um auf die Ebene des sprechenden Bildes zuzugreifen und nutzen Sie dann eine der folgenden Kurztasten:
 
 **Hinweis:** Um das sprechende Bild KI verwenden zu können, muss die Option "Anonymisierte Nutzungsdaten übermitteln" in der Einstellungsverwaltung aktiviert sein. Hierdurch werden verschlüsselte Informationen an Freedom Scientific übermittelt. Die Bilder der Funktion Sprechendes Bild werden dann zu verschiedenen Services übermittelt, die diese Bilder dann analysieren und die Beschreibungen an JAWS zurückmelden. Es werden keine Bilder oder daraus resultierende Beschreibungen gespeichert. Wenn Sie versuchen, das sprechende Bild KI zu verwenden, während diese Einstellung ausgeschaltet ist, dann werden Sie durch eine Meldung aufgefordert, diese Einstellung zu aktivieren.
 
@@ -1057,19 +1068,20 @@ Um das sprechende Bild KI zu verwenden, drücken Sie **EINFÜGEN+LEERTASTE** gef
 - **S** - Beschreibt den gesamten Bildschirm.
 - **W** - Beschreibt das aktuelle Anwendungsfenster.
 - **EINGABE** - Beschreibt ein Bild basierend auf aktueller Anwendung und Kontext. Damit entfällt die Notwendigkeit, sich ständig mehrere Tastenkombinationen zu merken. Beispiel:
+
   - Hält jemand in Teams eine Präsentation, dann wird die aktuelle Folie beschrieben.
-  - Befinden Sie sich auf einer Webseite, wird das aktuelle Steuerelement beschrieben.
-  - Befinden Sie sich im Datei Explorer, wird die aktuell ausgewählte Datei beschrieben.
-  - Beim Abspielen eines Videos aus einer Quelle wie etwa YouTube wird ein Bildschirmschnappschuss an der aktuellen Position des Videos beschrieben.
-  - Beim Abspielen einer PowerPoint Präsentation wird die aktuelle Folie beschrieben.
-  - Wenn Sie in PowerPoint eine Folie ausgewählt haben, sich aber nicht in einer aktiven Präsentation befinden, dann wird die aktuell sichtbare Folie beschrieben.
+    - Befinden Sie sich auf einer Webseite, wird das aktuelle Steuerelement beschrieben.
+    - Befinden Sie sich im Datei Explorer, wird die aktuell ausgewählte Datei beschrieben.
+    - Beim Abspielen eines Videos aus einer Quelle wie etwa YouTube wird ein Bildschirmschnappschuss an der aktuellen Position des Videos beschrieben.
+    - Beim Abspielen einer PowerPoint Präsentation wird die aktuelle Folie beschrieben.
+    - Wenn Sie in PowerPoint eine Folie ausgewählt haben, sich aber nicht in einer aktiven Präsentation befinden, dann wird die aktuell sichtbare Folie beschrieben.
 - **FRAGEZEICHEN** - Zeigt Hilfe für die Ebene Sprechendes Bild an.
 
-In Ihrem Bilder-Ordner des Computers befindet sich auch ein Unterordner PictureSmart, in dem Sie ein Bild speichern können, welches dann automatisch zur Beschreibung eingereicht wird. Um auf diesen Ordner zuzugreifen, drücken Sie die **WINDOWSTASTE** , schreiben Sie "PictureSmart" in das Sucheingabefeld und wählen Sie dann in den Suchergebnissen den Ordner PictureSmart.
+In Ihrem Bilder-Ordner des Computers befindet sich auch ein Unterordner PictureSmart, in dem Sie ein Bild speichern können, welches dann automatisch zur Beschreibung eingereicht wird. Um auf diesen Ordner zuzugreifen, drücken Sie die **WINDOWSTASTE**, schreiben Sie "PictureSmart" in das Sucheingabefeld und wählen Sie dann in den Suchergebnissen den Ordner PictureSmart.
 
-Nach der Ausführung des Sprechenden Bildes KI werden Sie auch auf mögliche Probleme mit einem Bild aufmerksam gemacht, die zu schlechteren Beschreibungen führen könnten. Wenn Ihr Browserfenster beispielsweise nicht maximiert ist, können Bilder abgeschnitten werden, was zu ungenauen Beschreibungen führt. In diesem Fall wird am oberen Rand der Ergebnisanzeige vor der Beschreibung eine erweiterbare Warnmeldung angezeigt. Drücken Sie auf dieser Warnung **EINGABE** , um die vollständigen Details zu sehen. Sie können dann die Ergebnisanzeige schließen, das Browserfenster maximieren und das Sprechende Bild KI erneut auf das Bild anwenden.
+Nach der Ausführung des Sprechenden Bildes KI werden Sie auch auf mögliche Probleme mit einem Bild aufmerksam gemacht, die zu schlechteren Beschreibungen führen könnten. Wenn Ihr Browserfenster beispielsweise nicht maximiert ist, können Bilder abgeschnitten werden, was zu ungenauen Beschreibungen führt. In diesem Fall wird am oberen Rand der Ergebnisanzeige vor der Beschreibung eine erweiterbare Warnmeldung angezeigt. Drücken Sie auf dieser Warnung **EINGABE**, um die vollständigen Details zu sehen. Sie können dann die Ergebnisanzeige schließen, das Browserfenster maximieren und das Sprechende Bild KI erneut auf das Bild anwenden.
 
-Sobald die Verarbeitung eines eingereichten Bildes abgeschlossen ist, zeigt das sprechende Bild KI standardmäßig eine kurze Beschreibung an. Um eine ausführlichere Beschreibung anzuzeigen, wählen Sie am unteren Rand des Ergebnisbetrachters den Link **Weitere Informationen bekommen** . Sie können einem Sprechenden Bild Befehl auch die **UMSCHALT** -Taste hinzufügen, um sofort weitere Informationen anzuzeigen. Beispielsweise **EINFÜGEN+LEERTASTE, P, UMSCHALT+F** .
+Sobald die Verarbeitung eines eingereichten Bildes abgeschlossen ist, zeigt das sprechende Bild KI standardmäßig eine kurze Beschreibung an. Um eine ausführlichere Beschreibung anzuzeigen, wählen Sie am unteren Rand des Ergebnisbetrachters den Link **Weitere Informationen bekommen**. Sie können einem Sprechenden Bild Befehl auch die **UMSCHALT**-Taste hinzufügen, um sofort weitere Informationen anzuzeigen. Beispielsweise **EINFÜGEN+LEERTASTE, P, UMSCHALT+F**.
 
 ## KI Dienste
 
@@ -1083,27 +1095,27 @@ Wir haben viele Rückmeldungen von Nutzern erhalten, wie wichtig es ist, zwei Di
 
 Sie können den alternativen Dienst über den Link **Weitere Informationen bekommen** am unteren Rand des Ergebnisbetachters verwenden. Zusätzlich können beide Dienstbeschreibungen direkt durch Drücken der **Umschalttaste** zusammen mit einem Sprechenden Bild Befehl angezeigt werden. So bietet zum Beispiel der Befehl **EINFÜGEN+LEERTASTE, P, UMSCHALT+W** zwei Beschreibungen des aktuellen Fensters.
 
-Mehr dazu lesen Sie auf unserer englischen Webseite [Picture Smart Challenges](https://www.freedomscientific.com/picturesmartchallenges) .
+Mehr dazu lesen Sie auf unserer englischen Webseite [Picture Smart Challenges](https://www.freedomscientific.com/picturesmartchallenges).
 
 ## Fragen zu einem Bild stellen
 
 Sprechendes Bild KI bietet die Möglichkeit, Nachfragen zu stellen, um zusätzliche Details zu einem Bild zu erhalten, die in der ursprünglichen Beschreibung möglicherweise nicht enthalten waren.
 
-Sobald Sie einen Sprechendes Bild Befehle wie etwa **EINFÜGEN+LEERTASTE, P, F** ausgeführt haben und die Beschreibung im Ergebnisbetrachter angezeigt wird, drücken Sie **EINGABE** auf dem Link **Stellen Sie Fragen zu diesem Bild** , den Sie am unteren Rand des Fensters finden. Wenn Sie die Option für weitere Informationen gewählt haben, oder **UMSCHALT** als Teil des Befehls angegeben haben, um detaillierte Beschreibungen von beiden KI-Diensten anzuzeigen, dann heißt der Link **Stelle ChatGPT Fragen zu diesem Bild** .
+Sobald Sie einen Sprechendes Bild Befehle wie etwa **EINFÜGEN+LEERTASTE, P, F** ausgeführt haben und die Beschreibung im Ergebnisbetrachter angezeigt wird, drücken Sie **EINGABE** auf dem Link **Stellen Sie Fragen zu diesem Bild**, den Sie am unteren Rand des Fensters finden. Wenn Sie die Option für weitere Informationen gewählt haben, oder **UMSCHALT** als Teil des Befehls angegeben haben, um detaillierte Beschreibungen von beiden KI-Diensten anzuzeigen, dann heißt der Link **Stelle ChatGPT Fragen zu diesem Bild**.
 
-Sobald Sie den Link zum Stellen von Fragen aktiviert haben, landen Sie in einem Eingabefeld. Geben Sie eine Aufforderung ein und drücken Sie **EINGABE** . Bei einem Bild von einem Strand im Sonnenuntergang könnten Sie zum Beispiel fragen: „Können Sie den Sonnenuntergang beschreiben und wie es aussieht, wenn die Sonne im Meer untergeht?“. Nach ein paar Sekunden, in denen Sie von JAWS einen Hinweiston für den Fortschritt hören, wird das Ergebnisfenster mit der Antwort aktualisiert und JAWS liest diese automatisch vor. Der Fokus verbleibt dabei im Eingabefeld, so dass Sie eine weitere Nachfrage stellen könnten.
+Sobald Sie den Link zum Stellen von Fragen aktiviert haben, landen Sie in einem Eingabefeld. Geben Sie eine Aufforderung ein und drücken Sie **EINGABE**. Bei einem Bild von einem Strand im Sonnenuntergang könnten Sie zum Beispiel fragen: „Können Sie den Sonnenuntergang beschreiben und wie es aussieht, wenn die Sonne im Meer untergeht?“. Nach ein paar Sekunden, in denen Sie von JAWS einen Hinweiston für den Fortschritt hören, wird das Ergebnisfenster mit der Antwort aktualisiert und JAWS liest diese automatisch vor. Der Fokus verbleibt dabei im Eingabefeld, so dass Sie eine weitere Nachfrage stellen könnten.
 
 In Situationen, in denen Sie bereits über ein gewisses Grundwissen über ein Bild verfügen, können Sie die Taste **ALT** mit einem beliebigen Sprechendes Bild-Befehl kombinieren, um sofort Fragen zu bestimmten Details zu stellen.
 
-Nehmen wir zum Beispiel an, Sie kaufen auf Amazon ein Produkt wie einen Kontaktgrill oder eine Heißluft-Friteuse. Sie haben bereits eine Vorstellung davon, worum es sich bei dem Produkt handelt, aber Sie möchten vielleicht im Voraus wissen, ob das Produkt physische Tasten oder eine berührungssensitive Anzeige enthält. Dann können Sie **EINFÜGEN+LEERTASTE, P** , **ALT+F** drücken, eine Frage eingeben, gefolgt von **EINGABE** , und das sprechende Bild versucht, die Frage zu der ausgewählten Bilddatei zu beantworten, anstatt nur eine allgemeine Beschreibung zu liefern.
+Nehmen wir zum Beispiel an, Sie kaufen auf Amazon ein Produkt wie einen Kontaktgrill oder eine Heißluft-Friteuse. Sie haben bereits eine Vorstellung davon, worum es sich bei dem Produkt handelt, aber Sie möchten vielleicht im Voraus wissen, ob das Produkt physische Tasten oder eine berührungssensitive Anzeige enthält. Dann können Sie **EINFÜGEN+LEERTASTE, P**, **ALT+F** drücken, eine Frage eingeben, gefolgt von **EINGABE**, und das sprechende Bild versucht, die Frage zu der ausgewählten Bilddatei zu beantworten, anstatt nur eine allgemeine Beschreibung zu liefern.
 
 Sobald die Ergebnisse mit der Antwort angezeigt werden, können Sie immer noch den Link **Stellen Sie Fragen zu diesem Bild** verwenden, um bei Bedarf Folgefragen zu stellen.
 
-Ihre Fragen und Antworten bleiben für die aktuelle Sitzung im Ergebnisbetrachters erhalten, bis Sie das Fenster schließen. Um bestimmte Antworten nachzulesen und zu kopieren, um sie in eine andere Anwendung einzufügen, drücken Sie **ESC** , um den Formularmodus zu beenden und verwenden Sie dann **H** oder **UMSCHALT+H** , um zu der Überschrift zu navigieren, die der Frage und der Antwort entspricht, die Sie kopieren möchten.
+Ihre Fragen und Antworten bleiben für die aktuelle Sitzung im Ergebnisbetrachters erhalten, bis Sie das Fenster schließen. Um bestimmte Antworten nachzulesen und zu kopieren, um sie in eine andere Anwendung einzufügen, drücken Sie **ESC**, um den Formularmodus zu beenden und verwenden Sie dann **H** oder **UMSCHALT+H**, um zu der Überschrift zu navigieren, die der Frage und der Antwort entspricht, die Sie kopieren möchten.
 
 ## Rückmeldung geben
 
-Auch wenn das sprechende Bild KI das Vorschau Programm verlassen hat und zum neuen Standard für die Beschreibung von Bildern geworden ist, sind Anwender immer noch aufgefordert, Rückmeldungen zu ihren Erfahrungen zu geben. Um eine Rückmeldungen zu geben, verwenden Sie am unteren Rand des Ergebnisbetrachters für das sprechende Bild den Link **Rückmeldung zu dieser Funktion abgeben** .
+Auch wenn das sprechende Bild KI das Vorschau Programm verlassen hat und zum neuen Standard für die Beschreibung von Bildern geworden ist, sind Anwender immer noch aufgefordert, Rückmeldungen zu ihren Erfahrungen zu geben. Um eine Rückmeldungen zu geben, verwenden Sie am unteren Rand des Ergebnisbetrachters für das sprechende Bild den Link **Rückmeldung zu dieser Funktion abgeben**.
 
 ## Zugriff auf das bisherige Sprechende Bild
 
@@ -1114,8 +1126,9 @@ In Situationen, in denen Sie auf ältere Sprechende Bild Funktionen zugreifen m�
 Der Mausmodus in Fusion bietet eine alternative Methode, um auf Sprechendes Bild KI zuzugreifen und es zu verwenden, ohne auf JAWS Kurztasten angewiesen zu sein. Durch die Verwendung des Mausmodus können Sie die Notwendigkeit von Tastenkombinationen umgehen, was den Zugriff auf Sprechendes Bild KI erleichtert, wenn Sie die Navigation mit der Maus bevorzugen oder wenn Sie Probleme mit Kurztasten haben. Diese Methode stellt sicher, dass die Funktion für Fusion-Nutzer mit unterschiedlichen Präferenzen und Bedürfnissen zugänglich ist.
 
 1. Um Sprechendes Bild KI über den Mausmodus zu starten und zu verwenden, führen Sie einen der folgenden Schritte aus:
-  - Wählen Sie auf der Registerkarte Werkzeuge, den Schalter **Sprechendes Bild** .
-  - Drücken Sie **FESTSTELL+STRG+P** .
+
+  - Wählen Sie auf der Registerkarte Werkzeuge, den Schalter **Sprechendes Bild**.
+    - Drücken Sie **FESTSTELL+STRG+P**.
 2. Nachdem Fusion “Sprechendes Bild Mausmodus” angesagt hat, klicken und ziehen den Mauszeiger über ein Element, welches Sie sich beschreiben lassen möchten.
 3. Nach der Verarbeitung wird die Beschreibung im Fenster des Ergebnisbetrachters angezeigt und auch vorgelesen.
 
@@ -1123,7 +1136,7 @@ Der Mausmodus in Fusion bietet eine alternative Methode, um auf Sprechendes Bild
 
 ## Sprechendes Bild Datenschutz
 
-Alle Dienste, die wir für das sprechende Bild nutzen, folgen unseren KI-Datenschutzrichtlinien. Freedom Scientific sowie unsere KI-Servicepartner speichern oder trainieren die eingereichten Bilder, Fragen oder zugehörigen Antworten nicht. Mehr dazu lesen Sie auf unserer englischen Webseite [AI Privacy Statement](https://www.freedomscientific.com/aiprivacystatement) .
+Alle Dienste, die wir für das sprechende Bild nutzen, folgen unseren KI-Datenschutzrichtlinien. Freedom Scientific sowie unsere KI-Servicepartner speichern oder trainieren die eingereichten Bilder, Fragen oder zugehörigen Antworten nicht. Mehr dazu lesen Sie auf unserer englischen Webseite [AI Privacy Statement](https://www.freedomscientific.com/aiprivacystatement).
 
 *Lesen Sie auch:*
 
@@ -1140,7 +1153,7 @@ Die Schnelleinstellung macht es einfach, anwendungsspezifische Einstellungen, wi
 - Ändern Sie Einstellungen für individuelle Dokumente oder Anwendungen.
 - Legen Sie fest, ob Änderungen auch nach der aktuellen JAWS Sitzung, nach einem Computer-Neustart oder nach einem Fokuswechsel in ein anderes Fenster noch wirksam sein sollen. Beachten Sie, dass die Wirksamkeitsstufe nicht für individuelle Dokumenteinstellungen festgelegt werden kann. Dokumenteinstellungen werden immer auf der Festplatte gespeichert.
 
-Zum Öffnen der Schnelleinstellung, drücken Sie **EINFÜGEN+V** .
+Zum Öffnen der Schnelleinstellung, drücken Sie **EINFÜGEN+V**.
 
 ### Welcher Vorteil entsteht durch die Verwendung der Schnelleinstellung?
 
@@ -1162,10 +1175,10 @@ Das Fenster der Schnelleinstellung ist dem der Einstellungsverwaltung sehr ähnl
 
 Um die Schnelleinstellung aus jeder Anwendung oder jedem Dokument heraus aufzurufen,
 
-1. Drücken Sie **JAWS TASTE+V** . Diese angenehme Kurztaste ist identisch mit der Kurztaste, die bisher für den Dialog JAWS Einstellungen anpassen verwendet wurde. Beispielsweise drücken Sie innerhalb eines geöffneten Word-Dokuments **EINFÜGEN+V** .
-2. Der Cursor wird im Sucheingabefeld platziert. Wenn Sie die Einstellungen kennen, die Sie ändern möchten, schreiben Sie ein Wort dafür in das Sucheingabefeld. Als nächstes drücken Sie **PFEIL RUNTER** , um zu den gefilterten Ergebnissen in der Strukturansicht zu springen. Schreiben Sie beispielsweise “Tastatur” (ohne die Anführungszeichen), drücken Sie **PFEIL RUNTER** , um auf Tastaturecho in der Liste der gefilterten Ergebnisse zu springen und drücken Sie dann **EINGABE** . Der Fokus springt nun auf Tastaturecho in der Strukturansicht. Die Standardeinstellung für das Tastaturecho ist Zeichen.
-3. Wenn Sie die Gesicherte Ebene ändern möchten, drücken Sie die **APPLIKATIONSTASTE** und wählen dann Einstellung beim Beenden von JAWS wiederherstellen oder Einstellung bei Fokusänderung wiederherstellen. (Beachten Sie das die Standardauswahl immer Einstellung speichern ist, wenn Sie die Gesicherte Ebene erstmals aufrufen.) Drücken Sie beispielsweise eine **PFEILTASTE** um zu Einstellung bei Fokusänderung wiederherstellen zu springen und drücken Sie dann **EINGABE** .
-4. Als nächstes drücken Sie die **LEERTASTE** , um Werte der Ausklappliste zu ändern, Kontrollfelder, Auswahlschalter oder andere Schalter zu aktivieren, und dann drücken Sie **EINGABE** . (Sie können auch **F6** drücken, um zwischen der Strukturansicht und des Einstellungsbereichs zu wechseln und Einstellungen zu ändern.) Die Einstellung verwendet jetzt sowohl die ausgewählte Gesicherte Ebene als auch den gewählten Wert. Der Wert wird dauerhaft gespeichert, oder solange bis Sie den Fokus ändern oder JAWS schließen, wie in der Gesicherten Ebene angegeben. Drücken Sie beispielsweise die **LEERTASTE** , um das Tastaturecho auf Aus zu setzen und drücken Sie dann **EINGABE** . So lange der Fokus im aktuellen Word-Dokument bleibt, werden die gedrückten Tasten nicht angesagt. Wenn Sie den Fokus vom Dokument weg zu einer anderen Anwendung bewegen und dann wieder zurück in das Word-Dokument wechseln, dann ist der Wert für das Tastaturecho auf Zeichen zurückgesetzt worden.
+1. Drücken Sie **JAWS TASTE+V**. Diese angenehme Kurztaste ist identisch mit der Kurztaste, die bisher für den Dialog JAWS Einstellungen anpassen verwendet wurde. Beispielsweise drücken Sie innerhalb eines geöffneten Word-Dokuments **EINFÜGEN+V**.
+2. Der Cursor wird im Sucheingabefeld platziert. Wenn Sie die Einstellungen kennen, die Sie ändern möchten, schreiben Sie ein Wort dafür in das Sucheingabefeld. Als nächstes drücken Sie **PFEIL RUNTER**, um zu den gefilterten Ergebnissen in der Strukturansicht zu springen. Schreiben Sie beispielsweise “Tastatur” (ohne die Anführungszeichen), drücken Sie **PFEIL RUNTER**, um auf Tastaturecho in der Liste der gefilterten Ergebnisse zu springen und drücken Sie dann **EINGABE**. Der Fokus springt nun auf Tastaturecho in der Strukturansicht. Die Standardeinstellung für das Tastaturecho ist Zeichen.
+3. Wenn Sie die Gesicherte Ebene ändern möchten, drücken Sie die **APPLIKATIONSTASTE** und wählen dann Einstellung beim Beenden von JAWS wiederherstellen oder Einstellung bei Fokusänderung wiederherstellen. (Beachten Sie das die Standardauswahl immer Einstellung speichern ist, wenn Sie die Gesicherte Ebene erstmals aufrufen.) Drücken Sie beispielsweise eine **PFEILTASTE** um zu Einstellung bei Fokusänderung wiederherstellen zu springen und drücken Sie dann **EINGABE**.
+4. Als nächstes drücken Sie die **LEERTASTE**, um Werte der Ausklappliste zu ändern, Kontrollfelder, Auswahlschalter oder andere Schalter zu aktivieren, und dann drücken Sie **EINGABE**. (Sie können auch **F6** drücken, um zwischen der Strukturansicht und des Einstellungsbereichs zu wechseln und Einstellungen zu ändern.) Die Einstellung verwendet jetzt sowohl die ausgewählte Gesicherte Ebene als auch den gewählten Wert. Der Wert wird dauerhaft gespeichert, oder solange bis Sie den Fokus ändern oder JAWS schließen, wie in der Gesicherten Ebene angegeben. Drücken Sie beispielsweise die **LEERTASTE**, um das Tastaturecho auf Aus zu setzen und drücken Sie dann **EINGABE**. So lange der Fokus im aktuellen Word-Dokument bleibt, werden die gedrückten Tasten nicht angesagt. Wenn Sie den Fokus vom Dokument weg zu einer anderen Anwendung bewegen und dann wieder zurück in das Word-Dokument wechseln, dann ist der Wert für das Tastaturecho auf Zeichen zurückgesetzt worden.
 
 ### Welche Dateien sind von der Schnelleinstellung betroffen?
 
@@ -1175,7 +1188,7 @@ Quelle: Quick_Settings.htm
 
 ## Research It
 
-Für einen Schnelleinstieg lesen Sie [Research It Schnellstart](#OnTheFly) , oder fahren Sie mit der folgenden Einführung fort.
+Für einen Schnelleinstieg lesen Sie [Research It Schnellstart](#OnTheFly), oder fahren Sie mit der folgenden Einführung fort.
 
 Research It ist eine vielseitige Funktion, mit der man auf der einen Seite schnellen Zugriff auf Daten erhält, andererseits aber auch schnell wieder zur vorherigen Aufgabe zurückkehren kann. Es benutzt etwas, dass als Nachschlagewerk bekannt ist und den Ergebnisbetrachter, um nach Informationen zu suchen, ob dieses nun Bedeutungen von Wörtern, die lokale Wettervorhersage, Nachrichtenschlagzeilen oder Sportergebnisse sind. Unter Verwendung von wenigen Kurztasten können Sie Research It aus jeder Anwendung Ihres Computers heraus starten. Im Folgenden finden Sie Kurztasten, verfügbare Nachschlagwerke und verschiedene Wege, Research It zu starten und zu verwenden.
 
@@ -1189,49 +1202,49 @@ Research It ist eine vielseitige Funktion, mit der man auf der einen Seite schne
 
 Um schnell ein Element von Interesse nachzuschlagen, gehen Sie wie folgt vor:
 
-1. Drücken Sie **EINFÜGEN+LEERTASTE** , **R** . Das Research It Dialogfenster öffnet sich, wobei der Focus im kombinierten Eingabefeld für Wort oder Satz platziert wird.
+1. Drücken Sie **EINFÜGEN+LEERTASTE**, **R**. Das Research It Dialogfenster öffnet sich, wobei der Focus im kombinierten Eingabefeld für Wort oder Satz platziert wird.
 2. Befolgen Sie eine der folgenden Möglichkeiten:
 
-- Geben Sie ein Wort, eine Redewendung, ein Datum, Sendungsnummer oder andere Elemente in das kombinierte Eingabefeld ein, drücken Sie **TAB** , und wählen Sie ein Nachschlagewerk aus der Liste.
+- Geben Sie ein Wort, eine Redewendung, ein Datum, Sendungsnummer oder andere Elemente in das kombinierte Eingabefeld ein, drücken Sie **TAB**, und wählen Sie ein Nachschlagewerk aus der Liste.
 - Wählen Sie ein Element aus dem Verlauf im kombinierten Eingabefeld, drücken Sie **TAB** und wählen Sie dann ein Nachschlagewerk aus der Liste.
-- Drücken Sie **TAB** , um direkt in die Liste der Nachschlagewerke zu springen und wählen Sie ein Nachschlagewerk aus. (Diese Möglichkeit ist nützlich, wenn Sie z.B. aktuelle Nachrichten lesen möchten.)
+- Drücken Sie **TAB**, um direkt in die Liste der Nachschlagewerke zu springen und wählen Sie ein Nachschlagewerk aus. (Diese Möglichkeit ist nützlich, wenn Sie z.B. aktuelle Nachrichten lesen möchten.)
 
-1. Drücken Sie **EINGABE** . Nach einigen Sekunden öffnet sich der Ergebnisbetrachter und zeigt die Suchergebnisse. **Hinweis:** Für spezielle Beispiele zur Beschreibung der Eingabe von Suchparametern, lesen Sie [Research It Beispiele](#ResearchItExamples) .
+1. Drücken Sie **EINGABE**. Nach einigen Sekunden öffnet sich der Ergebnisbetrachter und zeigt die Suchergebnisse. **Hinweis:** Für spezielle Beispiele zur Beschreibung der Eingabe von Suchparametern, lesen Sie [Research It Beispiele](#ResearchItExamples).
 
 ## Tastaturbefehle
 
 Im Folgenden erklären wir kurz, welche Research It Tastaturbefehle zur Verfügung stehen. Beachten Sie, dass JAWS die **Einfüge-Taste** durch **CAPS LOCK** ersetzt, wenn JAWS für das Laptop Layout konfiguriert ist.
 
-- **EINFÜGEN+LEERTASTE** , **R** : Öffnet das Dialogfeld Research It, in dem Sie dann ein Wort oder Ausdruck von Interesse eingeben und ein Nachschlagewerk für die Suche auswählen können. Dieses kann eine Postleitzahl, Stadt oder Bundesland sein, für das Sie die Wettervorhersage nachschlagen möchten, oder ein Datum, welches für Fußballergebnisse oder Ligatabellen verwendet wird, oder ein Wort, welches bei einer Wikipedia Suchanfrage genutzt werden soll. Diese praktische Kurztaste bietet den effizientesten Weg, nach einem Begriff zu suchen. **Hinweis:** Wenn Sie diese Kurztaste verwenden, drücken Sie **EINFÜGEN+LEERTASTE** und lassen Sie diese wieder los und drücken Sie dann **R** .
-- **EINFÜGEN+WINDOWSTASTE+R** : Startet Research It und verwendet das Standard-Nachschlagewerk, um die Ergebnisse direkt im Ergebnisbetrachter anzuzeigen. Diese Kurztaste umgeht das Research It Dialogfenster. Standardmäßig ist Wiktionary das primäre Nachschlagewerk. Das bedeutet, dass Sie, während der Cursor sich in einem Dokument oder einer Webseite auf einem Wort befindet, diese Tastenkombination drücken können, um schnell eine Wiktionary Beschreibung dieses Wortes nachschlagen können. Sie können das Standardnachschlagewerk jederzeit über den [Schalter Optionen](#Default) , oder die JAWS Einstellungsverwaltung ändern, wo Sie festlegen können, welches Nachschlagewerk als JAWS Standard oder als Standard für individuelle Anwendungen genutzt werden soll. Beispiel: Wenn Sie die meiste Zeit damit verbringen, mit medizinischen Fachausdrücken zu arbeiten, dann ist vielleicht das Health Search on WebMD eine gute Wahl für das Nachschlagewerk. Gleiches gilt, wenn Sie z.B. in Ihrem Beruf häufig UPS Trackingnummern nachschlagen müssen, dann wäre vielleicht die UPS Paketverfolgung eine gute Wahl als Standard-Nachschlagewerk. Wenn Sie sich mit Research It mehr vertraut gemacht haben, und mehr Nachschlagewerke erstellt und für Sie zugänglich gemacht werden, dann möchten Sie vielleicht das von JAWS verwendete Standard-Nachschlagewerk ändern, oder einfach schnell auf ein anderes Nachschlagewerk umschalten.
-- **EINFÜGEN+STRG+WINDOWSTASTE+R** : Funktioniert in gleicher Weise wie die Kurztaste **EINFÜGEN+LEERTASTE** , **R** .
-- **EINFÜGEN+F2** , **R** : Öffnet Research It aus dem Dialog JAWS Manager aufrufen. Es bietet Ihnen eine andere Möglichkeit ein Nachschlagewerk für das Wort an der aktuellen Cursorposition auszuwählen. Beachten Sie, dass dies nur temporär ist, und hierbei die Standardeinstellung nicht geändert wird. JAWS wird weiterhin das Standard-Nachschlagewerk verwenden, wenn Sie Research It beim nächsten Mal aufrufen.
-- **ESC** : Schließt das Fenster des Ergebnisbetrachters und kehrt zu Ihrem zuletzt fokussierten Punkt zurück.
+- **EINFÜGEN+LEERTASTE**, **R**: Öffnet das Dialogfeld Research It, in dem Sie dann ein Wort oder Ausdruck von Interesse eingeben und ein Nachschlagewerk für die Suche auswählen können. Dieses kann eine Postleitzahl, Stadt oder Bundesland sein, für das Sie die Wettervorhersage nachschlagen möchten, oder ein Datum, welches für Fußballergebnisse oder Ligatabellen verwendet wird, oder ein Wort, welches bei einer Wikipedia Suchanfrage genutzt werden soll. Diese praktische Kurztaste bietet den effizientesten Weg, nach einem Begriff zu suchen. **Hinweis:** Wenn Sie diese Kurztaste verwenden, drücken Sie **EINFÜGEN+LEERTASTE** und lassen Sie diese wieder los und drücken Sie dann **R**.
+- **EINFÜGEN+WINDOWSTASTE+R**: Startet Research It und verwendet das Standard-Nachschlagewerk, um die Ergebnisse direkt im Ergebnisbetrachter anzuzeigen. Diese Kurztaste umgeht das Research It Dialogfenster. Standardmäßig ist Wiktionary das primäre Nachschlagewerk. Das bedeutet, dass Sie, während der Cursor sich in einem Dokument oder einer Webseite auf einem Wort befindet, diese Tastenkombination drücken können, um schnell eine Wiktionary Beschreibung dieses Wortes nachschlagen können. Sie können das Standardnachschlagewerk jederzeit über den [Schalter Optionen](#Default), oder die JAWS Einstellungsverwaltung ändern, wo Sie festlegen können, welches Nachschlagewerk als JAWS Standard oder als Standard für individuelle Anwendungen genutzt werden soll. Beispiel: Wenn Sie die meiste Zeit damit verbringen, mit medizinischen Fachausdrücken zu arbeiten, dann ist vielleicht das Health Search on WebMD eine gute Wahl für das Nachschlagewerk. Gleiches gilt, wenn Sie z.B. in Ihrem Beruf häufig UPS Trackingnummern nachschlagen müssen, dann wäre vielleicht die UPS Paketverfolgung eine gute Wahl als Standard-Nachschlagewerk. Wenn Sie sich mit Research It mehr vertraut gemacht haben, und mehr Nachschlagewerke erstellt und für Sie zugänglich gemacht werden, dann möchten Sie vielleicht das von JAWS verwendete Standard-Nachschlagewerk ändern, oder einfach schnell auf ein anderes Nachschlagewerk umschalten.
+- **EINFÜGEN+STRG+WINDOWSTASTE+R**: Funktioniert in gleicher Weise wie die Kurztaste **EINFÜGEN+LEERTASTE**, **R**.
+- **EINFÜGEN+F2**, **R**: Öffnet Research It aus dem Dialog JAWS Manager aufrufen. Es bietet Ihnen eine andere Möglichkeit ein Nachschlagewerk für das Wort an der aktuellen Cursorposition auszuwählen. Beachten Sie, dass dies nur temporär ist, und hierbei die Standardeinstellung nicht geändert wird. JAWS wird weiterhin das Standard-Nachschlagewerk verwenden, wenn Sie Research It beim nächsten Mal aufrufen.
+- **ESC**: Schließt das Fenster des Ergebnisbetrachters und kehrt zu Ihrem zuletzt fokussierten Punkt zurück.
 
 ## Nachschlagequellen
 
-JAWS bietet die folgenden Nachschlagewerke, die uns freundlicherweise von [ProTak GmbH, Wilhelm Lutzenberger](https://www.protak.net) zur Verfügung gestellt werden.
+JAWS bietet die folgenden Nachschlagewerke, die uns freundlicherweise von [**ProTak GmbH, Wilhelm Lutzenberger**](https://www.protak.net) zur Verfügung gestellt werden.
 
-- **Wiktionary** : Bietet eine Wörterbuchbeschreibung für das Wort an der aktuellen Cursorposition in einem Dokument oder einer Webseite. Sie können auch das kombinierte Eingabefeld verwenden, um ein Wort oder Ausdruck zum Nachschlagen einzugeben. Wiktionary das Standard-Nachschlagewerk. Lesen Sie [Wiktionary Beispiel](#WiktionaryExample) für weitere Informationen.
-- **Wikipedia** : Bietet Lexikonergebnisse für das Wort an der aktuellen Cursorposition in einem Dokument oder einer Webseite. Sie können auch das kombinierte Eingabefeld verwenden, um ein Wort oder Ausdruck zum Nachschlagen einzugeben. Lesen Sie [Wikipedia Beispiel](#WikipediaExample) für weitere Informationen.
-- **Wetter** : Liefert die aktuelle Wettervorhersage für eine im Eingabefeld eingegebene Stadt.
-- **Spiegel Online Nachrichten** : Bietet Links und Kurzzusammenfassungen zu den aktuellen Nachrichtenthemen des Nachrichtenmagazins Spiegel. Um dieses Nachschlagewerk zu nutzen, lassen Sie das kombinierte Eingabefeld leer, und wählen Sie nur das Nachschlagewerk in der Liste. Wählen Sie dann aus der Übersicht den Link, um die komplette Nachricht zu lesen. Die Nachricht öffnet sich in einem Browserfenster und kann nach dem Lesen mit Alt+F4 geschlossen werden. Sie gelangen dann wieder zurück in die Übersicht der Nachrichtenthemen.
-- **Focus Online Blitzmeldungen** : Bietet Links und Kurzzusammenfassungen zu den aktuellen Nachrichtenthemen des Nachrichtenmagazins Focus. Um dieses Nachschlagewerk zu nutzen, lassen Sie das kombinierte Eingabefeld leer, und wählen Sie nur das Nachschlagewerk in der Liste. Wählen Sie dann aus der Übersicht den Link, um die komplette Nachricht zu lesen. Die Nachricht öffnet sich in einem Browserfenster und kann nach dem Lesen mit Alt+F4 geschlossen werden. Sie gelangen dann wieder zurück in die Übersicht der Nachrichtenthemen.
-- **Amazon Produktsuche** : Bietet eine schnelle Suche nach einem bestimmten Produkt beim Online-Versandhändler Amazon. Geben Sie die Einzelheiten wie z.B. den Namen, Titel oder die Marke eines bestimmten Produkts ein, nachdem Sie suchen möchten. In der Ergebnisliste können Sie einen Link mit Eingabe öffnen, um diesen in einem Browserfenster zu öffnen.
-- **Firmensuche** : Bietet eine schnelle Branchen- oder Firmensuche. Geben Sie die gesuchte Firma oder Branche und den Ort oder die Postleitzahl getrennt durch ein Semikolon ein, um eine Firma zu suchen. Geben Sie also z.B. Gärtnerei;Hamburg ein, um in Hamburg nach einer Gärtnerei zu suchen.
-- **Handelsblatt** : Zeigt die aktuellen Wirtschaftsschlagzeilen der Handelsblatt Online-Ausgabe. Um dieses Nachschlagewerk zu nutzen, lassen Sie das kombinierte Eingabefeld leer, und wählen Sie nur das Nachschlagewerk in der Liste. Wählen Sie dann aus der Übersicht den Link, um die komplette Nachricht zu lesen. Die Nachricht öffnet sich in einem Browserfenster und kann nach dem Lesen per Alt+F4 geschlossen werden. Sie gelangen dann wieder zurück in die Übersicht der Nachrichtenthemen.
-- **Heise News** : Bietet Links und Kurzzusammenfassungen zu den aktuellen Nachrichtenthemen der Heise News. Um dieses Nachschlagewerk zu nutzen, lassen Sie das kombinierte Eingabefeld leer, und wählen Sie nur das Nachschlagewerk in der Liste. Wählen Sie dann aus der Übersicht den Link, um die komplette Nachricht zu lesen. Die Nachricht öffnet sich in einem Browserfenster und kann nach dem Lesen per Alt+F4 geschlossen werden. Sie gelangen dann wieder zurück in die Übersicht der Nachrichtenthemen.
-- **Fußballbundesliga** : Liefert Ergebnisse und Tabelle der 1., 2. und 3. Fußballbundesliga. Sie haben auch die Möglichkeit, im kombinierten Eingabefeld einen speziellen Spieltag einer Saison auszuwählen. Lassen Sie das Eingabefeld leer, dann erhalten Sie die Ergebnisse und die Tabelle für den aktuellen Spieltag.
-- **Englisch/Deutsch (LEO)** : Nachschlagen eines Wortes oder Ausdrucks im Wörterbuch von Leo.org. Hier erhalten Sie eine Übersetzung des im kombinierten Eingabefeld eingegebenen Begriffs. Geben Sie ein englisches Wort ein, dann erhalten Sie die deutsche Übersetzung. Geben Sie ein deutsches Wort ein, dann erhalten Sie die englische Übersetzung.
-- **Französisch/Deutsch (LEO)** : Nachschlagen eines Wortes oder Ausdrucks im Wörterbuch von Leo.org. Hier erhalten Sie eine Übersetzung des im kombinierten Eingabefeld eingegebenen Begriffs. Geben Sie ein französisches Wort ein, dann erhalten Sie die deutsche Übersetzung. Geben Sie ein deutsches Wort ein, dann erhalten Sie die französische Übersetzung.
-- **Italienisch/Deutsch (LEO)** : Nachschlagen eines Wortes oder Ausdrucks im Wörterbuch von Leo.org. Hier erhalten Sie eine Übersetzung des im kombinierten Eingabefeld eingegebenen Begriffs. Geben Sie ein italienisches Wort ein, dann erhalten Sie die deutsche Übersetzung. Geben Sie ein deutsches Wort ein, dann erhalten Sie die italienische Übersetzung.
-- **Spanisch/Deutsch (LEO)** : Nachschlagen eines Wortes oder Ausdrucks im Wörterbuch von Leo.org. Hier erhalten Sie eine Übersetzung des im kombinierten Eingabefeld eingegebenen Begriffs. Geben Sie ein spanisches Wort ein, dann erhalten Sie die deutsche Übersetzung. Geben Sie ein deutsches Wort ein, dann erhalten Sie die spanische Übersetzung.
-- **Audiodeskriptions-TV-Vorschau und -Filmrecherche** : Durch Eingabe beliebiger Suchbegriffe werden Sendungen mit Audiodeskription aufgelistet. Zu Details gelangen Sie mit ENTER. Ohne Suchbegriffe wird das TV-Programm mit Audiodeskription angezeigt. **Hinweis:** Dieses Nachschlagewerk ist ein guter Kandidat für das Standard-Nachschlagewerk, wenn Sie häufig Sendungen suchen, die über eine Audiodeskription verfügen.
-- **UPS Paketverfolgung** : Meldet Fortschritts- und Zustellungsstatusinformationen für gültige UPS&trade; Trackingnummern. Geben Sie die Nummer in das kombinierte Eingabefeld ein und wählen Sie dieses Nachschlagewerk. **Hinweis:** Dieses Nachschlagewerk ist ein guter Kandidat für das Standard-Nachschlagewerk, wenn Sie in Ihrem Beruf häufig UPS Sendungen verfolgen müssen.
-- **Währungsrechner** : Nutzen Sie dieses Nachschlagewerk, um einen Betrag einer Währung in den Betrag einer anderen Währung zu konvertieren. Die Umrechnung erfolgt dabei zum aktuellen Tagesumrechnungskurs. **Hinweis:** Internationale Währungen werden durch eine dreistellige Währungsabkürzung eingegeben, z.B. USD für Amerikanische Dollar, GBP für Britische Pfund oder EUR für Euro. Um eine Liste der gültigen Währungscodes zu erhalten, rufen Sie den Währungsrechner ohne eine Eingabe im Eingabefeld auf. Research It wird Sie dann darauf hinweisen, dass Sie einen gültigen Wert und die jeweiligen Währungscodes eingeben müssen und zeigt dann eine Liste der akuellen Währungsabkürzungen. Starten Sie dann den Währungsrechner erneut, aber geben Sie diesmal gewünschten Betrag und Währung ein, gefolgt von dem Währungscode, in den der Betrag konvertiert werden soll. Beispiel: Um 100 Amerikanische Dollar in Britische Pfund umzurechnen, geben Sie 100 USD GBP, jeweils mit einem Leerzeichen getrennt ein. Das Ergebnis sieht dann z.B. wie folgt aus: 100 Amerikanische Dollar = 61. 2070021 Britische Pfund.
-- **Aktienkurse** : Abfrage des aktuellen Aktienkurses anhand des Firmennamens oder der WKN.
+- **Wiktionary**: Bietet eine Wörterbuchbeschreibung für das Wort an der aktuellen Cursorposition in einem Dokument oder einer Webseite. Sie können auch das kombinierte Eingabefeld verwenden, um ein Wort oder Ausdruck zum Nachschlagen einzugeben. Wiktionary das Standard-Nachschlagewerk. Lesen Sie [Wiktionary Beispiel](#WiktionaryExample) für weitere Informationen.
+- **Wikipedia**: Bietet Lexikonergebnisse für das Wort an der aktuellen Cursorposition in einem Dokument oder einer Webseite. Sie können auch das kombinierte Eingabefeld verwenden, um ein Wort oder Ausdruck zum Nachschlagen einzugeben. Lesen Sie [Wikipedia Beispiel](#WikipediaExample) für weitere Informationen.
+- **Wetter**: Liefert die aktuelle Wettervorhersage für eine im Eingabefeld eingegebene Stadt.
+- **Spiegel Online Nachrichten**: Bietet Links und Kurzzusammenfassungen zu den aktuellen Nachrichtenthemen des Nachrichtenmagazins Spiegel. Um dieses Nachschlagewerk zu nutzen, lassen Sie das kombinierte Eingabefeld leer, und wählen Sie nur das Nachschlagewerk in der Liste. Wählen Sie dann aus der Übersicht den Link, um die komplette Nachricht zu lesen. Die Nachricht öffnet sich in einem Browserfenster und kann nach dem Lesen mit Alt+F4 geschlossen werden. Sie gelangen dann wieder zurück in die Übersicht der Nachrichtenthemen.
+- **Focus Online Blitzmeldungen**: Bietet Links und Kurzzusammenfassungen zu den aktuellen Nachrichtenthemen des Nachrichtenmagazins Focus. Um dieses Nachschlagewerk zu nutzen, lassen Sie das kombinierte Eingabefeld leer, und wählen Sie nur das Nachschlagewerk in der Liste. Wählen Sie dann aus der Übersicht den Link, um die komplette Nachricht zu lesen. Die Nachricht öffnet sich in einem Browserfenster und kann nach dem Lesen mit Alt+F4 geschlossen werden. Sie gelangen dann wieder zurück in die Übersicht der Nachrichtenthemen.
+- **Amazon Produktsuche**: Bietet eine schnelle Suche nach einem bestimmten Produkt beim Online-Versandhändler Amazon. Geben Sie die Einzelheiten wie z.B. den Namen, Titel oder die Marke eines bestimmten Produkts ein, nachdem Sie suchen möchten. In der Ergebnisliste können Sie einen Link mit Eingabe öffnen, um diesen in einem Browserfenster zu öffnen.
+- **Firmensuche**: Bietet eine schnelle Branchen- oder Firmensuche. Geben Sie die gesuchte Firma oder Branche und den Ort oder die Postleitzahl getrennt durch ein Semikolon ein, um eine Firma zu suchen. Geben Sie also z.B. Gärtnerei;Hamburg ein, um in Hamburg nach einer Gärtnerei zu suchen.
+- **Handelsblatt**: Zeigt die aktuellen Wirtschaftsschlagzeilen der Handelsblatt Online-Ausgabe. Um dieses Nachschlagewerk zu nutzen, lassen Sie das kombinierte Eingabefeld leer, und wählen Sie nur das Nachschlagewerk in der Liste. Wählen Sie dann aus der Übersicht den Link, um die komplette Nachricht zu lesen. Die Nachricht öffnet sich in einem Browserfenster und kann nach dem Lesen per Alt+F4 geschlossen werden. Sie gelangen dann wieder zurück in die Übersicht der Nachrichtenthemen.
+- **Heise News**: Bietet Links und Kurzzusammenfassungen zu den aktuellen Nachrichtenthemen der Heise News. Um dieses Nachschlagewerk zu nutzen, lassen Sie das kombinierte Eingabefeld leer, und wählen Sie nur das Nachschlagewerk in der Liste. Wählen Sie dann aus der Übersicht den Link, um die komplette Nachricht zu lesen. Die Nachricht öffnet sich in einem Browserfenster und kann nach dem Lesen per Alt+F4 geschlossen werden. Sie gelangen dann wieder zurück in die Übersicht der Nachrichtenthemen.
+- **Fußballbundesliga**: Liefert Ergebnisse und Tabelle der 1., 2. und 3. Fußballbundesliga. Sie haben auch die Möglichkeit, im kombinierten Eingabefeld einen speziellen Spieltag einer Saison auszuwählen. Lassen Sie das Eingabefeld leer, dann erhalten Sie die Ergebnisse und die Tabelle für den aktuellen Spieltag.
+- **Englisch/Deutsch (LEO)**: Nachschlagen eines Wortes oder Ausdrucks im Wörterbuch von Leo.org. Hier erhalten Sie eine Übersetzung des im kombinierten Eingabefeld eingegebenen Begriffs. Geben Sie ein englisches Wort ein, dann erhalten Sie die deutsche Übersetzung. Geben Sie ein deutsches Wort ein, dann erhalten Sie die englische Übersetzung.
+- **Französisch/Deutsch (LEO)**: Nachschlagen eines Wortes oder Ausdrucks im Wörterbuch von Leo.org. Hier erhalten Sie eine Übersetzung des im kombinierten Eingabefeld eingegebenen Begriffs. Geben Sie ein französisches Wort ein, dann erhalten Sie die deutsche Übersetzung. Geben Sie ein deutsches Wort ein, dann erhalten Sie die französische Übersetzung.
+- **Italienisch/Deutsch (LEO)**: Nachschlagen eines Wortes oder Ausdrucks im Wörterbuch von Leo.org. Hier erhalten Sie eine Übersetzung des im kombinierten Eingabefeld eingegebenen Begriffs. Geben Sie ein italienisches Wort ein, dann erhalten Sie die deutsche Übersetzung. Geben Sie ein deutsches Wort ein, dann erhalten Sie die italienische Übersetzung.
+- **Spanisch/Deutsch (LEO)**: Nachschlagen eines Wortes oder Ausdrucks im Wörterbuch von Leo.org. Hier erhalten Sie eine Übersetzung des im kombinierten Eingabefeld eingegebenen Begriffs. Geben Sie ein spanisches Wort ein, dann erhalten Sie die deutsche Übersetzung. Geben Sie ein deutsches Wort ein, dann erhalten Sie die spanische Übersetzung.
+- **Audiodeskriptions-TV-Vorschau und -Filmrecherche**: Durch Eingabe beliebiger Suchbegriffe werden Sendungen mit Audiodeskription aufgelistet. Zu Details gelangen Sie mit ENTER. Ohne Suchbegriffe wird das TV-Programm mit Audiodeskription angezeigt. **Hinweis:** Dieses Nachschlagewerk ist ein guter Kandidat für das Standard-Nachschlagewerk, wenn Sie häufig Sendungen suchen, die über eine Audiodeskription verfügen.
+- **UPS Paketverfolgung**: Meldet Fortschritts- und Zustellungsstatusinformationen für gültige UPS&trade; Trackingnummern. Geben Sie die Nummer in das kombinierte Eingabefeld ein und wählen Sie dieses Nachschlagewerk. **Hinweis:** Dieses Nachschlagewerk ist ein guter Kandidat für das Standard-Nachschlagewerk, wenn Sie in Ihrem Beruf häufig UPS Sendungen verfolgen müssen.
+- **Währungsrechner**: Nutzen Sie dieses Nachschlagewerk, um einen Betrag einer Währung in den Betrag einer anderen Währung zu konvertieren. Die Umrechnung erfolgt dabei zum aktuellen Tagesumrechnungskurs. **Hinweis:** Internationale Währungen werden durch eine dreistellige Währungsabkürzung eingegeben, z.B. USD für Amerikanische Dollar, GBP für Britische Pfund oder EUR für Euro. Um eine Liste der gültigen Währungscodes zu erhalten, rufen Sie den Währungsrechner ohne eine Eingabe im Eingabefeld auf. Research It wird Sie dann darauf hinweisen, dass Sie einen gültigen Wert und die jeweiligen Währungscodes eingeben müssen und zeigt dann eine Liste der akuellen Währungsabkürzungen. Starten Sie dann den Währungsrechner erneut, aber geben Sie diesmal gewünschten Betrag und Währung ein, gefolgt von dem Währungscode, in den der Betrag konvertiert werden soll. Beispiel: Um 100 Amerikanische Dollar in Britische Pfund umzurechnen, geben Sie 100 USD GBP, jeweils mit einem Leerzeichen getrennt ein. Das Ergebnis sieht dann z.B. wie folgt aus: 100 Amerikanische Dollar = 61. 2070021 Britische Pfund.
+- **Aktienkurse**: Abfrage des aktuellen Aktienkurses anhand des Firmennamens oder der WKN.
 
-Sind Sie Software-Entwickler oder Skripter, dann können Sie Ihre eigenen Nachschlagewerke erstellen und anpassen und diese auf Ihre Bedürfnisse zuschneiden. Eine Rechtsanwaltskanzlei könnte so nach Rechtsbegriffen suchen, eine Arztpraxis nach medizinischen Begriffen, während eine Schule oder Behörde Nachschlagewerke speziell für deren jeweiligen Arbeitsbereiche verwenden könnte. Besuchen Sie die [amerikanische JAWS Dokumentationswebseite](https://support.freedomscientific.com/Products/Blindness/JawsDocumentation) , um eine Entwicklungsanleitung zum Entwickeln der Regeln und zur Fehlersuche zu erhalten.
+Sind Sie Software-Entwickler oder Skripter, dann können Sie Ihre eigenen Nachschlagewerke erstellen und anpassen und diese auf Ihre Bedürfnisse zuschneiden. Eine Rechtsanwaltskanzlei könnte so nach Rechtsbegriffen suchen, eine Arztpraxis nach medizinischen Begriffen, während eine Schule oder Behörde Nachschlagewerke speziell für deren jeweiligen Arbeitsbereiche verwenden könnte. Besuchen Sie die [amerikanische JAWS Dokumentationswebseite](https://support.freedomscientific.com/Products/Blindness/JawsDocumentation), um eine Entwicklungsanleitung zum Entwickeln der Regeln und zur Fehlersuche zu erhalten.
 
 ## Research It Beispiele
 
@@ -1241,17 +1254,17 @@ Es gibt verschiedene Möglichkeiten, Research It zu starten. Sie können das Sta
 
 Stellen Sie sich vor, Sie lesen ein Dokument und Sie stoßen auf ein Ihnen unbekanntes Wort. Ist Wiktionary als Standard-Nachschlagewerk gesetzt, dann können Sie das Folgende tun:
 
-1. Während der Cursor sich auf dem Wort befindet, drücken Sie **EINFÜGEN+WINDOWSTASTE+R** , um Research It zu starten. Nach ein paar Sekunden öffnet sich der Ergebnisbetrachter und zeigt eine auf Wiktionary-basierende Beschreibung des Worts. Im geöffneten Ergebnisbetrachter können Sie Informationen markieren und in die Windows-Zwischenablage kopieren.
+1. Während der Cursor sich auf dem Wort befindet, drücken Sie **EINFÜGEN+WINDOWSTASTE+R**, um Research It zu starten. Nach ein paar Sekunden öffnet sich der Ergebnisbetrachter und zeigt eine auf Wiktionary-basierende Beschreibung des Worts. Im geöffneten Ergebnisbetrachter können Sie Informationen markieren und in die Windows-Zwischenablage kopieren.
 2. Nach dem Lesen der Beschreibung drücken Sie zum Schließen des Ergebnisbetrachters **ESC** und JAWS kehrt zur Cursorposition in Ihrem Dokument zurück.
 
 ### Wikipedia
 
 Sie können auch Wikipedia nutzen, um schnell etwas nachzuschlagen.
 
-1. Drücken Sie **EINFÜGEN+LEERTASTE** , **R** .
-2. Geben Sie im kombinierten Eingabefeld die Zeichenfolge ein, nach der Sie suchen möchten und drücken Sie dann **TAB** . Zum Beispiel geben Sie ein: **Freedom Scientific** und drücken **TAB** .
-3. Nutzen Sie die **PFEILTASTEN RAUF** und **RUNTER** oder die Navigation über den Anfangsbuchstaben, um Wikipedia auszuwählen, und drücken Sie **EINGABE** .
-4. Nach ein paar Sekunden öffnet sich der Ergebnisbetrachter und zeigt die Ergebnisse der Wikipedia-Abfrage an. Drücken Sie **ESCAPE** , um den Ergebnisbetrachter zu schließen.
+1. Drücken Sie **EINFÜGEN+LEERTASTE**, **R**.
+2. Geben Sie im kombinierten Eingabefeld die Zeichenfolge ein, nach der Sie suchen möchten und drücken Sie dann **TAB**. Zum Beispiel geben Sie ein: **Freedom Scientific** und drücken **TAB**.
+3. Nutzen Sie die **PFEILTASTEN RAUF** und **RUNTER** oder die Navigation über den Anfangsbuchstaben, um Wikipedia auszuwählen, und drücken Sie **EINGABE**.
+4. Nach ein paar Sekunden öffnet sich der Ergebnisbetrachter und zeigt die Ergebnisse der Wikipedia-Abfrage an. Drücken Sie **ESCAPE**, um den Ergebnisbetrachter zu schließen.
 
 Lesen Sie [Dialogfeld Research It Optionen](SettingsCenter.chm::/ResearchIt/Research_It_Options_Dialog.htm) für weitere Information zu Einstellungen in der Einstellungsverwaltung.
 
@@ -1259,23 +1272,23 @@ Lesen Sie [Dialogfeld Research It Optionen](SettingsCenter.chm::/ResearchIt/Rese
 
 Der schnellste Weg, das Standardnachschlagewerk zu ändern, geht über das Research It Dialogfeld bei Beachtung der folgenden Schritte. Beachten Sie aber, dass man das Standardnachschlagewerk auch über die [Einstellungsverwaltung](#SC) festlegen kann.
 
-1. Drücken Sie **EINFÜGEN+LEERTASTE** , **R** . Das Research It Dialogfenster öffnet sich.
-2. Mit **TAB** springen Sie auf den Optionen Schalter und drücken **EINGABE** . Das Research It Optionen Dialogfenster öffnet sich.
-3. Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER** , um ein Nachschlagewerk auszuwählen und drücken Sie dann **TAB** , um zum Schalter Als Standard setzen zu springen.
-4. Drücken Sie **LEERTASTE** , um das ausgewählte Nachschlagewerk als Standard zu setzen, und wählen Sie dann OK, um die Änderungen zu speichern und das Dialogfenster Research It Optionen zu schließen.
+1. Drücken Sie **EINFÜGEN+LEERTASTE**, **R**. Das Research It Dialogfenster öffnet sich.
+2. Mit **TAB** springen Sie auf den Optionen Schalter und drücken **EINGABE**. Das Research It Optionen Dialogfenster öffnet sich.
+3. Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER**, um ein Nachschlagewerk auszuwählen und drücken Sie dann **TAB**, um zum Schalter Als Standard setzen zu springen.
+4. Drücken Sie **LEERTASTE**, um das ausgewählte Nachschlagewerk als Standard zu setzen, und wählen Sie dann OK, um die Änderungen zu speichern und das Dialogfenster Research It Optionen zu schließen.
 
-**Hinweis:** Nachdem Sie ein Standardnachschlagewerk gesetzt haben, können Sie **EINFÜGEN+WINDOWS TASTE+R** verwenden, welches den Research It Dialog überspringt und automatisch den Ergebnisbetrachter mit dem neuen Standard startet. Sie können auch weiterhin **EINFÜGEN+LEERTASTE** , **R** verwenden, um Research It auszuführen.
+**Hinweis:** Nachdem Sie ein Standardnachschlagewerk gesetzt haben, können Sie **EINFÜGEN+WINDOWS TASTE+R** verwenden, welches den Research It Dialog überspringt und automatisch den Ergebnisbetrachter mit dem neuen Standard startet. Sie können auch weiterhin **EINFÜGEN+LEERTASTE**, **R** verwenden, um Research It auszuführen.
 
 ### Die Einstellungsverwaltung verwenden
 
 Um ein Standardnachschlagewerk über die Einstellungsverwaltung zuzuweisen, gehen Sie wie folgt vor:
 
 1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung.
-2. Drücken Sie **STRG+UMSCHALT+D** , um die JAWS Standardeinstellungen zu laden.
-3. Drücken Sie **TAB** , um zur Strukturansicht zu springen, und wählen und öffnen Sie dann die Gruppe Research It.
-4. Drücken Sie die **LEERTASTE** , um den Schalter "Nachschlagewerk konfigurieren" auszuwählen. Das Research It Optionen Dialogfenster öffnet sich.
-5. Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER** , um ein Nachschlagewerk auszuwählen und drücken Sie dann **TAB** , um zum Schalter Als Standard setzen zu springen.
-6. Drücken Sie **LEERTASTE** , um das gewählte Element als Standard-Nachschlagewerk festzulegen.
+2. Drücken Sie **STRG+UMSCHALT+D**, um die JAWS Standardeinstellungen zu laden.
+3. Drücken Sie **TAB**, um zur Strukturansicht zu springen, und wählen und öffnen Sie dann die Gruppe Research It.
+4. Drücken Sie die **LEERTASTE**, um den Schalter "Nachschlagewerk konfigurieren" auszuwählen. Das Research It Optionen Dialogfenster öffnet sich.
+5. Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER**, um ein Nachschlagewerk auszuwählen und drücken Sie dann **TAB**, um zum Schalter Als Standard setzen zu springen.
+6. Drücken Sie **LEERTASTE**, um das gewählte Element als Standard-Nachschlagewerk festzulegen.
 7. Wählen Sie OK, um die Änderungen zu speichern und das Dialogfeld Research It Optionen zu schließen.
 8. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
 
@@ -1285,14 +1298,14 @@ Lesen Sie [Dialogfeld Research It Optionen](SettingsCenter.chm::/ResearchIt/Rese
 
 Um ein Nachschlagewerk der Liste hinzuzufügen oder es zu entfernen, gehen Sie wie folgt vor:
 
-1. Drücken Sie **EINFÜGEN+LEERTASTE** , **R** . Das Research It Dialogfenster öffnet sich.
-2. Gehen Sie mit **TAB** auf den Schalter Optionen und drücken Sie dann die **LEERTASTE** . Das Research It Optionen Dialogfenster öffnet sich.
-3. Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER** , um ein Nachschlagewerk auszuwählen und gehen Sie dann wie folgt vor:
+1. Drücken Sie **EINFÜGEN+LEERTASTE**, **R**. Das Research It Dialogfenster öffnet sich.
+2. Gehen Sie mit **TAB** auf den Schalter Optionen und drücken Sie dann die **LEERTASTE**. Das Research It Optionen Dialogfenster öffnet sich.
+3. Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER**, um ein Nachschlagewerk auszuwählen und gehen Sie dann wie folgt vor:
 
-- Um ein Nachschlagewerk aus der Liste zu entfernen, drücken Sie **LEERTASTE** , um das Kontrollfeld zu deaktivieren.
-- Um ein Nachschlagewerk der Liste hinzuzufügen, drücken Sie **LEERTASTE** , um das Kontrollfeld zu aktivieren.
+- Um ein Nachschlagewerk aus der Liste zu entfernen, drücken Sie **LEERTASTE**, um das Kontrollfeld zu deaktivieren.
+- Um ein Nachschlagewerk der Liste hinzuzufügen, drücken Sie **LEERTASTE**, um das Kontrollfeld zu aktivieren.
 
-1. Gehen Sie mit **TAB** auf den **OK** Schalter und drücken Sie dann **EINGABE** . **Hinweis:** Wenn Sie Ihr JAWS aktualisieren, dann werden alle Nachschlagewerke zurückgesetzt und wieder in der Liste angezeigt.
+1. Gehen Sie mit **TAB** auf den **OK** Schalter und drücken Sie dann **EINGABE**. **Hinweis:** Wenn Sie Ihr JAWS aktualisieren, dann werden alle Nachschlagewerke zurückgesetzt und wieder in der Liste angezeigt.
 
 Quelle: Research_It.htm
 
@@ -1322,7 +1335,7 @@ Um auszuwählen, welche JAWS Einstellungen exportiert werden, gehen Sie wie folg
 
 1. Öffnen Sie im JAWS Anwendungsfenster das Menü Hilfsprogramme, öffnen Sie dann das Untermenü Einstellungen importieren/exportieren und wählen Sie Exportieren. Der Assistent zum Exportieren von Einstellungen wird geöffnet.
 2. Wählen Sie den Auswahlschalter Ausgewählte Einstellungen exportieren und wählen Sie Weiter.
-3. Sie gelangen dann in eine Strukturansicht, die alle Einstellungen auflistet, die sich in Ihrem JAWS Benutzerordner befinden. Alle Elemente sind standardmäßig ausgewählt. Nutzen Sie die **LEERTASTE** , um die Einstellungen abzuwählen, die sie in diesem Export nicht einbeziehen möchten und wählen Sie dann Weiter.
+3. Sie gelangen dann in eine Strukturansicht, die alle Einstellungen auflistet, die sich in Ihrem JAWS Benutzerordner befinden. Alle Elemente sind standardmäßig ausgewählt. Nutzen Sie die **LEERTASTE**, um die Einstellungen abzuwählen, die sie in diesem Export nicht einbeziehen möchten und wählen Sie dann Weiter.
 
 **Hinweis:** Das Drücken der **ANWENDUNGSTASTE** auf dem gewählten Element gefolgt von **EINGABE** auf Dateiinformation, öffnet ein Dialogfenster, welches den kompletten Dateipfad zur aktuellen Einstellungsdatei anzeigt. Wählen Sie OK, um dieses Dialogfenster zu schließen.
 
@@ -1367,7 +1380,7 @@ Quelle: Import_and_Export_Settings.htm
 
 ## Soundkarten
 
-Wenn Sie wissen möchten,wie man eine Soundkarte für die JAWS Sprachausgabe auswählen kann, wenn mehrere Soundkarten installiert sind, dann lesen Sie das Hilfethema [Eine Soundkarte für die JAWS Sprachausgabe auswählen](#Selecting) . Einen Überblick über den Einsatz von mehreren Soundkarten mit JAWS erhalten Sie mithilfe der folgenden Informationen.
+Wenn Sie wissen möchten,wie man eine Soundkarte für die JAWS Sprachausgabe auswählen kann, wenn mehrere Soundkarten installiert sind, dann lesen Sie das Hilfethema [Eine Soundkarte für die JAWS Sprachausgabe auswählen](#Selecting). Einen Überblick über den Einsatz von mehreren Soundkarten mit JAWS erhalten Sie mithilfe der folgenden Informationen.
 
 Standardmäßig macht Windows die zuletzt Ihrem System hinzugefügte Soundkarte zur Standard-Soundkarte. Das bedeutet, dass die JAWS Sprache automatisch über das neue Audiogerät gesteuert wird, was Sie möglicherweise nicht möchte, da das Gerät für etwas anderes als JAWS verwendet werden soll.
 
@@ -1382,16 +1395,16 @@ Mit JAWS können Sie die Windows Standardauswahl überschreiben und auswählen, 
 
 ## Eine Soundkarte für die JAWS Sprachausgabe auswählen
 
-Um schnell eine Soundkarte für JAWS Sprache und JAWS Ereignistöne auszuwählen, drücken Sie **EINFÜGEN+LEERTASTE** , gefolgt von **V** und dann **C** , um auf die Ebene der Soundkarten zuzugreifen. Sobald Sie sich in dieser Ebene befinden, können Sie **PFEIL RAUF** oder **RUNTER** drücken, um durch alle auf Ihrem System verfügbaren Soundkarten zu wechseln. JAWS sagt jede Soundkarte an, sobald Sie sich auf diese bewegen. Sobald Sie die Soundkarte gefunden haben, die Sie für die Sprache verwenden möchten, drücken Sie **ESC** , um die Ebene zu verlassen. Diese Methode ist dann nützlich, wenn Windows automatisch das Audiogerät wechselt und Sie dadurch die Sprache verlieren. Ein Beispiel hierfür ist, wenn Sie etwa ein Bluetooth-Headset verwenden und einen Anruf in Teams oder Zoom starten.
+Um schnell eine Soundkarte für JAWS Sprache und JAWS Ereignistöne auszuwählen, drücken Sie **EINFÜGEN+LEERTASTE**, gefolgt von **V** und dann **C**, um auf die Ebene der Soundkarten zuzugreifen. Sobald Sie sich in dieser Ebene befinden, können Sie **PFEIL RAUF** oder **RUNTER** drücken, um durch alle auf Ihrem System verfügbaren Soundkarten zu wechseln. JAWS sagt jede Soundkarte an, sobald Sie sich auf diese bewegen. Sobald Sie die Soundkarte gefunden haben, die Sie für die Sprache verwenden möchten, drücken Sie **ESC**, um die Ebene zu verlassen. Diese Methode ist dann nützlich, wenn Windows automatisch das Audiogerät wechselt und Sie dadurch die Sprache verlieren. Ein Beispiel hierfür ist, wenn Sie etwa ein Bluetooth-Headset verwenden und einen Anruf in Teams oder Zoom starten.
 
 Alternativ können Sie folgendes tun:
 
-1. Drücken Sie **EINFÜGEN+J** , um das JAWS Programmfenster zu öffnen.
-2. Drücken Sie **ALT+P** , zum Öffnen des Hilfsprogrammemenüs und dann **O** , um das Soundkarten Untermenü zu öffnen. Eine Liste aller zurzeit installierten Geräte wird angezeigt. Ein Häkchen neben der Soundkarte zeigt an, welche Karte für die JAWS Sprachausgabe ausgewählt ist.
+1. Drücken Sie **EINFÜGEN+J**, um das JAWS Programmfenster zu öffnen.
+2. Drücken Sie **ALT+P**, zum Öffnen des Hilfsprogrammemenüs und dann **O**, um das Soundkarten Untermenü zu öffnen. Eine Liste aller zurzeit installierten Geräte wird angezeigt. Ein Häkchen neben der Soundkarte zeigt an, welche Karte für die JAWS Sprachausgabe ausgewählt ist.
 
 **Hinweis:** Der erste Eintrag in der Liste ist immer die Standard Windows Soundkarte. Es ist die gleiche Soundkarte, die von Windows als das Standard Sound-Gerät in der Systemsteuerung erkannt wird. Das ist in der Regel das zuletzt dem System hinzugefügte Audio-Gerät.
 
-1. Wählen Sie mit **PFEIL RAUF** oder **RUNTER** ein Sound-Gerät aus, und drücken Sie dann **EINGABE** , um sie zu markieren. Das Menü wird geschlossen, und JAWS verwendet jetzt die ausgewählte Karte. Wenn Sie das nächste Mal das Untermenü Soundkarten öffnen, dann steht ein Häkchen neben der ausgewählten Karte.
+1. Wählen Sie mit **PFEIL RAUF** oder **RUNTER** ein Sound-Gerät aus, und drücken Sie dann **EINGABE**, um sie zu markieren. Das Menü wird geschlossen, und JAWS verwendet jetzt die ausgewählte Karte. Wenn Sie das nächste Mal das Untermenü Soundkarten öffnen, dann steht ein Häkchen neben der ausgewählten Karte.
 
 Quelle: Sound_Cards.htm
 
@@ -1401,11 +1414,12 @@ Die Sound Teilung ermöglicht es den Nutzern, die Stereo-Headsets oder -Lautspre
 
 Um den Sound zu teilen:
 
-1. Drücken Sie **EINFÜGEN+LEERTASTE** , gefolgt von **V** , um die Ebene für die Lautstärke zu aktivieren.
+1. Drücken Sie **EINFÜGEN+LEERTASTE**, gefolgt von **V**, um die Ebene für die Lautstärke zu aktivieren.
 2. Drücken Sie B für Balance und folgen Sie dann einem der folgenden Schritte:
-  - Drücken Sie **PFEIL LINKS** , um die JAWS Sprache auf dem linken und die Sounds aller anderen Anwendungen, auf dem rechten Lautsprecher auszugeben.
-  - Drücken Sie **PFEIL RECHTS** , um die JAWS Sprache auf dem rechten und die Sounds aller anderen Anwendungen, auf dem linken Lautsprecher auszugeben.
-  - Drücken Sie **PFEIL RAUF** , um sowohl JAWS Sprache als auch Sounds anderer Anwendungen auf beide Kanäle zurückzusetzen.
+
+  - Drücken Sie **PFEIL LINKS**, um die JAWS Sprache auf dem linken und die Sounds aller anderen Anwendungen, auf dem rechten Lautsprecher auszugeben.
+    - Drücken Sie **PFEIL RECHTS**, um die JAWS Sprache auf dem rechten und die Sounds aller anderen Anwendungen, auf dem linken Lautsprecher auszugeben.
+    - Drücken Sie **PFEIL RAUF**, um sowohl JAWS Sprache als auch Sounds anderer Anwendungen auf beide Kanäle zurückzusetzen.
 
 **Hinweis:** Bevor Sie versuchen, den Sound zu teilen, stellen Sie bitte sicher, dass Ihr Kopfhörer oder die Lautsprecher korrekt ausgerichtet sind. Wenn Sie die JAWS-Sprache zum Beispiel nach links leiten und Sie diese stattdessen auf dem rechten Ohr hören, ist Ihr Kopfhörer höchstwahrscheinlich vertauscht.
 
@@ -1424,17 +1438,17 @@ Quelle: Sound_Splitter.htm
 
 ## Sprachausgabeverlauf
 
-Der Sprachausgabeverlauf ermöglicht Ihnen, die von JAWS zuletzt gesprochenen Ansagen noch einmal nachzulesen. Wenn Sie eine oder mehrere von JAWS gesprochene Meldungen verpasst haben, dann können Sie **EINFÜGEN+LEERTASTE** gefolgt von **H** drücken, um einen Ergebnisbetrachter aufzurufen, der die 500 letzten über die Sprachausgabe erfolgten Meldungen auflistet. Wenn das Fenster Sprachverlauf öffnet, dann befinden Sie sich auf der Zeile mit der letzten Ansage. Sie können auch **EINFÜGEN+LEERTASTE** drücken, gefolgt von **STRG+H** , um den gesamten Sprachausgabeverlauf in die Windows Zwischenablage zu kopieren und diesen in anderen Anwendungen einfügen zu können, wie etwa in ein Word Dokument oder eine E-Mail Nachricht.
+Der Sprachausgabeverlauf ermöglicht Ihnen, die von JAWS zuletzt gesprochenen Ansagen noch einmal nachzulesen. Wenn Sie eine oder mehrere von JAWS gesprochene Meldungen verpasst haben, dann können Sie **EINFÜGEN+LEERTASTE** gefolgt von **H** drücken, um einen Ergebnisbetrachter aufzurufen, der die 500 letzten über die Sprachausgabe erfolgten Meldungen auflistet. Wenn das Fenster Sprachverlauf öffnet, dann befinden Sie sich auf der Zeile mit der letzten Ansage. Sie können auch **EINFÜGEN+LEERTASTE** drücken, gefolgt von **STRG+H**, um den gesamten Sprachausgabeverlauf in die Windows Zwischenablage zu kopieren und diesen in anderen Anwendungen einfügen zu können, wie etwa in ein Word Dokument oder eine E-Mail Nachricht.
 
-Um den Verlauf zu löschen, drücken Sie **EINFÜGEN+LEERTASTE** gefolgt von **UMSCHALT+H** . Der Verlauf wird auch gelöscht, wenn Sie den Computer sperren oder komplett ausschalten.
+Um den Verlauf zu löschen, drücken Sie **EINFÜGEN+LEERTASTE** gefolgt von **UMSCHALT+H**. Der Verlauf wird auch gelöscht, wenn Sie den Computer sperren oder komplett ausschalten.
 
-Wenn Sie nicht möchten , dass JAWS einen Verlauf der gesprochenen Meldungen behält, dann gehen Sie wie folgt vor:
+Wenn Sie nicht möchten, dass JAWS einen Verlauf der gesprochenen Meldungen behält, dann gehen Sie wie folgt vor:
 
 1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung.
-2. Drücken Sie **STRG+UMSCHALT+D** , um die JAWS Standardeinstellungen zu laden.
+2. Drücken Sie **STRG+UMSCHALT+D**, um die JAWS Standardeinstellungen zu laden.
 3. Im Sucheingabefeld geben Sie "Sprachverlauf" ohne Anführungsstriche ein.
-4. Drücken Sie **PFEIL RUNTER** , um zu Sprachverlauf aktivieren in den gefilterten Suchergebnissen der Strukturansicht zu gelangen.
-5. Drücken Sie die **LEERTASTE** , um das Kontrollfeld zu deaktivieren.
+4. Drücken Sie **PFEIL RUNTER**, um zu Sprachverlauf aktivieren in den gefilterten Suchergebnissen der Strukturansicht zu gelangen.
+5. Drücken Sie die **LEERTASTE**, um das Kontrollfeld zu deaktivieren.
 
 Quelle: Speech_History.htm
 
@@ -1444,7 +1458,7 @@ Im Sprachausgaben- und Braillezeilen-Manager können Sie Sprachausgaben und Brai
 
 Um den Sprachausgaben- und Braille-Manager zu öffnen, gehen Sie bitte folgendermaßen vor:
 
-- Öffnen Sie das Menü Hilfsprogramme und wählen Sie Sprachausgaben- und Braille-Manager, oder .
+- Öffnen Sie das Menü Hilfsprogramme und wählen Sie Sprachausgaben- und Braille-Manager, oder.
 - Wählen Sie den Sprachausgaben- und Braillezeilen-Manager über den Eintrag Hilfsprogramme in der JAWS Programmgruppe des Startmenüs. Sobald Sie dieses Hilfsprogramm gestartet haben, wird eine Strukturansicht aller Sprachausgaben und Braillezeilen angezeigt, die auf Ihrem Computer installiert sind.
 
 Gehen Sie bitte folgendermaßen vor, wenn Sie Geräte hinzufügen, modifizieren oder entfernen möchten:
@@ -1465,22 +1479,22 @@ Das Bezeichnen von Grafiken lässt sich am besten im Programm HJPad üben. Start
 
 Die Nutzung des Grafikbezeichners ist einfach, aber stellen Sie vor dem Start bitte sicher, dass JAWS so eingestellt ist, dass Grafiken angesagt werden. Gehen Sie dazu bitte folgendermaßen vor:
 
-1. Im geöffneten HJPad drücken Sie **EINFÜGEN+V** , um die Schnelleinstellung zu öffnen.
-2. Im Suchfeld geben Sie den Begriff "Grafiken" (ohne die Anführungszeichen) ein und drücken dann **PFEIL RUNTER** , um zur Einstellung der Grafiken in der Strukturansicht zu gelangen.
-3. Drücken Sie so lange die **LEERTASTE** , bis Sie JAWS sagen hören "Alle".
-4. Als nächstes drücken Sie **EINGABE** , um die Änderung zu akzeptieren, und dann schließen Sie die Schnelleinstellung.
+1. Im geöffneten HJPad drücken Sie **EINFÜGEN+V**, um die Schnelleinstellung zu öffnen.
+2. Im Suchfeld geben Sie den Begriff "Grafiken" (ohne die Anführungszeichen) ein und drücken dann **PFEIL RUNTER**, um zur Einstellung der Grafiken in der Strukturansicht zu gelangen.
+3. Drücken Sie so lange die **LEERTASTE**, bis Sie JAWS sagen hören "Alle".
+4. Als nächstes drücken Sie **EINGABE**, um die Änderung zu akzeptieren, und dann schließen Sie die Schnelleinstellung.
 
 Da ab jetzt alle Grafiken gesprochen werden, können Sie eine suchen, um diese zu beschriften.
 
-1. Drücken Sie **NUM MINUS** , um den JAWS Cursor zu aktivieren.
+1. Drücken Sie **NUM MINUS**, um den JAWS Cursor zu aktivieren.
 
-**Tipp:** Um auf der Symbolleiste navigieren zu können, drücken Sie zuerst **SEITE RAUF** , um an den Fensteranfang zu gelangen, und danach drücken Sie **POS1** , um nach oben links zu springen.
+**Tipp:** Um auf der Symbolleiste navigieren zu können, drücken Sie zuerst **SEITE RAUF**, um an den Fensteranfang zu gelangen, und danach drücken Sie **POS1**, um nach oben links zu springen.
 
 1. Mit den **PFEILTASTEN** gehen Sie auf den ersten Schalter der Symbolleiste. Sie hören "Grafik XYZ". XYZ kann irgendeine Ziffer bedeuten.
-2. Drücken Sie **JAWS TASTE+G** , um den Grafikbezeichner zu öffnen.
+2. Drücken Sie **JAWS TASTE+G**, um den Grafikbezeichner zu öffnen.
 3. Im geöffneten Grafikbezeichner befindet sich der Fokus in dem Eingabefeld, in das Sie die Bezeichnung für die Grafik eingeben sollten. Es enthält die Grafik und die zugewiesene Ziffer. Geben Sie einen Namen für die Grafik ein.
 4. Mit **TAB** springen Sie in das Eingabefeld Braillebezeichnung. Hier können Sie die Bezeichnung eingeben, die auf der Braillezeile angezeigt werden soll.
-5. Als nächstes drücken Sie **TAB** , um auf eine Gruppe von Auswahlschaltern zu springen, mit denen Sie festlegen können, wo Sie die Bezeichnung speichern möchten - in der Anwendungsgrafikdatei, der Standard Grafikdatei oder in beiden Dateien.
+5. Als nächstes drücken Sie **TAB**, um auf eine Gruppe von Auswahlschaltern zu springen, mit denen Sie festlegen können, wo Sie die Bezeichnung speichern möchten - in der Anwendungsgrafikdatei, der Standard Grafikdatei oder in beiden Dateien.
 6. Mit **EINGABE** wird Ihre Grafikbezeichnung aktiviert.
 
 **Hinweis:** Um eine Grafikbezeichnung zu editieren, gehen Sie auf die gleiche Weise vor, wie bei dem Erstellen einer neuen Grafikbezeichnung, und verändern nur den Namen im Dialog Grafikbezeichner. Um eine Grafikbezeichnung zu löschen, gehen Sie auf die gleiche Weise vor, löschen aber den Namen im Dialog Grafikbezeichner.
@@ -1503,11 +1517,11 @@ Quelle: graphics_labeler_overview.htm
 
 Diese Funktion weist Grafiken Textbezeichnungen zu, die mit Tool Tipps verknüpft sind, wie zum Beispiel Symbole auf Symbolleisten. Ein Tool Tipp ist eine kurze Beschreibung einer Grafik, die auf dem Bildschirm erscheint, wenn man mit der Maus die Grafik berührt.
 
-Um den Automatischen Grafikbezeichner zu aktivieren, öffnen Sie zunächst die gewünschte Anwendung und drücken dann **STRG+JAWS TASTE+G** .
+Um den Automatischen Grafikbezeichner zu aktivieren, öffnen Sie zunächst die gewünschte Anwendung und drücken dann **STRG+JAWS TASTE+G**.
 
 JAWS versucht, alle Grafiken zu bezeichnen. Bitte bewegen Sie so lange weder die Maus, noch geben Sie Zeichen auf der Tastatur ein, bis JAWS meldet, dass die automatische Grafikbezeichnung beendet ist. Danach wird JAWS die neu beschriftete Grafik ansagen.
 
-Nachdem Sie den Automatischen Grafikbezeichner verwendet haben, drücken Sie **JAWS TASTE+STRG+UMSCHALT+G** , um den Dialog "Grafik auswählen" aufzurufen. In diesem Dialog gehen Sie mit den Pfeiltasten auf die verfügbaren Grafiken. Sobald Sie die gewünschte Grafik gefunden haben, gehen Sie mit **TAB** auf den OK Schalter. Jetzt drücken Sie nur noch **EINGABE** , um die gewählte Grafik zu aktivieren.
+Nachdem Sie den Automatischen Grafikbezeichner verwendet haben, drücken Sie **JAWS TASTE+STRG+UMSCHALT+G**, um den Dialog "Grafik auswählen" aufzurufen. In diesem Dialog gehen Sie mit den Pfeiltasten auf die verfügbaren Grafiken. Sobald Sie die gewünschte Grafik gefunden haben, gehen Sie mit **TAB**auf den OK Schalter. Jetzt drücken Sie nur noch **EINGABE**, um die gewählte Grafik zu aktivieren.
 
 Quelle: using_the_auto_graphics_labeler.htm
 
@@ -1572,7 +1586,7 @@ Um das Tastaturlayout im JAWS Programmfenster zu wechseln, drücken Sie **ALT+O*
 
 Führen Sie folgende Schritte durch, um die Taste, die in dem aktiven Tastaturlayout als JAWS TASTE genutzt wird, zu ändern:
 
-1. Öffnen Sie die Einstellungsverwaltung ( **EINFÜGEN+F2** ) und erweitern Sie die Gruppe Tastatur.
+1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**) und erweitern Sie die Gruppe Tastatur.
 2. Wählen Sie JAWS TASTE für Desktoplayout und markieren Sie die gewünschte Taste, die Sie in Zukunft als Kombitaste für das aktive Tastaturlayout verwenden möchten.
 3. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
 
@@ -1580,7 +1594,7 @@ Quelle: jaws_key.htm
 
 ## Verschachtelte Kurztasten
 
-Verschachtelte Kurztasten bieten einen schnellen und bequemen Weg, verschiedene Aktionen auszuführen oder in Tabellen zu navigieren. Diese Kurztasten verringern die Anzahl der Tasten, die Sie gleichzeitig drücken müssen, um eine Aktion auszuführen. Sie beginnen eine verschachtelte Kurztaste immer zuerst mit dem Drücken von **EINFÜGEN+LEERTASTE** ( **FESTSTELLTASTE+LEERTASTE** , falls Sie das Laptop Layout verwenden) gefolgt von einer oder mehrerer Tasten, die dann den Befehl ausführen.
+Verschachtelte Kurztasten bieten einen schnellen und bequemen Weg, verschiedene Aktionen auszuführen oder in Tabellen zu navigieren. Diese Kurztasten verringern die Anzahl der Tasten, die Sie gleichzeitig drücken müssen, um eine Aktion auszuführen. Sie beginnen eine verschachtelte Kurztaste immer zuerst mit dem Drücken von **EINFÜGEN+LEERTASTE** (**FESTSTELLTASTE+LEERTASTE**, falls Sie das Laptop Layout verwenden) gefolgt von einer oder mehrerer Tasten, die dann den Befehl ausführen.
 
 ## Verschachtelte Kurztasten allgemein
 
@@ -1617,7 +1631,7 @@ Tabelle: Allgemeine Befehlsebene
 
 ## Kurztasten der Ebene Gesicht im Blick
 
-Drücken Sie **EINFÜGEN+LEERTASTE** , lassen Sie die Tasten wieder los und drücken Sie dann **F** , um die Ebene Gesicht im Blick zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
+Drücken Sie **EINFÜGEN+LEERTASTE**, lassen Sie die Tasten wieder los und drücken Sie dann **F**, um die Ebene Gesicht im Blick zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
 
 Tabelle: Befehle der Ebene Gesicht im Blick
 
@@ -1633,7 +1647,7 @@ Tabelle: Befehle der Ebene Gesicht im Blick
 
 ## Befehle der Lautstärkeebene
 
-Drücken Sie **EINFÜGEN+LEERTASTE** , lassen Sie die Tasten wieder los und drücken Sie dann **V** , um die Ebene der Lautstärke zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
+Drücken Sie **EINFÜGEN+LEERTASTE**, lassen Sie die Tasten wieder los und drücken Sie dann **V**, um die Ebene der Lautstärke zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
 
 Tabelle: Befehle der Lautstärkeebene
 
@@ -1645,21 +1659,21 @@ Tabelle: Befehle der Lautstärkeebene
 | Tonbalance anpassen | B |
 | Eine Soundkarte auswählen | C |
 
-Nach dem Drücken von **J** oder **S** können Sie die **PFEILTASTEN** verwenden, um die Lautstärke in kleinen Schritten zu erhöhen oder zu verringern. Drücken Sie **BILD RAUF** oder **BILD RUNTER** , um die Lautstärke in größeren Schritten zu erhöhen oder zu verringern. Drücken Sie **ESCAPE** , um diese Ebene zu verlassen, nachdem Sie die Einstellung vorgenommen haben.
+Nach dem Drücken von **J** oder **S** können Sie die **PFEILTASTEN** verwenden, um die Lautstärke in kleinen Schritten zu erhöhen oder zu verringern. Drücken Sie **BILD RAUF** oder **BILD RUNTER**, um die Lautstärke in größeren Schritten zu erhöhen oder zu verringern. Drücken Sie **ESCAPE**, um diese Ebene zu verlassen, nachdem Sie die Einstellung vorgenommen haben.
 
 **Hinweis:** Wenn Sie die Lautstärke mit den **PFEILTASTEN** oder **BILD RAUF** und **BILD RUNTER** anpassen, dann ist 10 Prozent die niedrigste Stufe, die eingestellt werden kann.
 
-Nach drücken von **B** :
+Nach drücken von **B**:
 
-- Drücken Sie **PFEIL LINKS** , um die JAWS Sprache auf dem linken und die Wiedergabe einer Anwendung die aktuell fokussiert ist, auf dem rechten Lautsprecher auszugeben.
-- Drücken Sie **PFEIL RECHTS** , um die JAWS Sprache auf dem rechten und die Wiedergabe einer Anwendung die aktuell fokussiert ist, auf dem linken Lautsprecher auszugeben.
-- Drücken Sie **PFEIL RAUF** , um die Tonbalance auf Standard zurückzusetzen.
+- Drücken Sie **PFEIL LINKS**, um die JAWS Sprache auf dem linken und die Wiedergabe einer Anwendung die aktuell fokussiert ist, auf dem rechten Lautsprecher auszugeben.
+- Drücken Sie **PFEIL RECHTS**, um die JAWS Sprache auf dem rechten und die Wiedergabe einer Anwendung die aktuell fokussiert ist, auf dem linken Lautsprecher auszugeben.
+- Drücken Sie **PFEIL RAUF**, um die Tonbalance auf Standard zurückzusetzen.
 
-Nach dem Drücken von **C** können Sie mit **PFEIL RAUF** oder **RUNTER** durch alle auf Ihrem System verfügbaren Soundkarten wechseln. JAWS sagt jede Soundkarte an, sobald Sie sich auf diese bewegen. Sobald Sie die Soundkarte gefunden haben, die Sie für die Sprache verwenden möchten, drücken Sie **ESC** .
+Nach dem Drücken von **C** können Sie mit **PFEIL RAUF** oder **RUNTER** durch alle auf Ihrem System verfügbaren Soundkarten wechseln. JAWS sagt jede Soundkarte an, sobald Sie sich auf diese bewegen. Sobald Sie die Soundkarte gefunden haben, die Sie für die Sprache verwenden möchten, drücken Sie **ESC**.
 
 ## Verschachtelte Kurztasten Braille und Textbetrachter Ebene
 
-Drücken Sie **EINFÜGEN+LEERTASTE** , lassen Sie die Tasten wieder los und drücken Sie dann **B** , um die Ebene für den Braille und Textbetrachter zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
+Drücken Sie **EINFÜGEN+LEERTASTE**, lassen Sie die Tasten wieder los und drücken Sie dann **B**, um die Ebene für den Braille und Textbetrachter zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
 
 Tabelle: Verschachtelte Befehle der Braille und Textbetrachter Ebene
 
@@ -1678,7 +1692,7 @@ Tabelle: Verschachtelte Befehle der Braille und Textbetrachter Ebene
 
 ## Verschachtelte Tasten der Ebene für die Texterkennung (OCR)
 
-Drücken Sie **EINFÜGEN+LEERTASTE** , lassen Sie die Tasten wieder los und drücken Sie dann **O** , um die Ebene für die Texterkennung (OCR) zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
+Drücken Sie **EINFÜGEN+LEERTASTE**, lassen Sie die Tasten wieder los und drücken Sie dann **O**, um die Ebene für die Texterkennung (OCR) zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
 
 Tabelle: Verschachtelte Befehle der Ebene für die Texterkennung (OCR)
 
@@ -1699,7 +1713,7 @@ Tabelle: Verschachtelte Befehle der Ebene für die Texterkennung (OCR)
 
 ## Verschachtelte Tasten der Ebene für Picture Smart
 
-Drücken Sie **EINFÜGEN+LEERTASTE** , lassen Sie die Tasten wieder los und drücken Sie dann **P** , um die Ebene für Picture Smart zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
+Drücken Sie **EINFÜGEN+LEERTASTE**, lassen Sie die Tasten wieder los und drücken Sie dann **P**, um die Ebene für Picture Smart zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
 
 Tabelle: Verschachtelte Befehle der Ebene für Picture Smart
 
@@ -1714,15 +1728,15 @@ Tabelle: Verschachtelte Befehle der Ebene für Picture Smart
 | Beschreibt ein Bild basierend auf aktueller Anwendung und Kontext | EINGABE |
 | Modus der verschachtelten Kurztasten beenden | ESC oder LEERTASTE oder TAB oder EINGABE |
 
-Fügen Sie die **UMSCHALT** -Taste zu einem Befehl hinzu, um ausführlichere Beschreibungen zu erhalten.
+Fügen Sie die **UMSCHALT**-Taste zu einem Befehl hinzu, um ausführlichere Beschreibungen zu erhalten.
 
-Fügen Sie die **ALT** -Taste zu einem Befehl hinzu, um sofort nach speziellen Details auf einem Bild zu fragen.
+Fügen Sie die **ALT**-Taste zu einem Befehl hinzu, um sofort nach speziellen Details auf einem Bild zu fragen.
 
 **Tipp:** Ein Bild kann auch beschrieben werden, wenn Sie es in den Ordner "PictureSmart" unterhalb ihres Benutzerordners "Bilder" speichern.
 
 ## Verschachtelte Tasten der Mausecho Ebene
 
-Drücken Sie **EINFÜGEN+LEERTASTE** , lassen Sie die Tasten wieder los und drücken Sie dann **E** , um die Ebene für das Mausecho zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
+Drücken Sie **EINFÜGEN+LEERTASTE**, lassen Sie die Tasten wieder los und drücken Sie dann **E**, um die Ebene für das Mausecho zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
 
 Tabelle: Verschachtelte Befehle der Mausecho Ebene
 
@@ -1738,9 +1752,9 @@ Tabelle: Verschachtelte Befehle der Mausecho Ebene
 
 ## Befehle der Tabellenebene
 
-Drücken Sie **EINFÜGEN+LEERTASTE** , lassen Sie die Tasten wieder los und drücken Sie dann **T** , um die Ebene für Tabellen zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
+Drücken Sie **EINFÜGEN+LEERTASTE**, lassen Sie die Tasten wieder los und drücken Sie dann **T**, um die Ebene für Tabellen zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.
 
-**Hinweis:** Die Tabellenebene bleibt solange aktiv, bis Sie eine Taste drücken, die keinen Tabellenbefehl ausführt, wie beispielsweise **ESC** , **LEERTASTE** , **TAB** oder **EINGABE** .
+**Hinweis:** Die Tabellenebene bleibt solange aktiv, bis Sie eine Taste drücken, die keinen Tabellenbefehl ausführt, wie beispielsweise **ESC**, **LEERTASTE**, **TAB** oder **EINGABE**.
 
 Tabelle: Befehle der Tabellenebene
 
@@ -1795,7 +1809,7 @@ Tabelle: Befehle zum Ändern der Sprechgeschwindigkeit wenn ALLES LESEN aktiv is
 | Sprechgeschwindigkeit herabsetzen | SEITE RUNTER |
 | Sprechgeschwindigkeit heraufsetzen | SEITE RAUF |
 
-Zum Wiederherstellen der Sprechgeschwindigkeit auf den zuletzt gespeicherten Wert, wenn diese temporär oder während Alles Lesen geändert wurde, drücken Sie **EINFÜGEN+ESC** . Das Wechseln zu einer anderen Anwendung mit **ALT+TAB** stellt den Standardwert wieder her, wenn die Änderung nur temporär war.
+Zum Wiederherstellen der Sprechgeschwindigkeit auf den zuletzt gespeicherten Wert, wenn diese temporär oder während Alles Lesen geändert wurde, drücken Sie **EINFÜGEN+ESC**. Das Wechseln zu einer anderen Anwendung mit **ALT+TAB** stellt den Standardwert wieder her, wenn die Änderung nur temporär war.
 
 Wenn Sie diese Befehle nutzen, um die Sprechgeschwindigkeit im laufenden Betrieb temporär oder dauerhaft zu erhöhen oder zu verringern, dann wird die Geschwindigkeit nur für die erste Sprache im aktiven Stimmenprofil geändert. Ist beispielsweise die erste Sprache Deutsch, dann werden die Sprechgeschwindigkeiten für alle verfügbaren deutschen Stimmen geändert. Alle anderen Sprachen in dem Profil werden weiterhin die Sprechgeschwindigkeit nutzen, die Sie im Dialogfenster [Stimmeneinstellungen](../../using_jaws/the_jaws_application_window/Voice_Adjustment.htm) festgelegt haben.
 
@@ -1805,7 +1819,7 @@ Quelle: additional_say_all_features.htm
 
 JAWS verfügt über viele Befehle, mit denen Sie schnell und bequem auf der Windows Oberfläche navigieren und Windows Programme aufrufen können. Dieser Abschnitt enthält die für JAWS vergebenen Befehle.
 
-Wenn Sie JAWS schon länger anwenden, sind Sie daran gewöhnt, die **EINFÜGETASTE** als Bestandteil eines Tastaturbefehls zu verwenden. Wir nennen diese Taste die **JAWS TASTE** . Die **EINFÜGETASTE** ist die voreingestellte JAWS TASTE des Desktop Tastaturlayouts. Im Laptop Tastaturlayout ist **CAPS LOCK** (FESTSTELLTASTE) die voreingestellte JAWS TASTE. Sie können aber auch eine andere Taste als JAWS TASTE festlegen. Weitere Informationen darüber finden Sie unter [Die JAWS TASTE](../jaws_key.htm) .
+Wenn Sie JAWS schon länger anwenden, sind Sie daran gewöhnt, die **EINFÜGETASTE** als Bestandteil eines Tastaturbefehls zu verwenden. Wir nennen diese Taste die **JAWS TASTE**. Die **EINFÜGETASTE** ist die voreingestellte JAWS TASTE des Desktop Tastaturlayouts. Im Laptop Tastaturlayout ist **CAPS LOCK** (FESTSTELLTASTE) die voreingestellte JAWS TASTE. Sie können aber auch eine andere Taste als JAWS TASTE festlegen. Weitere Informationen darüber finden Sie unter [Die JAWS TASTE](../jaws_key.htm).
 
 Dieses Kapitel listet die Tastaturbefehle mit den Standard JAWS Tastenkombinationen für das Desktop und Laptop Tastaturlayout auf. Befehle, die im Desktop Tastaturlayout gelistet sind, die aber nicht zusätzlich im Laptop Tastaturlayout erscheinen, sollten sowohl mit der **EINFÜGETASTE** als auch mit der **CAPS LOCK** Taste funktionieren, wenn Sie das Laptop Tastaturlayout verwenden.
 
@@ -1873,7 +1887,7 @@ Dieser Befehl wandelt den aktiven Cursor in den unsichtbaren Cursor um.
 
 ## Touch Cursor (UMSCHALT+NUM PLUS)
 
-Dieser Befehl wandelt den aktiven Cursor in den Touch Cursor um. Weitere Informationen darüber finden Sie unter [Der Touch Cursor](../../using_jaws/controlling_speech/Using_the_Touch_Cursor.htm) .
+Dieser Befehl wandelt den aktiven Cursor in den Touch Cursor um. Weitere Informationen darüber finden Sie unter [Der Touch Cursor](../../using_jaws/controlling_speech/Using_the_Touch_Cursor.htm).
 
 ## Ziehe Touch Cursor zur Position des Fokus (JAWS TASTE+NUM PLUS)
 
@@ -1922,13 +1936,13 @@ Sperrt die rechte Maustaste, als würden Sie die rechte Maustaste gedrückt halt
 
 ## Ziehen und Ablegen (Drag and Drop) (JAWS TASTE+STRG+NUM SCHRÄGSTRICH)
 
-Mit diesem Befehl können Sie Elemente von einem Ort zu einem anderen bewegen. Positionieren Sie den JAWS Cursor auf dem Element, das Sie verschieben möchten, und drücken Sie **STRG+JAWS TASTE+NUM SCHRÄGSTRICH** . Sie können den JAWS Cursor aktiv lassen, oder Sie können auf den PC Cursor umschalten. JAWS spricht während des Navigierens weiter. Sobald Sie den JAWS oder PC Cursor an der Stelle positioniert haben, an die Sie das Element verschieben möchten, drücken Sie erneut **STRG+JAWS TASTE+NUM SCHRÄGSTRICH** , und das Element wird an die Position des aktiven Cursors verschoben.
+Mit diesem Befehl können Sie Elemente von einem Ort zu einem anderen bewegen. Positionieren Sie den JAWS Cursor auf dem Element, das Sie verschieben möchten, und drücken Sie **STRG+JAWS TASTE+NUM SCHRÄGSTRICH**. Sie können den JAWS Cursor aktiv lassen, oder Sie können auf den PC Cursor umschalten. JAWS spricht während des Navigierens weiter. Sobald Sie den JAWS oder PC Cursor an der Stelle positioniert haben, an die Sie das Element verschieben möchten, drücken Sie erneut **STRG+JAWS TASTE+NUM SCHRÄGSTRICH**, und das Element wird an die Position des aktiven Cursors verschoben.
 
 ## Aktiven Cursor und Koordinaten ansagen (ALT+ENTFERNEN)
 
 Nennt den Namen des aktiven Cursors und liefert Informationen über die Koordinaten der Cursorposition in Bildpunkten. Wenn Sie in bestimmten Programmen (wie zum Beispiel Textverarbeitungen, Texteditoren und E-Mail) den PC Cursor einsetzen, dann meldet JAWS unter Umständen die Spalten- und Reihenposition statt dessen. Außerdem sagt JAWS die Prozentangabe des Dokuments an, durch das Sie gerade bewegen oder das Sie gerade lesen.
 
-**Tipp:** Wenn JAWS die Reihen- und Spaltenposition des PC Cursors und nicht die Position in Pixel ansagt, dann müssen Sie **NUM MINUS** drücken, um zum JAWS Cursor umzuschalten, danach drücken Sie **JAWS TASTE+NUM MINUS** , um den JAWS Cursor zum PC Cursor zu ziehen. Drücken Sie erneut **ALT+ENTFERNEN** , um die Position in Pixel zu hören.
+**Tipp:**Wenn JAWS die Reihen- und Spaltenposition des PC Cursors und nicht die Position in Pixel ansagt, dann müssen Sie **NUM MINUS** drücken, um zum JAWS Cursor umzuschalten, danach drücken Sie **JAWS TASTE+NUM MINUS**, um den JAWS Cursor zum PC Cursor zu ziehen. Drücken Sie erneut **ALT+ENTFERNEN**, um die Position in Pixel zu hören.
 
 ## Cursorform ansagen (JAWS TASTE+STRG+UMSCHALT+C)
 
@@ -2015,9 +2029,9 @@ Wenn der JAWS oder unsichtbare Cursor aktiviert ist, beendet dieser Befehl das L
 
 Sie können während Alles lesen **PFEIL LINKS** oder **RECHTS** drücken, um im Text zurück oder vorwärts zu springen. Mit **PFEIL LINKS** während Alles lesen springen Sie auf das vorherige Textelement (Zeile, Satz oder Absatz) zurück. Sie können nur bis an die Position zurückspringen, von der aus Sie den Befehl Alles lesen gestartet haben. Mit **PFEIL RECHTS** während Alles lesen springen Sie auf das nächste Textelement. Um die Länge des Textelements zu ändern (Zeile, Satz oder Absatz), wählen Sie Alles Lesen spricht in der Gruppe Alles Lesen der Einstellungsverwaltung.
 
-**Tipp:** Sie können auch mit der linken oder rechten **UMSCHALT** Taste während Alles lesen vor- oder zurückspringen.
+**Tipp:**Sie können auch mit der linken oder rechten **UMSCHALT** Taste während Alles lesen vor- oder zurückspringen.
 
-Die Sprechgeschwindigkeit der aktuellen Stimme erhöhen Sie während Alles lesen mit **SEITE RAUF** . Mit **SEITE RUNTER** verringern Sie die Sprechgeschwindigkeit. Weitere Informationen über das Verändern der Sprechgeschwindigkeit finden Sie unter [Sprechgeschwindigkeit spontan umschalten](additional_say_all_features.htm) .
+Die Sprechgeschwindigkeit der aktuellen Stimme erhöhen Sie während Alles lesen mit **SEITE RAUF**. Mit **SEITE RUNTER** verringern Sie die Sprechgeschwindigkeit. Weitere Informationen über das Verändern der Sprechgeschwindigkeit finden Sie unter [Sprechgeschwindigkeit spontan umschalten](additional_say_all_features.htm).
 
 ### Sprache ein- oder abschalten (EINFÜGEN+LEERTASTE, S)
 
@@ -2083,7 +2097,7 @@ Dieser Befehl gibt bekannt, welcher Schalter mit **EINGABE** aktiviert wird.
 
 ## Kurztaste des aktuellen Dialogelements ansagen (UMSCHALT+NUM 5)
 
-Spricht den unterstrichenen Buchstaben in dem Namen oder Schalter, welcher die Aktion auslösen kann. Wenn das Element nicht den Fokus hat, dann drücken Sie zusätzlich die **ALT** -Taste.
+Spricht den unterstrichenen Buchstaben in dem Namen oder Schalter, welcher die Aktion auslösen kann. Wenn das Element nicht den Fokus hat, dann drücken Sie zusätzlich die **ALT**-Taste.
 
 ## Dialogelemente in TAB-Reihenfolge lesen (JAWS TASTE+B)
 
@@ -2099,7 +2113,7 @@ Dieser Befehl funktioniert in vielen Rechtschreibprüfungen, um die Wörter so z
 
 ## Mehrere Listenelemente markieren (STRG+UMSCHALT oder STRG+LEERTASTE)
 
-Um mehrere Untereinander stehende Listenelemente zu markieren, halten Sie **STRG+UMSCHALT** gedrückt und drücken dabei die **PFEIL RAUF** oder **RUNTER** Tasten. Wenn Sie mehrere nicht zusammenhängende Listenelemente markieren möchten, halten Sie die **STRG** -Taste gedrückt und wählen Sie mit **PFEIL RAUF** oder **RUNTER** das nächste zu markierende Element. Bei gedrückter **STRG** Taste betätigen Sie dann die **LEERTASTE** , um das Element zu markieren.
+Um mehrere Untereinander stehende Listenelemente zu markieren, halten Sie **STRG+UMSCHALT** gedrückt und drücken dabei die **PFEIL RAUF** oder **RUNTER** Tasten. Wenn Sie mehrere nicht zusammenhängende Listenelemente markieren möchten, halten Sie die **STRG**-Taste gedrückt und wählen Sie mit **PFEIL RAUF** oder **RUNTER** das nächste zu markierende Element. Bei gedrückter **STRG** Taste betätigen Sie dann die **LEERTASTE**, um das Element zu markieren.
 
 ## Alle Markierungen aufheben (STRG+\)
 
@@ -2107,7 +2121,7 @@ Dieser Befehl hebt alle Markierungen, außer des aktuell hervorgehobenen Element
 
 ## Spalten 1 bis 10 in Listenansichten lesen (STRG+JAWS TASTE+1 bis 10)
 
-Mithilfe dieses Befehls lesen Sie die Inhalte der ersten zehn Spalten in einer Listenansicht. **STRG+JAWS TASTE+1** liest die erste Spalte in einer Listenansicht, **STRG+JAWS TASTE+2** liest die zweite Spalte und so weiter. Dieser Befehl liest nur das Element in der aktuell markierten Reihe, aber nicht alle Elemente in der entsprechenden Spalte der Listenansicht.
+Mithilfe dieses Befehls lesen Sie die Inhalte der ersten zehn Spalten in einer Listenansicht. **STRG+JAWS TASTE+1**liest die erste Spalte in einer Listenansicht, **STRG+JAWS TASTE+2** liest die zweite Spalte und so weiter. Dieser Befehl liest nur das Element in der aktuell markierten Reihe, aber nicht alle Elemente in der entsprechenden Spalte der Listenansicht.
 
 Quelle: jaws_keystrokes_for_working_in_dialog_boxes-an.htm
 
@@ -2261,7 +2275,7 @@ Dieser Befehl öffnet ein Dialogfenster, in welchem Sie einstellen können, was 
 
 ## JAWS Fenster öffnen (EINFÜGEN+J)
 
-Dieser Befehl öffnet das JAWS Anwendungsfenster. Wenn JAWS aus dem Infobereich gestartet wird, öffnet dieser Befehl das gleiche Menü, als hätten Sie JAWS aus dem Dialog Symbol aus dem Infobereich auswählen ( **EINFÜGEN+F11** ), gestartet.
+Dieser Befehl öffnet das JAWS Anwendungsfenster. Wenn JAWS aus dem Infobereich gestartet wird, öffnet dieser Befehl das gleiche Menü, als hätten Sie JAWS aus dem Dialog Symbol aus dem Infobereich auswählen (**EINFÜGEN+F11**), gestartet.
 
 ## JAWS Suchen Dialog (EINFÜGEN+STRG+F)
 
@@ -2273,7 +2287,7 @@ Die Funktion Tastatursperre ist nützlich, wenn Sie unbeabsichtigte Tastatureing
 
 Während die Tastatur gesperrt ist, können Sie trotzdem weiterhin JAWS Lesebefehle wie Zeile lesen, Fenstertitel lesen und Word lesen verwenden. Beispielsweise können Sie den JAWS Cursor an einer speziellen Position auf dem Bildschirm positionieren, und dann den Befehl Zeile Lesen verwenden, um die Position zu überwachen, während die Tastatur gesperrt ist. Darüber hinaus können der Unsichtbare Cursor und der Braille Cursor über den Bildschirm wandern, ohne den aktiven Cursor zu bewegen.
 
-Um die Tastatursperre ein- oder auszuschalten, drücken Sie **EINFÜGEN+LEERTASTE, L** . Auch wenn diese Funktion die Tastatur und die Braillezeile sperrt, Mauszeigeraktivitäten sind hiervon nicht betroffen.
+Um die Tastatursperre ein- oder auszuschalten, drücken Sie **EINFÜGEN+LEERTASTE, L**. Auch wenn diese Funktion die Tastatur und die Braillezeile sperrt, Mauszeigeraktivitäten sind hiervon nicht betroffen.
 
 ## Bildschirm neu aufbauen (EINFÜGEN+ESCAPE)
 
@@ -2299,7 +2313,7 @@ Nachdem dieser Befehl ausgeführt wurde, wird der nächste Tastaturbefehl von JA
 
 ## Symbol zum Drucken auswählen (EINFÜGEN+4)
 
-Dieser Befehl öffnet ein Dialogfenster, das eine Liste mit Grafiksymbolen wie zum Beispiel fremdsprachliche Zeichen enthält. Wählen Sie aus der Liste ein Symbol aus und drücken Sie **EINGABE** , um das Symbol in einem Dokument oder Eingabefeld zu platzieren.
+Dieser Befehl öffnet ein Dialogfenster, das eine Liste mit Grafiksymbolen wie zum Beispiel fremdsprachliche Zeichen enthält. Wählen Sie aus der Liste ein Symbol aus und drücken Sie **EINGABE**, um das Symbol in einem Dokument oder Eingabefeld zu platzieren.
 
 ## Dateiname des aktiven Skripts ansagen (EINFÜGEN+Q)
 
@@ -2311,11 +2325,11 @@ Dieser Befehl öffnet ein Dialogfenster, in dem Sie angepasste Hervorhebungsfarb
 
 ## Markierten Text nach FSClipboard kopieren (EINFÜGEN+WINDOWSTASTE+C)
 
-FSClipboard erweitert die Funktionalität der Windows Zwischenablage. Wenn Sie die Windows Befehle Kopieren ( **STRG+C** ) oder Ausschneiden ( **STRG+X** ) zum Verschieben von Text in die Zwischenablage verwenden, dann wird bereits dort befindlicher Text überschrieben. Mit FSClipboard wird Text, den Sie kopiert haben, an eventuell vorher kopierten Text angehängt. Dadurch können Sie so lange Text in die Zwischenablage verschieben, bis Sie den gesamten Text in ein Dokument einfügen möchten.
+FSClipboard erweitert die Funktionalität der Windows Zwischenablage. Wenn Sie die Windows Befehle Kopieren (**STRG+C**) oder Ausschneiden (**STRG+X**) zum Verschieben von Text in die Zwischenablage verwenden, dann wird bereits dort befindlicher Text überschrieben. Mit FSClipboard wird Text, den Sie kopiert haben, an eventuell vorher kopierten Text angehängt. Dadurch können Sie so lange Text in die Zwischenablage verschieben, bis Sie den gesamten Text in ein Dokument einfügen möchten.
 
 ## Script Utility Modus (EINFÜGEN+WINDOWS Taste+NUM MINUS)
 
-Script Utility Modus ein- oder ausschalten. Diese Funktion ist für erfahrene Skripter. Die Laptop-Kurztaste ist **FESTSTELLTASTE+WINDOWS Taste+BINDESTRICH** .
+Script Utility Modus ein- oder ausschalten. Diese Funktion ist für erfahrene Skripter. Die Laptop-Kurztaste ist **FESTSTELLTASTE+WINDOWS Taste+BINDESTRICH**.
 
 Quelle: miscellaneous_jaws_keystrokes-an.htm
 
@@ -2382,11 +2396,11 @@ Dieser Befehl liest die unterste Zeile des aktiven Fensters. Die letzte Fensterz
 
 ## Version einer Anwendung ansagen (JAWS TASTE+STRG+V)
 
-Sagt Ihnen die Versionsnummer einer Anwendung. Wenn Sie **STRG+JAWS TASTE+V** drücken, während JAWS aktiv ist, werden die JAWS Versionsnummer und Autorisierungsinformationen, wie der Sicherungscode, die Autorisierungs- und Seriennummer, angezeigt. Es werden außerdem alle installierten Sprachausgaben und Braillezeilen aufgelistet . Diese Informationen erscheinen im virtuellen Betrachter, so dass sie mit Kopieren und Einfügen in ein Dokument oder ein Eingabefeld eingetragen werden können.
+Sagt Ihnen die Versionsnummer einer Anwendung. Wenn Sie **STRG+JAWS TASTE+V** drücken, während JAWS aktiv ist, werden die JAWS Versionsnummer und Autorisierungsinformationen, wie der Sicherungscode, die Autorisierungs- und Seriennummer, angezeigt. Es werden außerdem alle installierten Sprachausgaben und Braillezeilen aufgelistet. Diese Informationen erscheinen im virtuellen Betrachter, so dass sie mit Kopieren und Einfügen in ein Dokument oder ein Eingabefeld eingetragen werden können.
 
 ## Laufende Anwendungen auflisten (JAWS TASTE+F10)
 
-Listet alle zur Zeit aktiv laufenden Programme auf und zeigt den jeweiligen Status (minimiert, wiederhergestellt oder maximiert) an. Wählen Sie ein Element in der Liste und drücken Sie **Eingabe** , um zu dieser Anwendung zu wechseln, oder drücken Sie **ENTFERNEN** , um das Anwendungsfenster zu schließen.
+Listet alle zur Zeit aktiv laufenden Programme auf und zeigt den jeweiligen Status (minimiert, wiederhergestellt oder maximiert) an. Wählen Sie ein Element in der Liste und drücken Sie **Eingabe**, um zu dieser Anwendung zu wechseln, oder drücken Sie **ENTFERNEN**, um das Anwendungsfenster zu schließen.
 
 ## Symbole des Infobereichs auflisten (JAWS TASTE+F11)
 
@@ -2394,7 +2408,7 @@ Dieser Befehl öffnet ein Dialogfeld, in dem die Symbole des Infobereichs aufgel
 
 ## Beschriftete Grafiken auflisten (JAWS TASTE+STRG+UMSCHALT+G)
 
-Mit dieser Kurztaste können Sie eine Liste beschrifteter Grafiken im aktiven Fenster aufrufen. Wählen Sie mit den Pfeiltasten die Grafik aus, die Sie anklicken möchten, und drücken Sie **EINGABE** . Diese Option ist identisch mit dem Ausführen eines linken Mausklicks auf der Grafik. Diese Funktion ähnelt den Listen der Symbolleiste ( **JAWS TASTE+F8** ), die es in diversen verbreiteten Anwendungen gibt, sie ist jedoch nicht anwendungsabhängig.
+Mit dieser Kurztaste können Sie eine Liste beschrifteter Grafiken im aktiven Fenster aufrufen. Wählen Sie mit den Pfeiltasten die Grafik aus, die Sie anklicken möchten, und drücken Sie **EINGABE**. Diese Option ist identisch mit dem Ausführen eines linken Mausklicks auf der Grafik. Diese Funktion ähnelt den Listen der Symbolleiste (**JAWS TASTE+F8**), die es in diversen verbreiteten Anwendungen gibt, sie ist jedoch nicht anwendungsabhängig.
 
 Quelle: navigation_information_keystrokes-an.htm
 
@@ -2430,7 +2444,7 @@ Quelle: navigation_information_keystrokes.htm
 
 JAWS verfügt über eine umfangreiche Liste mit Tastaturbefehlen. Die Kombination verschiedener Tasten auf der Tastatur (Befehle oder Tastenkombinationen genannt) bieten einen schnellen und effektiven Zugriff auf die gesamte Palette der Windows Funktionen. Programme können geöffnet, genutzt und geschlossen werden. Sie können Briefe schreiben und bearbeiten. Sie können Kalkulationen erstellen und bearbeiten. Dateien erstellen, ändern und löschen. Sie können im Internet surfen, aus dem Internet Programme und andere Dateien herunterladen. Durch den umfassenden Gebrauch von Befehlen kann eine überwiegend grafische Darstellungsweise bezwungen werden.
 
-JAWS benutzt Cursor, um die Systemaktivitäten zu verfolgen und spricht alle notwendigen Informationen. Die JAWS Befehle ermöglichen die Kontrolle darüber, welche Informationen Sie wie umfangreich hören. JAWS liefert Ihnen jederzeit Informationen durch die Kontrolle dieser Cursorbewegungen. In den meisten Fällen wird durch das Ausführen eines Befehls auch der Cursor beeinflusst. Aus diesem Grund verhalten sich viele Befehle je nachdem, welcher Cursor aktiv ist, unterschiedlich. Tatsächlich funktionieren einige Befehle so lange nicht, bis der richtige Cursor ausgewählt wurde. Beispiel: Wenn Sie den JAWS Cursor beschränken möchten ( **JAWS TASTE+R** ), während der PC Cursor aktiv ist, dann erhalten Sie die Meldung: "Bevor Sie eine Beschränkung setzen können, müssen Sie den JAWS oder unsichtbaren Cursor einschalten".
+JAWS benutzt Cursor, um die Systemaktivitäten zu verfolgen und spricht alle notwendigen Informationen. Die JAWS Befehle ermöglichen die Kontrolle darüber, welche Informationen Sie wie umfangreich hören. JAWS liefert Ihnen jederzeit Informationen durch die Kontrolle dieser Cursorbewegungen. In den meisten Fällen wird durch das Ausführen eines Befehls auch der Cursor beeinflusst. Aus diesem Grund verhalten sich viele Befehle je nachdem, welcher Cursor aktiv ist, unterschiedlich. Tatsächlich funktionieren einige Befehle so lange nicht, bis der richtige Cursor ausgewählt wurde. Beispiel: Wenn Sie den JAWS Cursor beschränken möchten (**JAWS TASTE+R**), während der PC Cursor aktiv ist, dann erhalten Sie die Meldung: "Bevor Sie eine Beschränkung setzen können, müssen Sie den JAWS oder unsichtbaren Cursor einschalten".
 
 Einige Cursor funktionieren nur in bestimmten Anwendungen oder in Teilen dieser Anwendung. Der PC Cursor kann nicht den gesamten Bildschirm erreichen, da er nur dorthin gelangen kann, wo sich der Fokus bewegt. Der Virtuelle PC Cursor funktioniert in HTML-basierten Anwendungen, wie etwa Edge, Chrome, Outlook und auch mit PDF Dateien im Adobe Reader.
 
@@ -2490,11 +2504,11 @@ Sperrt die linke Maustaste, als würden Sie diese gedrückt halten, so dass Sie 
 
 ## Rechte Maustaste feststellen (STRG+9)
 
-Sperrt die rechte Maustaste, als würden Sie diese gedrückt halten. Nachdem Sie die Maustaste gesperrt haben, kann der JAWS Cursor mit den **Pfeiltasten** bewegt werden. JAWS spricht erst dann wieder, wenn Sie **STRG+9** erneut drücken, um die Maustaste zu entsperren. Mit diesem Befehl können Sie Elemente verschieben und an einer anderen Position wieder ablegen. Drücken Sie diesen Befehl ein zweites Mal, um die rechte Maustaste zu entsperren, dann kann sich ein Kontextmenü öffnen, in dem Sie weitere Optionen auswählen können.
+Sperrt die rechte Maustaste, als würden Sie diese gedrückt halten. Nachdem Sie die Maustaste gesperrt haben, kann der JAWS Cursor mit den **Pfeiltasten** bewegt werden. JAWS spricht erst dann wieder, wenn Sie **STRG+9**erneut drücken, um die Maustaste zu entsperren. Mit diesem Befehl können Sie Elemente verschieben und an einer anderen Position wieder ablegen. Drücken Sie diesen Befehl ein zweites Mal, um die rechte Maustaste zu entsperren, dann kann sich ein Kontextmenü öffnen, in dem Sie weitere Optionen auswählen können.
 
 ## Ziehen und Ablegen (Drag and Drop) (FESTSTELLTASTE+UMSCHALT+8)
 
-Mit diesem Befehl können Sie Elemente von einem Ort zu einem anderen bewegen. Positionieren Sie den JAWS Cursor auf dem Element, das Sie verschieben möchten, und drücken Sie **FESTSTELLTASTE+UMSCHALT+8** . Sie können den JAWS Cursor aktiv lassen, oder Sie können auf den PC Cursor umschalten. JAWS spricht während des Navigierens weiter. Sobald Sie den JAWS oder PC Cursor an der Stelle positioniert haben, an die Sie das Element verschieben möchten, drücken Sie erneut **FESTSTELLTASTE+UMSCHALT+8** , und das Element wird an die Position des aktiven Cursors verschoben.
+Mit diesem Befehl können Sie Elemente von einem Ort zu einem anderen bewegen. Positionieren Sie den JAWS Cursor auf dem Element, das Sie verschieben möchten, und drücken Sie **FESTSTELLTASTE+UMSCHALT+8**. Sie können den JAWS Cursor aktiv lassen, oder Sie können auf den PC Cursor umschalten. JAWS spricht während des Navigierens weiter. Sobald Sie den JAWS oder PC Cursor an der Stelle positioniert haben, an die Sie das Element verschieben möchten, drücken Sie erneut **FESTSTELLTASTE+UMSCHALT+8**, und das Element wird an die Position des aktiven Cursors verschoben.
 
 **Hinweis:** Um Ziehen und Ablegen durchführen zu können, müssen sowohl die ursprüngliche Position des Objekts, wie auch der neue Ort auf dem Bildschirm sichtbar sein, wenn Sie **FESTSTELLTASTE+UMSCHALT+8** zum zweiten Mal drücken, ansonsten wird diese Aktion nicht ausgeführt.
 
@@ -2631,7 +2645,7 @@ Dieser Befehl beendet die aktive Anwendung. Drücken Sie diesen Befehl, während
 
 ## Steuerungsmenü einer Anwendung öffnen (ALT+LEERTASTE)
 
-Das Steuerungsmenü gibt Ihnen Zugriff auf den Status der aktiven Anwendung. Mit den PFEILTASTE RAUF und RUNTER können Sie sich durch die einzelnen Einträge ( Wiederherstellen, Verschieben, Größe ändern, maximieren, minimieren und schließen) bewegen.
+Das Steuerungsmenü gibt Ihnen Zugriff auf den Status der aktiven Anwendung. Mit den PFEILTASTE RAUF und RUNTER können Sie sich durch die einzelnen Einträge (Wiederherstellen, Verschieben, Größe ändern, maximieren, minimieren und schließen) bewegen.
 
 ## In die Menüzeile springen (ALT)
 
@@ -2671,7 +2685,7 @@ Dieser Befehl öffnet die Hilfe der aktiven Anwendung.
 
 ## Zwischen geöffneten Anwendungen wechseln (ALT+TAB)
 
-Einmal gedrückt wechselt dieser Befehl zur zuletzt genutzten Anwendung, sofern diese noch geöffnet ist. Um durch alle geöffneten Anwendungen zu wandern, halten Sie **ALT** gedrückt und drücken dann wiederholt **TAB** . Lassen Sie beide Tasten los. **ALT+TAB** wechselt die Anwendungen in der Reihenfolge der Nutzung, nicht in der Reihenfolge ihres Startzeitpunktes.
+Einmal gedrückt wechselt dieser Befehl zur zuletzt genutzten Anwendung, sofern diese noch geöffnet ist. Um durch alle geöffneten Anwendungen zu wandern, halten Sie **ALT** gedrückt und drücken dann wiederholt **TAB**. Lassen Sie beide Tasten los. **ALT+TAB** wechselt die Anwendungen in der Reihenfolge der Nutzung, nicht in der Reihenfolge ihres Startzeitpunktes.
 
 ## Kontextmenü öffnen (APPLIKATIONSTASTE oder UMSCHALT+F10)
 
@@ -2720,7 +2734,7 @@ Tabelle: Befehle für die Zwischenablage
 | Inhalt der Zwischenablage lesen | WINDOWSTASTE+JAWS TASTE+X |
 | Inhalt der Zwischenablage im Ergebnisbetrachter anzeigen | EINFÜGEN+LEERTASTE, C |
 
-**Tipp:** Sie können auch **EINFÜGEN+WINDOWSTASTE+C** drücken, um markierten Text in FSClipboard zu kopieren. Text, den Sie mit dieser Tastenkombination kopiert haben, wird bereits vorhandenem Text in der Zwischenablage hinzugefügt, der vorhandene Text wird nicht überschrieben. Dadurch können Sie so lange Text in die Zwischenablage verschieben, bis Sie den gesamten Text in ein Dokument einfügen möchten. Weitere Informationen darüber finden Sie unter [Die Zwischenablage verwenden](../../using_jaws/Using_the_Clipboard.htm) .
+**Tipp:**Sie können auch **EINFÜGEN+WINDOWSTASTE+C** drücken, um markierten Text in FSClipboard zu kopieren. Text, den Sie mit dieser Tastenkombination kopiert haben, wird bereits vorhandenem Text in der Zwischenablage hinzugefügt, der vorhandene Text wird nicht überschrieben. Dadurch können Sie so lange Text in die Zwischenablage verschieben, bis Sie den gesamten Text in ein Dokument einfügen möchten. Weitere Informationen darüber finden Sie unter [Die Zwischenablage verwenden](../../using_jaws/Using_the_Clipboard.htm).
 
 *Lesen Sie auch:*
 
@@ -2754,7 +2768,7 @@ Dieser Befehl wechselt zwischen den verfügbaren Ansichten. Wenn die Adress- und
 
 ## Eine Ordnerebene höher bewegen (RÜCKSCHRITT)
 
-Dieser Befehl bringt Sie in der Strukturansicht eine Ordnerebene höher. Bewegen Sie sich auf diese Art eine Ebene zurück, wird das Element auf dem Sie landen, nicht automatisch als gewählt markiert. Möchten Sie das Element auswählen, drücken Sie die **LEERTASTE** .
+Dieser Befehl bringt Sie in der Strukturansicht eine Ordnerebene höher. Bewegen Sie sich auf diese Art eine Ebene zurück, wird das Element auf dem Sie landen, nicht automatisch als gewählt markiert. Möchten Sie das Element auswählen, drücken Sie die **LEERTASTE**.
 
 ## Datei- oder Ordnereigenschaften öffnen (ALT+EINGABE)
 
@@ -2816,7 +2830,7 @@ In mehrseitigen Dialogen platziert dieser Befehl den Fokus auf die vorherige Sei
 
 ## In Listenansichten Einträge markieren oder Markierungen aufheben (LEERTASTE oder STRG+LEERTASTE)
 
-Um mehrere untereinander stehende Listenelemente zu markieren, halten Sie **STRG** gedrückt und betätigen dabei **PFEIL RAUF** oder **PFEIL** **RUNTER** . Bei gedrückter **STRG** Taste betätigen Sie dann die **LEERTASTE** , um das Element zu markieren. Drücken Sie die **LEERTASTE** ein zweites Mal, um die Markierung aufzuheben.
+Um mehrere untereinander stehende Listenelemente zu markieren, halten Sie **STRG** gedrückt und betätigen dabei **PFEIL RAUF** oder **PFEIL** **RUNTER**. Bei gedrückter **STRG** Taste betätigen Sie dann die **LEERTASTE**, um das Element zu markieren. Drücken Sie die **LEERTASTE** ein zweites Mal, um die Markierung aufzuheben.
 
 Quelle: windows_keystrokes_for_dialog_boxes-an.htm
 
@@ -2851,7 +2865,7 @@ Tabelle: Befehle zum Arbeiten in Dialogen
 | In Listenansichten markieren/Markierungen aufheben | LEERTASTE oder STRG+LEERTASTE |
 | Kontrollfeld aktivieren/deaktivieren | LEERTASTE |
 
-*Lesen Sie auch* :
+*Lesen Sie auch*:
 
 [JAWS Befehle zum Arbeiten in Dialogen](../jaws_keystrokes/jaws_keystrokes_for_working_in_dialog_boxes.htm)
 
@@ -2905,7 +2919,7 @@ Für Interaktionen mit mathematischen Inhalten verwendet JAWS MathCAT, eine Open
 
 ## Mathematik auf Webseiten
 
-JAWS unterstützt das Lesen von mathematischen Inhalten in Microsoft Edge, Google Chrome und Mozilla Firefox, die mit MathML erstellt wurden. MathML ist eine Sprache, die mathematischen Inhalt auf Webseiten einbezieht, so dass mathematischen Gleichungen und wissenschaftliche Formeln im Browser wie auf einem normalen Blatt Papier dargestellt werden können. Besuchen Sie die [W3](https://www.w3.org/Math/) -Webseite, um mehr über MathML und die Werkzeuge, die es zum Hinzufügen auf Webseiten bedarf, zu erfahren.
+JAWS unterstützt das Lesen von mathematischen Inhalten in Microsoft Edge, Google Chrome und Mozilla Firefox, die mit MathML erstellt wurden. MathML ist eine Sprache, die mathematischen Inhalt auf Webseiten einbezieht, so dass mathematischen Gleichungen und wissenschaftliche Formeln im Browser wie auf einem normalen Blatt Papier dargestellt werden können. Besuchen Sie die [W3](https://www.w3.org/Math/)-Webseite, um mehr über MathML und die Werkzeuge, die es zum Hinzufügen auf Webseiten bedarf, zu erfahren.
 
 Wenn Sie auf MathML auf einer Webseite stoßen, dann beschreibt JAWS den Ausdruck, gefolgt von der Meldung "mathematischer Inhalt". Wenn Sie eine Braillezeile verwenden und JAWS ist für English Contracted Braille konfiguriert, dann erscheint die Meldung "Math" gemeinsam mit dem Ausdruck. Wenn der Ausdruck zu lang ist, um auf die Braillezeile zu passen, dann können Sie die Lesetasten der Braillezeile drücken, um den Rest des Ausdrucks zu lesen. Ist JAWS hingegen auf Computerbraille gesetzt, dann wird die Meldung "Math" angezeigt, gefolgt von einer Nachricht, dass englische Kurzschrift aktiviert sein muss, um den mathematischen Inhalt zu sehen. Das Drücken von **EINGABE** während sich der Fokus auf mathematischem Inhalt befindet, öffnet den Mathematischen Betrachter, wo Sie den Ausdruck per Sprachausgabe und auf der Braillezeile detailreicher erkunden können. Auf der Seite [MathML Beispiele](https://support.freedomscientific.com/content/html/jawshq/MathML-Samples.html) der Freedom Scientific Webseite können Sie sehen, wie JAWS mathematische Inhalte liest.
 
@@ -2913,7 +2927,7 @@ Wenn Sie auf MathML auf einer Webseite stoßen, dann beschreibt JAWS den Ausdruc
 
 In Microsoft Word unterstützen JAWS und Fusion das Lesen von mathematischen Gleichungen, die in Dokumenten eingefügt sind unter Verwendung einer der folgenden Methoden:
 
-- Eingefügte mathematische Inhalte unter Verwendung der Menüband-Optionen der Gruppe Symbole der Registerkarte Einfügen. JAWS benötigt auf diesem Weg zum Lesen mathematischer Inhalte keine installierte Drittanbieter-Software oder andere Plugins. Lesen Sie diesen Artikel auf der [TeachUcomp Webseite](https://www.teachucomp.com/insert-equations-in-word-instructions/) , für Anleitungen zum Einfügen von mathematischen Ausdrücken bei Verwendung dieser Methode in ein Word Dokument. Die [Microsoft Support Webseite](https://support.microsoft.com/en-us/office/insert-mathematical-symbols-91a4b04c-84a8-4de9-bd13-8609e14bed58) enthält auch Informationen zum Einfügen von mathematischen Symbolen.
+- Eingefügte mathematische Inhalte unter Verwendung der Menüband-Optionen der Gruppe Symbole der Registerkarte Einfügen. JAWS benötigt auf diesem Weg zum Lesen mathematischer Inhalte keine installierte Drittanbieter-Software oder andere Plugins. Lesen Sie diesen Artikel auf der [TeachUcomp Webseite](https://www.teachucomp.com/insert-equations-in-word-instructions/), für Anleitungen zum Einfügen von mathematischen Ausdrücken bei Verwendung dieser Methode in ein Word Dokument. Die [Microsoft Support Webseite](https://support.microsoft.com/en-us/office/insert-mathematical-symbols-91a4b04c-84a8-4de9-bd13-8609e14bed58) enthält auch Informationen zum Einfügen von mathematischen Symbolen.
 - Mathematik unter Verwendung des JAWS Braille Mathe Editors einfügen. Um diese Funktion nutzen zu können, ist eine Braillezeile mit Tastatur erforderlich, wie beispielsweise die Focus Braillezeile.
 - Mathematische Inhalte, die unter Verwendung von MathType eingefügt werden können, stehen unter [Wiris.com](https://www.wiris.com/en) zum Kauf zur Verfügung. Zum Lesen mathematischer Inhalte in einem Word Dokument, welches unter Verwendung von MathType erstellt wurde, muss die MathType Software zumindest als Demo-Version auf dem Computer installiert werden, auf dem JAWS ausgeführt wird. Besuchen Sie die [Design Science Webseite](https://www.dessci.com/en/products/mathtype/) für weitere Einzelheiten über MathType.
 
@@ -2921,7 +2935,7 @@ Wenn Sie in einem Word Dokument auf eine mathematische Gleichung oder Formel tre
 
 ## Studieren von Gleichungen im Mathematischen Betrachter
 
-Mit dem Mathematischen Betrachter von JAWS können Sie alle Teile einer Gleichung erkunden, um sie im Detail zu studieren. Wenn Sie mathematischen Inhalt auf einer Webseite fokussieren, drücken Sie **EINGABE** , um die aktuelle mathematische Aufgabe im Mathematischen Betrachter zu öffnen. Wenn Sie mathematischen Inhalt in einem Word Dokument fokussieren, drücken Sie die verschachtelte Tastenkombination **EINFÜGEN+LEERTASTE** gefolgt von **ESSZETT** .
+Mit dem Mathematischen Betrachter von JAWS können Sie alle Teile einer Gleichung erkunden, um sie im Detail zu studieren. Wenn Sie mathematischen Inhalt auf einer Webseite fokussieren, drücken Sie **EINGABE**, um die aktuelle mathematische Aufgabe im Mathematischen Betrachter zu öffnen. Wenn Sie mathematischen Inhalt in einem Word Dokument fokussieren, drücken Sie die verschachtelte Tastenkombination **EINFÜGEN+LEERTASTE** gefolgt von **ESSZETT**.
 
 Sobald der Mathematische Betrachter geöffnet ist, erkunden Sie den Inhalt mit den folgenden Kurztasten:
 
@@ -2943,18 +2957,18 @@ Darüber hinaus werden die Inhalte des mathematischen Betrachters auch visuell a
 
 Wenn Sie eine Braillezeile verwenden, dann bleibt der gesamte Ausdruck auf der Braillezeile stehen, so dass Sie mit den **PFEILTASTEN** durch einzelne Bereiche des Ausdrucks navigieren können. Jedenfalls bewegt sich der Cursor (Punkte 7 und 8) immer auf den Beginn des Ausdrucks, der den Fokus erhalten hat. Durch Drücken einer Cursorroutingtaste über einem Begriff im Ausdruck, wird der Fokus sofort auf die entsprechende Stelle im Ausdruck gesetzt.
 
-Um festzulegen, wie JAWS beim Navigieren durch Ausdrücke im Mathematischen Betrachter liest, drücken Sie **EINFÜGEN+6** in der Zahlenreihe, um die Einstellungsverwaltung zu öffnen, drücken Sie **STRG+UMSCHALT+D** , um die Standardeinstellungsdatei zu laden und suchen Sie im Eingabefeld nach "Mathe", um direkt in die [Gruppe Mathematik](SettingsCenter.chm::/Math/Math_Group.htm) in der Strukturansicht zu springen. Die Standardeinstellung für die MathCAT-Navigation in JAWS ist hier beispielsweise auf Mittel eingestellt. Dadurch können Nutzer einer Sprachausgabe, die einen mathematischen Ausdruck überprüfen, Informationen über das aktuelle Element innerhalb eines mathematischen Ausdrucks wie „hochgestellt“ oder „Wurzel“ hören. Bei mathematischen Ausdrücken, die eine Tabelle oder Matrix enthalten, erlaubt diese Einstellung JAWS auch, während der Navigation Spalten- und Reihenkoordinaten anzusagen.
+Um festzulegen, wie JAWS beim Navigieren durch Ausdrücke im Mathematischen Betrachter liest, drücken Sie **EINFÜGEN+6** in der Zahlenreihe, um die Einstellungsverwaltung zu öffnen, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungsdatei zu laden und suchen Sie im Eingabefeld nach "Mathe", um direkt in die [Gruppe Mathematik](SettingsCenter.chm::/Math/Math_Group.htm) in der Strukturansicht zu springen. Die Standardeinstellung für die MathCAT-Navigation in JAWS ist hier beispielsweise auf Mittel eingestellt. Dadurch können Nutzer einer Sprachausgabe, die einen mathematischen Ausdruck überprüfen, Informationen über das aktuelle Element innerhalb eines mathematischen Ausdrucks wie „hochgestellt“ oder „Wurzel“ hören. Bei mathematischen Ausdrücken, die eine Tabelle oder Matrix enthalten, erlaubt diese Einstellung JAWS auch, während der Navigation Spalten- und Reihenkoordinaten anzusagen.
 
 ## Mathematischen Code auf einer Braillezeile auswählen
 
-Ist eine Braillezeile angeschlossen, dann zeigt JAWS mathematische Ausdrücke auf der Braillezeile entweder in Nemeth- oder Unified English Braille (UEB Mathe) an. Um zwischen Nemeth oder UEB Mathe zur Anzeige von mathematischem Inhalt im Mathematischen Betrachter oder im Braille Mathe Editor umzuschalten, drücken Sie **EINFÜGEN+ESSZETT** . Anwender mit einer Focus Braillezeile können auch RECHTE UMSCHALT+PUNKTE 1-2-3-4-5-6 auf der Brailletastatur drücken, um den mathematischen Braillecode umzuschalten.
+Ist eine Braillezeile angeschlossen, dann zeigt JAWS mathematische Ausdrücke auf der Braillezeile entweder in Nemeth- oder Unified English Braille (UEB Mathe) an. Um zwischen Nemeth oder UEB Mathe zur Anzeige von mathematischem Inhalt im Mathematischen Betrachter oder im Braille Mathe Editor umzuschalten, drücken Sie **EINFÜGEN+ESSZETT**. Anwender mit einer Focus Braillezeile können auch RECHTE UMSCHALT+PUNKTE 1-2-3-4-5-6 auf der Brailletastatur drücken, um den mathematischen Braillecode umzuschalten.
 
 Da Nemeth und UEB Mathe nur in Englisch verfügbar sind, stellen Sie sicher, dass JAWS für einen der englischen Braille-Ausgabemodi konfiguriert ist, indem Sie wie folgt vorgehen:
 
 1. Drücken Sie **EINFÜGEN+6** auf der Nummernreihe der Tastatur, um die Einstellungsverwaltung zu öffnen.
-2. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D** , um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste **Anwendungen** .
+2. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste **Anwendungen**.
 3. Im Sucheingabefeld geben Sie "Übersetzung" ohne Anführungsstriche ein.
-4. Drücken Sie **PFEIL RUNTER** , um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen und drücken Sie dann **EINGABE** , um den Fokus direkt in die Gruppe Übersetzung zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.
+4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen und drücken Sie dann **EINGABE**, um den Fokus direkt in die Gruppe Übersetzung zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.
 5. Stellen Sie sicher, dass in der Ausklappliste Sprache English – United States ausgewählt ist.
 6. Stellen Sie sicher, dass in der Ausklappliste Ausgabe eine der beiden Einstellungen Grade 1 oder Grade 2 ausgewählt ist.
 7. Wählen Sie OK, um Ihre Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
@@ -2965,20 +2979,20 @@ Quelle: Accessing_Math_Content.htm
 
 ## Erweitertes Lesen von Bildschirm und Dokumenten
 
-- [Fenster virtualisieren](#VirtualizeWindow) : **EINFÜGEN+ALT+W**
-- [Aktuelles Steuerelement virtualisieren](#VirtualizeCurrentControl) : **EINFÜGEN+UMSCHALT+V**
-- [Wort Index](#WordIndex) : **EINFÜGEN+STRG+W**
-- [Querlesen](#SkimReading) : **STRG+JAWS TASTE+PFEIL RUNTER**
+- [Fenster virtualisieren](#VirtualizeWindow): **EINFÜGEN+ALT+W**
+- [Aktuelles Steuerelement virtualisieren](#VirtualizeCurrentControl): **EINFÜGEN+UMSCHALT+V**
+- [Wort Index](#WordIndex): **EINFÜGEN+STRG+W**
+- [Querlesen](#SkimReading): **STRG+JAWS TASTE+PFEIL RUNTER**
 
 ## Fenster virtualisieren
 
-Die Funktion Fenster virtualisieren ( **EINFÜGEN+ALT+W** ) erfasst das gesamte, aktuelle Anwendungsfenster. Das beinhaltet statischen Text, der im Fenster erscheint, so dass Sie sich nicht merken müssen, wenn zum Beispiel eine Fehlermeldung auf dem Bildschirm erscheint, die Sie an den Technischen Support schicken möchten. Auf diese Weise kann man Fehler- und Dialogmeldungen festhalten, da der Text leicht in eine E-Mail kopiert werden kann.
+Die Funktion Fenster virtualisieren (**EINFÜGEN+ALT+W**) erfasst das gesamte, aktuelle Anwendungsfenster. Das beinhaltet statischen Text, der im Fenster erscheint, so dass Sie sich nicht merken müssen, wenn zum Beispiel eine Fehlermeldung auf dem Bildschirm erscheint, die Sie an den Technischen Support schicken möchten. Auf diese Weise kann man Fehler- und Dialogmeldungen festhalten, da der Text leicht in eine E-Mail kopiert werden kann.
 
 Probieren Sie das folgende Beispiel aus, um zu sehen, wie dieses funktioniert:
 
-1. Drücken Sie **JAWS TASTE+F4** . Der Dialog JAWS verlassen erscheint.
-2. Als nächstes drücken Sie **STRG+JAWS TASTE+W** . Die Dialogfeldüberschrift, die Meldung und die Schalterbeschriftungen erscheinen im Virtuellen Betrachter. Zum Beispiel: "JAWS beenden Möchten Sie JAWS wirklich beenden? Drücken Sie zum Beenden jetzt Eingabe, oder Escape zum Abbrechen. OK Abbrechen"
-3. Drücken Sie **STRG+A** und dann **STRG+C** , um den Inhalt des Virtuellen Betrachters zu markieren und zu kopieren.
+1. Drücken Sie **JAWS TASTE+F4**. Der Dialog JAWS verlassen erscheint.
+2. Als nächstes drücken Sie **STRG+JAWS TASTE+W**. Die Dialogfeldüberschrift, die Meldung und die Schalterbeschriftungen erscheinen im Virtuellen Betrachter. Zum Beispiel: "JAWS beenden Möchten Sie JAWS wirklich beenden? Drücken Sie zum Beenden jetzt Eingabe, oder Escape zum Abbrechen. OK Abbrechen"
+3. Drücken Sie **STRG+A** und dann **STRG+C**, um den Inhalt des Virtuellen Betrachters zu markieren und zu kopieren.
 4. Sie können jetzt Ihr E-Mail-Programm öffnen und den Inhalt des Virtuellen Betrachters mit **STRG+V** in eine E-Mail einfügen.
 
 ## Aktuelles Steuerelement virtualisieren
@@ -2987,23 +3001,23 @@ Manchmal, wie beispielsweise in Listenansichten, möchten Sie vielleicht anstell
 
 Probieren Sie das folgende Beispiel aus, um zu sehen, wie dieses funktioniert:
 
-1. Öffnen Sie den Windows Explorer ( **WINDOWSTASTE+E** ).
-2. Drücken Sie **TAB** , um auf die Dateienliste zu springen.
-3. Mit **EINFÜGEN+UMSCHALT+V** . Jetzt erscheint nur die Dateienliste im Virtuellen Betrachter.
-4. Drücken Sie **STRG+A** und dann **STRG+C** , um den Inhalt des Virtuellen Betrachters zu markieren und zu kopieren.
+1. Öffnen Sie den Windows Explorer (**WINDOWSTASTE+E**).
+2. Drücken Sie **TAB**, um auf die Dateienliste zu springen.
+3. Mit **EINFÜGEN+UMSCHALT+V**. Jetzt erscheint nur die Dateienliste im Virtuellen Betrachter.
+4. Drücken Sie **STRG+A** und dann **STRG+C**, um den Inhalt des Virtuellen Betrachters zu markieren und zu kopieren.
 5. Sie können jetzt Ihr E-Mail-Programm öffnen und den Inhalt des Virtuellen Betrachters mit **STRG+V** in eine E-Mail einfügen.
 
 ## Wort Index
 
-Wort Index ( **JAWS TASTE+STRG+W** ) ist eine ideale Funktion für alle, die im Studium oder bei Nachforschungen viel lesen müssen. Wort Index erzeugt eine Liste mit Wörtern, die in einem Dokument auf einer Webseite erscheinen. Die Wörter sind sortiert, so dass das häufigste Vorkommen als erstes erscheint, gefolgt von einer alphabetischen Liste von Wörtern, die nur einmal erscheinen. Sie können die Liste nach einem bestimmten Wort oder Ausdruck durchsuchen, und dann auf das entsprechende Vorkommen des Wortes springen. Erscheint das Wort mehrfach, dann wählen Sie mit der Navigationsschnelltaste **W** oder dem Schalter Wort Index Zusammenfassung das nächste Vorkommen des Wortes aus und springen dann weiter auf das nächste Vorkommen. Der Schalter Zusammenfassung öffnet im virtuellen Betrachter eine Linkliste. Jeder Link ist ein Satz, der das ausgewählte Wort enthält. Drücken Sie **EINGABE** , um den Link zu aktivieren. Diese Methode spart sehr viel Zeit, da Sie etwas über das Wort im Zusammenhang erfahren, dann auf den entsprechenden Abschnitt des Dokuments springen und dort mit dem Lesen fortfahren.
+Wort Index (**JAWS TASTE+STRG+W**) ist eine ideale Funktion für alle, die im Studium oder bei Nachforschungen viel lesen müssen. Wort Index erzeugt eine Liste mit Wörtern, die in einem Dokument auf einer Webseite erscheinen. Die Wörter sind sortiert, so dass das häufigste Vorkommen als erstes erscheint, gefolgt von einer alphabetischen Liste von Wörtern, die nur einmal erscheinen. Sie können die Liste nach einem bestimmten Wort oder Ausdruck durchsuchen, und dann auf das entsprechende Vorkommen des Wortes springen. Erscheint das Wort mehrfach, dann wählen Sie mit der Navigationsschnelltaste **W** oder dem Schalter Wort Index Zusammenfassung das nächste Vorkommen des Wortes aus und springen dann weiter auf das nächste Vorkommen. Der Schalter Zusammenfassung öffnet im virtuellen Betrachter eine Linkliste. Jeder Link ist ein Satz, der das ausgewählte Wort enthält. Drücken Sie **EINGABE**, um den Link zu aktivieren. Diese Methode spart sehr viel Zeit, da Sie etwas über das Wort im Zusammenhang erfahren, dann auf den entsprechenden Abschnitt des Dokuments springen und dort mit dem Lesen fortfahren.
 
 Verwenden Sie Wort Index beim Lesen von Webseiten oder von Dateien aus Microsoft Word, Outlook, Notepad, WordPad oder Adobe Acrobat.
 
 ## Querlesen
 
-Mit der Funktion Querlesen können Sie schnell lange Dokumente überfliegen, indem immer nur der erste Teil jedes Absatzes gelesen wird. Sie starten das Querlesen in einem Dokument mit **STRG+JAWS TASTE+PFEIL RUNTER** . Standardmäßig liest JAWS die erste Zeile jedes Absatzes, aber Sie können auch festlegen, dass statt dessen der erste Satz in jedem Absatz gelesen wird oder Ihre eigenen Regeln zum Querlesen erstellen. Die Einstellungen für das Querlesen ändern Sie mit **STRG+UMSCHALT+JAWS TASTE+PFEIL RUNTER** . Weitere Informationen darüber finden Sie unter [Querlesen](the_jaws_application_window/jaws_dialogs/Skim_Reading_Dialog.htm) .
+Mit der Funktion Querlesen können Sie schnell lange Dokumente überfliegen, indem immer nur der erste Teil jedes Absatzes gelesen wird. Sie starten das Querlesen in einem Dokument mit **STRG+JAWS TASTE+PFEIL RUNTER**. Standardmäßig liest JAWS die erste Zeile jedes Absatzes, aber Sie können auch festlegen, dass statt dessen der erste Satz in jedem Absatz gelesen wird oder Ihre eigenen Regeln zum Querlesen erstellen. Die Einstellungen für das Querlesen ändern Sie mit **STRG+UMSCHALT+JAWS TASTE+PFEIL RUNTER**. Weitere Informationen darüber finden Sie unter [Querlesen](the_jaws_application_window/jaws_dialogs/Skim_Reading_Dialog.htm).
 
-**Tipp:** Wenn Sie während des Querlesens doch das gesamte Dokument lesen möchten, drücken Sie **JAWS TASTE+PFEIL RUNTER** , um den Befehl Alles lesen zu starten. Sie starten das Querlesen erneut mit **STRG+JAWS TASTE+PFEIL RUNTER** .
+**Tipp:**Wenn Sie während des Querlesens doch das gesamte Dokument lesen möchten, drücken Sie **JAWS TASTE+PFEIL RUNTER**, um den Befehl Alles lesen zu starten. Sie starten das Querlesen erneut mit **STRG+JAWS TASTE+PFEIL RUNTER**.
 
 Quelle: Advanced_Reading_of_Screens_and_Documents.htm
 
@@ -3011,19 +3025,19 @@ Quelle: Advanced_Reading_of_Screens_and_Documents.htm
 
 Wenn Sie Zugang zu einer Braillezeile haben, die auch die Eingabe in Braille unterstützt, und Sie mit dem Nemeth- oder UEB-Math-Code für die Eingabe und das Lesen von mathematischen Inhalten vertraut sind, können Sie mit dem JAWS Braille-Mathe-Editor Ihre eigenen Gleichungen eingeben und in Office 365 bestehende Gleichungen in Word-Dokumenten bearbeiten.
 
-Um den Math Editor zu öffnen, drücken Sie den verschachtelten Befehl **EINFÜGEN+LEERTASTE** gefolgt von **UMSCHALT+0** . Anwender einer Focus Braillezeile können auch **PUNKTE 2-3-5-6 CHORD** drücken. Ähnlich wie beim Lesen von mathematischen Inhalten muss die JAWS Braille-Ausgabe auf eine der Übersetzungseinstellungen Englisch Grade 1 oder Grade 2 eingestellt sein, um den Editor zu starten.
+Um den Math Editor zu öffnen, drücken Sie den verschachtelten Befehl **EINFÜGEN+LEERTASTE** gefolgt von **UMSCHALT+0**. Anwender einer Focus Braillezeile können auch **PUNKTE 2-3-5-6 CHORD** drücken. Ähnlich wie beim Lesen von mathematischen Inhalten muss die JAWS Braille-Ausgabe auf eine der Übersetzungseinstellungen Englisch Grade 1 oder Grade 2 eingestellt sein, um den Editor zu starten.
 
-Wird der Mathe Editor geöffnet, dann wird der Fokus in einem Eingabefeld platziert, wo Sie sofort mit dem Eingeben einer Gleichung über die Brailletastatur in Nemeth Braille oder UEB Mathe beginnen können. Zum Umschalten zwischen den Braille Mathe Codes, drücken Sie **EINFÜGEN+ESSZETT** , oder **RECHTE UMSCHALT+PUNKTE 1-2-3-4-5-6** auf einer Focus Braillezeile. Während des Schreibens wird in einem Vorschaubereich unterhalb des Eingabefeldes die Gleichung visuell angezeigt, so dass ein Sehender diese überprüfen kann. Sobald Sie mit der Eingabe Ihrer mathematischen Gleichung fertig sind, drücken Sie **EINGABE** oder wählen Sie den Schalter Akzeptieren, um den Mathe Editor zu schließen. Wenn Sie sich in Word befinden, dann wird die eingegebene Gleichung automatisch an Ihrer aktuellen Position im Dokument eingefügt. Die Gleichung wird auch in die Zwischenablage kopiert, so dass Sie diese in anderen Anwendungen einfügen können.
+Wird der Mathe Editor geöffnet, dann wird der Fokus in einem Eingabefeld platziert, wo Sie sofort mit dem Eingeben einer Gleichung über die Brailletastatur in Nemeth Braille oder UEB Mathe beginnen können. Zum Umschalten zwischen den Braille Mathe Codes, drücken Sie **EINFÜGEN+ESSZETT**, oder **RECHTE UMSCHALT+PUNKTE 1-2-3-4-5-6** auf einer Focus Braillezeile. Während des Schreibens wird in einem Vorschaubereich unterhalb des Eingabefeldes die Gleichung visuell angezeigt, so dass ein Sehender diese überprüfen kann. Sobald Sie mit der Eingabe Ihrer mathematischen Gleichung fertig sind, drücken Sie **EINGABE** oder wählen Sie den Schalter Akzeptieren, um den Mathe Editor zu schließen. Wenn Sie sich in Word befinden, dann wird die eingegebene Gleichung automatisch an Ihrer aktuellen Position im Dokument eingefügt. Die Gleichung wird auch in die Zwischenablage kopiert, so dass Sie diese in anderen Anwendungen einfügen können.
 
-Öffnen Sie den Mathe Editor während Sie sich in einem Word Dokument mit dem Cursor auf einer mathematischen Gleichung befinden, dann wird die vorhandene Gleichung im Editor im aktuell ausgewählten Braille Mathe Code angezeigt, und ermöglicht Ihnen diese zu bearbeiten oder zu ersetzen. Nach dem Vornehmen von Änderungen und Drücken von **EINGABE** , um den Editor zu schließen, wird die aktuelle Gleichung im Dokument durch die neue oder geänderte Gleichung ersetzt.
+Öffnen Sie den Mathe Editor während Sie sich in einem Word Dokument mit dem Cursor auf einer mathematischen Gleichung befinden, dann wird die vorhandene Gleichung im Editor im aktuell ausgewählten Braille Mathe Code angezeigt, und ermöglicht Ihnen diese zu bearbeiten oder zu ersetzen. Nach dem Vornehmen von Änderungen und Drücken von **EINGABE**, um den Editor zu schließen, wird die aktuelle Gleichung im Dokument durch die neue oder geänderte Gleichung ersetzt.
 
-**Hinweis:** Nach dem Einfügen oder Ändern einer Gleichung in Word über den Math Editor, verbleibt der blinkende Cursor (Punkte 7 und 8) immer am Anfang von mathematischen Inhalten, auch dann, wenn Sie sich zeichenweise mit den Tasten **PFEIL LINKS** und **PFEIL RECHTS** in dieser bewegen. Wenn Sie eine weitere Zeile mit mathematischen Inhalten einfügen möchten, drücken Sie erst **ENDE** , um an das Ende des aktuellen mathematischen Inhalts zu springen, und drücken Sie dann **EINGABE** .
+**Hinweis:** Nach dem Einfügen oder Ändern einer Gleichung in Word über den Math Editor, verbleibt der blinkende Cursor (Punkte 7 und 8) immer am Anfang von mathematischen Inhalten, auch dann, wenn Sie sich zeichenweise mit den Tasten **PFEIL LINKS** und **PFEIL RECHTS** in dieser bewegen. Wenn Sie eine weitere Zeile mit mathematischen Inhalten einfügen möchten, drücken Sie erst **ENDE**, um an das Ende des aktuellen mathematischen Inhalts zu springen, und drücken Sie dann **EINGABE**.
 
 Während der Math Editor geöffnet ist, haben Sie die folgenden weiteren Möglichkeiten:
 
-- Drücken Sie **STRG+N** , um eine neue Gleichung zu starten.
-- Drücken Sie **STRG+P** , um eine Vorschau der aktuellen Gleichung im Math Betrachter anzuzeigen. Drücken Sie **ESCAPE** , wenn Sie fertig sind, um zum Math Editor zurückzukehren.
-- Drücken Sie **ALT+B** , um das Menü Bearbeiten zu öffnen, wo Sie Ihre Braille-Eingabe in einem bestimmten Format in die Zwischenablage kopieren können. MathML ist beim Kopieren das Standardformat, Sie können aber, in Abhängigkeit von der Anwendung in der Sie die Gleichung einfügen möchten, Inhalte auch in die Formate LaTeX oder Braille ASCII kopieren. Nach dem Auswählen eines Kopier-Formates, fügen Sie die Gleichung in die gewünschte Anwendung ein bevor Sie **EINGABE** drücken oder Akzeptieren auswählen, da dieses den Mathe Editor schließt, den Inhalt in MathML kopiert und dadurch den aktuellen Zwischenablageinhalt überschreibt.
+- Drücken Sie **STRG+N**, um eine neue Gleichung zu starten.
+- Drücken Sie **STRG+P**, um eine Vorschau der aktuellen Gleichung im Math Betrachter anzuzeigen. Drücken Sie **ESCAPE**, wenn Sie fertig sind, um zum Math Editor zurückzukehren.
+- Drücken Sie **ALT+B**, um das Menü Bearbeiten zu öffnen, wo Sie Ihre Braille-Eingabe in einem bestimmten Format in die Zwischenablage kopieren können. MathML ist beim Kopieren das Standardformat, Sie können aber, in Abhängigkeit von der Anwendung in der Sie die Gleichung einfügen möchten, Inhalte auch in die Formate LaTeX oder Braille ASCII kopieren. Nach dem Auswählen eines Kopier-Formates, fügen Sie die Gleichung in die gewünschte Anwendung ein bevor Sie **EINGABE** drücken oder Akzeptieren auswählen, da dieses den Mathe Editor schließt, den Inhalt in MathML kopiert und dadurch den aktuellen Zwischenablageinhalt überschreibt.
 
 Quelle: Braille_Math_Editor.htm
 
@@ -3036,21 +3050,21 @@ Videoanrufe sind zu einer Standardform der Kommunikation am Arbeitsplatz, in der
 - Ist die Beleuchtung ausgewogen?
 - Sind noch weitere Elemente im Bild sichtbar?
 
-Um Gesicht im Blick zu aktivieren, drücken Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE** , gefolgt von **F** und dann **O** . Sobald die Funktion aktiviert ist, überwacht Gesicht im Blick kontinuierlich Ihre Gesichtsposition und die Lichtverhältnisse. Wenn sich etwas ändert, wenn Sie beispielsweise Ihren Kopf nach links oder rechts neigen oder die Helligkeit abnimmt, werden Sie automatisch benachrichtigt.
+Um Gesicht im Blick zu aktivieren, drücken Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **F** und dann **O**. Sobald die Funktion aktiviert ist, überwacht Gesicht im Blick kontinuierlich Ihre Gesichtsposition und die Lichtverhältnisse. Wenn sich etwas ändert, wenn Sie beispielsweise Ihren Kopf nach links oder rechts neigen oder die Helligkeit abnimmt, werden Sie automatisch benachrichtigt.
 
 **Hinweis:** Gesicht im Blick ist derzeit während eines aktiven Videoanrufs nicht verfügbar, da es vollständigen Zugriff auf die Kamera benötigt.
 
 Während Gesicht im Blick aktiv ist, sind die folgenden verschachtelten Kurztasten verfügbar:
 
-- Eine andere Kamera auswählen (falls mehrere Kameras verfügbar sind): **EINFÜGEN+LEERTASTE** , **F** , **C** . Sobald die Kamera-Ebene aktiv ist, drücken Sie **PFEIL RAUF** oder **RUNTER** , um durch Ihre Kameras zu schalten und **ESC** , um die Ebene zu verlassen, sobald Sie die Kamera ausgewählt haben, die Sie verwenden möchten.
-- Detaillierte Beschreibung ansagen, inklusive aktueller Gesichtsposition und Helligkeit: **EINFÜGEN+LEERTASTE** , **F** , **D** .
-- Aktuelle Helligkeitsstufe ansagen: **EINFÜGEN+LEERTASTE** , **F** , **L** .
-- Hintergrundbeschreibung ansagen: **EINFÜGEN+LEERTASTE** , **F** , **P** .
-- Vertrauensstufe anpassen: **EINFÜGEN+LEERTASTE** , **F** , **U** .
+- Eine andere Kamera auswählen (falls mehrere Kameras verfügbar sind): **EINFÜGEN+LEERTASTE**, **F**, **C**. Sobald die Kamera-Ebene aktiv ist, drücken Sie **PFEIL RAUF** oder **RUNTER**, um durch Ihre Kameras zu schalten und **ESC**, um die Ebene zu verlassen, sobald Sie die Kamera ausgewählt haben, die Sie verwenden möchten.
+- Detaillierte Beschreibung ansagen, inklusive aktueller Gesichtsposition und Helligkeit: **EINFÜGEN+LEERTASTE**, **F**, **D**.
+- Aktuelle Helligkeitsstufe ansagen: **EINFÜGEN+LEERTASTE**, **F**, **L**.
+- Hintergrundbeschreibung ansagen: **EINFÜGEN+LEERTASTE**, **F**, **P**.
+- Vertrauensstufe anpassen: **EINFÜGEN+LEERTASTE**, **F**, **U**.
 
-**Hinweis:** Der Befehl **EINFÜGEN+LEERTASTE** , **F** , **P** wurde entwickelt, um eventuelle Elemente in Ihrem Hintergrund mit dem sprechenden Bild zu identifizieren. Es ist jedoch wichtig zu verstehen, dass die Genauigkeit der Ergebnisse abweichen kann. Auch wenn die Hintergrundbeschreibungen nicht immer ganz präzise sind, sollen sie doch Hinweise darauf geben, was sich im Blickfeld Ihrer Kamera befindet.
+**Hinweis:** Der Befehl **EINFÜGEN+LEERTASTE**, **F**, **P** wurde entwickelt, um eventuelle Elemente in Ihrem Hintergrund mit dem sprechenden Bild zu identifizieren. Es ist jedoch wichtig zu verstehen, dass die Genauigkeit der Ergebnisse abweichen kann. Auch wenn die Hintergrundbeschreibungen nicht immer ganz präzise sind, sollen sie doch Hinweise darauf geben, was sich im Blickfeld Ihrer Kamera befindet.
 
-Sobald Sie überprüft haben, dass Ihr Gesicht sich zentriert in der Kameraansicht befindet und die Helligkeitsstufe in Ordnung ist, drücken Sie **EINFÜGEN+LEERTASTE** , **F** , **O** , um Gesicht im Blick auszuschalten, bevor Sie Ihren Videoanruf starten.
+Sobald Sie überprüft haben, dass Ihr Gesicht sich zentriert in der Kameraansicht befindet und die Helligkeitsstufe in Ordnung ist, drücken Sie **EINFÜGEN+LEERTASTE**, **F**, **O**, um Gesicht im Blick auszuschalten, bevor Sie Ihren Videoanruf starten.
 
 Quelle: Face_in_View.htm
 
@@ -3070,15 +3084,15 @@ FSCompanion ist in der Lage, Fragen zu den folgenden Themen zu beantworten, wobe
 
 Um FSCompanion zu öffnen, gehen Sie folgendermaßen vor:
 
-- In JAWS drücken Sie den verschachtelten Befehl **EINFÜGEN+LEERTASTE** , gefolgt von **F1** . Den FSCompanion finden Sie auch im JAWS Hilfemenü unter Web Ressourcen.
+- In JAWS drücken Sie den verschachtelten Befehl **EINFÜGEN+LEERTASTE**, gefolgt von **F1**. Den FSCompanion finden Sie auch im JAWS Hilfemenü unter Web Ressourcen.
 - Öffnen Sie FSCompanion mit dem JAWS Sprachassistenten. So können Sie beispielsweise sagen "hey Sharky, öffne FSCompanion."
-- Auf Ihrem PC oder einem mobilen Gerät gehen Sie unter Nutzung Ihres bevorzugten Browsers auf [FSCompanion.ai](https://fscompanion.ai) .
+- Auf Ihrem PC oder einem mobilen Gerät gehen Sie unter Nutzung Ihres bevorzugten Browsers auf [FSCompanion.ai](https://fscompanion.ai).
 
-Sobald die FSCompanion Seite geöffnet ist, drücken Sie **TAB** , um zum Eingabefeld zu springen und geben Sie dann Ihre Frage ein. Nachdem Sie eine Frage eingegeben haben, drücken Sie **EINGABE** und JAWS liest die Antwort automatisch vor, sobald diese angezeigt wird. Der Fokus verbleibt im Eingabefeld, so dass Sie noch weitere Nachfragen stellen können.
+Sobald die FSCompanion Seite geöffnet ist, drücken Sie **TAB**, um zum Eingabefeld zu springen und geben Sie dann Ihre Frage ein. Nachdem Sie eine Frage eingegeben haben, drücken Sie **EINGABE** und JAWS liest die Antwort automatisch vor, sobald diese angezeigt wird. Der Fokus verbleibt im Eingabefeld, so dass Sie noch weitere Nachfragen stellen können.
 
-Sie haben auch die Möglichkeit, Ihre Frage zu sprechen. Drücken Sie **ALT+UMSCHALT+D** , oder verwenden Sie den Schalter Diktieren, um FSCompanion die Frage zu diktieren. Drücken Sie erneut **ALT+UMSCHALT+D** , oder verwenden Sie den Schalter Diktieren stoppen zum Stoppen. Der diktierte Text wird zur Überprüfung im Texteingabefeld angezeigt.
+Sie haben auch die Möglichkeit, Ihre Frage zu sprechen. Drücken Sie **ALT+UMSCHALT+D**, oder verwenden Sie den Schalter Diktieren, um FSCompanion die Frage zu diktieren. Drücken Sie erneut **ALT+UMSCHALT+D**, oder verwenden Sie den Schalter Diktieren stoppen zum Stoppen. Der diktierte Text wird zur Überprüfung im Texteingabefeld angezeigt.
 
-Um die Antwort zu lesen, verwenden Sie **H** , **UMSCHALT+H** oder die **PFEILTASTEN** . Wählen Sie den Schalter **New Conversation** , um ein neues Thema zu starten, oder wählen Sie den Schalter **Feedback** , um einen Kommentar zu der Antwort abzugeben.
+Um die Antwort zu lesen, verwenden Sie **H**, **UMSCHALT+H** oder die **PFEILTASTEN**. Wählen Sie den Schalter **New Conversation**, um ein neues Thema zu starten, oder wählen Sie den Schalter **Feedback**, um einen Kommentar zu der Antwort abzugeben.
 
 Um Ihnen den Einstieg zu erleichtern, finden Sie hier einige Beispielfragen.
 
@@ -3102,7 +3116,7 @@ Schalten Sie diese Funktion ein, um mehr über die JAWS Tastaturbefehle zu erfah
 
 ## Bildschirmabhängige Hilfe - JAWS TASTE+F1
 
-Drücken Sie die Tastenkombination **JAWS TASTE+F1** , und JAWS liest die Informationen über das aktuelle Steuerelement oder Fenster. Die Texte der Bildschirmabhängigen Hilfe werden Ihnen auch im [Virtuellen Betrachter](virtual_viewer.htm) angezeigt, von dem aus Sie weitere Themen aufrufen können.
+Drücken Sie die Tastenkombination **JAWS TASTE+F1**, und JAWS liest die Informationen über das aktuelle Steuerelement oder Fenster. Die Texte der Bildschirmabhängigen Hilfe werden Ihnen auch im [Virtuellen Betrachter](virtual_viewer.htm) angezeigt, von dem aus Sie weitere Themen aufrufen können.
 
 ## Steuerelement mit dazugehöriger Hilfe lesen - JAWS TASTE+TAB
 
@@ -3110,7 +3124,7 @@ Drücken Sie die Tastenkombination **JAWS TASTE+F1** , und JAWS liest die Inform
 
 ## Windows Kurztastenhilfe - JAWS TASTE+W
 
-Die Windows Kurztastenhilfe bringt eine Meldung hervor, die Windows Kurztasten enthält, die möglicherweise in dem Arbeitsumfeld, in dem Sie sich befinden, hilfreich sein können. Die Meldungen erscheinen auch im [Virtuellen Betrachter](virtual_viewer.htm) .
+Die Windows Kurztastenhilfe bringt eine Meldung hervor, die Windows Kurztasten enthält, die möglicherweise in dem Arbeitsumfeld, in dem Sie sich befinden, hilfreich sein können. Die Meldungen erscheinen auch im [Virtuellen Betrachter](virtual_viewer.htm).
 
 ## JAWS Kurztastenhilfe - JAWS TASTE+H
 
@@ -3126,15 +3140,15 @@ Quelle: Help_at_Your_Fingertips.htm
 
 JAWS bietet viele Kurztasten, um viele verschiedene Befehle auszuführen. Viele Befehle können von überall in Windows heraus ausgeführt werden, wie etwa das Lesen des Fenstertitels oder der aktuellen Zeile, während andere Befehle nur in bestimmten Anwendungen wie beispielsweise Microsoft Word oder einem Webbrowser verfügbar sind. Wenn Sie JAWS mit einer Braillezeile nutzen, dann gibt es auch noch JAWS Befehle, die über die Steuerungselemente der Braillezeile ausgeführt werden können.
 
-Während es eine Reihe von Befehlen gibt, die von den meisten JAWS Anwendern täglich genutzt werden, wie etwa das Lesen der aktuellen Zeile ( **EINFÜGEN+PFEIL RAUF** ) oder das Lesen des aktuellen Fenstertitels ( **EINFÜGEN+T** ), gibt es darüber hinaus eine Vielzahl von Befehlen, die nicht mal die erfahrensten Anwender regelmäßig nutzen und daher häufiger mal nachgeschlagen werden müssen. Bestimmte Arten von Befehlen können auch einfach schwer zu merken sein, da einige von denen das Drücken von mehreren Tasten gleichzeitig verlangen. Die Funktion JAWS Befehle Suchen ermöglicht es Ihnen, eine ganze oder teilweise Beschreibung eines Befehls einzugeben, dessen Kurztaste Sie nicht mehr erinnern. JAWS wird alle Befehle anzeigen, die den Suchkriterien entsprechen, die Beschreibung der Funktion und alle damit verbundenen Kurztasten, inklusive Braillebefehlen, wenn aktuell eine Braillezeile mit Ihrem Rechner verbunden ist.
+Während es eine Reihe von Befehlen gibt, die von den meisten JAWS Anwendern täglich genutzt werden, wie etwa das Lesen der aktuellen Zeile (**EINFÜGEN+PFEIL RAUF**) oder das Lesen des aktuellen Fenstertitels (**EINFÜGEN+T**), gibt es darüber hinaus eine Vielzahl von Befehlen, die nicht mal die erfahrensten Anwender regelmäßig nutzen und daher häufiger mal nachgeschlagen werden müssen. Bestimmte Arten von Befehlen können auch einfach schwer zu merken sein, da einige von denen das Drücken von mehreren Tasten gleichzeitig verlangen. Die Funktion JAWS Befehle Suchen ermöglicht es Ihnen, eine ganze oder teilweise Beschreibung eines Befehls einzugeben, dessen Kurztaste Sie nicht mehr erinnern. JAWS wird alle Befehle anzeigen, die den Suchkriterien entsprechen, die Beschreibung der Funktion und alle damit verbundenen Kurztasten, inklusive Braillebefehlen, wenn aktuell eine Braillezeile mit Ihrem Rechner verbunden ist.
 
-Vielleicht benötigen Sie zum Beispiel eine Tastenkombination zum Arbeiten mit Formeln in Excel. Anstatt jetzt das JAWS Hilfethema für Excel zu öffnen und alle verfügbaren Kurztasten zu durchsuchen, oder durch das Starten der Kurztasten Hilfe ( **EINFÜGEN+1** ) und drücken von verschiedenen Tastenkombination bis Sie die richtige gefunden haben, können Sie aus Excel heraus ein Fenster zum Suchen von JAWS Befehlen öffnen. Schreiben Sie dann im Sucheingabefeld "Formel" und Sie bekommen eine Liste der Kurztasten, die zum Arbeiten mit Formeln verfügbar sind. Ebenso könnten Sie beim Surfen im Web die Kurztaste für die Anzeige der Liste der Überschriften auf der aktuellen Seite ( **EINFÜGEN+F6** ) benötigen, dann können Sie das Fenster zur Suche der Befehle aus Ihrem Webbrowser heraus öffnen, "Überschriften auflisten" im Sucheingabefeld eingeben, und dieser Befehl wird dann das erste Suchergebnis sein.
+Vielleicht benötigen Sie zum Beispiel eine Tastenkombination zum Arbeiten mit Formeln in Excel. Anstatt jetzt das JAWS Hilfethema für Excel zu öffnen und alle verfügbaren Kurztasten zu durchsuchen, oder durch das Starten der Kurztasten Hilfe (**EINFÜGEN+1**) und drücken von verschiedenen Tastenkombination bis Sie die richtige gefunden haben, können Sie aus Excel heraus ein Fenster zum Suchen von JAWS Befehlen öffnen. Schreiben Sie dann im Sucheingabefeld "Formel" und Sie bekommen eine Liste der Kurztasten, die zum Arbeiten mit Formeln verfügbar sind. Ebenso könnten Sie beim Surfen im Web die Kurztaste für die Anzeige der Liste der Überschriften auf der aktuellen Seite (**EINFÜGEN+F6**) benötigen, dann können Sie das Fenster zur Suche der Befehle aus Ihrem Webbrowser heraus öffnen, "Überschriften auflisten" im Sucheingabefeld eingeben, und dieser Befehl wird dann das erste Suchergebnis sein.
 
-Um nach einem Befehl zu suchen, drücken Sie **EINFÜGEN+LEERTASTE** , gefolgt von **J** , um das Fenster Suche nach JAWS Befehlen zu öffnen. Alternativ können Sie im Dialogfenster zum Aufrufen der JAWS Manager ( **EINFÜGEN+F2** ) oder im JAWS Hilfsprogramme Menü die Befehlssuche auswählen. Es wird ein HTML Fenster geöffnet, und Sie befinden sich im Sucheingabefeld. Wenn der Formularmodus auf Automatisch oder Halbautomatisch gesetzt ist, dann wird der Formularmodus automatisch aktiviert, sobald das Eingabefeld fokussiert wird. Starten Sie mit der Eingabe der Beschreibung des gesuchten Befehls und das Ergebnisfeld im unteren Fensterbereich wird sich automatisch aktualisieren. Während Sie schreiben wird das erste Ergebnis in der Liste automatisch angesagt. Wenn Sie das Eingeben des Befehls abgeschlossen haben, drücken Sie **TAB** , um in die Ergebnisliste zu wechseln.
+Um nach einem Befehl zu suchen, drücken Sie **EINFÜGEN+LEERTASTE**, gefolgt von **J**, um das Fenster Suche nach JAWS Befehlen zu öffnen. Alternativ können Sie im Dialogfenster zum Aufrufen der JAWS Manager (**EINFÜGEN+F2**) oder im JAWS Hilfsprogramme Menü die Befehlssuche auswählen. Es wird ein HTML Fenster geöffnet, und Sie befinden sich im Sucheingabefeld. Wenn der Formularmodus auf Automatisch oder Halbautomatisch gesetzt ist, dann wird der Formularmodus automatisch aktiviert, sobald das Eingabefeld fokussiert wird. Starten Sie mit der Eingabe der Beschreibung des gesuchten Befehls und das Ergebnisfeld im unteren Fensterbereich wird sich automatisch aktualisieren. Während Sie schreiben wird das erste Ergebnis in der Liste automatisch angesagt. Wenn Sie das Eingeben des Befehls abgeschlossen haben, drücken Sie **TAB**, um in die Ergebnisliste zu wechseln.
 
 **Hinweis:** Wenn der automatische Formularmodus auf Manuell eingestellt ist, dann müssen Sie zuerst **EINGABE** drücken, um den Formularmodus zu aktivieren, bevor Sie mit dem Schreiben im Eingabefeld beginnen können.
 
-Da es sich hier um ein HTML Fenster handelt, können Sie die Standard-Lesebefehle verwenden, um die Suchergebnisse zu lesen. Jeder Befehl wird zusammen mit der ersten Tastenkombination als Überschrift angezeigt, so dass Sie schnell zwischen den Ergebnissen springen können, wenn Sie die Schnellnavigationstasten **H** und **UMSCHALT+H** verwenden. Wenn Sie den gesuchten Befehl gefunden haben, drücken Sie **PFEIL RUNTER** , um eine kurze Beschreibung des Befehls zu erhalten und um eventuelle zusätzliche Kurztasten, die zum Ausführen des Befehls verwendet werden können, zu lesen. Das beinhaltet einfache, verschachtelte und Braille-Kurztasten. Wenn ein bestimmter Befehl eine Braille Kurztaste anbietet, aber es war zum Zeitpunkt der Befehlssuche keine Braillezeile angeschlossen, dann wird die Braille-Kurztaste nicht mit aufgelistet.
+Da es sich hier um ein HTML Fenster handelt, können Sie die Standard-Lesebefehle verwenden, um die Suchergebnisse zu lesen. Jeder Befehl wird zusammen mit der ersten Tastenkombination als Überschrift angezeigt, so dass Sie schnell zwischen den Ergebnissen springen können, wenn Sie die Schnellnavigationstasten **H** und **UMSCHALT+H** verwenden. Wenn Sie den gesuchten Befehl gefunden haben, drücken Sie **PFEIL RUNTER**, um eine kurze Beschreibung des Befehls zu erhalten und um eventuelle zusätzliche Kurztasten, die zum Ausführen des Befehls verwendet werden können, zu lesen. Das beinhaltet einfache, verschachtelte und Braille-Kurztasten. Wenn ein bestimmter Befehl eine Braille Kurztaste anbietet, aber es war zum Zeitpunkt der Befehlssuche keine Braillezeile angeschlossen, dann wird die Braille-Kurztaste nicht mit aufgelistet.
 
 Jeder JAWS Befehlsname und seine dazugehörigen Kurztasten werden ebenfalls als Links angezeigt. Dieses ermöglicht Ihnen, dass Sie durch Drücken von **EINGABE** auf der Überschrift mit dem Befehlsnamen, oder auf einem Link einer dazugehörigen Kurztaste das Fenster zur Befehlssuche schließen und den Befehl ausführen können. Sie können dieses Fenster auch durch Drücken von **ALT+F4** schließen.
 
@@ -3144,13 +3158,13 @@ Quelle: Search_for_Commands.htm
 
 ## Der Tutormodus
 
-Tutormeldungen liefern Tipps zur Navigation in der Windows-Umgebung und in Anwendungen. Tutormeldungen werden mit anderen Stimmen als die JAWS Meldungen gesprochen. Sie können ein Beispiel für eine geläufige Tutormeldung hören, wenn Sie **ALT** drücken, um auf die JAWS Menüleiste zuzugreifen: "Menüleiste, Optionen, Sie navigieren mit den **PFEILTASTEN LINKS** oder **RECHTS** ". Die Ansage von Tutormeldungen wird im JAWS Menü unter Optionen, Grundeinstellungen ein- oder ausgeschaltet.
+Tutormeldungen liefern Tipps zur Navigation in der Windows-Umgebung und in Anwendungen. Tutormeldungen werden mit anderen Stimmen als die JAWS Meldungen gesprochen. Sie können ein Beispiel für eine geläufige Tutormeldung hören, wenn Sie **ALT** drücken, um auf die JAWS Menüleiste zuzugreifen: "Menüleiste, Optionen, Sie navigieren mit den **PFEILTASTEN LINKS** oder **RECHTS**". Die Ansage von Tutormeldungen wird im JAWS Menü unter Optionen, Grundeinstellungen ein- oder ausgeschaltet.
 
-Die Funktion "Promptbeschreibungen zuweisen" dient dazu, dass Sie individuelle Tutormeldungen erstellen können. Damit legen Sie individuelle Meldungen fest, die jedes Mal gesprochen werden, wenn Sie auf ein bestimmtes Steuerelement springen, um Ihnen zum Beispiel die weitere Vorgehensweise zu erleichtern. Um mehr über das Zuweisen von Promptbeschreibungen zu erfahren, lesen Sie bitte auch: [Promptbeschreibung zuweisen](../../customizing_jaws_for_windows/Frame_Viewer/create_a_prompt.htm) .
+Die Funktion "Promptbeschreibungen zuweisen" dient dazu, dass Sie individuelle Tutormeldungen erstellen können. Damit legen Sie individuelle Meldungen fest, die jedes Mal gesprochen werden, wenn Sie auf ein bestimmtes Steuerelement springen, um Ihnen zum Beispiel die weitere Vorgehensweise zu erleichtern. Um mehr über das Zuweisen von Promptbeschreibungen zu erfahren, lesen Sie bitte auch: [Promptbeschreibung zuweisen](../../customizing_jaws_for_windows/Frame_Viewer/create_a_prompt.htm).
 
 ## Zugriffstasten ansagen
 
-Sie können JAWS auch so einstellen, dass die Zugriffstasten beim Navigieren in Menüs und Dialogen angesagt werden. Mit den Zugriffstasten springt man direkt auf ein Steuerelement in einem Dialogfenster oder auf einen Menüeintrag. Wenn zum Beispiel die Zugriffstaste Alles lesen eingeschaltet ist, drücken Sie **ALT** , um in die JAWS Menüleiste zu springen. Drücken Sie **PFEIL RUNTER** , um das Menü Optionen zu öffnen und wählen Sie den Eintrag Grundeinstellungen. JAWS nennt den Namen des markierten Befehls und sagt dann "G". **G** ist die Zugriffstaste für den Menüeintrag Grundeinstellungen. Wenn Sie also das nächste Mal das Optionsmenü öffnen möchten, drücken Sie einfach **G** . Achten Sie beim Navigieren durch die Menüs auf die Zugriffstasten, so dass Sie beim nächsten Mal, wenn Sie ein Menü öffnen möchten, nicht mit den Pfeiltasten auf jeden Menüeintrag gehen müssen. Statt dessen können Sie die Zugriffstaste drücken, um den Menüeintrag automatisch zu aktivieren.
+Sie können JAWS auch so einstellen, dass die Zugriffstasten beim Navigieren in Menüs und Dialogen angesagt werden. Mit den Zugriffstasten springt man direkt auf ein Steuerelement in einem Dialogfenster oder auf einen Menüeintrag. Wenn zum Beispiel die Zugriffstaste Alles lesen eingeschaltet ist, drücken Sie **ALT**, um in die JAWS Menüleiste zu springen. Drücken Sie **PFEIL RUNTER**, um das Menü Optionen zu öffnen und wählen Sie den Eintrag Grundeinstellungen. JAWS nennt den Namen des markierten Befehls und sagt dann "G". **G** ist die Zugriffstaste für den Menüeintrag Grundeinstellungen. Wenn Sie also das nächste Mal das Optionsmenü öffnen möchten, drücken Sie einfach **G**. Achten Sie beim Navigieren durch die Menüs auf die Zugriffstasten, so dass Sie beim nächsten Mal, wenn Sie ein Menü öffnen möchten, nicht mit den Pfeiltasten auf jeden Menüeintrag gehen müssen. Statt dessen können Sie die Zugriffstaste drücken, um den Menüeintrag automatisch zu aktivieren.
 
 Im Dialogfenster Grundeinstellung legen Sie fest, welche Zugriffstasten gesprochen werden sollen. Wählen Sie zwischen Aus, Alle sprechen, Nur in Menüs sprechen oder Nur in Dialogfeldern sprechen.
 
@@ -3164,9 +3178,9 @@ Das JAWS Grundlagentraining ermöglicht einen leichten Einstieg in den Einsatz v
 
 ## JAWS Trainingsmaterialien installieren
 
-1. Drücken Sie **EINFÜGEN+J** , um das JAWS Programmfenster zu öffnen.
-2. Drücken Sie **ALT+H** , um das Hilfemenü zu wählen und dann **EINGABE** , um den Eintrag Training zu aktivieren.
-3. FSReader öffnet sich und zeigt das JAWS Training Inhaltsverzeichnis, welches Links zu den verfügbaren DAISY Trainingsbüchern enthält. Nutzen Sie die **Pfeiltasten** , um zum gewünschten Buch zu navigieren, welches Sie herunterladen und installieren möchten und drücken Sie dann **EINGABE** . FSReader wird das Buch automatisch herunterladen, installieren und es dann öffnen.
+1. Drücken Sie **EINFÜGEN+J**, um das JAWS Programmfenster zu öffnen.
+2. Drücken Sie **ALT+H**, um das Hilfemenü zu wählen und dann **EINGABE**, um den Eintrag Training zu aktivieren.
+3. FSReader öffnet sich und zeigt das JAWS Training Inhaltsverzeichnis, welches Links zu den verfügbaren DAISY Trainingsbüchern enthält. Nutzen Sie die **Pfeiltasten**, um zum gewünschten Buch zu navigieren, welches Sie herunterladen und installieren möchten und drücken Sie dann **EINGABE**. FSReader wird das Buch automatisch herunterladen, installieren und es dann öffnen.
 4. Wiederholen Sie diesen Vorgang für alle Bücher, die Sie herunterladen möchten.
 
 Sie können dieses Handbuch von unserer amerikanischen [Freedom Scientific Webseite](https://www.freedomscientific.com/training/jaws) herunterladen.
@@ -3179,7 +3193,7 @@ Quelle: basic_training.htm
 
 ## Die JAWS Hilfe anwenden
 
-Die JAWS Hilfe rufen Sie entweder aus dem JAWS Anwendungsfenster über das Menü Hilfe auf oder durch Drücken von **F1** . Das Hilfefenster ist in zwei Hälften geteilt. Auf der rechten Seite erscheinen die eigentlichen Hilfetexte zu den Hilfethemen. Auf der linken Seite des Fensters befinden sich die Registerkarten Inhalt ( **ALT+I** ), Index ( **ALT+N** ) und Suchen ( **ALT+S** ). Mit **STRG+TAB** oder den Zugriffstasten wechseln Sie zwischen den Registerkarten. Auf welcher Registerkarte Sie sich auch immer bewegen, nach einem Schließen und erneuten Aufrufen der JAWS Hilfe landen Sie immer auf der zuletzt gewählten Registerkarte.
+Die JAWS Hilfe rufen Sie entweder aus dem JAWS Anwendungsfenster über das Menü Hilfe auf oder durch Drücken von **F1**. Das Hilfefenster ist in zwei Hälften geteilt. Auf der rechten Seite erscheinen die eigentlichen Hilfetexte zu den Hilfethemen. Auf der linken Seite des Fensters befinden sich die Registerkarten Inhalt (**ALT+I**), Index (**ALT+N**) und Suchen (**ALT+S**). Mit **STRG+TAB** oder den Zugriffstasten wechseln Sie zwischen den Registerkarten. Auf welcher Registerkarte Sie sich auch immer bewegen, nach einem Schließen und erneuten Aufrufen der JAWS Hilfe landen Sie immer auf der zuletzt gewählten Registerkarte.
 
 In den folgenden Kapiteln erhalten Sie weitere Informationen über den Gebrauch dieses Hilfesystems.
 
@@ -3195,31 +3209,31 @@ In den folgenden Kapiteln erhalten Sie weitere Informationen über den Gebrauch 
 
 ## Registerkarte Inhalt verwenden (ALT+I)
 
-Wenn Sie zum ersten Mal das JAWS Hilfesystem öffnen, ist die Registerkarte Inhalt auf der linken Seite des Fensters aktiv. Das Inhaltsverzeichnis besteht aus einer Strukturansicht mit Büchern und Themen. Die Bücher sind nach Gruppen unterteilt, die weitere Bücher und eine oder mehrere Seiten enthalten können. Die Seiten sind die Hilfethemen, die die jeweiligen Informationen enthalten. Mit **PFEIL RAUF** und **RUNTER** navigieren Sie im Inhaltsverzeichnis. Mit **PFEIL RECHTS** öffnen Sie ein Buch. Mit **PFEIL LINKS** schließen Sie ein Buch. Eine Seite für ein angewähltes Thema öffnen Sie mit **EINGABE** , danach drücken Sie **F6** , um in das Hilfefenster zu wechseln. Drücken Sie erneut **F6** , um zur Registerkarte Inhalt zurückzukehren, oder geben Sie die Zugriffstaste **ALT+I** ein, um auf die Registerkarte Inhalt zurückzukehren, unabhängig davon, wo Sie sich gerade im Hilfesystem befinden.
+Wenn Sie zum ersten Mal das JAWS Hilfesystem öffnen, ist die Registerkarte Inhalt auf der linken Seite des Fensters aktiv. Das Inhaltsverzeichnis besteht aus einer Strukturansicht mit Büchern und Themen. Die Bücher sind nach Gruppen unterteilt, die weitere Bücher und eine oder mehrere Seiten enthalten können. Die Seiten sind die Hilfethemen, die die jeweiligen Informationen enthalten. Mit **PFEIL RAUF** und **RUNTER** navigieren Sie im Inhaltsverzeichnis. Mit **PFEIL RECHTS** öffnen Sie ein Buch. Mit **PFEIL LINKS** schließen Sie ein Buch. Eine Seite für ein angewähltes Thema öffnen Sie mit **EINGABE**, danach drücken Sie **F6**, um in das Hilfefenster zu wechseln. Drücken Sie erneut **F6**, um zur Registerkarte Inhalt zurückzukehren, oder geben Sie die Zugriffstaste **ALT+I** ein, um auf die Registerkarte Inhalt zurückzukehren, unabhängig davon, wo Sie sich gerade im Hilfesystem befinden.
 
 ## Registerkarte Index verwenden (ALT+N)
 
-Mit **ALT+N** öffnen Sie die Registerkarte Index. Geben Sie die Anfangsbuchstaben des gesuchten Schlüsselwortes ein, um nach den entsprechenden Hilfethemen zu suchen. Schlüsselwörter sind Begriffe oder Beschreibungen aus der Hilfe. Nachdem Sie ein Schlüsselwort eingegeben haben, gehen Sie mit **PFEIL RAUF** oder **RUNTER** auf die Liste aller zutreffenden Indexeinträge. Mit **EINGABE** wählen Sie ein Schlüsselwort aus. Wenn nur ein zutreffendes Hilfethema gefunden wurde, wird es im Hilfefenster angezeigt. Mit **F6** wechseln Sie in das Hilfefenster auf der rechten Seite. Wenn mehrere zutreffende Hilfethemen gefunden wurden, werden diese in einer Liste aufgeführt. Wenn Sie den gewünschten Eintrag gefunden haben, öffnen Sie mit **EINGABE** das Hilfefenster. Drücken Sie **F6** , um in das Hilfefenster zu wechseln.
+Mit **ALT+N** öffnen Sie die Registerkarte Index. Geben Sie die Anfangsbuchstaben des gesuchten Schlüsselwortes ein, um nach den entsprechenden Hilfethemen zu suchen. Schlüsselwörter sind Begriffe oder Beschreibungen aus der Hilfe. Nachdem Sie ein Schlüsselwort eingegeben haben, gehen Sie mit **PFEIL RAUF** oder **RUNTER** auf die Liste aller zutreffenden Indexeinträge. Mit **EINGABE** wählen Sie ein Schlüsselwort aus. Wenn nur ein zutreffendes Hilfethema gefunden wurde, wird es im Hilfefenster angezeigt. Mit **F6** wechseln Sie in das Hilfefenster auf der rechten Seite. Wenn mehrere zutreffende Hilfethemen gefunden wurden, werden diese in einer Liste aufgeführt. Wenn Sie den gewünschten Eintrag gefunden haben, öffnen Sie mit **EINGABE** das Hilfefenster. Drücken Sie **F6**, um in das Hilfefenster zu wechseln.
 
 ## Registerkarte Suchen verwenden (ALT+S)
 
-Mit **ALT+S** öffnen Sie die Registerkarte Suchen. Geben Sie den Begriff ein, zu dem Sie Informationen benötigen, und springen Sie mit **TAB** auf den Schalter Themenliste. Drücken Sie **EINGABE** und dann **TAB** , um in die Themenliste zu gelangen.
+Mit **ALT+S** öffnen Sie die Registerkarte Suchen. Geben Sie den Begriff ein, zu dem Sie Informationen benötigen, und springen Sie mit **TAB** auf den Schalter Themenliste. Drücken Sie **EINGABE** und dann **TAB**, um in die Themenliste zu gelangen.
 
 Mit den Pfeiltasten wählen Sie das gewünschte Thema aus, mit **EINGABE** öffnen Sie das Thema. Mit **F6** wechseln Sie in das Hilfefenster auf der rechten Seite.
 
 ## Das Hilfefenster verwenden (F6)
 
-Nachdem Sie ein Hilfethema auf der Registerkarte Inhalt, Index oder Suchen ausgewählt und es mit **EINGABE** geöffnet haben, drücken Sie **F6** , um in das Hilfefenster zu wechseln.
+Nachdem Sie ein Hilfethema auf der Registerkarte Inhalt, Index oder Suchen ausgewählt und es mit **EINGABE** geöffnet haben, drücken Sie **F6**, um in das Hilfefenster zu wechseln.
 
-Navigieren Sie durch den Text und die Links dieses Hilfethemas genauso wie auf einer Webseite. Lesen Sie zeilen-, satz- oder absatzweise. Drücken Sie **EINGABE** , wenn Sie auf einen Link treffen, um diesen zu öffnen. Weitere Informationen über verfügbare Navigationsfunktionen finden Sie unter [JAWS Befehle für HTML](popapps.chm::/internet/internet_explorer_5/JAWS_specific_keystrokes_ie5.htm) .
+Navigieren Sie durch den Text und die Links dieses Hilfethemas genauso wie auf einer Webseite. Lesen Sie zeilen-, satz- oder absatzweise. Drücken Sie **EINGABE**, wenn Sie auf einen Link treffen, um diesen zu öffnen. Weitere Informationen über verfügbare Navigationsfunktionen finden Sie unter [JAWS Befehle für HTML](popapps.chm::/internet/internet_explorer_5/JAWS_specific_keystrokes_ie5.htm).
 
 ## Konventionen
 
 Eine Kurztaste kann eine einzelne Taste auf der Tastatur sein, es kann sich dabei aber auch um mehrere Tasten handeln, die in Kombination gedrückt werden müssen. In diesem Hilfesystem weist das Pluszeichen (+) darauf hin, dass Tasten in Kombination gedrückt werden müssen. Zum Beispiel kann mit **JAWS TASTE+PFEIL RECHTS** das nächste Wort in einem Dokument gelesen werden.
 
-Kurztasten können auch aus einer Abfolge von zu drückenden Tasten bestehen, wobei einige Tasten gedrückt und wieder losgelassen werden, um dann andere Tasten zu drücken. Ein Komma (,) weist darauf hin, dass Tasten nacheinander gedrückt werden müssen. Zum Beispiel: **ALT+LEERTASTE, S** schließt viele Anwendungen. In unserem Beispiel drücken Sie **ALT** und **LEERTASTE** zusammen, lassen die Tasten wieder los und drücken dann erst **S** .
+Kurztasten können auch aus einer Abfolge von zu drückenden Tasten bestehen, wobei einige Tasten gedrückt und wieder losgelassen werden, um dann andere Tasten zu drücken. Ein Komma (,) weist darauf hin, dass Tasten nacheinander gedrückt werden müssen. Zum Beispiel: **ALT+LEERTASTE, S** schließt viele Anwendungen. In unserem Beispiel drücken Sie **ALT** und **LEERTASTE** zusammen, lassen die Tasten wieder los und drücken dann erst **S**.
 
-Wenn Kurztasten mit Tasten des Nummernblocks gedrückt werden müssen, steht das Wort **NUM** immer vor der eigentlichen Taste. Zum Beispiel: **JAWS TASTE+NUM 5** . Wenn die Beschreibung der Kurztaste kein **NUM** enthält, verwenden Sie bitte die Taste aus der oberen Ziffernreihe auf Ihrer Tastatur.
+Wenn Kurztasten mit Tasten des Nummernblocks gedrückt werden müssen, steht das Wort **NUM** immer vor der eigentlichen Taste. Zum Beispiel: **JAWS TASTE+NUM 5**. Wenn die Beschreibung der Kurztaste kein **NUM** enthält, verwenden Sie bitte die Taste aus der oberen Ziffernreihe auf Ihrer Tastatur.
 
 Quelle: using_jaws_help.htm
 
@@ -3227,22 +3241,22 @@ Quelle: using_jaws_help.htm
 
 Der virtuelle Betrachter ist ein Meldungsfenster, das die Funktionalität vieler JAWS Meldungen erhöht. Mit **JAWS TASTE+F1** wird eine Meldung im virtuellen Betrachter geöffnet. Auch wenn die über **JAWS TASTE+F1** aufgerufenen Meldungen zu den häufigsten Meldungen im virtuellen Betrachter gehören, zeigt Ihnen der virtuelle Betrachter auch viele andere Meldungen wie:
 
-- Meldungen über die JAWS Kurztasten ( **JAWS TASTE+H** )
-- Meldungen über die Windows Kurztasten ( **JAWS TASTE+W** )
-- Meldungen zur technischen, bildschirmabhängigen Hilfe ( **JAWS TASTE+STRG+F1** )
+- Meldungen über die JAWS Kurztasten (**JAWS TASTE+H**)
+- Meldungen über die Windows Kurztasten (**JAWS TASTE+W**)
+- Meldungen zur technischen, bildschirmabhängigen Hilfe (**JAWS TASTE+STRG+F1**)
 - Verschiedenste informative Meldungen innerhalb von Microsoft Office Anwendungen
 
-Der virtuelle Betrachter ermöglicht das bequeme Nachlesen von Informationen mit Standard-Lesebefehlen. Lesen Sie zeilen-, wort- oder zeichenweise. Markieren Sie Text wie in einem Textverarbeitungsprogramm und kopieren Sie den Text in die Zwischenablage. Drücken Sie **STRG+POS1** oder **STRG+ENDE** , um an den Anfang oder das Ende der Meldung zu springen.
+Der virtuelle Betrachter ermöglicht das bequeme Nachlesen von Informationen mit Standard-Lesebefehlen. Lesen Sie zeilen-, wort- oder zeichenweise. Markieren Sie Text wie in einem Textverarbeitungsprogramm und kopieren Sie den Text in die Zwischenablage. Drücken Sie **STRG+POS1** oder **STRG+ENDE**, um an den Anfang oder das Ende der Meldung zu springen.
 
-Über Links gelangen Sie zu weiteren Meldungen, oder Sie können über die Links Befehle in Ihrer Anwendung oder in Windows ausführen. Mit **EINGABE** wählen Sie einen Link aus, oder Sie drücken **JAWS TASTE+F7** , um alle Links in einer Meldung aufzulisten und dann aus der Liste den gewünschten Link auszuwählen.
+Über Links gelangen Sie zu weiteren Meldungen, oder Sie können über die Links Befehle in Ihrer Anwendung oder in Windows ausführen. Mit **EINGABE** wählen Sie einen Link aus, oder Sie drücken **JAWS TASTE+F7**, um alle Links in einer Meldung aufzulisten und dann aus der Liste den gewünschten Link auszuwählen.
 
-Mit **ESCAPE** schließen Sie das Meldungsfenster, oder Sie springen einfach mit **TAB** zum nächsten Steuerelement in einem Dialogfeld, und das Meldungsfenster wird automatisch geschlossen. Die folgenden Befehle führen die normale Aktion durch und schließen den virtuellen Betrachter automatisch: **UMSCHALT+TAB** , **STRG+TAB** , **F1** , **JAWS TASTE+J** , **JAWS TASTE+F1+F1** , **STRG+ESCAPE** .
+Mit **ESCAPE** schließen Sie das Meldungsfenster, oder Sie springen einfach mit **TAB** zum nächsten Steuerelement in einem Dialogfeld, und das Meldungsfenster wird automatisch geschlossen. Die folgenden Befehle führen die normale Aktion durch und schließen den virtuellen Betrachter automatisch: **UMSCHALT+TAB**, **STRG+TAB**, **F1**, **JAWS TASTE+J**, **JAWS TASTE+F1+F1**, **STRG+ESCAPE**.
 
 Standardmäßig werden Meldungen auf dem Bildschirm im virtuellen Betrachter angezeigt. Diese Funktion ist gerade für sehende Lehrer und Schulungsleiter sehr hilfreich. Natürlich kann der virtuelle Betrachter auch abgeschaltet werden, so dass die Meldungen nur akustisch, aber nicht mehr visuell auf dem Bildschirm erscheinen. Sie können die Einstellungen zum virtuellen Betrachter über die Grundeinstellungen im Optionsmenü des JAWS Anwendungsfensters oder über die Benutzereinstellungen der Einstellungsverwaltung vornehmen.
 
 Möchten Sie den Virtuellen Betrachter nur in einigen bestimmten Anwendungen sichtbar haben, dann gehen Sie wie folgt vor:
 
-1. Öffnen Sie die Einstellungsverwaltung ( **EINFÜGEN+F2** ) und wählen Sie eine Anwendung in der Ausklappliste Anwendungen.
+1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**) und wählen Sie eine Anwendung in der Ausklappliste Anwendungen.
 2. Erweitern Sie die Gruppe Anwender.
 3. Aktivieren oder deaktivieren Sie das Kontrollfeld Virtuellen Betrachter am Bildschirm anzeigen, um die Anzeige des Virtuellen Betrachters ein- oder auszuschalten.
 
@@ -3260,47 +3274,47 @@ Das Meldungscenter ist Ihre Anlaufstelle für aktuelle Ankündigungen von Freedo
 Standardmäßig wird eine Benachrichtigung gesprochen und angezeigt, wenn neue Meldungen verfügbar sind. Dies ist eine Standard-Windows-Hintergrundbenachrichtigung, ähnlich wie bei anderen Anwendungen, z. B. Outlook. Um auf Ihre Meldungen zuzugreifen, gehen Sie bitte folgendermaßen vor:
 
 - Wählen Sie den Eintrag Meldungscenter im Hilfemenü. Dieser Menüeintrag zeigt auch die Anzahl der ungelesenen Meldungen.
-- Nutzen Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE** , gefolgt von **UMSCHALT+M** .
+- Nutzen Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **UMSCHALT+M**.
 - Verwenden Sie den Sprachassistenten. Zum Beispiel "Hey Sharky, öffne das Meldungscenter."
 
-Wenn das Meldungscenter geöffnet wird, befinden Sie sich in der Liste der Meldungen. Verwenden Sie **PFEIL RAUF** oder **PFEIL RUNTER** zum Bewegen in der Liste und drücken Sie auf einer Meldung **EINGABE** , um weitere Details zu sehen. Zum Beispiel Versionshinweise für ein Update, Schritt-für-Schritt-Anleitungen für einen Schulungstipp oder eine Übersicht über eine FSCast-Folge. Wenn die Details einer Meldung Links zu externen Inhalten enthalten, dann können Sie durch Drücken von **EINGABE** die Ressource in der entsprechenden Anwendung auf Ihrem Computer öffnen. So werden beispielsweise Links zu Webseiten in Ihrem Standard-Webbrowser geöffnet. Wenn Sie die Details einer Meldung durchgesehen haben, drücken Sie **ESC** , um zur Liste zurückzukehren.
+Wenn das Meldungscenter geöffnet wird, befinden Sie sich in der Liste der Meldungen. Verwenden Sie **PFEIL RAUF** oder **PFEIL RUNTER** zum Bewegen in der Liste und drücken Sie auf einer Meldung **EINGABE**, um weitere Details zu sehen. Zum Beispiel Versionshinweise für ein Update, Schritt-für-Schritt-Anleitungen für einen Schulungstipp oder eine Übersicht über eine FSCast-Folge. Wenn die Details einer Meldung Links zu externen Inhalten enthalten, dann können Sie durch Drücken von **EINGABE** die Ressource in der entsprechenden Anwendung auf Ihrem Computer öffnen. So werden beispielsweise Links zu Webseiten in Ihrem Standard-Webbrowser geöffnet. Wenn Sie die Details einer Meldung durchgesehen haben, drücken Sie **ESC**, um zur Liste zurückzukehren.
 
-Um die Liste zu filtern, damit nur bestimmte Meldungen angezeigt werden, drücken Sie **UMSCHALT+TAB** , um zum Eingabefeld **Suche** zu gelangen, schreiben Sie einen Suchbegriff und drücken Sie dann **TAB** , um zur Liste zurückzukehren, in der jetzt Ihre Suchergebnisse angezeigt werden. Wenn Sie zum Beispiel "Podcast" eingeben, werden nur Nachrichten angezeigt, die sich auf den Freedom Scientific FSCast Podcast beziehen.
+Um die Liste zu filtern, damit nur bestimmte Meldungen angezeigt werden, drücken Sie **UMSCHALT+TAB**, um zum Eingabefeld **Suche** zu gelangen, schreiben Sie einen Suchbegriff und drücken Sie dann **TAB**, um zur Liste zurückzukehren, in der jetzt Ihre Suchergebnisse angezeigt werden. Wenn Sie zum Beispiel "Podcast" eingeben, werden nur Nachrichten angezeigt, die sich auf den Freedom Scientific FSCast Podcast beziehen.
 
-Um Meldungen zu löschen, die Sie nicht mehr benötigen, navigieren Sie zu einer Meldung und drücken Sie die Taste **LÖSCHEN** . oder aktivieren Sie den Schalter **Löschen** .
+Um Meldungen zu löschen, die Sie nicht mehr benötigen, navigieren Sie zu einer Meldung und drücken Sie die Taste **LÖSCHEN**. oder aktivieren Sie den Schalter **Löschen**.
 
-Um die Benachrichtigungen des Meldungscenters zu konfigurieren und festzulegen, welche Arten von Meldungen in der Liste enthalten sein sollen, wählen Sie den Schalter **Einstellungen** . Dieses Dialogfenster enthält verschiedene Kontrollfelder. Deaktivieren Sie das Kontrollfeld **Benachrichtigungen über neue Meldungen erhalten** , wenn Sie keine automatischen Benachrichtigungen erhalten möchten, wenn neue Meldungen vorhanden sind. Die übrigen Kontrollfelder stehen für die verschiedenen Arten von Meldungen, die in die Liste aufgenommen werden. Aktivieren oder deaktivieren Sie die entsprechenden Optionen, je nachdem, welche Meldungen Sie erhalten möchten. Alle Meldungsarten sind standardmäßig aktiviert. Sobald Sie Ihre Auswahl getroffen haben, drücken Sie **OK** , um das Dialogfenster zu schließen.
+Um die Benachrichtigungen des Meldungscenters zu konfigurieren und festzulegen, welche Arten von Meldungen in der Liste enthalten sein sollen, wählen Sie den Schalter **Einstellungen**. Dieses Dialogfenster enthält verschiedene Kontrollfelder. Deaktivieren Sie das Kontrollfeld **Benachrichtigungen über neue Meldungen erhalten**, wenn Sie keine automatischen Benachrichtigungen erhalten möchten, wenn neue Meldungen vorhanden sind. Die übrigen Kontrollfelder stehen für die verschiedenen Arten von Meldungen, die in die Liste aufgenommen werden. Aktivieren oder deaktivieren Sie die entsprechenden Optionen, je nachdem, welche Meldungen Sie erhalten möchten. Alle Meldungsarten sind standardmäßig aktiviert. Sobald Sie Ihre Auswahl getroffen haben, drücken Sie **OK**, um das Dialogfenster zu schließen.
 
-Um das Meldungscenter vollständig zu schließen, drücken Sie **ESC** oder aktivieren Sie den Schalter **Schließen** .
+Um das Meldungscenter vollständig zu schließen, drücken Sie **ESC** oder aktivieren Sie den Schalter **Schließen**.
 
 Quelle: Message_Center.htm
 
 ## Den Bildschirm und Dokumente lesen
 
-Viele Sprachausgabefunktionen in JAWS werden mit Hilfe des Nummernblocks ( **NUM PAD** ) auf der rechten Seite der Tastatur ausgelöst. Normalerweise benutzt man **NUM PAD** zur Eingabe von Ziffern, so dass Sie die Nummernfunktion ausschalten müssen. Sie schalten diese Funktion aus, indem Sie die **NUM LOCK** Taste in der oberen linken Ecke des **Nummernblocks** drücken.
+Viele Sprachausgabefunktionen in JAWS werden mit Hilfe des Nummernblocks (**NUM PAD**) auf der rechten Seite der Tastatur ausgelöst. Normalerweise benutzt man **NUM PAD** zur Eingabe von Ziffern, so dass Sie die Nummernfunktion ausschalten müssen. Sie schalten diese Funktion aus, indem Sie die **NUM LOCK** Taste in der oberen linken Ecke des **Nummernblocks** drücken.
 
-Normalerweise verwendet JAWS die **EINFÜGE** Taste in der unteren linken Ecke des Nummernblocks ( **NUM PAD** ) in Kombination mit den anderen Tasten dieses Blocks, um die JAWS Sprachausgabe zu steuern. Da man auch einer anderen Taste diese Funktion zuweisen kann, sprechen wir in der JAWS Hilfe immer von der JAWS TASTE. Wenn ein Befehl mit einer Taste des Nummernblocks ausgeführt werden muss, enthält die Bezeichnung dieses Befehls immer das Wort NUM.
+Normalerweise verwendet JAWS die **EINFÜGE** Taste in der unteren linken Ecke des Nummernblocks (**NUM PAD**) in Kombination mit den anderen Tasten dieses Blocks, um die JAWS Sprachausgabe zu steuern. Da man auch einer anderen Taste diese Funktion zuweisen kann, sprechen wir in der JAWS Hilfe immer von der JAWS TASTE. Wenn ein Befehl mit einer Taste des Nummernblocks ausgeführt werden muss, enthält die Bezeichnung dieses Befehls immer das Wort NUM.
 
-Damit JAWS mit dem Lesen des Bildschirminhalts beginnt, drücken Sie **JAWS TASTE+PFEIL RUNTER** . Dies ist der **Alles Lesen** Befehl. Sie können während Alles lesen **PFEIL LINKS** oder **RECHTS** drücken, um im Text zurück oder vorwärts zu springen. Mit **SEITE RAUF** oder **RUNTER** kann man die Sprechgeschwindigkeit erhöhen oder verringern. Um die Sprachausgabe zu unterbrechen, drücken Sie die **STRG** Taste. Um kleine Leseanpassungen vorzunehmen, lesen Sie [Das Dialogfeld Alles Lesen Optionen](SettingsCenter.chm::/SayAll/say_all_options.htm) .
+Damit JAWS mit dem Lesen des Bildschirminhalts beginnt, drücken Sie **JAWS TASTE+PFEIL RUNTER**. Dies ist der **Alles Lesen** Befehl. Sie können während Alles lesen **PFEIL LINKS** oder **RECHTS** drücken, um im Text zurück oder vorwärts zu springen. Mit **SEITE RAUF** oder **RUNTER** kann man die Sprechgeschwindigkeit erhöhen oder verringern. Um die Sprachausgabe zu unterbrechen, drücken Sie die **STRG** Taste. Um kleine Leseanpassungen vorzunehmen, lesen Sie [Das Dialogfeld Alles Lesen Optionen](SettingsCenter.chm::/SayAll/say_all_options.htm).
 
-Nachstehend finden Sie zusätzliche Lese-Kurztasten, die über den **NUMMERNBLOCK** erreichbar sind. Für weitere Lesefunktionen, lesen Sie [Erweitertes Lesen von Bildschirm und Dokumenten](Advanced_Reading_of_Screens_and_Documents.htm) .
+Nachstehend finden Sie zusätzliche Lese-Kurztasten, die über den **NUMMERNBLOCK** erreichbar sind. Für weitere Lesefunktionen, lesen Sie [Erweitertes Lesen von Bildschirm und Dokumenten](Advanced_Reading_of_Screens_and_Documents.htm).
 
-- **NUM 5** : Zeichen lesen.
-- **JAWS Taste+NUM 5** : Wort lesen.
-- **JAWS TASTE+NUM 5 zweimal** : Wort buchstabieren.
-- **JAWS TASTE+PFEIL LINKS** : Vorheriges Wort lesen.
-- **JAWS TASTE+PFEIL RECHTS** : Nächstes Wort lesen.
-- **JAWS TASTE+PFEIL RAUF** : Zeile lesen.
-- **JAWS TASTE+POS1 (NUM 7)** : Zeile links vom Cursor lesen.
-- **JAWS TASTE+SEITE RAUF (NUM 9)** : Zeile rechts vom Cursor lesen.
-- **JAWS TASTE+SEITE RUNTER (NUM 3)** : Unterste Zeile des Fensters lesen.
-- **JAWS TASTE+ENDE (NUM 1)** : Oberste Zeile des Fensters lesen.
+- **NUM 5**: Zeichen lesen.
+- **JAWS Taste+NUM 5**: Wort lesen.
+- **JAWS TASTE+NUM 5 zweimal**: Wort buchstabieren.
+- **JAWS TASTE+PFEIL LINKS**: Vorheriges Wort lesen.
+- **JAWS TASTE+PFEIL RECHTS**: Nächstes Wort lesen.
+- **JAWS TASTE+PFEIL RAUF**: Zeile lesen.
+- **JAWS TASTE+POS1 (NUM 7)**: Zeile links vom Cursor lesen.
+- **JAWS TASTE+SEITE RAUF (NUM 9)**: Zeile rechts vom Cursor lesen.
+- **JAWS TASTE+SEITE RUNTER (NUM 3)**: Unterste Zeile des Fensters lesen.
+- **JAWS TASTE+ENDE (NUM 1)**: Oberste Zeile des Fensters lesen.
 
 ## Bildschirm Blickschutz für mehr Privatsphäre
 
 Für mehr Privatsphäre können Sie den JAWS Bildschirm Blickschutz verwenden, und so verhindern, dass fremde Personen sehen können, was Sie auf dem Bildschirm schreiben oder lesen, indem Sie den Bildschirm vollständig einschwärzen. Diese Funktion steht in Windows 10 und Windows 8 zur Verfügung.
 
-Um den Bildschirm Blickschutz einzuschalten, drücken Sie den verschachtelten Befehl **EINFÜGEN+LEERTASTE** gefolgt von der Taste **F11** , oder tippen Sie mit drei Fingern dreimal auf Ihren Touchscreen-Bildschirm. Alternativ können Sie den Bildschirm Blickschutz auch über die Schnelleinstellung ( **EINFÜGEN+V** ) umschalten. Sobald der Blickschutz aktiviert ist, können die Inhalte über Ihren Bildschirm nicht mehr eingesehen werden. Der Bildschirm Blickschutz bleibt so lange aktiv, bis Sie diesen ausschalten oder bis JAWS neu gestartet wird. Der Bildschirm Blickschutz kann auch ausgeschaltet werden, indem Sie einen rechten Mausklick ausführen.
+Um den Bildschirm Blickschutz einzuschalten, drücken Sie den verschachtelten Befehl **EINFÜGEN+LEERTASTE** gefolgt von der Taste **F11**, oder tippen Sie mit drei Fingern dreimal auf Ihren Touchscreen-Bildschirm. Alternativ können Sie den Bildschirm Blickschutz auch über die Schnelleinstellung (**EINFÜGEN+V**) umschalten. Sobald der Blickschutz aktiviert ist, können die Inhalte über Ihren Bildschirm nicht mehr eingesehen werden. Der Bildschirm Blickschutz bleibt so lange aktiv, bis Sie diesen ausschalten oder bis JAWS neu gestartet wird. Der Bildschirm Blickschutz kann auch ausgeschaltet werden, indem Sie einen rechten Mausklick ausführen.
 
 **Hinweis:** Der Bildschirm Blickschutz ist ausschließlich eine Funktion für mehr Privatsphäre und erhöht nicht die Akkulaufzeit Ihres Laptops oder Tablets.
 
@@ -3314,7 +3328,7 @@ Optisch erscheint auf dem Bildschirm des Clientcomputers die grafische Wiedergab
 
 Die Funktion Remotezugriff steht für JAWS Professional und JAWS Home Lizenzen zur Verfügung, die den Internet Lizenz Manager (ILM) oder einen Dongle zur Autorisierung einsetzen. Der Remotezugriff muss separat erworben werden. Setzen Sie sich für weitere Informationen mit Ihrem JAWS Händler in Verbindung.
 
-Besuchen Sie die [Freedom Scientific Webseite](https://support.freedomscientific.com/Products/Blindness/JawsDocumentation) , für genauere Anleitungen zum Einstellen und Autorisieren Ihrer Software, um in Remote-Zugriff-Umgebungen zu arbeiten.
+Besuchen Sie die [Freedom Scientific Webseite](https://support.freedomscientific.com/Products/Blindness/JawsDocumentation), für genauere Anleitungen zum Einstellen und Autorisieren Ihrer Software, um in Remote-Zugriff-Umgebungen zu arbeiten.
 
 Quelle: Remote_Access.htm
 
@@ -3324,11 +3338,11 @@ Der Textbetrachter ist ein Lesewerkzeug, welches eine fortlaufende Textzeile am 
 
 Der Textbetrachter besteht aus einem Fenster, welches Sie am oberen oder unteren Bildschirmrand positionieren können. Wenn JAWS liest, oder wenn Sie schreiben, dann wird der selbe Text im Textbetrachter angezeigt. Dies bietet einen festen Bereich, an dem Sie den Text verfolgen können, anstatt den gesprochenen Text, der in anderen Bereichen des Bildschirms angezeigt wird, in den unterschiedlichsten Bereichen visuell verfolgen müssen. Dies ist besonders hilfreich, wenn Sie den Befehl Alles Lesen verwenden. Darüberhinaus können Sie bestimmte Schriftarten und Farben verwenden, die Ihren Anforderungen besser entsprechen, um Wörter und Symbole einfacher zu sehen, die sonst nur schwer zu lesen sind. Bei Verwendung in Fusion macht der Textbetrachter das Anpassen der Vergrößerungsstufe des Bildschirms überflüssig, wenn versucht wird, dem zu folgen, was Fusion liest.
 
-Um den Textbetrachter zu aktivieren, gehen Sie in das Menü Hilfsprogramm im JAWS Programmfenster, öffnen Sie das Untermenü Braille- und Textbetrachter und wählen Sie dann den Eintrag Textbetrachter am Bildschirm anzeigen. Sie können auch die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE** , gefolgt von **B** und dann **T** drücken, um den Textbetrachter zwischen Ein oder Aus umzuschalten. Beginnen Sie nach dem Aktivieren mit dem Lesen Ihres Dokuments, einer Webseiter oder der aktuell geöffnete Anwendung, indem Sie die JAWS oder Fusion Lesebefehle oder das Mausecho verwenden. Sobald JAWS oder Fusion lesen, wird der aktuell auf dem Bildschirm gelesene Text gleichzeitig im Fenster des Textbetrachters angezeigt und hervorgehoben.
+Um den Textbetrachter zu aktivieren, gehen Sie in das Menü Hilfsprogramm im JAWS Programmfenster, öffnen Sie das Untermenü Braille- und Textbetrachter und wählen Sie dann den Eintrag Textbetrachter am Bildschirm anzeigen. Sie können auch die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **B** und dann **T** drücken, um den Textbetrachter zwischen Ein oder Aus umzuschalten. Beginnen Sie nach dem Aktivieren mit dem Lesen Ihres Dokuments, einer Webseiter oder der aktuell geöffnete Anwendung, indem Sie die JAWS oder Fusion Lesebefehle oder das Mausecho verwenden. Sobald JAWS oder Fusion lesen, wird der aktuell auf dem Bildschirm gelesene Text gleichzeitig im Fenster des Textbetrachters angezeigt und hervorgehoben.
 
 Standardmäßig wird das Fenster des Textbetrachters am oberen Rand des Bildschirms angezeigt und ändert dabei die Größe Ihres Anwendungsfenster, um zu vermeiden, dass etwas verdeckt wird, am dem man gerade arbeitet. Wird der Textbetrachter geschlossen, dann werden die anderen Fenster wieder auf Vollbild geschaltet. Sie können festlegen, ob das Fenster am unteren Rand des Bildschirms angezeigt werden soll und Sie können auch die Schriftart, die Schriftgröße und die Vorder- und Hintergrundfarbe des angezeigten Textes anpassen.
 
-Die verfolgende Hervorhebung des Textes im Fenster kann auf Automatisch Nachführen oder auf Zentriert gesetzt werden. Wenn Automatisches Nachführen eingestellt ist, dann bewegt sich die Hervorhebung beim Lesen von Text innerhalb des Fensters, wenn Sie beispielsweise die Befehle Alles Lesen ( **EINFÜGEN+PFEIL RUNTER** ) oder Zeile lesen ( **EINFÜGEN+PFEIL RAUF** ) verwenden. Wenn Zentriert eingestellt ist, dann verbleibt die Hervorhebung in der Mitte, während der Text sich innerhalb des Fensters verschiebt.
+Die verfolgende Hervorhebung des Textes im Fenster kann auf Automatisch Nachführen oder auf Zentriert gesetzt werden. Wenn Automatisches Nachführen eingestellt ist, dann bewegt sich die Hervorhebung beim Lesen von Text innerhalb des Fensters, wenn Sie beispielsweise die Befehle Alles Lesen (**EINFÜGEN+PFEIL RUNTER**) oder Zeile lesen (**EINFÜGEN+PFEIL RAUF**) verwenden. Wenn Zentriert eingestellt ist, dann verbleibt die Hervorhebung in der Mitte, während der Text sich innerhalb des Fensters verschiebt.
 
 Um die Einstellungen des Textbetrachters zu konfigurieren, navigieren Sie in das Menü Hilfsprogramm im JAWS Programmfenster, öffnen Sie das Untermenü Braille- und Textbetrachter und wählen Sie dann den Eintrag Einstellungen.
 
@@ -3336,7 +3350,7 @@ Um die Einstellungen des Textbetrachters zu konfigurieren, navigieren Sie in das
 
 ## Textbetrachter Befehle
 
-Drücken Sie **EINFÜGEN+LEERTASTE** , gefolgt von **B** , um die Ebene für den Braille- und Textbetrachter zu aktivieren. Nachdem Sie diese Ebene aktiviert haben, stehen folgende Befehle zur Verfügung:
+Drücken Sie **EINFÜGEN+LEERTASTE**, gefolgt von **B**, um die Ebene für den Braille- und Textbetrachter zu aktivieren. Nachdem Sie diese Ebene aktiviert haben, stehen folgende Befehle zur Verfügung:
 
 - Textbetrachter ein- oder ausblenden **T**
 - Ausschnitt nach links: **STRG+PFEIL LINKS**
@@ -3373,11 +3387,11 @@ Tabelle: A table with the JAWS utility in the first column and a description of 
 
 *Siehe auch:*
 
-[Die JAWS Hilfe anwenden](Getting_Help/using_jaws_help.htm) .
+[Die JAWS Hilfe anwenden](Getting_Help/using_jaws_help.htm).
 
-[HJPad](../popapps.chm::/miscellaneous/hjpad/hj_pad.htm) .
+[HJPad](../popapps.chm::/miscellaneous/hjpad/hj_pad.htm).
 
-[Sprachausgaben- und Braillezeilen-Manager](../customizing_jaws_for_windows/Synth_Braille_Manager/Synthesizer_and_Braille_Manager.htm) .
+[Sprachausgaben- und Braillezeilen-Manager](../customizing_jaws_for_windows/Synth_Braille_Manager/Synthesizer_and_Braille_Manager.htm).
 
 Quelle: The_JAWS_Program_Group.htm
 
@@ -3451,19 +3465,19 @@ Der Textlesemodus ermöglicht, dass Sie mit Gesten durch den Text navigieren kö
 
 Wenn Sie sich von einem Textelement zu einem anderen Element bewegen, welches das Textlesen nicht unterstützt, dann wechselt JAWS automatisch zurück auf die Touch Navigation.
 
-Um zum nächsten oder vorherigen Zeichen zu gelangen, führen Sie Streicher Rechts oder Streicher Links aus. Dieses ist gleichbedeutend dem Drücken der Tasten **PFEIL LINKS** oder **PFEIL RECHTS** .
+Um zum nächsten oder vorherigen Zeichen zu gelangen, führen Sie Streicher Rechts oder Streicher Links aus. Dieses ist gleichbedeutend dem Drücken der Tasten **PFEIL LINKS** oder **PFEIL RECHTS**.
 
-Um zum nächsten oder vorherigen Wort zu gelangen, führen Sie Zwei-Finger Streicher Rechts oder Zwei-Finger Streicher Links aus. Dieses ist gleichbedeutend dem Drücken der Tasten **STRG+PFEIL LINKS** oder **STRG+PFEIL RECHTS** .
+Um zum nächsten oder vorherigen Wort zu gelangen, führen Sie Zwei-Finger Streicher Rechts oder Zwei-Finger Streicher Links aus. Dieses ist gleichbedeutend dem Drücken der Tasten **STRG+PFEIL LINKS** oder **STRG+PFEIL RECHTS**.
 
-Um zur nächsten oder vorherigen Zeile zu gelangen, führen Sie Streicher Runter oder Streicher Rauf aus. Dieses ist gleichbedeutend dem Drücken der Tasten **PFEIL RUNTER** oder **PFEIL RAUF** .
+Um zur nächsten oder vorherigen Zeile zu gelangen, führen Sie Streicher Runter oder Streicher Rauf aus. Dieses ist gleichbedeutend dem Drücken der Tasten **PFEIL RUNTER** oder **PFEIL RAUF**.
 
-Um zum nächsten oder vorherigen Absatz zu gelangen, führen Sie Zwei-Finger Streicher Runter oder Zwei-Finger Streicher Rauf aus. Dieses ist gleichbedeutend dem Drücken der Tasten **STRG+PFEIL RUNTER** oder **STRG+PFEIL RAUF** .
+Um zum nächsten oder vorherigen Absatz zu gelangen, führen Sie Zwei-Finger Streicher Runter oder Zwei-Finger Streicher Rauf aus. Dieses ist gleichbedeutend dem Drücken der Tasten **STRG+PFEIL RUNTER** oder **STRG+PFEIL RAUF**.
 
-Um zur nächsten oder vorherigen Bildschirmseite zu gelangen, führen Sie, in Abhängigkeit von der Anwendung, einen Vier-Finger Streicher Runter oder Rauf aus. Dieses ist gleichbedeutend dem Drücken der Tasten **SEITE RUNTER** oder **SEITE RAUF** .
+Um zur nächsten oder vorherigen Bildschirmseite zu gelangen, führen Sie, in Abhängigkeit von der Anwendung, einen Vier-Finger Streicher Runter oder Rauf aus. Dieses ist gleichbedeutend dem Drücken der Tasten **SEITE RUNTER** oder **SEITE RAUF**.
 
-Um an den Anfang oder das Ende der aktuellen Zeile zu gelangen, führen Sie einen Drei-Finger Streicher Links oder Rechts durch. Dieses ist gleichbedeutend dem Drücken der Tasten **POS1** oder **ENDE** .
+Um an den Anfang oder das Ende der aktuellen Zeile zu gelangen, führen Sie einen Drei-Finger Streicher Links oder Rechts durch. Dieses ist gleichbedeutend dem Drücken der Tasten **POS1** oder **ENDE**.
 
-Um an den Anfang oder das Ende de Textes zu gelangen, führen Sie einen Drei-Finger Streicher Rauf oder Runter durch. Dieses ist gleichbedeutend dem Drücken der Tasten **STRG+POS1** oder **STRG+ENDE** .
+Um an den Anfang oder das Ende de Textes zu gelangen, führen Sie einen Drei-Finger Streicher Rauf oder Runter durch. Dieses ist gleichbedeutend dem Drücken der Tasten **STRG+POS1** oder **STRG+ENDE**.
 
 Um den Alles Lesen Vorgang zu starten, führen Sie einen Vier-Finger-Wischer Runter aus. Dieses entspricht dem Drücken von **EINFÜGEN+PFEIL RUNTER** und startet den Lesevorgang an der aktuellen Position im Dokument. Ein Tippen irgendwo auf dem Bildschirm unterbricht das Lesen so, als hätten Sie die Taste **STRG** gedrückt.
 
@@ -3499,10 +3513,10 @@ Um die Bildschirmtastatur zu deaktivieren, führen Sie einen erneuten Vierfinger
 
 Beim Eingeben stehen zwei Modi zur Verfügung:
 
-- **Bildschirmtastatur** : Ein Buchstabe wird geschrieben, wenn der Finger von einer Taste angehoben wird, oder ein Geteilter-Tipp auf dem ausgewählten Tastenschalter ausgeführt wird. Wenn für den aktuellen Tastenschalter alternative Zeichen zur Verfügung stehen, dann öffnet ein doppelter Geteilter-Tipp einen Bereich mit den alternativen Tasten, die sich auf den ausgewählten Buchstaben beziehen. Das Ausführen eines doppelten Geteilten-Tipps auf irgendeinem Tastenschalter im Bereich der alternativen Buchstaben schließt den Bereich.
-- **Standardtastatur** : Eine Taste wird geschrieben, wenn ein Doppeltipp oder Geteilter-Tipp auf dem Bildschirm ausgeführt wird, nachdem Sie sich zu einem Tastenschalter navigiert haben. Wenn für den aktuellen Tastenschalter alternative Zeichen zur Verfügung stehen, dann öffnet ein Dreifach-Tipp einen Bereich mit den alternativen Tasten, die sich auf den ausgewählten Buchstaben beziehen. Das Ausführen eines Dreifach-Tipps auf irgendeinem Tastenschalter im Bereich der alternativen Buchstaben schließt den Bereich.
+- **Bildschirmtastatur**: Ein Buchstabe wird geschrieben, wenn der Finger von einer Taste angehoben wird, oder ein Geteilter-Tipp auf dem ausgewählten Tastenschalter ausgeführt wird. Wenn für den aktuellen Tastenschalter alternative Zeichen zur Verfügung stehen, dann öffnet ein doppelter Geteilter-Tipp einen Bereich mit den alternativen Tasten, die sich auf den ausgewählten Buchstaben beziehen. Das Ausführen eines doppelten Geteilten-Tipps auf irgendeinem Tastenschalter im Bereich der alternativen Buchstaben schließt den Bereich.
+- **Standardtastatur**: Eine Taste wird geschrieben, wenn ein Doppeltipp oder Geteilter-Tipp auf dem Bildschirm ausgeführt wird, nachdem Sie sich zu einem Tastenschalter navigiert haben. Wenn für den aktuellen Tastenschalter alternative Zeichen zur Verfügung stehen, dann öffnet ein Dreifach-Tipp einen Bereich mit den alternativen Tasten, die sich auf den ausgewählten Buchstaben beziehen. Das Ausführen eines Dreifach-Tipps auf irgendeinem Tastenschalter im Bereich der alternativen Buchstaben schließt den Bereich.
 
-Standardmäßig nutzt JAWS Touch Schreiben, was bedeutet, dass eine Taste geschrieben wird, sobald der Finger vom Tastaturschalter angehoben wird oder wenn Sie einen geteilten Tipp ausführen. Um den Schreibmodus zu ändern, öffnen Sie die Einstellungsverwaltung und navigieren Sie zur Einstellung Touch Eingabemodus. Nutzen Sie die **LEERTASTE** , um zwischen Standardtastatur und Bildschirmtastatur umzuschalten.
+Standardmäßig nutzt JAWS Touch Schreiben, was bedeutet, dass eine Taste geschrieben wird, sobald der Finger vom Tastaturschalter angehoben wird oder wenn Sie einen geteilten Tipp ausführen. Um den Schreibmodus zu ändern, öffnen Sie die Einstellungsverwaltung und navigieren Sie zur Einstellung Touch Eingabemodus. Nutzen Sie die **LEERTASTE**, um zwischen Standardtastatur und Bildschirmtastatur umzuschalten.
 
 **Hinweis:** Um die Hinweise auf das Öffnen oder Schließen des Bereichs mit den alternativen Zeichen von JAWS zu ändern, öffnen Sie die Einstellungsverwaltung und navigieren Sie zur Einstellung Touch Popup-Hinweis auf Sonderzeicheneingabe. Mit der **LEERTASTE** bewegen Sie sich durch die Optionen.
 
@@ -3578,7 +3592,7 @@ Die Zwischenablage ist eine Windows Funktion, mit der Sie Elemente an einem best
 
 Der Befehl Ausschneiden ähnelt dem Befehl Kopieren. Allerdings werden die Objekte, die Sie ausschneiden, gelöscht und dann in die Zwischenablage kopiert. Der Befehl **STRG+X** löscht in jedem Programm die markierten Objekte und kopiert diese dann in die Zwischenablage.
 
-Bevor Sie kopieren oder ausschneiden, müssen Sie zuerst die gewünschten Elemente markieren. Der Vorgang des Markierens kann von Programm zu Programm unterschiedlich sein. Informationen über das Markieren von Dateien im Windows Explorer finden Sie unter [Den Windows Explorer verwenden](tutorial.chm::/windows_with_jfw_basics/using_windows_explorer.htm) . Text markiert man mit folgenden Windows Befehlen:
+Bevor Sie kopieren oder ausschneiden, müssen Sie zuerst die gewünschten Elemente markieren. Der Vorgang des Markierens kann von Programm zu Programm unterschiedlich sein. Informationen über das Markieren von Dateien im Windows Explorer finden Sie unter [Den Windows Explorer verwenden](tutorial.chm::/windows_with_jfw_basics/using_windows_explorer.htm). Text markiert man mit folgenden Windows Befehlen:
 
 - Das nächste Zeichen links vom Cursor markieren – **UMSCHALT+PFEIL LINKS**
 - Das nächste Zeichen rechts vom Cursor markieren – **UMSCHALT+PFEIL RECHTS**
@@ -3590,11 +3604,11 @@ Bevor Sie kopieren oder ausschneiden, müssen Sie zuerst die gewünschten Elemen
 - Den gesamten Text zwischen dem Cursor und dem Dokumentende markieren – **STRG+UMSCHALT+ENDE**
 - Den gesamten Text im aktuellen Dokument markieren – **STRG+A**
 
-Beim Lesen von Webseiten und PDF Dokumenten, oder beim Arbeiten mit Dokumenten in Textverarbeitungsprogrammen wie Word, Notepad oder Wordpad, können Sie schnell große Textblöcke auswählen. Drücken Sie **STRG+WINDOWS Taste+K** , um den Beginn der Auswahl zu markieren, navigieren Sie, bis Sie das Ende des Textes erreichen, den Sie markieren möchten und drücken Sie dann **EINFÜGEN+LEERTASTE** , gefolgt von **M** . Dieses funktioniert in gleicher Weise, als würden Sie mit der Maus klicken und die Maus dann über den Text ziehen.
+Beim Lesen von Webseiten und PDF Dokumenten, oder beim Arbeiten mit Dokumenten in Textverarbeitungsprogrammen wie Word, Notepad oder Wordpad, können Sie schnell große Textblöcke auswählen. Drücken Sie **STRG+WINDOWS Taste+K**, um den Beginn der Auswahl zu markieren, navigieren Sie, bis Sie das Ende des Textes erreichen, den Sie markieren möchten und drücken Sie dann **EINFÜGEN+LEERTASTE**, gefolgt von **M**. Dieses funktioniert in gleicher Weise, als würden Sie mit der Maus klicken und die Maus dann über den Text ziehen.
 
-Nachdem Sie den gewünschten Text markiert haben, drücken Sie zum Kopieren **STRG+C** und zum Ausschneiden **STRG+X** , so dass dieser Text in der Zwischenablage abgelegt wird.
+Nachdem Sie den gewünschten Text markiert haben, drücken Sie zum Kopieren **STRG+C** und zum Ausschneiden **STRG+X**, so dass dieser Text in der Zwischenablage abgelegt wird.
 
-**Hinweis:** Den Inhalt der Zwischenablage lesen Sie mit **WINDOWSTASTE+JAWS TASTE+X** .
+**Hinweis:**Den Inhalt der Zwischenablage lesen Sie mit **WINDOWSTASTE+JAWS TASTE+X**.
 
 ## Elemente einfügen
 
@@ -3602,21 +3616,21 @@ Alle Elemente aus der Zwischenablage lassen sich auch wieder in ein Dokument, ei
 
 ## FSClipboard verwenden
 
-FSClipboard erweitert die Funktionalität der Windows Zwischenablage. Wenn Sie die Windows Befehle Kopieren ( **STRG+C** ) oder Ausschneiden ( **STRG+X** ) zum Verschieben von Text in die Zwischenablage verwenden, dann wird bereits dort befindlicher Text überschrieben. Mit der Funktion FSClipboard wird Text, den Sie kopiert haben, an eventuell vorher kopierten Text angehängt. Dadurch können Sie so lange Text in die Zwischenablage verschieben, bis Sie den gesamten Text in ein Dokument einfügen möchten. Man kann nur Text mit FSClipboard kopieren.
+FSClipboard erweitert die Funktionalität der Windows Zwischenablage. Wenn Sie die Windows Befehle Kopieren (**STRG+C**) oder Ausschneiden (**STRG+X**) zum Verschieben von Text in die Zwischenablage verwenden, dann wird bereits dort befindlicher Text überschrieben. Mit der Funktion FSClipboard wird Text, den Sie kopiert haben, an eventuell vorher kopierten Text angehängt. Dadurch können Sie so lange Text in die Zwischenablage verschieben, bis Sie den gesamten Text in ein Dokument einfügen möchten. Man kann nur Text mit FSClipboard kopieren.
 
-Um Text der Zwischenablage hinzuzufügen, müssen Sie zuerst den Text mit den entsprechenden Befehlen markieren, und dann **EINFÜGEN+WINDOWSTASTE+C** drücken. Der so kopierte Text wird an das Ende von bereits vorhandenem Text in der Zwischenablage angehängt. Um den gesamten Text der Zwischenablage einzufügen, verwenden Sie den Windows Befehl **STRG+V** . Der Text wird in Ihr Dokument an der aktuellen Position des Cursors eingefügt. Jeder Textblock, den Sie vorher kopiert haben, ist durch eine Leerzeile getrennt.
+Um Text der Zwischenablage hinzuzufügen, müssen Sie zuerst den Text mit den entsprechenden Befehlen markieren, und dann **EINFÜGEN+WINDOWSTASTE+C** drücken. Der so kopierte Text wird an das Ende von bereits vorhandenem Text in der Zwischenablage angehängt. Um den gesamten Text der Zwischenablage einzufügen, verwenden Sie den Windows Befehl **STRG+V**. Der Text wird in Ihr Dokument an der aktuellen Position des Cursors eingefügt. Jeder Textblock, den Sie vorher kopiert haben, ist durch eine Leerzeile getrennt.
 
 **Hinweis:** Sollten Sie versuchen, die gleiche Textauswahl mehr als einmal in die Zwischenablage zu verschieben, dann wird der Text nicht angehängt. Dies soll eine ungewollte Verdoppelung verhindern.
 
 Text, den Sie mit FSClipboard kopieren, verliert seine Formatierung. Das kann in Programmen wie Microsoft Word sinnvoll sein, wenn keine Formatvorlagen, Nummerierungen und andere Formatierungsinformationen beim Kopieren in ein Dokument übernommen werden sollen.
 
-Wenn Sie den gesamten Text der Zwischenablage durch eine neue Textauswahl ersetzen möchten, dann drücken Sie **STRG+C** oder **STRG+X** und nicht **WINDOWSTASTE+C** . JAWS fragt, ob Sie die vorher gespeicherten Objekte überschreiben möchten. Wählen Sie Ja, wenn Sie den gesamten Text in der Zwischenablage durch die neue Auswahl ersetzen möchten.
+Wenn Sie den gesamten Text der Zwischenablage durch eine neue Textauswahl ersetzen möchten, dann drücken Sie **STRG+C** oder **STRG+X** und nicht **WINDOWSTASTE+C**. JAWS fragt, ob Sie die vorher gespeicherten Objekte überschreiben möchten. Wählen Sie Ja, wenn Sie den gesamten Text in der Zwischenablage durch die neue Auswahl ersetzen möchten.
 
 ## Inhalte der Zwischenablage ansehen
 
 Wurde Text in die Zwischenablage kopiert, dann können Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE, C** drücken, um die Inhalte der Zwischenablage im Ergebnisbetrachter anzuzeigen. Der Titel des Fensters des Ergebnisbetrachters, welches die Zwischenablageinhalte enthält, wird Zwischenablagetext genannt.
 
-Zum Beispiel könnten Sie **STRG+C** zum Kopieren von Text in die Zwischenablage verwenden, dann **EINFÜGEN+WINDOWS TASTE+C** verwenden, um Text zur Zwischenablage von anderen Quellen hinzuzufügen. Nachdem Sie den ganzen gewünschten Text hinzugefügt haben, drücken Sie **EINFÜGEN+LEERTASTE** gefolgt von **C** , um die Inhalte der Zwischenablage im Ergebnisbetrachter anzuzeigen. Zu diesem Zeitpunkt können Sie jede Textpassage im Fenster des Ergebnisbetrachters auswählen und diese in die Zwischenablage kopieren. Sobald Sie dieses tun, wird die Zwischenablage überschrieben und Text, der vorher kopiert wurde, ist nicht länger in der Zwischenablage vorhanden. Wie auch immer, der Text steht weiterhin im Ergebnisbetrachter zur Verfügung, und zwar so lange, wie dieses Fenster geöffnet bleibt. Das bedeutet, dass Sie jeglichen Text wiederholt in die Zwischenablage kopieren können und diesen wo immer Sie wollen, einfügen können.
+Zum Beispiel könnten Sie **STRG+C** zum Kopieren von Text in die Zwischenablage verwenden, dann **EINFÜGEN+WINDOWS TASTE+C** verwenden, um Text zur Zwischenablage von anderen Quellen hinzuzufügen. Nachdem Sie den ganzen gewünschten Text hinzugefügt haben, drücken Sie **EINFÜGEN+LEERTASTE** gefolgt von **C**, um die Inhalte der Zwischenablage im Ergebnisbetrachter anzuzeigen. Zu diesem Zeitpunkt können Sie jede Textpassage im Fenster des Ergebnisbetrachters auswählen und diese in die Zwischenablage kopieren. Sobald Sie dieses tun, wird die Zwischenablage überschrieben und Text, der vorher kopiert wurde, ist nicht länger in der Zwischenablage vorhanden. Wie auch immer, der Text steht weiterhin im Ergebnisbetrachter zur Verfügung, und zwar so lange, wie dieses Fenster geöffnet bleibt. Das bedeutet, dass Sie jeglichen Text wiederholt in die Zwischenablage kopieren können und diesen wo immer Sie wollen, einfügen können.
 
 Sie können auch **STRG+C** zum Kopieren von großen Textblöcken in die Zwischenablage verwenden, **EINFÜGEN+LEERTASTE, C** drücken, um den Text im Ergebnisbetrachter anzuzeigen, um dann kleinere Textblöcke auszuwählen und zu kopieren, um diesen an verschiedenen Stellen einzufügen.
 
@@ -3639,7 +3653,7 @@ Der Sprachassistent akzeptiert Sprachbefehle zum Ausführungen von JAWS und Fusi
 **Hinweis:** Da alle Sprachbefehle im Internet über Microsoft Services in der Cloud verarbeitet werden, wird es eine kurze Verzögerung in Abhängigkeit Ihrer Internetverbindung geben.
 
 1. Um das Mithören nach einem bestimmten Befehl zu starten, gehen Sie wie folgt vor:
-2. Wenn der Sprachassistent anfängt auf einen Sprachbefehl zu hören, dann wird ein kurzer Hinweiston abgespielt und ein visueller Hinweis wird auf dem Monitor eingeblendet. Sie können jetzt den Befehle ansagen. Nach dem Hören eines Sprachbefehls wird ein weiterer Hinweiston abgespielt und eine visuelle Anzeige eingeblendet bis der Befehl verarbeitet wird. Für eine Liste der unterstützten und vorgeschlagenen Sprachbefehle, lesen Sie bitte das Kapitel [Sprachbefehle](#VoiceCommands) .
+2. Wenn der Sprachassistent anfängt auf einen Sprachbefehl zu hören, dann wird ein kurzer Hinweiston abgespielt und ein visueller Hinweis wird auf dem Monitor eingeblendet. Sie können jetzt den Befehle ansagen. Nach dem Hören eines Sprachbefehls wird ein weiterer Hinweiston abgespielt und eine visuelle Anzeige eingeblendet bis der Befehl verarbeitet wird. Für eine Liste der unterstützten und vorgeschlagenen Sprachbefehle, lesen Sie bitte das Kapitel [Sprachbefehle](#VoiceCommands).
 3. Ist die Befehlsverarbeitung abgeschlossen, dann verschwindet die visuelle Anzeige, ein anderer Hinweiston wird abgespielt und der gewünschte Befehl wird ausgeführt. Wenn der Sprachassistent nichts hört, dann sagt JAWS “Ich konnte leider nichts hören”. Wenn der Sprachassistent den Befehl nicht versteht oder wenn der Sprachbefehl nicht unterstützt wird, dann sagt er "Ich habe das leider nicht verstanden".
 
 **Hinweis:** Das Aktivierungswort ist nicht verfügbar, wenn Sie ein Bluetooth-Mikrofon verwenden. In diesem Fall müssen Sie die Tastenkombination verwenden, bevor Sie den Sprachbefehl sagen.
@@ -3650,12 +3664,12 @@ Um die Einstellungen für den Sprachassistenten zu ändern, öffnen Sie das JAWS
 
 Die folgenden Optionen stehen zur Verfügung:
 
-- **Sprachassistent aktivieren** : Deaktivieren Sie dieses Kontrollfeld, um den Sprachassistenten auszuschalten und zu deaktivieren.
-- **Aktivierungswort** : Nutzen Sie diese Auswahlschalter, um festzulegen, was Sie sagen möchten, um JAWS darauf hinzuweisen, dass Sie einen Sprachbefehl ansagen möchten. Sie können zwischen sprechen des Ausdrucks "Hey Sharky" (standardmäßig ausgewählt) und dem Einzelwort "Sharky" auswählen.
-- **Nicht auf Aktivierungswort hören** : Aktivieren Sie dieses Kontrollfeld, damit der Sprachassistent nicht mehr auf ein Aktivierungswort hört. Falls das Aktivierungswort deaktiviert ist, dann bleibt **ALT+EINFÜGEN+LEERTASTE** verfügbar, um das Mithören des Befehls zu starten.
-- **Sprachassistent Audio-Rückmeldungen aktivieren** : Deaktivieren Sie dieses Kontrollfeld, um die Audio-Rückmeldungen des Sprachassistenten auszuschalten.
-- **Mikrofon Eingabegerät** : Zeigt eine Liste aller verfügbaren Mikrofone Ihres Computers (beispielsweise ein internes Mikrofon und ein angeschlossenes Headset) und ermöglicht Ihnen auszuwählen, welches Mikrofon der Sprachassistent verwenden soll, um auf Sprachbefehle zu hören. Wenn Sie für diese Funktion ein anderes Mikrofon festlegen, als Sie etwa für Anwendungen wie Teams oder Zoom verwenden, dann können Sie diese Anwendungen während Besprechungen stummschalten und den Sprachassistenten trotzdem weiterhin mit JAWS, ZoomText oder Fusion nutzen.
-- **Zeige mir die Regeln zur Privatsphäre** : Dieser Link öffnet die englischsprachige Seite zu Regeln der Privatsphäre innerhalb der Freedom Scientific Webseite.
+- **Sprachassistent aktivieren**: Deaktivieren Sie dieses Kontrollfeld, um den Sprachassistenten auszuschalten und zu deaktivieren.
+- **Aktivierungswort**: Nutzen Sie diese Auswahlschalter, um festzulegen, was Sie sagen möchten, um JAWS darauf hinzuweisen, dass Sie einen Sprachbefehl ansagen möchten. Sie können zwischen sprechen des Ausdrucks "Hey Sharky" (standardmäßig ausgewählt) und dem Einzelwort "Sharky" auswählen.
+- **Nicht auf Aktivierungswort hören**: Aktivieren Sie dieses Kontrollfeld, damit der Sprachassistent nicht mehr auf ein Aktivierungswort hört. Falls das Aktivierungswort deaktiviert ist, dann bleibt **ALT+EINFÜGEN+LEERTASTE** verfügbar, um das Mithören des Befehls zu starten.
+- **Sprachassistent Audio-Rückmeldungen aktivieren**: Deaktivieren Sie dieses Kontrollfeld, um die Audio-Rückmeldungen des Sprachassistenten auszuschalten.
+- **Mikrofon Eingabegerät**: Zeigt eine Liste aller verfügbaren Mikrofone Ihres Computers (beispielsweise ein internes Mikrofon und ein angeschlossenes Headset) und ermöglicht Ihnen auszuwählen, welches Mikrofon der Sprachassistent verwenden soll, um auf Sprachbefehle zu hören. Wenn Sie für diese Funktion ein anderes Mikrofon festlegen, als Sie etwa für Anwendungen wie Teams oder Zoom verwenden, dann können Sie diese Anwendungen während Besprechungen stummschalten und den Sprachassistenten trotzdem weiterhin mit JAWS, ZoomText oder Fusion nutzen.
+- **Zeige mir die Regeln zur Privatsphäre**: Dieser Link öffnet die englischsprachige Seite zu Regeln der Privatsphäre innerhalb der Freedom Scientific Webseite.
 
 **Hinweis:** Sie können auch zweimal schnell **EINFÜGEN+ALT+LEERTASTE** drücken, um das Aktivierungswort sofort zwischen zwischen Ein und Aus umzuschalten. Ist das Aktivierungswort ausgeschaltet, dann müssen Sie immer zuerst **EINFÜGEN+ALT+LEERTASTE** drücken, bevor Sie einen Befehl ansagen können.
 
@@ -3923,7 +3937,7 @@ Quelle: Voice_Assistant.htm
 
 Obwohl JAWS fast alle häufig genutzten Symbole über die Sprachausgabe wiedergibt, möchten Sie möglicherweise doch noch weitere hinzufügen. Wenn Sie ein Dokument lesen und den Eindruck haben, dass JAWS ein Symbol nicht richtig wiedergibt oder gar nicht spricht, gehen Sie bitte folgendermaßen vor:
 
-1. Öffnen Sie die Einstellungsverwaltung ( **EINFÜGEN+F2** ) und erweitern Sie die Gruppe Grafiken und Symbole.
+1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**) und erweitern Sie die Gruppe Grafiken und Symbole.
 2. Aktivieren Sie das Kontrollfeld Zeichenwert hexadezimal sprechen.
 3. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
 4. Kehren Sie in das Dokument zurück. Bewegen Sie den Cursor auf ein kleines "a" (sollte keines vorhanden sein, dann geben Sie eins ein) und drücken Sie **NUM 5** dreimal hintereinander. JAWS sollte "Zeichen U+61HEX" ansagen. Wenn Sie irgendeine andere Meldung hören, dürfen Sie diese Schritte nicht weiter ausführen.
@@ -3945,9 +3959,9 @@ Quelle: Adding_Speech_for_Special_Symbols.htm
 
 Mit dem Unsichtbaren Cursor bewegen Sie sich auf dem Bildschirm, ohne die Position des PC Cursors oder Mauszeigers zu verändern. Mit diesem Cursor können Sie Text lesen und auf Optionen zugreifen, die Sie mit dem PC Cursor nicht erreichen. Der unsichtbare Cursor kann auch dazu verwendet werden, sich einen schnellen Überblick über die momentan am Bildschirm angezeigten Informationen zu verschaffen. Sie aktivieren den unsichtbaren Cursor mit **NUM MINUS** zweimal hintereinander. Verwenden Sie die Standard JAWS Lesebefehle, um sich mit dem unsichtbaren Cursor auf dem Bildschirm zu bewegen.
 
-Genau wie der JAWS Cursor, so ist auch die Bewegungsfreiheit des unsichtbaren Cursors durch die Begrenzungen des Fensters eingeschränkt, es sei denn, Sie verändern die Cursorbeschränkung mit **JAWS TASTE+R** . Der unsichtbare Cursor ist jedoch, wie sein Name besagt, auf dem Bildschirm nicht sichtbar, weil er den Mauszeiger nicht mitführt.
+Genau wie der JAWS Cursor, so ist auch die Bewegungsfreiheit des unsichtbaren Cursors durch die Begrenzungen des Fensters eingeschränkt, es sei denn, Sie verändern die Cursorbeschränkung mit **JAWS TASTE+R**. Der unsichtbare Cursor ist jedoch, wie sein Name besagt, auf dem Bildschirm nicht sichtbar, weil er den Mauszeiger nicht mitführt.
 
-**Tipp:** Weitere Informationen über die Beschränkung des unsichtbaren Cursors finden Sie unter [Der JAWS Cursor](using_the_jaws_cursor.htm) .
+**Tipp:**Weitere Informationen über die Beschränkung des unsichtbaren Cursors finden Sie unter [Der JAWS Cursor](using_the_jaws_cursor.htm).
 
 Wenn Sie den JAWS Cursor nicht von seiner aktuellen Position verschieben möchten, empfehlen wir den Einsatz des unsichtbaren Cursors. Manchmal erscheint in Windows irgendwo auf dem Bildschirm ein Infotext, normalerweise auf der Statuszeile, wenn sich der Mauszeiger an einer bestimmten Stelle befindet. Bewegen Sie den JAWS Cursor, um diesen Text zu lesen, so folgt der Mauszeiger mit ihm und der Text verschwindet wieder.
 
@@ -3957,27 +3971,27 @@ Quelle: Using_the_Invisible_Cursor.htm
 
 Bestimmte Anwendungen, inbesondere viele der universellen Apps, die in neueren Windows Versionen zu finden sind, arbeiten mit JAWS nicht immer so, wie man es erwartet, wenn man mit einem Standardcursor, wie PC Cursor oder Virtuellem PC Cursor, navigiert. Das Aktivieren des Touch Cursors ermöglicht Ihnen, die **PFEILTASTEN** auf Ihrer Computer-Tastatur, oder die Tasten auf Ihrer Braillezeile zu nutzen, um durch die Elemente in einer Anwendung zu navigieren, welches der Verwendung von Gesten auf einem Touch-Screen bei Tablet-Computern sehr ähnlich ist. Elemente beinhalten alles von Menüzeilen, Werkzeugleisten und Fortschrittbalken bis Formularfelder, Regionen, Links usw.
 
-Um den Touch-Cursor zu aktivieren, drücken Sie **UMSCHALT+NUM PLUS** oder, wenn Sie das Laptop Tastaturlayout verwenden, **UMSCHALT+FESTSTELLTASTE+SEMIKOLON** . Um ihn auszuschalten aktivieren Sie einen der anderen Cursor, wie den JAWS oder PC Cursor. Das Drücken des PC Cursor Befehls ( **NUM PLUS** ) bewirkt, dass JAWS "Touch Cursor" sagt und der Touch Cursor aktiviert bleibt. Wenn Tutor-Meldungen eingeschaltet sind, dann sagt JAWS zusätzlich die Meldung "Doppeltipp zum Aktivieren des PC Cursors". Drücken Sie den PC Cursor Befehl zweimal schnell, um den Touch Cursor auszuschalten und den PC Cursor zu aktivieren.
+Um den Touch-Cursor zu aktivieren, drücken Sie **UMSCHALT+NUM PLUS** oder, wenn Sie das Laptop Tastaturlayout verwenden, **UMSCHALT+FESTSTELLTASTE+SEMIKOLON**. Um ihn auszuschalten aktivieren Sie einen der anderen Cursor, wie den JAWS oder PC Cursor. Das Drücken des PC Cursor Befehls (**NUM PLUS**) bewirkt, dass JAWS "Touch Cursor" sagt und der Touch Cursor aktiviert bleibt. Wenn Tutor-Meldungen eingeschaltet sind, dann sagt JAWS zusätzlich die Meldung "Doppeltipp zum Aktivieren des PC Cursors". Drücken Sie den PC Cursor Befehl zweimal schnell, um den Touch Cursor auszuschalten und den PC Cursor zu aktivieren.
 
-Um den Touch-Cursor automatisch zu aktivieren, wenn der Fokus in andere Anwendungen wechselt, drücken Sie **EINFÜGEN+V** , um die Schnelleinstellung zu öffnen, während die Anwendung in der Sie den Touch Cursor verwenden möchten fokussiert ist. Erweitern Sie die Gruppe Touch-Cursor Einstellungen und wählen Sie dann Automatische Aktivierung. Diesen Vorgang müssen Sie für jede Anwendung wiederholen, für die Sie möchten, dass JAWS den Touch Cursor automatisch aktiviert.
+Um den Touch-Cursor automatisch zu aktivieren, wenn der Fokus in andere Anwendungen wechselt, drücken Sie **EINFÜGEN+V**, um die Schnelleinstellung zu öffnen, während die Anwendung in der Sie den Touch Cursor verwenden möchten fokussiert ist. Erweitern Sie die Gruppe Touch-Cursor Einstellungen und wählen Sie dann Automatische Aktivierung. Diesen Vorgang müssen Sie für jede Anwendung wiederholen, für die Sie möchten, dass JAWS den Touch Cursor automatisch aktiviert.
 
 ## Mit dem Touch Cursor navigieren
 
-Um zum nächsten oder vorherigen Element auf dem Bildschirm zu gelangen, drücken Sie **PFEIL RECHTS** oder **PFEIL LINKS** . Sie können auch **TAB** oder **UMSCHALT+TAB** verwenden.
+Um zum nächsten oder vorherigen Element auf dem Bildschirm zu gelangen, drücken Sie **PFEIL RECHTS** oder **PFEIL LINKS**. Sie können auch **TAB** oder **UMSCHALT+TAB** verwenden.
 
-Um um einen speziellen Elementtyp weiterzuspringen, drücken Sie **PFEIL RAUF** oder **RUNTER** . Standardmäßig springen **PFEIL RAUF** und **PFEIL RUNTER** Regionsweise. Um den Elementtyp zu ändern, den dieser Befehl weiterspringt, drücken Sie **SEITE RAUF** oder **SEITE RUNTER** , zum Bewegen durch die verfügbaren Typen im Navigationsrotor.
+Um um einen speziellen Elementtyp weiterzuspringen, drücken Sie **PFEIL RAUF** oder **RUNTER**. Standardmäßig springen **PFEIL RAUF** und **PFEIL RUNTER** Regionsweise. Um den Elementtyp zu ändern, den dieser Befehl weiterspringt, drücken Sie **SEITE RAUF** oder **SEITE RUNTER**, zum Bewegen durch die verfügbaren Typen im Navigationsrotor.
 
 Wenn Sie beispielsweise möchten, dass die Tasten **PFEIL RAUF** oder **RUNTER** überschriftsweise springen, dann drücken Sie **SEITE RAUF** oder **RUNTER** bis Sie "Überschriften" hören. Wenn Sie jetzt **PFEIL RAUF** oder **RUNTER** drücken, gelangen Sie zur nächsten oder vorherigen Überschrift.
 
-Drücken Sie **STRG+POS1** , um zum ersten Element zu springen und drücken Sie **STRG+ENDE** , um zum letzten Element zu springen. Um das aktuelle Element anzusagen, drücken Sie **EINFÜGEN+PFEIL RAUF** . Zum Ausführen von Alles Lesen, was bewirkt, dass sich der Touch Cursor innerhalb der Anwendung bewegt und jedes Element ansagt, drücken Sie **EINFÜGEN+PFEIL RUNTER** .
+Drücken Sie **STRG+POS1**, um zum ersten Element zu springen und drücken Sie **STRG+ENDE**, um zum letzten Element zu springen. Um das aktuelle Element anzusagen, drücken Sie **EINFÜGEN+PFEIL RAUF**. Zum Ausführen von Alles Lesen, was bewirkt, dass sich der Touch Cursor innerhalb der Anwendung bewegt und jedes Element ansagt, drücken Sie **EINFÜGEN+PFEIL RUNTER**.
 
 Wenn Sie mit den **PFEILTASTEN** navigieren, wird der Systemfokus dem Touch Cursor nicht folgen. Dieses ermöglicht ein freies Navigieren durch Elemente, ohne die Position des PC Cursors oder Mauszeigers zu verändern. Das Drücken von **LEERTASTE** oder **EINGABE** auf dem aktuellen Element setzt den Fokus auf das Element und führt die damit verbundene Aktion aus. Zum Beispiel öffnen Sie so ein Menü, aktivieren ein Kontrollfeld oder aktivieren einen Schalter oder Link. Zusätzlich wird ein hellgrünes Rechteck um das aktuell gewählte Element herum dargestellt, um die Position des Touch Cursors für sehende Anwender darzustellen.
 
-Um den Touch Cursor schnell zum aktuell fokussierten Element zu bewegen, drücken Sie **EINFÜGEN+NUM PLUS** oder **FESTSTELLTASTE+Ä** , wenn Sie das Laptop Tastaturlayout verwenden. JAWS wird dann den Touch Cursor zum aktuell gewählten Element ziehen und dieses ansagen. Der Touch Cursor bleibt nach dem Ausführen dieses Befehls aktiviert.
+Um den Touch Cursor schnell zum aktuell fokussierten Element zu bewegen, drücken Sie **EINFÜGEN+NUM PLUS** oder **FESTSTELLTASTE+Ä**, wenn Sie das Laptop Tastaturlayout verwenden. JAWS wird dann den Touch Cursor zum aktuell gewählten Element ziehen und dieses ansagen. Der Touch Cursor bleibt nach dem Ausführen dieses Befehls aktiviert.
 
-Um festzulegen, welcher Elementtyp angesagt wird, wenn Sie mit dem Touch Cursor navigieren, drücken Sie **EINFÜGEN+V** , um die Schnelleinstellung zu öffnen, erweitern Sie die Gruppe Touch Cursor Einstellungen und gehen Sie auf Typen konfigurieren. Diese Gruppe listet alle verfügbaren Elementtypen auf, die mit dem Touch Cursor navigiert werden können. Mit der **LEERTASTE** werden Typen gewählt oder abgewählt. Ausgewählte Typen werden angesagt und nicht ausgewählte Typen werden ignoriert.
+Um festzulegen, welcher Elementtyp angesagt wird, wenn Sie mit dem Touch Cursor navigieren, drücken Sie **EINFÜGEN+V**, um die Schnelleinstellung zu öffnen, erweitern Sie die Gruppe Touch Cursor Einstellungen und gehen Sie auf Typen konfigurieren. Diese Gruppe listet alle verfügbaren Elementtypen auf, die mit dem Touch Cursor navigiert werden können. Mit der **LEERTASTE** werden Typen gewählt oder abgewählt. Ausgewählte Typen werden angesagt und nicht ausgewählte Typen werden ignoriert.
 
-**Hinweis:** Die Einstellung Typen konfigurieren erscheint nur dann in der Schnelleinstellung, wenn der Touch Cursor beim Öffnen der Schnelleinstellung aktiv ist.
+**Hinweis:**Die Einstellung Typen konfigurieren erscheint nur dann in der Schnelleinstellung, wenn der Touch Cursor beim Öffnen der Schnelleinstellung aktiv ist.
 
 ## Touch Cursor Schnellnavigationstasten
 
@@ -3985,7 +3999,7 @@ Während der Touch Cursor aktiv ist, können Sie Schnellnavigationstasten verwen
 
 Standardmäßig werden die Touch Schnellnavigationstasten nicht aktiviert, wenn der Touch Cursor eingeschaltet wird. Hierdurch wird ermöglicht, dass Anwendungen, die Eingaben im Hauptfenster unterstützen, komplett genutzt werden können.
 
-Wenn Sie möchten, dass die Touch Schnellnavigationstasten automatisch aktiviert werden, wenn der Touch Cursor in einer bestimmten Anwendung eingeschaltet wird, dann drücken Sie aus der Anwendung heraus **EINFÜGEN+V** , um die Schnelleinstellung zu öffnen, navigieren Sie auf die Gruppe Touch Cursor Einstellungen und wählen Sie Touch Schnelltasten. Sie können auch bei aktivem Touch Cursor **EINFÜGEN+Y** drücken, um die Touch Schnellnavigationstasten temporär ein- oder auszuschalten.
+Wenn Sie möchten, dass die Touch Schnellnavigationstasten automatisch aktiviert werden, wenn der Touch Cursor in einer bestimmten Anwendung eingeschaltet wird, dann drücken Sie aus der Anwendung heraus **EINFÜGEN+V**, um die Schnelleinstellung zu öffnen, navigieren Sie auf die Gruppe Touch Cursor Einstellungen und wählen Sie Touch Schnelltasten. Sie können auch bei aktivem Touch Cursor **EINFÜGEN+Y** drücken, um die Touch Schnellnavigationstasten temporär ein- oder auszuschalten.
 
 Die folgenden Schnellnavigationstasten sind verfügbar:
 
@@ -4018,7 +4032,7 @@ Die folgenden Schnellnavigationstasten sind verfügbar:
 
 Der Textlesemodus ermöglicht das Lesen von enthaltenem Text innerhalb eines Elements mit den Standard-Lesebefehlen. Wenn das Element an der aktuellen Touch Cursor Position Text enthält, wie beispielsweise einen Nachrichtenartikel, dann können Sie mit **NUM SCHRÄGSTRICH** oder **EINFÜGEN+EINGABE** den Textlesemodus aktivieren. Sie können dann mit den **PFEILTASTEN** den Text lesen, als würden Sie in einem ganz normalen Dokument navigieren. Das Drücken von **ESC** beendet den Textlesemodus und kehrt zur Touch Cursor Navigation zurück.
 
-Standardmäßig spielt JAWS einen Sound ab, wenn Sie den Textlesemodus aktivieren oder verlassen. Wenn es Ihnen lieber ist, dass JAWS eine Meldung spricht, dann drücken Sie **EINFÜGEN+V** , um die Schnelleinstellung zu öffnen, erweitern Sie die Gruppe Touch Cursor Einstellungen und deaktivieren Sie die Option Sounds verwenden.
+Standardmäßig spielt JAWS einen Sound ab, wenn Sie den Textlesemodus aktivieren oder verlassen. Wenn es Ihnen lieber ist, dass JAWS eine Meldung spricht, dann drücken Sie **EINFÜGEN+V**, um die Schnelleinstellung zu öffnen, erweitern Sie die Gruppe Touch Cursor Einstellungen und deaktivieren Sie die Option Sounds verwenden.
 
 ## Erweiterte Navigation
 
@@ -4026,7 +4040,7 @@ Für fortgeschrittene Anwender, im Speziellen diejenigen, die in Anwendungsentwi
 
 Mit dem Standard Touch Cursor können Sie nur zu Elementen navigieren, die in der aktuellen Anwendung auf dem Bildschirm sichtbar sind. In der Erweiterten Navigation überfliegt der Touch Cursor alle UIA Elemente in hierarchischer Reihenfolge. Alle Elemente, unabhängig davon, ob sie sichtbar sind oder nicht, können in der Erweiterten Navigation durchlaufen werden.
 
-Um die Erweiterte Navigation zu aktivieren, drücken Sie bei aktivem Touch Cursor **NUM STERN** , oder **FESTSTELLTASTE+A** , wenn Sie das Laptop Tastaturlayout verwenden. Sobald die erweiterte Navigation aktiv ist, drücken Sie **PFEIL LINKS** oder **PFEIL RECHTS** , zum Springen auf nächstes oder vorheriges Element der gleichen Ebene und **PFEIL RAUF** oder **PFEIL RUNTER** , zum Springen auf übergeordnetes Element oder das erste untergeordnete Element. Weitere Erweiterte Navigationsbefehle erhalten Sie durch Drücken von **EINFÜGEN+H** , während der Modus aktiviert ist. Drücken Sie **NUM STERN** erneut, um die Erweiterte Navigation auszuschalten und zum Standard Touch Cursor zurück zu kehren.
+Um die Erweiterte Navigation zu aktivieren, drücken Sie bei aktivem Touch Cursor **NUM STERN**, oder **FESTSTELLTASTE+A**, wenn Sie das Laptop Tastaturlayout verwenden. Sobald die erweiterte Navigation aktiv ist, drücken Sie **PFEIL LINKS** oder **PFEIL RECHTS**, zum Springen auf nächstes oder vorheriges Element der gleichen Ebene und **PFEIL RAUF** oder **PFEIL RUNTER**, zum Springen auf übergeordnetes Element oder das erste untergeordnete Element. Weitere Erweiterte Navigationsbefehle erhalten Sie durch Drücken von **EINFÜGEN+H**, während der Modus aktiviert ist. Drücken Sie **NUM STERN** erneut, um die Erweiterte Navigation auszuschalten und zum Standard Touch Cursor zurück zu kehren.
 
 *Lesen Sie auch:*
 
@@ -4074,8 +4088,8 @@ Sie können auch Stimmenprofile erstellen, die sich an einer speziellen Aufgabe 
 
 Um ein neues Stimmenprofil zu erstellen, gehen Sie bitte folgendermaßen vor:
 
-1. Drücken Sie **EINFÜGEN+J** , um das JAWS Programmfenster zu öffnen.
-2. Drücken Sie **ALT+O** , um das Menü Optionen zu öffnen, drücken Sie **T** , um das Untermenü Stimmen auszuwählen und dann **EINGABE** , um das Dialogfenster Stimmeneinstellungen zu öffnen.
+1. Drücken Sie **EINFÜGEN+J**, um das JAWS Programmfenster zu öffnen.
+2. Drücken Sie **ALT+O**, um das Menü Optionen zu öffnen, drücken Sie **T**, um das Untermenü Stimmen auszuwählen und dann **EINGABE**, um das Dialogfenster Stimmeneinstellungen zu öffnen.
 3. Wählen Sie im Feld Profilname ein Stimmenprofil der Voreinstellung. Zum Beispiel Vocalizer Expressive – (Voreinstellung).
 4. Wählen Sie eine Sprache im Feld der Sprachausgabesprache. Zum Beispiel English – United States oder English – United Kingdom.
 5. Wählen Sie ein Stimme im Feld Sprecher. Zum Beispiel Allison Premium – United States oder Daniel Premium – United Kingdom.
@@ -4091,7 +4105,7 @@ Um ein neues Stimmenprofil zu erstellen, gehen Sie bitte folgendermaßen vor:
 
 ### Eine Standardsprache auswählen
 
-Während Sie Ihr Profil einstellen, haben Sie Möglichkeit, eine Standardsprache auszuwählen. Das ist die Sprache, die Sie hören, wenn Sie das Profil aktivieren. Standardmäßig ist dieses auf "Sprache der JAWS Oberfläche verwenden" eingestellt, was bedeutet, dass es immer der Sprache der Benutzeroberfläche von JAWS gleicht. Eine englische Version von JAWS wird beispielsweise Englisch als Standardsprachausgabesprache verwenden. Eine deutsche Version wird Deutsch als Standardsprachausgabesprache verwenden. Weitere Informationen finden Sie bei Sprache als Standard festlegen im Dialogfenster [Stimmeneinstellungen](../the_jaws_application_window/Voice_Adjustment.htm) .
+Während Sie Ihr Profil einstellen, haben Sie Möglichkeit, eine Standardsprache auszuwählen. Das ist die Sprache, die Sie hören, wenn Sie das Profil aktivieren. Standardmäßig ist dieses auf "Sprache der JAWS Oberfläche verwenden" eingestellt, was bedeutet, dass es immer der Sprache der Benutzeroberfläche von JAWS gleicht. Eine englische Version von JAWS wird beispielsweise Englisch als Standardsprachausgabesprache verwenden. Eine deutsche Version wird Deutsch als Standardsprachausgabesprache verwenden. Weitere Informationen finden Sie bei Sprache als Standard festlegen im Dialogfenster [Stimmeneinstellungen](../the_jaws_application_window/Voice_Adjustment.htm).
 
 Um in Ihrem Profil eine andere Standardsprache einzustellen, gehen Sie wie folgt vor:
 
@@ -4112,10 +4126,11 @@ Ein Standardstimmenprofil wiederherstellen:
 
 Um eine Stimmenprofil zu löschen, gehen Sie bitte folgendermaßen vor:
 
-1. Drücken Sie **EINFÜGEN+J** , um das JAWS Programmfenster zu öffnen.
-2. Drücken Sie **ALT+O** , um das Menü Optionen zu öffnen, drücken Sie **T** , um das Untermenü Stimmen auszuwählen und dann **EINGABE** , um das Dialogfenster Stimmeneinstellungen zu öffnen.
+1. Drücken Sie **EINFÜGEN+J**, um das JAWS Programmfenster zu öffnen.
+2. Drücken Sie **ALT+O**, um das Menü Optionen zu öffnen, drücken Sie **T**, um das Untermenü Stimmen auszuwählen und dann **EINGABE**, um das Dialogfenster Stimmeneinstellungen zu öffnen.
 3. In der Ausklappliste Name im Gruppenfeld Profil, wählen Sie das Stimmenprofil, dass Sie löschen möchten.
 4. Aktivieren Sie Profil löschen und dann Ja, um das Profil zu löschen. JAWS wechselt auf das erste Stimmenprofil in der Ausklappliste der Profilnamen
+
   **Hinweis:** Sie können voreingestellte Stimmenprofile nicht löschen, wie etwa Eloquence - (Voreinstellung) oder Vocalizer Expressive - (Voreinstellung).
 5. Wählen Sie ein anderes Stimmenprofil in der Ausklappliste Profilname, oder wählen Sie OK, um das Dialogfenster zu schließen.
 
@@ -4123,9 +4138,9 @@ Um eine Stimmenprofil zu löschen, gehen Sie bitte folgendermaßen vor:
 
 Um ein Stimmenprofil für eine Anwendung auszuwählen, gehen Sie bitte folgendermaßen vor:
 
-1. Stellen Sie sicher, dass der JAWS Fokus innerhalb der Anwendung steht und drücken Sie dann **JAWS TASTE+STRG+S** , um das Dialogfeld Stimmenprofil auswählen zu öffnen. Es enthält eine Ausklappliste für Standard, welche das Stimmenprofil zuweist, das JAWS global benutzt, und eine Ausklappliste für <Anwendungsnamen>, welche ein Stimmenprofil für eine bestimmte Anwendung zuweist.
-2. Steht der JAWS Fokus in der Standard-Ausklappliste, dann drücken Sie **TAB** , um zur Anwendungs-Ausklappliste zu springen.
-3. Drücken Sie **PFEIL RAUF** oder **RUNTER** , um in der Liste der Stimmenprofile zu navigieren, und dann **EINGABE** , um ein Stimmenprofil auszuwählen. Das Dialogfenster wird geschlossen und JAWS verwendet das gewählte Profil für die geöffnete Anwendung.
+1. Stellen Sie sicher, dass der JAWS Fokus innerhalb der Anwendung steht und drücken Sie dann **JAWS TASTE+STRG+S**, um das Dialogfeld Stimmenprofil auswählen zu öffnen. Es enthält eine Ausklappliste für Standard, welche das Stimmenprofil zuweist, das JAWS global benutzt, und eine Ausklappliste für <Anwendungsnamen>, welche ein Stimmenprofil für eine bestimmte Anwendung zuweist.
+2. Steht der JAWS Fokus in der Standard-Ausklappliste, dann drücken Sie **TAB**, um zur Anwendungs-Ausklappliste zu springen.
+3. Drücken Sie **PFEIL RAUF** oder **RUNTER**, um in der Liste der Stimmenprofile zu navigieren, und dann **EINGABE**, um ein Stimmenprofil auszuwählen. Das Dialogfenster wird geschlossen und JAWS verwendet das gewählte Profil für die geöffnete Anwendung.
 
 **Hinweis:** Wenn Sie Standard verwenden auswählen, welches das erste Element in der Ausklappliste ist, dann wird JAWS für die Anwendung das Profil verwenden, welches in der Standard-Ausklappliste ausgewählt ist.
 
@@ -4164,7 +4179,7 @@ Quelle: the_braille_cursor.htm
 
 ## Der JAWS Cursor
 
-Der JAWS Cursor ist sehr nützlich, wenn Sie in Windows arbeiten. Er entspricht der Systemmaus. Der JAWS Cursor wird dazu verwendet, die Systemmaus zu steuern, Informationstext, auf den der PC Cursor keinen Zugriff hat, zu lesen, und um auf andere Windows-Elemente zuzugreifen, auf die der PC Cursor keinen Zugriff hat. Der JAWS Cursor kann auch dazu verwendet werden, sich einen schnellen Überblick über die momentan am Bildschirm angezeigten Informationen zu verschaffen. Drücken Sie **NUM MINUS** , um den JAWS Cursor zu aktivieren.
+Der JAWS Cursor ist sehr nützlich, wenn Sie in Windows arbeiten. Er entspricht der Systemmaus. Der JAWS Cursor wird dazu verwendet, die Systemmaus zu steuern, Informationstext, auf den der PC Cursor keinen Zugriff hat, zu lesen, und um auf andere Windows-Elemente zuzugreifen, auf die der PC Cursor keinen Zugriff hat. Der JAWS Cursor kann auch dazu verwendet werden, sich einen schnellen Überblick über die momentan am Bildschirm angezeigten Informationen zu verschaffen. Drücken Sie **NUM MINUS**, um den JAWS Cursor zu aktivieren.
 
 [Den JAWS Cursor beschränken](#Restrict)
 
@@ -4180,11 +4195,11 @@ Bei einem echten Fenster handelt es sich um ein Fenster, das über einen Namen v
 
 ### Beschränkung auf Anwendungsfenster
 
-Befindet sich der JAWS Cursor im Elternfenster des fokussierten Fensters, bewegt er sich aus diesem nicht heraus, wenn Sie die Standard-Navigationstasten wie **SEITE RAUF** , **RUNTER** , **POS 1, ENDE** oder die PFEILTASTEN verwenden.
+Befindet sich der JAWS Cursor im Elternfenster des fokussierten Fensters, bewegt er sich aus diesem nicht heraus, wenn Sie die Standard-Navigationstasten wie **SEITE RAUF**, **RUNTER**, **POS 1, ENDE** oder die PFEILTASTEN verwenden.
 
 ### Beschränkung auf aktuelles Fenster
 
-Wird der JAWS Cursor in diesen Modus versetzt, ist er auf das Fenster beschränkt, in dem er sich gerade befindet. Dies ist nützlich, wenn Sie die Bewegung und das Lesen auf ein Element wie ein Listenfeld beschränken möchten, ohne dass weitere Informationen des Bildschirms außerhalb dieses Elements gelesen werden. Der Cursor bewegt sich unter Betätigung der Standard-Navigationstasten wie **SEITE RAUF, RUNTER** , **POS 1** , **ENDE** oder PFEILTASTEN nicht aus dem Fenster heraus.
+Wird der JAWS Cursor in diesen Modus versetzt, ist er auf das Fenster beschränkt, in dem er sich gerade befindet. Dies ist nützlich, wenn Sie die Bewegung und das Lesen auf ein Element wie ein Listenfeld beschränken möchten, ohne dass weitere Informationen des Bildschirms außerhalb dieses Elements gelesen werden. Der Cursor bewegt sich unter Betätigung der Standard-Navigationstasten wie **SEITE RAUF, RUNTER**, **POS 1**, **ENDE** oder PFEILTASTEN nicht aus dem Fenster heraus.
 
 ### Beschränkung auf Fenster mit Fokus
 
@@ -4192,7 +4207,7 @@ Ein Fenster mit Fokus ist das Fenster, in dem sich der aktuelle Systemfokus befi
 
 ### Rahmenbeschränkung
 
-Wird der JAWS Cursor in diesen Modus versetzt, ist er auf den Rahmen beschränkt, in dem er sich gerade befindet. Dies ist nützlich, wenn Sie die Bewegung und das Lesen auf einen definierten Bereich der Anwendung beschränken möchten. Der Cursor bewegt sich unter Betätigung der Standard-Navigationstasten wie **SEITE RAUF, RUNTER** , **POS 1** , **ENDE** oder PFEILTASTEN nicht aus dem Rahmen heraus. Für weitere Informationen lesen Sie bitte auch: [Einführung in die Arbeit mit Rahmen](../../customizing_jaws_for_windows/Frame_Viewer/introduction_to_frames.htm) .
+Wird der JAWS Cursor in diesen Modus versetzt, ist er auf den Rahmen beschränkt, in dem er sich gerade befindet. Dies ist nützlich, wenn Sie die Bewegung und das Lesen auf einen definierten Bereich der Anwendung beschränken möchten. Der Cursor bewegt sich unter Betätigung der Standard-Navigationstasten wie **SEITE RAUF, RUNTER**, **POS 1**, **ENDE** oder PFEILTASTEN nicht aus dem Rahmen heraus. Für weitere Informationen lesen Sie bitte auch: [Einführung in die Arbeit mit Rahmen](../../customizing_jaws_for_windows/Frame_Viewer/introduction_to_frames.htm).
 
 ### Unbeschränkt
 
@@ -4234,7 +4249,7 @@ Sie können den virtuellen PC Cursor komplett abschalten. Dies schränkt die Fun
 
 ## Ziehe PC Cursor zum Virtuellen Cursor
 
-**STRG+JAWS TASTE+ENTFERNEN** zieht den PC Cursor zum Virtuellen Cursor. Dieser Befehl bewegt den PC Cursor (und den Fokus der Anwendung) an die aktuelle Position des Virtuellen Cursors. Optisch scrollt die Seite, so dass der Bereich mit dem virtuellen Cursor auf dem Bildschirm sichtbar ist. Dieser Befehl ist das Gegenstück zum Befehl Ziehe Virtuellen zum PC Cursor ( **JAWS TASTE+ENTFERNEN** ).
+**STRG+JAWS TASTE+ENTFERNEN** zieht den PC Cursor zum Virtuellen Cursor. Dieser Befehl bewegt den PC Cursor (und den Fokus der Anwendung) an die aktuelle Position des Virtuellen Cursors. Optisch scrollt die Seite, so dass der Bereich mit dem virtuellen Cursor auf dem Bildschirm sichtbar ist. Dieser Befehl ist das Gegenstück zum Befehl Ziehe Virtuellen zum PC Cursor (**JAWS TASTE+ENTFERNEN**).
 
 ## Ziehe Virtuellen Cursor zum JAWS Cursor
 
@@ -4244,7 +4259,7 @@ Sie können den virtuellen PC Cursor komplett abschalten. Dies schränkt die Fun
 
 Wenn auf einer Webseite als Ergebnis einer Aktion wie etwa dem Aktivieren eines bestimmten Elements, ein Dialogfenster erscheint, was besonders auf Seiten passieren kann, die Teil einer webbasierten Anwendung sind, dann beschränkt JAWS den virtuellen Cursor auf das Dialogfenster. An Abhängigkeit der Art und Weise, wie die Webanwendung implementiert ist, kann es manchmal vorkommen, dass, wenn der Fokus in eines dieser Dialogfenster wechselt, der Inhalt der das Dialogfenster umgebenden Seite verborgen bleibt, bis der Fokus wieder aus dem Dialogfenster herausbewegt wird In den meisten Fällen wird aber der Inhalt des Dialogs mit der umgebenden Seite zusammengeführt, was leicht zu Irritationen führen kann, wenn Sie nur den Inhalt des webbasierten Dialogfensters fokussieren möchten.
 
-JAWS beschränkt die Navigation des virtuellen Cursors automatisch auf das Dialogfenster, sobald eine Aktion ausgeführt wird, die den Fokus in so ein Dialogfenster bewegt. Dieses beinhaltet das Navigieren zu einem Eingabefeld in einem Dialogfenster mit den **PFEILTASTEN** bei aktivem automatischen Formularmodus, beim Navigieren mit **TAB** oder **UMSCHALT+TAB** , oder beim Aktivieren eines Elements einer Seite, welches den Fokus automatisch in das Dialogfenster setzt. Wenn der virtuelle Cursor beschränkt ist, dann navigieren sowohl Sprache als auch Braille nur im Inhalt des Dialogfensters, solange bis die Beschränkung aufgehoben wird. Der virtuelle Cursor wird automatisch unbeschränkt, wenn Sie die Tasten **TAB** oder **UMSCHALT+TAB** verwenden, um den Fokus aus dem Dialogfenster heraus zu bewegen, oder wenn Sie eine Aktion im Dialogfenster ausführen, die bewirkt, dass der Fokus sich auf einen anderen Bereich der Seite bewegt, oder wenn eine komplett neue Seite geladen wird.
+JAWS beschränkt die Navigation des virtuellen Cursors automatisch auf das Dialogfenster, sobald eine Aktion ausgeführt wird, die den Fokus in so ein Dialogfenster bewegt. Dieses beinhaltet das Navigieren zu einem Eingabefeld in einem Dialogfenster mit den **PFEILTASTEN** bei aktivem automatischen Formularmodus, beim Navigieren mit **TAB** oder **UMSCHALT+TAB**, oder beim Aktivieren eines Elements einer Seite, welches den Fokus automatisch in das Dialogfenster setzt. Wenn der virtuelle Cursor beschränkt ist, dann navigieren sowohl Sprache als auch Braille nur im Inhalt des Dialogfensters, solange bis die Beschränkung aufgehoben wird. Der virtuelle Cursor wird automatisch unbeschränkt, wenn Sie die Tasten **TAB** oder **UMSCHALT+TAB** verwenden, um den Fokus aus dem Dialogfenster heraus zu bewegen, oder wenn Sie eine Aktion im Dialogfenster ausführen, die bewirkt, dass der Fokus sich auf einen anderen Bereich der Seite bewegt, oder wenn eine komplett neue Seite geladen wird.
 
 Wird ein Dialogfenster fokussiert wird, dann können Sie auch die Kurztaste **EINFÜGEN+R** verwenden, um den virtuellen Cursor zwischen beschränkt und unbeschränkt umzuschalten. Etwa wenn Sie die Beschränkung des virtuellen Cursors aufheben möchten, um Seiteninhalte außerhalb des Dialogfensters zu lesen, ohne den Fokus zu bewegen.
 
@@ -4260,7 +4275,7 @@ Quelle: using_the_virtual_pc_cursor.htm
 
 Webbrowser sind Programme, mit denen Sie Seiten im Internet erkunden, HTML Dokumente auf Ihrem PC lesen oder Ihre lokale Intranetsite lesen können. Diese Browser zeigen nicht nur Informationen an. Sie unterstützen auch beim Suchen von Informationen über Suchmaschinen, beim Kauf von Produkten auf verschiedenen Webseiten für den Online-Einkauf, beim Interagieren mit anderen Personen über Soziale Medien, beim Verwenden von webbasierten Bearbeitungsprogrammen zum Erstellen von Dokumenten und vielem anderen mehr.
 
-JAWS funktioniert am besten mit den aktuellsten Versionen von [Microsoft Edge](https://www.microsoft.com) , [Google Chrome](https://www.chrome.com) und [Mozilla Firefox](https://www.mozilla.org) . JAWS stellt für alle unterstützten Browser die gleichen starken Funktionen zur Verfügung, so dass Sie den Browser nutzen können, der Ihren Bedürfnissen entspricht.
+JAWS funktioniert am besten mit den aktuellsten Versionen von [Microsoft Edge](https://www.microsoft.com), [Google Chrome](https://www.chrome.com) und [Mozilla Firefox](https://www.mozilla.org). JAWS stellt für alle unterstützten Browser die gleichen starken Funktionen zur Verfügung, so dass Sie den Browser nutzen können, der Ihren Bedürfnissen entspricht.
 
 Wenn Sie sich im Web bewegen, dann gewährt JAWS schnellen Zugriff auf Information, die Sie benötigen, und liefert detaillierte Informationen über die Struktur und den Aufbau von Webseiten. Es werden alle Tabellen, Listen, Überschriften und Alt-Tags für Bilder angesagt. Die Informationen kommen direkt vom HTML, mit der die Seite erstellt wurde. HTML wurde mit besseren Zugriffsmöglichkeiten entwickelt, und JAWS unterstützt jetzt die in HTML implementierten Funktionen für besseren Zugriff mehr als vorher.
 
@@ -4276,7 +4291,7 @@ Nutzen Sie die nachstehenden Links, um mehr darüber zu erfahren, wie Sie JAWS i
 
 ## HTML Herausforderung
 
-Besuchen Sie [Surf's Up! – Mit JAWS im Internet surfen](https://www.freedomsci.de/challenge/_Surfs_Up_Start_Here.htm) , um an Beispielen zu lernen, wie sich JAWS auf HTML Seiten verhält.
+Besuchen Sie [Surf's Up! – Mit JAWS im Internet surfen](https://www.freedomsci.de/challenge/_Surfs_Up_Start_Here.htm), um an Beispielen zu lernen, wie sich JAWS auf HTML Seiten verhält.
 
 Quelle: ie_5-6.htm
 
@@ -4284,10 +4299,10 @@ Quelle: ie_5-6.htm
 
 JAWS beinhalten ein Werkzeug, welches es leicht macht, Vocalizer Expressive 2 Premiumstimmen zu testen und zu installieren oder zu entfernen. Vocalizer Expressive bietet eine natürlichklingendere Sprachausgabe für eine Reihe von Stimmen und Sprachen. Sobald diese installiert wurden, funktionieren diese Stimmen auch mit anderen Freedom Scientific Programmen, inklusive ZoomText und Fusion. Um Vocalizer Expressive Stimmen zu installieren, gehen Sie wie folgt vor:
 
-1. Drücken Sie **EINFÜGEN+J** , um das JAWS Programmfenster zu öffnen.
-2. Drücken Sie **ALT+O** , um das Menü Optionen zu öffnen, erweitern Sie das Untermenü Stimmen und wählen Sie dann Stimmen hinzufügen/entfernen, um das Hilfsprogramm zum Hinzufügen und Entfernen von Vocalizer Expressive Stimmen zu öffnen.
+1. Drücken Sie **EINFÜGEN+J**, um das JAWS Programmfenster zu öffnen.
+2. Drücken Sie **ALT+O**, um das Menü Optionen zu öffnen, erweitern Sie das Untermenü Stimmen und wählen Sie dann Stimmen hinzufügen/entfernen, um das Hilfsprogramm zum Hinzufügen und Entfernen von Vocalizer Expressive Stimmen zu öffnen.
 3. Wählen Sie in der Ausklappliste Sprache auswählen, die Sprache, für die Sie Stimmen herunterladen möchten.
-4. Im Listenfeld Premium Stimmen drücken Sie **LEERTASTE** auf den Stimmen, die Sie installieren möchten. Sie können soviele Stimmen auswählen, wie Sie möchten. Um ein Sprechbeispiel der aktuellen Stimme zu hören, bevor Sie entscheiden, ob Sie diese auswählen möchten, drücken Sie **ALT+B** .
+4. Im Listenfeld Premium Stimmen drücken Sie **LEERTASTE** auf den Stimmen, die Sie installieren möchten. Sie können soviele Stimmen auswählen, wie Sie möchten. Um ein Sprechbeispiel der aktuellen Stimme zu hören, bevor Sie entscheiden, ob Sie diese auswählen möchten, drücken Sie **ALT+B**.
 5. Wählen Sie den Schalter Gewählte Stimmen installieren, um die Installation zu starten.
 
 Quelle: Adding_More_Voices.htm
@@ -4310,7 +4325,7 @@ Folgende Optionen stehen für die Spracheinstellungen zur Verfügung:
 
 ### Geschwindigkeit
 
-Dieser Regler ermöglicht das Verändern der Sprachgeschwindigkeit. Drücken Sie **PFEIL LINKS** , **PFEIL RUNTER** oder **SEITE RUNTER** , um die Sprechgeschwindigkeit zu verringern. Drücken Sie **PFEIL RECHTS** , **PFEIL RAUF** oder **SEITE RAUF** , um die Sprechgeschwindigkeit zu erhöhen. Der Standardwert ist 57.
+Dieser Regler ermöglicht das Verändern der Sprachgeschwindigkeit. Drücken Sie **PFEIL LINKS**, **PFEIL RUNTER** oder **SEITE RUNTER**, um die Sprechgeschwindigkeit zu verringern. Drücken Sie **PFEIL RECHTS**, **PFEIL RAUF** oder **SEITE RAUF**, um die Sprechgeschwindigkeit zu erhöhen. Der Standardwert ist 57.
 
 ### Satzzeichen
 
@@ -4320,14 +4335,14 @@ In dieser Ausklappliste legen Sie fest, wie viele Satzzeichen von JAWS angesagt 
 
 Mit diesen Auswahlschaltern legen Sie fest, wie Informationen, die Sie eingeben, gesprochen werden. Standardmäßig wird jedes Zeichen, das Sie eingeben, gesprochen. Wählen Sie Ihre gewünschte Einstellung durch einen der vier Auswahlschalter:
 
-- **Aus** : Wählen Sie diese Option, wenn Sie keine Rückmeldung beim Schreiben wünschen.
-- **Zeichen** : Jedes Zeichen, das Sie eingeben, wird gesprochen. Dies ist die Standardeinstellung.
-- **Wörter** : Jedes Wort wird gesprochen, nachdem Sie **LEERTASTE** oder **EINGABE** drücken.
-- **Zeichen und Wörter** : Beim Eingeben werden Zeichen gesprochen, ganze Wörter werden gesprochen, wenn Sie **LEERTASTE** oder **EINGABE** drücken.
+- **Aus**: Wählen Sie diese Option, wenn Sie keine Rückmeldung beim Schreiben wünschen.
+- **Zeichen**: Jedes Zeichen, das Sie eingeben, wird gesprochen. Dies ist die Standardeinstellung.
+- **Wörter**: Jedes Wort wird gesprochen, nachdem Sie **LEERTASTE** oder **EINGABE** drücken.
+- **Zeichen und Wörter**: Beim Eingeben werden Zeichen gesprochen, ganze Wörter werden gesprochen, wenn Sie **LEERTASTE** oder **EINGABE** drücken.
 
 ### Sprachassistent aktivieren
 
-Wenn dieses Kontrollfeld aktiviert ist, dann steht der Sprachassistent zur Verwendung mit einem Aktivierungswort oder der Kurztaste **EINFÜGEN+ALT+LEERTASTE** zur Verfügung. Diese Funktion steht nur in Windows 10 oder höher zur Verfügung. Für weitere Informationen dazu, lesen Sie bitte das Kapitel [Der Sprachassistent](../Voice_Assistant.htm) .
+Wenn dieses Kontrollfeld aktiviert ist, dann steht der Sprachassistent zur Verwendung mit einem Aktivierungswort oder der Kurztaste **EINFÜGEN+ALT+LEERTASTE** zur Verfügung. Diese Funktion steht nur in Windows 10 oder höher zur Verfügung. Für weitere Informationen dazu, lesen Sie bitte das Kapitel [Der Sprachassistent](../Voice_Assistant.htm).
 
 ## JAWS Einstellungen ausführen:
 
@@ -4337,26 +4352,26 @@ Folgende Optionen stehen für die JAWS Einstellungen zur Verfügung:
 
 Startet JAWS automatisch starten, auch unter dem Begriff bekannt JAWS als Service starten, so ist das eine große Hilfe für jene Anwender, die sofort eine Sprachunterstützung wünschen. Legen Sie fest, ob JAWS vor oder nach Ihrer Anmeldung und dem Windows Start aufgerufen werden soll.
 
-**Hinweis:** Die Standardwerte im Dialog Optionen für den JAWS Start stellen sicher, dass JAWS immer vor und nach dem Starten von Windows geladen wird und läuft. Verfügen Sie über Administratorrechte, dann erscheinen drei Optionen. Verfügen Sie über ein Standard-Benutzerkonto, dann erscheint nur die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten** . Es ist nicht notwendig, die Standardwerte zu verändern.
+**Hinweis:** Die Standardwerte im Dialog Optionen für den JAWS Start stellen sicher, dass JAWS immer vor und nach dem Starten von Windows geladen wird und läuft. Verfügen Sie über Administratorrechte, dann erscheinen drei Optionen. Verfügen Sie über ein Standard-Benutzerkonto, dann erscheint nur die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten**. Es ist nicht notwendig, die Standardwerte zu verändern.
 
-- **JAWS im Anmeldedialog automatisch starten** : Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald der Windows Anmeldedialog erscheint. Dieses Kontrollfeld ist standardmäßig aktiviert. Es sind Administratorrechte erforderlich, um diese Einstellung zu ändern. Verfügen Sie über Standard-Anwenderrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören. Deaktivieren Sie dieses Kontrollfeld, wenn JAWS beim Erscheinen des Anmeldebildschirms ausgeschaltet sein soll. Der Wert des Kontrollfeldes gilt für alle Anwender, die sich für diese JAWS Version auf diesem Computer anmelden.
-- **JAWS nach dem Anmelden für alle Anwender starten** : Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald Sie sich bei Windows anmelden. Diese Option ist standardmäßig deaktiviert.
+- **JAWS im Anmeldedialog automatisch starten**: Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald der Windows Anmeldedialog erscheint. Dieses Kontrollfeld ist standardmäßig aktiviert. Es sind Administratorrechte erforderlich, um diese Einstellung zu ändern. Verfügen Sie über Standard-Anwenderrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören. Deaktivieren Sie dieses Kontrollfeld, wenn JAWS beim Erscheinen des Anmeldebildschirms ausgeschaltet sein soll. Der Wert des Kontrollfeldes gilt für alle Anwender, die sich für diese JAWS Version auf diesem Computer anmelden.
+- **JAWS nach dem Anmelden für alle Anwender starten**: Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald Sie sich bei Windows anmelden. Diese Option ist standardmäßig deaktiviert.
 
 **Hinweis:** Sie müssen nur einmal den Wert dieses Kontrollfelds ändern, wenn Sie ein Administratorkonto auf diesem Computer haben, und Sie festlegen möchten, wie JAWS für alle nachfolgenden Anwender starten soll, die sich bei Windows auf diesem Computer anmelden. Verfügen Sie über keine Administratorrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören. Verfügen Sie über Standard-Anwenderrechte auf diesem Computer, dann erhalten Sie über die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten** Informationen darüber, wie JAWS nach dem Anmelden bei Windows starten soll.
 
-- **JAWS nach dem Anmelden für diesen Anwender starten** : Mithilfe dieser Ausklappliste kann ein individueller Anwender festlegen, ob JAWS startet, nachdem er oder sie sich bei Windows angemeldet hat. Diese Ausklappliste enthält drei Einträge: Immer, Nie und Benutzereinstellung für alle Anwender. Der Standardwert ist Immer.
+- **JAWS nach dem Anmelden für diesen Anwender starten**: Mithilfe dieser Ausklappliste kann ein individueller Anwender festlegen, ob JAWS startet, nachdem er oder sie sich bei Windows angemeldet hat. Diese Ausklappliste enthält drei Einträge: Immer, Nie und Benutzereinstellung für alle Anwender. Der Standardwert ist Immer.
 
-**Hinweis:** Diese Ausklappliste steht für Anwender mit Administrator- und Standardrechten zur Verfügung. Der ausgewählte Eintrag der Ausklappliste überschreibt den Wert des Kontrollfelds **JAWS nach dem Anmelden für alle Anwender starten** . Ist Immer ausgewählt, dann startet JAWS immer dann, wenn sich der aktuelle Anwender bei Windows anmeldet. Ist Nie ausgewählt, dann startet JAWS nicht, wenn sich der aktuelle Anwender bei Windows anmeldet. Hat der aktuelle Anwender den Eintrag Benutzereinstellung für alle Anwender gewählt, dann kann Folgendes passieren: JAWS startet, nachdem sich der aktuelle Anwender angemeldet hat, sofern der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** aktiviert hat. JAWS startet nicht, nachdem sich der aktuelle Anwender angemeldet hat, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** deaktiviert hat.
+**Hinweis:** Diese Ausklappliste steht für Anwender mit Administrator- und Standardrechten zur Verfügung. Der ausgewählte Eintrag der Ausklappliste überschreibt den Wert des Kontrollfelds **JAWS nach dem Anmelden für alle Anwender starten**. Ist Immer ausgewählt, dann startet JAWS immer dann, wenn sich der aktuelle Anwender bei Windows anmeldet. Ist Nie ausgewählt, dann startet JAWS nicht, wenn sich der aktuelle Anwender bei Windows anmeldet. Hat der aktuelle Anwender den Eintrag Benutzereinstellung für alle Anwender gewählt, dann kann Folgendes passieren: JAWS startet, nachdem sich der aktuelle Anwender angemeldet hat, sofern der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** aktiviert hat. JAWS startet nicht, nachdem sich der aktuelle Anwender angemeldet hat, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** deaktiviert hat.
 
 ### JAWS aus dem Infobereich starten
 
-Diese Option entfernt JAWS aus der Taskleiste und legt es im Infobereich ab. Diese Einstellung wird allerdings erst nach dem nächsten Start von JAWS wirksam. Um JAWS aus dem Infobereich zu starten, drücken Sie **JAWS TASTE+J** . Dadurch wird ein Kontextmenü geöffnet, das die Menüpunkte Optionen, Hilfsprogramme, Sprache und Hilfe enthält. Drücken Sie **PFEIL RECHTS** , um die Untermenüs zu öffnen. Drücken Sie **ALT** , um das Kontextmenü zu schließen.
+Diese Option entfernt JAWS aus der Taskleiste und legt es im Infobereich ab. Diese Einstellung wird allerdings erst nach dem nächsten Start von JAWS wirksam. Um JAWS aus dem Infobereich zu starten, drücken Sie **JAWS TASTE+J**. Dadurch wird ein Kontextmenü geöffnet, das die Menüpunkte Optionen, Hilfsprogramme, Sprache und Hilfe enthält. Drücken Sie **PFEIL RECHTS**, um die Untermenüs zu öffnen. Drücken Sie **ALT**, um das Kontextmenü zu schließen.
 
 Dieses Kontrollfeld ist standardmäßig nicht aktiviert.
 
 ### Beenden von JAWS immer bestätigen
 
-Aktivieren Sie dieses Kontrollfeld, damit JAWS Sie auf das Beenden hinweist und Sie die Möglichkeit haben, diese Aktion abzubrechen. Ist das Kontrollfeld nicht aktiviert, dann schließt sich JAWS sofort, wenn ein Befehl zum Beenden des Programms verwendet wird, inklusive **EINFÜGEN+F4** . Diese Option ist standardmäßig ausgewählt.
+Aktivieren Sie dieses Kontrollfeld, damit JAWS Sie auf das Beenden hinweist und Sie die Möglichkeit haben, diese Aktion abzubrechen. Ist das Kontrollfeld nicht aktiviert, dann schließt sich JAWS sofort, wenn ein Befehl zum Beenden des Programms verwendet wird, inklusive **EINFÜGEN+F4**. Diese Option ist standardmäßig ausgewählt.
 
 ## Allgemeine Einstellungen
 
@@ -4366,9 +4381,9 @@ Folgende Optionen stehen für die allgemeinen Einstellungen zur Verfügung.
 
 Die schlaue Navigation bietet eine effizientere Möglichkeit, in webbasierten Anwendungen, Tabellen und Formularen zu navigieren. Nutzen Sie diese Auswahlschalter, um die Stufe der schlauen Navigation auszuwählen.
 
-Ist hier "Nur Steuerelemente" gewählt, dann werden die meisten Elemente als einzelne Einheiten behandelt, wenn zeichen- oder wortweise navigiert wird, vergleichbar dem Bewegen in einem Menü mit **PFEIL RECHTS** und **PFEIL LINKS** . Wenn "Steuerelemente und Tabellen " gewählt ist, dann werden Elemente als einzelne Einheiten beim zeichen- oder wortweisen Bewegen bewertet, während innerhalb von Tabellen die **Pfeiltasten** zwischen den Zellen bewegen. In beiden Fällen können Sie zur traditionellen Navigation, wie zeichen- oder wortweise, zurückkehren, in dem Sie die Befehle Zeichen lesen, Wort lesen oder Zeile lesen zweimal schnell drücken, so dass Sie den Text des Steuerelements in der gewohnteren Weise erkunden können. Um zur schlauen Navigation zurückzukehren, drücken Sie einfach **PFEIL RUNTER** , **ESC** oder **TAB** .
+Ist hier "Nur Steuerelemente" gewählt, dann werden die meisten Elemente als einzelne Einheiten behandelt, wenn zeichen- oder wortweise navigiert wird, vergleichbar dem Bewegen in einem Menü mit **PFEIL RECHTS** und **PFEIL LINKS**. Wenn "Steuerelemente und Tabellen " gewählt ist, dann werden Elemente als einzelne Einheiten beim zeichen- oder wortweisen Bewegen bewertet, während innerhalb von Tabellen die **Pfeiltasten** zwischen den Zellen bewegen. In beiden Fällen können Sie zur traditionellen Navigation, wie zeichen- oder wortweise, zurückkehren, in dem Sie die Befehle Zeichen lesen, Wort lesen oder Zeile lesen zweimal schnell drücken, so dass Sie den Text des Steuerelements in der gewohnteren Weise erkunden können. Um zur schlauen Navigation zurückzukehren, drücken Sie einfach **PFEIL RUNTER**, **ESC** oder **TAB**.
 
-Immer wenn Sie die schlaue Navigation verwenden, funktioniert JAWS in der Weise, wie es in "Modus der Dokumentpräsentation" festgelegt ist. Dieses bietet eine viel natürlichere Bewegung durch Seiten, so wie diese auf dem Bildschirm erscheinen. Wenn Sie sich zeilenweise auf Webseiten bewegen, dann werden Sie auch einen Soundhinweis bemerken, wenn die aktuelle Zeile einen oder mehrere Links enthält, welche normalerweise in getrennten Zeilen angezeigt werden, wenn Sie nicht die schlaue Navigation verwenden. Dieser Sound hilft Ihnen dabei, zu erkennen, dass ein Link vorhanden ist und gibt Ihnen die Möglichkeit zu pausieren, um diesen zu hören, oder drücken Sie **TAB** oder die **PFEILTASTEN** , um zu diesem zu springen.
+Immer wenn Sie die schlaue Navigation verwenden, funktioniert JAWS in der Weise, wie es in "Modus der Dokumentpräsentation" festgelegt ist. Dieses bietet eine viel natürlichere Bewegung durch Seiten, so wie diese auf dem Bildschirm erscheinen. Wenn Sie sich zeilenweise auf Webseiten bewegen, dann werden Sie auch einen Soundhinweis bemerken, wenn die aktuelle Zeile einen oder mehrere Links enthält, welche normalerweise in getrennten Zeilen angezeigt werden, wenn Sie nicht die schlaue Navigation verwenden. Dieser Sound hilft Ihnen dabei, zu erkennen, dass ein Link vorhanden ist und gibt Ihnen die Möglichkeit zu pausieren, um diesen zu hören, oder drücken Sie **TAB** oder die **PFEILTASTEN**, um zu diesem zu springen.
 
 Die schlaue Navigation ist standardmäßig deaktiviert.
 
@@ -4376,9 +4391,9 @@ Die schlaue Navigation ist standardmäßig deaktiviert.
 
 Der Formularmodus wird benötigt, wenn Sie mit HTML Inhalten in einem Browser arbeiten und Sie Daten eingeben müssen. Seit JAWS zum Navigieren einen "Virtuellen Modus" verwendet, können Sie normalerweise einen Buchstaben zum Navigieren zwischen Überschriften, Absätzen, Tabellen, etc drücken. Aber wenn Sie Text eingeben müssen oder die **PFEILTASTEN** zum Auswählen von Elementen in einer Ausklappliste verwenden möchten, dann müssen Sie auf einen anderen Modus wechseln, den Formularmodus. Nutzen Sie diese Gruppe mit Auswahlschaltern, um festzulegen, wie Sie den Formularmodus aktivieren und diesen auch wieder verlassen.
 
-Ist dieser auf Automatisch gesetzt, dann aktiviert JAWS den Formularmodus automatisch, wenn Sie **TAB** , **UMSCHALT+TAB** oder die **PFEILTASTEN** drücken, um zu einem Element zu springen, welches den Formularmodus benötigt, damit Sie mit dem Element arbeiten können, wie etwa bei Eingabefeldern oder Ausklapplisten. Um anzuzeigen, dass Sie den Formularmodus aktiviert haben, hören Sie einen Pop Sound, oder nutzen Sie dazu die Statuszellen Ihrer Braillezeile. Wenn Sie das Arbeiten mit einem Element abgeschlossen haben, dann können Sie **ESC** drücken, um den Formularmodus zu verlassen, oder drücken Sie **PFEIL RAUF** oder **RUNTER** , um vom Element wegzuspringen und den Formularmodus zu beenden. Diese Funktionalität kann für neue und sehende JAWS Anwender sehr nützlich sein und ist daher die Standardeinstellung.
+Ist dieser auf Automatisch gesetzt, dann aktiviert JAWS den Formularmodus automatisch, wenn Sie **TAB**, **UMSCHALT+TAB** oder die **PFEILTASTEN** drücken, um zu einem Element zu springen, welches den Formularmodus benötigt, damit Sie mit dem Element arbeiten können, wie etwa bei Eingabefeldern oder Ausklapplisten. Um anzuzeigen, dass Sie den Formularmodus aktiviert haben, hören Sie einen Pop Sound, oder nutzen Sie dazu die Statuszellen Ihrer Braillezeile. Wenn Sie das Arbeiten mit einem Element abgeschlossen haben, dann können Sie **ESC** drücken, um den Formularmodus zu verlassen, oder drücken Sie **PFEIL RAUF** oder **RUNTER**, um vom Element wegzuspringen und den Formularmodus zu beenden. Diese Funktionalität kann für neue und sehende JAWS Anwender sehr nützlich sein und ist daher die Standardeinstellung.
 
-Die Auswahl von Manuell verhindert, dass JAWS den Formularmodus immer aktiviert, sobald Sie mit Befehlen inklusive der **TAB** Taste zwischen Elementen navigieren. Das bedeutet, dass Sie beim Springen auf ein Eingabefeld oder eine Ausklappliste zuerst **EINGABE** drücken müssen, um Text einzugeben oder einen Wert auszuwählen. Um den Formularmodus manuell zu beenden, drücken Sie **NUM PLUS** oder **ESC** .
+Die Auswahl von Manuell verhindert, dass JAWS den Formularmodus immer aktiviert, sobald Sie mit Befehlen inklusive der **TAB** Taste zwischen Elementen navigieren. Das bedeutet, dass Sie beim Springen auf ein Eingabefeld oder eine Ausklappliste zuerst **EINGABE** drücken müssen, um Text einzugeben oder einen Wert auszuwählen. Um den Formularmodus manuell zu beenden, drücken Sie **NUM PLUS** oder **ESC**.
 
 Halbautomatisch liegt zwischen Automatisch und Manuell. Der Formularmodus wird aktiviert, wenn Sie beim Navigieren mit **TAB** oder **UMSCHALT+TAB** auf einem Element landen. Der Formularmodus wird nicht aktiviert, wenn Sie mit den **PFEILTASTEN** oder den Schnellnavigationstasten navigieren. Sie müssen den Formularmodus manuell beenden, wenn Halbautomatisch aktiviert ist. Manueller und halbautomatischer Formularmodus kann für erfahrene Anwender passender sein.
 
@@ -4388,13 +4403,13 @@ Für Anwender der schlauen Navigation wird empfohlen, dass der Formularmodus fü
 
 ### Virtuelles Menüband
 
-Aktivieren Sie dieses Kontrollfeld, um das Virtuelle Menüband einzuschalten. Das Virtuelle Menüband bietet vorhersehbare Navigation, zeigt Ihnen alles aus dem Menüband, und bietet konsequente Navigation mit den **PFEILTASTEN** . Diese Einstellung ist standardmäßig ausgeschaltet. Ist die Einstellung eingeschaltet, dann kann man im Menüband wie in traditionellen Menüs oder Untermenüs navigieren, so wie es den meisten JAWS Anwendern vertraut ist.
+Aktivieren Sie dieses Kontrollfeld, um das Virtuelle Menüband einzuschalten. Das Virtuelle Menüband bietet vorhersehbare Navigation, zeigt Ihnen alles aus dem Menüband, und bietet konsequente Navigation mit den **PFEILTASTEN**. Diese Einstellung ist standardmäßig ausgeschaltet. Ist die Einstellung eingeschaltet, dann kann man im Menüband wie in traditionellen Menüs oder Untermenüs navigieren, so wie es den meisten JAWS Anwendern vertraut ist.
 
-Um zwischen den Registern des oberen Menübands zu wechseln, drücken Sie **PFEIL LINKS** oder **PFEIL RECHTS** .
+Um zwischen den Registern des oberen Menübands zu wechseln, drücken Sie **PFEIL LINKS** oder **PFEIL RECHTS**.
 
-Um zum unteren Menüband des aktuellen Registers zu springen, drücken Sie **PFEIL RUNTER** .
+Um zum unteren Menüband des aktuellen Registers zu springen, drücken Sie **PFEIL RUNTER**.
 
-Um das obere Menüband zu verlassen und zum Dokument zurückzukehren, drücken Sie **ESC** oder **ALT** .
+Um das obere Menüband zu verlassen und zum Dokument zurückzukehren, drücken Sie **ESC** oder **ALT**.
 
 Steht für eine Anwendung eine Tastenkombination von **ALT-Taste** kombiniert mit einem Buchstaben zum Aufruf eines Befehls zur Verfügung, dann nutzt JAWS die Kurztaste und das Virtuelle Menüband erscheint nicht.
 
@@ -4410,9 +4425,9 @@ JAWS verwendet den Nummernblock, um verschiedene Sprachfunktionen auszuführen. 
 
 Über die Option Ausgangsstatus der NUM LOCK Taste legen Sie fest, ob die **NUM LOCK** Taste beim JAWS Start aktiviert werden soll oder nicht. Diese Einstellung steht nur in Default.jcf zur Verfügung.
 
-- **Beim Start abschalten** : Dies ist der Standardwert. Sofern ausgewählt, ist die **NUM LOCK** Taste beim JAWS Start ausgeschaltet.
-- **Beim Start einschalten** : Aktiviert die **NUM LOCK** Taste, so dass sie beim JAWS Start eingeschaltet ist.
-- **Nicht ändern** : JAWS verwendet die aktuelle **NUM LOCK** Einstellung.
+- **Beim Start abschalten**: Dies ist der Standardwert. Sofern ausgewählt, ist die **NUM LOCK** Taste beim JAWS Start ausgeschaltet.
+- **Beim Start einschalten**: Aktiviert die **NUM LOCK** Taste, so dass sie beim JAWS Start eingeschaltet ist.
+- **Nicht ändern**: JAWS verwendet die aktuelle **NUM LOCK** Einstellung.
 
 ## Ausführlichkeits-Einstellungen
 
@@ -4422,18 +4437,18 @@ Folgende Optionen stehen für die Ausführlichkeitseinstellungen zur Verfügung:
 
 Mit Hilfe dieser Auswahlschalter bestimmen Sie, welche Tutormeldungen angesagt werden sollen. Tutormeldungen geben Tipps zur Navigation in Programmen und in Windows.
 
-- **Hilfe für Menüs und Elemente abschalten** : Es werden keine Tutormeldungen angesagt.
-- **Hilfe für Menüs und Elemente ansagen** : Es werden alle Tutormeldungen angesagt. Dies ist die Standardeinstellung.
-- **Nur benutzerdefinierte Meldungen sprechen** : Es werden nur die im Promptmanager erstellten Tutormeldungen angesagt.
+- **Hilfe für Menüs und Elemente abschalten**: Es werden keine Tutormeldungen angesagt.
+- **Hilfe für Menüs und Elemente ansagen**: Es werden alle Tutormeldungen angesagt. Dies ist die Standardeinstellung.
+- **Nur benutzerdefinierte Meldungen sprechen**: Es werden nur die im Promptmanager erstellten Tutormeldungen angesagt.
 
 ### Kurztasten
 
 Kurztasten sind jene Tasten, die Sie drücken, um direkt auf ein Steuerelement oder einen Menüpunkt zu springen. Mit Hilfe dieser Auswahlschalter bestimmen Sie, welche Kurztasten angesagt werden sollen:
 
-- **Aus** : Es werden keine Kurztasten gesprochen.
-- **Alle sprechen** : JAWS spricht die Kurztasten sowohl in Menüs als auch in Dialogen. Dies ist die Standardeinstellung.
-- **Nur in Menüs sprechen** : JAWS spricht die Kurztasten nur für Menüeinträge.
-- **Nur in Dialogfeldern sprechen** : JAWS spricht die Kurztasten nur für Steuerelemente in Dialogfeldern.
+- **Aus**: Es werden keine Kurztasten gesprochen.
+- **Alle sprechen**: JAWS spricht die Kurztasten sowohl in Menüs als auch in Dialogen. Dies ist die Standardeinstellung.
+- **Nur in Menüs sprechen**: JAWS spricht die Kurztasten nur für Menüeinträge.
+- **Nur in Dialogfeldern sprechen**: JAWS spricht die Kurztasten nur für Steuerelemente in Dialogfeldern.
 
 ### Ausführlichkeitsstufen
 
@@ -4467,9 +4482,9 @@ Folgende Optionen stehen für die Braille-Einstellungen zur Verfügung:
 
 In dieser Ausklappliste wird das Format festgelegt, in dem Informationen zu Ihrer Braillezeile gesendet werden. Die folgenden Optionen stehen zur Verfügung:
 
-- **Fläche** : In diesem Modus wird die Zeile, auf der sich der Cursor befindet, zur Braillezeile gesendet.
-- **Strukturiert** : In diesem Modus werden für die aktuelle Cursorposition relevante Informationen zur Braillezeile gesendet. Diese Informationen beinhalten den Typ des Elements, den Namen des Dialogfeldes oder die Anzahl der Einträge in einer Liste. Dies ist die Standardeinstellung.
-- **Sprachausgabe** : In diesem Modus werden an die Braillezeile dieselben Informationen gesendet wie an die Sprachausgabe.
+- **Fläche**: In diesem Modus wird die Zeile, auf der sich der Cursor befindet, zur Braillezeile gesendet.
+- **Strukturiert**: In diesem Modus werden für die aktuelle Cursorposition relevante Informationen zur Braillezeile gesendet. Diese Informationen beinhalten den Typ des Elements, den Namen des Dialogfeldes oder die Anzahl der Einträge in einer Liste. Dies ist die Standardeinstellung.
+- **Sprachausgabe**: In diesem Modus werden an die Braillezeile dieselben Informationen gesendet wie an die Sprachausgabe.
 
 ### Blitzmeldungen einschalten
 
@@ -4532,9 +4547,9 @@ Das Software Update geht einfach und schnell. Gehen Sie bitte folgendermaßen vo
 1. Bauen Sie die Verbindung mit dem Internet auf.
 2. Starten Sie JAWS.
 3. Wählen Sie im Hilfemenü den Eintrag Nach Updates suchen.
-4. JAWS durchsucht das Internet nach Updates und zeigt eine Liste aller herunterladbaren Updates an. Bewegen Sie sich mit den Pfeiltasten in der Liste, und drücken Sie die **LEERTASTE** , um das Kontrollfeld neben dem Update zu aktivieren, das Sie herunterladen und installieren möchten.
+4. JAWS durchsucht das Internet nach Updates und zeigt eine Liste aller herunterladbaren Updates an. Bewegen Sie sich mit den Pfeiltasten in der Liste, und drücken Sie die **LEERTASTE**, um das Kontrollfeld neben dem Update zu aktivieren, das Sie herunterladen und installieren möchten.
 
-**Hinweis:** Verfügt Ihr Computer über eine aktive Firewall Software (wie zum Beispiel Windows Firewall), dann erhalten Sie möglicherweise eine Warnung, dass entweder FSAutoUpdate Application oder FSAutoUpdate.exe versucht, auf das Internet zuzugreifen. Sie müssen diesen Prozess zulassen, damit das Internet durch die Firewall auf die Updates zugreifen kann. Wenn Sie Windows Firewall einsetzen, dann müssen Sie den Schalter Entsperren aktivieren, sobald die Warnung angezeigt wird. Bei einer anderen Firewall Software lesen Sie bitte die entsprechende Dokumentation. Die Firewall muss JAWS erlauben, auf das Internet mit Ports 20 und 21 oder Port 80 zuzugreifen.
+**Hinweis:**Verfügt Ihr Computer über eine aktive Firewall Software (wie zum Beispiel Windows Firewall), dann erhalten Sie möglicherweise eine Warnung, dass entweder FSAutoUpdate Application oder FSAutoUpdate.exe versucht, auf das Internet zuzugreifen. Sie müssen diesen Prozess zulassen, damit das Internet durch die Firewall auf die Updates zugreifen kann. Wenn Sie Windows Firewall einsetzen, dann müssen Sie den Schalter Entsperren aktivieren, sobald die Warnung angezeigt wird. Bei einer anderen Firewall Software lesen Sie bitte die entsprechende Dokumentation. Die Firewall muss JAWS erlauben, auf das Internet mit Ports 20 und 21 oder Port 80 zuzugreifen.
 
 1. Haben Sie das Update ausgewählt, dann aktivieren Sie den Schalter Installieren. Es kann sein, dass Sie Ihren Computer neu starten müssen. Werden die Updates nicht erfolgreich installiert, dann müssen Sie Ihre JAWS Installation reparieren und den Vorgang erneut durchführen.
 
@@ -4546,7 +4561,7 @@ Einige Anwender erhalten einen Freedom Scientific Zugangscode, so dass sie spezi
 2. Starten Sie JAWS.
 3. Im JAWS Hilfemenü wählen Sie Über JAWS.
 4. Aktivieren Sie den Schalter Spezieller Update Code.
-5. Geben Sie Ihren Freedom Scientific speziellen Update Code in das Eingabefeld ein und drücken Sie dann **EINGABE** .
+5. Geben Sie Ihren Freedom Scientific speziellen Update Code in das Eingabefeld ein und drücken Sie dann **EINGABE**.
 6. Im Hilfemenü wählen Sie Nach Updates suchen und folgen der Vorgehensweise zum Herunterladen und Installieren der Updates, wie im vorherigen Kapitel beschrieben.
 
 Quelle: Updating_JAWS.htm
@@ -4595,13 +4610,13 @@ Die nachfolgenden Kapitel beschreiben die verschiedenen Wege, um JAWS zu aktivie
 Gehen Sie folgendermaßen vor, um JAWS über das Internet zu aktivieren:
 
 1. Im Dialogfeld Aktivierung wählen Sie Aktivierung starten.
-2. Lesen Sie die angezeigte Meldung und drücken Sie dann die **PFEILTASTEN** , um Internet (EMPFOHLEN) auszuwählen und drücken Sie dann **EINGABE** .
+2. Lesen Sie die angezeigte Meldung und drücken Sie dann die **PFEILTASTEN**, um Internet (EMPFOHLEN) auszuwählen und drücken Sie dann **EINGABE**.
 3. Wird Ihre 20stellige Autorisierungsnummer nicht automatisch angezeigt, geben Sie diese im Eingabefeld Autorisierungsnummer ein.
-4. Drücken Sie **EINGABE** , um fortzufahren. Sie werden aufgefordert, eine Verbindung mit dem Internet herzustellen, sofern Sie dies nicht schon getan haben. Es muss eine Internetverbindung vorhanden sein, bevor Sie mit der Aktivierung fortfahren können.
+4. Drücken Sie **EINGABE**, um fortzufahren. Sie werden aufgefordert, eine Verbindung mit dem Internet herzustellen, sofern Sie dies nicht schon getan haben. Es muss eine Internetverbindung vorhanden sein, bevor Sie mit der Aktivierung fortfahren können.
 5. Wenn Sie JAWS bisher noch nicht registriert haben, werden Sie jetzt dazu aufgefordert. Die JAWS Registrierung berechtigt Sie dazu, den Technischen Support in Anspruch zu nehmen. Wählen Sie Jetzt registrieren und füllen Sie das Online Registrierungsformular aus, indem Sie die einzelnen Schritte befolgen. Sie können auch später registrieren, aber Sie müssen sich das nächste Mal, wenn Sie JAWS aktivieren, registrieren.
 6. Nachdem Sie Ihre Registrierung abgeschickt haben, versucht der Internet Lizenz Manager, JAWS zu aktivieren. Dieser Prozess kann mehrere Minuten in Anspruch nehmen. Nachdem die Aktivierung erfolgreich durchgeführt worden ist, wählen Sie Beenden.
 
-**Hinweis:** Sollte der Internet Lizenz Manager JAWS wegen Ihrer Firewall nicht aktivieren, lesen Sie bitte [Fehlersuche bei Firewalls](../../../firewalls/Troubleshooting_Firewall_Software.htm) .
+**Hinweis:** Sollte der Internet Lizenz Manager JAWS wegen Ihrer Firewall nicht aktivieren, lesen Sie bitte [Fehlersuche bei Firewalls](../../../firewalls/Troubleshooting_Firewall_Software.htm).
 
 **Hinweis:** Wenn Sie weitere Aktivierungen benötigen, dann können Sie diese auf der Seite [www.FSActivate.com](https://fsactivate.freedomscientific.com) anfordern.
 
@@ -4619,15 +4634,15 @@ Ein Dongle ist ein Kopierschutzstecker, den man über die USB Schnittstelle mit 
 
 Beim JAWS Start wird ermittelt, ob ein Dongle am Computer angeschlossen ist oder nicht. Wenn ein Dongle vorhanden ist, verwendet JAWS die Funktionen und Informationen der Dongle Lizenz, um JAWS zu autorisieren. Ist kein Dongle angeschlossen, dann sucht JAWS nach den Lizenzinformationen auf dem Computer. Das Hilfsprogramm Donglebetrachter zeigt die Lizenzinformationen des aktuell an den Computer angeschlossenen Dongles an. Um dieses Hilfsprogramm zu starten, gehen Sie auf das Menü Hilfsprogramme im JAWS Hauptfenster, wählen Sie "Ordner Hilfsprogramme erkunden" und wählen Sie Donglebetrachter.
 
-**Hinweis:** Sie sollten den Dongle erst an Ihren Computer anschließen, nachdem Sie JAWS installiert haben. Wurde der Dongle vor oder während der Installation angeschlossen, müssen Sie Ihren Computer neu starten, damit eine ordnungsgemäße Autorisierung durchgeführt werden kann.
+**Hinweis:**Sie sollten den Dongle erst an Ihren Computer anschließen, nachdem Sie JAWS installiert haben. Wurde der Dongle vor oder während der Installation angeschlossen, müssen Sie Ihren Computer neu starten, damit eine ordnungsgemäße Autorisierung durchgeführt werden kann.
 
 Dongles werden separat als Add-On für ILM-Dauerlizenzen von JAWS und Fusion Professional und Home sowie auch für ZoomText verkauft. Setzen Sie sich mit Ihrem JAWS Händler in Verbindung, wenn Sie einen Dongle erwerben möchten. Dongles stehen für eine Home Jahreslizenz nicht zur Verfügung.
 
-**Hinweis:** Es gibt einige landesspezifische JAWS Versionen, die nur über eine Dongle Autorisierung laufen. Wenn man diese Versionen ohne Dongle laufen lässt, so erhält man eine Fehlermeldung.
+**Hinweis:**Es gibt einige landesspezifische JAWS Versionen, die nur über eine Dongle Autorisierung laufen. Wenn man diese Versionen ohne Dongle laufen lässt, so erhält man eine Fehlermeldung.
 
 ## Netzwerkautorisierung
 
-Für Orte mit mehreren Client-Rechnern in einem untereinander verbundenem Netzwerk ist ein Netzwerklizenzserver die bevorzugte Autorisierungsmethode. Bei dieser Methode verbinden sich Computer für die Autorisierung mit einem Netzwerk-Lizenzserver. Wenn Sie eine JAWS Netzwerk-Lizenz erworben haben, finden Sie Anweisungen zur Installation des Lizenzservers und Aktivierung Ihrer Software in der [Anleitung für die Netzwerkautorisierung](Network_Authorization_Instructions.htm) .
+Für Orte mit mehreren Client-Rechnern in einem untereinander verbundenem Netzwerk ist ein Netzwerklizenzserver die bevorzugte Autorisierungsmethode. Bei dieser Methode verbinden sich Computer für die Autorisierung mit einem Netzwerk-Lizenzserver. Wenn Sie eine JAWS Netzwerk-Lizenz erworben haben, finden Sie Anweisungen zur Installation des Lizenzservers und Aktivierung Ihrer Software in der [Anleitung für die Netzwerkautorisierung](Network_Authorization_Instructions.htm).
 
 Quelle: authorizing_jaws.htm
 
@@ -4635,7 +4650,7 @@ Quelle: authorizing_jaws.htm
 
 **Hinweis:** Um JAWS zu installieren, müssen Sie über eine aktive Internetverbindung verfügen und mit einem Benutzerkonto angemeldet sein, welches Administratorrechte besitzt.
 
-Wenn Sie JAWS noch nicht heruntergeladen haben, dann können Sie es auf der [Freedom Scientific Webseite](https://www.freedomscientific.com/Downloads/JAWS) bekommen. Sobald der Download abgeschlossen ist, navigieren zu dem Ordner, in dem Sie die ausführbare Datei gespeichert haben, wählen Sie diese und drücken Sie **EINGABE** .
+Wenn Sie JAWS noch nicht heruntergeladen haben, dann können Sie es auf der [Freedom Scientific Webseite](https://www.freedomscientific.com/Downloads/JAWS) bekommen. Sobald der Download abgeschlossen ist, navigieren zu dem Ordner, in dem Sie die ausführbare Datei gespeichert haben, wählen Sie diese und drücken Sie **EINGABE**.
 
 Die Installation von JAWS startet. Sie werden hören, dass die Installation alle Meldungen spricht, sobald diese auf dem Bildschirm erscheinen. Befolgen Sie die Anweisungen, um die JAWS Installation abzuschließen. Sobald die Installation abgeschlossen ist, müssen Sie den Rechner neu starten, bevor Sie JAWS ausführen können.
 
@@ -4645,24 +4660,25 @@ Wenn Sie auf eine neuere Version von JAWS aktualisieren, dann werden alle eigene
 
 Es gibt eine Anzahl von speziellen Installationsbefehlen, die nützlich für Netzwerkadministratoren sein können. Gehen Sie folgendermaßen vor, um JAWS mit diesen Optionen zu installieren:
 
-1. Drücken Sie **WINDOWSTASTE+R** .
+1. Drücken Sie **WINDOWSTASTE+R**.
 2. Aktivieren Sie den Schalter Durchsuchen.
 3. Gehen Sie in den Ordner, in dem sich das JAWS Setup Paket befindet.
-4. Markieren Sie dieses Setup Paket und drücken Sie **EINGABE** .
-5. Drücken Sie **ENDE** und dann **LEERTASTE** .
+4. Markieren Sie dieses Setup Paket und drücken Sie **EINGABE**.
+5. Drücken Sie **ENDE** und dann **LEERTASTE**.
 6. Geben Sie einen der folgenden Ausdrücke ein:
+
   - **/Help** oder **/MoreHelp** - Zeigt ein Dialogfenster, welches weitere Informationen über die verfügbaren Kommandozeilenparameter enthält.
-  - **/ExtractSettings <Pfad-zur-Datei>** - gibt den Inhalt von Settings.ini in die spezifizierte Ausgabedatei aus. Der Installationsvorgang wird nicht durchgeführt. Existiert die Ausgabedatei bereits, so wird diese überschrieben. Befinden sich im Pfad zur Datei Leerzeichen, dann muss der Pfad in Anführungszeichen stehen (zum Beispiel: C:\Package.exe /ExtractSettings "C:\FS setup\OldSettings.ini" ).
-  - **/ReplaceSettings <Pfad-zur-Datei>** - spezifiziert eine Initialisierungsdatei für die Engine des Setup Pakets, die anstelle der Settings.ini, die in den Ressourcen gespeichert ist, verwendet wird. Dieses Flag kann immer dann verwendet werden, wenn irgend ein Inhalt in der Settings.ini überschrieben werden muss. Befinden sich im Pfad zur Datei Leerzeichen, dann muss der Pfad in Anführungszeichen stehen (zum Beispiel: C:\Package.exe /ExtractSettings "C:\FS setup\NewSettings.ini" ).
-  - **/Layout <Pfad-zur-Datei>** - Lädt die nicht eingebetteten Installationsdateien herunter und erstellt eine Kopie des Installationspakets im angegebenen Verzeichnis. Dieses ermöglicht dem Anwender, das Installationspaket auszuführen und die Installation oder Reparatur auf einem Computer auszuführen, der nicht über eine Internetverbindung verfügt. Um dieses zu tun, müssen sich Installationspaket und Installationsdateien im selben Ordner befinden. Befinden sich im Pfad zur Datei Leerzeichen, dann muss der Pfad in Anführungszeichen stehen (zum Beispiel: C:\Package.exe /Layout "C:\FS setup\OfflineSetup\" ). Die Installationsdateien werden während des Herunterladens im Ordner c:\\FS setup\\OfflineSetup gespeichert.
-  - **/Log** - Standardmäßig schreibt JAWS den Installationsverlauf in verschiedene Logdateien. Diese Dateien werden im Temp Verzeichnis des Anwenders in einem Ordner, der nach dem Build benannt ist, abgelegt. Nutzen Sie diesen Befehl, um eine andere Ordnerposition für das Speichern der Log-Dateien festzulegen.
-  - **/Type Silent** - installiert still eine typische JAWS Installation, ohne Installationsdialogfelder oder Eingabeaufforderungen anzuzeigen.
-  - **/Type Repair** - repariert eine typische JAWS Installation. Sobald die Reparatur begonnen hat, können Sie den Vorgang nicht mehr abbrechen. Während der Reparatur werden Fortschrittsdialoge angezeigt und eine klickende Tonfolge wird abgespielt. Zum Schluss werden Sie aufgefordert, den Computer neu zu starten.
-  - **/Type SilentRepair** - Repariert still eine vorhandene JAWS Installation, ohne Installationsdialogfelder oder Eingabeaufforderungen anzuzeigen.
-  - **/Type Uninstall** - Deinstalliert eine vorhandene Installation von JAWS.
-  - **/Type SilentUninstall** - Deinstalliert still eine vorhandene Installation von JAWS, ohne die gemeinsamen Komponenten zu entfernen.
-  - **/Type SilentSharedUninstall** - Deinstalliert still eine vorhandene Installation von JAWS inklusive der gemeinsamen Komponenten.
-7. Drücken Sie **EINGABE** .
+    - **/ExtractSettings <Pfad-zur-Datei>** - gibt den Inhalt von Settings.ini in die spezifizierte Ausgabedatei aus. Der Installationsvorgang wird nicht durchgeführt. Existiert die Ausgabedatei bereits, so wird diese überschrieben. Befinden sich im Pfad zur Datei Leerzeichen, dann muss der Pfad in Anführungszeichen stehen (zum Beispiel: C:\Package.exe /ExtractSettings "C:\FS setup\OldSettings.ini").
+    - **/ReplaceSettings <Pfad-zur-Datei>** - spezifiziert eine Initialisierungsdatei für die Engine des Setup Pakets, die anstelle der Settings.ini, die in den Ressourcen gespeichert ist, verwendet wird. Dieses Flag kann immer dann verwendet werden, wenn irgend ein Inhalt in der Settings.ini überschrieben werden muss. Befinden sich im Pfad zur Datei Leerzeichen, dann muss der Pfad in Anführungszeichen stehen (zum Beispiel: C:\Package.exe /ExtractSettings "C:\FS setup\NewSettings.ini").
+    - **/Layout <Pfad-zur-Datei>** - Lädt die nicht eingebetteten Installationsdateien herunter und erstellt eine Kopie des Installationspakets im angegebenen Verzeichnis. Dieses ermöglicht dem Anwender, das Installationspaket auszuführen und die Installation oder Reparatur auf einem Computer auszuführen, der nicht über eine Internetverbindung verfügt. Um dieses zu tun, müssen sich Installationspaket und Installationsdateien im selben Ordner befinden. Befinden sich im Pfad zur Datei Leerzeichen, dann muss der Pfad in Anführungszeichen stehen (zum Beispiel: C:\Package.exe /Layout "C:\FS setup\OfflineSetup\"). Die Installationsdateien werden während des Herunterladens im Ordner c:\\FS setup\\OfflineSetup gespeichert.
+    - **/Log** - Standardmäßig schreibt JAWS den Installationsverlauf in verschiedene Logdateien. Diese Dateien werden im Temp Verzeichnis des Anwenders in einem Ordner, der nach dem Build benannt ist, abgelegt. Nutzen Sie diesen Befehl, um eine andere Ordnerposition für das Speichern der Log-Dateien festzulegen.
+    - **/Type Silent** - installiert still eine typische JAWS Installation, ohne Installationsdialogfelder oder Eingabeaufforderungen anzuzeigen.
+    - **/Type Repair** - repariert eine typische JAWS Installation. Sobald die Reparatur begonnen hat, können Sie den Vorgang nicht mehr abbrechen. Während der Reparatur werden Fortschrittsdialoge angezeigt und eine klickende Tonfolge wird abgespielt. Zum Schluss werden Sie aufgefordert, den Computer neu zu starten.
+    - **/Type SilentRepair** - Repariert still eine vorhandene JAWS Installation, ohne Installationsdialogfelder oder Eingabeaufforderungen anzuzeigen.
+    - **/Type Uninstall** - Deinstalliert eine vorhandene Installation von JAWS.
+    - **/Type SilentUninstall** - Deinstalliert still eine vorhandene Installation von JAWS, ohne die gemeinsamen Komponenten zu entfernen.
+    - **/Type SilentSharedUninstall** - Deinstalliert still eine vorhandene Installation von JAWS inklusive der gemeinsamen Komponenten.
+7. Drücken Sie **EINGABE**.
 
 ## Unabhängige Benutzerprofile verwenden
 
@@ -4675,7 +4691,7 @@ Bevor Sie so ein unabhängiges Profil verwenden können, muss der Netzwerkadmini
 - Erstellen eines Gemeinsamen Ordners, in dem die Roaming Profile gespeichert werden.
 - Das Konfigurieren der Benutzerkonten zur Verwendungen von Roaming Profilen.
 
-*Lesen Sie auch* :
+*Lesen Sie auch*:
 
 Quelle: installing_jaws_for_windows.htm
 
@@ -4685,79 +4701,79 @@ JAWS verfügt über viele Hilfsprogramme, so dass Sie die Möglichkeit haben, JA
 
 ## JAWS Manager aufrufen
 
-Drücken Sie **JAWS TASTE+F2** , um einen schnellen Zugriff auf die JAWS Manager und Hilfsprogramme zu erhalten. Im Folgenden erhalten Sie eine Kurzbeschreibung der einzelnen Manager und Hilfsprogramme.
+Drücken Sie **JAWS TASTE+F2**, um einen schnellen Zugriff auf die JAWS Manager und Hilfsprogramme zu erhalten. Im Folgenden erhalten Sie eine Kurzbeschreibung der einzelnen Manager und Hilfsprogramme.
 
 ## Befehle suchen
 
-Die Funktion JAWS Befehle suchen ermöglicht Ihnen, eine ganze oder teilweise Beschreibung eines JAWS Befehls einzugeben, dessen Tastenkombination Sie nicht mehr erinnern und die Ergebnisse, die den Suchkriterien entsprechen, in einer Liste anzuzeigen. Die Ergebnisse beinhalten den Befehlsnamen, eine kurze Beschreibung und die Kurztasten, die zum Ausführen des Befehls genutzt werden können. Lesen Sie dazu bitte auch [JAWS Befehle suchen](Getting_Help/Search_for_Commands.htm) .
+Die Funktion JAWS Befehle suchen ermöglicht Ihnen, eine ganze oder teilweise Beschreibung eines JAWS Befehls einzugeben, dessen Tastenkombination Sie nicht mehr erinnern und die Ergebnisse, die den Suchkriterien entsprechen, in einer Liste anzuzeigen. Die Ergebnisse beinhalten den Befehlsnamen, eine kurze Beschreibung und die Kurztasten, die zum Ausführen des Befehls genutzt werden können. Lesen Sie dazu bitte auch [JAWS Befehle suchen](Getting_Help/Search_for_Commands.htm).
 
 ## Hervorhebungsfarbe zuweisen
 
-Weisen Sie Farben zu, die dann von JAWS als hervorgehoben erkannt werden. Dies ist besonders in Anwendungen sinnvoll, in denen keine Windowsfarben eingesetzt werden oder in denen die voreingestellten Farben nicht modifizierbar sind. Weitere Informationen finden Sie unter [Die Hervorhebungsfarben](SettingsCenter.chm::/CustomHighlight/custom_highlight_colors.htm) .
+Weisen Sie Farben zu, die dann von JAWS als hervorgehoben erkannt werden. Dies ist besonders in Anwendungen sinnvoll, in denen keine Windowsfarben eingesetzt werden oder in denen die voreingestellten Farben nicht modifizierbar sind. Weitere Informationen finden Sie unter [Die Hervorhebungsfarben](SettingsCenter.chm::/CustomHighlight/custom_highlight_colors.htm).
 
 ## Listenansicht anpassen
 
-Eine Listenansicht ist ein Bereich in einem Fenster oder einem Dialog, der ein oder mehrere Elemente, wie zum Beispiel Dateien oder Ordner, enthält. Die Listenansicht besteht in der Regel aus mehreren Spalten, die Informationen über das jeweilige Listenelement enthalten. Sie verwenden die Funktion Listenansicht anpassen, um festzulegen, wie JAWS Sie mit Informationen über die Spalten und Elemente versorgen soll. Weitere Informationen finden Sie unter [Listenansicht anpassen](../customizing_jaws_for_windows/Custom_List_View/Customizing_List_Views.htm) .
+Eine Listenansicht ist ein Bereich in einem Fenster oder einem Dialog, der ein oder mehrere Elemente, wie zum Beispiel Dateien oder Ordner, enthält. Die Listenansicht besteht in der Regel aus mehreren Spalten, die Informationen über das jeweilige Listenelement enthalten. Sie verwenden die Funktion Listenansicht anpassen, um festzulegen, wie JAWS Sie mit Informationen über die Spalten und Elemente versorgen soll. Weitere Informationen finden Sie unter [Listenansicht anpassen](../customizing_jaws_for_windows/Custom_List_View/Customizing_List_Views.htm).
 
 ## Wörterbuchmanager
 
-Mit dem Wörterbuchmanager können Sie Einstellungen vornehmen, wie JAWS Wörter aussprechen soll. Weitere Informationen darüber finden Sie unter [Der Wörterbuchmanager](jdiction.chm::/jdiction/introduction_to_dictionary_manager.htm) .
+Mit dem Wörterbuchmanager können Sie Einstellungen vornehmen, wie JAWS Wörter aussprechen soll. Weitere Informationen darüber finden Sie unter [Der Wörterbuchmanager](jdiction.chm::/jdiction/introduction_to_dictionary_manager.htm).
 
 ## Flexible Web
 
-Nutzen Sie Flexible Web, um Inhalte auf Webseiten zu verbergen, die den Lesefluss unterbrechen könnten, wie etwa Werbeeinblendungen. Sie können auch festlegen, wo JAWS auf einer speziellen Seite mit dem Lesen starten soll. Für weitere Informationen lesen Sie bitte [Flexible Web](../popapps.chm::/internet/internet_explorer_5/Flexible_Web.htm) .
+Nutzen Sie Flexible Web, um Inhalte auf Webseiten zu verbergen, die den Lesefluss unterbrechen könnten, wie etwa Werbeeinblendungen. Sie können auch festlegen, wo JAWS auf einer speziellen Seite mit dem Lesen starten soll. Für weitere Informationen lesen Sie bitte [Flexible Web](../popapps.chm::/internet/internet_explorer_5/Flexible_Web.htm).
 
 ## Rahmenbetrachter
 
-Verwenden Sie den Rahmenbetrachter, um Bereiche innerhalb eines Anwendungsfensters zu definieren, die dann auf einen Tastaturbefehl hin gelesen werden, bestimmte Veränderungen in dem Programm widerspiegeln oder einen Programmvorgang stummschalten, weil Sie diesen nicht hören möchten. Weitere Informationen darüber finden Sie unter [Der Rahmenbetrachter](../customizing_jaws_for_windows/Frame_Viewer/frame_viewer.htm) .
+Verwenden Sie den Rahmenbetrachter, um Bereiche innerhalb eines Anwendungsfensters zu definieren, die dann auf einen Tastaturbefehl hin gelesen werden, bestimmte Veränderungen in dem Programm widerspiegeln oder einen Programmvorgang stummschalten, weil Sie diesen nicht hören möchten. Weitere Informationen darüber finden Sie unter [Der Rahmenbetrachter](../customizing_jaws_for_windows/Frame_Viewer/frame_viewer.htm).
 
 ## Grafikbezeichner
 
-Mit dem Grafikbezeichner erzeugen Sie Bezeichnungen für Grafiken. Die Bezeichnungen werden dann automatisch vorgelesen, wenn die Grafiken vom aktiven Cursor berührt werden. Weitere Informationen darüber finden Sie unter [Der Grafikbezeichner](../customizing_jaws_for_windows/working_with_graphics/graphics_labeler_overview.htm) .
+Mit dem Grafikbezeichner erzeugen Sie Bezeichnungen für Grafiken. Die Bezeichnungen werden dann automatisch vorgelesen, wenn die Grafiken vom aktiven Cursor berührt werden. Weitere Informationen darüber finden Sie unter [Der Grafikbezeichner](../customizing_jaws_for_windows/working_with_graphics/graphics_labeler_overview.htm).
 
 ## Tastaturmanager
 
-Der Tastaturmanager ermöglicht es Ihnen, Tastenkombinationen für Skripts hinzuzufügen, zu ändern oder zu löschen und sie in Tastenbelegungsdateien zu speichern. Weitere Informationen darüber finden Sie unter [Der Tastaturmanager](jkey.chm::/jkey/introduction_to_keyboard_manager.htm) .
+Der Tastaturmanager ermöglicht es Ihnen, Tastenkombinationen für Skripts hinzuzufügen, zu ändern oder zu löschen und sie in Tastenbelegungsdateien zu speichern. Weitere Informationen darüber finden Sie unter [Der Tastaturmanager](jkey.chm::/jkey/introduction_to_keyboard_manager.htm).
 
 ## Grafikbezeichner
 
-Diese Option steht nur in Webbrowsern, im Adobe Acrobat/Reader, in Microsoft Word und in HTML Dokumenten zur Verfügung, die den virtuellen Cursor verwenden. Verwenden Sie den Grafikbezeichner, um eine eigene Bezeichnung zu bearbeiten oder zu löschen, die Sie einem HTML-Element zugewiesen haben, z. B. einem Link, einem Bild oder einem Formularfeld/Steuerelement. Weitere Informationen über diese Funktion finden Sie unter [Benutzerdefinierte Bezeichnungen](PopApps.chm::/internet/internet_explorer_5/Custom_Labels.htm) .
+Diese Option steht nur in Webbrowsern, im Adobe Acrobat/Reader, in Microsoft Word und in HTML Dokumenten zur Verfügung, die den virtuellen Cursor verwenden. Verwenden Sie den Grafikbezeichner, um eine eigene Bezeichnung zu bearbeiten oder zu löschen, die Sie einem HTML-Element zugewiesen haben, z. B. einem Link, einem Bild oder einem Formularfeld/Steuerelement. Weitere Informationen über diese Funktion finden Sie unter [Benutzerdefinierte Bezeichnungen](PopApps.chm::/internet/internet_explorer_5/Custom_Labels.htm).
 
 ## Farben in der Braille markieren
 
-Benutzen Sie die Gruppe Braillefarbmarkierung der Einstellungsverwaltung, um Textfarben festzulegen, die bei eingeschalteter Farbattributanzeige auf der Braillezeile mit den Punkten 7 und 8 dargestellt werden. Weitere Informationen hierzu finden Sie unter [Gruppe Braille-Optionen](SettingsCenter.chm::/Braille/braille_options_dialog.htm) .
+Benutzen Sie die Gruppe Braillefarbmarkierung der Einstellungsverwaltung, um Textfarben festzulegen, die bei eingeschalteter Farbattributanzeige auf der Braillezeile mit den Punkten 7 und 8 dargestellt werden. Weitere Informationen hierzu finden Sie unter [Gruppe Braille-Optionen](SettingsCenter.chm::/Braille/braille_options_dialog.htm).
 
 ## Schnellnavigationstasten
 
-Nutzen Sie dieses Hilfsprogramm, um eine Liste der aktuellen Schnellnavigationstastenzuweisungen für Befehle innerhalb der aktuellen Anwendung zu erhalten. Weitere Informationen finden Sie unter [Schnellnavigationstasten-Manager](../customizing_jaws_for_windows/Navigation_Quick_Key_Manager/Navigation_Quick_Key_Manager.htm) .
+Nutzen Sie dieses Hilfsprogramm, um eine Liste der aktuellen Schnellnavigationstastenzuweisungen für Befehle innerhalb der aktuellen Anwendung zu erhalten. Weitere Informationen finden Sie unter [Schnellnavigationstasten-Manager](../customizing_jaws_for_windows/Navigation_Quick_Key_Manager/Navigation_Quick_Key_Manager.htm).
 
 ## Der Benachrichtigungsverlauf
 
-Diese Option öffnet das Dialogfenster Benachrichtigungsverlauf, in dem eine Liste der Benachrichtigungen von Windows und Anwendungen angezeigt wird, die in den letzten 24 Stunden empfangen wurden, während JAWS oder Fusion ausgeführt wurde. Weitere Informationen hierzu finden Sie unter [Der Benachrichtigungsverlauf](../customizing_jaws_for_windows/Notification_History/Notification_History.htm) .
+Diese Option öffnet das Dialogfenster Benachrichtigungsverlauf, in dem eine Liste der Benachrichtigungen von Windows und Anwendungen angezeigt wird, die in den letzten 24 Stunden empfangen wurden, während JAWS oder Fusion ausgeführt wurde. Weitere Informationen hierzu finden Sie unter [Der Benachrichtigungsverlauf](../customizing_jaws_for_windows/Notification_History/Notification_History.htm).
 
 ## Prompt erstellen
 
-Prompts sind "Bereitschaftsmeldungen" oder Eingabeaufforderungen, die während des Navigierens gesprochen werden. Es werden jedoch nicht alle Prompts automatisch gelesen. Nutzen Sie die Beschriftung von Prompts, um die Bezeichnung festzulegen, die JAWS für spezielle Steuerelemente sprechen soll, und legen Sie auch eine Tutormeldung fest, die nützliche Tipps zur Navigation bereithält. Weitere Informationen darüber finden Sie unter [Eine Promptbezeichnung erstellen](../customizing_jaws_for_windows/Frame_Viewer/create_a_prompt.htm) .
+Prompts sind "Bereitschaftsmeldungen" oder Eingabeaufforderungen, die während des Navigierens gesprochen werden. Es werden jedoch nicht alle Prompts automatisch gelesen. Nutzen Sie die Beschriftung von Prompts, um die Bezeichnung festzulegen, die JAWS für spezielle Steuerelemente sprechen soll, und legen Sie auch eine Tutormeldung fest, die nützliche Tipps zur Navigation bereithält. Weitere Informationen darüber finden Sie unter [Eine Promptbezeichnung erstellen](../customizing_jaws_for_windows/Frame_Viewer/create_a_prompt.htm).
 
 ## Schnelleinstellung
 
-Nutzen Sie die Schnelleinstellung, um Einstellungen für die Anwendung zu ändern, die aktuell aktiv ist. Weitere Informationen darüber finden Sie unter [Übersicht über die Schnelleinstellung](../customizing_jaws_for_windows/Quick_Settings/Quick_Settings.htm) .
+Nutzen Sie die Schnelleinstellung, um Einstellungen für die Anwendung zu ändern, die aktuell aktiv ist. Weitere Informationen darüber finden Sie unter [Übersicht über die Schnelleinstellung](../customizing_jaws_for_windows/Quick_Settings/Quick_Settings.htm).
 
 ## Research It
 
-Research It ermöglicht den Zugriff auf Daten und eine schnelle Rückkehr zur Hauptaufgabe. Research It verwendet Nachschlagewerke und den Ergebnisbetrachter. Sie können Research It verwenden, um Informationen zu suchen, sei es die Bedeutung eines Wortes, Ihre lokale Wettervorhersage, Sportergebnisse, Übersetzungen oder Nachrichten. Weitere Informationen finden Sie unter [Research It](../customizing_jaws_for_windows/Research_It/Research_It.htm) .
+Research It ermöglicht den Zugriff auf Daten und eine schnelle Rückkehr zur Hauptaufgabe. Research It verwendet Nachschlagewerke und den Ergebnisbetrachter. Sie können Research It verwenden, um Informationen zu suchen, sei es die Bedeutung eines Wortes, Ihre lokale Wettervorhersage, Sportergebnisse, Übersetzungen oder Nachrichten. Weitere Informationen finden Sie unter [Research It](../customizing_jaws_for_windows/Research_It/Research_It.htm).
 
 ## Skriptmanager
 
-Mit dem Skriptmanager können Sie Skriptdateien ("kleine Programme") für einzelne Anwendungen erstellen, verändern und speichern, um die optimale JAWS Funktionalität in diesen Anwendungen zu nutzen. Weitere Informationen darüber finden Sie unter [Die JAWS Skriptsprache](jscript.chm::/jscript/what_is_the_script_manager_.htm) .
+Mit dem Skriptmanager können Sie Skriptdateien ("kleine Programme") für einzelne Anwendungen erstellen, verändern und speichern, um die optimale JAWS Funktionalität in diesen Anwendungen zu nutzen. Weitere Informationen darüber finden Sie unter [Die JAWS Skriptsprache](jscript.chm::/jscript/what_is_the_script_manager_.htm).
 
 ## Einstellungsverwaltung
 
-In der Einstellungsverwaltung ändern Sie die Grundeinstellungen von JAWS, während Ihre Anwendung läuft. Sie können zum Beispiel die Textmenge festlegen, die JAWS sprechen soll, wenn Sie Text eingeben oder JAWS Text vorliest. Sie können auch die Konfigurationseinstellungen für die Braillezeile und die Sprachausgabe modifizieren. Lesen Sie dazu bitte auch [Einstellungsverwaltung](SettingsCenter.chm::/Overview.htm) .
+In der Einstellungsverwaltung ändern Sie die Grundeinstellungen von JAWS, während Ihre Anwendung läuft. Sie können zum Beispiel die Textmenge festlegen, die JAWS sprechen soll, wenn Sie Text eingeben oder JAWS Text vorliest. Sie können auch die Konfigurationseinstellungen für die Braillezeile und die Sprachausgabe modifizieren. Lesen Sie dazu bitte auch [Einstellungsverwaltung](SettingsCenter.chm::/Overview.htm).
 
 ## Querlesen-Dialog
 
-Mit dem Hilfsprogramm Querlesen verändern Sie die Einstellungen, wie und was beim Querlesen eines Textes gelesen werden soll. Sie können auch Textregeln erstellen, auswählen, bearbeiten und löschen. Sie starten das Querlesen mit Ihren aktuellen Einstellungen jederzeit mit **STRG+JAWS TASTE+PFEIL RUNTER** . Weitere Informationen darüber finden Sie unter [Querlesen](the_jaws_application_window/jaws_dialogs/Skim_Reading_Dialog.htm) .
+Mit dem Hilfsprogramm Querlesen verändern Sie die Einstellungen, wie und was beim Querlesen eines Textes gelesen werden soll. Sie können auch Textregeln erstellen, auswählen, bearbeiten und löschen. Sie starten das Querlesen mit Ihren aktuellen Einstellungen jederzeit mit **STRG+JAWS TASTE+PFEIL RUNTER**. Weitere Informationen darüber finden Sie unter [Querlesen](the_jaws_application_window/jaws_dialogs/Skim_Reading_Dialog.htm).
 
 ## Fensterklasse zuweisen
 
@@ -4780,17 +4796,17 @@ Nachdem JAWS installiert worden ist, können Sie festlegen, ob es manuell gestar
 Um JAWS manuell zu starten, gehen Sie bitte folgendermaßen vor:
 
 1. Öffnen Sie mit **WINDOWSTASTE+R** den Dialog Ausführen.
-2. Geben Sie "JAWS *X* (wobei *X* für die Versionsnummer steht) ein, und drücken Sie dann **EINGABE** .
+2. Geben Sie "JAWS *X* (wobei *X* für die Versionsnummer steht) ein, und drücken Sie dann **EINGABE**.
 
-**Tipp:** Um Ihre Benutzereinstellungen zu überschreiben und JAWS nur mit den Standardeinstellungen zu starten, geben Sie "JAWS *X* /default" ein (wobei *X* für die Versionsnummer steht). Sie können dem JAWS Symbol auf dem Desktop auch eine Kurztaste zum Starten zuweisen. Zu weiteren Informationen über das Zuweisen einer Kurztaste, lesen Sie bitte [Eine Kurztaste zuweisen](tutorial.chm::/windows_with_jfw_basics/desktop_orientation.htm#Define_a_Hotkey) .
+**Tipp:**Um Ihre Benutzereinstellungen zu überschreiben und JAWS nur mit den Standardeinstellungen zu starten, geben Sie "JAWS*X* /default" ein (wobei *X* für die Versionsnummer steht). Sie können dem JAWS Symbol auf dem Desktop auch eine Kurztaste zum Starten zuweisen. Zu weiteren Informationen über das Zuweisen einer Kurztaste, lesen Sie bitte [Eine Kurztaste zuweisen](tutorial.chm::/windows_with_jfw_basics/desktop_orientation.htm#Define_a_Hotkey).
 
 ## JAWS automatisch starten
 
 Wenn Sie JAWS zum ersten Mal installieren, dann erscheint der JAWS Start-Assistent. Das Dialogfeld JAWS Einstellungen anpassen enthält mehrere Optionen zum Start von JAWS. Die Standardeinstellungen gewährleisten, dass JAWS immer geladen und gestartet wird und läuft, bevor und nachdem Windows gestartet wurde. Werden diese Einstellungen verändert, und Sie möchten später die Standard-Einstellungen wiederherstellen, dann gehen Sie bitte folgendermaßen vor, damit JAWS automatisch startet:
 
-1. Starten Sie JAWS manuell, so wie bereits beschrieben, und drücken Sie **JAWS TASTE+J** , um das JAWS Programmfenster zu öffnen.
+1. Starten Sie JAWS manuell, so wie bereits beschrieben, und drücken Sie **JAWS TASTE+J**, um das JAWS Programmfenster zu öffnen.
 2. Öffnen Sie mit **ALT+H** das Menü Hilfe, und drücken Sie dann **S** zum Öffnen des JAWS Start-Assistenten.
-3. Als Nächstes aktivieren Sie den Schalter **Weiter** , bis Sie auf der Seite JAWS Start-Einstellungen sind. Verfügen Sie über Administratorrechte, dann erscheinen einige Optionen in dem Assistenten. Verfügen Sie über ein Standard-Benutzerkonto, dann erscheint nur die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten** .
+3. Als Nächstes aktivieren Sie den Schalter **Weiter**, bis Sie auf der Seite JAWS Start-Einstellungen sind. Verfügen Sie über Administratorrechte, dann erscheinen einige Optionen in dem Assistenten. Verfügen Sie über ein Standard-Benutzerkonto, dann erscheint nur die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten**.
 4. Für einen Administrator-Konto gehen Sie wie folgt vor:
 
 - Aktivieren Sie das Kontrollfeld JAWS im Anmeldedialog starten.
@@ -4802,8 +4818,8 @@ Für ein Standardbenutzer-Konto gehen Sie wie folgt vor:
 
 - Wählen Sie in der Ausklappliste JAWS nach dem Anmelden für diesen Anwender starten den Eintrag Immer.
 
-1. Wählen Sie **Weiter** , um mit den verbleibenden Seiten des Assistenten fortzufahren.
-2. Auf der letzten Seite des JAWS Start-Assistenten aktivieren Sie den Schalter **Fertigstellen** , um die Änderungen zu bestätigen und den Assistenten zu schließen. Beim nächsten Windowsstart wird JAWS nun automatisch gestartet und ist eines der zuerst verfügbaren Programme.
+1. Wählen Sie **Weiter**, um mit den verbleibenden Seiten des Assistenten fortzufahren.
+2. Auf der letzten Seite des JAWS Start-Assistenten aktivieren Sie den Schalter **Fertigstellen**, um die Änderungen zu bestätigen und den Assistenten zu schließen. Beim nächsten Windowsstart wird JAWS nun automatisch gestartet und ist eines der zuerst verfügbaren Programme.
 
 **Tipp:** Wurde JAWS so konfiguriert, dass es automatisch im Anmeldedialog oder nach dem Anmelden in Windows gestartet wurde, dann können Sie nachdem Sie sich angemeldet haben beim Windows Start die beiden Tasten **LINKE UMSCHALT** und **RECHTE UMSCHALT** gedrückt halten, um zu verhindern, dass JAWS gestartet wird. Dieses ist hilfreich, wenn Sie Fehler beim Startvorgang feststellen, und diese zur besseren Fehlererkennung ausschließen möchten.
 
@@ -4815,18 +4831,18 @@ Dieses Hilfsprogramm ermöglicht das einfache Testen und Installieren oder Deins
 
 Um eine Stimme zu installieren:
 
-1. Drücken Sie im JAWS Programmfenster **ALT+O** , um das Menü Optionen zu öffnen, erweitern Sie das Untermenü Stimmen und wählen Sie dann Stimmen hinzufügen/entfernen, um das Hilfsprogramm zum Hinzufügen und Entfernen von Vocalizer Expressive Stimmen zu öffnen.
+1. Drücken Sie im JAWS Programmfenster **ALT+O**, um das Menü Optionen zu öffnen, erweitern Sie das Untermenü Stimmen und wählen Sie dann Stimmen hinzufügen/entfernen, um das Hilfsprogramm zum Hinzufügen und Entfernen von Vocalizer Expressive Stimmen zu öffnen.
 2. Wählen Sie in der Ausklappliste Sprache auswählen, die Sprache, für die Sie Stimmen herunterladen möchten.
-3. Im Listenfeld Premium Stimmen drücken Sie **LEERTASTE** auf den Stimmen, die Sie installieren möchten. Sie können soviele Stimmen auswählen, wie Sie möchten. Um ein Sprechbeispiel der aktuellen Stimme zu hören, bevor Sie entscheiden, ob Sie diese auswählen möchten, drücken Sie **ALT+B** . Wenn eine Stimme bereits installiert ist, dann wird dieses in der Liste angezeigt.
+3. Im Listenfeld Premium Stimmen drücken Sie **LEERTASTE** auf den Stimmen, die Sie installieren möchten. Sie können soviele Stimmen auswählen, wie Sie möchten. Um ein Sprechbeispiel der aktuellen Stimme zu hören, bevor Sie entscheiden, ob Sie diese auswählen möchten, drücken Sie **ALT+B**. Wenn eine Stimme bereits installiert ist, dann wird dieses in der Liste angezeigt.
 4. Wählen Sie den Schalter Gewählte Stimmen installieren, um die Installation zu starten.
 
 Nach dem Installieren einer Premiumstimme wird in JAWS und Fusion für jede dieser neuen individuellen Stimmen ein Profil erstellt, welches später über das Dialogfenster [Stimmeneinstellungen](Voice_Adjustment.htm) weiter angepasst werden kann. Sie können auch leicht zwischen allen neuen Stimmen wechseln, indem Sie **STRG+EINFÜGEN+S** drücken, um das Dialogfenster Stimmenprofil auswählen zu öffnen, den Anfangsbuchstaben der Stimme drücken, die Sie verwenden möchten und dann **EINGABE** drücken. Wenn Sie nicht möchten, dass für jede installierte Stimme ein Profil angelegt wird, öffnen Sie das Dialogfenster Stimmeneinstellungen und deaktivieren Sie das Kontrollfeld "Zusätzliche Stimmenprofile für installierte Vocalizer Expressive 2 Stimmen aktivieren", so dass nur das vorinstallierte Vocalizer Expressive Standardprofil und die Benutzerprofile aufgelistet werden.
 
 Um eine oder mehrere Stimmen zu entfernen:
 
-1. Drücken Sie im JAWS Programmfenster **ALT+O** , um das Menü Optionen zu öffnen, erweitern Sie das Untermenü Stimmen und wählen Sie dann Stimmen hinzufügen/entfernen, um das Hilfsprogramm zum Hinzufügen und Entfernen von Vocalizer Expressive Stimmen zu öffnen.
+1. Drücken Sie im JAWS Programmfenster **ALT+O**, um das Menü Optionen zu öffnen, erweitern Sie das Untermenü Stimmen und wählen Sie dann Stimmen hinzufügen/entfernen, um das Hilfsprogramm zum Hinzufügen und Entfernen von Vocalizer Expressive Stimmen zu öffnen.
 2. Wählen Sie den Schalter Eine Stimme entfernen.
-3. Nutzen Sie die **LEERTASTE** , um die Stimmen zu markieren, die Sie entfernen möchten und drücken Sie dann den Schalter Gewählte Stimmen entfernen.
+3. Nutzen Sie die **LEERTASTE**, um die Stimmen zu markieren, die Sie entfernen möchten und drücken Sie dann den Schalter Gewählte Stimmen entfernen.
 
 Sie können auch alle Stimmen auf einmal entfernen. Sobald sich das Hilfsprogramm Vocalizer Expressive Stimmen hinzufügen/entfernen öffnet, drücken Sie den Schalter Alle Stimmen entfernen.
 
@@ -4898,7 +4914,7 @@ Nutzen Sie diese Ausklappliste, um eine Sprachausgabesprache auszuwählen, die I
 
 Sie können verschiedene Stimmeneinstellungen für jede verfügbare Sprache konfigurieren und diese im gleichen Stimmenprofil speichern. Wenn beispielsweise English die erste Sprache in dem Profil ist, dann können Sie Sprechgeschwindigkeit, Satzzeichenansage, Stimmhöhe und so weiter konfigurieren. Wenn Sie darüberhinaus eine oder mehrere Spanische Stimmen installiert haben, dann können Sie in dieser Ausklappliste Spanisch auswählen und dann unterschiedliche Einstellungen für Sprechgeschwindigkeit, Stimmhöhe oder Stufe der Satzzeichenansage vornehmen, die dann automatisch verwendet werden, wenn JAWS zu dieser Sprache umschaltet. Beachten Sie, dass wenn Sie Stimmen für verschiedene Dialekte in der gleichen Sprache haben, wie etwa English (United States) und English (United Kingdom), die gleichen Stimmeneinstellungen für alle Dialekte in der gleichen Sprache wirksam sind.
 
-**Tipp:** Drücken Sie **STRG+WINDOWSTASTE+L** , um die Sprachen im aktuell aktiven Stimmenprofil zu wechseln.
+**Tipp:** Drücken Sie **STRG+WINDOWSTASTE+L**, um die Sprachen im aktuell aktiven Stimmenprofil zu wechseln.
 
 ## Sprache als Standard festlegen
 
@@ -4924,17 +4940,17 @@ Sie können JAWS so konfigurieren, dass leichte Variationen in der JAWS Sprache 
 - **PC Cursor Stimme** - Der PC Cursor ist der meistverwendete Cursor in JAWS. Er entspricht dem Systemfokus. Damit JAWS beim Lesen eines Dokuments, beim Wandern durch oder Markieren von Optionen oder Symbolen und beim Ausführen der meisten Windows Standard-Funktionen eine bestimmten Stimme verwendet, markieren Sie PC Cursor und ändern dann die Einstellungen wie unter anderem Geschwindigkeit, Stimmhöhe, Stimme und so weiter.
 - **JAWS Cursor Stimme** - Der JAWS Cursor ist mit den Mauszeigerfunktionen in Windows und in anderen Anwendungen verbunden. Wählen Sie JAWS Cursor und ändern Sie dann die Stimmeneinstellungen im Gruppenfeld Stimme, um unterschieden zu können, wenn der JAWS Cursor aktiv ist.
 - **Tastaturstimme** - Wählen Sie Tastaturstimme, wenn Sie möchten, dass JAWS Zeichen und Wörter mit einer anderen Stimme ansagen soll, wenn das Tastaturecho eingeschaltet ist. Um die Tastaturstimme anzupassen, wählen Sie dieses Element und ändern Sie dann die Stimmeneinstellungen wie Geschwindigkeit, Stimmhöhe und andere.
-- **Tutor- und Meldungsstimme** - Wählen Sie dieses Element, wenn Sie möchten, dass Tutormeldungen mit einer bestimmten Stimme angesagt werden sollen. Tutormeldungen liefern Tipps zur Navigation in Windows und in anderen Anwendungen. Drücken Sie zum Beispiel zum Öffnen eines Menüs **ALT** , dann spricht JAWS die Meldung "Zum Navigieren drücken Sie **PFEIL LINKS** oder **RECHTS** ". Um die Tutor- und Meldungsstimme anzupassen, wählen Sie dieses Element und ändern Sie dann die Stimmeneinstellungen wie Geschwindigkeit, Stimmhöhe und andere.
+- **Tutor- und Meldungsstimme** - Wählen Sie dieses Element, wenn Sie möchten, dass Tutormeldungen mit einer bestimmten Stimme angesagt werden sollen. Tutormeldungen liefern Tipps zur Navigation in Windows und in anderen Anwendungen. Drücken Sie zum Beispiel zum Öffnen eines Menüs **ALT**, dann spricht JAWS die Meldung "Zum Navigieren drücken Sie **PFEIL LINKS** oder **RECHTS** ". Um die Tutor- und Meldungsstimme anzupassen, wählen Sie dieses Element und ändern Sie dann die Stimmeneinstellungen wie Geschwindigkeit, Stimmhöhe und andere.
 
 ### Person
 
-Nutzen Sie die Liste **Stimme** , um die Sprachausgabestimme zu wählen, die Sie mit einer bestimmten Sprache aus der Ausklappliste Sprachausgabensprache oder dem Stimmenkontext aus der Ausklappliste Anpassen verwenden möchten. Die zur Verfügung stehenden Stimmen sind von der aktuell verwendeten Sprachausgabe abhängig.
+Nutzen Sie die Liste **Stimme**, um die Sprachausgabestimme zu wählen, die Sie mit einer bestimmten Sprache aus der Ausklappliste Sprachausgabensprache oder dem Stimmenkontext aus der Ausklappliste Anpassen verwenden möchten. Die zur Verfügung stehenden Stimmen sind von der aktuell verwendeten Sprachausgabe abhängig.
 
 **Hinweis:** Wenn Sie verschiedene Stimmen in verschiedenen Dialekten installiert haben, dann werden alle Stimmen der Sprache aufgelistet, unabhängig davon, welcher Dialekt in der Ausklappliste Sprachausgabesprache ausgewählt ist. Ist zum Beispiel Englisch - United Kingdom ausgewählt, dann listet diese Ausklappliste die Stimmen für English - United States aus, wie auch die Stimmen für English - United Kingdom.
 
 ### Geschwindigkeit
 
-Mit diesem Schieberegler stellen Sie die Sprechgeschwindigkeit für die aktuell gewählte Sprachausgabe ein. Drücken Sie **PFEIL RECHTS** , **PFEIL RAUF** oder **SEITE RAUF** , um die Sprechgeschwindigkeit zu erhöhen. Drücken Sie **PFEIL LINKS** , **PFEIL RUNTER** oder **SEITE RUNTER** , um die Sprechgeschwindigkeit zu verringern.
+Mit diesem Schieberegler stellen Sie die Sprechgeschwindigkeit für die aktuell gewählte Sprachausgabe ein. Drücken Sie **PFEIL RECHTS**, **PFEIL RAUF** oder **SEITE RAUF**, um die Sprechgeschwindigkeit zu erhöhen. Drücken Sie **PFEIL LINKS**, **PFEIL RUNTER** oder **SEITE RUNTER**, um die Sprechgeschwindigkeit zu verringern.
 
 ### Satzzeichen
 
@@ -4946,7 +4962,7 @@ Mit dem Schieberegler **Stimmhöhe** stellen Sie die Stimmhöhe der aktuell gew�
 
 ### Lautstärke
 
-Mit diesem Schieberegler stellen Sie die Lautstärke bei Vocalizer Expressive, SAPI 5 und einigen Hardware-Sprachausgaben ein. Drücken Sie **PFEIL LINKS** , **PFEIL RUNTER** oder **SEITE RUNTER** , um die Lautstärke zu verringern. Drücken Sie **PFEIL RECHTS** , **PFEIL RAUF** oder **SEITE RAUF** , um die Lautstärke zu erhöhen. Wenn Sie die Eloquence verwenden, dann können Sie die Lautstärke über das System regeln.
+Mit diesem Schieberegler stellen Sie die Lautstärke bei Vocalizer Expressive, SAPI 5 und einigen Hardware-Sprachausgaben ein. Drücken Sie **PFEIL LINKS**, **PFEIL RUNTER** oder **SEITE RUNTER**, um die Lautstärke zu verringern. Drücken Sie **PFEIL RECHTS**, **PFEIL RAUF** oder **SEITE RAUF**, um die Lautstärke zu erhöhen. Wenn Sie die Eloquence verwenden, dann können Sie die Lautstärke über das System regeln.
 
 ### Buchstabiergeschwindigkeit ändern in Prozent
 
@@ -4988,9 +5004,9 @@ Um die JAWS Grundeinstellungen zu verändern, öffnen Sie das Menü Optionen und
 
 Mit Hilfe dieser Auswahlschalter bestimmen Sie, welche Tutormeldungen angesagt werden sollen. Tutormeldungen geben Tipps zur Navigation in Programmen und in Windows.
 
-- **Hilfe für Menüs und Elemente abschalten** : Es werden keine Tutormeldungen angesagt.
-- **Hilfe für Menüs und Elemente ansagen** : Es werden alle Tutormeldungen angesagt.
-- **Nur benutzerdefinierte Meldungen sprechen** : Es werden nur die im Promptmanager erstellten Tutormeldungen angesagt.
+- **Hilfe für Menüs und Elemente abschalten**: Es werden keine Tutormeldungen angesagt.
+- **Hilfe für Menüs und Elemente ansagen**: Es werden alle Tutormeldungen angesagt.
+- **Nur benutzerdefinierte Meldungen sprechen**: Es werden nur die im Promptmanager erstellten Tutormeldungen angesagt.
 
 ## Kurztasten
 
@@ -5000,20 +5016,20 @@ Kurztasten sind jene Tasten, die Sie drücken, um direkt auf ein Steuerelement o
 
 Startet JAWS automatisch starten, auch unter dem Begriff bekannt JAWS als Service starten, so ist das eine große Hilfe für jene Anwender, die sofort eine Sprachunterstützung wünschen. Diese Option erscheint als ein Schalter, der das Dialogfeld Optionen für den JAWS Start öffnet. Legen Sie dort fest, ob JAWS vor oder nach Ihrer Anmeldung und dem Windows Start aufgerufen werden soll.
 
-**Hinweis:** Die Standardwerte im Dialog Optionen für den JAWS Start stellen sicher, dass JAWS immer vor und nach dem Starten von Windows geladen wird und läuft. Verfügen Sie über Administratorrechte, dann erscheinen drei Optionen. Verfügen Sie über ein Standard-Benutzerkonto, dann erscheint nur die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten** . Es ist nicht notwendig, die Standardwerte zu verändern.
+**Hinweis:** Die Standardwerte im Dialog Optionen für den JAWS Start stellen sicher, dass JAWS immer vor und nach dem Starten von Windows geladen wird und läuft. Verfügen Sie über Administratorrechte, dann erscheinen drei Optionen. Verfügen Sie über ein Standard-Benutzerkonto, dann erscheint nur die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten**. Es ist nicht notwendig, die Standardwerte zu verändern.
 
-- **JAWS im Anmeldedialog automatisch starten** : Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald der Windows Anmeldedialog erscheint. Dieses Kontrollfeld ist standardmäßig aktiviert. Es sind Administratorrechte erforderlich, um diese Einstellung zu ändern. Verfügen Sie über Standard-Anwenderrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören. Deaktivieren Sie dieses Kontrollfeld, wenn JAWS beim Erscheinen des Anmeldebildschirms ausgeschaltet sein soll. Der Wert des Kontrollfeldes gilt für alle Anwender, die sich für diese JAWS Version auf diesem Computer anmelden.
-- **JAWS nach dem Anmelden für alle Anwender starten** : Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald Sie sich bei Windows anmelden. Diese Option ist standardmäßig deaktiviert.
+- **JAWS im Anmeldedialog automatisch starten**: Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald der Windows Anmeldedialog erscheint. Dieses Kontrollfeld ist standardmäßig aktiviert. Es sind Administratorrechte erforderlich, um diese Einstellung zu ändern. Verfügen Sie über Standard-Anwenderrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören. Deaktivieren Sie dieses Kontrollfeld, wenn JAWS beim Erscheinen des Anmeldebildschirms ausgeschaltet sein soll. Der Wert des Kontrollfeldes gilt für alle Anwender, die sich für diese JAWS Version auf diesem Computer anmelden.
+- **JAWS nach dem Anmelden für alle Anwender starten**: Ist dieses Kontrollfeld aktiviert, dann wird JAWS geladen und gestartet, sobald Sie sich bei Windows anmelden. Diese Option ist standardmäßig deaktiviert.
 
 **Hinweis:** Sie müssen nur einmal den Wert dieses Kontrollfelds ändern, wenn Sie ein Administratorkonto auf diesem Computer haben, und Sie festlegen möchten, wie JAWS für alle nachfolgenden Anwender starten soll, die sich bei Windows auf diesem Computer anmelden. Verfügen Sie über keine Administratorrechte, dann können Sie den Wert dieses Kontrollfeld nicht verändern, und Sie werden den Wert auch nicht beim Anwenden von JAWS hören. Verfügen Sie über Standard-Anwenderrechte auf diesem Computer, dann erhalten Sie über die Ausklappliste **JAWS nach dem Anmelden für diesen Anwender starten** Informationen darüber, wie JAWS nach dem Anmelden bei Windows starten soll.
 
-- **JAWS nach dem Anmelden für diesen Anwender starten** : Mithilfe dieser Ausklappliste kann ein individueller Anwender festlegen, ob JAWS startet, nachdem er oder sie sich bei Windows angemeldet hat. Diese Ausklappliste enthält drei Einträge: Immer, Nie und Benutzereinstellung für alle Anwender. Der Standardwert ist Immer.
+- **JAWS nach dem Anmelden für diesen Anwender starten**: Mithilfe dieser Ausklappliste kann ein individueller Anwender festlegen, ob JAWS startet, nachdem er oder sie sich bei Windows angemeldet hat. Diese Ausklappliste enthält drei Einträge: Immer, Nie und Benutzereinstellung für alle Anwender. Der Standardwert ist Immer.
 
-**Hinweis:** Diese Ausklappliste steht für Anwender mit Administrator- und Standardrechten zur Verfügung. Der ausgewählte Eintrag der Ausklappliste überschreibt den Wert des Kontrollfelds **JAWS nach dem Anmelden für alle Anwender starten** . Ist Immer ausgewählt, dann startet JAWS immer dann, wenn sich der aktuelle Anwender bei Windows anmeldet. Ist Nie ausgewählt, dann startet JAWS nicht, wenn sich der aktuelle Anwender bei Windows anmeldet. Hat der aktuelle Anwender den Eintrag Benutzereinstellung für alle Anwender gewählt, dann kann Folgendes passieren: JAWS wird beim Einloggen des aktuelle Anwenders gestartet, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** aktiviert hat, oder JAWS wird für den aktuellen Anwender nicht gestartet, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** deaktiviert hat.
+**Hinweis:** Diese Ausklappliste steht für Anwender mit Administrator- und Standardrechten zur Verfügung. Der ausgewählte Eintrag der Ausklappliste überschreibt den Wert des Kontrollfelds **JAWS nach dem Anmelden für alle Anwender starten**. Ist Immer ausgewählt, dann startet JAWS immer dann, wenn sich der aktuelle Anwender bei Windows anmeldet. Ist Nie ausgewählt, dann startet JAWS nicht, wenn sich der aktuelle Anwender bei Windows anmeldet. Hat der aktuelle Anwender den Eintrag Benutzereinstellung für alle Anwender gewählt, dann kann Folgendes passieren: JAWS wird beim Einloggen des aktuelle Anwenders gestartet, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** aktiviert hat, oder JAWS wird für den aktuellen Anwender nicht gestartet, wenn der Administrator das Kontrollfeld **JAWS nach dem Anmelden für alle Anwender starten** deaktiviert hat.
 
 ## Beenden von JAWS immer bestätigen
 
-Aktivieren Sie dieses Kontrollfeld, damit JAWS Sie auf das Beenden hinweist und Sie die Möglichkeit haben, diese Aktion abzubrechen. Ist das Kontrollfeld nicht aktiviert, dann schließt sich JAWS sofort, wenn ein Befehl zum Beenden des Programms verwendet wird, inklusive **EINFÜGEN+F4** . Diese Option ist standardmäßig ausgewählt.
+Aktivieren Sie dieses Kontrollfeld, damit JAWS Sie auf das Beenden hinweist und Sie die Möglichkeit haben, diese Aktion abzubrechen. Ist das Kontrollfeld nicht aktiviert, dann schließt sich JAWS sofort, wenn ein Befehl zum Beenden des Programms verwendet wird, inklusive **EINFÜGEN+F4**. Diese Option ist standardmäßig ausgewählt.
 
 ## Automatische Benachrichtigung über Updates
 
@@ -5025,11 +5041,11 @@ Aktivieren Sie dieses Kontrollfeld, um JAWS zu erlauben, nach Updates für Skrip
 
 ## JAWS aus dem Infobereich starten
 
-Diese Option entfernt JAWS aus der Taskleiste und legt es im Infobereich ab. Diese Einstellung wird allerdings erst nach dem nächsten Start von JAWS wirksam. Um JAWS aus dem Infobereich zu starten, drücken Sie **JAWS TASTE+J** . Dadurch wird ein Kontextmenü geöffnet, das die Menüpunkte Optionen, Hilfsprogramme, Sprache und Hilfe enthält. Drücken Sie **PFEIL RECHTS** , um die Untermenüs zu öffnen. Drücken Sie **ALT** , um das Kontextmenü zu schließen.
+Diese Option entfernt JAWS aus der Taskleiste und legt es im Infobereich ab. Diese Einstellung wird allerdings erst nach dem nächsten Start von JAWS wirksam. Um JAWS aus dem Infobereich zu starten, drücken Sie **JAWS TASTE+J**. Dadurch wird ein Kontextmenü geöffnet, das die Menüpunkte Optionen, Hilfsprogramme, Sprache und Hilfe enthält. Drücken Sie **PFEIL RECHTS**, um die Untermenüs zu öffnen. Drücken Sie **ALT**, um das Kontextmenü zu schließen.
 
 ## Virtuellen Betrachter am Bildschirm anzeigen
 
-Mit diesem Kontrollfeld legen Sie fest, ob der virtuelle Betrachter beim Aufruf der bildschirmabhängigen Hilfe ( **JAWS TASTE+F1** ) oder bei anderen wichtigen Mitteilungen aktiviert werden soll. Bei Schulungen kann das Aktivieren des virtuellen Betrachters sehr hilfreich sein. Allerdings kann sich die Anzeige des Betrachters in Präsentationsanwendungen, wie PowerPoint, auch störend auswirken. Die Funktionalität von JAWS ist jedenfalls unabhängig davon, ob der virtuelle Betrachter sichtbar ist oder nicht. Weitere Informationen über den virtuellen Betrachter finden Sie unter [Der virtuelle Betrachter](../Getting_Help/virtual_viewer.htm) .
+Mit diesem Kontrollfeld legen Sie fest, ob der virtuelle Betrachter beim Aufruf der bildschirmabhängigen Hilfe (**JAWS TASTE+F1**) oder bei anderen wichtigen Mitteilungen aktiviert werden soll. Bei Schulungen kann das Aktivieren des virtuellen Betrachters sehr hilfreich sein. Allerdings kann sich die Anzeige des Betrachters in Präsentationsanwendungen, wie PowerPoint, auch störend auswirken. Die Funktionalität von JAWS ist jedenfalls unabhängig davon, ob der virtuelle Betrachter sichtbar ist oder nicht. Weitere Informationen über den virtuellen Betrachter finden Sie unter [Der virtuelle Betrachter](../Getting_Help/virtual_viewer.htm).
 
 **Hinweis:** Sie müssen JAWS beenden und neu starten, damit diese Änderung wirksam wird.
 
@@ -5069,7 +5085,7 @@ Ist dieses Kontrollfeld aktiviert, wird beim JAWS Start eine Fehlermeldung angez
 
 ## JAWS ohne Sprache laufen lassen
 
-Aktivieren Sie dieses Kontrollfeld, wenn JAWS ohne Sprache ausgeführt werden soll. Beachten Sie, dass Die noch immer Braille-Unterstützung haben, während die Sprachausgabe ausgeschaltet ist. Diese Einstellung wird sofort wirksam und benötigt keinen Neustart von JAWS. Möchten Sie JAWS temporär ohne Sprache ausführen, aber Sie möchten nach dem nächsten Start von JAWS wieder Sprachunterstützung haben, dann wählen Sie Keine Sprachausgabe im Untermenü [Stimmenprofile](language_menu_overview.htm) , welches Sie im JAWS Sprachausgabenmenü finden.
+Aktivieren Sie dieses Kontrollfeld, wenn JAWS ohne Sprache ausgeführt werden soll. Beachten Sie, dass Die noch immer Braille-Unterstützung haben, während die Sprachausgabe ausgeschaltet ist. Diese Einstellung wird sofort wirksam und benötigt keinen Neustart von JAWS. Möchten Sie JAWS temporär ohne Sprache ausführen, aber Sie möchten nach dem nächsten Start von JAWS wieder Sprachunterstützung haben, dann wählen Sie Keine Sprachausgabe im Untermenü [Stimmenprofile](language_menu_overview.htm), welches Sie im JAWS Sprachausgabenmenü finden.
 
 Quelle: braille_basics_dialog.htm
 
@@ -5079,11 +5095,11 @@ In diesem Thema finden Sie die Hilfe Menü Einträge im JAWS Programmfenster.
 
 ## Befehle suchen
 
-Nutzen Sie diesen Menü-Eintrag, um bestimmte JAWS oder Fusion Kurztasten zu finden. Für weitere Informationen lesen Sie bitte das Thema [Befehlssuche](../Getting_Help/Search_for_Commands.htm) .
+Nutzen Sie diesen Menü-Eintrag, um bestimmte JAWS oder Fusion Kurztasten zu finden. Für weitere Informationen lesen Sie bitte das Thema [Befehlssuche](../Getting_Help/Search_for_Commands.htm).
 
 ## Meldungscenter
 
-Dieses Menüelemnt öffnet das [Meldungscenter](../Getting_Help\Message_Center.htm) . Dies ist ein zentraler Ort, an dem Sie schnell über kommende Ankündigungen, Neuigkeiten, Updates und nützliche Tipps von Freedom Scientific informiert werden. Standardmäßig erhalten Sie eine Benachrichtigung, wenn neue Meldungen verfügbar sind.
+Dieses Menüelemnt öffnet das [Meldungscenter](../Getting_Help\Message_Center.htm). Dies ist ein zentraler Ort, an dem Sie schnell über kommende Ankündigungen, Neuigkeiten, Updates und nützliche Tipps von Freedom Scientific informiert werden. Standardmäßig erhalten Sie eine Benachrichtigung, wenn neue Meldungen verfügbar sind.
 
 ## Training
 
@@ -5149,7 +5165,7 @@ Quelle: help_menu_overview.htm
 
 ## Symbol zum Drucken auswählen
 
-Dieses Thema beschreibt den Dialog Symbol zum Drucken auswählen. Dieser Dialog ermöglicht es Ihnen, bestimmte Symbole in ein Dokument einzufügen. Sie öffnen diesen Dialog mit **JAWS TASTE+4** .
+Dieses Thema beschreibt den Dialog Symbol zum Drucken auswählen. Dieser Dialog ermöglicht es Ihnen, bestimmte Symbole in ein Dokument einzufügen. Sie öffnen diesen Dialog mit **JAWS TASTE+4**.
 
 ## Symbolliste
 
@@ -5163,7 +5179,7 @@ Quelle: Select_a_Symbol_To_Print_Dialog.htm
 
 ## Der Dialog Querlesen
 
-Drücken Sie **UMSCHALT+STRG+JAWS TASTE+PFEIL RUNTER** oder wählen Sie "Querlesen" in der Liste der JAWS Manager ( **JAWS TASTE+F2** ), um das Dialogfeld Querlesen zu öffnen. Definieren Sie in diesem Dialogfeld, wie JAWS das aktuelle Dokument querlesen soll. Sie haben die Wahl zwischen ersten Satz oder erste Zeile jedes Absatzes lesen. Alternativ können Sie Textregeln erstellen, um nach Zeilen, Sätzen oder Absätzen zu suchen, die bestimmte Wörter oder Ausdrücke enthalten. Die zur Verfügung stehenden Optionen im Dialog Querlesen werden im Folgenden beschrieben.
+Drücken Sie **UMSCHALT+STRG+JAWS TASTE+PFEIL RUNTER** oder wählen Sie "Querlesen" in der Liste der JAWS Manager (**JAWS TASTE+F2**), um das Dialogfeld Querlesen zu öffnen. Definieren Sie in diesem Dialogfeld, wie JAWS das aktuelle Dokument querlesen soll. Sie haben die Wahl zwischen ersten Satz oder erste Zeile jedes Absatzes lesen. Alternativ können Sie Textregeln erstellen, um nach Zeilen, Sätzen oder Absätzen zu suchen, die bestimmte Wörter oder Ausdrücke enthalten. Die zur Verfügung stehenden Optionen im Dialog Querlesen werden im Folgenden beschrieben.
 
 Mit **STRG+JAWS TASTE+PFEIL RUNTER** startet JAWS das Querlesen von der aktuellen Cursorposition aus bis zum Dokumentende. Eine der nützlichsten Funktionen des Querlesens ist auf jeden Fall die Fähigkeit, eine Zusammenfassung des aktuellen Dokuments zu erstellen. Drücken Sie auf den Schalter Zusammenfassung erstellen, um mit Ihren aktuellen Einstellungen für das Querlesen eine Zusammenfassung zu erzeugen.
 
@@ -5175,11 +5191,11 @@ Aktivieren Sie einen der folgenden Auswahlschalter, um den gewünschten Modus zu
 
 - **Erste Zeile des Absatzes lesen** – Mit **STRG+JAWS TASTE+PFEIL RUNTER** liest JAWS die erste Zeile in jedem Absatz.
 
-**Hinweis:** Die anderen Optionen in diesem Dialog stehen nicht zur Verfügung, wenn Sie diesen Auswahlschalter aktivieren.
+**Hinweis:**Die anderen Optionen in diesem Dialog stehen nicht zur Verfügung, wenn Sie diesen Auswahlschalter aktivieren.
 
 - **Ersten Satz des Absatzes lesen** – Mit **STRG+JAWS TASTE+PFEIL RUNTER** liest JAWS den ersten Satz in jedem Absatz.
 
-**Hinweis:** Die anderen Optionen in diesem Dialog stehen nicht zur Verfügung, wenn Sie diesen Auswahlschalter aktivieren.
+**Hinweis:**Die anderen Optionen in diesem Dialog stehen nicht zur Verfügung, wenn Sie diesen Auswahlschalter aktivieren.
 
 - **Textregeln beim Lesen anwenden** – Mit **STRG+JAWS TASTE+PFEIL RUNTER** sucht JAWS nach Text, den Sie durch eine Textregel definiert haben. JAWS liest dann die Zeile, den Satz oder Absatz, der den passenden Text enthält, abhängig von der Option, die Sie in der Liste Einheit lesen ausgewählt haben.
 
@@ -5207,7 +5223,7 @@ Sie können mehrere erweiterte Ausdrücke erstellen. Sie können zum Beispiel fo
 
 **19\d{2}\s**
 
-**Tipp:** Weitere Informationen über das Erstellen von komplexen Ausdrücken finden Sie unter [Reguläre Ausdrücke](https://msdn.microsoft.com/en-us/library/az24scfc.aspx) in der MSDN Library.
+**Tipp:**Weitere Informationen über das Erstellen von komplexen Ausdrücken finden Sie unter [Reguläre Ausdrücke](https://msdn.microsoft.com/en-us/library/az24scfc.aspx) in der MSDN Library.
 
 Nachdem Sie Text oder einen regulären Ausdruck eingegeben haben, müssen Sie einen Namen für die Textregel in das Eingabefeld Regelname eingeben. Wählen Sie OK, um die Textregel zu speichern. Sie können wählen, welche Textregel Sie in der Liste Textregel verwenden möchten.
 
@@ -5255,9 +5271,9 @@ Quelle: Skim_Reading_Dialog.htm
 
 Die JAWS Einstellungen können entweder über die Einstellungsverwaltung oder die Schnelleinstellung angepasst werden. Beide Funktionen enthalten verschiedene Einstellungen, die Sie für die aktuell ausgeführte Anwendung übernehmen können. Mit der Einstellungsverwaltung können Sie Änderungen global für alle Anwendungen vornehmen, während Sie in der Schnelleinstellung Änderungen für bestimmte Anwendungen einstellen können und dabei festlegen, ob die Änderungen weiterhin genutzt werden sollen, auch wenn JAWS oder der Rechner neugestartet, oder ein anderes Fenster fokussiert wird.
 
-Zum Öffnen der Einstellungsverwaltung drücken Sie **EINFÜGEN+F2** und wählen Einstellungsverwaltung. Weitere Informationen darüber finden Sie unter [Übersicht über die Einstellungsverwaltung](SettingsCenter.chm::/Overview.htm) .
+Zum Öffnen der Einstellungsverwaltung drücken Sie **EINFÜGEN+F2** und wählen Einstellungsverwaltung. Weitere Informationen darüber finden Sie unter [Übersicht über die Einstellungsverwaltung](SettingsCenter.chm::/Overview.htm).
 
-Zum Öffnen der Schnelleinstellung, drücken Sie **EINFÜGEN+V** . Weitere Informationen darüber finden Sie unter [Übersicht über die Schnelleinstellung](../../../customizing_jaws_for_windows/Quick_Settings/Quick_Settings.htm) . Beachten Sie, dass einige Einstellungen speziell auf bestimmte Programme zugeschnitten sind. Wenn Sie zum Beispiel in Microsoft Word **JAWS TASTE+V** drücken, erhalten Sie Einstellungen, die sich nur auf Word beziehen. Nachstehend finden Sie einige Einstellungen, die für alle Windows Programme verfügbar sind. Weitere Informationen über spezielle Optionen für Windows Programme finden Sie im entsprechenden Hilfethema im Abschnitt [Häufig genutzte Anwendungen](popapps.chm::/overview.htm) .
+Zum Öffnen der Schnelleinstellung, drücken Sie **EINFÜGEN+V**. Weitere Informationen darüber finden Sie unter [Übersicht über die Schnelleinstellung](../../../customizing_jaws_for_windows/Quick_Settings/Quick_Settings.htm). Beachten Sie, dass einige Einstellungen speziell auf bestimmte Programme zugeschnitten sind. Wenn Sie zum Beispiel in Microsoft Word **JAWS TASTE+V** drücken, erhalten Sie Einstellungen, die sich nur auf Word beziehen. Nachstehend finden Sie einige Einstellungen, die für alle Windows Programme verfügbar sind. Weitere Informationen über spezielle Optionen für Windows Programme finden Sie im entsprechenden Hilfethema im Abschnitt [Häufig genutzte Anwendungen](popapps.chm::/overview.htm).
 
 ## Die Gruppe Touch Cursor Einstellungen
 
@@ -5285,11 +5301,11 @@ Im Folgenden werden die Einträge der Gruppe Allgemeine Einstellungen beschriebe
 
 ### Ausführlichkeitsstufe
 
-Es gibt drei Ausführlichkeitsstufen: **Einsteiger** , **Fortgeschritten** und **Experten** . Die Einsteiger-Stufe stellt die höchste Anzahl von gesprochenen Informationen zur Verfügung, während die Stufen Fortgeschritten und Experten weniger Details ansagen. Um Ihre eigenen Einstellungen für jede dieser Stufen anzupassen, öffnen Sie die Einstellungsverwaltung und wählen die Gruppe Sprachausführlichkeit.
+Es gibt drei Ausführlichkeitsstufen: **Einsteiger**, **Fortgeschritten** und **Experten**. Die Einsteiger-Stufe stellt die höchste Anzahl von gesprochenen Informationen zur Verfügung, während die Stufen Fortgeschritten und Experten weniger Details ansagen. Um Ihre eigenen Einstellungen für jede dieser Stufen anzupassen, öffnen Sie die Einstellungsverwaltung und wählen die Gruppe Sprachausführlichkeit.
 
 ### Virtuelles Menüband
 
-Aktivieren Sie dieses Kontrollfeld, um das Virtuelle Menüband einzuschalten. Diese Einstellung bezieht sich auf Anwendungen in denen Menübänder anstelle von klassischen Menüleisten und Menüs verwendet werden. Eingeschaltet, bietet das virtuelle Menüband eine alternative Darstellung der Microsoft Menübänder, um eine vorhersehbare Navigation zu ermöglichen. Durch die Nutzung von **Pfeil-** und **Tab** -Tasten ist es leichter, den Fokus zwischen oberem und unterem Menüband zu bewegen Diese Tasten werden auch dazu genutzt, Elemente innerhalb einer Gruppe auszuwählen. Darüberhinaus werden **LEERTASTE** , **EINGABE** und **ESCAPE** dazu verwendet, Untermenüs aus- oder einzuklappen. Dieses Kontrollfeld ist standardmäßig nicht aktiviert.
+Aktivieren Sie dieses Kontrollfeld, um das Virtuelle Menüband einzuschalten. Diese Einstellung bezieht sich auf Anwendungen in denen Menübänder anstelle von klassischen Menüleisten und Menüs verwendet werden. Eingeschaltet, bietet das virtuelle Menüband eine alternative Darstellung der Microsoft Menübänder, um eine vorhersehbare Navigation zu ermöglichen. Durch die Nutzung von **Pfeil-** und **Tab**-Tasten ist es leichter, den Fokus zwischen oberem und unterem Menüband zu bewegen Diese Tasten werden auch dazu genutzt, Elemente innerhalb einer Gruppe auszuwählen. Darüberhinaus werden **LEERTASTE**, **EINGABE** und **ESCAPE** dazu verwendet, Untermenüs aus- oder einzuklappen. Dieses Kontrollfeld ist standardmäßig nicht aktiviert.
 
 ### Fortschrittsbalken
 
@@ -5299,28 +5315,28 @@ Programme verwenden häufig Fortschrittsbalken, um den Status eines Vorgangs anz
 
 Diese Option legt fest, ob JAWS beim Navigieren einen Hinweiston abspielen soll, sobald Sie eine obere oder untere Begrenzung erreichen.
 
-- **Stumm** : Sie hören keinen Piepston, wenn Sie auf eine obere oder untere Begrenzung stoßen.
-- **Mit Sound warnen** : Sie hören einen Piepston, wenn Sie auf eine obere oder untere Begrenzung stoßen. Beachten Sie, dass JAWS in Word und Outlook 2007 oder höher piept und die erste oder letzte Zeile erneut liest, wenn die obere oder untere Begrenzung durch Drücken von **PFEIL RAUF** oder **PFEIL RUNTER** erreicht wird. Wenn Sie versuchen über die Begrenzung zu navigieren, dann liest JAWS hier die Zeile ein ums andere mal vor. Die Standardeinstellung ist Mit Sound warnen.
+- **Stumm**: Sie hören keinen Piepston, wenn Sie auf eine obere oder untere Begrenzung stoßen.
+- **Mit Sound warnen**: Sie hören einen Piepston, wenn Sie auf eine obere oder untere Begrenzung stoßen. Beachten Sie, dass JAWS in Word und Outlook 2007 oder höher piept und die erste oder letzte Zeile erneut liest, wenn die obere oder untere Begrenzung durch Drücken von **PFEIL RAUF** oder **PFEIL RUNTER** erreicht wird. Wenn Sie versuchen über die Begrenzung zu navigieren, dann liest JAWS hier die Zeile ein ums andere mal vor. Die Standardeinstellung ist Mit Sound warnen.
 
 ### Grafiken
 
 Diese Option legt fest, welche Grafiken JAWS ansagt, wenn man mit den **Pfeiltasten** oder mit einer Braillezeile liest. Sie bezieht sich auf Grafiken wie Schaltersymbole, wie man sie in Anwendungswerkzeugleisten und Menüzeilen finden kann. Sie bezieht sich nicht auf Grafiken in virtualisierten Meldungen in Outlook, Webseiten oder PDF Dokumenten.
 
-- **Keine** : JAWS meldet die Grafiken nicht, wenn Sie darauf treffen.
-- **Bezeichnete** : JAWS sagt nur bezeichnete Grafiken an. Dies ist die Standardeinstellung.
-- **Alle** : JAWS meldet jede Grafik, auf die Sie stoßen. Bei beschrifteten Grafiken liest JAWS die Beschriftung, sofern eine zugewiesen ist. Ist einer Grafik keine Beschriftung zugewiesen, erstellt JAWS eine Beschriftung mit einer individuellen Nummer.
+- **Keine**: JAWS meldet die Grafiken nicht, wenn Sie darauf treffen.
+- **Bezeichnete**: JAWS sagt nur bezeichnete Grafiken an. Dies ist die Standardeinstellung.
+- **Alle**: JAWS meldet jede Grafik, auf die Sie stoßen. Bei beschrifteten Grafiken liest JAWS die Beschriftung, sofern eine zugewiesen ist. Ist einer Grafik keine Beschriftung zugewiesen, erstellt JAWS eine Beschriftung mit einer individuellen Nummer.
 
 ### Bildschirmecho
 
 Mit dieser Option legen Sie fest, welche Informationen gesprochen werden sollen, wenn sich der Text auf dem Bildschirm ändert.
 
-- **Aus** : Änderungen am angezeigten Text werden nicht gesprochen.
-- **Hervorgehoben** : Änderungen an hervorgehobenem Text werden gesprochen. Dies ist die Standardeinstellung.
-- **Alle** : Es werden Änderungen am gesamten Text gesprochen.
+- **Aus**: Änderungen am angezeigten Text werden nicht gesprochen.
+- **Hervorgehoben**: Änderungen an hervorgehobenem Text werden gesprochen. Dies ist die Standardeinstellung.
+- **Alle**: Es werden Änderungen am gesamten Text gesprochen.
 
 ### Fokusverlust ansagen
 
-Nutzen Sie diese Einstellung, um die Meldung über Fokusverlust ein- oder auszuschalten. Diese Einstellung ist standardmäßig deaktiviert. Verlorenen Fokus melden ist eine JAWS Warnung, die Sie darüber informiert, dass ein Fenster den Fokus verloren hat, unsichtbar oder funktionsunfähig geworden ist. Bleiben diese Bedingungen länger als drei Sekunden bestehen, dann meldet JAWS “Fokus verloren”, und sind auch die Tutormeldungen eingeschaltet, dann hören Sie "Drücken Sie **ALT TAB** ", wodurch man den Fokus in einer geöffneten Anwendung, in einem geöffneten Fenster oder auf dem Desktop wieder erlangt. Die Ansage des Fokusverlustes ist standardmäßig ausgeschaltet. Die Einstellung für diese Option wird in der Datei Default.JCF gespeichert und gilt für alle Anwendungen und JAWS Sitzungen.
+Nutzen Sie diese Einstellung, um die Meldung über Fokusverlust ein- oder auszuschalten. Diese Einstellung ist standardmäßig deaktiviert. Verlorenen Fokus melden ist eine JAWS Warnung, die Sie darüber informiert, dass ein Fenster den Fokus verloren hat, unsichtbar oder funktionsunfähig geworden ist. Bleiben diese Bedingungen länger als drei Sekunden bestehen, dann meldet JAWS “Fokus verloren”, und sind auch die Tutormeldungen eingeschaltet, dann hören Sie "Drücken Sie **ALT TAB**", wodurch man den Fokus in einer geöffneten Anwendung, in einem geöffneten Fenster oder auf dem Desktop wieder erlangt. Die Ansage des Fokusverlustes ist standardmäßig ausgeschaltet. Die Einstellung für diese Option wird in der Datei Default.JCF gespeichert und gilt für alle Anwendungen und JAWS Sitzungen.
 
 ## Einfache Texterkennung
 
@@ -5340,12 +5356,12 @@ Im Folgenden werden die Einträge der Gruppe Leseeinstellungen beschrieben.
 
 ### Textanalyse
 
-Nutzen Sie diese Einstellung, um Ungereimtheiten beim zeilen-, satz-, oder absatzweisen Bearbeiten oder Korrekturlesen eines Dokuments, oder beim Alles Lesen ( **EINFÜGEN+PFEIL RUNTER** ) zu identifizieren, wie unpassende Klammersetzung, unbeabsichtigte Formatänderungen, zusätzliche Leerzeichen, verirrte Satzzeichen und Satzzeichen ohne Leerzeichen.
+Nutzen Sie diese Einstellung, um Ungereimtheiten beim zeilen-, satz-, oder absatzweisen Bearbeiten oder Korrekturlesen eines Dokuments, oder beim Alles Lesen (**EINFÜGEN+PFEIL RUNTER**) zu identifizieren, wie unpassende Klammersetzung, unbeabsichtigte Formatänderungen, zusätzliche Leerzeichen, verirrte Satzzeichen und Satzzeichen ohne Leerzeichen.
 
-- **Aus** : Ungereimtheiten im Text werden beim Navigieren im Dokument nicht berichtet. Dies ist die Standardeinstellung.
-- **Hinweise mit Sound** : Ein Sound wird abgespielt bei Ungereimheiten.
-- **Anzahl ansagen** : Die Anzahl der Ungereimheiten im aktuellen Text wird angesagt.
-- **Ungereimtheiten beschreiben** : Gibt eine Beschreibung des Fehlers.
+- **Aus**: Ungereimtheiten im Text werden beim Navigieren im Dokument nicht berichtet. Dies ist die Standardeinstellung.
+- **Hinweise mit Sound**: Ein Sound wird abgespielt bei Ungereimheiten.
+- **Anzahl ansagen**: Die Anzahl der Ungereimheiten im aktuellen Text wird angesagt.
+- **Ungereimtheiten beschreiben**: Gibt eine Beschreibung des Fehlers.
 
 ### Intelligente Worterkennung
 
@@ -5357,11 +5373,11 @@ Diese Option legt fest, ob JAWS Sprachwechsel in Dokumenten, die Sprachtags unte
 
 ### Benutzerdefinierte Bezeichnungen
 
-Mithilfe dieser Option können Sie vorübergehend Ihre benutzerdefinierten Bezeichnungen für Webseiten oder Formulare ein- oder ausschalten. So können zum Beispiel Supportmitarbeiter, Entwickler und Tester ihre benutzerdefinierten Bezeichnungen unterdrücken, ohne diese ständig löschen zu müssen, während sie mit einem Dokument oder einer Webseite arbeiten. Weitere Informationen darüber finden Sie unter [Benutzerdefinierte Bezeichnungen](popapps.chm::/internet/internet_explorer_5/Custom_Labels.htm) . Die Standardeinstellung ist An.
+Mithilfe dieser Option können Sie vorübergehend Ihre benutzerdefinierten Bezeichnungen für Webseiten oder Formulare ein- oder ausschalten. So können zum Beispiel Supportmitarbeiter, Entwickler und Tester ihre benutzerdefinierten Bezeichnungen unterdrücken, ohne diese ständig löschen zu müssen, während sie mit einem Dokument oder einer Webseite arbeiten. Weitere Informationen darüber finden Sie unter [Benutzerdefinierte Bezeichnungen](popapps.chm::/internet/internet_explorer_5/Custom_Labels.htm). Die Standardeinstellung ist An.
 
 ### Ausnahmewortliste
 
-Diese Einstellung legt fest, ob ein Stoppwort Ausnahmewörterbuch für die Wortliste verwendet werden soll ( **EINFÜGEN+STRG+W** ). Ein Stoppwort Ausnahmewörterbuch ist eine Liste von Wörtern, die bei der Suche ignoriert werden. Dieses sind häufig vorkommende und wiederkehrende Wörter, wie z.B. und, ein, der und andere. Die Standardeinstellung ist Ein.
+Diese Einstellung legt fest, ob ein Stoppwort Ausnahmewörterbuch für die Wortliste verwendet werden soll (**EINFÜGEN+STRG+W**). Ein Stoppwort Ausnahmewörterbuch ist eine Liste von Wörtern, die bei der Suche ignoriert werden. Dieses sind häufig vorkommende und wiederkehrende Wörter, wie z.B. und, ein, der und andere. Die Standardeinstellung ist Ein.
 
 ## Die Gruppe Einstellungen für Alles lesen
 
@@ -5369,20 +5385,20 @@ Im Folgenden werden die Einträge der Gruppe Alles Lesen Einstellungen beschrieb
 
 ### Schema
 
-Nutzen Sie diese Einstellung, um zu steuern, wie Links und Überschriften angesagt werden, wenn Sie den Befehl Alles Lesen ( **EINFÜGEN+PFEIL RUNTER** ) verwenden. Wählen Sie Text mit Sounds bei Alles Lesen, um eine dezente WAV Datei zu hören, wie etwa ein kurzes Ping, während JAWS einen Link oder eine Überschrift liest. Wählen Sie Nur Text bei Alles Lesen, um die Erkennung von Elementen wie Links oder Überschriften zu ignorieren. Wählen Sie Keine Änderung, um weiterhin das aktuell verwendete Sprach- und Soundschema zu nutzen. Die Standardeinstellung ist Keine Änderung.
+Nutzen Sie diese Einstellung, um zu steuern, wie Links und Überschriften angesagt werden, wenn Sie den Befehl Alles Lesen (**EINFÜGEN+PFEIL RUNTER**) verwenden. Wählen Sie Text mit Sounds bei Alles Lesen, um eine dezente WAV Datei zu hören, wie etwa ein kurzes Ping, während JAWS einen Link oder eine Überschrift liest. Wählen Sie Nur Text bei Alles Lesen, um die Erkennung von Elementen wie Links oder Überschriften zu ignorieren. Wählen Sie Keine Änderung, um weiterhin das aktuell verwendete Sprach- und Soundschema zu nutzen. Die Standardeinstellung ist Keine Änderung.
 
 ### Alles lesen
 
-Mit dieser Option legen Sie fest, wie JAWS Text lesen soll, wenn Sie den Befehl Alles lesen ausführen ( **JAWS TASTE+PFEIL RUNTER** ).
+Mit dieser Option legen Sie fest, wie JAWS Text lesen soll, wenn Sie den Befehl Alles lesen ausführen (**JAWS TASTE+PFEIL RUNTER**).
 
-- **Zeilenweise mit Pausen** : Diese Option liest zeilenweise und legt am Ende einer jeder Zeile eine kurze Pause ein.
-- **Zeilenweise ohne Pausen** : Diese Einstellung ermöglicht einen besseren Lesefluss und ist die Standardeinstellung.
-- **Satzweise** : Wählen Sie diese Einstellung für alle Anwendungen, in denen das Vorlesen abgehackt klingt. Diese Einstellung setzt die Pause zwischen Elementen ans Ende eines jeden Satzes und macht das Vorlesen flüssiger.
-- **Absatzweise** : Diese Option ist besonders in großen Dokumenten nützlich, weil Sie so mit der rechten **UMSCHALTTASTE** schnell durch die Absätze springen können, ohne das Vorlesen unterbrechen zu müssen.
+- **Zeilenweise mit Pausen**: Diese Option liest zeilenweise und legt am Ende einer jeder Zeile eine kurze Pause ein.
+- **Zeilenweise ohne Pausen**: Diese Einstellung ermöglicht einen besseren Lesefluss und ist die Standardeinstellung.
+- **Satzweise**: Wählen Sie diese Einstellung für alle Anwendungen, in denen das Vorlesen abgehackt klingt. Diese Einstellung setzt die Pause zwischen Elementen ans Ende eines jeden Satzes und macht das Vorlesen flüssiger.
+- **Absatzweise**: Diese Option ist besonders in großen Dokumenten nützlich, weil Sie so mit der rechten **UMSCHALTTASTE** schnell durch die Absätze springen können, ohne das Vorlesen unterbrechen zu müssen.
 
 ### Großschreibung
 
-Ist dieses Kontrollfeld aktiviert, werden Großbuchstaben auch beim Befehl Alles lesen, **JAWS TASTE+PFEIL RUNTER** , von JAWS angesagt. Wenn Anzeige ausgewählt wurde, sagt JAWS "Groß" für einzelne Großbuchstaben und "Alles groß" für ganze Wörter in Großbuchstaben. Der Standardeinstellung ist Ignorieren.
+Ist dieses Kontrollfeld aktiviert, werden Großbuchstaben auch beim Befehl Alles lesen, **JAWS TASTE+PFEIL RUNTER**, von JAWS angesagt. Wenn Anzeige ausgewählt wurde, sagt JAWS "Groß" für einzelne Großbuchstaben und "Alles groß" für ganze Wörter in Großbuchstaben. Der Standardeinstellung ist Ignorieren.
 
 Sie können weiterhin über die Einstellungsverwaltung festlegen, ob die Großschreibung beim Alles Lesen angesagt werden soll oder nicht. Diese Einstellung finden Sie in der Gruppe Alles Lesen.
 
@@ -5395,9 +5411,9 @@ Im Folgenden werden die Einträge der Gruppe Bearbeitungseinstellungen beschrieb
 Diese Option legt fest, was JAWS spricht, wenn Sie eingeben.
 
 - **Keine:** Wählen Sie diese Einstellung, wenn Sie nicht möchten, dass JAWS ansagt, was Sie schreiben.
-- **Zeichen** : Jedes Zeichen, das Sie eingeben, wird gesprochen. Dies ist die Standardeinstellung.
-- **Wörter** : Jedes Wort wird gesprochen, nachdem Sie **LEERTASTE** oder **EINGABE** drücken.
-- **Sowohl Zeichen als auch Wörter** : Beim Eingeben werden Zeichen gesprochen, ganze Wörter werden gesprochen, wenn Sie **LEERTASTE** oder **EINGABE** drücken.
+- **Zeichen**: Jedes Zeichen, das Sie eingeben, wird gesprochen. Dies ist die Standardeinstellung.
+- **Wörter**: Jedes Wort wird gesprochen, nachdem Sie **LEERTASTE** oder **EINGABE** drücken.
+- **Sowohl Zeichen als auch Wörter**: Beim Eingeben werden Zeichen gesprochen, ganze Wörter werden gesprochen, wenn Sie **LEERTASTE** oder **EINGABE** drücken.
 
 ### Großbuchstaben ansagen
 
@@ -5443,7 +5459,7 @@ Aktivieren Sie diese Einstellung, damit Zahlenfolgen, die Bindestriche enthalten
 
 ## Die Gruppe Braille Einstellungen
 
-Die Gruppe Braille steht nur zur Verfügung, wenn JAWS mit einer Braillezeile verwendet wird. Weitere Informationen zu den Einstellungen in dieser Gruppe lesen Sie im Hilfethema [Braille Einstellungen anpassen](braille.chm::/braille/adjust_braille_options.htm) .
+Die Gruppe Braille steht nur zur Verfügung, wenn JAWS mit einer Braillezeile verwendet wird. Weitere Informationen zu den Einstellungen in dieser Gruppe lesen Sie im Hilfethema [Braille Einstellungen anpassen](braille.chm::/braille/adjust_braille_options.htm).
 
 ## Letzte geänderte Einstellungen
 
@@ -5453,11 +5469,11 @@ Quelle: adjust_jaws_verbosity_dialog.htm
 
 ## Symbol im Infobereich auswählen
 
-Dieses Thema beschreibt die Einstellungen, die im Dialog "Symbol im Infobereich auswählen" zur Verfügung stehen. Dieser Dialog ermöglicht den Zugriff auf Elemente im Infobereich (Bereich der Taskleiste links neben der Uhr). Sie öffnen diesen Dialog mit **JAWS TASTE+F11** .
+Dieses Thema beschreibt die Einstellungen, die im Dialog "Symbol im Infobereich auswählen" zur Verfügung stehen. Dieser Dialog ermöglicht den Zugriff auf Elemente im Infobereich (Bereich der Taskleiste links neben der Uhr). Sie öffnen diesen Dialog mit **JAWS TASTE+F11**.
 
 ## Symbole im Infobereich
 
-Dieses Listenfeld listet alle Symbole auf, die im Infobereich angezeigt werden. Wählen Sie ein Element aus und drücken Sie **EINGABE** , um einen einzelnen, rechten Mausklick auf dem Symbol zu simulieren. Dies öffnet normalerweise ein Kontextmenü, mit dem Sie auf die Optionen dieses Symbols zugreifen können.
+Dieses Listenfeld listet alle Symbole auf, die im Infobereich angezeigt werden. Wählen Sie ein Element aus und drücken Sie **EINGABE**, um einen einzelnen, rechten Mausklick auf dem Symbol zu simulieren. Dies öffnet normalerweise ein Kontextmenü, mit dem Sie auf die Optionen dieses Symbols zugreifen können.
 
 ## Rechter Einzelklick
 
@@ -5479,11 +5495,11 @@ Quelle: select_a_system_tray_icon_dialog.htm
 
 ## Der Dialog Fensterliste
 
-Dieses Thema dokumentiert die Einstellungen, die im Dialog der Fensterliste (auch bekannt als JAWS Liste der laufenden Anwendungen) verfügbar sind. Dieser Dialog ermöglicht das Umschalten zwischen laufenden Anwendungen. Um dieses Dialogfeld zu öffnen, drücken Sie **JAWS TASTE+F10** .
+Dieses Thema dokumentiert die Einstellungen, die im Dialog der Fensterliste (auch bekannt als JAWS Liste der laufenden Anwendungen) verfügbar sind. Dieser Dialog ermöglicht das Umschalten zwischen laufenden Anwendungen. Um dieses Dialogfeld zu öffnen, drücken Sie **JAWS TASTE+F10**.
 
 ## Laufende Anwendungen
 
-Dieses Listenfeld listet alle Anwendungen auf, die auf der Taskleiste angezeigt werden. Weiterhin wird der Status jedes dieser Fenster angezeigt. Der Fensterstatus ist minimiert, wiederhergestellt oder maximiert. Sie können eine Anwendung in der Liste auswählen und mit **EINGABE** zu dieser Anwendung umschalten. Drücken Sie auf einer Anwendung **ENTFERNEN** , um diese zu schließen.
+Dieses Listenfeld listet alle Anwendungen auf, die auf der Taskleiste angezeigt werden. Weiterhin wird der Status jedes dieser Fenster angezeigt. Der Fensterstatus ist minimiert, wiederhergestellt oder maximiert. Sie können eine Anwendung in der Liste auswählen und mit **EINGABE** zu dieser Anwendung umschalten. Drücken Sie auf einer Anwendung **ENTFERNEN**, um diese zu schließen.
 
 ## Nur Fenster im Vordergrund einbeziehen
 
@@ -5527,7 +5543,7 @@ Dieses Thema beschreibt die Auswahlmöglichkeiten im Menü Optionen des JAWS Pro
 
 ## Grundlagen
 
-Wählen Sie diesen Menüpunkt, um den Dialog JAWS Grundeinstellungen zu öffnen. Weitere Informationen finden Sie im Kapitel [JAWS Grundeinstellungen](basics_dialog.htm) .
+Wählen Sie diesen Menüpunkt, um den Dialog JAWS Grundeinstellungen zu öffnen. Weitere Informationen finden Sie im Kapitel [JAWS Grundeinstellungen](basics_dialog.htm).
 
 ## Stimmen
 
@@ -5535,35 +5551,35 @@ Wählen Sie diesen Menüpunkt, um auf Dialogfelder für Stimmenprofile zuzugreif
 
 ### Stimmeneinstellungen
 
-Wählen Sie dieses Element, um eine neues Stimmenprofil auf Grundlage einer Standard-Sprachausgabeneinstellung zu erstellen, oder um die Einstellungen eines bestehenden Profils zu bearbeiten. Lesen Sie dazu bitte auch [Stimmeneinstellungen](Voice_Adjustment.htm) .
+Wählen Sie dieses Element, um eine neues Stimmenprofil auf Grundlage einer Standard-Sprachausgabeneinstellung zu erstellen, oder um die Einstellungen eines bestehenden Profils zu bearbeiten. Lesen Sie dazu bitte auch [Stimmeneinstellungen](Voice_Adjustment.htm).
 
 ### Ein Stimmenprofil auswählen
 
-Wählen Sie diesen Menüpunkt, um das Dialogfeld Stimmenprofil auswählen zu öffnen, in welchem Sie ein bestehendes Profil auswählen können, dass JAWS global für alle Anwendungen nutzt, oder nur für die aktuell geöffnete Anwendung, oder beides. Ein Stimmenprofil besteht aus Sprachausgabe, Sprache, Stimme und verschiedenen Einstellungen zur Steuerung der Sprache. Weitere Informationen darüber finden Sie unter [Stimmeneinstellungen](language_menu_overview.htm#VoiceProfiles) .
+Wählen Sie diesen Menüpunkt, um das Dialogfeld Stimmenprofil auswählen zu öffnen, in welchem Sie ein bestehendes Profil auswählen können, dass JAWS global für alle Anwendungen nutzt, oder nur für die aktuell geöffnete Anwendung, oder beides. Ein Stimmenprofil besteht aus Sprachausgabe, Sprache, Stimme und verschiedenen Einstellungen zur Steuerung der Sprache. Weitere Informationen darüber finden Sie unter [Stimmeneinstellungen](language_menu_overview.htm#VoiceProfiles).
 
 ### Stimmen hinzufügen/entfernen
 
-Wählen Sie dieses Element, um eine Dialogfenster zu öffnen, in dem Sie Vocalizer Expressive 2 Stimmen testen und installieren oder entfernen können. Für weitere Informationen lesen Sie bitte das Hilfethema [Stimmen hinzufügen/entfernen](Add_Remove_Voices.htm) .
+Wählen Sie dieses Element, um eine Dialogfenster zu öffnen, in dem Sie Vocalizer Expressive 2 Stimmen testen und installieren oder entfernen können. Für weitere Informationen lesen Sie bitte das Hilfethema [Stimmen hinzufügen/entfernen](Add_Remove_Voices.htm).
 
 ## Braille
 
-Wählen Sie diesen Menüpunkt, um den Dialog Braille Grundeinstellungen zu öffnen. Weitere Informationen darüber finden Sie unter [Braille Grundeinstellungen](braille_basics_dialog.htm) .
+Wählen Sie diesen Menüpunkt, um den Dialog Braille Grundeinstellungen zu öffnen. Weitere Informationen darüber finden Sie unter [Braille Grundeinstellungen](braille_basics_dialog.htm).
 
 ## Anwendungsbezogene Einstellungen verwalten
 
-Schalten Sie mit diesem Eintrag Anwendungen ein oder aus, in denen diese Einstellungen modifiziert wurden. Entweder wurden die Modifikationen über die Einstellungsverwaltung vorgenommen oder mithilfe von benutzerdefinierten Skripts. In diesem Dialog können Sie diese anwendungsbezogenen Einstellungen vorübergehend ausschalten, so dass Sie bei der Fehlersuche alle Änderungen, die in JAWS vorgenommen wurden, ignorieren können. Dieser Dialog eignet sich besonders für die Mitarbeiter des technischen Supports, die den Anwender nach der Installation von JAWS unterstützen. Weitere Informationen darüber finden Sie unter [Anwendungseinstellungen verwalten](Application_Settings.htm) .
+Schalten Sie mit diesem Eintrag Anwendungen ein oder aus, in denen diese Einstellungen modifiziert wurden. Entweder wurden die Modifikationen über die Einstellungsverwaltung vorgenommen oder mithilfe von benutzerdefinierten Skripts. In diesem Dialog können Sie diese anwendungsbezogenen Einstellungen vorübergehend ausschalten, so dass Sie bei der Fehlersuche alle Änderungen, die in JAWS vorgenommen wurden, ignorieren können. Dieser Dialog eignet sich besonders für die Mitarbeiter des technischen Supports, die den Anwender nach der Installation von JAWS unterstützen. Weitere Informationen darüber finden Sie unter [Anwendungseinstellungen verwalten](Application_Settings.htm).
 
 ## Auf Werkseinstellungen zurücksetzen
 
-Dieses Element öffnet ein Dialogfenster, welches abfragt, ob Sie die aktuellen Einstellungen löschen möchten. Wählen Sie **Ja** , um alle eigenen Einstellungen zu löschen und JAWS auf die Werkseinstellungen zurückzusetzen.
+Dieses Element öffnet ein Dialogfenster, welches abfragt, ob Sie die aktuellen Einstellungen löschen möchten. Wählen Sie **Ja**, um alle eigenen Einstellungen zu löschen und JAWS auf die Werkseinstellungen zurückzusetzen.
 
 ## Remote Desktop
 
-Dieses Element öffnet ein Dialogfenster zur Behebung von Problemen, die sich auf Remote Access beziehen. Für weitere Informationen dazu, lesen Sie bitte das Kapitel [Remote Desktop](../../contacting_freedom_scientific/technical_support/Remote_Desktop.htm) .
+Dieses Element öffnet ein Dialogfenster zur Behebung von Problemen, die sich auf Remote Access beziehen. Für weitere Informationen dazu, lesen Sie bitte das Kapitel [Remote Desktop](../../contacting_freedom_scientific/technical_support/Remote_Desktop.htm).
 
 ## Beenden
 
-Wenn Sie diesen Menüpunkt wählen, erscheint ein Dialog, in dem Sie bestätigen müssen, ob Sie JAWS beenden möchten oder nicht. Drücken Sie **EINGABE** , um JAWS zu beenden oder drücken Sie **ESCAPE** , um in das JAWS Programmfenster zurückzukehren.
+Wenn Sie diesen Menüpunkt wählen, erscheint ein Dialog, in dem Sie bestätigen müssen, ob Sie JAWS beenden möchten oder nicht. Drücken Sie **EINGABE**, um JAWS zu beenden oder drücken Sie **ESCAPE**, um in das JAWS Programmfenster zurückzukehren.
 
 Quelle: options_menu_overview.htm
 
@@ -5585,11 +5601,11 @@ Quelle: the_jaws_application_window.htm
 
 ## Überblick über das Menü Hilfsprogramme
 
-Dieses Thema befasst sich mit dem Menü Hilfsprogramme im JAWS Programmfenster. Für weitere Informationen zu den Hilfsprogrammen lesen Sie bitte [Übersicht über die JAWS Hilfsprogramme](../overview_of_the_jaws_utilities.htm) .
+Dieses Thema befasst sich mit dem Menü Hilfsprogramme im JAWS Programmfenster. Für weitere Informationen zu den Hilfsprogrammen lesen Sie bitte [Übersicht über die JAWS Hilfsprogramme](../overview_of_the_jaws_utilities.htm).
 
 ## Sprachassistent
 
-Dieses Menüelement bietet Zugriff auf den JAWS Sprachassistenten, der es ermöglicht, dass Sie bestimmte JAWS Befehle unter Verwendung von Spracheingaben ausführen können. Für weitere Informationen dazu, lesen Sie bitte das Kapitel [Sprachassistent](../Voice_Assistant.htm) .
+Dieses Menüelement bietet Zugriff auf den JAWS Sprachassistenten, der es ermöglicht, dass Sie bestimmte JAWS Befehle unter Verwendung von Spracheingaben ausführen können. Für weitere Informationen dazu, lesen Sie bitte das Kapitel [Sprachassistent](../Voice_Assistant.htm).
 
 ## JAWS Tandem
 
@@ -5597,15 +5613,15 @@ Nutzen Sie diesen Menüeintrag, um eine [JAWS Tandem](JTandem.chm::/Tandem_Welco
 
 ## Der Benachrichtigungsverlauf
 
-Dieses Menüelement öffnet das Dialogfenster Benachrichtigungsverlauf, in dem eine Liste der Benachrichtigungen von Windows und Anwendungen angezeigt wird, die in den letzten 24 Stunden empfangen wurden, während JAWS oder Fusion ausgeführt wurde. Weitere Informationen hierzu finden Sie unter [Der Benachrichtigungsverlauf](../../customizing_jaws_for_windows/Notification_History/Notification_History.htm) .
+Dieses Menüelement öffnet das Dialogfenster Benachrichtigungsverlauf, in dem eine Liste der Benachrichtigungen von Windows und Anwendungen angezeigt wird, die in den letzten 24 Stunden empfangen wurden, während JAWS oder Fusion ausgeführt wurde. Weitere Informationen hierzu finden Sie unter [Der Benachrichtigungsverlauf](../../customizing_jaws_for_windows/Notification_History/Notification_History.htm).
 
 ## Sprachausgaben- und Braillezeilen-Manager
 
-Über diesen Menüpunkt starten Sie den [Sprachausgaben- und Braillezeilen-Manager](../../customizing_jaws_for_windows/Synth_Braille_Manager/Synthesizer_and_Braille_Manager.htm) .
+Über diesen Menüpunkt starten Sie den [Sprachausgaben- und Braillezeilen-Manager](../../customizing_jaws_for_windows/Synth_Braille_Manager/Synthesizer_and_Braille_Manager.htm).
 
 ## Soundkarten
 
-Nutzen Sie diesen Menüpunkt, um eine Soundkarte für die JAWS Sprachausgabe festzulegen, sofern mehrere Soundkarten auf Ihrem Rechner installiert sind. Für weitere Informationen lesen Sie bitte das Thema [Soundkarten](../../customizing_jaws_for_windows/Sound_Cards/Sound_Cards.htm) .
+Nutzen Sie diesen Menüpunkt, um eine Soundkarte für die JAWS Sprachausgabe festzulegen, sofern mehrere Soundkarten auf Ihrem Rechner installiert sind. Für weitere Informationen lesen Sie bitte das Thema [Soundkarten](../../customizing_jaws_for_windows/Sound_Cards/Sound_Cards.htm).
 
 ## Einstellungsverwaltung
 
@@ -5613,23 +5629,23 @@ Nutzen Sie diesen Menüpunkt, um die Standardeinstellungsdatei (JCF) in der [Ein
 
 ## Tastaturmanager
 
-Über diesen Menüpunkt starten Sie den [Tastaturmanager](jkey.chm::/jkey/introduction_to_keyboard_manager.htm) .
+Über diesen Menüpunkt starten Sie den [Tastaturmanager](jkey.chm::/jkey/introduction_to_keyboard_manager.htm).
 
 ## Wörterbuchmanager
 
-Über diesen Menüpunkt starten Sie den [Wörterbuchmanager](jdiction.chm::/jdiction/introduction_to_dictionary_manager.htm) .
+Über diesen Menüpunkt starten Sie den [Wörterbuchmanager](jdiction.chm::/jdiction/introduction_to_dictionary_manager.htm).
 
 ## Rahmenbetrachter
 
-Über diesen Menüpunkt starten Sie den [Rahmenbetrachter](../../customizing_jaws_for_windows/Frame_Viewer/introduction_to_frames.htm) .
+Über diesen Menüpunkt starten Sie den [Rahmenbetrachter](../../customizing_jaws_for_windows/Frame_Viewer/introduction_to_frames.htm).
 
 ## Skriptmanager
 
-Über diesen Menüpunkt starten Sie den [Skriptmanager](jscript.chm::/jscript/what_is_the_script_manager_.htm) .
+Über diesen Menüpunkt starten Sie den [Skriptmanager](jscript.chm::/jscript/what_is_the_script_manager_.htm).
 
 ## Schnellnavigationstasten-Manager
 
-Mit diesem Menüeintrag öffnen Sie den [Navigationsschnelltasten-Manager](../../customizing_jaws_for_windows/Navigation_Quick_Key_Manager/Navigation_Quick_Key_Manager.htm) .
+Mit diesem Menüeintrag öffnen Sie den [Navigationsschnelltasten-Manager](../../customizing_jaws_for_windows/Navigation_Quick_Key_Manager/Navigation_Quick_Key_Manager.htm).
 
 ## Autorisierung reinitialisieren
 
@@ -5637,7 +5653,7 @@ Mit diesem Menüeintrag öffnen Sie den [Navigationsschnelltasten-Manager](../..
 
 ## Einstellungen importieren/exportieren
 
-Nutzen Sie dieses Menüelement, um JAWS Benutzereinstellungen zu [importieren oder zu exportieren](../../customizing_jaws_for_windows/Settings_Import_and_Export/Import_and_Export_Settings.htm) .
+Nutzen Sie dieses Menüelement, um JAWS Benutzereinstellungen zu [importieren oder zu exportieren](../../customizing_jaws_for_windows/Settings_Import_and_Export/Import_and_Export_Settings.htm).
 
 ## Ordner Hilfsprogramme erkunden
 
@@ -5649,7 +5665,7 @@ Nutzen Sie diesen Menüpunkt zum Aufnehmen und zur Texterkennung von Bildern üb
 
 ## Das sprechende Bild
 
-Nutzen Sie diesen Menüpunkt um Bildern beschreiben zu lassen, die über eine angeschlossene Freedom Scientific Kamera oder einen Flachbettscanner aufgenommen wurden, oder lesen Sie das Hilfethema [Sprechendes Bild](../../customizing_jaws_for_windows/Picture_Smart/Picture_Smart.htm) .
+Nutzen Sie diesen Menüpunkt um Bildern beschreiben zu lassen, die über eine angeschlossene Freedom Scientific Kamera oder einen Flachbettscanner aufgenommen wurden, oder lesen Sie das Hilfethema [Sprechendes Bild](../../customizing_jaws_for_windows/Picture_Smart/Picture_Smart.htm).
 
 ## Braille- und Textbetrachter
 
@@ -5661,13 +5677,13 @@ Quelle: utilities_menu_overview.htm
 
 # Was ist neu in JAWS?
 
-JAWS 2026 enthält viele neue Funktionen und Verbesserungen, die auf dieser Seite beschrieben werden. Um mehr zu erfahren, lesen Sie die gesamte Seite Was ist neu?, oder Sie drücken **JAWS Taste+F6** , um eine Liste aller Überschriften zu öffnen, so dass Sie auf ein bestimmtes Thema springen können.
+JAWS 2026 enthält viele neue Funktionen und Verbesserungen, die auf dieser Seite beschrieben werden. Um mehr zu erfahren, lesen Sie die gesamte Seite Was ist neu?, oder Sie drücken **JAWS Taste+F6**, um eine Liste aller Überschriften zu öffnen, so dass Sie auf ein bestimmtes Thema springen können.
 
 Um mehr über neue Funktionen und Aktualisierungen in früheren JAWS Versionen zu erfahren, lesen Sie die [Was ist Neu in JAWS](http://www.freedomsci.de/news/Whats_New.htm) Webseite und wählen Sie aus den vorhandenen Links eine vorherige Version.
 
 ## Seitenzusammenfassung zum schnellen Zusammenfassen von Webseiten mithilfe von KI
 
-Die neue Funktion KI Seitenzusammenfassung bietet Ihnen einen sofortigen Überblick über jede Webseite, sodass Sie entscheiden können, wie Sie am besten darin navigieren. Sobald eine Seite vollständig geladen ist, drücken Sie **EINFÜGEN+UMSCHALT+E** ( **FESTSTELL+UMSCHALT+E** bei Laptop-Tastaturen), und JAWS fasst kurz das Layout der Seite zusammen, beschreibt deren Hauptinhalt und gibt hilfreiche Tipps für eine effiziente Navigation, einschließlich Tastenkombinationen.
+Die neue Funktion KI Seitenzusammenfassung bietet Ihnen einen sofortigen Überblick über jede Webseite, sodass Sie entscheiden können, wie Sie am besten darin navigieren. Sobald eine Seite vollständig geladen ist, drücken Sie **EINFÜGEN+UMSCHALT+E** (**FESTSTELL+UMSCHALT+E** bei Laptop-Tastaturen), und JAWS fasst kurz das Layout der Seite zusammen, beschreibt deren Hauptinhalt und gibt hilfreiche Tipps für eine effiziente Navigation, einschließlich Tastenkombinationen.
 
 Zu den wichtigsten Vorteilen der KI Seitenzusammenfassung gehören:
 
@@ -5691,11 +5707,11 @@ Der KI Grafikbezeichner wird nicht mehr als Funktion des Vorschau Programms erpr
 
 Häufig stößt man auf Anwendungsfenster oder Webseiten, die unzugängliche Elemente ohne entsprechende Beschriftung enthalten, was die Nutzbarkeit für Benutzer von Bildschirmlesegeräten einschränkt. Der KI Bezeichner hilft, diese Einschränkungen zu verringern, indem er einen Screenshot des aktuell fokussierten Elements aufnimmt, diesen einem KI-Modell zur Analyse vorlegt und versucht, so eine aussagekräftigere Bezeichnung anzusagen. Diese Funktion kann überall angewendet werden, da sie das aktuelle Fenster der aktiven Anwendung und das fokussierte Element der Benutzeroberfläche nutzt.
 
-Wenn ein nicht zugängliches Element den Fokus hat, drücken Sie **EINFÜGEN+G** . JAWS sagt eine vorgeschlagene Grafikbezeichnung an. Derzeit spricht JAWS die vorgeschlagene Bezeichnung, den Typ und, falls vorhanden, den Zustand des Elements. KI generierte Beschriftungen werden auch automatisch gespeichert, so dass die neue Beschriftung jedes Mal angesagt wird, wenn das betreffende Element auftaucht.
+Wenn ein nicht zugängliches Element den Fokus hat, drücken Sie **EINFÜGEN+G**. JAWS sagt eine vorgeschlagene Grafikbezeichnung an. Derzeit spricht JAWS die vorgeschlagene Bezeichnung, den Typ und, falls vorhanden, den Zustand des Elements. KI generierte Beschriftungen werden auch automatisch gespeichert, so dass die neue Beschriftung jedes Mal angesagt wird, wenn das betreffende Element auftaucht.
 
 Wenn Sie **EINFÜGEN+G** auf einem Webseitenelement drücken, das bereits eine benutzerdefinierte Beschriftung enthält, zeigt JAWS einen Dialog an, der sowohl die aktuelle Beschriftung als auch einen Ersatzvorschlag enthält. Sie können dann wählen, ob die aktuelle Bezeichnung durch die neue ersetzt werden soll oder nicht.
 
-In Situationen, in denen Sie weiterhin den alten Grafikbezeichner verwenden müssen, drücken Sie **ALT+EINFÜGEN+G** .
+In Situationen, in denen Sie weiterhin den alten Grafikbezeichner verwenden müssen, drücken Sie **ALT+EINFÜGEN+G**.
 
 **Hinweis:** Wenn Ihre Unternehmensrichtlinien die Nutzung von Online- oder KI-Diensten verhindern, ist diese Funktion nicht verfügbar.
 
@@ -5721,7 +5737,7 @@ Für diejenigen, die möglicherweise Kompatibilität mit der älteren Java Acces
 
 ## Aria und Web
 
-- JAWS bietet nun die Möglichkeit, direkt zu mathematischen Elementen auf Webseiten zu springen. Um diese Funktion zu nutzen, können Sie über den Schnellnavigationstastenmanager, der über das Dialogfenster JAWS Manager ausführen ( **EINFÜGEN+F2** ) aufgerufen wird, eine Tastenkombination zuweisen.
+- JAWS bietet nun die Möglichkeit, direkt zu mathematischen Elementen auf Webseiten zu springen. Um diese Funktion zu nutzen, können Sie über den Schnellnavigationstastenmanager, der über das Dialogfenster JAWS Manager ausführen (**EINFÜGEN+F2**) aufgerufen wird, eine Tastenkombination zuweisen.
 - In Google Chrome wurde die Leistung von JAWS beim Navigieren zwischen Zellen in sehr großen Tabellen verbessert.
 - JAWS sagt nun standardmäßig Regionen mit Namen an.
 - Durch Drücken der **ANWENDUNGSTASTE** auf einem Link wird nun zuverlässig das richtige Kontextmenü geöffnet.

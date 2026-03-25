@@ -1,11 +1,39 @@
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from common import make_parser, read_json
 
 RAW_DIR = Path("data/raw/JAWS/DE/Converted-Help-Files")
 OUTPUT_DIR = Path("data/normalized/JAWS/DE")
+
+
+def validate_markdown_structure(md_path: Path) -> None:
+    text = md_path.read_text(encoding="utf-8")
+    lines = text.splitlines()
+
+    for idx, line in enumerate(lines, start=1):
+        if line.startswith("#") and idx < len(lines):
+            next_line = lines[idx]
+            if next_line and not next_line.startswith(("#", "-", "*", ">", "```", "|")) and not next_line[:2].isdigit():
+                prev_line = lines[idx - 2] if idx >= 2 else ""
+                if prev_line != "":
+                    raise SystemExit(f"Heading not separated by blank line in {md_path}:{idx}")
+
+        if line.startswith("Quelle:") and idx < len(lines):
+            next_line = lines[idx]
+            if next_line.startswith("#"):
+                raise SystemExit(f"Source marker glued to following heading in {md_path}:{idx}")
+
+        if re.search(r"Quelle:\s+#+\s", line):
+            raise SystemExit(f"Source marker merged with heading in {md_path}:{idx}")
+
+        if re.search(r"^(?:- |\d+\.) .+ (?:- |\d+\.) ", line):
+            raise SystemExit(f"Suspicious merged list items in {md_path}:{idx}")
+
+        if re.search(r"^(?:- |\d+\.) .+ Quelle:", line):
+            raise SystemExit(f"List item merged with source marker in {md_path}:{idx}")
 
 
 def main() -> None:
@@ -49,6 +77,8 @@ def main() -> None:
             raise SystemExit(f"conversion_stage mismatch in {meta_path}")
         if legacy_path_marker in str(meta):
             raise SystemExit(f"legacy path reference found in {meta_path}")
+
+        validate_markdown_structure(md_path)
 
         doc_id = meta["doc_id"]
         if doc_id in seen_doc_ids:

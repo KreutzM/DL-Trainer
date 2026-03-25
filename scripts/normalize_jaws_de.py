@@ -52,6 +52,47 @@ def collapse_inline(text: str) -> str:
     return text.strip()
 
 
+def tighten_inline_spacing(text: str) -> str:
+    text = collapse_inline(text)
+    text = re.sub(r"\s+([,.;:!?])", r"\1", text)
+    text = re.sub(r"([(\[]) +", r"\1", text)
+    text = re.sub(r" +([)\]])", r"\1", text)
+    text = re.sub(r"(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)\s+([,.;:!?])", r"\1\2", text)
+    text = re.sub(r"([(\[])\s+(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)", r"\1\2", text)
+    text = re.sub(r"(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)\s+([)\]])", r"\1\2", text)
+    return text.strip()
+
+
+def render_inline(node: Tag | NavigableString) -> str:
+    if isinstance(node, NavigableString):
+        return str(node).replace("\xa0", " ")
+
+    name = node.name.lower()
+    if name == "br":
+        return "\n"
+    if name in {"strong", "b"}:
+        return f"**{tighten_inline_spacing(node.get_text(' ', strip=True))}**"
+    if name in {"em", "i"}:
+        return f"*{tighten_inline_spacing(node.get_text(' ', strip=True))}*"
+    if name == "code" and node.parent and node.parent.name != "pre":
+        return f"`{tighten_inline_spacing(node.get_text(' ', strip=True))}`"
+    if name == "a":
+        text = tighten_inline_spacing("".join(render_inline(child) for child in node.children))
+        href = node.get("href")
+        if href and text:
+            return f"[{text}]({href})"
+        return text
+    if name == "img":
+        return tighten_inline_spacing(node.get("alt", ""))
+    if name in {"script", "style", "nav"}:
+        return ""
+    return "".join(render_inline(child) for child in node.children)
+
+
+def render_paragraph(node: Tag) -> str:
+    return tighten_inline_spacing("".join(render_inline(child) for child in node.children))
+
+
 def format_table(table: Tag) -> str:
     rows: list[list[str]] = []
     for row in table.find_all("tr"):
@@ -77,6 +118,34 @@ def format_table(table: Tag) -> str:
     summary = collapse_inline(table.get("summary", ""))
     if summary:
         return f"Tabelle: {summary}\n\n" + "\n".join(lines)
+    return "\n".join(lines)
+
+
+def blockify_text(text: str) -> list[str]:
+    normalized = normalize_text(text).strip()
+    if not normalized:
+        return []
+    return normalized.split("\n\n")
+
+
+def format_list(items: list[tuple[str, list[str]]], level: int = 0) -> str:
+    lines: list[str] = []
+    indent = "  " * level
+    child_indent = "  " * (level + 1)
+
+    for prefix, blocks in items:
+        if not blocks:
+            continue
+        first, *rest = blocks
+        first_lines = first.splitlines()
+        lines.append(f"{indent}{prefix} {first_lines[0]}")
+        for continuation in first_lines[1:]:
+            lines.append(f"{child_indent}{continuation}")
+        for block in rest:
+            lines.append("")
+            for block_line in block.splitlines():
+                lines.append(f"{child_indent}{block_line}")
+
     return "\n".join(lines)
 
 
@@ -113,29 +182,13 @@ def render_node(node: Tag | NavigableString, level: int = 0) -> str:
         items = []
         for idx, li in enumerate(node.find_all("li", recursive=False), start=1):
             prefix = f"{idx}." if name == "ol" else "-"
-            rendered = render_node(li, level + 1).strip()
-            if not rendered:
+            blocks = render_list_item(li, level + 1)
+            if not blocks:
                 continue
-            item_lines = rendered.splitlines()
-            items.append(f"{prefix} {item_lines[0]}")
-            items.extend(("  " * (level + 1)) + line for line in item_lines[1:] if line.strip())
-        return "\n".join(items)
+            items.append((prefix, blocks))
+        return format_list(items, level)
     if name == "li":
-        block_children = {"ul", "ol", "table", "pre", "blockquote", "p"}
-        inline_parts = []
-        block_parts = []
-        for child in node.children:
-            rendered = render_node(child, level + 1).strip()
-            if rendered:
-                if isinstance(child, Tag) and child.name.lower() in block_children:
-                    block_parts.append(rendered)
-                else:
-                    inline_parts.append(rendered)
-        parts = []
-        if inline_parts:
-            parts.append(collapse_inline(" ".join(inline_parts)))
-        parts.extend(block_parts)
-        return "\n".join(parts)
+        return "\n\n".join(render_list_item(node, level))
     if name == "table":
         return format_table(node)
     if name and re.fullmatch(r"h[1-6]", name):
@@ -143,7 +196,7 @@ def render_node(node: Tag | NavigableString, level: int = 0) -> str:
         text = collapse_inline(node.get_text(" ", strip=True))
         return f"{'#' * heading_level} {text}" if text else ""
     if name == "p":
-        return collapse_inline(" ".join(render_node(child, level) for child in node.children))
+        return render_paragraph(node)
 
     parts = []
     for child in node.children:
@@ -151,6 +204,44 @@ def render_node(node: Tag | NavigableString, level: int = 0) -> str:
         if rendered:
             parts.append(rendered)
     return "\n\n".join(parts)
+
+
+def render_list_item(node: Tag, level: int) -> list[str]:
+    blocks: list[str] = []
+    inline_parts: list[str] = []
+    block_tags = {"p", "ul", "ol", "table", "pre", "blockquote"}
+
+    for child in node.children:
+        if isinstance(child, NavigableString):
+            text = collapse_inline(str(child))
+            if text:
+                inline_parts.append(text)
+            continue
+
+        child_name = child.name.lower()
+        if child_name in block_tags:
+            if inline_parts:
+                blocks.append(tighten_inline_spacing(" ".join(inline_parts)))
+                inline_parts = []
+
+            if child_name == "p":
+                paragraph = render_paragraph(child)
+                if paragraph:
+                    blocks.append(paragraph)
+            else:
+                rendered = render_node(child, level).strip()
+                if rendered:
+                    blocks.extend(blockify_text(rendered))
+            continue
+
+        rendered_inline = tighten_inline_spacing(render_inline(child))
+        if rendered_inline:
+            inline_parts.append(rendered_inline)
+
+    if inline_parts:
+        blocks.append(tighten_inline_spacing(" ".join(inline_parts)))
+
+    return blocks
 
 
 def clean_html(html: str) -> tuple[str, str]:
