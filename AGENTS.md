@@ -25,6 +25,28 @@ Dieses Repository erzeugt aus Produkthandbüchern versionierte Datenartefakte f�
 - Erzeuge deterministische Outputs, wenn möglich.
 - Bewahre Tabellen, Warnhinweise, Tastenkombinationen und Versionshinweise.
 - Wenn Unsicherheit über Quelltreue besteht, markiere den Fall statt zu raten.
+- Beende jeden inhaltlichen Arbeitslauf in reviewbarem Git-Status: sinnvolle Commits, klare Zusammenfassung, kein unfertiger Rest ohne Hinweis.
+
+## Git-Workflow
+
+- Bündele logisch zusammengehörige Änderungen in einem Commit; trenne unabhängige Themen.
+- Vermeide Sammelcommits für einen ganzen Lauf und vermeide unnötige Mini-Commits ohne Review-Wert.
+- Committe nur, wenn der Stand konsistent ist: betroffene Dateien passen zusammen, relevante Checks sind gelaufen oder offene Risiken sind klar benannt.
+- Lass halb fertige Massenänderungen uncommittet, statt sie in einen "WIP"-ähnlichen Commit zu drücken.
+- Behandle manuell geprüfte Daten unter `data/gold/` besonders vorsichtig; ändere sie nur gezielt und nachvollziehbar.
+
+## Push und Abschluss
+
+- Wenn ein sinnvoller, reviewbarer Stand erreicht ist und ein Remote sauber konfiguriert ist, pushe die neuen Commits.
+- Wenn Push technisch nicht möglich ist, melde das explizit mit kurzem Fehlerhinweis statt still zu scheitern.
+- Gib nach jedem Arbeitslauf eine kompakte Review-Zusammenfassung aus mit:
+  - Branchname
+  - relevante Commit-SHA(s) oder Commit-Range
+  - kurze Liste der inhaltlichen Änderungen
+  - betroffene Dateien oder Verzeichnisse
+  - ausgeführte Checks oder Tests mit Ergebnis
+  - Hinweis, ob gepusht wurde
+  - knappe Review-Empfehlung mit sinnvollem Scope
 
 ## Ausgabeformate
 
@@ -52,6 +74,8 @@ python scripts/check_provenance.py --input <jsonl>
 - Keine Löschung von Review-Markierungen
 - Keine stillen Schemaänderungen ohne Anpassung in `schemas/` und `docs/`
 - Keine neuen Abhängigkeiten ohne Begründung in `docs/architecture.md`
+- Keine Commits mit kaputten Schemas, offensichtlich fehlerhaften Artefakten oder halb fertigen Massenänderungen
+- Keine unnötigen Binär-, Build- oder Cache-Dateien committen
 
 ## Hinweise zu Spezialisierungen
 
