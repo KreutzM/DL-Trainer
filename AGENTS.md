@@ -39,14 +39,22 @@ Dieses Repository erzeugt aus Produkthandbüchern versionierte Datenartefakte f�
 
 - Wenn ein sinnvoller, reviewbarer Stand erreicht ist und ein Remote sauber konfiguriert ist, pushe die neuen Commits.
 - Wenn Push technisch nicht möglich ist, melde das explizit mit kurzem Fehlerhinweis statt still zu scheitern.
-- Gib nach jedem Arbeitslauf eine kompakte Review-Zusammenfassung aus mit:
-  - Branchname
-  - relevante Commit-SHA(s) oder Commit-Range
-  - kurze Liste der inhaltlichen Änderungen
-  - betroffene Dateien oder Verzeichnisse
-  - ausgeführte Checks oder Tests mit Ergebnis
-  - Hinweis, ob gepusht wurde
-  - knappe Review-Empfehlung mit sinnvollem Scope
+- Gib nach jedem inhaltlichen Arbeitslauf immer denselben Review-Block aus; Bezeichner, Reihenfolge und Schreibweise bleiben exakt gleich.
+- Verwende für `Commit range` bei mehreren neuen Commits die Range `<older>..<newer>` und bei genau einem neuen Commit nur den einzelnen `<sha>`.
+- Wenn Push scheitert, gib trotzdem den vollständigen Review-Block aus und ergänze den Push-Fehler danach in einem kurzen separaten Satz.
+- Das Abschlussformat ist fest:
+
+```text
+Review info:
+- Branch: <branch>
+- Commit range: <older>..<newer>   # bei nur einem Commit: <sha>
+- Last commit: <sha> - <message>
+- Pushed: yes/no
+- Ziel der Änderung: <kurz>
+- Wichtigste Dateien: <Liste>
+- Checks: <kurz mit Ergebnis>
+- Review-Fokus: <2-5 Punkte>
+```
 
 ## Ausgabeformate
 
