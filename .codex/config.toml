@@ -1,7 +1,9 @@
 model = "gpt-5.4"
 model_reasoning_effort = "medium"
-approval_policy = "on-request"
-sandbox_mode = "workspace-write"
+# approval_policy = "on-request"
+# sandbox_mode = "workspace-write"
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
 
 [profiles.low]
 model = "gpt-5.4"
