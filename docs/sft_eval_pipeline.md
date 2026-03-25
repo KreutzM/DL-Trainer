@@ -81,6 +81,19 @@ Gold-Dateien enthalten nur promotete Faelle. Jeder Gold-Datensatz verweist ueber
 
 `run_teacher_jobs.py --mode replay --replay-input <jsonl>` uebernimmt vorbereitete Kandidaten im Teacher-Output-Format. Damit laesst sich spaeter ein externer Teacher-Lauf in dieselbe Struktur zurueckspielen, ohne das Repo umzubauen.
 
+### OpenAI / GPT-5.4
+
+`run_teacher_jobs.py --mode openai` ist der echte Teacher-Runner-Pfad fuer modellgestuetzte Wave-Laeufe. Er schreibt zuerst rohe strukturierte Teacher-Responses und leitet daraus reviewbare Teacher-Outputs ab.
+
+Wichtige Punkte:
+
+- keine Secrets im Repo; API-Key nur ueber Umgebungsvariable
+- `teacher_provider`, `teacher_model`, `teacher_run_id` und `raw_response_path` bleiben an den Outputs haengen
+- das rohe Importformat ist in `schemas/teacher_response.schema.json` festgelegt
+- derselbe Review-/Promotion-Pfad bleibt anschliessend gueltig
+
+Fuer kleine, reviewbare Teilmengen ist `scripts/build_wave1_gpt54_subset.py` die reproduzierbare Wave1-Subset-Auswahl.
+
 ## Menschlicher Review bleibt noetig fuer
 
 - fachliche Freigabe vor Promotion nach `data/gold/`

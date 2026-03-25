@@ -93,10 +93,18 @@ def validate_outputs(
             failures.append(f"Output row {idx}: target_split does not match job")
         if row.get("source_chunk_ids") != job.get("source_chunk_ids"):
             failures.append(f"Output row {idx}: source_chunk_ids differ from job")
+        if row.get("teacher_provider") in {None, ""}:
+            failures.append(f"Output row {idx}: teacher_provider missing")
         candidate = row.get("candidate", {})
         failures.extend(f"Output row {idx}: {err}" for err in validate_candidate(candidate, row["record_type"], sft_validator, eval_validator))
         if candidate.get("review_status") != row.get("review_status"):
             failures.append(f"Output row {idx}: candidate review_status mismatch")
+        if candidate.get("teacher_model") != row.get("teacher_model"):
+            failures.append(f"Output row {idx}: candidate teacher_model mismatch")
+        if candidate.get("teacher_run_id") != row.get("teacher_run_id"):
+            failures.append(f"Output row {idx}: candidate teacher_run_id mismatch")
+        if candidate.get("teacher_provider") not in {None, row.get("teacher_provider")}:
+            failures.append(f"Output row {idx}: candidate teacher_provider mismatch")
         if row.get("review_status") in {"human_reviewed", "rejected"} and not row.get("approved_by"):
             failures.append(f"Output row {idx}: approved_by required for reviewed outputs")
         validate_chunk_links(f"Output row {idx}", row, chunk_index, failures)

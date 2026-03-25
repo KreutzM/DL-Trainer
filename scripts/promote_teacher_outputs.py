@@ -11,6 +11,8 @@ def build_promoted_from(row: dict, input_path: str) -> dict:
         "teacher_output_path": input_path.replace("\\", "/"),
         "output_id": row["output_id"],
         "job_id": row["job_id"],
+        "teacher_provider": row.get("teacher_provider"),
+        "teacher_model": row.get("teacher_model"),
         "teacher_run_id": row["teacher_run_id"],
     }
 

@@ -58,6 +58,17 @@ def main() -> None:
                 failures.append(f"Row {idx}: missing provenance.source_records")
             continue
 
+        if "output_id" in row and "parsed_response" in row:
+            if not row.get("source_doc_ids"):
+                failures.append(f"Row {idx}: missing source_doc_ids")
+            if not row.get("source_chunk_ids"):
+                failures.append(f"Row {idx}: missing source_chunk_ids")
+            if not row.get("response_status"):
+                failures.append(f"Row {idx}: missing response_status")
+            if not has_source_records(row):
+                failures.append(f"Row {idx}: missing provenance.source_records")
+            continue
+
         for key in ["doc_id", "source_spans", "review_status"]:
             if key not in row or row.get(key) in (None, "", []):
                 failures.append(f"Row {idx}: missing {key}")
