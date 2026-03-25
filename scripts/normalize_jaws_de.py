@@ -15,7 +15,7 @@ LANGUAGE = "de"
 RAW_DIR = Path("data/raw/JAWS/DE/Converted-Help-Files")
 OUTPUT_DIR = Path("data/normalized/JAWS/DE")
 MANIFEST_PATH = RAW_DIR / "collection_manifest.json"
-HEADING_PROSE_RE = re.compile(r"^(#{1,6}\s+.+?[.!?:])\s+(\S.*)$")
+HEADING_PROSE_RE = re.compile(r"^(#{1,6}\s+.+?[.!?:])[ \t]+(\S.*)$")
 
 
 def slugify(value: str) -> str:

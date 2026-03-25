@@ -7,7 +7,7 @@ from common import make_parser, read_json
 
 RAW_DIR = Path("data/raw/JAWS/DE/Converted-Help-Files")
 OUTPUT_DIR = Path("data/normalized/JAWS/DE")
-HEADING_PROSE_RE = re.compile(r"^#{1,6}\s+.+?[.!?:]\s+\S")
+HEADING_PROSE_RE = re.compile(r"^#{1,6}\s+.+?[.!?:][ \t]+\S")
 
 
 def validate_markdown_structure(md_path: Path) -> None:
