@@ -1,0 +1,27 @@
+{
+  "batch_name": "wave1_codex_gpt54_real_batch_v1",
+  "source_reviewed_outputs": "data/derived/teacher_outputs/JAWS/DE/wave1_reviewed_teacher_outputs.jsonl",
+  "jobs_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "teacher_run_id": "jaws_de_wave1_codex_gpt54_run_v2",
+  "teacher_provider": "codex",
+  "teacher_model": "gpt-5.4",
+  "generation_mode": "codex_teacher_gpt54_wave1_v2",
+  "raw_responses": 102,
+  "by_split": {
+    "eval": 22,
+    "train": 80
+  },
+  "by_task_type": {
+    "clarification": 14,
+    "faq_direct_answer": 30,
+    "step_by_step": 22,
+    "troubleshooting": 22,
+    "uncertainty_escalation": 14
+  },
+  "by_doc": {
+    "jaws_de_braille": 30,
+    "jaws_de_hilfe_kernfunktionen": 31,
+    "jaws_de_settingscenter": 25,
+    "jaws_de_tutorial_basics": 16
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "batch_name": "wave1_codex_gpt54_real_review_v1",
+  "input": "data/derived/teacher_outputs/JAWS/DE/wave1_codex_gpt54_real_teacher_outputs.jsonl",
+  "approved": 92,
+  "rejected": 10,
+  "approved_by_split": {
+    "eval": 17,
+    "train": 75
+  },
+  "approved_by_task_type": {
+    "clarification": 14,
+    "uncertainty_escalation": 13,
+    "step_by_step": 22,
+    "troubleshooting": 14,
+    "faq_direct_answer": 29
+  },
+  "approved_by_doc": {
+    "jaws_de_braille": 26,
+    "jaws_de_settingscenter": 24,
+    "jaws_de_hilfe_kernfunktionen": 27,
+    "jaws_de_tutorial_basics": 15
+  },
+  "rejected_by_split": {
+    "eval": 5,
+    "train": 5
+  },
+  "rejected_by_task_type": {
+    "uncertainty_escalation": 1,
+    "troubleshooting": 8,
+    "faq_direct_answer": 1
+  },
+  "rejected_output_ids": [
+    "jaws_de_wave1_codex_gpt54_run_v2::jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0001",
+    "jaws_de_wave1_codex_gpt54_run_v2::jaws_de_teacher_wave_v1::eval::troubleshooting::0001",
+    "jaws_de_wave1_codex_gpt54_run_v2::jaws_de_teacher_wave_v1::eval::troubleshooting::0002",
+    "jaws_de_wave1_codex_gpt54_run_v2::jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+    "jaws_de_wave1_codex_gpt54_run_v2::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+    "jaws_de_wave1_codex_gpt54_run_v2::jaws_de_teacher_wave_v1::train::troubleshooting::0005",
+    "jaws_de_wave1_codex_gpt54_run_v2::jaws_de_teacher_wave_v1::train::troubleshooting::0008",
+    "jaws_de_wave1_codex_gpt54_run_v2::jaws_de_teacher_wave_v1::train::troubleshooting::0009",
+    "jaws_de_wave1_codex_gpt54_run_v2::jaws_de_teacher_wave_v1::train::troubleshooting::0011",
+    "jaws_de_wave1_codex_gpt54_run_v2::jaws_de_teacher_wave_v1::train::troubleshooting::0016"
+  ]
+}

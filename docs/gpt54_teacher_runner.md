@@ -20,6 +20,21 @@ Der Pfad bleibt getrennt:
 4. `run_teacher_jobs.py --mode codex` materialisiert daraus reviewbare Teacher-Outputs.
 5. Review und Promotion laufen unveraendert weiter.
 
+## Groessere reale Codex-Welle aus Wave1
+
+Fuer die erste groessere reale Codex-Welle wird die bereits deterministisch freigegebene Wave1-Reviewmenge als eigener Codex-Lauf materialisiert:
+
+1. `scripts/build_wave1_codex_real_batch.py` schreibt eine stabile Job-Liste und die dazugehoerigen neuen Approve-IDs.
+2. `scripts/materialize_codex_teacher_responses.py` erzeugt strukturierte Roh-Responses fuer genau diese Job-Menge.
+3. `scripts/run_teacher_jobs.py --mode codex` baut daraus reviewbare Teacher-Outputs mit `teacher_provider=codex` und `teacher_model=gpt-5.4`.
+4. Review und Promotion laufen unveraendert auf den neuen Codex-Artefakten.
+
+Dadurch bleibt die Trennung klar:
+
+- alter Stub-/Fixture-Stand bleibt unveraendert erhalten
+- neue Codex-Roh-Responses sind separat nachvollziehbar
+- neue reviewed Outputs und Gold-Artefakte entstehen in eigenen Dateien
+
 Beispiel fuer die kleine Wave1-Teilmenge:
 
 ```bash
