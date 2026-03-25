@@ -1,0 +1,10 @@
+# JAWS-DE Qwen-SFT Exporte
+
+Dieser Ordner enthaelt nur abgeleitete Trainings-Exporte fuer Qwen-kompatible SFT-Loader.
+
+## Regeln
+
+- Gold-Daten unter `data/gold/` bleiben Source of truth.
+- `train.jsonl` und `eval.jsonl` sind fuer Loader gedacht.
+- `*.metadata.jsonl` und `manifest.json` halten Provenance und Rueckverfolgbarkeit.
+- Bei Aenderungen immer den Export neu erzeugen statt Dateien manuell zu editieren.
