@@ -18,6 +18,10 @@ Optionale Felder:
 - `locale`
 - `vendor`
 - `build`
+- `source_path`
+- `normalized_path`
+- `conversion_stage`
+- `provenance`
 - `notes`
 
 ## Chunk-Metadaten
