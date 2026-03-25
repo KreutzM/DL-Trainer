@@ -14,7 +14,8 @@ Dieses Repository ist ein Startgeruest fuer eine lokale Datenaufbereitungs- und 
 3. Daraus zitierfaehige Chunks, Task-Cards und Synonym-Layer unter `data/derived/` bauen.
 4. Mit einem starken Teacher-Modell qualitaetsgesicherte Supportdaten erzeugen.
 5. SFT-/LoRA-Datensaetze unter `data/gold/train/` und Evals unter `data/gold/eval/` pflegen.
-6. Student-Modell trainieren und gegen definierte Evals pruefen.
+6. Gold-Daten nach `data/exports/qwen_sft/` exportieren.
+7. Student-Modell trainieren und gegen definierte Evals pruefen.
 
 ## Schnellstart
 
@@ -58,26 +59,28 @@ python scripts/run_teacher_jobs.py --jobs data/derived/teacher_jobs/JAWS/DE/seed
 python scripts/validate_teacher_pipeline.py --jobs data/derived/teacher_jobs/JAWS/DE/seed_generation_jobs.jsonl --outputs data/derived/teacher_outputs/JAWS/DE/seed_teacher_outputs.jsonl
 ```
 
-### 6. Beispiel-Export fuer Training erzeugen
+### 6. Qwen-SFT-Export und Dry-Run vorbereiten
 
 ```bash
-python scripts/export_for_training.py --input data/gold/train/sft/demo_sft_samples.jsonl --output training/exports/demo_train.jsonl
+python scripts/export_qwen_sft.py --train-input data/gold/train/sft/JAWS/DE/promoted_seed_sft_samples.jsonl --eval-input data/gold/eval/JAWS/DE/promoted_seed_eval_cases.jsonl --output-dir data/exports/qwen_sft/JAWS/DE/gold_v1 --export-id jaws_de_qwen_sft_gold_v1
+python scripts/validate_qwen_sft_export.py --input-dir data/exports/qwen_sft/JAWS/DE/gold_v1
+python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_de_lora_dry_run.yaml
 ```
 
 ## Repo-Navigation
 
-- `docs/` - Architektur, Policies, Review-Regeln, Repo-Spezifikation
+- `docs/` - Architektur, Policies, Review-Regeln, Repo-Spezifikation, Qwen-Export-Runbook
 - `schemas/` - JSON-Schemas fuer Kernartefakte
 - `prompts/` - Teacher- und Judge-Prompts
 - `scripts/` - reproduzierbare ETL-/Validierungs-/Export-Skripte
 - `.codex/` - Codex-Konfiguration und Subagents
 - `.agents/skills/` - task-spezifische Skills fuer Codex
-- `data/` - Datenzonen (`raw`, `normalized`, `derived`, `gold`, `reports`)
+- `data/` - Datenzonen (`raw`, `normalized`, `derived`, `gold`, `exports`, `reports`)
 - `training/` - Startpunkte fuer MS-SWIFT, Unsloth, Axolotl
 
 ## Arbeitsprinzipien
 
-- **Source of truth** bleibt immer im Korpus, nicht im LoRA.
+- **Source of truth** bleibt immer im Korpus und in reviewten Gold-Daten, nicht im Export.
 - **Alle abgeleiteten Artefakte** benoetigen Provenance.
 - **Nichts erfinden**: Fakten duerfen nur aus dokumentierter Quelle stammen.
 - **Reviewbarkeit vor Automatisierung**: jeder Datensatz soll zurueckverfolgbar und diffbar sein.
@@ -89,3 +92,4 @@ python scripts/export_for_training.py --input data/gold/train/sft/demo_sft_sampl
 3. Teacher-Prompts im Ordner `prompts/teacher/` verfeinern.
 4. Teacher-Jobs aus `data/derived/teacher_jobs/` laufen lassen, Outputs in `data/derived/teacher_outputs/` reviewen und gezielt nach `data/gold/` uebernehmen.
 5. Evals in `data/gold/eval/` aus echten Supportfaellen aufbauen.
+6. Gold-Daten nach `data/exports/qwen_sft/` exportieren und den Dry-Run fuer Qwen3-8B pruefen.

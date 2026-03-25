@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Qwen Training Config",
+  "type": "object",
+  "required": ["run", "model", "dataset", "training", "lora", "runtime"],
+  "properties": {
+    "run": {
+      "type": "object",
+      "required": ["run_name", "framework", "stage"],
+      "properties": {
+        "run_name": { "type": "string", "minLength": 1 },
+        "framework": { "type": "string", "minLength": 1 },
+        "stage": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "model": {
+      "type": "object",
+      "required": ["base_model", "tokenizer_name_or_path", "max_length"],
+      "properties": {
+        "base_model": { "type": "string", "minLength": 1 },
+        "tokenizer_name_or_path": { "type": "string", "minLength": 1 },
+        "trust_remote_code": { "type": "boolean" },
+        "max_length": { "type": "integer", "minimum": 512 }
+      },
+      "additionalProperties": true
+    },
+    "dataset": {
+      "type": "object",
+      "required": [
+        "format",
+        "train_file",
+        "eval_file",
+        "train_metadata_file",
+        "eval_metadata_file",
+        "manifest_file"
+      ],
+      "properties": {
+        "format": { "type": "string", "minLength": 1 },
+        "train_file": { "type": "string", "minLength": 1 },
+        "eval_file": { "type": "string", "minLength": 1 },
+        "train_metadata_file": { "type": "string", "minLength": 1 },
+        "eval_metadata_file": { "type": "string", "minLength": 1 },
+        "manifest_file": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "training": {
+      "type": "object",
+      "required": [
+        "output_dir",
+        "logging_dir",
+        "num_train_epochs",
+        "per_device_train_batch_size",
+        "gradient_accumulation_steps",
+        "learning_rate",
+        "seed"
+      ],
+      "properties": {
+        "output_dir": { "type": "string", "minLength": 1 },
+        "logging_dir": { "type": "string", "minLength": 1 },
+        "num_train_epochs": { "type": "number", "exclusiveMinimum": 0 },
+        "per_device_train_batch_size": { "type": "integer", "minimum": 1 },
+        "per_device_eval_batch_size": { "type": "integer", "minimum": 1 },
+        "gradient_accumulation_steps": { "type": "integer", "minimum": 1 },
+        "learning_rate": { "type": "number", "exclusiveMinimum": 0 },
+        "lr_scheduler_type": { "type": "string" },
+        "warmup_ratio": { "type": "number", "minimum": 0 },
+        "weight_decay": { "type": "number", "minimum": 0 },
+        "max_grad_norm": { "type": "number", "minimum": 0 },
+        "eval_strategy": { "type": "string" },
+        "eval_steps": { "type": "integer", "minimum": 1 },
+        "save_strategy": { "type": "string" },
+        "save_steps": { "type": "integer", "minimum": 1 },
+        "save_total_limit": { "type": "integer", "minimum": 1 },
+        "seed": { "type": "integer", "minimum": 0 },
+        "bf16": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "lora": {
+      "type": "object",
+      "required": ["enabled", "r", "alpha", "dropout", "target_modules"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "r": { "type": "integer", "minimum": 1 },
+        "alpha": { "type": "integer", "minimum": 1 },
+        "dropout": { "type": "number", "minimum": 0, "maximum": 1 },
+        "target_modules": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": true
+    },
+    "runtime": {
+      "type": "object",
+      "required": ["report_to", "gradient_checkpointing"],
+      "properties": {
+        "report_to": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "gradient_checkpointing": { "type": "boolean" },
+        "flash_attention": { "type": "string" },
+        "dry_run_steps": { "type": "integer", "minimum": 1 },
+        "check_only": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

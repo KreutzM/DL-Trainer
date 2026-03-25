@@ -1,24 +1,42 @@
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 
-from common import make_parser, read_jsonl, write_jsonl
+from common import make_parser
 
 
 def main() -> None:
-    parser = make_parser("Export approved SFT samples into a flat training JSONL.")
-    parser.add_argument("--input", required=True)
-    parser.add_argument("--output", required=True)
+    parser = make_parser("Backward-compatible wrapper for the Qwen SFT export.")
+    parser.add_argument("--train-input", action="append", dest="train_inputs")
+    parser.add_argument("--eval-input", action="append", dest="eval_inputs")
+    parser.add_argument("--output-dir")
+    parser.add_argument("--export-id", default="legacy_export")
+    parser.add_argument("--input")
+    parser.add_argument("--output")
     parser.add_argument("--only-approved", action="store_true")
     args = parser.parse_args()
 
-    rows = read_jsonl(Path(args.input))
-    if args.only_approved:
-        rows = [r for r in rows if r.get("meta", {}).get("review_status") == "approved"]
+    if args.input and args.output:
+        output_path = Path(args.output)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(args.input, args.output)
+        print(f"Copied legacy export input to {args.output}")
+        return
 
-    Path(args.output).parent.mkdir(parents=True, exist_ok=True)
-    write_jsonl(Path(args.output), rows)
-    print(f"Exported {len(rows)} rows to {args.output}")
+    if not args.train_inputs or not args.eval_inputs or not args.output_dir:
+        parser.error(
+            "Use legacy --input/--output mode or provide --train-input, --eval-input, and --output-dir."
+        )
+
+    from export_qwen_sft import export_qwen_sft
+
+    export_qwen_sft(
+        train_inputs=[Path(path) for path in args.train_inputs],
+        eval_inputs=[Path(path) for path in args.eval_inputs],
+        output_dir=Path(args.output_dir),
+        export_id=args.export_id,
+    )
 
 
 if __name__ == "__main__":
