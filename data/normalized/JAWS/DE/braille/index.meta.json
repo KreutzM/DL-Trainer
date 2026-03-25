@@ -1,0 +1,22 @@
+{
+  "doc_id": "jaws_de_braille",
+  "product": "JAWS",
+  "language": "de",
+  "version": "jaws_de_converted_help_files",
+  "source_type": "html",
+  "source_file": "data/raw/JAWS/DE/Converted-Help-Files/JAWS_DE_Braille.html",
+  "source_path": "data/raw/JAWS/DE/Converted-Help-Files",
+  "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+  "checksum": "c3affa718d1e87ed649ca43e43f32f6783c237640dab25d701abc00ca76ace04",
+  "import_date": "2026-02-06",
+  "conversion_stage": "raw_html_to_normalized_markdown",
+  "transform_pipeline_version": "0.1.0",
+  "provenance": {
+    "raw_collection_id": "jaws_de_converted_help_files",
+    "raw_collection_manifest": "data/raw/JAWS/DE/Converted-Help-Files/collection_manifest.json",
+    "source_of_truth_path": "data/raw/JAWS/DE/Converted-Help-Files",
+    "source_checksum": "c3affa718d1e87ed649ca43e43f32f6783c237640dab25d701abc00ca76ace04"
+  },
+  "notes": "Normalized from imported or conversion-derived JAWS DE help HTML without aggressive semantic reordering; TOC and presentation-only wrappers were removed.",
+  "title": "JAWS – Braille (Allgemein & Focus)"
+}

@@ -1,0 +1,22 @@
+{
+  "doc_id": "jaws_de_hilfe_kernfunktionen",
+  "product": "JAWS",
+  "language": "de",
+  "version": "jaws_de_converted_help_files",
+  "source_type": "html",
+  "source_file": "data/raw/JAWS/DE/Converted-Help-Files/JAWS_DE_Hilfe_Kernfunktionen.html",
+  "source_path": "data/raw/JAWS/DE/Converted-Help-Files",
+  "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+  "checksum": "480ade513945563139f0081197ce35104588bd0c99e34a31aa9facb97e30f254",
+  "import_date": "2026-02-06",
+  "conversion_stage": "raw_html_to_normalized_markdown",
+  "transform_pipeline_version": "0.1.0",
+  "provenance": {
+    "raw_collection_id": "jaws_de_converted_help_files",
+    "raw_collection_manifest": "data/raw/JAWS/DE/Converted-Help-Files/collection_manifest.json",
+    "source_of_truth_path": "data/raw/JAWS/DE/Converted-Help-Files",
+    "source_checksum": "480ade513945563139f0081197ce35104588bd0c99e34a31aa9facb97e30f254"
+  },
+  "notes": "Normalized from imported or conversion-derived JAWS DE help HTML without aggressive semantic reordering; TOC and presentation-only wrappers were removed.",
+  "title": "JAWS – Hilfe (Kernfunktionen)"
+}

@@ -1,0 +1,22 @@
+{
+  "doc_id": "jaws_de_tutorial_basics",
+  "product": "JAWS",
+  "language": "de",
+  "version": "jaws_de_converted_help_files",
+  "source_type": "html",
+  "source_file": "data/raw/JAWS/DE/Converted-Help-Files/JAWS_DE_Tutorial_Basics.html",
+  "source_path": "data/raw/JAWS/DE/Converted-Help-Files",
+  "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+  "checksum": "c55f7f2890d9c728e06c2a486fd1a5afae29a2cfbf7d6b6b647aaf263e47ba3c",
+  "import_date": "2026-02-06",
+  "conversion_stage": "raw_html_to_normalized_markdown",
+  "transform_pipeline_version": "0.1.0",
+  "provenance": {
+    "raw_collection_id": "jaws_de_converted_help_files",
+    "raw_collection_manifest": "data/raw/JAWS/DE/Converted-Help-Files/collection_manifest.json",
+    "source_of_truth_path": "data/raw/JAWS/DE/Converted-Help-Files",
+    "source_checksum": "c55f7f2890d9c728e06c2a486fd1a5afae29a2cfbf7d6b6b647aaf263e47ba3c"
+  },
+  "notes": "Normalized from imported or conversion-derived JAWS DE help HTML without aggressive semantic reordering; TOC and presentation-only wrappers were removed.",
+  "title": "JAWS – Tutorial / Grundlagen"
+}
