@@ -10,7 +10,7 @@ Produkt-Support-Assistenten mit:
 
 ## Zielbild
 
-1. Produkthandbücher unverändert unter `data/raw/` ablegen.
+1. Produkthandbücher oder dokumentierte Importquellen kanonisch unter `data/raw/` ablegen.
 2. In maschinenfreundliche Markdown-Normalform unter `data/normalized/` überführen.
 3. Daraus zitierfähige Chunks, Task-Cards und Synonym-Layer unter `data/derived/` bauen.
 4. Mit einem starken Teacher-Modell qualitätsgesicherte Supportdaten erzeugen.
@@ -61,7 +61,7 @@ python scripts/export_for_training.py   --input data/gold/train/sft/demo_sft_sam
 
 ## Nächste sinnvolle Schritte
 
-1. Eigenes Produkthandbuch unter `data/raw/<produkt>/...` ablegen
+1. Eigenes Produkthandbuch oder dokumentierte Importquelle unter `data/raw/<produkt>/...` ablegen
 2. `docs/metadata_schema.md` und `docs/chunking_policy.md` anpassen
 3. Teacher-Prompts im Ordner `prompts/teacher/` verfeinern
 4. Skripte in `scripts/` auf das reale Datenformat erweitern

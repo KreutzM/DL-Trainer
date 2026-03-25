@@ -11,7 +11,7 @@ Dieses Repository dient als reproduzierbare Arbeitsumgebung für:
 ## Datenzonen
 
 ### `data/raw/`
-Unveränderte Originalquellen. Nur read-only.
+Kanonische Rohquellen für die Pipeline. Bevorzugt unverändert; importierte oder konvertierte Eingänge sind zulässig, wenn Herkunft und Status am Datenpfad dokumentiert sind. Nach Ablage read-only behandeln.
 
 ### `data/normalized/`
 Bereinigte Normalform in Markdown plus `.meta.json`.
