@@ -6,7 +6,7 @@ from common import make_parser, read_jsonl, write_jsonl
 
 
 def main() -> None:
-    parser = make_parser("Convert SFT samples into simple eval cases.")
+    parser = make_parser("Convert SFT samples into eval cases.")
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
@@ -18,14 +18,22 @@ def main() -> None:
         assistant_turns = [m["content"] for m in sample["messages"] if m["role"] == "assistant"]
         evals.append({
             "eval_id": f"eval_{i:06d}",
-            "input": user_turns[-1] if user_turns else "",
+            "product": sample.get("product") or sample.get("meta", {}).get("product", ""),
+            "language": sample.get("language") or sample.get("meta", {}).get("language", ""),
+            "case_type": sample.get("task_type") or sample.get("meta", {}).get("task_type", "faq_direct_answer"),
+            "prompt": user_turns[-1] if user_turns else "",
+            "case_description": "Abgeleiteter Eval-Fall aus SFT-Sample.",
             "rubric": {
                 "must_include": [],
                 "must_not_include": ["erfundene Fakten"],
-                "style": "präzise, vorsichtig, hilfreich"
+                "style": "präzise, vorsichtig, hilfreich",
             },
             "expected_behavior": "Antwortet nur mit belegbarer Information.",
-            "reference_answer": assistant_turns[-1] if assistant_turns else ""
+            "source_doc_ids": sample.get("source_doc_ids") or sample.get("meta", {}).get("source_doc_ids", []),
+            "source_chunk_ids": sample.get("source_chunk_ids") or sample.get("meta", {}).get("source_chunk_ids", []),
+            "review_status": sample.get("review_status") or sample.get("meta", {}).get("review_status", "draft"),
+            "provenance": sample.get("provenance") or sample.get("meta", {}).get("provenance", {}),
+            "reference_answer": assistant_turns[-1] if assistant_turns else "",
         })
     write_jsonl(Path(args.output), evals)
     print(f"Wrote {len(evals)} eval cases")

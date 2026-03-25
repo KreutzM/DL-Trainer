@@ -33,6 +33,8 @@ pip install -r requirements.txt
 python scripts/validate_jsonl.py --schema schemas/chunk.schema.json --input data/derived/chunks/demo_chunk_set.jsonl
 python scripts/validate_metadata.py --input data/normalized/demo_product/de/manual_v1/index.meta.json
 python scripts/check_provenance.py --input data/derived/task_cards/demo_task_cards.jsonl
+python scripts/validate_jsonl.py --schema schemas/sft_sample.schema.json --input data/gold/train/sft/demo_sft_samples.jsonl
+python scripts/validate_jsonl.py --schema schemas/eval_case.schema.json --input data/gold/eval/demo_eval_cases.jsonl
 ```
 
 ### 3. JAWS-DE-Chunks aufbauen
@@ -40,11 +42,16 @@ python scripts/check_provenance.py --input data/derived/task_cards/demo_task_car
 ```bash
 python scripts/build_jaws_de_chunks.py
 python scripts/validate_jaws_de_chunks.py
-python scripts/validate_jsonl.py --schema schemas/chunk.schema.json --input data/derived/chunks/JAWS/DE/braille/chunks.jsonl
-python scripts/check_provenance.py --input data/derived/chunks/JAWS/DE/braille/chunks.jsonl
 ```
 
-### 4. Beispiel-Export für Training erzeugen
+### 4. JAWS-DE Support-Seed-Daten aufbauen
+
+```bash
+python scripts/build_jaws_support_data.py
+python scripts/validate_support_datasets.py --sft data/derived/teacher_outputs/JAWS/DE/seed_sft_candidates.jsonl --eval data/derived/teacher_outputs/JAWS/DE/seed_eval_cases.jsonl
+```
+
+### 5. Beispiel-Export für Training erzeugen
 
 ```bash
 python scripts/export_for_training.py --input data/gold/train/sft/demo_sft_samples.jsonl --output training/exports/demo_train.jsonl
@@ -71,7 +78,7 @@ python scripts/export_for_training.py --input data/gold/train/sft/demo_sft_sampl
 ## Nächste sinnvolle Schritte
 
 1. Eigenes Produkthandbuch oder dokumentierte Importquelle unter `data/raw/<produkt>/...` ablegen
-2. `docs/metadata_schema.md` und `docs/chunking_policy.md` anpassen
+2. `docs/metadata_schema.md`, `docs/chunking_policy.md` und die Support-Behavior-Spec anpassen
 3. Teacher-Prompts im Ordner `prompts/teacher/` verfeinern
-4. Skripte in `scripts/` auf das reale Datenformat erweitern
+4. Seed-Drafts aus `data/derived/teacher_outputs/` reviewen und gezielt nach `data/gold/` übernehmen
 5. Evals in `data/gold/eval/` aus echten Supportfällen aufbauen

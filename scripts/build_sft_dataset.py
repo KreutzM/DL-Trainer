@@ -13,7 +13,11 @@ def main() -> None:
     args = parser.parse_args()
 
     rows = read_jsonl(Path(args.input))
-    filtered = [r for r in rows if r.get("meta", {}).get("review_status") == args.review_status]
+    filtered = [
+        r for r in rows
+        if r.get("review_status") == args.review_status
+        or r.get("meta", {}).get("review_status") == args.review_status
+    ]
     write_jsonl(Path(args.output), filtered)
     print(f"Wrote {len(filtered)} approved samples")
 

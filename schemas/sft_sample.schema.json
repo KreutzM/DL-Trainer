@@ -4,76 +4,129 @@
   "type": "object",
   "required": [
     "id",
+    "product",
+    "language",
+    "task_type",
     "messages",
+    "source_doc_ids",
+    "source_chunk_ids",
+    "teacher_prompt_version",
+    "generation_mode",
+    "review_status",
+    "provenance",
     "meta"
   ],
   "properties": {
-    "id": {
-      "type": "string"
+    "id": { "type": "string" },
+    "product": { "type": "string" },
+    "language": { "type": "string" },
+    "task_type": {
+      "type": "string",
+      "enum": [
+        "faq_direct_answer",
+        "troubleshooting",
+        "step_by_step",
+        "clarification",
+        "uncertainty_escalation"
+      ]
     },
     "messages": {
       "type": "array",
-      "minItems": 2,
+      "minItems": 3,
       "items": {
         "type": "object",
-        "required": [
-          "role",
-          "content"
-        ],
+        "required": ["role", "content"],
         "properties": {
           "role": {
             "type": "string",
-            "enum": [
-              "system",
-              "user",
-              "assistant"
-            ]
+            "enum": ["system", "user", "assistant"]
           },
           "content": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           }
         },
         "additionalProperties": false
       }
+    },
+    "source_doc_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "source_chunk_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "teacher_prompt_version": { "type": "string" },
+    "generation_mode": { "type": "string" },
+    "review_status": { "type": "string" },
+    "provenance": {
+      "type": "object",
+      "required": ["source_records", "transform_pipeline_version"],
+      "properties": {
+        "transform_pipeline_version": { "type": "string" },
+        "behavior_spec_path": { "type": "string" },
+        "prompt_template_path": { "type": "string" },
+        "source_records": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["doc_id", "chunk_id", "normalized_path", "source_spans"],
+            "properties": {
+              "doc_id": { "type": "string" },
+              "chunk_id": { "type": "string" },
+              "section_id": { "type": "string" },
+              "section_title": { "type": "string" },
+              "normalized_path": { "type": "string" },
+              "source_spans": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string" }
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
     },
     "meta": {
       "type": "object",
       "required": [
         "product",
         "language",
-        "teacher_model",
+        "task_type",
         "source_doc_ids",
-        "review_status"
+        "source_chunk_ids",
+        "teacher_prompt_version",
+        "generation_mode",
+        "review_status",
+        "provenance"
       ],
       "properties": {
-        "product": {
-          "type": "string"
-        },
-        "language": {
-          "type": "string"
-        },
-        "teacher_model": {
-          "type": "string"
-        },
+        "product": { "type": "string" },
+        "language": { "type": "string" },
+        "task_type": { "type": "string" },
+        "teacher_model": { "type": "string" },
         "source_doc_ids": {
           "type": "array",
-          "items": {
-            "type": "string"
-          },
+          "items": { "type": "string" },
           "minItems": 1
         },
-        "source_spans": {
+        "source_chunk_ids": {
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": { "type": "string" },
+          "minItems": 1
         },
-        "needs_clarification": {
-          "type": "boolean"
-        },
-        "review_status": {
-          "type": "string"
-        }
+        "teacher_prompt_version": { "type": "string" },
+        "generation_mode": { "type": "string" },
+        "needs_clarification": { "type": "boolean" },
+        "review_status": { "type": "string" },
+        "split": { "type": "string" },
+        "provenance": { "type": "object" }
       },
       "additionalProperties": true
     }

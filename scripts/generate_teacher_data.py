@@ -23,21 +23,48 @@ def main() -> None:
     cards = read_jsonl(Path(args.input))
     rows = []
     for i, card in enumerate(cards, start=1):
+        source_chunk_ids = card.get("source_chunk_ids") or [f"{card['doc_id']}::task_card_source_{i:06d}"]
+        provenance = {
+            "transform_pipeline_version": "0.3.0",
+            "prompt_template_path": "prompts/teacher/support_answer.md",
+            "source_records": [
+                {
+                    "doc_id": card["doc_id"],
+                    "chunk_id": source_chunk_ids[0],
+                    "normalized_path": "",
+                    "source_spans": card["source_spans"],
+                }
+            ],
+        }
         rows.append({
             "id": f"{args.product}_{args.language}_{i:06d}",
+            "product": args.product,
+            "language": args.language,
+            "task_type": "faq_direct_answer",
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": card["title"]},
-                {"role": "assistant", "content": card["answer"]}
+                {"role": "assistant", "content": card["answer"]},
             ],
+            "source_doc_ids": [card["doc_id"]],
+            "source_chunk_ids": source_chunk_ids,
+            "teacher_prompt_version": "task_card_support_answer_v1",
+            "generation_mode": "task_card_template_v1",
+            "review_status": "draft",
+            "provenance": provenance,
             "meta": {
                 "product": args.product,
                 "language": args.language,
+                "task_type": "faq_direct_answer",
                 "teacher_model": args.teacher_model,
                 "source_doc_ids": [card["doc_id"]],
+                "source_chunk_ids": source_chunk_ids,
+                "teacher_prompt_version": "task_card_support_answer_v1",
+                "generation_mode": "task_card_template_v1",
                 "source_spans": card["source_spans"],
-                "review_status": "draft"
-            }
+                "review_status": "draft",
+                "provenance": provenance,
+            },
         })
     write_jsonl(Path(args.output), rows)
     print(f"Wrote {len(rows)} SFT samples")

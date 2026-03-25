@@ -23,3 +23,9 @@ Produktwissen bleibt in erster Linie im RAG-Korpus.
 - versteckte Denkschritte als Pflichtformat
 - ungesicherte Produktfakten
 - veraltete oder versionsgemischte Beispiele
+
+## JAWS-DE Baseline
+
+- Seed-SFT und Seed-Evals entstehen zuerst unter `data/derived/teacher_outputs/JAWS/DE/`
+- Freigabe in `data/gold/train/` und `data/gold/eval/` bleibt ein eigener Review-Schritt
+- LoRA soll Supportverhalten lernen; Faktenbindung bleibt an Chunk- und RAG-Provenance geknüpft
