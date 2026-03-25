@@ -14,32 +14,47 @@ def validate_markdown_structure(md_path: Path) -> None:
     lines = text.splitlines()
 
     for idx, line in enumerate(lines, start=1):
+        prev_line = lines[idx - 2] if idx >= 2 else ""
+        next_line = lines[idx] if idx < len(lines) else ""
+
+        if line.strip() == ">":
+            raise SystemExit(f"Stray blockquote marker in {md_path}:{idx}")
+
         if line.startswith("#") and re.search(r"\s#{1,6}\s", line):
             raise SystemExit(f"Multiple headings on one line in {md_path}:{idx}")
 
-        if line.startswith("#") and idx < len(lines):
-            next_line = lines[idx]
-            if next_line and not next_line.startswith(("#", "-", "*", ">", "```", "|")) and not next_line[:2].isdigit():
-                prev_line = lines[idx - 2] if idx >= 2 else ""
-                if prev_line != "":
-                    raise SystemExit(f"Heading not separated by blank line in {md_path}:{idx}")
+        if line.startswith("#") and prev_line != "":
+            raise SystemExit(f"Heading not separated from previous block in {md_path}:{idx}")
+
+        if line.startswith("#") and next_line and not next_line.startswith(("#", "-", "*", ">", "```", "|")) and not next_line[:2].isdigit():
+            raise SystemExit(f"Heading not separated from following block in {md_path}:{idx}")
 
         if line.startswith("#") and len(line) > 120 and re.search(r"[.!?]\s+\w+\s+\w+\s+\w+", line):
             raise SystemExit(f"Heading appears merged with prose in {md_path}:{idx}")
 
-        if line.startswith("Quelle:") and idx < len(lines):
-            next_line = lines[idx]
-            if next_line.startswith("#"):
-                raise SystemExit(f"Source marker glued to following heading in {md_path}:{idx}")
+        if line.startswith("Quelle:") and prev_line != "":
+            raise SystemExit(f"Source marker not separated from previous block in {md_path}:{idx}")
+
+        if line.startswith("Quelle:") and next_line != "":
+            raise SystemExit(f"Source marker not separated from following block in {md_path}:{idx}")
 
         if re.search(r"Quelle:\s+#+\s", line) or (line.startswith("Quelle:") and re.search(r"\s#{1,6}\s", line)):
             raise SystemExit(f"Source marker merged with heading in {md_path}:{idx}")
+
+        if not line.startswith("#") and re.search(r"\s#{1,6}\s", line):
+            raise SystemExit(f"Heading merged into prose/list line in {md_path}:{idx}")
+
+        if not line.startswith("Quelle:") and " Quelle:" in line:
+            raise SystemExit(f"Source marker merged into prose/list line in {md_path}:{idx}")
 
         if re.search(r"^(?:- |\d+\.) .+ (?:- |\d+\.) ", line) or re.search(r"^\d+\..+\s\d+\.\s", line):
             raise SystemExit(f"Suspicious merged list items in {md_path}:{idx}")
 
         if re.search(r"^(?:- |\d+\.) .+ Quelle:", line):
             raise SystemExit(f"List item merged with source marker in {md_path}:{idx}")
+
+        if re.search(r"^(?:- |\d+\.) .+\s#{1,6}\s", line):
+            raise SystemExit(f"List item merged with heading in {md_path}:{idx}")
 
 
 def main() -> None:

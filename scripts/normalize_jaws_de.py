@@ -54,6 +54,8 @@ def collapse_inline(text: str) -> str:
 
 def tighten_inline_spacing(text: str) -> str:
     text = collapse_inline(text)
+    text = re.sub(r"(?<=[0-9A-Za-zÄÖÜäöüß])(\*\*|\*|`)", r" \1", text)
+    text = re.sub(r"(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)(?=[0-9A-Za-zÄÖÜäöüß])", r"\1 ", text)
     text = re.sub(r"\s+([,.;:!?])", r"\1", text)
     text = re.sub(r"([(\[]) +", r"\1", text)
     text = re.sub(r" +([)\]])", r"\1", text)
@@ -143,6 +145,44 @@ def blockify_text(text: str) -> list[str]:
     return normalized.split("\n\n")
 
 
+def blockify_inline_fragments(fragments: list[str]) -> list[str]:
+    merged: list[str] = []
+    for fragment in fragments:
+        if not fragment:
+            continue
+        if not merged:
+            merged.append(fragment)
+            continue
+
+        previous = merged[-1]
+        if (
+            previous.endswith((" ", "\n"))
+            or fragment.startswith((" ", "\n", ",", ".", ";", ":", "!", "?", ")", "]"))
+        ):
+            merged.append(fragment)
+        else:
+            merged.append(f" {fragment}")
+
+    raw = "".join(merged).replace("\r\n", "\n")
+    lines = raw.split("\n")
+    blocks: list[str] = []
+    current_lines: list[str] = []
+
+    for line in lines:
+        cleaned = tighten_inline_spacing(line) if line.strip() else ""
+        if cleaned:
+            current_lines.append(cleaned)
+            continue
+        if current_lines:
+            blocks.append("\n".join(current_lines))
+            current_lines = []
+
+    if current_lines:
+        blocks.append("\n".join(current_lines))
+
+    return blocks
+
+
 def format_list(items: list[tuple[str, list[str]]], level: int = 0) -> str:
     lines: list[str] = []
     indent = "  " * level
@@ -162,6 +202,77 @@ def format_list(items: list[tuple[str, list[str]]], level: int = 0) -> str:
                 lines.append(f"{child_indent}{block_line}")
 
     return "\n".join(lines)
+
+
+def split_structural_line(line: str) -> list[str]:
+    raw = line.rstrip()
+    stripped = raw.strip()
+    if not stripped or stripped == ">":
+        return []
+    if stripped.startswith("|"):
+        return [raw]
+
+    parts: list[str] = []
+    remaining = raw
+
+    while remaining:
+        if remaining.lstrip() == remaining and remaining.startswith("Quelle:"):
+            source_match = re.match(r"Quelle:\s*[^\n#]+", remaining)
+            if source_match:
+                parts.append(tighten_inline_spacing(source_match.group(0)))
+                remaining = remaining[source_match.end() :].lstrip()
+                continue
+
+        heading_match = re.search(r"(?<!\S)(#{1,6}\s+)", remaining)
+        source_match = re.search(r"(?<!\S)(Quelle:\s+)", remaining)
+
+        structural_match = None
+        if heading_match and source_match:
+            structural_match = heading_match if heading_match.start() < source_match.start() else source_match
+        else:
+            structural_match = heading_match or source_match
+
+        if structural_match is None:
+            parts.append(remaining)
+            break
+        if structural_match.start() == 0:
+            parts.append(remaining.lstrip())
+            break
+
+        prefix = remaining[: structural_match.start()].rstrip()
+        if prefix.strip():
+            parts.append(prefix)
+        remaining = remaining[structural_match.start() :].lstrip()
+
+    return [part for part in parts if part]
+
+
+def repair_markdown_blocks(markdown: str) -> str:
+    repaired_blocks: list[str] = []
+
+    for block in blockify_text(markdown):
+        split_lines: list[str] = []
+        for line in block.splitlines():
+            split_lines.extend(split_structural_line(line))
+
+        if not split_lines:
+            continue
+
+        current_block: list[str] = []
+        for line in split_lines:
+            is_structural = line.startswith("#") or line.startswith("Quelle:")
+            if is_structural and current_block:
+                repaired_blocks.append("\n".join(current_block).strip())
+                current_block = []
+            current_block.append(line)
+            if is_structural:
+                repaired_blocks.append("\n".join(current_block).strip())
+                current_block = []
+
+        if current_block:
+            repaired_blocks.append("\n".join(current_block).strip())
+
+    return normalize_text("\n\n".join(block for block in repaired_blocks if block))
 
 
 def render_node(node: Tag | NavigableString, level: int = 0) -> str:
@@ -194,8 +305,13 @@ def render_node(node: Tag | NavigableString, level: int = 0) -> str:
         lines = [collapse_inline(line) for line in node.get_text("\n", strip=True).splitlines() if collapse_inline(line)]
         return "\n".join(f"> {line}" for line in lines)
     if name in {"ul", "ol"}:
+        start_index = 1
+        if name == "ol":
+            start_attr = node.get("start")
+            if isinstance(start_attr, str) and start_attr.isdigit():
+                start_index = int(start_attr)
         items = []
-        for idx, li in enumerate(node.find_all("li", recursive=False), start=1):
+        for idx, li in enumerate(node.find_all("li", recursive=False), start=start_index):
             prefix = f"{idx}." if name == "ol" else "-"
             blocks = render_list_item(li, level + 1)
             if not blocks:
@@ -228,7 +344,7 @@ def render_list_item(node: Tag, level: int) -> list[str]:
 
     for child in node.children:
         if isinstance(child, NavigableString):
-            text = collapse_inline(str(child))
+            text = str(child).replace("\xa0", " ")
             if text:
                 inline_parts.append(text)
             continue
@@ -236,7 +352,7 @@ def render_list_item(node: Tag, level: int) -> list[str]:
         child_name = child.name.lower()
         if child_name in block_tags:
             if inline_parts:
-                blocks.append(tighten_inline_spacing(" ".join(inline_parts)))
+                blocks.extend(blockify_inline_fragments(inline_parts))
                 inline_parts = []
 
             if child_name == "p":
@@ -249,12 +365,12 @@ def render_list_item(node: Tag, level: int) -> list[str]:
                     blocks.extend(blockify_text(rendered))
             continue
 
-        rendered_inline = tighten_inline_spacing(render_inline(child))
+        rendered_inline = render_inline(child)
         if rendered_inline:
             inline_parts.append(rendered_inline)
 
     if inline_parts:
-        blocks.append(tighten_inline_spacing(" ".join(inline_parts)))
+        blocks.extend(blockify_inline_fragments(inline_parts))
 
     return blocks
 
@@ -305,7 +421,7 @@ def clean_html(html: str) -> tuple[str, str]:
             blocks.append(rendered)
 
     markdown = "\n\n".join(blocks)
-    return title, normalize_text(markdown)
+    return title, repair_markdown_blocks(markdown)
 
 
 def build_metadata(
