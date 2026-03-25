@@ -81,16 +81,23 @@ Gold-Dateien enthalten nur promotete Faelle. Jeder Gold-Datensatz verweist ueber
 
 `run_teacher_jobs.py --mode replay --replay-input <jsonl>` uebernimmt vorbereitete Kandidaten im Teacher-Output-Format. Damit laesst sich spaeter ein externer Teacher-Lauf in dieselbe Struktur zurueckspielen, ohne das Repo umzubauen.
 
-### OpenAI / GPT-5.4
+### Codex / GPT-5.4
 
-`run_teacher_jobs.py --mode openai` ist der echte Teacher-Runner-Pfad fuer modellgestuetzte Wave-Laeufe. Er schreibt zuerst rohe strukturierte Teacher-Responses und leitet daraus reviewbare Teacher-Outputs ab.
+Der primaere echte Teacher-Pfad fuer Wave1 ist jetzt Codex selbst.
+
+Praktisch bedeutet das:
+
+- Codex liest die Jobs direkt aus dem Repo
+- Codex formuliert die sichtbaren Endantworten selbst
+- die Roh-Responses werden im Schema `schemas/teacher_response.schema.json` abgelegt
+- `run_teacher_jobs.py --mode codex` materialisiert daraus reviewbare Teacher-Outputs
 
 Wichtige Punkte:
 
-- keine Secrets im Repo; API-Key nur ueber Umgebungsvariable
-- `teacher_provider`, `teacher_model`, `teacher_run_id` und `raw_response_path` bleiben an den Outputs haengen
-- das rohe Importformat ist in `schemas/teacher_response.schema.json` festgelegt
-- derselbe Review-/Promotion-Pfad bleibt anschliessend gueltig
+- kein externer API-Runner als Hauptarchitektur
+- `teacher_provider=codex`, `teacher_model=gpt-5.4` und `teacher_run_id` bleiben durchgaengig erhalten
+- dasselbe Review-/Promotion-Schema bleibt anschliessend gueltig
+- `openai` und `import` bleiben nur als Neben- oder Fallback-Pfade verfuegbar
 
 Fuer kleine, reviewbare Teilmengen ist `scripts/build_wave1_gpt54_subset.py` die reproduzierbare Wave1-Subset-Auswahl.
 

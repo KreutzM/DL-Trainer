@@ -15,6 +15,7 @@ OPENAI_API_BASE = "https://api.openai.com/v1"
 RAW_RESPONSE_FORMAT_VERSION = "teacher_response_v1"
 RUNNER_OPENAI_MODE = "teacher_runner_openai_chat_json_v1"
 RUNNER_IMPORT_MODE = "teacher_runner_import_v1"
+RUNNER_CODEX_MODE = "teacher_runner_codex_gpt54_v1"
 RUNNER_REPLAY_MODE = "teacher_runner_replay_v1"
 RUNNER_STUB_MODE = "teacher_runner_stub_v2"
 SYSTEM_INSTRUCTION = (
@@ -279,7 +280,12 @@ def build_output(
     if imported_response is not None:
         return build_output_from_raw_response(job, imported_response, raw_response_path)
 
-    generation_mode = RUNNER_STUB_MODE if mode == "stub" else RUNNER_REPLAY_MODE
+    if mode == "stub":
+        generation_mode = RUNNER_STUB_MODE
+    elif mode == "replay":
+        generation_mode = RUNNER_REPLAY_MODE
+    else:
+        generation_mode = RUNNER_IMPORT_MODE
     if replay_row is not None:
         candidate = replay_row["candidate"]
         record_type = replay_row["record_type"]
@@ -542,10 +548,10 @@ def generate_raw_responses_via_openai(
 
 
 def parse_args() -> Any:
-    parser = make_parser("Run teacher jobs in stub, replay, import or OpenAI mode and produce reviewable teacher outputs.")
+    parser = make_parser("Run teacher jobs in codex, stub, replay, import or OpenAI mode and produce reviewable teacher outputs.")
     parser.add_argument("--jobs", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--mode", choices=["stub", "replay", "import", "openai"], default="stub")
+    parser.add_argument("--mode", choices=["codex", "stub", "replay", "import", "openai"], default="stub")
     parser.add_argument("--teacher-model", default="teacher-stub-no-llm")
     parser.add_argument("--teacher-provider", default="local")
     parser.add_argument("--teacher-run-id", default="teacher_stub_run_v1")
@@ -581,14 +587,14 @@ def main() -> None:
         if args.raw_output:
             write_jsonl(Path(args.raw_output), raw_rows)
             raw_response_path = normalized_path(args.raw_output)
-    elif args.mode == "import":
+    elif args.mode in {"import", "codex"}:
         if not args.import_input:
-            raise SystemExit("--import-input is required for --mode import")
+            raise SystemExit("--import-input is required for --mode import/codex")
         raw_rows = read_jsonl(Path(args.import_input))
         raw_response_path = normalized_path(args.import_input)
 
     replay_rows = replay_index(read_jsonl(Path(args.replay_input))) if args.mode == "replay" else {}
-    imported_rows = raw_response_index(raw_rows) if args.mode in {"import", "openai"} else {}
+    imported_rows = raw_response_index(raw_rows) if args.mode in {"codex", "import", "openai"} else {}
 
     outputs = []
     for job in jobs:
@@ -596,12 +602,12 @@ def main() -> None:
         if args.mode == "replay" and replay_row is None:
             raise SystemExit(f"Replay input missing job_id {job['job_id']}")
         imported_row = imported_rows.get(job["job_id"])
-        if args.mode in {"import", "openai"} and imported_row is None:
+        if args.mode in {"codex", "import", "openai"} and imported_row is None:
             raise SystemExit(f"Imported/OpenAI response missing job_id {job['job_id']}")
         output = build_output(
             job,
             args.teacher_model,
-            args.teacher_provider if args.mode not in {"import", "openai"} else "openai",
+            args.teacher_provider if args.mode not in {"codex", "import", "openai"} else "openai",
             args.teacher_run_id,
             args.mode,
             replay_row,
