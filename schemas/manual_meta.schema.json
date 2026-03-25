@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Manual Metadata",
+  "type": "object",
+  "required": [
+    "doc_id",
+    "product",
+    "language",
+    "version",
+    "source_type",
+    "source_file",
+    "checksum",
+    "import_date",
+    "transform_pipeline_version"
+  ],
+  "properties": {
+    "doc_id": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "product_variant": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "pdf",
+        "html",
+        "xml",
+        "txt",
+        "other"
+      ]
+    },
+    "source_file": {
+      "type": "string"
+    },
+    "checksum": {
+      "type": "string"
+    },
+    "import_date": {
+      "type": "string"
+    },
+    "transform_pipeline_version": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

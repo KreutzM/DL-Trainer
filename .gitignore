@@ -1,35 +1,12 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyd
-*.so
-*.egg-info/
-.dist/
-.build/
 .venv/
-.env
+__pycache__/
+*.pyc
 .pytest_cache/
-.ruff_cache/
-
-# IDE
-.vscode/
-.idea/
-
-# OS
-Thumbs.db
-Desktop.ini
-
-# Data / outputs
-data/
-work/
-outputs/
-
-# Large artifacts
-*.npy
-*.npz
-*.pt
-*.pth
-*.onnx
-
-# My
+.mypy_cache/
+.DS_Store
+data/reports/tmp/
+training/exports/
+*.log
+*.sqlite
 tmp/
+

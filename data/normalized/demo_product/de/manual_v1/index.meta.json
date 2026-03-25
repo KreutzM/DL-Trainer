@@ -1,0 +1,12 @@
+{
+  "doc_id": "demo_product_de_manual_v1",
+  "product": "demo_product",
+  "language": "de",
+  "version": "v1",
+  "source_type": "html",
+  "source_file": "data/raw/demo_product/de/manual_v1/source.html",
+  "checksum": "75bed4fd84a2cfb8304e6088cda1c115132f45c112865ada3946079c44be8dd2",
+  "import_date": "2026-03-25",
+  "transform_pipeline_version": "0.1.0",
+  "notes": "Demo normalized manual"
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Eval Case",
+  "type": "object",
+  "required": [
+    "eval_id",
+    "input",
+    "rubric",
+    "expected_behavior"
+  ],
+  "properties": {
+    "eval_id": {
+      "type": "string"
+    },
+    "input": {
+      "type": "string"
+    },
+    "context": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rubric": {
+      "type": "object",
+      "properties": {
+        "must_include": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "must_not_include": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "style": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "expected_behavior": {
+      "type": "string"
+    },
+    "reference_answer": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

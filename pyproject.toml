@@ -1,0 +1,15 @@
+[project]
+name = "support-data-pipeline"
+version = "0.1.0"
+description = "Starter repo for handbook normalization, RAG corpus building, and SFT dataset generation."
+requires-python = ">=3.10"
+dependencies = [
+  "jsonschema>=4.22.0",
+  "pyyaml>=6.0.2",
+  "beautifulsoup4>=4.12.3",
+  "lxml>=5.2.2",
+  "markdownify>=0.12.1"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

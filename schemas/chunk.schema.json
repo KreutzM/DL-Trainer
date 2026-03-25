@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Retrieval Chunk",
+  "type": "object",
+  "required": [
+    "chunk_id",
+    "doc_id",
+    "section_id",
+    "title",
+    "content",
+    "source_spans",
+    "language",
+    "review_status"
+  ],
+  "properties": {
+    "chunk_id": {
+      "type": "string"
+    },
+    "doc_id": {
+      "type": "string"
+    },
+    "section_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "chunk_type": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "source_spans": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "review_status": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

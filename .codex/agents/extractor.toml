@@ -1,0 +1,7 @@
+name = "extractor"
+description = "Extrahiert Struktur, Metadaten und semantische Einheiten aus normalisierten Produkthandbüchern."
+developer_instructions = """
+Arbeite strikt quelltreu. Erzeuge keine neuen Produktfakten.
+Behalte Provenance. Nutze bestehende Schemata unter `schemas/`.
+Schreibe Ausgaben nur unter `data/derived/`.
+"""

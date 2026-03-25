@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SFT Sample",
+  "type": "object",
+  "required": [
+    "id",
+    "messages",
+    "meta"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "messages": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "role",
+          "content"
+        ],
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "system",
+              "user",
+              "assistant"
+            ]
+          },
+          "content": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "meta": {
+      "type": "object",
+      "required": [
+        "product",
+        "language",
+        "teacher_model",
+        "source_doc_ids",
+        "review_status"
+      ],
+      "properties": {
+        "product": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "teacher_model": {
+          "type": "string"
+        },
+        "source_doc_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "source_spans": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "needs_clarification": {
+          "type": "boolean"
+        },
+        "review_status": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Task Card",
+  "type": "object",
+  "required": [
+    "task_card_id",
+    "doc_id",
+    "intent",
+    "title",
+    "answer",
+    "source_spans",
+    "review_status"
+  ],
+  "properties": {
+    "task_card_id": {
+      "type": "string"
+    },
+    "doc_id": {
+      "type": "string"
+    },
+    "intent": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "string"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_spans": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "review_status": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
