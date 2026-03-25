@@ -35,22 +35,31 @@ python scripts/validate_metadata.py --input data/normalized/demo_product/de/manu
 python scripts/check_provenance.py --input data/derived/task_cards/demo_task_cards.jsonl
 ```
 
-### 3. Beispiel-Export für Training erzeugen
+### 3. JAWS-DE-Chunks aufbauen
 
 ```bash
-python scripts/export_for_training.py   --input data/gold/train/sft/demo_sft_samples.jsonl   --output training/exports/demo_train.jsonl
+python scripts/build_jaws_de_chunks.py
+python scripts/validate_jaws_de_chunks.py
+python scripts/validate_jsonl.py --schema schemas/chunk.schema.json --input data/derived/chunks/JAWS/DE/braille/chunks.jsonl
+python scripts/check_provenance.py --input data/derived/chunks/JAWS/DE/braille/chunks.jsonl
+```
+
+### 4. Beispiel-Export für Training erzeugen
+
+```bash
+python scripts/export_for_training.py --input data/gold/train/sft/demo_sft_samples.jsonl --output training/exports/demo_train.jsonl
 ```
 
 ## Repo-Navigation
 
-- `docs/` – Architektur, Policies, Review-Regeln, Repo-Spezifikation
-- `schemas/` – JSON-Schemas für Kernartefakte
-- `prompts/` – Teacher- und Judge-Prompts
-- `scripts/` – reproduzierbare ETL-/Validierungs-/Export-Skripte
-- `.codex/` – Codex-Konfiguration und Subagents
-- `.agents/skills/` – task-spezifische Skills für Codex
-- `data/` – Datenzonen (`raw`, `normalized`, `derived`, `gold`, `reports`)
-- `training/` – Startpunkte für MS-SWIFT, Unsloth, Axolotl
+- `docs/` - Architektur, Policies, Review-Regeln, Repo-Spezifikation
+- `schemas/` - JSON-Schemas für Kernartefakte
+- `prompts/` - Teacher- und Judge-Prompts
+- `scripts/` - reproduzierbare ETL-/Validierungs-/Export-Skripte
+- `.codex/` - Codex-Konfiguration und Subagents
+- `.agents/skills/` - task-spezifische Skills für Codex
+- `data/` - Datenzonen (`raw`, `normalized`, `derived`, `gold`, `reports`)
+- `training/` - Startpunkte für MS-SWIFT, Unsloth, Axolotl
 
 ## Arbeitsprinzipien
 
