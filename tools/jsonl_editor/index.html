@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JSONL Review Editor</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>JSONL Review Editor</h1>
+        <p>Lokaler Editor für reviewbare Teacher-Outputs und Gold-Dateien.</p>
+      </div>
+      <div class="toolbar">
+        <label class="compact">
+          Reviewer
+          <input id="reviewer-input" type="text" placeholder="z. B. codex-review">
+        </label>
+        <button id="reload-file-button" type="button">Neu laden</button>
+        <button id="validate-button" type="button">Validieren</button>
+        <button id="save-button" type="button" class="primary">Speichern</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel sidebar">
+        <div class="panel-header">
+          <h2>Dateien</h2>
+          <label class="compact checkbox-row">
+            <input id="show-readonly-toggle" type="checkbox">
+            Read-only einblenden
+          </label>
+        </div>
+        <div id="file-list" class="list"></div>
+      </aside>
+
+      <section class="panel row-panel">
+        <div class="panel-header">
+          <h2>Rows</h2>
+          <div class="filters">
+            <input id="search-input" type="search" placeholder="Suche nach ID, Status, Prompt, Chunk ...">
+            <select id="status-filter">
+              <option value="">Alle Status</option>
+              <option value="teacher_generated">teacher_generated</option>
+              <option value="human_reviewed">human_reviewed</option>
+              <option value="rejected">rejected</option>
+              <option value="promoted">promoted</option>
+              <option value="seed">seed</option>
+            </select>
+          </div>
+        </div>
+        <div id="row-list" class="list"></div>
+      </section>
+
+      <section class="panel editor-panel">
+        <div class="panel-header editor-header">
+          <div>
+            <h2 id="editor-title">Kein Datensatz gewählt</h2>
+            <p id="file-meta" class="muted"></p>
+          </div>
+          <div class="row-actions">
+            <button id="prev-row-button" type="button">Zurück</button>
+            <button id="next-row-button" type="button">Weiter</button>
+          </div>
+        </div>
+
+        <div id="status-banner" class="status-banner muted">Keine Datei geladen.</div>
+
+        <section class="editor-section">
+          <div class="review-toolbar">
+            <button id="mark-human-reviewed-button" type="button">human_reviewed</button>
+            <button id="mark-rejected-button" type="button">rejected</button>
+            <button id="mark-promoted-button" type="button">promoted</button>
+          </div>
+          <div id="record-summary" class="summary-grid"></div>
+        </section>
+
+        <section class="editor-section">
+          <h3>Felder</h3>
+          <form id="structured-form" class="form-grid"></form>
+        </section>
+
+        <section class="editor-section">
+          <div class="section-header">
+            <h3>Roh-JSON</h3>
+            <button id="apply-json-button" type="button">JSON übernehmen</button>
+          </div>
+          <textarea id="raw-json-editor" class="code-box" spellcheck="false"></textarea>
+        </section>
+
+        <section class="editor-section">
+          <h3>Quelle</h3>
+          <div id="source-preview" class="source-box muted">Keine Provenance verfügbar.</div>
+        </section>
+
+        <section class="editor-section">
+          <h3>Validierung</h3>
+          <div id="validation-results" class="validation-list muted">Noch nicht ausgeführt.</div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
