@@ -16,6 +16,9 @@ Diese Stufe bereitet den konsolidierten JAWS-DE-Gold-Stand fuer einen saubereren
 - `scripts/report_qwen_sft_quality.py`
   - erzeugt einen deterministischen Qualitaetsreport fuer Gold- oder Exportdateien
   - misst Dubletten, Stilsaettigung, Stub-Anteile, Marker-Artefakte und optionale Tokenlaengen
+- `scripts/audit_qwen_source_faithfulness.py`
+  - priorisiert Grenzfaelle fuer menschlichen Review anhand von lexical-overlap- und Novelty-Heuristiken
+  - greift direkt auf `source_spans` in `data/normalized/` zu
 - `scripts/cleanup_qwen_sft_gold.py`
   - erstellt einen bereinigten Gold-Ableger fuer Train und Eval
   - schreibt zusaetzlich einen Audit-Report mit entfernten IDs und Regeln
@@ -32,6 +35,7 @@ Diese Stufe bereitet den konsolidierten JAWS-DE-Gold-Stand fuer einen saubereren
      - `Verwenden Sie dazu **Tipp:**`
      - `Die Dokumentation empfiehlt fuer diesen Fall: Hinweis:`
      - `Die Dokumentation empfiehlt fuer diesen Fall: Tipp:`
+     - `terminal_ellipsis`
 
 3. `pair_dedup`
    - behaelt genau eine deterministische Gewinnerzeile pro normalisiertem Prompt-Antwort-Paar
@@ -68,13 +72,34 @@ python scripts/cleanup_qwen_sft_gold.py ^
   --report-output tmp/qwen_quality/consolidated_gold_v1_lora_clean.cleanup.json
 ```
 
-### 3. Bereinigte Gold-Dateien validieren
+### 3. Quelltreue-Audit fuer Grenzfaelle
+
+```bash
+python scripts/audit_qwen_source_faithfulness.py ^
+  --train-input data/gold/train/sft/JAWS/DE/consolidated_gold_v1_lora_clean_sft_samples.jsonl ^
+  --eval-input data/gold/eval/JAWS/DE/consolidated_gold_v1_lora_clean_eval_cases.jsonl ^
+  --output tmp/qwen_quality/consolidated_gold_v1_lora_clean.source_audit.json
+```
+
+### 4. Bereinigte Gold-Dateien validieren
 
 ```bash
 python scripts/validate_jsonl.py --schema schemas/sft_sample.schema.json --input data/gold/train/sft/JAWS/DE/consolidated_gold_v1_lora_clean_sft_samples.jsonl
 python scripts/validate_jsonl.py --schema schemas/eval_case.schema.json --input data/gold/eval/JAWS/DE/consolidated_gold_v1_lora_clean_eval_cases.jsonl
 python scripts/check_provenance.py --input data/gold/train/sft/JAWS/DE/consolidated_gold_v1_lora_clean_sft_samples.jsonl
 python scripts/check_provenance.py --input data/gold/eval/JAWS/DE/consolidated_gold_v1_lora_clean_eval_cases.jsonl
+```
+
+### 5. Clean-Export neu bauen
+
+```bash
+python scripts/export_qwen_sft.py ^
+  --train-input data/gold/train/sft/JAWS/DE/consolidated_gold_v1_lora_clean_sft_samples.jsonl ^
+  --eval-input data/gold/eval/JAWS/DE/consolidated_gold_v1_lora_clean_eval_cases.jsonl ^
+  --output-dir data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_lora_clean_20260326 ^
+  --export-id jaws_de_consolidated_gold_v1_lora_clean_20260326
+python scripts/validate_qwen_sft_export.py --input-dir data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_lora_clean_20260326
+python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_de_lora_clean_dry_run.yaml
 ```
 
 ## Review-Fokus

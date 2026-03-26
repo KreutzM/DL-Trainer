@@ -185,7 +185,10 @@ def _is_stub(example: Example) -> bool:
 
 
 def _artifact_matches(example: Example) -> list[str]:
-    return [marker for marker in ASSISTANT_ARTIFACT_MARKERS if marker in example.assistant]
+    matches = [marker for marker in ASSISTANT_ARTIFACT_MARKERS if marker in example.assistant]
+    if example.assistant.endswith("…") or example.assistant.endswith("..."):
+        matches.append("terminal_ellipsis")
+    return matches
 
 
 def _messages_for_tokenizer(repo_root: Path, example: Example) -> list[dict]:

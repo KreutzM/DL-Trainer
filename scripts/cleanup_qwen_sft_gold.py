@@ -101,7 +101,10 @@ def _source_record(row: dict) -> dict:
 
 def _artifact_markers(row: dict) -> list[str]:
     assistant = _assistant_text(row)
-    return [marker for marker in ASSISTANT_ARTIFACT_MARKERS if marker in assistant]
+    markers = [marker for marker in ASSISTANT_ARTIFACT_MARKERS if marker in assistant]
+    if assistant.endswith("…") or assistant.endswith("..."):
+        markers.append("terminal_ellipsis")
+    return markers
 
 
 def _is_stub(row: dict) -> bool:
