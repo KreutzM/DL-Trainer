@@ -69,15 +69,7 @@ python scripts/review_teacher_outputs.py --input data/derived/teacher_outputs/JA
 python scripts/promote_teacher_outputs.py --input data/derived/teacher_outputs/JAWS/DE/wave1_reviewed_teacher_outputs.jsonl --train-output data/gold/train/sft/JAWS/DE/promoted_teacher_wave_v1_sft_samples.jsonl --eval-output data/gold/eval/JAWS/DE/promoted_teacher_wave_v1_eval_cases.jsonl
 ```
 
-### 7. Qwen-SFT-Export und Dry-Run vorbereiten
-
-```bash
-python scripts/export_qwen_sft.py --train-input data/gold/train/sft/JAWS/DE/promoted_seed_sft_samples.jsonl --eval-input data/gold/eval/JAWS/DE/promoted_seed_eval_cases.jsonl --output-dir data/exports/qwen_sft/JAWS/DE/gold_v1 --export-id jaws_de_qwen_sft_gold_v1
-python scripts/validate_qwen_sft_export.py --input-dir data/exports/qwen_sft/JAWS/DE/gold_v1
-python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_de_lora_dry_run.yaml
-```
-
-### 8. Clean-Qwen-Gate fuer den reviewten JAWS-DE-Stand
+### 7. Clean-Qwen-Gate fuer den reviewten JAWS-DE-Stand
 
 ```bash
 make qwen-clean-gate
@@ -87,6 +79,16 @@ Falls `make` lokal nicht verfuegbar ist:
 
 ```bash
 python scripts/run_qwen_clean_gate.py
+```
+
+Der Gate-Lauf erzeugt den bereinigten Gold-Stand, prueft Source-Faithfulness, baut den Clean-Export und validiert den MS-SWIFT-Dry-Run.
+
+### 8. Clean-Qwen-Export und Dry-Run manuell ausfuehren
+
+```bash
+python scripts/export_qwen_sft.py --train-input data/gold/train/sft/JAWS/DE/consolidated_gold_v1_lora_clean_sft_samples.jsonl --eval-input data/gold/eval/JAWS/DE/consolidated_gold_v1_lora_clean_eval_cases.jsonl --output-dir data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_lora_clean_20260326 --export-id jaws_de_consolidated_gold_v1_lora_clean_20260326
+python scripts/validate_qwen_sft_export.py --input-dir data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_lora_clean_20260326
+python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_de_lora_clean_dry_run.yaml
 ```
 
 ## Repo-Navigation

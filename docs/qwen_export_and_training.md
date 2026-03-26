@@ -1,24 +1,26 @@
-# Qwen Export und erster Trainingslauf
+# Qwen Export und Clean-Trainingslauf
 
 ## Ziel
 
-Diese Stufe macht aus reviewten Gold-Daten einen direkt ladbaren Qwen-SFT-Export und legt die erste reproduzierbare Trainingskonfiguration fuer `Qwen/Qwen3-8B` an.
+Diese Stufe macht aus reviewten Gold-Daten einen direkt ladbaren Qwen-SFT-Export und legt die reproduzierbaren Trainingskonfigurationen fuer `Qwen/Qwen3-8B` an. Der bevorzugte Pfad laeuft ueber den bereinigten Clean-Stand.
 
 ## Datenfluss
 
 ```text
 data/gold/train/... + data/gold/eval/...
+  -> scripts/cleanup_qwen_sft_gold.py
+  -> scripts/audit_qwen_source_faithfulness.py
   -> scripts/export_qwen_sft.py
-  -> data/exports/qwen_sft/JAWS/DE/gold_v1/
+  -> data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_lora_clean_20260326/
   -> scripts/validate_qwen_sft_export.py
   -> scripts/smoke_test_qwen_sft.py
-  -> training/ms-swift/qwen3_8b_jaws_de_lora*.yaml
+  -> training/ms-swift/qwen3_8b_jaws_de_lora_clean*.yaml
   -> erster echter LoRA-Lauf
 ```
 
 ## Exportstruktur
 
-Unter `data/exports/qwen_sft/JAWS/DE/gold_v1/` liegen:
+Unter `data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_lora_clean_20260326/` liegen:
 
 - `train.jsonl`: direkt trainierbare Chat-Beispiele im `messages`-Format
 - `eval.jsonl`: eval-seitig ebenfalls als `messages`, aus Gold-Eval mit `prompt` + `reference_answer` gebaut
@@ -44,20 +46,34 @@ Unter `data/exports/qwen_sft/JAWS/DE/gold_v1/` liegen:
 
 Das haelt den eigentlichen Trainings-Loader schlicht, ohne Rueckverfolgbarkeit zu verlieren.
 
-## Export ausfuehren
+## Empfohlener Ablauf
+
+### 1. Clean-Gate ausfuehren
+
+```bash
+make qwen-clean-gate
+```
+
+Ohne `make`:
+
+```bash
+python scripts/run_qwen_clean_gate.py
+```
+
+### 2. Export manuell ausfuehren
 
 ```bash
 python scripts/export_qwen_sft.py ^
-  --train-input data/gold/train/sft/JAWS/DE/promoted_seed_sft_samples.jsonl ^
-  --eval-input data/gold/eval/JAWS/DE/promoted_seed_eval_cases.jsonl ^
-  --output-dir data/exports/qwen_sft/JAWS/DE/gold_v1 ^
-  --export-id jaws_de_qwen_sft_gold_v1
+  --train-input data/gold/train/sft/JAWS/DE/consolidated_gold_v1_lora_clean_sft_samples.jsonl ^
+  --eval-input data/gold/eval/JAWS/DE/consolidated_gold_v1_lora_clean_eval_cases.jsonl ^
+  --output-dir data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_lora_clean_20260326 ^
+  --export-id jaws_de_consolidated_gold_v1_lora_clean_20260326
 ```
 
-## Export pruefen
+### 3. Export pruefen
 
 ```bash
-python scripts/validate_qwen_sft_export.py --input-dir data/exports/qwen_sft/JAWS/DE/gold_v1
+python scripts/validate_qwen_sft_export.py --input-dir data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_lora_clean_20260326
 ```
 
 Der Validator prueft:
@@ -68,11 +84,11 @@ Der Validator prueft:
 - Export-IDs und Sidecar-Metadaten konsistent
 - keine Chunk-Kollisionen zwischen `train` und `eval`
 
-## Dry-Run und echter Run
+### 4. Dry-Run und echter Run
 
 ```bash
-python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_de_lora_dry_run.yaml
-python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_de_lora.yaml
+python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_de_lora_clean_dry_run.yaml
+python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_de_lora_clean.yaml
 ```
 
 Das Smoke-Test-Script:
@@ -82,6 +98,14 @@ Das Smoke-Test-Script:
 - prueft Split-Trennung auf Chunk-Ebene
 - gibt das reproduzierbare `swift sft`-Kommando fuer den naechsten Schritt aus
 
+## Gate vor dem Export
+
+Der Clean-Gate-Lauf stellt sicher, dass:
+
+- Stub- und Artefakt-Faelle entfernt sind
+- Source-Faithfulness fuer Train und Eval auf `0` verbleibende Flags geprueft ist
+- der Export und der MS-SWIFT-Dry-Run weiter konsistent sind
+
 ## Vor dem ersten echten LoRA-Lauf noch manuell pruefen
 
 - ob weitere reviewte Gold-Beispiele promotet werden sollen
@@ -89,3 +113,7 @@ Das Smoke-Test-Script:
 - ob MS-SWIFT installiert und im Pfad verfuegbar ist
 - ob die GPU-Ressourcen fuer die gewaehlte Sequenzlaenge reichen
 - ob Eval-Loss auf dem kleinen Holdout als technischer Check ausreicht oder spaeter eine separate Antwortbewertung folgen soll
+
+## Historischer Hinweis
+
+Der fruehere Beispielpfad `data/exports/qwen_sft/JAWS/DE/gold_v1/` bleibt aus Rueckverfolgbarkeitsgruenden im Repository, ist aber nicht mehr der empfohlene Standard fuer den JAWS-DE-LoRA-Lauf.
