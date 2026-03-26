@@ -1,6 +1,6 @@
 {
   "export_id": "jaws_de_consolidated_gold_v1_lora_clean_20260326",
-  "export_generated_at_utc": "2026-03-26T19:44:45.935546Z",
+  "export_generated_at_utc": "2026-03-26T19:58:41.929637Z",
   "format": "qwen_openai_messages",
   "export_pipeline_version": "0.2.0",
   "output_dir": "data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_lora_clean_20260326",
@@ -29,22 +29,22 @@
     "eval": [
       {
         "path": "data/gold/eval/JAWS/DE/consolidated_gold_v1_lora_clean_eval_cases.jsonl",
-        "size_bytes": 213987,
-        "sha256": "8d7e18438d7977b98120e9be6eef7e548767e27d51a7afb2026371a609b7d055"
+        "size_bytes": 214238,
+        "sha256": "4f87c29d9707cf14aced3403a55a1411f72cfb833ad60da07274fd27ae3d03fc"
       }
     ]
   },
   "hashes": {
     "train_file_sha256": "a19d19f11b3e5a3b4ac8556051fc63d523632790864507f9ec4aa7d25b038d1b",
-    "eval_file_sha256": "7c3e30eae0b7a174f7bb8d8b9ef0c169738fda0b8f9140aad01cf456285f69c4",
+    "eval_file_sha256": "088551905947d4173f3a47183728d9bf173cbbe4cf3e69c726a5242b97b3ce06",
     "train_metadata_file_sha256": "f4055d5490e7165dd38c2b059f42ae7f5070aebf45cc531d893c172814c95947",
-    "eval_metadata_file_sha256": "6019192bf7d418ca91366dc1353e642d06678edc892d565de67f67153660c1ab"
+    "eval_metadata_file_sha256": "161d26b1d426bf0e5f4e16e8fb3b92627de6271d5e2b6a372e0521d10530f0fb"
   },
   "file_sizes_bytes": {
     "train_file": 1462324,
-    "eval_file": 172944,
+    "eval_file": 173130,
     "train_metadata_file": 1338477,
-    "eval_metadata_file": 207875,
+    "eval_metadata_file": 208128,
     "manifest_file": 2429
   },
   "source_doc_distribution": {
