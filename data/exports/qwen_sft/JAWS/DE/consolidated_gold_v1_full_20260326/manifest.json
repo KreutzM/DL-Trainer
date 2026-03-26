@@ -1,0 +1,57 @@
+{
+  "export_id": "jaws_de_consolidated_gold_v1_full_20260326",
+  "export_generated_at_utc": "2026-03-26T19:07:49.844652Z",
+  "format": "qwen_openai_messages",
+  "export_pipeline_version": "0.2.0",
+  "output_dir": "data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_full_20260326",
+  "train_records": 1002,
+  "eval_records": 124,
+  "train_metadata_records": 1002,
+  "eval_metadata_records": 124,
+  "train_file": "data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_full_20260326/train.jsonl",
+  "eval_file": "data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_full_20260326/eval.jsonl",
+  "train_metadata_file": "data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_full_20260326/train.metadata.jsonl",
+  "eval_metadata_file": "data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_full_20260326/eval.metadata.jsonl",
+  "source_train_files": [
+    "data/gold/train/sft/JAWS/DE/consolidated_gold_v1_sft_samples.jsonl"
+  ],
+  "source_eval_files": [
+    "data/gold/eval/JAWS/DE/consolidated_gold_v1_eval_cases.jsonl"
+  ],
+  "source_inputs": {
+    "train": [
+      {
+        "path": "data/gold/train/sft/JAWS/DE/consolidated_gold_v1_sft_samples.jsonl",
+        "size_bytes": 5443422,
+        "sha256": "65066b8aeae9569cddf08612bc9cf485790f4d8b603fae6453bcf29bf656494e"
+      }
+    ],
+    "eval": [
+      {
+        "path": "data/gold/eval/JAWS/DE/consolidated_gold_v1_eval_cases.jsonl",
+        "size_bytes": 313123,
+        "sha256": "8b6be014c2acfc6c317c48d46e70812040d98bfcae1f23193f49ca201a1ead1a"
+      }
+    ]
+  },
+  "hashes": {
+    "train_file_sha256": "edd2f8f1a6eace81873dffe7078ecdc03310bdd8a9dc4f67180b60d5e619d0d9",
+    "eval_file_sha256": "50893fefb35de877cb76250205c6808e8e382dd05cf780a67ec99e1312cf0782",
+    "train_metadata_file_sha256": "a2988914c1c0ed00f6d55f9d4edf05946d5bf02e7acef8e9a871c53606372e3f",
+    "eval_metadata_file_sha256": "2a2f127c41728958f31985cfc95f7fa5662b302749bd8642625abea9c73d5103"
+  },
+  "file_sizes_bytes": {
+    "train_file": 2061352,
+    "eval_file": 253538,
+    "train_metadata_file": 1933629,
+    "eval_metadata_file": 303939,
+    "manifest_file": 2353
+  },
+  "source_doc_distribution": {
+    "jaws_de_braille": 187,
+    "jaws_de_hilfe_kernfunktionen": 494,
+    "jaws_de_settingscenter": 392,
+    "jaws_de_tutorial_basics": 53
+  },
+  "split_chunk_overlap": []
+}

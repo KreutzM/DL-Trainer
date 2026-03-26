@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 from collections import Counter
+from datetime import datetime, timezone
 from pathlib import Path
 
 from common import find_repo_root, make_parser, read_jsonl, sha256_file, write_json, write_jsonl
 
-EXPORT_PIPELINE_VERSION = "0.1.0"
+EXPORT_PIPELINE_VERSION = "0.2.0"
 
 
 def _load_behavior_spec(repo_root: Path, path_str: str | None) -> str:
@@ -101,6 +102,14 @@ def _metadata_row(row: dict, source_path: Path, split: str, record_type: str, ex
     }
 
 
+def _file_info(path: Path) -> dict[str, str | int]:
+    return {
+        "path": path.as_posix(),
+        "size_bytes": path.stat().st_size,
+        "sha256": sha256_file(path),
+    }
+
+
 def export_qwen_sft(
     train_inputs: list[Path],
     eval_inputs: list[Path],
@@ -134,6 +143,7 @@ def export_qwen_sft(
     eval_path = output_dir / "eval.jsonl"
     train_meta_path = output_dir / "train.metadata.jsonl"
     eval_meta_path = output_dir / "eval.metadata.jsonl"
+    manifest_path = output_dir / "manifest.json"
 
     write_jsonl(train_path, export_train_rows)
     write_jsonl(eval_path, export_eval_rows)
@@ -147,26 +157,47 @@ def export_qwen_sft(
 
     manifest = {
         "export_id": export_id,
+        "export_generated_at_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "format": "qwen_openai_messages",
         "export_pipeline_version": EXPORT_PIPELINE_VERSION,
+        "output_dir": output_dir.as_posix(),
         "train_records": len(export_train_rows),
         "eval_records": len(export_eval_rows),
+        "train_metadata_records": len(train_metadata_rows),
+        "eval_metadata_records": len(eval_metadata_rows),
         "train_file": train_path.as_posix(),
         "eval_file": eval_path.as_posix(),
         "train_metadata_file": train_meta_path.as_posix(),
         "eval_metadata_file": eval_meta_path.as_posix(),
         "source_train_files": [path.as_posix() for path in train_inputs],
         "source_eval_files": [path.as_posix() for path in eval_inputs],
+        "source_inputs": {
+            "train": [_file_info(path) for path in train_inputs],
+            "eval": [_file_info(path) for path in eval_inputs],
+        },
         "hashes": {
             "train_file_sha256": sha256_file(train_path),
             "eval_file_sha256": sha256_file(eval_path),
             "train_metadata_file_sha256": sha256_file(train_meta_path),
             "eval_metadata_file_sha256": sha256_file(eval_meta_path),
         },
+        "file_sizes_bytes": {
+            "train_file": train_path.stat().st_size,
+            "eval_file": eval_path.stat().st_size,
+            "train_metadata_file": train_meta_path.stat().st_size,
+            "eval_metadata_file": eval_meta_path.stat().st_size,
+        },
         "source_doc_distribution": dict(sorted(source_counts.items())),
         "split_chunk_overlap": [],
     }
-    write_json(output_dir / "manifest.json", manifest)
+    previous_manifest_size: int | None = None
+    while True:
+        write_json(manifest_path, manifest)
+        current_manifest_size = manifest_path.stat().st_size
+        if previous_manifest_size == current_manifest_size:
+            break
+        manifest["file_sizes_bytes"]["manifest_file"] = current_manifest_size
+        previous_manifest_size = current_manifest_size
 
     print(
         f"Exported {len(export_train_rows)} train and {len(export_eval_rows)} eval rows to {output_dir.as_posix()}"
