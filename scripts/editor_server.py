@@ -16,6 +16,7 @@ from urllib.parse import parse_qs, unquote, urlparse
 from jsonschema import Draft202012Validator
 
 from common import find_repo_root, read_json, read_jsonl, sha256_file
+from promote_teacher_outputs import promote_eval, promote_sft
 
 
 @dataclass(frozen=True)
@@ -123,6 +124,8 @@ VALIDATORS = {
     "chunk.schema.json": load_validator("chunk.schema.json"),
     "task_card.schema.json": load_validator("task_card.schema.json"),
 }
+REVIEW_CATEGORIES = {"teacher_outputs", "reviewed_teacher_outputs"}
+PROMOTION_CATEGORIES = {"reviewed_teacher_outputs"}
 
 
 def list_jsonl_files(include_read_only: bool) -> list[dict[str, Any]]:
@@ -152,6 +155,94 @@ def derive_row_id(row: dict[str, Any]) -> str:
         if value:
             return str(value)
     return "<unknown>"
+
+
+def status_counts(rows: list[dict[str, Any]]) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for row in rows:
+        status = row.get("review_status") or "<none>"
+        counts[status] = counts.get(status, 0) + 1
+    return counts
+
+
+def suggested_review_output_path(path: Path) -> str:
+    info = file_class_for_path(path)
+    if info and info.category == "reviewed_teacher_outputs":
+        return repo_relative_posix(path)
+
+    name = path.name
+    if "_teacher_outputs.jsonl" in name:
+        output_name = name.replace("_teacher_outputs.jsonl", "_reviewed_teacher_outputs.jsonl")
+    elif name.endswith(".jsonl"):
+        output_name = f"{path.stem}_reviewed.jsonl"
+    else:
+        output_name = name
+    return repo_relative_posix(path.with_name(output_name))
+
+
+def strip_review_suffix(stem: str) -> str:
+    for suffix in ("_reviewed_teacher_outputs", "_reviewed_outputs", "_teacher_outputs"):
+        if stem.endswith(suffix):
+            return stem[: -len(suffix)]
+    return stem
+
+
+def suggested_gold_output_paths(path: Path) -> dict[str, str]:
+    relative_parent = path.parent.relative_to(REPO_ROOT / "data" / "derived" / "teacher_outputs")
+    stem = strip_review_suffix(path.stem)
+    train_path = (
+        REPO_ROOT / "data" / "gold" / "train" / "sft" / relative_parent / f"promoted_{stem}_sft_samples.jsonl"
+    )
+    eval_path = REPO_ROOT / "data" / "gold" / "eval" / relative_parent / f"promoted_{stem}_eval_cases.jsonl"
+    return {
+        "train_output_path": repo_relative_posix(train_path),
+        "eval_output_path": repo_relative_posix(eval_path),
+    }
+
+
+def build_review_context(path: Path, rows: list[dict[str, Any]], info: FileClass | None) -> dict[str, Any] | None:
+    if info is None or info.category not in REVIEW_CATEGORIES:
+        return None
+
+    counts = status_counts(rows)
+    pending_count = sum(counts.get(status, 0) for status in ("draft", "seed", "teacher_generated"))
+    decided_count = sum(counts.get(status, 0) for status in ("human_reviewed", "rejected"))
+    suggested_output = suggested_review_output_path(path)
+    suggested_output_path = ensure_safe_repo_path(suggested_output)
+    existing_output_exists = suggested_output_path.exists()
+    existing_rows = read_jsonl(suggested_output_path) if existing_output_exists else []
+    existing_counts = status_counts(existing_rows) if existing_output_exists else {}
+    merge_summary = summarize_review_merge(rows, existing_rows) if existing_output_exists else None
+    return {
+        "enabled": True,
+        "default_status_filter": "teacher_generated" if info.category == "teacher_outputs" else "",
+        "suggested_output_path": suggested_output,
+        "existing_output_exists": existing_output_exists,
+        "existing_output_path": suggested_output if existing_output_exists else None,
+        "existing_status_counts": existing_counts,
+        "existing_merge_summary": merge_summary,
+        "status_counts": counts,
+        "pending_count": pending_count,
+        "decided_count": decided_count,
+    }
+
+
+def build_promotion_context(path: Path, rows: list[dict[str, Any]], info: FileClass | None) -> dict[str, Any] | None:
+    if info is None or info.category not in PROMOTION_CATEGORIES:
+        return None
+
+    suggested = suggested_gold_output_paths(path)
+    human_reviewed = [row for row in rows if row.get("review_status") == "human_reviewed"]
+    train_count = sum(1 for row in human_reviewed if row.get("record_type") == "sft_sample")
+    eval_count = sum(1 for row in human_reviewed if row.get("record_type") == "eval_case")
+    return {
+        "enabled": True,
+        "train_output_path": suggested["train_output_path"],
+        "eval_output_path": suggested["eval_output_path"],
+        "eligible_count": len(human_reviewed),
+        "train_count": train_count,
+        "eval_count": eval_count,
+    }
 
 
 def schema_name_for_row(row: dict[str, Any], fallback: str | None) -> str | None:
@@ -214,6 +305,38 @@ def minimal_provenance_errors(row: dict[str, Any], index: int) -> list[str]:
     return failures
 
 
+def schema_errors_for_rows(rows: list[dict[str, Any]], fallback_schema: str | None) -> list[str]:
+    errors: list[str] = []
+    sft_validator = VALIDATORS["sft_sample.schema.json"]
+    eval_validator = VALIDATORS["eval_case.schema.json"]
+
+    for index, row in enumerate(rows, start=1):
+        schema_name = schema_name_for_row(row, fallback_schema)
+        if schema_name:
+            validator = VALIDATORS.get(schema_name)
+            if validator is None:
+                errors.append(f"Row {index}: no validator for {schema_name}")
+            else:
+                for issue in validator.iter_errors(row):
+                    errors.append(f"Row {index}: {issue.message}")
+
+        if "output_id" in row and isinstance(row.get("candidate"), dict):
+            candidate = row["candidate"]
+            record_type = row.get("record_type")
+            candidate_validator = sft_validator if record_type == "sft_sample" else eval_validator
+            for issue in candidate_validator.iter_errors(candidate):
+                errors.append(f"Row {index} candidate: {issue.message}")
+
+    return errors
+
+
+def provenance_errors_for_rows(rows: list[dict[str, Any]]) -> list[str]:
+    errors: list[str] = []
+    for index, row in enumerate(rows, start=1):
+        errors.extend(minimal_provenance_errors(row, index))
+    return errors
+
+
 def normalize_row_for_save(row: dict[str, Any]) -> dict[str, Any]:
     normalized = json.loads(json.dumps(row))
 
@@ -240,29 +363,105 @@ def normalize_row_for_save(row: dict[str, Any]) -> dict[str, Any]:
     return normalized
 
 
+def review_merge_signature(row: dict[str, Any]) -> dict[str, Any]:
+    candidate = row.get("candidate", {})
+    return {
+        "job_id": row.get("job_id"),
+        "record_type": row.get("record_type"),
+        "target_split": row.get("target_split"),
+        "task_type": row.get("task_type"),
+        "source_doc_ids": row.get("source_doc_ids"),
+        "source_chunk_ids": row.get("source_chunk_ids"),
+        "candidate_id": candidate.get("id") or candidate.get("eval_id"),
+        "candidate_source_doc_ids": candidate.get("source_doc_ids"),
+        "candidate_source_chunk_ids": candidate.get("source_chunk_ids"),
+    }
+
+
+def summarize_review_merge(source_rows: list[dict[str, Any]], reviewed_rows: list[dict[str, Any]]) -> dict[str, Any]:
+    source_by_id = {row["output_id"]: row for row in source_rows}
+    reviewed_by_id = {row["output_id"]: row for row in reviewed_rows}
+
+    missing_ids = sorted(set(source_by_id) - set(reviewed_by_id))
+    extra_ids = sorted(set(reviewed_by_id) - set(source_by_id))
+    conflicting_ids = sorted(
+        output_id
+        for output_id in (set(source_by_id) & set(reviewed_by_id))
+        if review_merge_signature(source_by_id[output_id]) != review_merge_signature(reviewed_by_id[output_id])
+    )
+    mergeable_ids = sorted((set(source_by_id) & set(reviewed_by_id)) - set(conflicting_ids))
+    return {
+        "source_count": len(source_rows),
+        "reviewed_count": len(reviewed_rows),
+        "mergeable_count": len(mergeable_ids),
+        "missing_count": len(missing_ids),
+        "extra_count": len(extra_ids),
+        "conflict_count": len(conflicting_ids),
+        "missing_ids_preview": missing_ids[:10],
+        "extra_ids_preview": extra_ids[:10],
+        "conflict_ids_preview": conflicting_ids[:10],
+    }
+
+
+def merge_reviewed_overlay(source_rows: list[dict[str, Any]], reviewed_rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    source_by_id = {row["output_id"]: row for row in source_rows}
+    reviewed_by_id = {row["output_id"]: row for row in reviewed_rows}
+    summary = summarize_review_merge(source_rows, reviewed_rows)
+
+    rows: list[dict[str, Any]] = []
+    merged_count = 0
+    for source_row in source_rows:
+        output_id = source_row["output_id"]
+        overlay = reviewed_by_id.get(output_id)
+        if overlay is None or review_merge_signature(source_row) != review_merge_signature(overlay):
+            rows.append(json.loads(json.dumps(source_row)))
+            continue
+
+        merged_count += 1
+        merged = json.loads(json.dumps(source_row))
+        merged["review_status"] = overlay.get("review_status")
+        merged["approved_by"] = overlay.get("approved_by")
+        if "promoted_to" in overlay:
+            merged["promoted_to"] = overlay.get("promoted_to")
+        if overlay.get("candidate"):
+            merged["candidate"] = json.loads(json.dumps(overlay["candidate"]))
+        rows.append(merged)
+
+    summary["merged_count"] = merged_count
+    return rows, summary
+
+
+def gold_post_checks(path: Path, rows: list[dict[str, Any]], schema_name: str) -> dict[str, Any]:
+    if not rows:
+        return {
+            "path": repo_relative_posix(path),
+            "rows": 0,
+            "schema_ok": True,
+            "provenance_ok": True,
+            "messages": ["schema skipped (0 rows)", "provenance skipped (0 rows)"],
+            "errors": [],
+        }
+
+    schema_errors = schema_errors_for_rows(rows, schema_name)
+    provenance_errors = provenance_errors_for_rows(rows)
+    messages = []
+    if not schema_errors:
+        messages.append(f"schema ok ({len(rows)} rows)")
+    if not provenance_errors:
+        messages.append(f"provenance ok ({len(rows)} rows)")
+    return {
+        "path": repo_relative_posix(path),
+        "rows": len(rows),
+        "schema_ok": not schema_errors,
+        "provenance_ok": not provenance_errors,
+        "messages": messages,
+        "errors": schema_errors + provenance_errors,
+    }
+
+
 def validate_rows(path: Path, rows: list[dict[str, Any]], fallback_schema: str | None) -> list[str]:
-    errors: list[str] = []
-    sft_validator = VALIDATORS["sft_sample.schema.json"]
-    eval_validator = VALIDATORS["eval_case.schema.json"]
-
-    for index, row in enumerate(rows, start=1):
-        schema_name = schema_name_for_row(row, fallback_schema)
-        if schema_name:
-            validator = VALIDATORS.get(schema_name)
-            if validator is None:
-                errors.append(f"Row {index}: no validator for {schema_name}")
-            else:
-                for issue in validator.iter_errors(row):
-                    errors.append(f"Row {index}: {issue.message}")
-
-        if "output_id" in row and isinstance(row.get("candidate"), dict):
-            candidate = row["candidate"]
-            record_type = row.get("record_type")
-            candidate_validator = sft_validator if record_type == "sft_sample" else eval_validator
-            for issue in candidate_validator.iter_errors(candidate):
-                errors.append(f"Row {index} candidate: {issue.message}")
-
-        errors.extend(minimal_provenance_errors(row, index))
+    errors = schema_errors_for_rows(rows, fallback_schema)
+    errors.extend(provenance_errors_for_rows(rows))
 
     if not rows:
         errors.append(f"{repo_relative_posix(path)} is empty")
@@ -297,8 +496,113 @@ def load_jsonl_payload(path: Path) -> dict[str, Any]:
         "schema": schema_name,
         "hash": sha256_file(path),
         "rows": rows,
+        "review": build_review_context(path, rows, info),
+        "promotion": build_promotion_context(path, rows, info),
         "validation_errors": validate_rows(path, rows, schema_name),
     }
+
+
+def validate_review_export(
+    source_path: Path,
+    output_path: Path,
+    rows: list[dict[str, Any]],
+    source_info: FileClass,
+) -> list[str]:
+    errors: list[str] = []
+    if source_info.category not in REVIEW_CATEGORIES:
+        errors.append("Review export is only supported for teacher output files.")
+        return errors
+
+    if source_info.category == "teacher_outputs" and output_path == source_path:
+        errors.append("Teacher output sources must be exported to a reviewed output path.")
+
+    output_info = file_class_for_path(output_path)
+    if output_info is None or output_info.category not in REVIEW_CATEGORIES:
+        errors.append("Reviewed output path must stay under data/derived/teacher_outputs and include a reviewed filename.")
+        return errors
+
+    counts = status_counts(rows)
+    decided_count = counts.get("human_reviewed", 0) + counts.get("rejected", 0)
+    if decided_count == 0:
+        errors.append("No review decisions found; set at least one row to human_reviewed or rejected.")
+
+    for index, row in enumerate(rows, start=1):
+        status = row.get("review_status")
+        if status in {"human_reviewed", "rejected"} and not row.get("approved_by"):
+            errors.append(f"Row {index}: approved_by is required for reviewed decisions")
+
+    errors.extend(validate_rows(output_path, rows, output_info.schema_name))
+    return errors
+
+
+def build_promoted_rows(input_path: str, rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    approved = [row for row in rows if row.get("review_status") == "human_reviewed"]
+    if not approved:
+        raise ValueError("No human_reviewed teacher outputs found to promote")
+
+    train_rows: list[dict[str, Any]] = []
+    eval_rows: list[dict[str, Any]] = []
+    train_chunk_ids: set[str] = set()
+    eval_chunk_ids: set[str] = set()
+    promoted_output_ids: set[str] = set()
+
+    for row in approved:
+        if row["output_id"] in promoted_output_ids:
+            raise ValueError(f"Duplicate promoted output_id {row['output_id']}")
+        promoted_output_ids.add(row["output_id"])
+
+        source_chunk_ids = set(row.get("source_chunk_ids", []))
+        if row["record_type"] == "sft_sample":
+            if source_chunk_ids & eval_chunk_ids:
+                raise ValueError(f"Train/eval chunk overlap during promotion: {row['output_id']}")
+            train_chunk_ids.update(source_chunk_ids)
+            train_rows.append(promote_sft(row, input_path))
+        elif row["record_type"] == "eval_case":
+            if source_chunk_ids & train_chunk_ids:
+                raise ValueError(f"Train/eval chunk overlap during promotion: {row['output_id']}")
+            eval_chunk_ids.update(source_chunk_ids)
+            eval_rows.append(promote_eval(row, input_path))
+        else:
+            raise ValueError(f"Unknown record_type {row['record_type']}")
+
+    return train_rows, eval_rows
+
+
+def validate_promotion_export(
+    source_path: Path,
+    train_output_path: Path,
+    eval_output_path: Path,
+    rows: list[dict[str, Any]],
+    source_info: FileClass,
+) -> tuple[list[str], list[dict[str, Any]], list[dict[str, Any]]]:
+    errors: list[str] = []
+    train_rows: list[dict[str, Any]] = []
+    eval_rows: list[dict[str, Any]] = []
+
+    if source_info.category not in PROMOTION_CATEGORIES:
+        errors.append("Promotion is only supported for reviewed teacher output files.")
+        return errors, train_rows, eval_rows
+
+    train_info = file_class_for_path(train_output_path)
+    eval_info = file_class_for_path(eval_output_path)
+    if train_info is None or train_info.category != "gold_train":
+        errors.append("Train output path must stay under data/gold/train and end with .jsonl.")
+    if eval_info is None or eval_info.category != "gold_eval":
+        errors.append("Eval output path must stay under data/gold/eval and end with .jsonl.")
+    if errors:
+        return errors, train_rows, eval_rows
+
+    try:
+        train_rows, eval_rows = build_promoted_rows(repo_relative_posix(source_path), rows)
+    except ValueError as exc:
+        errors.append(str(exc))
+        return errors, train_rows, eval_rows
+
+    if train_rows:
+        errors.extend(validate_rows(train_output_path, train_rows, "sft_sample.schema.json"))
+    if eval_rows:
+        errors.extend(validate_rows(eval_output_path, eval_rows, "eval_case.schema.json"))
+    return errors, train_rows, eval_rows
 
 
 def extract_source_excerpt(path: Path, start: int, end: int, context: int) -> dict[str, Any]:
@@ -349,6 +653,14 @@ class EditorRequestHandler(BaseHTTPRequestHandler):
                 self.send_json(extract_source_excerpt(path, start, end, context))
                 return
 
+            if parsed.path == "/api/review-overlay":
+                query = parse_qs(parsed.query)
+                source_path = ensure_safe_repo_path(require_query_value(query, "source_path"))
+                reviewed_path = ensure_safe_repo_path(require_query_value(query, "reviewed_path"))
+                merged_rows, merge_summary = merge_reviewed_overlay(read_jsonl(source_path), read_jsonl(reviewed_path))
+                self.send_json({"rows": merged_rows, "merge_summary": merge_summary})
+                return
+
             if parsed.path in ("/", "/index.html"):
                 self.serve_static("index.html")
                 return
@@ -395,6 +707,82 @@ class EditorRequestHandler(BaseHTTPRequestHandler):
 
                 atomic_write_jsonl(path, rows)
                 self.send_json({"ok": True, "hash": sha256_file(path)})
+                return
+
+            if parsed.path == "/api/save-reviewed":
+                path, info = ensure_editable_path(str(payload.get("path", "")))
+                rows = [normalize_row_for_save(row) for row in payload.get("rows", [])]
+                output_path_str = str(payload.get("output_path") or suggested_review_output_path(path))
+                output_path = ensure_safe_repo_path(output_path_str)
+                base_hash = payload.get("base_hash")
+
+                if base_hash and path.exists() and sha256_file(path) != base_hash:
+                    self.send_json(
+                        {"ok": False, "errors": ["Source file changed on disk; reload before exporting review results."]},
+                        status=HTTPStatus.CONFLICT,
+                    )
+                    return
+
+                if output_path.exists() and output_path != path and not payload.get("overwrite_output"):
+                    self.send_json(
+                        {"ok": False, "errors": [f"Reviewed output already exists: {repo_relative_posix(output_path)}"]},
+                        status=HTTPStatus.CONFLICT,
+                    )
+                    return
+
+                errors = validate_review_export(path, output_path, rows, info)
+                if errors:
+                    self.send_json({"ok": False, "errors": errors}, status=HTTPStatus.BAD_REQUEST)
+                    return
+
+                atomic_write_jsonl(output_path, rows)
+                self.send_json(
+                    {
+                        "ok": True,
+                        "output_path": repo_relative_posix(output_path),
+                        "hash": sha256_file(output_path),
+                    }
+                )
+                return
+
+            if parsed.path == "/api/promote-gold":
+                path, info = ensure_editable_path(str(payload.get("path", "")))
+                rows = [normalize_row_for_save(row) for row in payload.get("rows", [])]
+                train_output = ensure_safe_repo_path(str(payload.get("train_output_path", "")))
+                eval_output = ensure_safe_repo_path(str(payload.get("eval_output_path", "")))
+                overwrite = bool(payload.get("overwrite_outputs"))
+
+                existing_conflicts = []
+                if train_output.exists() and not overwrite:
+                    existing_conflicts.append(repo_relative_posix(train_output))
+                if eval_output.exists() and not overwrite:
+                    existing_conflicts.append(repo_relative_posix(eval_output))
+                if existing_conflicts:
+                    self.send_json(
+                        {"ok": False, "errors": [f"Gold output already exists: {', '.join(existing_conflicts)}"]},
+                        status=HTTPStatus.CONFLICT,
+                    )
+                    return
+
+                errors, train_rows, eval_rows = validate_promotion_export(path, train_output, eval_output, rows, info)
+                if errors:
+                    self.send_json({"ok": False, "errors": errors}, status=HTTPStatus.BAD_REQUEST)
+                    return
+
+                atomic_write_jsonl(train_output, train_rows)
+                atomic_write_jsonl(eval_output, eval_rows)
+                train_checks = gold_post_checks(train_output, train_rows, "sft_sample.schema.json")
+                eval_checks = gold_post_checks(eval_output, eval_rows, "eval_case.schema.json")
+                self.send_json(
+                    {
+                        "ok": True,
+                        "train_output_path": repo_relative_posix(train_output),
+                        "eval_output_path": repo_relative_posix(eval_output),
+                        "train_count": len(train_rows),
+                        "eval_count": len(eval_rows),
+                        "checks": [train_checks, eval_checks],
+                    }
+                )
                 return
 
             self.send_json({"error": "Unknown endpoint"}, status=HTTPStatus.NOT_FOUND)

@@ -42,6 +42,31 @@ Die UI ist fuer diese JSONL-Artefakte gedacht:
 
 Nicht als Editierziel gedacht sind Exporte, Raw-Responses und rein automatisch erzeugte Ableitungen.
 
+## Review-Workflow
+
+Fuer `teacher_outputs` zeigt die UI einen eigenen Review-Modus:
+
+- vorgeschlagener Zielpfad fuer eine `reviewed`-Datei
+- Laden eines vorhandenen `reviewed`-Stands zur Fortsetzung
+- Merge-Bericht fuer Konflikte sowie fehlende oder zusaetzliche IDs
+- Pending-/Decided-Uebersicht
+- `Approve + Next` und `Reject + Next`
+- Export nach `*_reviewed_*.jsonl`
+- Diff-Ansicht zwischen Roh-Output und aktuellem Review-Stand
+
+Damit bleibt der Roh-Teacher-Output unveraendert, waehrend der reviewte Stand separat geschrieben wird.
+
+## Gold-Promotion
+
+Fuer `reviewed_teacher_outputs` zeigt die UI zusaetzlich einen Promotion-Bereich:
+
+- vorgeschlagene Gold-Zielpfade fuer Train und Eval
+- Count-Vorschau fuer `human_reviewed`-Faelle
+- Schreiben der Gold-Dateien direkt nach `data/gold/train/` und `data/gold/eval/`
+- automatische Schema- und Provenance-Checks nach dem Schreiben
+
+Die Promotion folgt denselben Regeln wie `scripts/promote_teacher_outputs.py`.
+
 ## Hinweise
 
 - Die UI selbst schreibt keine Dateien direkt auf Platte; das uebernimmt `scripts/editor_server.py`.

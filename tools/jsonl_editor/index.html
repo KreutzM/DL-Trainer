@@ -17,6 +17,7 @@
           Reviewer
           <input id="reviewer-input" type="text" placeholder="z. B. codex-review">
         </label>
+        <button id="save-reviewed-button" type="button">Review-Datei schreiben</button>
         <button id="reload-file-button" type="button">Neu laden</button>
         <button id="validate-button" type="button">Validieren</button>
         <button id="save-button" type="button" class="primary">Speichern</button>
@@ -48,6 +49,10 @@
               <option value="promoted">promoted</option>
               <option value="seed">seed</option>
             </select>
+            <label class="compact checkbox-row">
+              <input id="changed-only-toggle" type="checkbox">
+              nur geaenderte
+            </label>
           </div>
         </div>
         <div id="row-list" class="list"></div>
@@ -67,6 +72,45 @@
 
         <div id="status-banner" class="status-banner muted">Keine Datei geladen.</div>
 
+        <section id="review-panel" class="editor-section hidden">
+          <div class="section-header">
+            <h3>Review Workflow</h3>
+            <div class="review-toolbar">
+              <button id="load-reviewed-button" type="button">Vorhandenen Review-Stand laden</button>
+              <button id="approve-next-button" type="button">Approve + Next</button>
+              <button id="reject-next-button" type="button">Reject + Next</button>
+              <button id="pending-filter-button" type="button">Pending anzeigen</button>
+            </div>
+          </div>
+          <div class="summary-grid">
+            <div class="field-group">
+              <label for="review-output-path">Reviewed Output Path</label>
+              <input id="review-output-path" type="text" spellcheck="false">
+            </div>
+            <div id="review-summary" class="summary-grid"></div>
+          </div>
+        </section>
+
+        <section id="promotion-panel" class="editor-section hidden">
+          <div class="section-header">
+            <h3>Promotion</h3>
+            <div class="review-toolbar">
+              <button id="promote-gold-button" type="button">Nach Gold schreiben</button>
+            </div>
+          </div>
+          <div class="summary-grid">
+            <div class="field-group">
+              <label for="promotion-train-output-path">Train Output Path</label>
+              <input id="promotion-train-output-path" type="text" spellcheck="false">
+            </div>
+            <div class="field-group">
+              <label for="promotion-eval-output-path">Eval Output Path</label>
+              <input id="promotion-eval-output-path" type="text" spellcheck="false">
+            </div>
+          </div>
+          <div id="promotion-summary" class="summary-grid"></div>
+        </section>
+
         <section class="editor-section">
           <div class="review-toolbar">
             <button id="mark-human-reviewed-button" type="button">human_reviewed</button>
@@ -79,6 +123,11 @@
         <section class="editor-section">
           <h3>Felder</h3>
           <form id="structured-form" class="form-grid"></form>
+        </section>
+
+        <section id="diff-panel" class="editor-section hidden">
+          <h3>Diff</h3>
+          <div id="diff-view" class="diff-grid muted">Keine Unterschiede.</div>
         </section>
 
         <section class="editor-section">

@@ -181,12 +181,42 @@ textarea {
   gap: 0.8rem;
 }
 
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.hidden {
+  display: none;
+}
+
 .summary-card,
-.field-group {
+.field-group,
+.diff-card {
   border: 1px solid rgba(103, 95, 83, 0.14);
   border-radius: 14px;
   padding: 0.8rem;
   background: white;
+}
+
+.diff-card.changed {
+  border-color: rgba(15, 106, 91, 0.45);
+  background: #f5fbf8;
+}
+
+.diff-card pre {
+  margin: 0.6rem 0 0;
+  white-space: pre-wrap;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.diff-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
 }
 
 .field-group label {

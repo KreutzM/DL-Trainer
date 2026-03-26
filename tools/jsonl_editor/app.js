@@ -2,9 +2,12 @@ const state = {
   files: [],
   currentFile: null,
   rows: [],
+  originalRows: [],
   filteredIndices: [],
   currentRowIndex: -1,
   baseHash: null,
+  review: null,
+  promotion: null,
   dirty: false,
   validationErrors: [],
 };
@@ -17,6 +20,15 @@ const elements = {
   editorTitle: document.querySelector("#editor-title"),
   fileMeta: document.querySelector("#file-meta"),
   statusBanner: document.querySelector("#status-banner"),
+  reviewPanel: document.querySelector("#review-panel"),
+  reviewOutputPath: document.querySelector("#review-output-path"),
+  reviewSummary: document.querySelector("#review-summary"),
+  promotionPanel: document.querySelector("#promotion-panel"),
+  promotionTrainOutputPath: document.querySelector("#promotion-train-output-path"),
+  promotionEvalOutputPath: document.querySelector("#promotion-eval-output-path"),
+  promotionSummary: document.querySelector("#promotion-summary"),
+  diffPanel: document.querySelector("#diff-panel"),
+  diffView: document.querySelector("#diff-view"),
   recordSummary: document.querySelector("#record-summary"),
   structuredForm: document.querySelector("#structured-form"),
   rawJsonEditor: document.querySelector("#raw-json-editor"),
@@ -24,6 +36,7 @@ const elements = {
   validationResults: document.querySelector("#validation-results"),
   reviewerInput: document.querySelector("#reviewer-input"),
   showReadonlyToggle: document.querySelector("#show-readonly-toggle"),
+  changedOnlyToggle: document.querySelector("#changed-only-toggle"),
 };
 
 document.querySelector("#reload-file-button").addEventListener("click", () => {
@@ -31,14 +44,24 @@ document.querySelector("#reload-file-button").addEventListener("click", () => {
     loadFile(state.currentFile.path);
   }
 });
+document.querySelector("#save-reviewed-button").addEventListener("click", () => saveReviewedFile());
+document.querySelector("#load-reviewed-button").addEventListener("click", () => loadExistingReviewedOverlay());
+document.querySelector("#promote-gold-button").addEventListener("click", () => promoteToGold());
 document.querySelector("#validate-button").addEventListener("click", () => validateCurrentFile());
 document.querySelector("#save-button").addEventListener("click", () => saveCurrentFile());
 document.querySelector("#search-input").addEventListener("input", () => renderRows());
 document.querySelector("#status-filter").addEventListener("change", () => renderRows());
 document.querySelector("#show-readonly-toggle").addEventListener("change", () => loadFiles());
+document.querySelector("#changed-only-toggle").addEventListener("change", () => renderRows());
 document.querySelector("#prev-row-button").addEventListener("click", () => moveRow(-1));
 document.querySelector("#next-row-button").addEventListener("click", () => moveRow(1));
 document.querySelector("#apply-json-button").addEventListener("click", applyRawJson);
+document.querySelector("#approve-next-button").addEventListener("click", () => reviewAndAdvance("human_reviewed"));
+document.querySelector("#reject-next-button").addEventListener("click", () => reviewAndAdvance("rejected"));
+document.querySelector("#pending-filter-button").addEventListener("click", () => {
+  elements.statusFilter.value = "teacher_generated";
+  renderRows();
+});
 document
   .querySelector("#mark-human-reviewed-button")
   .addEventListener("click", () => setReviewStatus("human_reviewed"));
@@ -78,7 +101,7 @@ function renderFileList() {
     item.innerHTML = `
       <strong>${escapeHtml(lastPathSegment(file.path))}</strong>
       <div class="meta-line">${escapeHtml(file.path)}</div>
-      <div class="meta-line">${file.rows} rows · ${file.editable ? "editierbar" : "read-only"}</div>
+      <div class="meta-line">${file.rows} rows | ${file.editable ? "editierbar" : "read-only"}</div>
     `;
     item.addEventListener("click", () => loadFile(file.path));
     elements.fileList.appendChild(item);
@@ -95,25 +118,32 @@ async function loadFile(path) {
     schema: payload.schema,
   };
   state.rows = payload.rows;
+  state.originalRows = deepCopyRows(payload.rows);
   state.baseHash = payload.hash;
+  state.review = payload.review || null;
+  state.promotion = payload.promotion || null;
   state.validationErrors = payload.validation_errors || [];
   state.dirty = false;
   state.currentRowIndex = payload.rows.length ? 0 : -1;
+  elements.statusFilter.value = state.review?.default_status_filter || "";
   renderFileList();
   renderRows();
   renderEditor();
+  renderReviewPanel();
+  renderPromotionPanel();
   renderValidationResults(state.validationErrors);
 }
 
 function renderRows() {
   elements.rowList.innerHTML = "";
   if (!state.currentFile) {
-    elements.rowList.textContent = "Datei wählen.";
+    elements.rowList.textContent = "Datei waehlen.";
     return;
   }
 
   const query = elements.searchInput.value.trim().toLowerCase();
   const status = elements.statusFilter.value;
+  const changedOnly = elements.changedOnlyToggle.checked;
   state.filteredIndices = [];
 
   state.rows.forEach((row, index) => {
@@ -121,13 +151,14 @@ function renderRows() {
     const matchesQuery = !query || haystack.includes(query);
     const rowStatus = row.review_status || row.meta?.review_status || "";
     const matchesStatus = !status || rowStatus === status;
-    if (matchesQuery && matchesStatus) {
+    const matchesChangedOnly = !changedOnly || hasRowChanged(index);
+    if (matchesQuery && matchesStatus && matchesChangedOnly) {
       state.filteredIndices.push(index);
     }
   });
 
   if (!state.filteredIndices.length) {
-    elements.rowList.textContent = "Keine Rows für den aktuellen Filter.";
+    elements.rowList.textContent = "Keine Rows fuer den aktuellen Filter.";
     state.currentRowIndex = -1;
     renderEditor();
     return;
@@ -145,7 +176,7 @@ function renderRows() {
     item.innerHTML = `
       <strong>${escapeHtml(describeRow(row))}</strong>
       <div class="meta-line">${escapeHtml(row.review_status || row.meta?.review_status || "<none>")}</div>
-      <div class="meta-line">${escapeHtml(describeSecondary(row))}</div>
+      <div class="meta-line">${escapeHtml(describeSecondary(row))}${hasRowChanged(index) ? " | geaendert" : ""}</div>
     `;
     item.addEventListener("click", () => {
       state.currentRowIndex = index;
@@ -159,22 +190,29 @@ function renderRows() {
 function renderEditor() {
   const row = currentRow();
   if (!row) {
-    elements.editorTitle.textContent = "Kein Datensatz gewählt";
+    elements.editorTitle.textContent = "Kein Datensatz gewaehlt";
     elements.fileMeta.textContent = state.currentFile ? state.currentFile.path : "";
     elements.recordSummary.innerHTML = "";
     elements.structuredForm.innerHTML = "";
+    elements.diffView.textContent = "Keine Unterschiede.";
+    elements.diffPanel.classList.add("hidden");
     elements.rawJsonEditor.value = "";
-    elements.sourcePreview.textContent = "Keine Provenance verfügbar.";
+    elements.sourcePreview.textContent = "Keine Provenance verfuegbar.";
+    renderReviewPanel();
+    renderPromotionPanel();
     updateStatusBanner();
     return;
   }
 
   elements.editorTitle.textContent = describeRow(row);
-  elements.fileMeta.textContent = `${state.currentFile.path} · Row ${state.currentRowIndex + 1} von ${state.rows.length}`;
+  elements.fileMeta.textContent = `${state.currentFile.path} | Row ${state.currentRowIndex + 1} von ${state.rows.length}`;
   elements.rawJsonEditor.value = JSON.stringify(row, null, 2);
 
   renderSummary(row);
   renderStructuredForm(row);
+  renderDiffPanel();
+  renderReviewPanel();
+  renderPromotionPanel();
   updateStatusBanner();
   loadSourcePreview(row);
 }
@@ -205,7 +243,8 @@ function renderStructuredForm(row) {
   elements.structuredForm.innerHTML = "";
   const descriptor = buildFormDescriptor(row);
   if (!descriptor.length) {
-    elements.structuredForm.innerHTML = `<div class="field-group">Für diesen Typ gibt es noch keinen strukturierten Editor. Nutze Roh-JSON.</div>`;
+    elements.structuredForm.innerHTML =
+      '<div class="field-group">Fuer diesen Typ gibt es noch keinen strukturierten Editor. Nutze Roh-JSON.</div>';
     return;
   }
 
@@ -252,8 +291,20 @@ function buildFormDescriptor(row) {
       { path: "reference_answer", label: "Reference Answer", multiline: true },
       { path: "case_description", label: "Case Description", multiline: true },
       { path: "rubric.style", label: "Rubric Style", multiline: true },
-      { path: "rubric.must_include", label: "Must Include", multiline: true, asList: true, placeholder: "Ein Eintrag pro Zeile" },
-      { path: "rubric.must_not_include", label: "Must Not Include", multiline: true, asList: true, placeholder: "Ein Eintrag pro Zeile" },
+      {
+        path: "rubric.must_include",
+        label: "Must Include",
+        multiline: true,
+        asList: true,
+        placeholder: "Ein Eintrag pro Zeile",
+      },
+      {
+        path: "rubric.must_not_include",
+        label: "Must Not Include",
+        multiline: true,
+        asList: true,
+        placeholder: "Ein Eintrag pro Zeile",
+      },
     ];
   }
   return [];
@@ -262,7 +313,7 @@ function buildFormDescriptor(row) {
 async function loadSourcePreview(row) {
   const source = firstSourceSpan(row);
   if (!source) {
-    elements.sourcePreview.textContent = "Keine Provenance verfügbar.";
+    elements.sourcePreview.textContent = "Keine Provenance verfuegbar.";
     return;
   }
 
@@ -271,7 +322,7 @@ async function loadSourcePreview(row) {
   );
   const payload = await response.json();
   elements.sourcePreview.innerHTML = `
-    <div class="meta-line">${escapeHtml(payload.path)} · Zeilen ${payload.start}-${payload.end}</div>
+    <div class="meta-line">${escapeHtml(payload.path)} | Zeilen ${payload.start}-${payload.end}</div>
     ${payload.lines
       .map(
         (line) => `
@@ -288,20 +339,26 @@ async function validateCurrentFile() {
   if (!state.currentFile) {
     return;
   }
-  const response = await fetch("/api/validate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ path: state.currentFile.path, rows: state.rows }),
-  });
-  const payload = await response.json();
-  state.validationErrors = payload.errors || [];
+  const payload = await postJson("/api/validate", { path: state.currentFile.path, rows: state.rows });
+  state.validationErrors = payload.body.errors || [];
   renderValidationResults(state.validationErrors);
-  updateStatusBanner(payload.ok ? "Validierung erfolgreich." : "Validierung fehlgeschlagen.", payload.ok ? "" : "warning");
+  updateStatusBanner(
+    payload.body.ok ? "Validierung erfolgreich." : "Validierung fehlgeschlagen.",
+    payload.body.ok ? "" : "warning"
+  );
 }
 
 async function saveCurrentFile() {
   if (!state.currentFile) {
     return;
+  }
+  if (state.currentFile.category === "teacher_outputs") {
+    const proceed = window.confirm(
+      "Das schreibt direkt in die rohe teacher_outputs-Datei. Normalerweise solltest du stattdessen 'Review-Datei schreiben' verwenden. Trotzdem fortfahren?"
+    );
+    if (!proceed) {
+      return;
+    }
   }
   const isGold = state.currentFile.category.startsWith("gold");
   let allowGoldWrite = false;
@@ -314,28 +371,150 @@ async function saveCurrentFile() {
     }
   }
 
-  const response = await fetch("/api/save", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      path: state.currentFile.path,
-      rows: state.rows,
-      base_hash: state.baseHash,
-      allow_gold_write: allowGoldWrite,
-    }),
+  const payload = await postJson("/api/save", {
+    path: state.currentFile.path,
+    rows: state.rows,
+    base_hash: state.baseHash,
+    allow_gold_write: allowGoldWrite,
   });
-  const payload = await response.json();
-  if (!response.ok || !payload.ok) {
-    renderValidationResults(payload.errors || ["Speichern fehlgeschlagen."]);
+  if (!payload.ok || !payload.body.ok) {
+    renderValidationResults(payload.body.errors || ["Speichern fehlgeschlagen."]);
     updateStatusBanner("Speichern fehlgeschlagen.", "warning");
     return;
   }
-  state.baseHash = payload.hash;
+  state.baseHash = payload.body.hash;
   state.dirty = false;
   updateStatusBanner("Datei gespeichert.");
 }
 
-function setReviewStatus(status) {
+async function saveReviewedFile(overwriteOutput = false) {
+  if (!state.currentFile || !state.review) {
+    return;
+  }
+
+  const outputPath = elements.reviewOutputPath.value.trim();
+  if (!outputPath) {
+    updateStatusBanner("Reviewed output path ist erforderlich.", "warning");
+    return;
+  }
+
+  const reviewer = requireReviewer();
+  if (!reviewer) {
+    return;
+  }
+
+  const payload = await postJson("/api/save-reviewed", {
+    path: state.currentFile.path,
+    output_path: outputPath,
+    rows: state.rows,
+    base_hash: state.baseHash,
+    overwrite_output: overwriteOutput,
+  });
+
+  if (payload.status === 409 && payload.body.errors?.length && !overwriteOutput) {
+    const overwrite = window.confirm(
+      `${payload.body.errors[0]}\n\nBestehende Review-Datei ueberschreiben?`
+    );
+    if (overwrite) {
+      await saveReviewedFile(true);
+      return;
+    }
+    updateStatusBanner("Review-Export abgebrochen.", "warning");
+    return;
+  }
+
+  if (!payload.ok || !payload.body.ok) {
+    renderValidationResults(payload.body.errors || ["Review-Export fehlgeschlagen."]);
+    updateStatusBanner("Review-Export fehlgeschlagen.", "warning");
+    return;
+  }
+
+  if (payload.body.output_path === state.currentFile.path) {
+    state.baseHash = payload.body.hash;
+    state.dirty = false;
+  }
+  updateStatusBanner(`Review-Datei geschrieben: ${payload.body.output_path}`);
+}
+
+async function loadExistingReviewedOverlay() {
+  if (!state.currentFile || !state.review?.existing_output_exists || !state.review.existing_output_path) {
+    updateStatusBanner("Kein vorhandener reviewed-Stand gefunden.", "warning");
+    return;
+  }
+
+  const response = await fetch(
+    `/api/review-overlay?source_path=${encodeURIComponent(state.currentFile.path)}&reviewed_path=${encodeURIComponent(state.review.existing_output_path)}`
+  );
+  const payload = await response.json();
+  state.rows = payload.rows;
+  state.dirty = payload.merge_summary.merged_count > 0;
+  state.review.existing_merge_summary = payload.merge_summary;
+  const mergeNote =
+    payload.merge_summary.conflict_count > 0
+      ? ` Konflikte: ${payload.merge_summary.conflict_count}.`
+      : payload.merge_summary.missing_count > 0 || payload.merge_summary.extra_count > 0
+        ? ` Fehlende/extra IDs: ${payload.merge_summary.missing_count}/${payload.merge_summary.extra_count}.`
+        : "";
+  updateStatusBanner(
+    payload.merge_summary.merged_count > 0
+      ? `Vorhandener Review-Stand geladen: ${payload.merge_summary.merged_count} Rows uebernommen.${mergeNote}`
+      : "Vorhandener Review-Stand brachte keine abweichenden Rows.",
+    payload.merge_summary.merged_count > 0 ? "dirty" : ""
+  );
+  renderRows();
+  renderEditor();
+  renderReviewPanel();
+  renderPromotionPanel();
+}
+
+async function promoteToGold(overwriteOutputs = false) {
+  if (!state.currentFile || !state.promotion) {
+    return;
+  }
+
+  const trainOutputPath = elements.promotionTrainOutputPath.value.trim();
+  const evalOutputPath = elements.promotionEvalOutputPath.value.trim();
+  if (!trainOutputPath || !evalOutputPath) {
+    updateStatusBanner("Train- und Eval-Output-Pfade sind erforderlich.", "warning");
+    return;
+  }
+
+  const payload = await postJson("/api/promote-gold", {
+    path: state.currentFile.path,
+    rows: state.rows,
+    train_output_path: trainOutputPath,
+    eval_output_path: evalOutputPath,
+    overwrite_outputs: overwriteOutputs,
+  });
+
+  if (payload.status === 409 && payload.body.errors?.length && !overwriteOutputs) {
+    const overwrite = window.confirm(
+      `${payload.body.errors[0]}\n\nBestehende Gold-Dateien ueberschreiben?`
+    );
+    if (overwrite) {
+      await promoteToGold(true);
+      return;
+    }
+    updateStatusBanner("Promotion abgebrochen.", "warning");
+    return;
+  }
+
+  if (!payload.ok || !payload.body.ok) {
+    renderValidationResults(payload.body.errors || ["Promotion fehlgeschlagen."]);
+    updateStatusBanner("Promotion fehlgeschlagen.", "warning");
+    return;
+  }
+
+  const checkMessages = (payload.body.checks || []).flatMap((check) =>
+    check.messages.map((message) => `${check.path}: ${message}`)
+  );
+  renderValidationResults([], checkMessages);
+  updateStatusBanner(
+    `Gold-Dateien geschrieben: train=${payload.body.train_count}, eval=${payload.body.eval_count}`
+  );
+}
+
+function setReviewStatus(status, options = {}) {
   const row = currentRow();
   if (!row) {
     return;
@@ -364,8 +543,27 @@ function setReviewStatus(status) {
 
   refreshRawJson();
   markDirty();
+  if (options.render !== false) {
+    renderRows();
+    renderSummary(row);
+    renderReviewPanel();
+    renderPromotionPanel();
+  }
+}
+
+function reviewAndAdvance(status) {
+  if (!state.review || !state.filteredIndices.length) {
+    return;
+  }
+  const currentPos = state.filteredIndices.indexOf(state.currentRowIndex);
+  setReviewStatus(status, { render: false });
   renderRows();
-  renderSummary(row);
+  if (state.filteredIndices.length) {
+    const nextPos = Math.max(0, Math.min(state.filteredIndices.length - 1, currentPos));
+    state.currentRowIndex = state.filteredIndices[nextPos];
+  }
+  renderRows();
+  renderEditor();
 }
 
 function applyRawJson() {
@@ -380,7 +578,7 @@ function applyRawJson() {
     renderRows();
     renderEditor();
   } catch (error) {
-    updateStatusBanner(`JSON ungültig: ${error.message}`, "warning");
+    updateStatusBanner(`JSON ungueltig: ${error.message}`, "warning");
   }
 }
 
@@ -395,14 +593,116 @@ function moveRow(offset) {
   renderEditor();
 }
 
-function renderValidationResults(errors) {
-  if (!errors.length) {
-    elements.validationResults.innerHTML = `<div>Keine Fehler.</div>`;
+function renderValidationResults(errors, messages = []) {
+  if (!errors.length && !messages.length) {
+    elements.validationResults.innerHTML = "<div>Keine Fehler.</div>";
     return;
   }
-  elements.validationResults.innerHTML = `<ul>${errors
-    .map((error) => `<li>${escapeHtml(error)}</li>`)
+  const entries = [...errors, ...messages];
+  elements.validationResults.innerHTML = `<ul>${entries
+    .map((entry) => `<li>${escapeHtml(entry)}</li>`)
     .join("")}</ul>`;
+}
+
+function renderReviewPanel() {
+  if (!state.review || !state.currentFile) {
+    elements.reviewPanel.classList.add("hidden");
+    elements.reviewSummary.innerHTML = "";
+    return;
+  }
+
+  elements.reviewPanel.classList.remove("hidden");
+  document.querySelector("#load-reviewed-button").disabled = !state.review.existing_output_exists;
+  if (
+    !elements.reviewOutputPath.dataset.boundPath ||
+    elements.reviewOutputPath.dataset.boundPath !== state.currentFile.path
+  ) {
+    elements.reviewOutputPath.value = state.review.suggested_output_path;
+    elements.reviewOutputPath.dataset.boundPath = state.currentFile.path;
+  }
+
+  const summary = computeReviewSummary();
+  elements.reviewSummary.innerHTML = [
+    summaryCard("Pending", summary.pendingCount),
+    summaryCard("Decided", summary.decidedCount),
+    summaryCard("Reviewed", summary.statusCounts.human_reviewed || 0),
+    summaryCard("Rejected", summary.statusCounts.rejected || 0),
+    summaryCard("Existing Review", state.review.existing_output_exists ? "ja" : "nein"),
+    summaryCard("Mergeable", state.review.existing_merge_summary?.mergeable_count || 0),
+    summaryCard("Conflicts", state.review.existing_merge_summary?.conflict_count || 0),
+  ].join("");
+}
+
+function renderPromotionPanel() {
+  if (!state.promotion || !state.currentFile) {
+    elements.promotionPanel.classList.add("hidden");
+    elements.promotionSummary.innerHTML = "";
+    return;
+  }
+
+  elements.promotionPanel.classList.remove("hidden");
+  if (
+    !elements.promotionTrainOutputPath.dataset.boundPath ||
+    elements.promotionTrainOutputPath.dataset.boundPath !== state.currentFile.path
+  ) {
+    elements.promotionTrainOutputPath.value = state.promotion.train_output_path;
+    elements.promotionTrainOutputPath.dataset.boundPath = state.currentFile.path;
+  }
+  if (
+    !elements.promotionEvalOutputPath.dataset.boundPath ||
+    elements.promotionEvalOutputPath.dataset.boundPath !== state.currentFile.path
+  ) {
+    elements.promotionEvalOutputPath.value = state.promotion.eval_output_path;
+    elements.promotionEvalOutputPath.dataset.boundPath = state.currentFile.path;
+  }
+
+  const summary = computePromotionSummary();
+  elements.promotionSummary.innerHTML = [
+    summaryCard("Eligible", summary.eligibleCount),
+    summaryCard("Train", summary.trainCount),
+    summaryCard("Eval", summary.evalCount),
+  ].join("");
+}
+
+function renderDiffPanel() {
+  const row = currentRow();
+  if (!row || !state.originalRows.length) {
+    elements.diffPanel.classList.add("hidden");
+    elements.diffView.textContent = "Keine Unterschiede.";
+    return;
+  }
+
+  const originalRow = state.originalRows[state.currentRowIndex];
+  const fields = comparableFields(row, originalRow);
+  const changedFields = fields.filter((field) => field.before !== field.after);
+
+  if (!changedFields.length) {
+    elements.diffPanel.classList.add("hidden");
+    elements.diffView.textContent = "Keine Unterschiede.";
+    return;
+  }
+
+  elements.diffPanel.classList.remove("hidden");
+  elements.diffView.classList.remove("muted");
+  elements.diffView.innerHTML = changedFields
+    .map(
+      (field) => `
+        <div class="diff-card changed">
+          <strong>${escapeHtml(field.label)}</strong>
+          <div class="diff-columns">
+            <div>
+              <div class="meta-line">Original</div>
+              <pre>${escapeHtml(field.before)}</pre>
+            </div>
+            <div>
+              <div class="meta-line">Aktuell</div>
+              <pre>${escapeHtml(field.after)}</pre>
+            </div>
+          </div>
+        </div>
+      `
+    )
+    .join("");
 }
 
 function updateStatusBanner(message = null, kind = "") {
@@ -411,12 +711,12 @@ function updateStatusBanner(message = null, kind = "") {
     parts.push(message);
   }
   if (state.currentFile) {
-    parts.push(`${state.currentFile.path} · ${state.rows.length} rows`);
+    parts.push(`${state.currentFile.path} | ${state.rows.length} rows`);
   }
   if (state.dirty) {
-    parts.push("Ungespeicherte Änderungen");
+    parts.push("Ungespeicherte Aenderungen");
   }
-  elements.statusBanner.textContent = parts.join(" · ") || "Keine Datei geladen.";
+  elements.statusBanner.textContent = parts.join(" | ") || "Keine Datei geladen.";
   elements.statusBanner.className = `status-banner ${kind || (state.dirty ? "dirty" : "")}`.trim();
 }
 
@@ -437,6 +737,8 @@ function refreshRawJson() {
 function markDirty() {
   state.dirty = true;
   updateStatusBanner();
+  renderReviewPanel();
+  renderPromotionPanel();
 }
 
 function requireReviewer() {
@@ -471,6 +773,69 @@ function buildSearchIndex(row) {
       row.candidate?.reference_answer ||
       "",
   };
+}
+
+function computeReviewSummary() {
+  const counts = {};
+  for (const row of state.rows) {
+    const status = row.review_status || "<none>";
+    counts[status] = (counts[status] || 0) + 1;
+  }
+  return {
+    statusCounts: counts,
+    pendingCount: (counts.draft || 0) + (counts.seed || 0) + (counts.teacher_generated || 0),
+    decidedCount: (counts.human_reviewed || 0) + (counts.rejected || 0),
+  };
+}
+
+function computePromotionSummary() {
+  const humanReviewed = state.rows.filter((row) => row.review_status === "human_reviewed");
+  return {
+    eligibleCount: humanReviewed.length,
+    trainCount: humanReviewed.filter((row) => row.record_type === "sft_sample").length,
+    evalCount: humanReviewed.filter((row) => row.record_type === "eval_case").length,
+  };
+}
+
+function hasRowChanged(index) {
+  return JSON.stringify(state.rows[index]) !== JSON.stringify(state.originalRows[index]);
+}
+
+function comparableFields(currentRowValue, originalRowValue) {
+  const currentShape = comparableShape(currentRowValue);
+  const originalShape = comparableShape(originalRowValue);
+  return currentShape.map((field, index) => ({
+    label: field.label,
+    before: stringifyComparableValue(originalShape[index]?.value),
+    after: stringifyComparableValue(field.value),
+  }));
+}
+
+function comparableShape(row) {
+  if (!row) {
+    return [];
+  }
+  if (row.output_id && row.candidate) {
+    return comparableShape(row.candidate);
+  }
+  if (row.messages && row.meta) {
+    return [
+      { label: "System", value: row.messages?.[0]?.content || "" },
+      { label: "User", value: row.messages?.[1]?.content || "" },
+      { label: "Assistant", value: row.messages?.[2]?.content || "" },
+    ];
+  }
+  if (row.prompt && row.expected_behavior) {
+    return [
+      { label: "Prompt", value: row.prompt || "" },
+      { label: "Expected Behavior", value: row.expected_behavior || "" },
+      { label: "Reference Answer", value: row.reference_answer || "" },
+      { label: "Case Description", value: row.case_description || "" },
+      { label: "Must Include", value: row.rubric?.must_include || [] },
+      { label: "Must Not Include", value: row.rubric?.must_not_include || [] },
+    ];
+  }
+  return [{ label: "JSON", value: row }];
 }
 
 function firstSourceSpan(row) {
@@ -543,6 +908,20 @@ function splitLines(value) {
     .filter(Boolean);
 }
 
+function stringifyComparableValue(value) {
+  if (Array.isArray(value)) {
+    return value.join("\n");
+  }
+  if (value && typeof value === "object") {
+    return JSON.stringify(value, null, 2);
+  }
+  return String(value || "");
+}
+
+function deepCopyRows(rows) {
+  return JSON.parse(JSON.stringify(rows));
+}
+
 function lastPathSegment(path) {
   return path.split("/").at(-1);
 }
@@ -553,4 +932,14 @@ function escapeHtml(value) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+async function postJson(url, body) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  const payload = await response.json();
+  return { ok: response.ok, status: response.status, body: payload };
 }
