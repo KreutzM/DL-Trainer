@@ -1,4 +1,4 @@
-.PHONY: validate demo-export
+.PHONY: validate demo-export qwen-clean-gate
 
 validate:
 	python scripts/validate_metadata.py --input data/normalized/demo_product/de/manual_v1/index.meta.json
@@ -7,3 +7,6 @@ validate:
 
 demo-export:
 	python scripts/export_for_training.py --input data/gold/train/sft/demo_sft_samples.jsonl --output training/exports/demo_train.jsonl
+
+qwen-clean-gate:
+	python scripts/run_qwen_clean_gate.py

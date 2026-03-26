@@ -19,6 +19,7 @@ Diese Stufe bereitet den konsolidierten JAWS-DE-Gold-Stand fuer einen saubereren
 - `scripts/audit_qwen_source_faithfulness.py`
   - priorisiert Grenzfaelle fuer menschlichen Review anhand von lexical-overlap- und Novelty-Heuristiken
   - greift direkt auf `source_spans` in `data/normalized/` zu
+  - kann mit Schwellwerten als harter Gate-Check laufen
 - `scripts/cleanup_qwen_sft_gold.py`
   - erstellt einen bereinigten Gold-Ableger fuer Train und Eval
   - schreibt zusaetzlich einen Audit-Report mit entfernten IDs und Regeln
@@ -78,7 +79,9 @@ python scripts/cleanup_qwen_sft_gold.py ^
 python scripts/audit_qwen_source_faithfulness.py ^
   --train-input data/gold/train/sft/JAWS/DE/consolidated_gold_v1_lora_clean_sft_samples.jsonl ^
   --eval-input data/gold/eval/JAWS/DE/consolidated_gold_v1_lora_clean_eval_cases.jsonl ^
-  --output tmp/qwen_quality/consolidated_gold_v1_lora_clean.source_audit.json
+  --output tmp/qwen_quality/consolidated_gold_v1_lora_clean.source_audit.json ^
+  --max-train-flagged-rows 0 ^
+  --max-eval-flagged-rows 0
 ```
 
 ### 4. Bereinigte Gold-Dateien validieren
@@ -101,6 +104,25 @@ python scripts/export_qwen_sft.py ^
 python scripts/validate_qwen_sft_export.py --input-dir data/exports/qwen_sft/JAWS/DE/consolidated_gold_v1_lora_clean_20260326
 python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_de_lora_clean_dry_run.yaml
 ```
+
+### 6. Gesamtes Gate ueber Makefile
+
+```bash
+make qwen-clean-gate
+```
+
+Ohne `make` koennen Sie denselben Ablauf direkt so ausfuehren:
+
+```bash
+python scripts/run_qwen_clean_gate.py
+```
+
+Der Target bricht sofort ab, wenn:
+
+- Schema oder Provenance fehlschlagen
+- der Source-Faithfulness-Audit mehr als `0` Flag-Faelle in Train oder Eval meldet
+- der Clean-Export ungueltig ist
+- der MS-SWIFT-Dry-Run nicht mehr zur Clean-Konfiguration passt
 
 ## Review-Fokus
 

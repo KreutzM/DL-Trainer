@@ -14,8 +14,12 @@ def test_expected_paths_exist():
         "scripts/select_teacher_wave_review_ids.py",
         "scripts/validate_teacher_responses.py",
         "scripts/smoke_test_qwen_sft.py",
+        "scripts/audit_qwen_source_faithfulness.py",
+        "scripts/run_qwen_clean_gate.py",
         "prompts/teacher/support_answer.md",
         "training/ms-swift/qwen3_8b_jaws_de_lora.yaml",
+        "training/ms-swift/qwen3_8b_jaws_de_lora_clean.yaml",
+        "training/ms-swift/qwen3_8b_jaws_de_lora_clean_dry_run.yaml",
         ".codex/config.toml",
         "AGENTS.md",
     ]:

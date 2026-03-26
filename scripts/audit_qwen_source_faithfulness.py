@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import re
 from collections import Counter
 from pathlib import Path
@@ -79,6 +78,8 @@ def parse_args() -> Any:
     parser.add_argument("--train-input", required=True)
     parser.add_argument("--eval-input", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--max-train-flagged-rows", type=int)
+    parser.add_argument("--max-eval-flagged-rows", type=int)
     return parser.parse_args()
 
 
@@ -216,8 +217,27 @@ def _split_report(repo_root: Path, rows: list[dict], split: str) -> dict[str, An
         "flagged_rows": len(flagged),
         "flags_by_type": dict(sorted(Counter(flag for item in flagged for flag in item["flags"]).items())),
         "rows_by_task": dict(sorted(Counter(item["task_name"] for item in metrics).items())),
-        "flagged_examples": sorted(flagged, key=lambda item: (len(item["flags"]) * -1, item["overlap_ratio"], item["id"]))[:50],
+        "flagged_examples": sorted(
+            flagged,
+            key=lambda item: (len(item["flags"]) * -1, item["overlap_ratio"], item["id"]),
+        )[:50],
         "lowest_overlap_examples": lowest_overlap,
+    }
+
+
+def _gate_result(flagged_rows: int, max_allowed: int | None) -> dict[str, Any]:
+    if max_allowed is None:
+        return {
+            "enabled": False,
+            "max_allowed_flagged_rows": None,
+            "flagged_rows": flagged_rows,
+            "passed": True,
+        }
+    return {
+        "enabled": True,
+        "max_allowed_flagged_rows": max_allowed,
+        "flagged_rows": flagged_rows,
+        "passed": flagged_rows <= max_allowed,
     }
 
 
@@ -227,9 +247,11 @@ def main() -> None:
 
     train_rows = read_jsonl(Path(args.train_input))
     eval_rows = read_jsonl(Path(args.eval_input))
+    train_report = _split_report(repo_root, train_rows, "train")
+    eval_report = _split_report(repo_root, eval_rows, "eval")
 
     report = {
-        "audit_version": "qwen_source_faithfulness_v1",
+        "audit_version": "qwen_source_faithfulness_v2",
         "inputs": {
             "train_input": Path(args.train_input).as_posix(),
             "eval_input": Path(args.eval_input).as_posix(),
@@ -237,14 +259,28 @@ def main() -> None:
         "thresholds": TASK_THRESHOLDS,
         "heuristic_notes": [
             "Lexical overlap is a heuristic and may under-score good clarification or escalation answers.",
-            "Flags are intended for review prioritization, not automatic rejection.",
+            "Flags are intended for review prioritization unless max flagged-row thresholds are provided.",
         ],
-        "train": _split_report(repo_root, train_rows, "train"),
-        "eval": _split_report(repo_root, eval_rows, "eval"),
+        "train": train_report,
+        "eval": eval_report,
+        "gate": {
+            "train": _gate_result(train_report["flagged_rows"], args.max_train_flagged_rows),
+            "eval": _gate_result(eval_report["flagged_rows"], args.max_eval_flagged_rows),
+        },
     }
 
     write_json(Path(args.output), report)
     print(f"Wrote source-faithfulness audit -> {args.output}")
+
+    failures = []
+    for split in ("train", "eval"):
+        gate = report["gate"][split]
+        if gate["enabled"] and not gate["passed"]:
+            failures.append(
+                f"{split} flagged_rows={gate['flagged_rows']} exceeds max_allowed={gate['max_allowed_flagged_rows']}"
+            )
+    if failures:
+        raise SystemExit("Audit gate failed: " + "; ".join(failures))
 
 
 if __name__ == "__main__":

@@ -77,6 +77,18 @@ python scripts/validate_qwen_sft_export.py --input-dir data/exports/qwen_sft/JAW
 python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_de_lora_dry_run.yaml
 ```
 
+### 8. Clean-Qwen-Gate fuer den reviewten JAWS-DE-Stand
+
+```bash
+make qwen-clean-gate
+```
+
+Falls `make` lokal nicht verfuegbar ist:
+
+```bash
+python scripts/run_qwen_clean_gate.py
+```
+
 ## Repo-Navigation
 
 - `docs/` - Architektur, Policies, Review-Regeln, Repo-Spezifikation, Qwen-Export-Runbook
