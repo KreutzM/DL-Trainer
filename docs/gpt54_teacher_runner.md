@@ -88,3 +88,65 @@ Der nachgelagerte Pfad bleibt gleich:
 - Eskalationsfaelle benennen die Evidenzgrenze explizit
 - Antworten bleiben knapp und dokumentationsgebunden
 - Train/Eval bleiben auf Chunk-Ebene getrennt
+
+## Scale-up ab Wave2
+
+Fuer groessere Wellen reicht die feste Wave1-Selektion nicht mehr. Der skalierbare Pfad basiert deshalb auf drei zusaetzlichen Bausteinen:
+
+1. `scripts/build_jaws_teacher_wave.py`
+   - parametrische Train-/Eval-Ziele pro Falltyp
+   - deterministische Exclusions gegen bereits promotete Chunks
+   - balancierte Auswahl ueber Dokumente und Falltypen
+2. `scripts/select_teacher_wave_review_ids.py`
+   - skalierbare Freigabeziele pro Split und Falltyp
+   - Exclusions gegen bestehenden Gold-Bestand
+   - nachvollziehbare Shortage-Reports
+3. `scripts/consolidate_gold_teacher_sets.py`
+   - de-dupliziert den globalen Gold-Bestand
+   - loest historische Split-Kollisionen deterministisch
+   - schreibt einen konsolidierten Train-/Eval-Stand fuer LoRA und Eval
+
+Typischer Ablauf fuer eine groessere Welle:
+
+```bash
+python scripts/build_jaws_teacher_wave.py ^
+  --wave-id jaws_de_teacher_wave_v2_scaleup ^
+  --exclude-dir data/gold/train/sft/JAWS/DE ^
+  --exclude-dir data/gold/eval/JAWS/DE ^
+  --train-target clarification=60 ^
+  --train-target uncertainty_escalation=150 ^
+  --train-target step_by_step=60 ^
+  --train-target troubleshooting=220 ^
+  --train-target faq_direct_answer=350
+
+python scripts/run_teacher_jobs.py ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/wave2_scaleup_generation_jobs.jsonl ^
+  --mode stub ^
+  --output data/derived/teacher_outputs/JAWS/DE/wave2_scaleup_teacher_outputs.jsonl
+
+python scripts/select_teacher_wave_review_ids.py ^
+  --input data/derived/teacher_outputs/JAWS/DE/wave2_scaleup_teacher_outputs.jsonl ^
+  --approve-output data/derived/teacher_outputs/JAWS/DE/wave2_scaleup_approve_ids.txt ^
+  --reject-output data/derived/teacher_outputs/JAWS/DE/wave2_scaleup_reject_ids.txt ^
+  --report-output data/derived/teacher_outputs/JAWS/DE/wave2_scaleup_review_selection_report.json
+
+python scripts/materialize_codex_teacher_responses.py ^
+  --input data/derived/teacher_outputs/JAWS/DE/wave2_scaleup_reviewed_teacher_outputs.jsonl ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/wave2_scaleup_generation_jobs.jsonl ^
+  --output data/derived/teacher_outputs/JAWS/DE/wave2_scaleup_codex_gpt54_raw_responses.jsonl ^
+  --teacher-run-id jaws_de_wave2_codex_gpt54_run_v1 ^
+  --generation-mode codex_teacher_gpt54_scaleup_v1
+
+python scripts/run_teacher_jobs.py ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/wave2_scaleup_generation_jobs.jsonl ^
+  --mode codex ^
+  --import-input data/derived/teacher_outputs/JAWS/DE/wave2_scaleup_codex_gpt54_raw_responses.jsonl ^
+  --output data/derived/teacher_outputs/JAWS/DE/wave2_scaleup_codex_gpt54_teacher_outputs.jsonl
+
+python scripts/consolidate_gold_teacher_sets.py ^
+  --train-dir data/gold/train/sft/JAWS/DE ^
+  --eval-dir data/gold/eval/JAWS/DE ^
+  --train-output data/gold/train/sft/JAWS/DE/consolidated_gold_v1_sft_samples.jsonl ^
+  --eval-output data/gold/eval/JAWS/DE/consolidated_gold_v1_eval_cases.jsonl ^
+  --report-output data/derived/teacher_outputs/JAWS/DE/consolidated_gold_v1_report.json
+```

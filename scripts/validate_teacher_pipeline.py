@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -137,6 +138,35 @@ def validate_gold(
     return failures
 
 
+def load_jsonl_rows(path: str | None, directory: str | None) -> list[dict]:
+    rows: list[dict] = []
+    if path:
+        rows.extend(read_jsonl(Path(path)))
+    if directory:
+        for jsonl_path in sorted(Path(directory).glob("*.jsonl")):
+            rows.extend(read_jsonl(jsonl_path))
+    return rows
+
+
+def validate_gold_uniqueness(rows: list[dict], *, kind: str, key_field: str) -> list[str]:
+    failures: list[str] = []
+    chunk_counter: Counter[str] = Counter()
+    id_counter: Counter[str] = Counter()
+    for row in rows:
+        for chunk_id in row.get("source_chunk_ids", []):
+            chunk_counter[chunk_id] += 1
+        item_id = row.get(key_field)
+        if item_id:
+            id_counter[item_id] += 1
+    duplicate_chunks = sorted(chunk_id for chunk_id, count in chunk_counter.items() if count > 1)
+    if duplicate_chunks:
+        failures.append(f"{kind} gold duplicate chunk_ids detected: " + ", ".join(duplicate_chunks[:10]))
+    duplicate_ids = sorted(item_id for item_id, count in id_counter.items() if count > 1)
+    if duplicate_ids:
+        failures.append(f"{kind} gold duplicate ids detected: " + ", ".join(duplicate_ids[:10]))
+    return failures
+
+
 def parse_args() -> Any:
     parser = make_parser("Validate teacher jobs, teacher outputs and promoted gold artifacts.")
     parser.add_argument("--jobs", required=True)
@@ -148,6 +178,8 @@ def parse_args() -> Any:
     parser.add_argument("--eval-schema", default="schemas/eval_case.schema.json")
     parser.add_argument("--gold-sft")
     parser.add_argument("--gold-eval")
+    parser.add_argument("--gold-sft-dir")
+    parser.add_argument("--gold-eval-dir")
     parser.add_argument("--require-all-task-types", action="store_true")
     return parser.parse_args()
 
@@ -176,12 +208,14 @@ def main() -> None:
 
     gold_train_rows: list[dict] = []
     gold_eval_rows: list[dict] = []
-    if args.gold_sft:
-        gold_train_rows = read_jsonl(Path(args.gold_sft))
+    if args.gold_sft or args.gold_sft_dir:
+        gold_train_rows = load_jsonl_rows(args.gold_sft, args.gold_sft_dir)
         failures.extend(validate_gold(gold_train_rows, sft_validator, output_index, "Train"))
-    if args.gold_eval:
-        gold_eval_rows = read_jsonl(Path(args.gold_eval))
+        failures.extend(validate_gold_uniqueness(gold_train_rows, kind="Train", key_field="id"))
+    if args.gold_eval or args.gold_eval_dir:
+        gold_eval_rows = load_jsonl_rows(args.gold_eval, args.gold_eval_dir)
         failures.extend(validate_gold(gold_eval_rows, eval_validator, output_index, "Eval"))
+        failures.extend(validate_gold_uniqueness(gold_eval_rows, kind="Eval", key_field="eval_id"))
 
     train_chunk_ids = {chunk_id for row in gold_train_rows for chunk_id in row.get("source_chunk_ids", [])}
     eval_chunk_ids = {chunk_id for row in gold_eval_rows for chunk_id in row.get("source_chunk_ids", [])}
