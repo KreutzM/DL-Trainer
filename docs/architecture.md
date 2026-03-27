@@ -30,3 +30,4 @@ raw manuals
 - **Reviewer**: Mensch oder Grader-Layer
 - **Codex CLI**: repo-zentrierte Automations- und Orchestrierungsschicht
 - **Training export**: abgeleitete Qwen-SFT-Artefakte unter `data/exports/qwen_sft/`, nie Source of truth
+- **Lokale Trainingsruntime**: fuer den ersten Qwen3-8B-LoRA-Pilot wird ein optionaler Laufzeit-Stack aus `transformers`, `peft`, `accelerate`, `datasets` und `bitsandbytes` verwendet; diese Abhaengigkeiten bleiben bewusst vom Kern der Datenpipeline getrennt
