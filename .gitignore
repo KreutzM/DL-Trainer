@@ -6,7 +6,10 @@ __pycache__/
 .DS_Store
 data/reports/tmp/
 training/exports/
+training/ms-swift/logs/
+training/ms-swift/outputs/
+training/transformers/logs/
+training/transformers/outputs/
 *.log
 *.sqlite
 tmp/
-
