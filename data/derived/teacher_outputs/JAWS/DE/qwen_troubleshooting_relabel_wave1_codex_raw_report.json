@@ -1,0 +1,17 @@
+{
+  "jobs_path": "data/derived/teacher_jobs/JAWS/DE/qwen_troubleshooting_relabel_wave1_generation_jobs.jsonl",
+  "reviewed_input": "data/derived/teacher_outputs/JAWS/DE/qwen_troubleshooting_relabel_wave1_reviewed_teacher_outputs.jsonl",
+  "teacher_run_id": "jaws_de_qwen_troubleshooting_relabel_codex_run_v1",
+  "teacher_provider": "codex",
+  "teacher_model": "gpt-5.4",
+  "generation_mode": "codex_teacher_qwen_troubleshooting_relabel_v1",
+  "rejected_jobs_found": 61,
+  "raw_responses_written": 61,
+  "skipped_jobs": [],
+  "by_doc": {
+    "jaws_de_hilfe_kernfunktionen": 27,
+    "jaws_de_settingscenter": 19,
+    "jaws_de_tutorial_basics": 6,
+    "jaws_de_braille": 9
+  }
+}
