@@ -21,6 +21,8 @@ Diese Ablage enthaelt reviewbare Kandidaten nach dem Teacher-Schritt.
 - `wave1_gpt54_subset_reviewed_outputs.jsonl`: dieselbe Teilmenge nach Review
 - `qwen_focus_wave_v1_stub_teacher_outputs.jsonl`: reviewbare Stub-Outputs fuer die neue FAQ-Fokus-Welle, direkt aus den Wave-Fixtures materialisiert
 - `qwen_step_focus_wave_v1_stub_teacher_outputs.jsonl`: reviewbare Stub-Outputs fuer die task-spezifische `step_by_step`-Welle
+- `qwen_focus_wave_v1_review_packet.json`: kompakte Review-Unterlage fuer die FAQ-Fokus-Welle mit Vorschau, Task-/Doc-Verteilung und Provenance-Hinweisen
+- `qwen_step_focus_wave_v1_review_packet.json`: kompakte Review-Unterlage fuer die Schrittwelle mit Vorschau, Task-/Doc-Verteilung und Provenance-Hinweisen
 
 Wichtig:
 
