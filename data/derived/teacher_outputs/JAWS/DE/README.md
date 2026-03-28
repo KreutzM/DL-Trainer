@@ -23,6 +23,9 @@ Diese Ablage enthaelt reviewbare Kandidaten nach dem Teacher-Schritt.
 - `qwen_step_focus_wave_v1_stub_teacher_outputs.jsonl`: reviewbare Stub-Outputs fuer die task-spezifische `step_by_step`-Welle
 - `qwen_focus_wave_v1_review_packet.json`: kompakte Review-Unterlage fuer die FAQ-Fokus-Welle mit Vorschau, Task-/Doc-Verteilung und Provenance-Hinweisen
 - `qwen_step_focus_wave_v1_review_packet.json`: kompakte Review-Unterlage fuer die Schrittwelle mit Vorschau, Task-/Doc-Verteilung und Provenance-Hinweisen
+- `qwen_troubleshooting_cleanup_wave1_report.json`: heuristischer Bericht ueber wahrscheinlich schwache `troubleshooting`-Faelle im konsolidierten Gold-v2-Stand
+- `qwen_troubleshooting_cleanup_wave1_review_packet.json`: reviewbare Unterlage mit konkreten Drop-/Relabel-Kandidaten fuer die erste `troubleshooting`-Bereinigungswelle
+- `qwen_troubleshooting_cleanup_wave1_candidate_ids.txt`: extrahierte IDs der markierten Bereinigungskandidaten
 
 Wichtig:
 
@@ -36,3 +39,4 @@ Wichtig:
 - `qwen_data_expansion_wave1_output_ids.txt`: zugehoerige Output-IDs fuer Promotion oder weitere Review-Schritte
 - `qwen_data_expansion_wave1_report.json`: Auswahlbericht mit Engpaessen, Exclusions gegen Gold und Artefaktfiltern
 - Die neuen `qwen_*_stub_teacher_outputs.jsonl` sind nur reviewbare Zwischenartefakte, noch keine freigegebenen Gold-Daten und kein Ersatz fuer einen spaeteren echten Teacher-Lauf.
+- Die neuen `qwen_troubleshooting_cleanup_wave1_*`-Artefakte sind keine Teacher-Outputs, sondern Review-Unterlagen fuer die gezielte Bereinigung des bestehenden Gold-Stands.
