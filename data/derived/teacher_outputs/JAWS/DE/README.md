@@ -28,3 +28,6 @@ Wichtig:
 - `wave1_codex_gpt54_real_approve_ids.txt` ist die deterministische Review-Freigabeliste fuer die groessere reale Codex-Welle.
 - `wave1_codex_gpt54_real_reject_ids.txt` haelt die bewusst ausgeschlossenen Qualitaetsfaelle derselben Welle fest.
 - Rohe GPT-5.4-Responses bleiben getrennt von reviewbaren Teacher-Outputs, damit echte Codex-Runs, Stub-Laeufe und externe Fallbacks denselben Review-Pfad nutzen koennen.
+- `qwen_data_expansion_wave1_reviewed_outputs.jsonl`: gezielt kuratierte Ausbau-Menge aus human-reviewten Wave2-Outputs, bereits gegen den aktuellen Clean-Gold-Stand exkludiert
+- `qwen_data_expansion_wave1_output_ids.txt`: zugehoerige Output-IDs fuer Promotion oder weitere Review-Schritte
+- `qwen_data_expansion_wave1_report.json`: Auswahlbericht mit Engpaessen, Exclusions gegen Gold und Artefaktfiltern
