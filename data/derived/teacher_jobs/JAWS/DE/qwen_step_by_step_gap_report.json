@@ -1,0 +1,42 @@
+{
+  "report_name": "qwen_step_by_step_gap",
+  "exclude_jsonl": [
+    "data/gold/train/sft/JAWS/DE/consolidated_gold_v1_lora_clean_sft_samples.jsonl",
+    "data/gold/eval/JAWS/DE/consolidated_gold_v1_lora_clean_eval_cases.jsonl",
+    "data/derived/teacher_outputs/JAWS/DE/qwen_data_expansion_wave1_reviewed_outputs.jsonl"
+  ],
+  "exclude_dir": [],
+  "excluded_chunk_ids": 789,
+  "eval_split_rule": {
+    "modulo": 8,
+    "remainder": 0
+  },
+  "remaining_candidates": 1,
+  "remaining_by_split": {
+    "train": 1
+  },
+  "remaining_by_doc": {
+    "train": {
+      "jaws_de_hilfe_kernfunktionen": 1
+    },
+    "eval": {}
+  },
+  "top_candidates": [
+    {
+      "split": "train",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__standard_aktivierung::chunk_01",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__standard_aktivierung",
+      "section_title": "Standard Aktivierung",
+      "section_path_text": "Schnelleinstellung Übersicht > Standard Aktivierung",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L4885-L4896"
+      ],
+      "char_count": 1699,
+      "quality_score": 62,
+      "selection_reason": "step:warning:numbered"
+    }
+  ],
+  "ids_output": "data/derived/teacher_jobs/JAWS/DE/qwen_step_by_step_candidate_chunk_ids.txt"
+}

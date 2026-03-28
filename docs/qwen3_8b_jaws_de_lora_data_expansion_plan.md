@@ -82,6 +82,13 @@ Fokus:
 - `troubleshooting`: Bestand bereinigen und nur gezielt erweitern
 - `uncertainty_escalation`: nur moderat ausbauen, da bereits relativ stark
 
+## Aktueller Ausbau-Stand
+
+- `qwen_data_expansion_wave1` hat aus bereits human-reviewten Wave2-Outputs nur `18` sicher promotable Rows geliefert, ohne neue `faq_direct_answer`- oder `step_by_step`-Ausbeute.
+- Die neue fokussierte Teacher-Welle `qwen_focus_wave_v1` kann den FAQ-Bereich sofort verbreitern: `136` Jobs fuer `faq_direct_answer` plus `1` verbliebener `step_by_step`-Job.
+- Der separate Gap-Audit zeigt, dass nach den aktuellen Gold- und Ausbau-Exclusions im bestehenden Chunk-Pool nur noch `1` echter `step_by_step`-Kandidat uebrig ist.
+- Daraus folgt: Der naechste echte Hebel ist keine weitere generische Chunk-Welle, sondern eine neue gezielte Quell- oder Teacher-Welle fuer prozedurale BrailleIn-/SettingsCenter-Abschnitte.
+
 ## Akzeptanzkriterien vor dem naechsten grossen Run
 
 - neuer Clean-Stand bleibt stub-/artifact-frei
