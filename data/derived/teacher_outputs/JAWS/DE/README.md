@@ -26,6 +26,10 @@ Diese Ablage enthaelt reviewbare Kandidaten nach dem Teacher-Schritt.
 - `qwen_troubleshooting_cleanup_wave1_report.json`: heuristischer Bericht ueber wahrscheinlich schwache `troubleshooting`-Faelle im konsolidierten Gold-v2-Stand
 - `qwen_troubleshooting_cleanup_wave1_review_packet.json`: reviewbare Unterlage mit konkreten Drop-/Relabel-Kandidaten fuer die erste `troubleshooting`-Bereinigungswelle
 - `qwen_troubleshooting_cleanup_wave1_candidate_ids.txt`: extrahierte IDs der markierten Bereinigungskandidaten
+- `qwen_troubleshooting_cleanup_wave1_reviewed_packet.json`: final durchgesehene Wave1-Entscheidungen mit `keep`, `relabel` oder `drop`
+- `qwen_troubleshooting_cleanup_wave1_keep_ids.txt`: die wenigen Wave1-Faelle, die nach Review als echtes `troubleshooting` erhalten bleiben
+- `qwen_troubleshooting_cleanup_wave1_relabel_ids.txt`: Wave1-Faelle, die nach Review zu `faq_direct_answer` umklassifiziert werden sollten
+- `qwen_troubleshooting_cleanup_wave1_drop_ids.txt`: Wave1-Faelle, die nach Review komplett aus dem Trainingsstand entfernt werden sollten
 
 Wichtig:
 

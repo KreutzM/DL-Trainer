@@ -1,0 +1,1780 @@
+{
+  "packet_name": "qwen_troubleshooting_cleanup_wave1_reviewed",
+  "input_path": "data/gold/train/sft/JAWS/DE/consolidated_gold_v2_qwen_expansion_sft_samples.jsonl",
+  "source_review_packet": "data/derived/teacher_outputs/JAWS/DE/qwen_troubleshooting_cleanup_wave1_review_packet.json",
+  "rows": 72,
+  "rows_by_final_decision": {
+    "relabel_to_faq_direct_answer": 65,
+    "keep_as_troubleshooting": 5,
+    "drop_from_training": 2
+  },
+  "rows_by_doc": {
+    "jaws_de_hilfe_kernfunktionen": 33,
+    "jaws_de_settingscenter": 22,
+    "jaws_de_tutorial_basics": 8,
+    "jaws_de_braille": 9
+  },
+  "entries": [
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0049__candidate",
+      "line_number": 474,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle",
+      "section_title": "JAWS Befehle",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2067-L2095"
+      ],
+      "user_preview": "Ich komme bei JAWS Befehle in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie JAWS schon länger anwenden, sind Sie daran gewöhnt, die EINFÜGETASTE als Bestandteil eines Tastaturbefehls zu verwenden.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0053__candidate",
+      "line_number": 579,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "tabular_or_listing_source"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__verschachtelte_kurztasten_allgemein::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__verschachtelte_kurztasten_allgemein",
+      "section_title": "Verschachtelte Kurztasten allgemein",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1848-L1877"
+      ],
+      "user_preview": "Ich komme bei Verschachtelte Kurztasten allgemein in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Tabelle: Allgemeine Befehlsebene | Beschreibung | Befehl | | --- | --- | | Hilfe zu den verschachtelten Befehlen | FRAGEZEICHEN | | FSCompanion starten | F1 | | JAWS Befehlssuche starten | J | | Bildschirmblickschutz ein- oder ausschalten für mehr Privatsphäre | F11 | | Umschalten zwischen Voll-Sprache oder Sprache auf Abruf | S | | Umschalten zwischen Sprache auf Abruf o",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0085__candidate",
+      "line_number": 521,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__rechte_maustaste_feststellen_jaws_taste_num_stern::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__rechte_maustaste_feststellen_jaws_taste_num_stern",
+      "section_title": "Rechte Maustaste feststellen (JAWS TASTE+NUM STERN)",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2182-L2182"
+      ],
+      "user_preview": "Ich komme bei Rechte Maustaste feststellen (JAWS TASTE+NUM STERN) in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: JAWS spricht erst wieder, wenn Sie JAWS TASTE+NUM STERN erneut drücken, um die Maustaste zu entsperren.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0113__candidate",
+      "line_number": 407,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__den_jaws_cursor_beschraenken::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__den_jaws_cursor_beschraenken",
+      "section_title": "Den JAWS Cursor beschränken",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L4451-L4451"
+      ],
+      "user_preview": "Ich komme bei Den JAWS Cursor beschränken in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Jedes Mal, wenn Sie bei aktivem JAWS Cursor JAWS TASTE+R drücken, wird die nächste Stufe der Beschränkung gesetzt und angesagt.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0121__candidate",
+      "line_number": 525,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__registerkarte_index_verwenden_alt_n::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__registerkarte_index_verwenden_alt_n",
+      "section_title": "Registerkarte Index verwenden (ALT+N)",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3469-L3469"
+      ],
+      "user_preview": "Ich komme bei Registerkarte Index verwenden (ALT+N) in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn nur ein zutreffendes Hilfethema gefunden wurde, wird es im Hilfefenster angezeigt. Mit ALT+N öffnen Sie die Registerkarte Index.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0127__candidate",
+      "line_number": 559,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "tabular_or_listing_source"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__studieren_von_gleichungen_im_mathematischen_betrachter::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__studieren_von_gleichungen_im_mathematischen_betrachter",
+      "section_title": "Studieren von Gleichungen im Mathematischen Betrachter",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3188-L3206"
+      ],
+      "user_preview": "Ich komme bei Studieren von Gleichungen im Mathematischen Betrachter in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie mathematischen Inhalt auf einer Webseite fokussieren, drücken Sie EINGABE, um die aktuelle mathematische Aufgabe im Mathematischen Betrachter zu öffnen. Wenn Sie mathematischen Inhalt in einem Word Dokument fokussieren, drücken Sie die verschachtelte Tastenkombination EINFÜGEN+LEERTASTE gefolgt von ESSZETT.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0132__candidate",
+      "line_number": 720,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_grafiken_und_symbole__mausecho_einheit::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_grafiken_und_symbole__mausecho_einheit",
+      "section_title": "Mausecho Einheit",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L968-L970"
+      ],
+      "user_preview": "Ich komme bei Mausecho Einheit in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wählen Sie die Texteinheit, die Sie hören möchten, wenn der Mauszeiger auf dem Text eines Steuerelements stehen bleibt.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0133__candidate",
+      "line_number": 494,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__kurztaste_des_aktuellen_dialogelements_ansagen_umschalt_num_5::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__kurztaste_des_aktuellen_dialogelements_ansagen_umschalt_num_5",
+      "section_title": "Kurztaste des aktuellen Dialogelements ansagen (UMSCHALT+NUM 5)",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2349-L2349"
+      ],
+      "user_preview": "Ich komme bei Kurztaste des aktuellen Dialogelements ansagen (UMSCHALT+NUM 5) in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn das Element nicht den Fokus hat, dann drücken Sie zusätzlich die ALT -Taste.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0134__candidate",
+      "line_number": 745,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__allgemein__erweiterte_eingabeunterstuetzung::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__allgemein__erweiterte_eingabeunterstuetzung",
+      "section_title": "Erweiterte Eingabeunterstützung",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1966-L1966"
+      ],
+      "user_preview": "Ich komme bei Erweiterte Eingabeunterstützung in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie dieses Kontrollfeld aktivieren, liefert JAWS eine erweiterte Unterstützung für Eingabe- und Rich-Edit-Bereiche.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0136__candidate",
+      "line_number": 766,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__die_gruppe_diverses__optionen_fuer_schalterbeschriftungen::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__die_gruppe_diverses__optionen_fuer_schalterbeschriftungen",
+      "section_title": "Optionen für Schalterbeschriftungen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L2540-L2540"
+      ],
+      "user_preview": "Ich komme bei Optionen für Schalterbeschriftungen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wählen Sie die Information, die JAWS sprechen soll, wenn sich Schalter in Formularen auf Webseiten befinden.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0145__candidate",
+      "line_number": 532,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__sound_teilung::chunk_02",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__sound_teilung",
+      "section_title": "Sound Teilung",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1675-L1682"
+      ],
+      "user_preview": "Ich komme bei Sound Teilung in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Hinweise - Die Sound Teilung funktioniert nicht, wenn Sie für einen Anruf ein Bluetooth Headset verwenden.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0171__candidate",
+      "line_number": 582,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "tabular_or_listing_source"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__verschachtelte_tasten_der_ebene_fuer_picture_smart::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__verschachtelte_tasten_der_ebene_fuer_picture_smart",
+      "section_title": "Verschachtelte Tasten der Ebene für Picture Smart",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1963-L1982"
+      ],
+      "user_preview": "Ich komme bei Verschachtelte Tasten der Ebene für Picture Smart in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Tipp: Ein Bild kann auch beschrieben werden, wenn Sie es in den Ordner \"PictureSmart\" unterhalb ihres Benutzerordners \"Bilder\" speichern. Drücken Sie EINFÜGEN+LEERTASTE, lassen Sie die Tasten wieder los und drücken Sie dann P, um die Ebene für Picture Smart zu aktivieren, und drücken Sie dann die nachstehend aufgelisteten Kurztasten, um eine Aktion auszuführen.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0173__candidate",
+      "line_number": 237,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "tabular_or_listing_source"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__muster_fuer_die_textsuche::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__muster_fuer_die_textsuche",
+      "section_title": "Muster für die Textsuche",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5501-L5515"
+      ],
+      "user_preview": "Ich komme bei Muster für die Textsuche in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Optional können Sie einen regulären Ausdruck für eine weiterführende, verfeinerte Suche eingeben. Geben Sie in das Eingabefeld Textregel ein Wort oder eine Wortfolge ein, nach der JAWS beim Querlesen suchen soll. Verwenden Sie dazu **Wenn Sie nur nach Texteinheiten suchen möchten, die ein Wort von vielen verschiedenen Wörtern enthalten, trennen Sie jedes Wort durch \"|\" (e",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0182__candidate",
+      "line_number": 877,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__allgemein__text_in_8_punkt_braillemodus_anzeigen::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__allgemein__text_in_8_punkt_braillemodus_anzeigen",
+      "section_title": "Text in 8-Punkt-Braillemodus anzeigen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L145-L145"
+      ],
+      "user_preview": "Ich komme bei Text in 8-Punkt-Braillemodus anzeigen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Aktivieren Sie dieses Kontrollfeld, wenn Text in 8-Punkt-Braille angezeigt werden soll.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0186__candidate",
+      "line_number": 931,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__sound_beim_betreten_des_formularmodus::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__sound_beim_betreten_des_formularmodus",
+      "section_title": "Sound beim Betreten des Formularmodus",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L573-L573"
+      ],
+      "user_preview": "Ich komme bei Sound beim Betreten des Formularmodus in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Diese Einstellung steht nicht zur Verfügung, wenn Sound verwenden ausgeschaltet ist.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0189__candidate",
+      "line_number": 501,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__linke_maustaste_feststellen_strg_8::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__linke_maustaste_feststellen_strg_8",
+      "section_title": "Linke Maustaste feststellen (STRG+8)",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2753-L2753"
+      ],
+      "user_preview": "Ich komme bei Linke Maustaste feststellen (STRG+8) in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: JAWS spricht erst dann wieder, wenn Sie STRG+8 erneut drücken, um die Maustaste zu entsperren. Verwenden Sie dazu **Pfeiltasten**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0190__candidate",
+      "line_number": 500,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__linke_maustaste_feststellen_jaws_taste_num_schraegstrich::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__linke_maustaste_feststellen_jaws_taste_num_schraegstrich",
+      "section_title": "Linke Maustaste feststellen (JAWS TASTE+NUM SCHRÄGSTRICH)",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2178-L2178"
+      ],
+      "user_preview": "Ich komme bei Linke Maustaste feststellen (JAWS TASTE+NUM SCHRÄGSTRICH) in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: JAWS spricht erst wieder, wenn Sie JAWS TASTE+NUM SCHRÄGSTRICH erneut drücken, um die Maustaste zu entsperren.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0193__candidate",
+      "line_number": 363,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "tabular_or_listing_source"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__befehle_fuer_die_zwischenablage::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__befehle_fuer_die_zwischenablage",
+      "section_title": "Befehle für die Zwischenablage",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2977-L2999"
+      ],
+      "user_preview": "Ich komme bei Befehle für die Zwischenablage in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Text, den Sie mit dieser Tastenkombination kopiert haben, wird bereits vorhandenem Text in der Zwischenablage hinzugefügt, der vorhandene Text wird nicht überschrieben. Tabelle: Befehle für die Zwischenablage | Beschreibung | Befehl | | --- | --- | | Gewählte Datei oder Text in die Zwischenablage kopieren | STRG+C | | Gewählte Datei oder Text in die Zwischenablage ausschn",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0195__candidate",
+      "line_number": 189,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__abbrechen::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__abbrechen",
+      "section_title": "Abbrechen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5463-L5465"
+      ],
+      "user_preview": "Ich komme bei Abbrechen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Aktivieren Sie den Schalter Abbrechen, um den Dialog zu schließen, ohne Symbole eingefügt zu haben.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0206__candidate",
+      "line_number": 539,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "tabular_or_listing_source"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__spezielle_jaws_touchscreen_gesten__gesten_fuer_allgemeine_windows_und_jaws_befehle::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__spezielle_jaws_touchscreen_gesten__gesten_fuer_allgemeine_windows_und_jaws_befehle",
+      "section_title": "Gesten für allgemeine Windows und JAWS Befehle",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3811-L3840"
+      ],
+      "user_preview": "Ich komme bei Gesten für allgemeine Windows und JAWS Befehle in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: | Geste | Aktion | | --- | --- | | Doppel-Tipp | Aktuelles Element oder Taste der Touch-Tastatur im Standard-Schreibmodus (funktioniert sowohl für Touchnavigation als auch Text lesen) | | Zwei-Finger Wischer Recht-Links | Escape (führt aktuelle ein ESC aus, sowohl bei Touch Navigation, als auch bei Text lesen) | | Zwei-Finger Wischer Rauf-Runter | Anwendung schließen (sow",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0208__candidate",
+      "line_number": 191,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__abbrechen_03::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__abbrechen_03",
+      "section_title": "Abbrechen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5805-L5805"
+      ],
+      "user_preview": "Ich komme bei Abbrechen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Dieser Schalter erlaubt das Schließen der Fensterliste, ohne zu einer anderen Anwendung zu wechseln.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0214__candidate",
+      "line_number": 187,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_anwendungsbezogene_einstellungen_verwalten__zusaetzliche_stimmenprofile_fuer_installierte_vocalizer_expressive_2_stimmen_aktivieren::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_anwendungsbezogene_einstellungen_verwalten__zusaetzliche_stimmenprofile_fuer_installierte_vocalizer_expressive_2_stimmen_aktivieren",
+      "section_title": "Zusätzliche Stimmenprofile für installierte Vocalizer Expressive 2 Stimmen aktivieren",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5184-L5184"
+      ],
+      "user_preview": "Ich komme bei Zusätzliche Stimmenprofile für installierte Vocalizer Expressive 2 Stimmen aktivieren in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Deaktivieren Sie dieses Kontrollfeld, wenn Sie nicht für jede individuelle Stimme ein zusätzliches Profil haben möchten.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_topoff::train::troubleshooting::0002__candidate",
+      "line_number": 174,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_anwendungsbezogene_einstellungen_verwalten__gruppenfeld_sprache__buchstabiergeschwindigkeit_aendern_in_prozent::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_anwendungsbezogene_einstellungen_verwalten__gruppenfeld_sprache__buchstabiergeschwindigkeit_aendern_in_prozent",
+      "section_title": "Buchstabiergeschwindigkeit ändern in Prozent",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5244-L5244"
+      ],
+      "user_preview": "Ich komme bei Buchstabiergeschwindigkeit ändern in Prozent in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Geben Sie einen Wert ein, um den die Sprechgeschwindigkeit reduziert werden soll, wenn JAWS Wörter oder Zeilen buchstabiert.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_topoff::train::troubleshooting::0006__candidate",
+      "line_number": 179,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_anwendungsbezogene_einstellungen_verwalten__ok::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_anwendungsbezogene_einstellungen_verwalten__ok",
+      "section_title": "OK",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5154-L5154"
+      ],
+      "user_preview": "Ich komme bei OK in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie diesen Schalter aktivieren, werden alle Änderungen gespeichert, und Sie kehren in das JAWS Programmfenster zurück.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_topoff::train::troubleshooting::0007__candidate",
+      "line_number": 199,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__braillezeile_hinzufuegen::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__braillezeile_hinzufuegen",
+      "section_title": "Braillezeile hinzufügen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5363-L5363"
+      ],
+      "user_preview": "Ich komme bei Braillezeile hinzufügen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Aktivieren Sie diesen Schalter, wenn Sie eine neue Braillezeile für JAWS installieren möchten.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_topoff::train::troubleshooting::0010__candidate",
+      "line_number": 448,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__fensteransicht_aktualisieren_f5::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__fensteransicht_aktualisieren_f5",
+      "section_title": "Fensteransicht aktualisieren (F5)",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3013-L3013"
+      ],
+      "user_preview": "Ich komme bei Fensteransicht aktualisieren (F5) in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Drücken Sie F5, wenn die Änderungen, die Sie vorgenommen haben, von JAWS nicht wiedergegeben werden.",
+      "final_decision": "keep_as_troubleshooting",
+      "review_note": "Konkreter dokumentierter Fix fuer das Symptom, dass JAWS Aenderungen nicht wiedergibt."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_topoff::train::troubleshooting::0012__candidate",
+      "line_number": 249,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__schliessen::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__schliessen",
+      "section_title": "Schließen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5555-L5557"
+      ],
+      "user_preview": "Ich komme bei Schließen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wählen Sie diesen Schalter, um das Dialogfenster zu schließen, ohne die zuletzt vorgenommenen Änderungen zu speichern.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_topoff::train::troubleshooting::0013__candidate",
+      "line_number": 178,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_anwendungsbezogene_einstellungen_verwalten__gruppenfeld_sprache__stimmhoehenaenderung_bei_grossbuchstaben_in_prozent::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_anwendungsbezogene_einstellungen_verwalten__gruppenfeld_sprache__stimmhoehenaenderung_bei_grossbuchstaben_in_prozent",
+      "section_title": "Stimmhöhenänderung bei Großbuchstaben in Prozent",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5248-L5248"
+      ],
+      "user_preview": "Ich komme bei Stimmhöhenänderung bei Großbuchstaben in Prozent in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Geben Sie einen Wert ein, um den die Stimmhöhe variieren soll, wenn Sie beim Schreiben oder Navigieren auf Großbuchstaben treffen.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_topoff::train::troubleshooting::0015__candidate",
+      "line_number": 316,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "tabular_or_listing_source"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_rahmeneigenschaften__eigenschaften_fuer_auswertungsregeln::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_rahmeneigenschaften__eigenschaften_fuer_auswertungsregeln",
+      "section_title": "Eigenschaften für Auswertungsregeln",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L543-L556"
+      ],
+      "user_preview": "Ich komme bei Eigenschaften für Auswertungsregeln in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: | Beschreibung | Befehl | | --- | --- | | Regel hinzufügen | ALT+A | | Regel an/aus | LEERTASTE | | Regel bearbeiten | ALT+EINGABE | | Regel nach oben | ALT+PFEIL RAUF | | Regel nach unten | ALT+PFEIL RUNTER | | Vergleichswert bearbeiten | F2 | Wenn Sie die Option Regel hinzufügen oder bearbeiten wählen, werden Sie durch eine Abfolge von Dialogfenstern geführt, in denen S",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_topoff::train::troubleshooting::0016__candidate",
+      "line_number": 386,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__bildschirm_neu_aufbauen_einfuegen_escape::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__bildschirm_neu_aufbauen_einfuegen_escape",
+      "section_title": "Bildschirm neu aufbauen (EINFÜGEN+ESCAPE)",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2544-L2546"
+      ],
+      "user_preview": "Ich komme bei Bildschirm neu aufbauen (EINFÜGEN+ESCAPE) in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie den Eindruck haben, dass JAWS Zeichen oder Wörter während des Lesens überspringt, drücken Sie diesen Befehl.",
+      "final_decision": "keep_as_troubleshooting",
+      "review_note": "Konkreter dokumentierter Befehl fuer das Symptom, dass JAWS waehrend des Lesens Zeichen oder Woerter ueberspringt."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_topoff::train::troubleshooting::0019__candidate",
+      "line_number": 248,
+      "cleanup_score": 5,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__regulaeren_ausdruck_verwenden::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_grundeinstellungen__regulaeren_ausdruck_verwenden",
+      "section_title": "Regulären Ausdruck verwenden",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5539-L5539"
+      ],
+      "user_preview": "Ich komme bei Regulären Ausdruck verwenden in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Sie sollten dieses Kontrollfeld nicht aktivieren, wenn Sie nur eine einfache Textsuche durchführen möchten.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v1::train::troubleshooting::0012__candidate",
+      "line_number": 352,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "drop_from_training",
+      "cleanup_reasons": [
+        "generic_troubleshooting_prefix",
+        "low_actionability",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__allgemeine_einstellungen__formularmodus::chunk_02",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__allgemeine_einstellungen__formularmodus",
+      "section_title": "Formularmodus",
+      "chunk_type": "warning",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L4673-L4677"
+      ],
+      "user_preview": "Ich komme bei Formularmodus in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Der Formularmodus wird aktiviert, wenn Sie beim Navigieren mit TAB oder UMSCHALT+TAB auf einem Element landen.",
+      "final_decision": "drop_from_training",
+      "review_note": "Beschreibt nur den Moduswechsel, ohne einen echten Fehlerfall oder konkrete Pruefschritte zu behandeln."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0003__candidate",
+      "line_number": 619,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "drop_from_training",
+      "cleanup_reasons": [
+        "generic_troubleshooting_prefix",
+        "low_actionability",
+        "short_answer"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__die_gruppe_sprachausfuehrlichkeit::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__die_gruppe_sprachausfuehrlichkeit",
+      "section_title": "Die Gruppe Sprachausführlichkeit",
+      "chunk_type": "procedure",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1520-L1525"
+      ],
+      "user_preview": "Ich komme bei Die Gruppe Sprachausführlichkeit in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Jede Stufe kann weiter angepasst werden, damit Sie nur die Informationen bekommen, die Sie auch hören möchten.",
+      "final_decision": "drop_from_training",
+      "review_note": "Erklaert nur eine Einstellungsgruppe allgemein und hilft nicht bei einem konkreten Symptom weiter."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v1::train::troubleshooting::0002__candidate",
+      "line_number": 998,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_tutorial_basics",
+      "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__windows_explorer__dateien_suchen::chunk_01",
+      "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__windows_explorer__dateien_suchen",
+      "section_title": "Dateien suchen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L446-L448"
+      ],
+      "user_preview": "Ich komme bei Dateien suchen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie eine Datei oder Anwendung auf Ihrem Computer nicht finden können, verwenden Sie die Suchfunktion, um die Datei aufzufinden. Drücken Sie F3 oder STRG+F, um das Dialogfeld Suchen zu öffnen.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v1::train::troubleshooting::0006__candidate",
+      "line_number": 975,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_tutorial_basics",
+      "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__einseitiges_dialogfenster_1__kontrollfeld::chunk_01",
+      "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__einseitiges_dialogfenster_1__kontrollfeld",
+      "section_title": "Kontrollfeld",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L314-L314"
+      ],
+      "user_preview": "Ich komme bei Kontrollfeld in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: JAWS sagt den aktuellen Status an, wenn man beim Navigieren ein Kontrollfeld erreicht. Ein Kontrollfeld kann aktiviert oder deaktiviert werden. Verwenden Sie dazu **LEERTASTE**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v1::train::troubleshooting::0010__candidate",
+      "line_number": 961,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_tutorial_basics",
+      "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_papierkorb::chunk_01",
+      "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_papierkorb",
+      "section_title": "Der Papierkorb",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L240-L244"
+      ],
+      "user_preview": "Ich komme bei Der Papierkorb in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie eine Datei oder einen Ordner löschen, werden diese Elemente in den Windows Papierkorb verschoben. Der Papierkorb ist ein Behälter, in dem gelöschte Objekte zwischengelagert werden, bevor man sie dauerhaft vom System entfernt. Verwenden Sie dazu **PFEIL RUNTER**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v1::train::troubleshooting::0014__candidate",
+      "line_number": 1003,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_tutorial_basics",
+      "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__windows_explorer__windows_explorer_aktualisieren::chunk_01",
+      "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__windows_explorer__windows_explorer_aktualisieren",
+      "section_title": "Windows Explorer aktualisieren",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L434-L434"
+      ],
+      "user_preview": "Ich komme bei Windows Explorer aktualisieren in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Es kommt vor, dass der Windows Explorer Ihre Änderungen nicht sofort anzeigt, nachdem Sie Dateien kopiert oder verschoben haben. Wenn Sie zum Beispiel eine Datei gelöscht haben, JAWS diese aber immer noch vorliest, drücken Sie STRG+F5, um die Bildschirmanzeige zu aktualisieren.",
+      "final_decision": "keep_as_troubleshooting",
+      "review_note": "Konkreter dokumentierter Refresh-Schritt fuer den Fall, dass der Explorer Aenderungen nicht sofort anzeigt."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0001__candidate",
+      "line_number": 90,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__markieren_einstellungen::chunk_01",
+      "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__markieren_einstellungen",
+      "section_title": "Markieren Einstellungen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L783-L783"
+      ],
+      "user_preview": "Ich komme bei Markieren Einstellungen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wählen Sie die Attribute, die durch PUNKTE 7 und 8 angezeigt werden sollen und deaktivieren Sie diejenigen, die nicht angezeigt werden sollen. Verwenden Sie dazu **PUNKT 7**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0002__candidate",
+      "line_number": 974,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_tutorial_basics",
+      "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__einseitiges_dialogfenster_1__kombiniertes_eingabefeld::chunk_01",
+      "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__einseitiges_dialogfenster_1__kombiniertes_eingabefeld",
+      "section_title": "Kombiniertes Eingabefeld",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L298-L298"
+      ],
+      "user_preview": "Ich komme bei Kombiniertes Eingabefeld in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie in der Vorschlagsliste keinen passenden Eintrag gefunden haben, geben Sie einen Wert in das Eingabefeld ein. Sie können entweder einen Wert eingeben oder ALT+PFEIL RUNTER drücken, um ein Listenfeld zu öffnen, welches Vorschläge für den Inhalt dieses Felds enthält.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0005__candidate",
+      "line_number": 148,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_navigationsbeispiel__jaws_befehle::chunk_01",
+      "section_id": "jaws_de_braille::sec_navigationsbeispiel__jaws_befehle",
+      "section_title": "JAWS Befehle",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L1800-L1806"
+      ],
+      "user_preview": "Ich komme bei JAWS Befehle in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie bereits mit JAWS vertraut sind, sind diese Befehle einfach zu erlernen. Der JAWS Befehl zum Aktivieren des JAWS-Fensters ist JAWS TASTE+J. Verwenden Sie dazu **RECHTE UMSCHALT**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0006__candidate",
+      "line_number": 985,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_tutorial_basics",
+      "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__orientierung_auf_dem_desktop::chunk_02",
+      "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__orientierung_auf_dem_desktop",
+      "section_title": "Orientierung auf dem Desktop",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L176-L176"
+      ],
+      "user_preview": "Ich komme bei Orientierung auf dem Desktop in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Falls Sie mit TAB nicht zwischen Komponenten navigieren können, drücken Sie WINDOWSTASTE+M, um alle Anwendungen zu minimieren und zur Desktop Listenansicht zurückzukehren. Um von einer Komponente des Desktops zur nächsten zu gelangen, drücken Sie TAB.",
+      "final_decision": "keep_as_troubleshooting",
+      "review_note": "Behandelt ein klares Navigationsproblem mit dokumentiertem Workaround und naechstem Handlungsschritt."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0007__candidate",
+      "line_number": 751,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__allgemein__neue_zeilen_ansagen_wenn::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__allgemein__neue_zeilen_ansagen_wenn",
+      "section_title": "Neue Zeilen ansagen, wenn",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1913-L1918"
+      ],
+      "user_preview": "Ich komme bei Neue Zeilen ansagen, wenn in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: User navigiert links oder recht über einen Zeilenumbruch hinaus: JAWS sagt neue Zeilen an, wenn Sie wort- oder zeichenweise lesen. Aktivieren Sie ein oder mehrere der folgenden Kontrollfelder, um festzulegen, wann JAWS eine neue Zeile melden soll: - Editor bricht Text beim Schreiben um: Editor beim Schreiben Text umbricht - JAWS meldet neue Zeilen, sobald Ihr Editor oder ",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0009__candidate",
+      "line_number": 12,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_01",
+      "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text",
+      "section_title": "Gepufferter Text",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L515-L522"
+      ],
+      "user_preview": "Ich komme bei Gepufferter Text in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Halten Sie einen Textblock oder eine Zahlenfolge zum einfachen Nachschlagen bereit, damit Sie sich diese nicht merken müssen. Sobald der Puffer erstellt ist, können Sie zu einer anderen Stelle im aktuellen Dokument navigieren und sogar zu einem völlig anderen Dokument oder Anwendungen wechseln, während der gepufferte Text verfügbar bleibt. Verwenden Sie dazu **ALT+TAB**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0010__candidate",
+      "line_number": 970,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_tutorial_basics",
+      "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__einseitiges_dialogfenster_1__andere_steuerelemente::chunk_01",
+      "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__einseitiges_dialogfenster_1__andere_steuerelemente",
+      "section_title": "Andere Steuerelemente",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L318-L320"
+      ],
+      "user_preview": "Ich komme bei Andere Steuerelemente in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: OK speichert Ihre Änderungen und wendet diese sofort an, Abbrechen schließt das Dialogfenster, ohne dass von Ihnen vorgenommene Änderungen oder Einträge gespeichert werden. Drücken Sie EINGABE auf diesem Schalter, um alle Einträge zu löschen und alle anderen Optionen auf ihre Standardwerte zurückzusetzen.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0011__candidate",
+      "line_number": 930,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__mausklicktoleranz::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__mausklicktoleranz",
+      "section_title": "Mausklicktoleranz",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L415-L415"
+      ],
+      "user_preview": "Ich komme bei Mausklicktoleranz in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Diese Eingabefelder legen fest, an welcher genauen Position Mausklicks ausgeführt werden, wenn Sie NUM SCHRÄGSTRICH und NUM STERN drücken.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0013__candidate",
+      "line_number": 7,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht::chunk_01",
+      "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht",
+      "section_title": "Auswahl einer geteilten Braille-Ansicht",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L503-L505"
+      ],
+      "user_preview": "Ich komme bei Auswahl einer geteilten Braille-Ansicht in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie JAWS neu starten, werden alle Standardeinstellungen wiederhergestellt, die vor der Aktivierung einer bestimmten Ansicht genutzt wurden. Um die geteilte Braille-Ansicht einzuschalten, drücken Sie ALT+EINFÜGEN+V (ALT+FESTSTELLTASTE+V im Laptop Layout), um das Dialogfenster Braille-Ansicht auswählen zu öffnen.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0014__candidate",
+      "line_number": 988,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_tutorial_basics",
+      "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__start_schalter::chunk_01",
+      "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__start_schalter",
+      "section_title": "Start Schalter",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L190-L194"
+      ],
+      "user_preview": "Ich komme bei Start Schalter in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie das Startmenü nicht verändert haben, öffnet es sich auf Programme, und Programme Untermenü wird angesagt. Drücken Sie EINGABE, um das Startmenü zu öffnen. Verwenden Sie dazu **TAB**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0015__candidate",
+      "line_number": 645,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__sprachverlauf_aktivieren::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__sprachverlauf_aktivieren",
+      "section_title": "Sprachverlauf aktivieren",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1560-L1562"
+      ],
+      "user_preview": "Ich komme bei Sprachverlauf aktivieren in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie den aktuellen Inhalt des Verlaufs löschen möchten, dann können Sie dieses durch Drücken von EINFÜGEN+LEERTASTE, gefolgt von UMSCHALT+H tun. Um den Verlauf anzusehen, drücken Sie EINFÜGEN+LEERTASTE gefolgt von H.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0017__candidate",
+      "line_number": 118,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__statuszellen::chunk_01",
+      "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__statuszellen",
+      "section_title": "Statuszellen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L675-L681"
+      ],
+      "user_preview": "Ich komme bei Statuszellen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Ihre Braillezeile über fünf Statuszellen verfügt, zeigen die Zellen 1 bis 3 Ihre horizontale (x-Achse) Pixelposition (wenn Sie einen Bildschirmcursor verwenden), die Zeilennummer (wenn Sie den virtuellen Cursor verwenden) und/oder die Indexnummer der Sprachausgabe (wenn Sie den Sprachausgabemodus verwenden) an.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0018__candidate",
+      "line_number": 718,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_grafiken_und_symbole__gruppe_allgemein__zwischen_gleichen_rechten_und_linken_tasten_differenzieren::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_grafiken_und_symbole__gruppe_allgemein__zwischen_gleichen_rechten_und_linken_tasten_differenzieren",
+      "section_title": "Zwischen gleichen rechten und linken Tasten differenzieren",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L714-L714"
+      ],
+      "user_preview": "Ich komme bei Zwischen gleichen rechten und linken Tasten differenzieren in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie beispielsweise eine Tastenkombination im Tastaturmanager ändern und dabei LINKE STRG+EINFÜGEN+K drücken, dann kann später, wenn Sie diesen Befehl aktivieren, die LINKE oder RECHTE STRG als Teil der Tastenkombination genutzt werden. Verwenden Sie dazu **linke**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0020__candidate",
+      "line_number": 10,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__attributkennzeichen::chunk_01",
+      "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__attributkennzeichen",
+      "section_title": "Attributkennzeichen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L542-L548"
+      ],
+      "user_preview": "Ich komme bei Attributkennzeichen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Bei Verwendung dieser Ansicht auf einer mehrzeiligen Braillezeile werden Attribute direkt unterhalb der aktiven Zeile angezeigt, die den zugehörigen Text enthält, ohne dass dazwischen ein Trennzeichen steht. Das Drücken einer Cursorroutingtaste auf einem Attribut bewegt den Cursor automatisch zu dem Zeichen, das mit dem Attribut übereinstimmt.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0021__candidate",
+      "line_number": 800,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_ueberschriften_und_rahmen__ueberschriften_ansagen::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_ueberschriften_und_rahmen__ueberschriften_ansagen",
+      "section_title": "Überschriften ansagen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L2469-L2477"
+      ],
+      "user_preview": "Ich komme bei Überschriften ansagen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Überschriften ordnungsgemäß gesetzt wurden, zeigen sie die Beziehung jedes einzelnen Abschnittes der Seite zur Gesamtseite auf. Wählen Sie eine der folgenden Optionen: - Keine Überschriften - JAWS meldet keine Überschriften.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0023__candidate",
+      "line_number": 11,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__fenstertext::chunk_01",
+      "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__fenstertext",
+      "section_title": "Fenstertext",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L576-L576"
+      ],
+      "user_preview": "Ich komme bei Fenstertext in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Der Bereich wird auch leer bleiben, wenn Sie diese Ansicht in einer Anwendung aktivieren, die das Abrufen von Fenstertext nicht unterstützt.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0024__candidate",
+      "line_number": 784,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_links__aufeinander_folgende_doppelte_links_filtern::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_links__aufeinander_folgende_doppelte_links_filtern",
+      "section_title": "Aufeinander folgende doppelte Links filtern",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L2417-L2419"
+      ],
+      "user_preview": "Ich komme bei Aufeinander folgende doppelte Links filtern in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Aktivieren Sie dieses Kontrollfeld, damit JAWS nur Textlinks ansagt, wenn zwei aufeinanderfolgende Links auf einer Webseite, in der Regel ein Grafik- und ein Textlink, auf die gleiche URL verweisen. Bitte beachten Sie, dass beide Links in der Linkliste erscheinen, wenn Sie JAWS TASTE+F7 drücken. Verwenden Sie dazu **Pfeiltasten**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0026__candidate",
+      "line_number": 20,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__automatisches_weiterbewegen::chunk_01",
+      "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__automatisches_weiterbewegen",
+      "section_title": "Automatisches Weiterbewegen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L45-L49"
+      ],
+      "user_preview": "Ich komme bei Automatisches Weiterbewegen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: So wird beispielsweise bei kurzen Zeilen schneller weiter bewegt, so dass Sie schneller zum nächsten Segment gelangen, ohne dass Sie warten müssen, wenn Sie mit dem Lesen fertig sind, in langen Zeilen hingegen wird langsamer weiter bewegt. Sie können die Geschwindigkeit während des Lesens erhöhen oder verringern, rückwärts oder vorwärts springen (mit den Navigationstasten",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0027__candidate",
+      "line_number": 910,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__cursor__blinkrate::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__cursor__blinkrate",
+      "section_title": "Blinkrate",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L197-L197"
+      ],
+      "user_preview": "Ich komme bei Blinkrate in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Diese Auswahl ist nur verfügbar, wenn der Cursorstatus auf Blinkend gesetzt ist. Drücken Sie F6, um von der Strukturansicht direkt in das Eingabefeld zu springen.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0029__candidate",
+      "line_number": 33,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__braillemodus::chunk_01",
+      "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__braillemodus",
+      "section_title": "Braillemodus",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L716-L716"
+      ],
+      "user_preview": "Ich komme bei Braillemodus in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie den Attributmodus auswählen, zeigt JAWS alle Attribute an, einem Textblock mit einem Buchstaben oder Symbol zugewiesen wurden. Wählen Sie das Format, in dem Informationen zur Braillezeile gesendet werden.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0030__candidate",
+      "line_number": 776,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_bilder_grafiken__grafiken_einbeziehen::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_bilder_grafiken__grafiken_einbeziehen",
+      "section_title": "Grafiken einbeziehen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L2393-L2397"
+      ],
+      "user_preview": "Ich komme bei Grafiken einbeziehen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wählen Sie Bezeichnete Grafiken, damit JAWS nur bezeichnete Grafiken ansagt. Wählen Sie Alle Grafiken, damit JAWS alle Grafiken in einem Dokument ansagt.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0032__candidate",
+      "line_number": 843,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__zahlen_und_datumsverarbeitung__zahlenbearbeitung::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__zahlen_und_datumsverarbeitung__zahlenbearbeitung",
+      "section_title": "Zahlenbearbeitung",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L2006-L2012"
+      ],
+      "user_preview": "Ich komme bei Zahlenbearbeitung in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Von JAWS kontrolliert: Wenn diese Option ausgewählt ist, dann gibt JAWS die Zahlen so an die Sprachausgabe weiter, wie sie gelesen werden sollen. Verwenden Sie diese Einstellung, wenn die aktuell verwendete Sprachausgabe bei der Verwendung der Einstellung Von Sprachausgabe gesteuert die Zahlen nicht korrekt spricht. Verwenden Sie dazu **Von Sprachausgabe kontrolliert**.",
+      "final_decision": "keep_as_troubleshooting",
+      "review_note": "Adressiert ein konkretes Fehlverhalten der Sprachausgabe bei Zahlen und nennt die dokumentierte Gegenmassnahme."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0034__candidate",
+      "line_number": 754,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__ansage_der_fortschrittsbalkenaktualisierung::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__ansage_der_fortschrittsbalkenaktualisierung",
+      "section_title": "Ansage der Fortschrittsbalkenaktualisierung",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L2150-L2152"
+      ],
+      "user_preview": "Ich komme bei Ansage der Fortschrittsbalkenaktualisierung in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wählen Sie \"Alles ansagen\", wenn JAWS den Status ansagen soll, sobald er sich verändert. Programme verwenden häufig Fortschrittsbalken, um den Status eines Vorgangs anzuzeigen, wie zum Beispiel bei einer Installation. Verwenden Sie dazu **Tipp:**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0036__candidate",
+      "line_number": 749,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__allgemein__immer_phonetisch_buchstabieren::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__allgemein__immer_phonetisch_buchstabieren",
+      "section_title": "Immer phonetisch buchstabieren",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1942-L1942"
+      ],
+      "user_preview": "Ich komme bei Immer phonetisch buchstabieren in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Ist dieses Kontrollfeld nicht aktiviert, dann bewirken die Befehle Aktuelles Wort oder Zeile buchstabieren (EINFÜGEN+NUM 5 oder EINFÜGEN+PFPEIL RAUF zweimal schnell), dass JAWS jedes Zeichen wie erwartet spricht. Drücken Sie beispielweise EINFÜGEN+NUM 5 zweimal schnell, um \"JAWS\" zu buchstabieren, dann wird das Wort als Julius Anton Wilhelm Siegfried gelesen.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0037__candidate",
+      "line_number": 560,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__studieren_von_gleichungen_im_mathematischen_betrachter::chunk_02",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__studieren_von_gleichungen_im_mathematischen_betrachter",
+      "section_title": "Studieren von Gleichungen im Mathematischen Betrachter",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3208-L3210"
+      ],
+      "user_preview": "Ich komme bei Studieren von Gleichungen im Mathematischen Betrachter in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie eine Braillezeile verwenden, dann bleibt der gesamte Ausdruck auf der Braillezeile stehen, so dass Sie mit den PFEILTASTEN durch einzelne Bereiche des Ausdrucks navigieren können. Durch Drücken einer Cursorroutingtaste über einem Begriff im Ausdruck, wird der Fokus sofort auf die entsprechende Stelle im Ausdruck gesetzt.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0038__candidate",
+      "line_number": 780,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_lesen__flexible_web_aktivieren::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_lesen__flexible_web_aktivieren",
+      "section_title": "Flexible Web aktivieren",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L2328-L2328"
+      ],
+      "user_preview": "Ich komme bei Flexible Web aktivieren in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Diese Einstellung steht nur in den JAWS Standardeinstellungen zur Verfügung (STRG+UMSCHALT+D). Sie können auf das Flexible Web in Edge, Chrome oder Firefox durch Drücken von EINFÜGEN+LEERTASTE, X zugreifen.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0039__candidate",
+      "line_number": 564,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__tastaturbefehle::chunk_02",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__tastaturbefehle",
+      "section_title": "Tastaturbefehle",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1273-L1301"
+      ],
+      "user_preview": "Ich komme bei Tastaturbefehle in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Beispiel: Wenn Sie die meiste Zeit damit verbringen, mit medizinischen Fachausdrücken zu arbeiten, dann ist vielleicht das Health Search on WebMD eine gute Wahl für das Nachschlagewerk. Das bedeutet, dass Sie, während der Cursor sich in einem Dokument oder einer Webseite auf einem Wort befindet, diese Tastenkombination drücken können, um schnell eine Wiktionary Beschreibu",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0040__candidate",
+      "line_number": 756,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__benachrichtigungsregeln_aktivieren::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__benachrichtigungsregeln_aktivieren",
+      "section_title": "Benachrichtigungsregeln aktivieren",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L2207-L2213"
+      ],
+      "user_preview": "Ich komme bei Benachrichtigungsregeln aktivieren in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: So können Sie beispielsweise festlegen, dass JAWS Benachrichtigungen von Outlook nur dann anzeigt, wenn diese einen bestimmten Text enthalten, oder dass JAWS nur einen bestimmten Ton abspielt, anstatt Sie mit einer gesprochenen Nachricht zu unterbrechen. Deaktivieren Sie dieses Kontrollfeld, um alle vom Anwender erstellten Benachrichtigungsregeln auszuschalten. Verwenden ",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0041__candidate",
+      "line_number": 390,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__braille_mathe_editor::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__braille_mathe_editor",
+      "section_title": "Braille Mathe Editor",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3279-L3285"
+      ],
+      "user_preview": "Ich komme bei Braille Mathe Editor in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Wenn Sie Zugang zu einer Braillezeile haben, die auch die Eingabe in Braille unterstützt, und Sie mit dem Nemeth- oder UEB-Math-Code für die Eingabe und das Lesen von mathematischen Inhalten vertraut sind, können Sie mit dem JAWS Braille-Mathe-Editor Ihre eigenen Gleichungen eingeben und in Office 365 bestehende Gleichungen in Word-Dokumenten bearbeiten. Um den Math Edito",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0042__candidate",
+      "line_number": 944,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__strukturierter_modus__optionale_komponenten_einbeziehen__typ::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__strukturierter_modus__optionale_komponenten_einbeziehen__typ",
+      "section_title": "Typ",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L255-L259"
+      ],
+      "user_preview": "Ich komme bei Typ in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Die folgenden Einstellungen stehen zur Verfügung: - Aus: Informationen zum Elementtyp werden nicht auf der Braillezeile angezeigt. Wählen Sie eine der Optionen in der Ausklappliste für Typ, um festzulegen, wo die Information für den Typ in den strukturierten Daten einbezogen werden soll.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0043__candidate",
+      "line_number": 404,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__den_automatischen_grafikbezeichner_verwenden::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__den_automatischen_grafikbezeichner_verwenden",
+      "section_title": "Den automatischen Grafikbezeichner verwenden",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1765-L1773"
+      ],
+      "user_preview": "Ich komme bei Den automatischen Grafikbezeichner verwenden in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Ein Tool Tipp ist eine kurze Beschreibung einer Grafik, die auf dem Bildschirm erscheint, wenn man mit der Maus die Grafik berührt. Um den Automatischen Grafikbezeichner zu aktivieren, öffnen Sie zunächst die gewünschte Anwendung und drücken dann STRG+JAWS TASTE+G.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0044__candidate",
+      "line_number": 916,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__die_gruppe_gesten::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__die_gruppe_gesten",
+      "section_title": "Die Gruppe Gesten",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L583-L585"
+      ],
+      "user_preview": "Ich komme bei Die Gruppe Gesten in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Nutzen Sie die Einstellungen dieser Gruppe, um das Erkennen von Gesten auf Toucscreens zu konfigurieren Diese Einstellungen stehen nur zur Verfügung, wenn die Standardeinstellungsdatei geöffnet ist (STRG+UMSCHALT+D). Die Einstellungen dieser Gruppe bestehen aus Schiebereglern. Wenn Sie ein Element im Fenster der Strukturansicht fokussieren, drücken Sie F6, um Zugriff auf ",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0045__candidate",
+      "line_number": 505,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__mathematik_auf_webseiten::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__mathematik_auf_webseiten",
+      "section_title": "Mathematik auf Webseiten",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3172-L3174"
+      ],
+      "user_preview": "Ich komme bei Mathematik auf Webseiten in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: JAWS unterstützt das Lesen von mathematischen Inhalten in Microsoft Edge, Google Chrome und Mozilla Firefox, die mit MathML erstellt wurden. Wenn Sie eine Braillezeile verwenden und JAWS ist für English Contracted Braille konfiguriert, dann erscheint die Meldung \"Math\" gemeinsam mit dem Ausdruck. Verwenden Sie dazu **EINGABE**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0046__candidate",
+      "line_number": 948,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_settingscenter",
+      "chunk_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__textbetrachter__textbetrachter_anzeigen::chunk_01",
+      "section_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__textbetrachter__textbetrachter_anzeigen",
+      "section_title": "Textbetrachter anzeigen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L393-L393"
+      ],
+      "user_preview": "Ich komme bei Textbetrachter anzeigen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Dieses Kontrollfeld ist standardmäßig nicht aktiviert. Wählen Sie dieses Kontrollfeld, um den Textbetrachter anzuzeigen. Verwenden Sie dazu **EINFÜGEN+LEERTASTE**.",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    },
+    {
+      "id": "jaws_de_teacher_wave_v2_scaleup::train::troubleshooting::0047__candidate",
+      "line_number": 320,
+      "cleanup_score": 4,
+      "cleanup_recommendation": "relabel_to_faq_direct_answer",
+      "cleanup_reasons": [
+        "chunk_type_concept",
+        "generic_troubleshooting_prefix"
+      ],
+      "task_type": "troubleshooting",
+      "doc_id": "jaws_de_hilfe_kernfunktionen",
+      "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_rahmeneigenschaften__fragen_zu_einem_bild_stellen::chunk_01",
+      "section_id": "jaws_de_hilfe_kernfunktionen::sec_rahmeneigenschaften__fragen_zu_einem_bild_stellen",
+      "section_title": "Fragen zu einem Bild stellen",
+      "chunk_type": "concept",
+      "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1105-L1111"
+      ],
+      "user_preview": "Ich komme bei Fragen zu einem Bild stellen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?",
+      "assistant_preview": "Die Dokumentation empfiehlt fuer diesen Fall: Sprechendes Bild KI bietet die Möglichkeit, Nachfragen zu stellen, um zusätzliche Details zu einem Bild zu erhalten, die in der ursprünglichen Beschreibung möglicherweise nicht enthalten waren. Sobald Sie einen Sprechendes Bild Befehle wie etwa EINFÜGEN+LEERTASTE, P, F ausgeführt haben und die Beschreibung im Ergebnisbetrachter angezeigt wird, drücken Sie EINGABE auf dem ",
+      "final_decision": "relabel_to_faq_direct_answer",
+      "review_note": "Beschreibt vor allem eine Funktion, Einstellung oder Einschraenkung, nicht aber einen echten Diagnose- oder Troubleshooting-Fall."
+    }
+  ]
+}

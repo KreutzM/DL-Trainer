@@ -91,6 +91,7 @@ Fokus:
 - Fuer beide Fokus-Wellen liegen bereits reviewbare Stub-Outputs vor, so dass der naechste praktische Schritt jetzt Review und anschliessend ein echter Teacher-Lauf auf denselben Job-Dateien ist.
 - Der konkrete manuelle Pfad dafuer steht jetzt in `docs/qwen_data_expansion_review_runbook.md`.
 - Fuer die erste Bereinigungswelle liegt jetzt zusaetzlich ein heuristischer `troubleshooting`-Cleanup-Report mit konkreten Drop-/Relabel-Kandidaten vor, damit der naechste Gold-Stand nicht nur groesser, sondern auch task-schaerfer wird.
+- Die erste durchgesehene `troubleshooting`-Cleanup-Welle umfasst `72` Faelle: `65` sollten zu `faq_direct_answer` umklassifiziert werden, `5` bleiben als echtes `troubleshooting`, `2` sollten komplett entfallen.
 
 ## Akzeptanzkriterien vor dem naechsten grossen Run
 
