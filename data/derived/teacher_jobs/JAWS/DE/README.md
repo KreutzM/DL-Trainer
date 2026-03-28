@@ -17,5 +17,8 @@ Diese Ablage enthaelt Runner-Eingaben fuer den Teacher-Schritt.
 - `qwen_step_focus_wave_v1_generation_jobs.jsonl`: task-spezifische `step_by_step`-Welle, die nur bereits genutzte Schrittquellen ausschliesst statt pauschal alle Gold-Chunk-IDs
 - `qwen_step_focus_wave_v1_generation_report.json`: Bericht zur task-spezifischen Schrittwelle mit real verbleibender Train/Eval-Ausbeute
 - `qwen_step_focus_wave_v1_job_ids.txt`: extrahierte Job-IDs fuer einen spaeteren echten Teacher-Lauf auf der Schrittwelle
+- `qwen_troubleshooting_relabel_wave1_generation_jobs.jsonl`: FAQ-Reparaturwelle fuer die als `troubleshooting` fehlgelabelten Wave1-Faelle
+- `qwen_troubleshooting_relabel_wave1_generation_report.json`: Bericht zur Reparaturwelle mit den aus dem Review uebernommenen Relabel-Entscheidungen
+- `qwen_troubleshooting_relabel_wave1_job_ids.txt`: extrahierte Job-IDs fuer einen spaeteren echten Teacher-Lauf auf der Reparaturwelle
 
 Die Jobs sind bewusst getrennt von `data/derived/teacher_outputs/`, damit ein spaeterer echter Teacher-Lauf dieselben Job-Dateien konsumieren und neue Outputs zurueckschreiben kann.

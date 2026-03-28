@@ -30,6 +30,8 @@ Diese Ablage enthaelt reviewbare Kandidaten nach dem Teacher-Schritt.
 - `qwen_troubleshooting_cleanup_wave1_keep_ids.txt`: die wenigen Wave1-Faelle, die nach Review als echtes `troubleshooting` erhalten bleiben
 - `qwen_troubleshooting_cleanup_wave1_relabel_ids.txt`: Wave1-Faelle, die nach Review zu `faq_direct_answer` umklassifiziert werden sollten
 - `qwen_troubleshooting_cleanup_wave1_drop_ids.txt`: Wave1-Faelle, die nach Review komplett aus dem Trainingsstand entfernt werden sollten
+- `qwen_troubleshooting_relabel_wave1_stub_teacher_outputs.jsonl`: reviewbare Stub-Outputs fuer die FAQ-Reparaturwelle aus den Relabel-Entscheidungen
+- `qwen_troubleshooting_relabel_wave1_review_packet.json`: kompakte Review-Unterlage fuer die FAQ-Reparaturwelle
 
 Wichtig:
 
