@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 from common import make_parser, read_jsonl, write_jsonl
+from teacher_quality_gates import blocking_artifact_reasons
 
 
 def build_promoted_from(row: dict, input_path: str) -> dict:
@@ -55,6 +56,16 @@ def main() -> None:
     approved = [row for row in rows if row.get("review_status") == "human_reviewed"]
     if not approved:
         raise SystemExit("No human_reviewed teacher outputs found to promote")
+
+    blocking_failures: list[str] = []
+    for row in approved:
+        reasons = blocking_artifact_reasons(row)
+        if reasons:
+            blocking_failures.append(f"{row['output_id']}: " + "; ".join(reasons))
+    if blocking_failures:
+        raise SystemExit(
+            "Cannot promote human_reviewed outputs with blocking artifacts:\n" + "\n".join(blocking_failures)
+        )
 
     train_rows: list[dict] = []
     eval_rows: list[dict] = []

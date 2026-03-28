@@ -7,6 +7,7 @@ from typing import Any
 from jsonschema import Draft202012Validator
 
 from common import make_parser, read_json, read_jsonl
+from teacher_quality_gates import blocking_artifact_reasons
 
 
 REVIEW_STATUSES = {"draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"}
@@ -108,6 +109,10 @@ def validate_outputs(
             failures.append(f"Output row {idx}: candidate teacher_provider mismatch")
         if row.get("review_status") in {"human_reviewed", "rejected"} and not row.get("approved_by"):
             failures.append(f"Output row {idx}: approved_by required for reviewed outputs")
+        if row.get("review_status") in {"human_reviewed", "promoted"}:
+            artifact_reasons = blocking_artifact_reasons(row)
+            if artifact_reasons:
+                failures.append(f"Output row {idx}: blocking artifacts present: {'; '.join(artifact_reasons)}")
         validate_chunk_links(f"Output row {idx}", row, chunk_index, failures)
     return failures, output_index
 

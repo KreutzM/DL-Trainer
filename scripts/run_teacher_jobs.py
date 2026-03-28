@@ -291,13 +291,19 @@ def build_output(
         record_type = replay_row["record_type"]
     else:
         if job["expected_output_kind"] == "sft_sample":
+            stub_answer = (
+                job["fixture_payload"].get("assistant_message")
+                or job["fixture_payload"].get("draft_answer")
+            )
+            if not stub_answer:
+                raise SystemExit(f"Stub fixture missing draft answer for {job['job_id']}")
             candidate = build_sft_candidate(
                 job,
                 teacher_model,
                 teacher_provider,
                 teacher_run_id,
                 generation_mode,
-                job["fixture_payload"]["assistant_message"],
+                stub_answer,
             )
             record_type = "sft_sample"
         else:
@@ -414,6 +420,9 @@ def build_prompt_payload(job: dict) -> str:
         "source_chunk_ids": job["source_chunk_ids"],
         "source_excerpt": job.get("source_excerpt", ""),
         "source_records": source_records,
+        "case_description": job.get("fixture_payload", {}).get("case_description"),
+        "expected_behavior": job.get("fixture_payload", {}).get("expected_behavior"),
+        "rubric": job.get("fixture_payload", {}).get("rubric"),
     }
     instructions = [
         "Nutze nur den bereitgestellten Quellkontext.",
