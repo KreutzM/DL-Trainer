@@ -117,3 +117,7 @@ Der Clean-Gate-Lauf stellt sicher, dass:
 ## Historischer Hinweis
 
 Der fruehere Beispielpfad `data/exports/qwen_sft/JAWS/DE/gold_v1/` bleibt aus Rueckverfolgbarkeitsgruenden im Repository, ist aber nicht mehr der empfohlene Standard fuer den JAWS-DE-LoRA-Lauf.
+
+## Server-Ready 4090 v2
+
+Fuer den naechsten echten Linux-Cloud-Run ist der eingefrorene Export `data/exports/qwen_sft/JAWS/DE/qwen3_8b_jaws_de_lora_4090_v2_20260328/` zusammen mit der Config `training/transformers/qwen3_8b_jaws_de_lora_4090_v2.yaml` vorgesehen. Der komplette Startpfad mit Preflight, Startskript, Resume und Post-Run-Smoke-Test ist in `docs/qwen3_8b_jaws_de_lora_4090_v2_runbook.md` beschrieben.

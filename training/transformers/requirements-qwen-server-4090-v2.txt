@@ -1,0 +1,8 @@
+-r ../../requirements.txt
+accelerate==1.13.0
+bitsandbytes==0.49.2
+datasets==4.8.4
+peft==0.18.1
+safetensors==0.6.2
+tensorboard==2.20.0
+transformers==4.56.0
