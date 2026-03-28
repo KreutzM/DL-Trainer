@@ -19,6 +19,8 @@ Diese Ablage enthaelt reviewbare Kandidaten nach dem Teacher-Schritt.
 - `wave1_gpt54_subset_raw_responses.jsonl`: rohe strukturierte GPT-5.4-Responses fuer eine kleine Wave1-Teilmenge
 - `wave1_gpt54_subset_teacher_outputs.jsonl`: daraus abgeleitete reviewbare Teacher-Outputs
 - `wave1_gpt54_subset_reviewed_outputs.jsonl`: dieselbe Teilmenge nach Review
+- `qwen_focus_wave_v1_stub_teacher_outputs.jsonl`: reviewbare Stub-Outputs fuer die neue FAQ-Fokus-Welle, direkt aus den Wave-Fixtures materialisiert
+- `qwen_step_focus_wave_v1_stub_teacher_outputs.jsonl`: reviewbare Stub-Outputs fuer die task-spezifische `step_by_step`-Welle
 
 Wichtig:
 
@@ -31,3 +33,4 @@ Wichtig:
 - `qwen_data_expansion_wave1_reviewed_outputs.jsonl`: gezielt kuratierte Ausbau-Menge aus human-reviewten Wave2-Outputs, bereits gegen den aktuellen Clean-Gold-Stand exkludiert
 - `qwen_data_expansion_wave1_output_ids.txt`: zugehoerige Output-IDs fuer Promotion oder weitere Review-Schritte
 - `qwen_data_expansion_wave1_report.json`: Auswahlbericht mit Engpaessen, Exclusions gegen Gold und Artefaktfiltern
+- Die neuen `qwen_*_stub_teacher_outputs.jsonl` sind nur reviewbare Zwischenartefakte, noch keine freigegebenen Gold-Daten und kein Ersatz fuer einen spaeteren echten Teacher-Lauf.

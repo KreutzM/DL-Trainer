@@ -86,8 +86,9 @@ Fokus:
 
 - `qwen_data_expansion_wave1` hat aus bereits human-reviewten Wave2-Outputs nur `18` sicher promotable Rows geliefert, ohne neue `faq_direct_answer`- oder `step_by_step`-Ausbeute.
 - Die neue fokussierte Teacher-Welle `qwen_focus_wave_v1` kann den FAQ-Bereich sofort verbreitern: `136` Jobs fuer `faq_direct_answer` plus `1` verbliebener `step_by_step`-Job.
-- Der separate Gap-Audit zeigt, dass nach den aktuellen Gold- und Ausbau-Exclusions im bestehenden Chunk-Pool nur noch `1` echter `step_by_step`-Kandidat uebrig ist.
-- Daraus folgt: Der naechste echte Hebel ist keine weitere generische Chunk-Welle, sondern eine neue gezielte Quell- oder Teacher-Welle fuer prozedurale BrailleIn-/SettingsCenter-Abschnitte.
+- Der strenge globale Gap-Audit zeigt, dass nach pauschalen Gold-/Ausbau-Exclusions im bestehenden Chunk-Pool nur noch `1` freier `step_by_step`-Kandidat uebrig ist.
+- Die neue task-spezifische Schrittwelle `qwen_step_focus_wave_v1` korrigiert diese zu grobe Sicht: Wenn nur bereits genutzte `step_by_step`-Quellen ausgeschlossen werden, bleiben `11` saubere neue Schrittjobs (`9` Train / `2` Eval) fuer Braille- und Hilfe-Kernfunktionen uebrig.
+- Fuer beide Fokus-Wellen liegen bereits reviewbare Stub-Outputs vor, so dass der naechste praktische Schritt jetzt Review und anschliessend ein echter Teacher-Lauf auf denselben Job-Dateien ist.
 
 ## Akzeptanzkriterien vor dem naechsten grossen Run
 

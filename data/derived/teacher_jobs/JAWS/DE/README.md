@@ -14,5 +14,8 @@ Diese Ablage enthaelt Runner-Eingaben fuer den Teacher-Schritt.
 - `qwen_focus_wave_v1_job_ids.txt`: extrahierte Job-IDs fuer einen spaeteren echten Teacher-Lauf auf der fokussierten Qwen-Welle
 - `qwen_step_by_step_gap_report.json`: Audit, wie viele echte `step_by_step`-Kandidaten nach aktuellen Exclusions im bestehenden Chunk-Pool noch verbleiben
 - `qwen_step_by_step_candidate_chunk_ids.txt`: die dazugehoerigen verbleibenden Chunk-IDs fuer gezielte Nacharbeit oder neue Quellwellen
+- `qwen_step_focus_wave_v1_generation_jobs.jsonl`: task-spezifische `step_by_step`-Welle, die nur bereits genutzte Schrittquellen ausschliesst statt pauschal alle Gold-Chunk-IDs
+- `qwen_step_focus_wave_v1_generation_report.json`: Bericht zur task-spezifischen Schrittwelle mit real verbleibender Train/Eval-Ausbeute
+- `qwen_step_focus_wave_v1_job_ids.txt`: extrahierte Job-IDs fuer einen spaeteren echten Teacher-Lauf auf der Schrittwelle
 
 Die Jobs sind bewusst getrennt von `data/derived/teacher_outputs/`, damit ein spaeterer echter Teacher-Lauf dieselben Job-Dateien konsumieren und neue Outputs zurueckschreiben kann.
