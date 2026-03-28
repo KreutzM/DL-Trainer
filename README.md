@@ -94,6 +94,7 @@ python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_d
 ## Repo-Navigation
 
 - `docs/` - Architektur, Policies, Review-Regeln, Repo-Spezifikation, Qwen-Export-Runbook
+- `tools/jsonl_editor/` - statische Browser-UI fuer reviewbare JSONL-Dateien
 - `schemas/` - JSON-Schemas fuer Kernartefakte
 - `prompts/` - Teacher- und Judge-Prompts
 - `scripts/` - reproduzierbare ETL-/Validierungs-/Export-Skripte
@@ -117,3 +118,13 @@ python scripts/smoke_test_qwen_sft.py --config training/ms-swift/qwen3_8b_jaws_d
 4. Teacher-Jobs aus `data/derived/teacher_jobs/` laufen lassen, Outputs in `data/derived/teacher_outputs/` reviewen und gezielt nach `data/gold/` uebernehmen.
 5. Evals in `data/gold/eval/` aus echten Supportfaellen aufbauen.
 6. Gold-Daten nach `data/exports/qwen_sft/` exportieren und den Dry-Run fuer Qwen3-8B pruefen.
+
+## JSONL-Editor
+
+Fuer den manuellen Review von Teacher-Outputs und Gold-Dateien gibt es einen lokalen Browser-Editor:
+
+```bash
+python scripts/editor_server.py --open-browser
+```
+
+Details stehen in `docs/jsonl_editor.md`.
