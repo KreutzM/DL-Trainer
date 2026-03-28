@@ -11,15 +11,18 @@ Dieser Ordner enthaelt den aktiven Qwen3-8B-PEFT/QLoRA-Pfad fuer JAWS-DE auf Bas
 
 - Finaler Datensatz-Freeze: `data/exports/qwen_sft/JAWS/DE/qwen3_8b_jaws_de_lora_4090_v2_20260328`
 - Startskript: `scripts/start_qwen3_8b_jaws_de_lora_4090_v2.sh`
+- Environment-Bootstrap: `scripts/bootstrap_qwen_server_4090_env.sh`
 - Preflight: `scripts/preflight_qwen_lora_server.py`
 - Trainingsrunner: `scripts/run_qwen_lora_training.py`
 - Smoke-Test: `scripts/run_qwen3_8b_jaws_de_lora_4090_v2_smoke.sh`
 - Runbook: `docs/qwen3_8b_jaws_de_lora_4090_v2_runbook.md`
+- Cluster-Runbook: `docs/qwen3_8b_jaws_de_lora_4090_v2_cluster_runbook.md`
+- Datenausbauplan: `docs/qwen3_8b_jaws_de_lora_data_expansion_plan.md`
 
 ## Ablauf
 
 1. Datensatz-Freeze und Export validieren.
-2. Server-Environment mit `training/transformers/requirements-qwen-server-4090-v2.txt` aufsetzen.
+2. Server-Environment mit `scripts/bootstrap_qwen_server_4090_env.sh` oder manuell mit passendem CUDA-PyTorch plus `training/transformers/requirements-qwen-server-4090-v2.txt` aufsetzen.
 3. `python scripts/preflight_qwen_lora_server.py --config training/transformers/qwen3_8b_jaws_de_lora_4090_v2.yaml`
 4. `bash scripts/start_qwen3_8b_jaws_de_lora_4090_v2.sh`
 5. Nach dem Lauf `bash scripts/run_qwen3_8b_jaws_de_lora_4090_v2_smoke.sh`

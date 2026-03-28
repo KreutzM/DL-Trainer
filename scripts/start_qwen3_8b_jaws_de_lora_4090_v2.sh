@@ -10,6 +10,21 @@ LOG_DIR_REL="training/transformers/logs/${RUN_NAME}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 TIMESTAMP="$(date -u +"%Y%m%dT%H%M%SZ")"
 
+resolve_python_bin() {
+  if command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
+    return 0
+  fi
+
+  if [[ "${PYTHON_BIN}" == "python" ]] && command -v python3 >/dev/null 2>&1; then
+    PYTHON_BIN="python3"
+    return 0
+  fi
+
+  echo "Python interpreter not found: ${PYTHON_BIN}" >&2
+  echo "Set PYTHON_BIN explicitly or ensure python/python3 is on PATH." >&2
+  exit 1
+}
+
 usage() {
   echo "Usage:"
   echo "  scripts/start_qwen3_8b_jaws_de_lora_4090_v2.sh"
@@ -69,6 +84,7 @@ export TOKENIZERS_PARALLELISM=false
 export PYTHONUNBUFFERED=1
 
 cd "${REPO_ROOT}"
+resolve_python_bin
 
 "${PYTHON_BIN}" scripts/preflight_qwen_lora_server.py \
   --config "${CONFIG_REL}" \

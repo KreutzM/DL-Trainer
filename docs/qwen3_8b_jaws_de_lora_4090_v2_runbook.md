@@ -2,16 +2,17 @@
 
 ## Zweck
 
-Dieses Runbook beschreibt den naechsten echten serverseitigen Qwen3-8B-LoRA-v2-Lauf auf einem Linux-Cloud-Server mit RTX 4090. Der Trainingspfad bleibt beim vorhandenen `training/transformers`-Stack.
+Dieses Runbook beschreibt den naechsten echten serverseitigen Qwen3-8B-LoRA-v2-Lauf auf einem Linux-Cloud-Server mit RTX 4090. Der Trainingspfad bleibt beim vorhandenen `training/transformers`-Stack. Fuer Slurm-/Cluster-Umgebungen gibt es zusaetzlich das spezialisierte Runbook `docs/qwen3_8b_jaws_de_lora_4090_v2_cluster_runbook.md`.
 
 ## Fixe Eingaben
 
-- Branch: `feat/prepare-4090-server-run`
+- Branch: `main`
 - Trainingsconfig: `training/transformers/qwen3_8b_jaws_de_lora_4090_v2.yaml`
 - Finaler Datensatz-Freeze: `data/exports/qwen_sft/JAWS/DE/qwen3_8b_jaws_de_lora_4090_v2_20260328`
 - Startskript: `scripts/start_qwen3_8b_jaws_de_lora_4090_v2.sh`
 - Preflight: `scripts/preflight_qwen_lora_server.py`
 - Smoke-Test: `scripts/run_qwen3_8b_jaws_de_lora_4090_v2_smoke.sh`
+- Optionales Environment-Bootstrap: `scripts/bootstrap_qwen_server_4090_env.sh`
 
 ## Output-Konvention
 
@@ -27,28 +28,43 @@ Dieses Runbook beschreibt den naechsten echten serverseitigen Qwen3-8B-LoRA-v2-L
 ```bash
 git clone <repo-url>
 cd DL-Trainer
-git checkout feat/prepare-4090-server-run
+git checkout main
 ```
 
 ## 2. Python-Umgebung aufsetzen
 
-Empfohlen ist Python `3.11.x`. Die Config verlangt Linux, CUDA und mindestens einen 4090-kompatiblen GPU-Slot mit mindestens 20 GB VRAM.
+Empfohlen ist Python `3.10+`. Die Config verlangt Linux, CUDA und mindestens einen 4090-kompatiblen GPU-Slot mit mindestens 20 GB VRAM.
 
 ```bash
-python3.11 -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip setuptools wheel
 ```
 
+Falls `python -m venv` auf dem Zielserver nicht verfuegbar ist, nutze stattdessen:
+
+```bash
+bash scripts/bootstrap_qwen_server_4090_env.sh
+source ~/venvs/dl-trainer-qwen/bin/activate
+```
+
 ## 3. PyTorch mit CUDA installieren
 
-Installiere eine CUDA-faehige Linux-PyTorch-Version passend zum Server-Treiber ueber den offiziellen PyTorch-Selector:
+Installiere eine CUDA-faehige Linux-PyTorch-Version passend zum Server-Treiber ueber den offiziellen PyTorch-Selector oder nutze das Bootstrap-Skript:
 
 - https://pytorch.org/get-started/locally/
 
 Danach die Repo-Abhaengigkeiten fuer den Run installieren:
 
 ```bash
+pip install -r training/transformers/requirements-qwen-server-4090-v2.txt
+```
+
+Getesteter Cluster-Pfad:
+
+```bash
+python -m pip install --index-url https://download.pytorch.org/whl/cu128 \
+  torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0
 pip install -r training/transformers/requirements-qwen-server-4090-v2.txt
 ```
 

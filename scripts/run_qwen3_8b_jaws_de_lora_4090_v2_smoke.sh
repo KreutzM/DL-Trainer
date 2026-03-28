@@ -10,6 +10,21 @@ POST_RUN_DIR_REL="training/transformers/outputs/${RUN_NAME}/post_run"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 TIMESTAMP="$(date -u +"%Y%m%dT%H%M%SZ")"
 
+resolve_python_bin() {
+  if command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
+    return 0
+  fi
+
+  if [[ "${PYTHON_BIN}" == "python" ]] && command -v python3 >/dev/null 2>&1; then
+    PYTHON_BIN="python3"
+    return 0
+  fi
+
+  echo "Python interpreter not found: ${PYTHON_BIN}" >&2
+  echo "Set PYTHON_BIN explicitly or ensure python/python3 is on PATH." >&2
+  exit 1
+}
+
 ADAPTER_REL="${DEFAULT_ADAPTER_REL}"
 OUTPUT_REL="${POST_RUN_DIR_REL}/smoke_test_${TIMESTAMP}.json"
 
@@ -32,6 +47,7 @@ esac
 
 mkdir -p "${REPO_ROOT}/${POST_RUN_DIR_REL}"
 cd "${REPO_ROOT}"
+resolve_python_bin
 
 "${PYTHON_BIN}" scripts/smoke_test_qwen_lora_adapter.py \
   --config "${CONFIG_REL}" \
