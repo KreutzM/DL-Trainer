@@ -134,6 +134,24 @@ def build_batch_teacher_response_schema(batch_jobs: list[dict[str, Any]]) -> dic
     }
 
 
+def answer_contract_for_task(task_type: str) -> str:
+    if task_type == "clarification":
+        return (
+            "needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; "
+            "answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]"
+        )
+    if task_type == "uncertainty_escalation":
+        return (
+            "escalate=true; uncertainty_reason kurz nennen; Antwort muss Evidenzgrenze sichtbar machen; "
+            "needs_clarification=false"
+        )
+    if task_type == "step_by_step":
+        return "steps nur mit echten Schritten aus der Quelle fuellen; keine zweite oder widerspruechliche Schrittfolge"
+    if task_type == "troubleshooting":
+        return "symptombezogen antworten; dokumentierte Bedingung, Pruefung oder Abhilfe klar benennen"
+    return "direkte, dokumentationsgebundene Antwort ohne unnoetige Vorrede"
+
+
 def build_prompt(batch_jobs: list[dict[str, Any]], simulations: dict[str, dict[str, Any]], *, repo_root: Path) -> str:
     prompt_template = load_repo_text(repo_root, "prompts/teacher/jaws_de_support_answer_mvp.md")
     prompt_parts = [
@@ -157,9 +175,12 @@ def build_prompt(batch_jobs: list[dict[str, Any]], simulations: dict[str, dict[s
                 f"- target_split: {job['target_split']}",
                 f"- source_doc_ids: {', '.join(job['source_doc_ids'])}",
                 f"- source_chunk_ids: {', '.join(job['source_chunk_ids'])}",
+                f"- chunk_type: {job.get('chunk_type') or 'n/a'}",
+                f"- section_path_text: {job.get('section_path_text') or 'n/a'}",
                 f"- difficulty: {user_simulation['difficulty']}",
                 f"- phrasing_style: {user_simulation['phrasing_style']}",
                 f"- user_goal: {user_simulation['user_goal']}",
+                f"- output_contract: {answer_contract_for_task(job['task_type'])}",
                 "- user_request:",
                 compact_text(user_simulation["request_text"]),
                 "- expected_behavior:",

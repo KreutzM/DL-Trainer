@@ -101,6 +101,52 @@ python scripts/promote_teacher_outputs.py ^
   --allow-codex-reviewed
 ```
 
+## Kleine Qualitaetsvalidierungswelle
+
+Vor einer groesseren echten Produktionswelle soll fuer JAWS-DE zunaechst eine kleine, aber belastbare Validierungswelle laufen.
+
+Empfohlener Ablauf:
+
+```bash
+python scripts/build_jaws_de_validation_wave.py ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
+  --job-ids-output data/derived/teacher_jobs/JAWS/DE/codex_cli_support_validation_v1_job_ids.txt ^
+  --report-output data/derived/teacher_jobs/JAWS/DE/codex_cli_support_validation_v1_selection_report.json
+
+python scripts/run_codex_cli_support_mvp_pipeline.py ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
+  --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_support_validation_v1_job_ids.txt ^
+  --run-name codex_cli_support_validation_v2 ^
+  --user-sim-batch-size 4 ^
+  --judge-batch-size 4 ^
+  --timeout-sec 900 ^
+  --promote
+
+python scripts/report_jaws_de_validation_wave.py ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
+  --user-simulations data/derived/user_simulations/JAWS/DE/codex_cli_support_validation_v2_user_simulations.jsonl ^
+  --raw-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_raw_responses.jsonl ^
+  --judge-output data/derived/teacher_reviews/JAWS/DE/codex_cli_support_validation_v2_judge_results.jsonl ^
+  --reviewed-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl ^
+  --train-output data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl ^
+  --eval-output data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl ^
+  --report-output data/derived/teacher_reviews/JAWS/DE/codex_cli_support_validation_v2_validation_report.json
+```
+
+Bewusst so gesetzt:
+
+- `20` Jobs statt Minimalprobe
+- alle `5` Task-Typen
+- `10` Train / `10` Eval
+- mehrere Dokumentbereiche
+- kleinere User-Sim- und Judge-Batches (`4`) fuer robustere mittlere Wellen
+
+Wichtige Interpretationsregel:
+
+- Nicht nur auf Approval-Quote schauen.
+- Besonders auf Fail-Muster bei `step_by_step` und auf task-konforme `clarification` achten.
+- Eine Welle ist erst dann ein gutes Freigabesignal, wenn sowohl Gold-Train als auch Gold-Eval entstehen und die Rejects plausibel sind.
+
 ## I/O-Struktur des echten Codex-CLI-MVP-Pfads
 
 Pro Batch:

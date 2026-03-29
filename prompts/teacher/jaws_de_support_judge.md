@@ -33,7 +33,7 @@ Bewerte, ob eine simulierte Nutzeranfrage und die dazu erzeugte Support-Antwort 
 
 JSON mit:
 - `decision`
-- `quality_score`
+- `quality_score` als ganze Zahl von 0 bis 100
 - `summary`
 - `blocking_reasons`
 - `strengths`

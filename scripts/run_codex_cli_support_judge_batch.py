@@ -93,6 +93,13 @@ def build_judge_schema(batch_jobs: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def normalize_quality_score(raw_score: Any) -> int:
+    score = int(raw_score)
+    if 0 <= score <= 10:
+        return score * 10
+    return score
+
+
 def render_teacher_answer(teacher_output: dict) -> str:
     answer_text = ""
     candidate = teacher_output["candidate"]
@@ -130,6 +137,9 @@ def build_prompt(batch_jobs: list[dict[str, Any]], simulations: dict[str, dict],
                 f"- target_split: {job['target_split']}",
                 f"- source_doc_ids: {', '.join(job['source_doc_ids'])}",
                 f"- source_chunk_ids: {', '.join(job['source_chunk_ids'])}",
+                f"- chunk_type: {job.get('chunk_type') or 'n/a'}",
+                f"- section_path_text: {job.get('section_path_text') or 'n/a'}",
+                f"- expected_behavior: {str(job.get('fixture_payload', {}).get('expected_behavior') or 'n/a')}",
                 "- user_request:",
                 compact_text(simulation["request_text"]),
                 "- support_answer:",
@@ -161,6 +171,7 @@ def build_judge_row(
     prompt_chars: int,
     source_excerpt_chars: int,
 ) -> dict[str, Any]:
+    normalized_quality_score = normalize_quality_score(parsed["quality_score"])
     return {
         "review_id": f"{reviewer_run_id}::{job['job_id']}::review",
         "job_id": job["job_id"],
@@ -180,7 +191,7 @@ def build_judge_row(
         "reviewer_prompt_version": JUDGE_PROMPT_VERSION,
         "generation_mode": JUDGE_MODE,
         "decision": parsed["decision"],
-        "quality_score": parsed["quality_score"],
+        "quality_score": normalized_quality_score,
         "summary": parsed["summary"].strip(),
         "blocking_reasons": parsed.get("blocking_reasons", []),
         "strengths": parsed.get("strengths", []),
@@ -228,6 +239,11 @@ def apply_auto_review(teacher_output: dict[str, Any], judge_row: dict[str, Any])
     artifact_reasons = blocking_artifact_reasons(reviewed)
     if artifact_reasons:
         auto_review["blocking_reasons"] = sorted(set(auto_review["blocking_reasons"] + artifact_reasons))
+        auto_review["decision"] = "reject"
+    if auto_review["decision"] == "approve" and int(auto_review["quality_score"]) < 70:
+        auto_review["blocking_reasons"] = sorted(
+            set(auto_review["blocking_reasons"] + ["approve decision below minimum quality score threshold"])
+        )
         auto_review["decision"] = "reject"
 
     approved = auto_review["decision"] == "approve" and not auto_review["blocking_reasons"]

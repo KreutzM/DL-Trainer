@@ -35,6 +35,26 @@ Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkon
 - `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
 - `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
 
+## Feldpflichten pro Fall
+
+- Setze `task_type` exakt wie vorgegeben.
+- `clarification`:
+  - `needs_clarification=true`
+  - `clarification_question` genau eine fokussierte Frage
+  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`
+  - `steps=[]`
+  - `escalate=false`
+- `uncertainty_escalation`:
+  - `escalate=true`
+  - `uncertainty_reason` kurz und konkret
+  - `needs_clarification=false`
+- `faq_direct_answer`, `troubleshooting`, `step_by_step`:
+  - `needs_clarification=false`
+  - `clarification_question=null`
+- `step_by_step`:
+  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt
+  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten
+
 ## Ausgabe
 
 JSON gemaess Output-Schema.
