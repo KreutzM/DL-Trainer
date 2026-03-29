@@ -2,6 +2,12 @@
 
 Diese Ablage enthaelt reviewbare Kandidaten nach dem Teacher-Schritt.
 
+Produktiver neuer Pfad:
+
+- echte Roh-Responses aus Codex CLI
+- reviewbare Teacher-Outputs, die aus diesen Roh-Responses materialisiert wurden
+- klare Trennung zu Stub-/Fixture-/Legacy-Artefakten
+
 - `seed_sft_candidates.jsonl`: kleine Seed-Preview-Faelle direkt aus der Rezeptlogik, Status `seed`
 - `seed_eval_cases.jsonl`: kleine Seed-Eval-Preview-Faelle, Status `seed`
 - `seed_teacher_outputs.jsonl`: kleine Runner-Ausgabe im Teacher-Output-Format
@@ -32,6 +38,10 @@ Diese Ablage enthaelt reviewbare Kandidaten nach dem Teacher-Schritt.
 - `qwen_troubleshooting_cleanup_wave1_drop_ids.txt`: Wave1-Faelle, die nach Review komplett aus dem Trainingsstand entfernt werden sollten
 - `qwen_troubleshooting_relabel_wave1_stub_teacher_outputs.jsonl`: reviewbare Stub-Outputs fuer die FAQ-Reparaturwelle aus den Relabel-Entscheidungen
 - `qwen_troubleshooting_relabel_wave1_review_packet.json`: kompakte Review-Unterlage fuer die FAQ-Reparaturwelle
+- `codex_cli_smoke_v1_raw_responses.jsonl`: echter kleiner Proof-Batch, direkt via Codex CLI mit GPT-5.4 erzeugt
+- `codex_cli_smoke_v1_teacher_outputs.jsonl`: daraus materialisierte reviewbare Teacher-Outputs
+- `codex_cli_smoke_v1_reviewed_teacher_outputs.jsonl`: derselbe Proof-Batch nach Review
+- `codex_cli_smoke_v1_report.json`: Batchbericht fuer den echten Codex-CLI-Lauf
 
 Wichtig:
 
@@ -46,3 +56,5 @@ Wichtig:
 - `qwen_data_expansion_wave1_report.json`: Auswahlbericht mit Engpaessen, Exclusions gegen Gold und Artefaktfiltern
 - Die neuen `qwen_*_stub_teacher_outputs.jsonl` sind nur reviewbare Zwischenartefakte, noch keine freigegebenen Gold-Daten und kein Ersatz fuer einen spaeteren echten Teacher-Lauf.
 - Die neuen `qwen_troubleshooting_cleanup_wave1_*`-Artefakte sind keine Teacher-Outputs, sondern Review-Unterlagen fuer die gezielte Bereinigung des bestehenden Gold-Stands.
+- Fuer neue produktive Wellen gilt: `teacher_provider=codex_cli` und `generation_mode=teacher_runner_codex_cli_v1`.
+- Historische `teacher_provider=codex`-Dateien koennen materialisierte oder importierte Alt-Artefakte enthalten und sind nicht automatisch als echter CLI-Run zu lesen.

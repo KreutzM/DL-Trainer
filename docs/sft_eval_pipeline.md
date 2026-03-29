@@ -81,25 +81,25 @@ Gold-Dateien enthalten nur promotete Faelle. Jeder Gold-Datensatz verweist ueber
 
 `run_teacher_jobs.py --mode replay --replay-input <jsonl>` uebernimmt vorbereitete Kandidaten im Teacher-Output-Format. Damit laesst sich spaeter ein externer Teacher-Lauf in dieselbe Struktur zurueckspielen, ohne das Repo umzubauen.
 
-### Codex / GPT-5.4
+### Codex CLI / GPT-5.4
 
-Der primaere echte Teacher-Pfad fuer Wave1 ist jetzt Codex selbst.
+Der primaere echte Teacher-Pfad ist jetzt Codex CLI direkt.
 
 Praktisch bedeutet das:
 
-- Codex liest die Jobs direkt aus dem Repo
-- Codex formuliert die sichtbaren Endantworten selbst
-- die Roh-Responses werden im Schema `schemas/teacher_response.schema.json` abgelegt
-- `run_teacher_jobs.py --mode codex` materialisiert daraus reviewbare Teacher-Outputs
+- `scripts/run_codex_cli_teacher_batch.py` liest die Jobs direkt aus dem Repo
+- pro Job wird `codex exec` mit `gpt-5.4` ausgefuehrt
+- die sichtbare JSON-Antwort wird als echte Roh-Response gespeichert
+- optional entstehen daraus im selben Lauf reviewbare Teacher-Outputs
 
 Wichtige Punkte:
 
-- kein externer API-Runner als Hauptarchitektur
-- `teacher_provider=codex`, `teacher_model=gpt-5.4` und `teacher_run_id` bleiben durchgaengig erhalten
+- kein OpenAI-API-Runner als Hauptarchitektur
+- kein Stub- oder Fixture-Pfad fuer neue produktive Wellen
+- echte Teacher-Runs tragen `teacher_provider=codex_cli`
 - dasselbe Review-/Promotion-Schema bleibt anschliessend gueltig
-- `openai` und `import` bleiben nur als Neben- oder Fallback-Pfade verfuegbar
 
-Fuer kleine, reviewbare Teilmengen ist `scripts/build_wave1_gpt54_subset.py` die reproduzierbare Wave1-Subset-Auswahl.
+`run_teacher_jobs.py --mode codex`, `--mode import`, `--mode replay` und `--mode stub` bleiben nur fuer Legacy-, Test- oder Rueckspielpfade erhalten.
 
 ## Menschlicher Review bleibt noetig fuer
 
@@ -136,4 +136,19 @@ python scripts/select_teacher_wave_review_ids.py --input data/derived/teacher_ou
 python scripts/review_teacher_outputs.py --input data/derived/teacher_outputs/JAWS/DE/wave1_teacher_outputs.jsonl --output data/derived/teacher_outputs/JAWS/DE/wave1_reviewed_teacher_outputs.jsonl --reviewer codex-demo-wave1 --approve-file data/derived/teacher_outputs/JAWS/DE/wave1_approve_ids.txt --reject-file data/derived/teacher_outputs/JAWS/DE/wave1_reject_ids.txt
 python scripts/promote_teacher_outputs.py --input data/derived/teacher_outputs/JAWS/DE/wave1_reviewed_teacher_outputs.jsonl --train-output data/gold/train/sft/JAWS/DE/promoted_teacher_wave_v1_sft_samples.jsonl --eval-output data/gold/eval/JAWS/DE/promoted_teacher_wave_v1_eval_cases.jsonl
 python scripts/validate_teacher_pipeline.py --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl --outputs data/derived/teacher_outputs/JAWS/DE/wave1_reviewed_teacher_outputs.jsonl --gold-sft data/gold/train/sft/JAWS/DE/promoted_teacher_wave_v1_sft_samples.jsonl --gold-eval data/gold/eval/JAWS/DE/promoted_teacher_wave_v1_eval_cases.jsonl --require-all-task-types
+```
+
+## Echte CLI-Beispielwelle
+
+```bash
+python scripts/run_codex_cli_teacher_batch.py ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/qwen_step_focus_wave_v1_generation_jobs.jsonl ^
+  --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_smoke_v1_job_ids.txt ^
+  --raw-output data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_raw_responses.jsonl ^
+  --teacher-output data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_teacher_outputs.jsonl ^
+  --report-output data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_report.json ^
+  --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_smoke_v1 ^
+  --teacher-run-id jaws_de_codex_cli_smoke_v1 ^
+  --teacher-model gpt-5.4 ^
+  --reasoning-effort high
 ```
