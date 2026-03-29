@@ -19,13 +19,32 @@ Es werden keine committed JAWS-DE-Teacher-, Gold- oder Export-Artefakte mehr als
 ## Produktiver Ablauf
 
 1. Teacher-Jobs bauen oder bestehende Jobs auswaehlen.
-2. `scripts/run_codex_cli_user_sim_batch.py` erzeugt realistische User-Anfragen.
-3. `scripts/run_codex_cli_support_answer_batch.py` beantwortet genau diese Anfragen dokumentationsgebunden.
-4. `scripts/run_codex_cli_support_judge_batch.py` bewertet Anfrage plus Antwort streng und schreibt nur belastbare Outputs als `codex_reviewed` weiter.
+2. Bevorzugt `scripts/run_codex_cli_support_mvp_pipeline.py` starten; der Wrapper setzt die produktiven Stage-Defaults und schreibt einen konsolidierten Laufreport.
+3. `scripts/run_codex_cli_user_sim_batch.py` erzeugt realistische User-Anfragen.
+4. `scripts/run_codex_cli_support_answer_batch.py` beantwortet genau diese Anfragen dokumentationsgebunden.
+5. `scripts/run_codex_cli_support_judge_batch.py` bewertet Anfrage plus Antwort streng und schreibt nur belastbare Outputs als `codex_reviewed` weiter.
 5. `promote_teacher_outputs.py --allow-codex-reviewed` kann diese Outputs bei Bedarf nach Gold uebernehmen.
 6. Neue Gold- und Export-Staende entstehen erst wieder aus diesen echten reviewed Outputs.
 
-## Start des echten MVP-Pfads
+## Start des effizienten MVP-Pfads
+
+Empfohlener Einstieg:
+
+```bash
+python scripts/run_codex_cli_support_mvp_pipeline.py ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
+  --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_support_mvp_v1_job_ids.txt ^
+  --run-name codex_cli_support_mvp_v2 ^
+  --promote
+```
+
+Kostenbewusste Defaults:
+
+- User-Simulation: `gpt-5.4-mini`, `reasoning-effort=low`, `batch-size=8`
+- Answering: `gpt-5.4`, `reasoning-effort=medium`, `batch-size=4`
+- Judge/Gate: `gpt-5.4-mini`, `reasoning-effort=medium`, `batch-size=8`
+
+## Direkte Stage-Starts
 
 Beispiel fuer einen kleinen Batch ueber alle fuenf Task-Typen:
 
@@ -37,14 +56,9 @@ python scripts/run_codex_cli_user_sim_batch.py ^
   --report-output data/derived/user_simulations/JAWS/DE/codex_cli_support_mvp_v1_user_simulations_report.json ^
   --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations ^
   --simulator-run-id jaws_de_codex_cli_support_mvp_v1_user_sim ^
-  --simulator-model gpt-5.4 ^
-  --reasoning-effort high
-
-python scripts/promote_teacher_outputs.py ^
-  --input data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_reviewed_teacher_outputs.jsonl ^
-  --train-output data/gold/train/sft/JAWS/DE/codex_cli_support_mvp_v1_promoted_sft_samples.jsonl ^
-  --eval-output data/gold/eval/JAWS/DE/codex_cli_support_mvp_v1_promoted_eval_cases.jsonl ^
-  --allow-codex-reviewed
+  --simulator-model gpt-5.4-mini ^
+  --reasoning-effort low ^
+  --batch-size 8
 ```
 
 Weitere Stufen:
@@ -60,7 +74,8 @@ python scripts/run_codex_cli_support_answer_batch.py ^
   --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/answers ^
   --teacher-run-id jaws_de_codex_cli_support_mvp_v1_answer ^
   --teacher-model gpt-5.4 ^
-  --reasoning-effort high
+  --reasoning-effort medium ^
+  --batch-size 4
 
 python scripts/run_codex_cli_support_judge_batch.py ^
   --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
@@ -73,8 +88,17 @@ python scripts/run_codex_cli_support_judge_batch.py ^
   --report-output data/derived/teacher_reviews/JAWS/DE/codex_cli_support_mvp_v1_judge_report.json ^
   --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/judge ^
   --reviewer-run-id jaws_de_codex_cli_support_mvp_v1_judge ^
-  --reviewer-model gpt-5.4 ^
-  --reasoning-effort high
+  --reviewer-model gpt-5.4-mini ^
+  --reasoning-effort medium ^
+  --batch-size 8
+```
+
+```bash
+python scripts/promote_teacher_outputs.py ^
+  --input data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_reviewed_teacher_outputs.jsonl ^
+  --train-output data/gold/train/sft/JAWS/DE/codex_cli_support_mvp_v1_promoted_sft_samples.jsonl ^
+  --eval-output data/gold/eval/JAWS/DE/codex_cli_support_mvp_v1_promoted_eval_cases.jsonl ^
+  --allow-codex-reviewed
 ```
 
 ## I/O-Struktur des echten Codex-CLI-MVP-Pfads
@@ -97,6 +121,16 @@ Pro Job im Artefaktordner:
 - `last_message.json`
 - `stdout.txt`
 - `stderr.txt`
+
+Neu in den Stage-Reports:
+
+- `runtime.configured_batch_size`
+- `runtime.executed_batches`
+- `runtime.completed_batches`
+- `runtime.total_elapsed_ms`
+- `runtime.avg_elapsed_ms_per_processed_job`
+- `runtime.total_prompt_chars`
+- `runtime.total_retry_attempts`
 
 ## Echte vs. Legacy-Pfade
 
@@ -124,8 +158,10 @@ Der neue Pfad ist fuer groessere Wellen vorbereitet, weil er bereits hat:
 
 - Jobselektion per `--job-id`, `--job-ids-file`, `--limit`
 - Resume ueber `--resume`
-- artefaktbasierte Nachvollziehbarkeit pro Job
+- artefaktbasierte Nachvollziehbarkeit pro Batch und Job
 - getrennte Roh- und Teacher-Outputs
+- stage-spezifische Batch-Defaults statt pauschaler Einzelaufrufe
+- stage-spezifische Modell-/Reasoning-Defaults
 
 Noch offen fuer sehr grosse Wellen:
 
@@ -140,7 +176,7 @@ Ein echter Codex-CLI-MVP-Run ist an folgenden Feldern erkennbar:
 - `simulator_provider: codex_cli`
 - `teacher_provider: codex_cli`
 - `reviewer_provider: codex_cli`
-- `simulator_model`, `teacher_model`, `reviewer_model`: `gpt-5.4`
+- `simulator_model`, `teacher_model`, `reviewer_model`: produktiv stage-spezifisch, standardmaessig `gpt-5.4-mini` / `gpt-5.4` / `gpt-5.4-mini`
 - eigener `simulator_run_id`, `teacher_run_id`, `reviewer_run_id`
 - `generation_mode`: `teacher_user_simulator_codex_cli_v1`, `teacher_answer_codex_cli_v1`, `teacher_judge_codex_cli_v1`
 

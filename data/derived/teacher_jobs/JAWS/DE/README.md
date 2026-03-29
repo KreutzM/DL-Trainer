@@ -18,7 +18,9 @@ Wichtig:
 
 - Diese Jobs sind die Source-of-truth fuer neue Teacher-Laeufe.
 - Ein produktiver Teacher-Lauf soll diese Dateien direkt konsumieren.
-- Der produktive MVP-Lauf erfolgt ueber `scripts/run_codex_cli_user_sim_batch.py`, `scripts/run_codex_cli_support_answer_batch.py` und `scripts/run_codex_cli_support_judge_batch.py`.
+- Der bevorzugte produktive MVP-Lauf erfolgt ueber `scripts/run_codex_cli_support_mvp_pipeline.py`.
+- Die drei Stage-Skripte `scripts/run_codex_cli_user_sim_batch.py`, `scripts/run_codex_cli_support_answer_batch.py` und `scripts/run_codex_cli_support_judge_batch.py` bleiben direkt nutzbar.
+- Produktive Default-Profile sind stage-spezifisch und kostenbewusst: `gpt-5.4-mini/low` fuer User-Simulation, `gpt-5.4/medium` fuer Answering, `gpt-5.4-mini/medium` fuer Judge.
 - `scripts/run_codex_cli_teacher_batch.py` bleibt als direkter einfacher CLI-Pfad erhalten, ist fuer JAWS-DE aber nicht mehr der bevorzugte produktive Standard.
 - Downstream-JAWS-DE-Daten ab `teacher_outputs/`, `data/gold/` und `data/exports/` wurden im aktiven Repo bewusst auf einen sauberen Neustartpunkt zurueckgesetzt.
 - Alte Reports, Review-Pakete und Hilfslisten aus schwachen Downstream-Staenden wurden aus dem aktiven Repo entfernt.

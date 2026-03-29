@@ -53,53 +53,32 @@ python scripts/validate_jsonl.py --schema schemas/teacher_job.schema.json --inpu
 python scripts/validate_jsonl.py --schema schemas/teacher_job.schema.json --input data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl
 ```
 
-### 5. JAWS-DE MVP-Pfad mit User-Simulation, Answerer und Judge ausfuehren
+### 5. JAWS-DE MVP-Pfad kostenbewusst ausfuehren
+
+Bevorzugter Produktivweg: der Orchestrator setzt stage-spezifisch billigere Defaults und nutzt Batch-Aufrufe statt Einzelfall-Calls.
 
 ```bash
-python scripts/run_codex_cli_user_sim_batch.py ^
+python scripts/run_codex_cli_support_mvp_pipeline.py ^
   --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
   --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_support_mvp_v1_job_ids.txt ^
-  --output data/derived/user_simulations/JAWS/DE/codex_cli_support_mvp_v1_user_simulations.jsonl ^
-  --report-output data/derived/user_simulations/JAWS/DE/codex_cli_support_mvp_v1_user_simulations_report.json ^
-  --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations ^
-  --simulator-run-id jaws_de_codex_cli_support_mvp_v1_user_sim ^
-  --simulator-model gpt-5.4 ^
-  --reasoning-effort high
-
-python scripts/run_codex_cli_support_answer_batch.py ^
-  --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
-  --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_support_mvp_v1_job_ids.txt ^
-  --user-simulations data/derived/user_simulations/JAWS/DE/codex_cli_support_mvp_v1_user_simulations.jsonl ^
-  --raw-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_raw_responses.jsonl ^
-  --teacher-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_teacher_outputs.jsonl ^
-  --report-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_answer_report.json ^
-  --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/answers ^
-  --teacher-run-id jaws_de_codex_cli_support_mvp_v1_answer ^
-  --teacher-model gpt-5.4 ^
-  --reasoning-effort high
-
-python scripts/run_codex_cli_support_judge_batch.py ^
-  --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
-  --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_support_mvp_v1_job_ids.txt ^
-  --user-simulations data/derived/user_simulations/JAWS/DE/codex_cli_support_mvp_v1_user_simulations.jsonl ^
-  --raw-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_raw_responses.jsonl ^
-  --teacher-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_teacher_outputs.jsonl ^
-  --judge-output data/derived/teacher_reviews/JAWS/DE/codex_cli_support_mvp_v1_judge_results.jsonl ^
-  --reviewed-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_reviewed_teacher_outputs.jsonl ^
-  --report-output data/derived/teacher_reviews/JAWS/DE/codex_cli_support_mvp_v1_judge_report.json ^
-  --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/judge ^
-  --reviewer-run-id jaws_de_codex_cli_support_mvp_v1_judge ^
-  --reviewer-model gpt-5.4 ^
-  --reasoning-effort high
+  --run-name codex_cli_support_mvp_v2 ^
+  --promote
 ```
 
-### 6. Optionale Promotion nach dem automatischen Gate
+Standard-Defaults des effizienten Produktivpfads:
+- User-Simulation: `gpt-5.4-mini`, `reasoning-effort=low`, `batch-size=8`
+- Answering: `gpt-5.4`, `reasoning-effort=medium`, `batch-size=4`
+- Judge/Gate: `gpt-5.4-mini`, `reasoning-effort=medium`, `batch-size=8`
+
+Die drei Stage-Skripte bleiben direkt nutzbar und schreiben jetzt zusaetzlich `runtime`-Metriken in ihre Reports: Batch-Anzahl, Prompt-Volumen, Laufzeit pro Stage, Retry-Zahl und Quellenkontext-Groesse.
+
+### 6. Optionale manuelle Promotion nach dem automatischen Gate
 
 ```bash
 python scripts/promote_teacher_outputs.py ^
-  --input data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_reviewed_teacher_outputs.jsonl ^
-  --train-output data/gold/train/sft/JAWS/DE/codex_cli_support_mvp_v1_promoted_sft_samples.jsonl ^
-  --eval-output data/gold/eval/JAWS/DE/codex_cli_support_mvp_v1_promoted_eval_cases.jsonl ^
+  --input data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v2_reviewed_teacher_outputs.jsonl ^
+  --train-output data/gold/train/sft/JAWS/DE/codex_cli_support_mvp_v2_promoted_sft_samples.jsonl ^
+  --eval-output data/gold/eval/JAWS/DE/codex_cli_support_mvp_v2_promoted_eval_cases.jsonl ^
   --allow-codex-reviewed
 ```
 
@@ -128,9 +107,9 @@ python scripts/promote_teacher_outputs.py ^
 1. Eigenes Produkthandbuch oder dokumentierte Importquelle unter `data/raw/<produkt>/...` ablegen.
 2. `docs/metadata_schema.md`, `docs/chunking_policy.md` und die Support-Behavior-Spec anpassen.
 3. Teacher-Prompts im Ordner `prompts/teacher/` verfeinern.
-4. Teacher-Jobs aus `data/derived/teacher_jobs/` zuerst durch `scripts/run_codex_cli_user_sim_batch.py` laufen lassen.
-5. Danach mit `scripts/run_codex_cli_support_answer_batch.py` echte Support-Antworten erzeugen.
-6. Anschliessend mit `scripts/run_codex_cli_support_judge_batch.py` automatisch gaten und nur belastbare reviewed Outputs nach `data/gold/` uebernehmen.
+4. Teacher-Jobs aus `data/derived/teacher_jobs/` bevorzugt ueber `scripts/run_codex_cli_support_mvp_pipeline.py` laufen lassen.
+5. Bei Bedarf die einzelnen Stage-Skripte separat verwenden, aber mit den neuen stage-spezifischen Defaults und Batch-Aufrufen.
+6. Nur `codex_reviewed` Outputs nach `data/gold/` uebernehmen.
 
 ## JSONL-Editor
 

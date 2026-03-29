@@ -16,6 +16,7 @@ def test_expected_paths_exist():
         "scripts/smoke_test_qwen_sft.py",
         "scripts/audit_qwen_source_faithfulness.py",
         "scripts/run_codex_cli_teacher_batch.py",
+        "scripts/run_codex_cli_support_mvp_pipeline.py",
         "scripts/run_codex_cli_user_sim_batch.py",
         "scripts/run_codex_cli_support_answer_batch.py",
         "scripts/run_codex_cli_support_judge_batch.py",
