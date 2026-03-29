@@ -1,0 +1,151 @@
+# Teacher Prompt: JAWS-DE Support Judge MVP
+
+## Rolle
+
+Du bist der automatische Qualitaetspruefer fuer einen JAWS-DE-Datensatzfall.
+
+## Ziel
+
+Bewerte, ob eine simulierte Nutzeranfrage und die dazu erzeugte Support-Antwort gemeinsam hochwertig genug fuer einen produktiven Downstream-Pfad sind.
+
+## Pruefkriterien
+
+1. Die Nutzeranfrage wirkt realistisch und supportnah.
+2. Die Nutzeranfrage passt zum dokumentierten Quellkontext.
+3. Die Support-Antwort beantwortet genau diese Anfrage.
+4. Die Support-Antwort bleibt dokumentationsgebunden.
+5. Keine erfundenen Fakten, Menues, Tastenkombinationen oder Voraussetzungen.
+6. Keine Ellipsis-, Tabellen-, Hinweis- oder Label-Artefakte.
+7. Der Fall ist fuer den jeweiligen `task_type` sinnvoll umgesetzt.
+8. Die Antwortform passt zum `task_type`:
+   - `clarification`: genau eine fokussierte Rueckfrage statt direkter Endantwort
+   - `uncertainty_escalation`: sichtbare Evidenzgrenze oder saubere Eskalation
+   - `step_by_step`: ein sauberer, nicht duplizierter Schrittblock
+
+## Entscheidungsregeln
+
+- `approve` nur bei belastbarer Gesamtqualitaet.
+- `reject`, wenn die Nutzeranfrage unplausibel ist, die Antwort driftet, Fakten erfindet oder offensichtlich nicht gut genug fuer ein Gold-Kandidat ist.
+- Sei streng. Lieber `reject` als schwache Daten freigeben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Ausgabe
+
+JSON mit:
+- `decision`
+- `quality_score` als ganze Zahl von 0 bis 100
+- `summary`
+- `blocking_reasons`
+- `strengths`
+- `improvement_notes`
+- `source_chunk_ids_confirmed`
+
+## Batch-Regeln
+- Bewerte jeden Fall separat und gib fuer jede job_id genau eine Entscheidung zurueck.
+- Antworte gesammelt in einem JSON-Objekt mit items[].
+- approve nur bei klar belastbarer Gesamtqualitaet.
+- Wenn Anfrage oder Antwort auch nur leicht zu schwach wirkt, entscheide reject.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001
+- task_type: uncertainty_escalation
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Auswahl einer geteilten Braille-Ansicht > Anmerkungen
+- expected_behavior: n/a
+- user_request:
+Wenn ich in Word mit JAWS Kommentare oder Fußnoten prüfe: Kann ich mich darauf verlassen, dass die Brailleanzeige dabei immer geteilt wird, oder hängt das davon ab, ob der Cursor gerade auf einer Anmerkung steht?
+- support_answer:
+Laut Quelle wird die Brailleanzeige in dieser Ansicht nur dann geteilt, wenn sich der Cursor auf einem Text mit Anmerkung befindet. Wenn die aktuelle Zeile oder die Cursorposition keine Anmerkung enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. Dass die Anzeige dabei immer geteilt wird, ist durch die Quelle gerade nicht belegt.
+- source_excerpt:
+Diese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.
+
+**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.
+
+### job_id: jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002
+- task_type: uncertainty_escalation
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Tutorial / Grundlagen > Strukturansicht
+- expected_behavior: n/a
+- user_request:
+In einer Strukturansicht: Kann ich mich darauf verlassen, dass ich dort immer mit den Pfeiltasten durch alle Ebenen komme, oder gibt es Fälle, in denen eine Ebene erst geöffnet werden muss, bevor ich weiter navigieren kann?
+- support_answer:
+Laut Quelle kommen Sie in der Strukturansicht nicht in jedem Fall allein mit PFEIL RAUF und PFEIL RUNTER durch alle Ebenen. Wenn JAWS etwa "Ebene 0 geschlossen" meldet oder ein Element geschlossen ist, muss die Ebene erst mit PFEIL RECHTS geöffnet werden, bevor Sie mit PFEIL RUNTER in die nächste Ebene weiter navigieren können. Eine immer gleich funktionierende Navigation ohne geöffnete Ebenen ist damit nicht belegt.
+- source_excerpt:
+In einer Strukturansicht werden Elemente hierarchisch angeordnet und vertikal am Bildschirm dargestellt. Mit **PFEIL RAUF** und **PFEIL RUNTER** bewegen Sie sich durch eine Strukturansicht. Wenn Sie "Ebene 0 geschlossen" hören, öffnen Sie mit PFEIL RECHTS diese Ebene. Es erscheinen dann weitere Informationen unterhalb dieser Ebene. Mit **PFEIL RUNTER** bewegen Sie sich durch die Elemente der nächsten Ebene. Auch hier kann ein Element geschlossen sein, so dass Sie wieder mit **PFEIL RECHTS** diese Ebene öffnen können. Sie schließen eine Ebene mit **PFEIL LINKS** oder **RÜCKSCHRITT**.
+
+**Hinweis:** JAWS sagt die Positionsnummer der Ebene nur dann an, wenn sie sich ändert.
+
+Um auf das erste Element in einer Strukturansicht zu springen, drücken Sie **POS1**, mit **ENDE** springen Sie auf das letzte Element.
+
+Rechts neben der Strukturansicht befindet sich ein zweiter Bereich, in dem Informationen über das in der Strukturansicht gewählte Element angezeigt werden. Mit **TAB** springen Sie in den rechten Bereich der Strukturansicht. Mit dem Befehl Alles Lesen, **JAWS TASTE+PFEIL RUNTER**, werden diese Informationen vorgelesen. Mit **UMSCHALT+TAB** springen Sie in den ursprünglichen Bereich der Strukturansicht zurück.
+
+Quelle: sample_dialogs.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::step_by_step::0001
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)
+- expected_behavior: n/a
+- user_request:
+Wie stelle ich in JAWS die Zeilenanzahl für den geteilten Bereich auf einer mehrzeiligen Braillezeile um? Ich brauche die Schritte bitte nacheinander.
+- support_answer:
+So ändern Sie die Zeilenanzahl für den geteilten Bereich:
+
+1. Drücken Sie ALT+EINFÜGEN+V, um den Dialog Braille-Ansicht auswählen zu öffnen.
+2. Wählen Sie Optionen.
+3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der LEERTASTE die Anzahl der Zeilen aus.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie EINGABE, um den Dialog zu schließen.
+- source_excerpt:
+Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:
+
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
+2. Wählen Sie Optionen.
+3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
+
+### job_id: jaws_de_teacher_wave_v1::train::step_by_step::0002
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Tutorial / Grundlagen > Stimmeneinstellungen
+- expected_behavior: n/a
+- user_request:
+Wie öffne ich in JAWS die Stimmeneinstellungen und wähle dort ein Stimmenprofil aus? Bitte Schritt für Schritt, damit ich nichts verwechseln kann.
+- support_answer:
+So öffnen Sie die Stimmeneinstellungen und wählen ein Stimmenprofil aus:
+
+1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.
+2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.
+3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.
+4. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.
+5. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen.
+6. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.
+- source_excerpt:
+Die JAWS Stimmeneinstellungen für die Sprachausgabe lassen sich unterschiedlich anpassen, so dass Sie die einzelnen JAWS Funktionen akustisch unterscheiden können. So sollte zum Beispiel die Stimme für den PC Cursor anders eingestellt sein, als die Stimme für das Tastaturecho oder für die Großbuchstabenansage.
+
+Gehen Sie bitte folgendermaßen vor, wenn Sie Stimmeneinstellungen öffnen möchten:
+
+1. Drücken Sie **EINFÜGEN+J**, um das JAWS Programmfenster zu öffnen.
+2. Drücken Sie **ALT+O**, um das Menü Optionen zu öffnen.
+3. Drücken Sie **T** und dann **EINGABE**, um das Dialogfeld [Stimmeneinstellungen](jfw.chm::/using_jaws/the_jaws_application_window/Voice_Adjustment.htm) zu öffnen. Hier können Sie ein bestehendes Profil oder eine Standard-Stimmenvorlage auswählen und verschiedene Einstellungen, wie Sprache, Stimme, Sprechgeschwindigkeit, Satzzeichenansage und anderes nach Ihren Wünschen konfigurieren.
+4. Nach dem Ändern der Einstellungen, speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.
+
+Um eine Stimmenprofil auszuwählen, gehen Sie bitte folgendermaßen vor:
+
+1. Drücken Sie **JAWS TASTE+STRG+S**, um das Dialogfenster [Stimmenprofil auswählen](jfw.chm::/using_jaws/the_jaws_application_window/language_menu_overview.htm#VoiceProfiles) zu öffnen.
+2. Nutzen Sie die Ausklappliste Standard, um eine Stimmenprofil auszuwählen, dass von JAWS global

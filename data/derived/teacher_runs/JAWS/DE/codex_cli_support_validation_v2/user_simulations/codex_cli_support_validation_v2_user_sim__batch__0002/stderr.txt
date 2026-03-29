@@ -1,0 +1,168 @@
+2026-03-29T12:59:10.680776Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T12:59:10.680795Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T12:59:10.680798Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T12:59:10.680801Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.117.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4-mini
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d39ad-47dc-7b10-a538-b850ef650e9a
+--------
+user
+# Teacher Prompt: JAWS-DE User Simulation
+
+## Rolle
+
+Du simulierst eine realistische deutschsprachige Support-Anfrage fuer JAWS.
+
+## Ziel
+
+Erzeuge genau eine hochwertige Nutzeranfrage, die plausibel zu einem realen Supportfall passt und sich eng am bereitgestellten Dokumentkontext orientiert.
+
+## Regeln
+
+- Nutze nur den bereitgestellten Quellkontext.
+- Erfinde keine Menues, Tastenkombinationen oder Funktionen.
+- Verwende keine Chunk-Titel als starre Schablone.
+- Formuliere die Anfrage so, wie ein echter Anwender oder Helpdesk-Nutzer sie stellen koennte.
+- Variiere Schwierigkeitsgrad und Formulierungsstil sinnvoll.
+- Die Anfrage darf unvollstaendig oder alltagsnah sein, aber sie muss zum dokumentierten Fall passen.
+- Keine Loesung in die Anfrage schreiben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- konkret statt generisch
+- supportnah statt dokumenttitelartig
+- glaubwuerdig fuer den jeweiligen `task_type`
+- bei `clarification` oder `uncertainty_escalation` darf die Anfrage bewusst etwas unklar sein
+- bei `step_by_step` sollte die Anfrage typischerweise um eine Bedienfolge oder Vorgehensweise bitten
+
+## Task-Type-spezifische Leitplanken
+
+- `faq_direct_answer`: die Anfrage soll auf eine konkrete, direkt beantwortbare Informationsfrage hinauslaufen.
+- `troubleshooting`: die Anfrage soll ein plausibles Problem, eine Einschränkung oder ein unerwartetes Verhalten schildern.
+- `step_by_step`: die Anfrage soll klar um eine Vorgehensweise, Bedienfolge oder Einrichtung bitten.
+- `clarification`: die Anfrage soll bewusst noch nicht eng genug sein, sodass eine fokussierte Rueckfrage sinnvoll bleibt.
+- `uncertainty_escalation`: die Anfrage darf einen Randfall, eine Voraussetzung oder eine Grenze ansprechen, bei der die Quelle nur begrenzt Antwort gibt.
+
+## Ausgabe
+
+JSON mit:
+- `request_text`
+- `user_goal`
+- `difficulty`
+- `phrasing_style`
+- `scenario_summary`
+- `notes`
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine eigenstaendige Nutzeranfrage.
+- Uebernimm job_id im JSON exakt.
+- Antworte fuer alle Faelle gesammelt in einem JSON-Objekt mit items[].
+- Verwende nur den pro Fall gezeigten Quellkontext.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0001
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Schreiben in Kurzschrift
+- spaeteres supportziel: Gibt eine kurze Schrittfolge fuer Schreiben in Kurzschrift aus dem Abschnitt wieder.
+- seed_request: Wie gehe ich bei Schreiben in Kurzschrift in JAWS Schritt fuer Schritt vor?
+- source_excerpt:
+Mit BrailleIn werden Ihre Eingaben umgehend in der aktuellen E-Mail, im Dokument oder in Formularfeldern in normalen Text übersetzt, wenn Sie über die Perkins-Tastatur Braille-Kurzschrift eingeben. Sollte eine Anwendung oder spezielle Eingabefelder keine Kurzschrift unterstützen, dann sagt JAWS "Computer Braille", sofern die Tutormeldungen eingeschaltet sind. Darüberhinaus wird das Symbol für Computer Braille, Punkte 4-5-6 gefolgt von Punkten 3-4-6, auf der Braillezeile dargestellt, um anzuzeigen, dass Computer Braille benötigt wird.
+
+Die Eingabe in Computer-Braille ist standardmäßig ausgewählt. Um die Braillekurzschrift zu verwenden, gehen Sie bitte folgendermaßen vor:
+1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung.
+
+2. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste Anwendungen.
+
+3. Im Sucheingabefeld geben Sie "Übersetzung" ohne Anführungsstriche ein.
+
+4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen und drücken Sie dann **EINGABE**, um den Fokus direkt in die Gruppe Übersetzung zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.
+
+5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einste
+
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0002
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__hervorhebungsoptionen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Einstellungsverwaltung (Settings Center) > Hervorhebungsoptionen
+- spaeteres supportziel: Gibt eine kurze Schrittfolge fuer Hervorhebungsoptionen aus dem Abschnitt wieder.
+- seed_request: Wie gehe ich bei Hervorhebungsoptionen in JAWS Schritt fuer Schritt vor?
+- source_excerpt:
+Mit dem Dialog Optionen für Hervorhebungsfarbe können Sie steuern, wie JAWS auf Hervorhebungsfarben, die Sie für eine Anwendung definiert haben, reagiert. Sie können die Art ändern, wie JAWS Windows-Hervorhebungen und angepasste Hervorhebungen liest, und Sie können bereits zugewiesene Hervorhebungsfarben löschen. Sie können jedoch aus diesem Dialog heraus keine Farbkombinationen von Hand zuweisen. Lesen Sie dazu [Angepasste Hervorhebungsfarben zuweisen](assigning_custom_highlight_colors.htm).
+
+Um diesen Dialog zu öffnen, gehen Sie bitte folgendermaßen vor:
+
+1. Öffnen Sie die Einstellungsverwaltung und geben Sie "Hervorhebung" im Sucheingabefeld ohne Anführungsstriche ein.
+2. Drücken Sie **PFEIL RUNTER**, um in die gefilterten Ergebnisse zu springen und wählen Sie Hervorhebungsfarben konfigurieren.
+3. Drücken Sie **LEERTASTE**, um das Dialogfenster Hervorhebungsoptionen zu öffnen.
+
+Das Dialogfeld enthält die folgenden Elemente:
+
+### job_id: jaws_de_teacher_wave_v1::eval::troubleshooting::0004
+- task_type: troubleshooting
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01
+- chunk_type: warning
+- section_path_text: Schnelleinstellung Übersicht > Gesicht im Blick
+- spaeteres supportziel: Leitet aus dem Abschnitt Gesicht im Blick eine konkrete dokumentierte Hilfestellung ab.
+- seed_request: Ich komme bei Gesicht im Blick in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?
+- source_excerpt:
+Videoanrufe sind zu einer Standardform der Kommunikation am Arbeitsplatz, in der Schule und in persönlichen Beziehungen geworden. Bevor Sie sich an einem Videoanruf beteiligen, sollten Sie sicherstellen, dass Ihre Einstellung richtig ist und die Kamera richtig auf Sie ausgerichtet ist. Gesicht im Blick hilft Ihnen dabei, indem es Sie auf wichtige visuelle Details aufmerksam macht, wie zum Beispiel:
+
+- Ist mein Gesicht in der Ansicht zentriert?
+- Gucke ich direkt in die Kamera?
+- Ist die Beleuchtung ausgewogen?
+- Sind noch weitere Elemente im Bild sichtbar?
+
+Um Gesicht im Blick zu aktivieren, drücken Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **F** und dann **O**. Sobald die Funktion aktiviert ist, überwacht Gesicht im Blick kontinuierlich Ihre Gesichtsposition und die Lichtverhältnisse. Wenn sich etwas ändert, wenn Sie beispielsweise Ihren Kopf nach links oder rechts neigen oder die Helligkeit abnimmt, werden Sie automatisch benachrichtigt.
+
+**Hinweis:** Gesicht im Blick ist derzeit während eines aktiven Videoanrufs nicht verfügbar, da es vollständigen Zugriff auf die Kamera benötigt.
+
+Während Gesicht im Blick aktiv ist, sind die folgenden verschachtelten Kurztasten verfügbar:
+
+- Eine andere Kamera auswählen (falls mehrere Kameras verfügbar sind): **EINFÜGEN+LEERTASTE**, **F**, **C**. Sobald die Kamera-Ebene aktiv ist, drücken Sie **PFEIL RAUF** oder *
+
+### job_id: jaws_de_teacher_wave_v1::eval::troubleshooting::0007
+- task_type: troubleshooting
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Hilfe (Kernfunktionen) > Eine Promptbezeichnung erstellen
+- spaeteres supportziel: Leitet aus dem Abschnitt Eine Promptbezeichnung erstellen eine konkrete dokumentierte Hilfestellung ab.
+- seed_request: Ich komme bei Eine Promptbezeichnung erstellen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?
+- source_excerpt:
+Wenn Sie eine Promptbezeichnung erstellen möchten, gehen Sie bitte folgendermaßen vor:
+
+1. Gehen Sie auf das gewünschte Steuerelement.
+2. Drücken Sie **STRG+JAWS TASTE+TAB**.
+3. Der Dialog "Prompt für Element erstellen" wird geöffnet. Geben Sie auf der ersten Seite die Promptbezeichnung so ein, wie sie von JAWS gesprochen werden soll. Danach aktivieren Sie den Schalter Weiter.
+4. Auf der zweiten Seite geben Sie nun die Promptbezeichnung so ein, wie sie von JAWS auf der Braillezeile angezeigt werden soll. Danach aktivieren Sie den Schalter Weiter.
+5. Auf der dritten Seite können Sie nun eine individuelle Tutormeldung eingeben, die Ihnen später beim Navigieren als Erklärung für dieses Steuerelement angesagt wird. Wenn Sie keine Tutormeldung eingeben, wird eine Standardmeldung angesagt. Aktivieren Sie den Schalter Fertigstellen, um die Promptbezeichnung zu erstellen.
+
+**Hinweis:** Alternativ können Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen öffnen und aus der Liste den Eintrag Prompt erstellen wählen.
+
+Wenn Sie eine Promptbezeichnung verändern möchten, die Sie bereits erstellt haben, drücken Sie erneut **STRG+JAWS TASTE+TAB** und verändern die vorhandenen Bezeichnungen.
+
+Quelle: create_a_prompt.htm
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+codex
+{"items":[{"job_id":"jaws_de_teacher_wave_v1::eval::step_by_step::0001","request_text":"Ich will in JAWS die Braille-Kurzschrift verwenden statt Computer-Braille. Wie gehe ich dafür Schritt für Schritt vor?","user_goal":"Eine kurze Bedienfolge zum Aktivieren der Braille-Kurzschrift erhalten.","difficulty":"basic","phrasing_style":"task_focused","scenario_summary":"Nutzer möchte in JAWS die Braille-Kurzschrift einschalten und braucht die konkrete Schrittfolge.","notes":["Bezieht sich nur auf den dokumentierten Ablauf zum Umschalten der Übersetzung.","Keine Lösung außerhalb der Quelle ergänzt."]},{"job_id":"jaws_de_teacher_wave_v1::eval::step_by_step::0002","request_text":"Wie öffne ich in der JAWS-Einstellungsverwaltung die Hervorhebungsoptionen? Ich brauche die genauen Schritte.","user_goal":"Die Dialogbox für Hervorhebungsoptionen über die Einstellungsverwaltung aufrufen.","difficulty":"basic","phrasing_style":"neutral","scenario_summary":"Nutzer sucht die exakte Schrittfolge zum Öffnen der Hervorhebungsoptionen in JAWS.","notes":["Bezieht sich auf den dokumentierten Aufruf über die Einstellungsverwaltung.","Keine zusätzlichen Einstellungen oder Folgeschritte erfunden."]},{"job_id":"jaws_de_teacher_wave_v1::eval::troubleshooting::0004","request_text":"Bei \"Gesicht im Blick\" in JAWS bekomme ich keine brauchbare Rückmeldung. Was soll ich laut Doku prüfen, bevor ich es im Videoanruf nutze?","user_goal":"Prüfen, welche dokumentierten Voraussetzungen und Einschränkungen es für Gesicht im Blick gibt.","difficulty":"intermediate","phrasing_style":"uncertain","scenario_summary":"Nutzer meldet Probleme mit Gesicht im Blick und fragt nach den dokumentierten Prüfpunkten vor einem Videoanruf.","notes":["Der Hinweis auf die Nichtverfügbarkeit während eines aktiven Videoanrufs ist Teil des Quellkontexts.","Keine über die Quelle hinausgehende Fehlerdiagnose ergänzt."]},{"job_id":"jaws_de_teacher_wave_v1::eval::troubleshooting::0007","request_text":"Ich versuche in JAWS eine Promptbezeichnung zu erstellen, komme aber nicht sauber durch den Dialog. Was muss ich laut Anleitung prüfen oder tun?","user_goal":"Eine dokumentierte Hilfestellung zum Erstellen einer Promptbezeichnung erhalten.","difficulty":"intermediate","phrasing_style":"frustrated","scenario_summary":"Nutzer hängt beim Erstellen einer Promptbezeichnung fest und möchte die dokumentierte Vorgehensweise verstehen.","notes":["Bezieht sich auf den Ablauf über das Steuerelement bzw. alternativ den JAWS-Manager.","Keine ungenannten Menues oder Tastenkombinationen eingefuegt."]}]}
+tokens used
+16.053

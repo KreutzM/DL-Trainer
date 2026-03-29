@@ -1,0 +1,134 @@
+{
+  "batch_id": "codex_cli_support_validation_v2_user_sim::batch::0003",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+    "jaws_de_teacher_wave_v1::train::clarification::0003",
+    "jaws_de_teacher_wave_v1::train::clarification::0008"
+  ],
+  "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+  "simulator_model": "gpt-5.4-mini",
+  "generation_mode": "teacher_user_simulator_codex_cli_v1",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "source_excerpt": "Wenn Sie **JAWS TASTE+EINGABE** drücken, um zum nächsten Text zu springen, der kein Link ist, sucht JAWS nach einem Textblock, der nicht Teil eines Links ist und so viele oder mehr Zeichen aufweist, wie der Wert, der hier angegeben wird. Der Standardwert ist 25.",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Wofuer ist Länge des Textblocks in JAWS gedacht?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks",
+            "section_title": "Länge des Textblocks",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L2371-L2371"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "source_excerpt": "Tabelle: Befehle zum Arbeiten in Dialogen\n\n| Beschreibung | Befehl |\n| --- | --- |\n| Standardschalter ansagen | JAWS TASTE+E |\n| Kurztaste des aktuellen Steuerelements ansagen | UMSCHALT+NUM 5 |\n| Aktuelles Fenster lesen | JAWS TASTE+B |\n| Fenstertyp und Text lesen | JAWS TASTE+TAB |\n| Wort im Kontext lesen | JAWS TASTE+C |\n| Ausklappliste öffnen | ALT+PFEIL RUNTER |\n| Ausklappliste schließen | ALT+PFEIL RAUF |\n| Mehrere Listenelemente markieren | STRG+UMSCHALT oder STRG+LEERTASTE |\n| Alle Markierungen aufheben | STRG+\\ |\n| Spalten 1 bis 10 der Listenansicht lesen | STRG+JAWS TASTE+1 bis 0 |\n\n**Tipp:** Wenn Sie auf einem Steuerelement des Dialogfensters **JAWS-TASTE+F1** drücken, erhalten Sie eine kontextabhängige Hilfe.\n\n*Siehe auch:*\n[Windows Befehle für das Arbeiten in Dialogfeldern](../standard_windows_keystrokes/windows_keystrokes_for_working_in_dialog_boxes.htm)\n\nQuelle: jaws_keystrokes_for_working_in_dialog_boxes.htm",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Was sollte ich in JAWS zu JAWS Befehle zum Arbeiten in Dialogen wissen?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen",
+            "section_title": "JAWS Befehle zum Arbeiten in Dialogen",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2379-L2399"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0003",
+      "task_type": "clarification",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "source_excerpt": "- Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER**, um sich in der Strukturansicht auf- oder abwärts zu bewegen.\n- Drücken Sie **PFEIL RECHTS** oder **PFEIL LINKS**, um eine Gruppe der Strukturansicht zu erweitern oder zu reduzieren.\n- Um eine Gruppe oder ein Element in der Strukturansicht auszuwählen, nutzen Sie die Navigation über Anfangsbuchstaben.\n- Drücken Sie **LEERTASTE** oder **EINGABE**, um den Status des Element zu ändern, während es in der Strukturansicht fokussiert ist. Dieses funktioniert für Optionen wie Auswahlschalter, Kontrollfelder oder Schalter, ohne dass Sie **F6** drücken müssen, um in den Einstellungsbereich zu wechseln.\n- Drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungsdatei Default.jcf zu laden und Änderungen global vorzunehmen.\n- Wenn Sie in der Einstellungsverwaltung nach einem Element suchen, dann wird das Suchergebnis in der Strukturansicht angezeigt. Drücken Sie **EINGABE** auf einem beliebigen Eintrag, um die komplette Strukturansicht wieder herzustellen und navigieren Sie dann direkt zu dem Element. Drücken Sie innerhalb des Suchergebnisses **ESCAPE**, dann wird die volle Strukturansicht mit dem vorherigen Element, bevor Sie die Suche gestartet haben, wieder hergestellt.\n- Mit **F6** wechseln Sie in den Einstellungsbereich. Drücken Sie **F6** ein weiteres Mal, um zur Strukturansicht zurückzukehren.",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Ich brauche Hilfe zu Navigation in der Strukturansicht in JAWS."
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht",
+            "section_title": "Navigation in der Strukturansicht",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L1019-L1025"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0008",
+      "task_type": "clarification",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "source_excerpt": "- JAWS bietet nun die Möglichkeit, direkt zu mathematischen Elementen auf Webseiten zu springen. Um diese Funktion zu nutzen, können Sie über den Schnellnavigationstastenmanager, der über das Dialogfenster JAWS Manager ausführen (**EINFÜGEN+F2**) aufgerufen wird, eine Tastenkombination zuweisen.\n- In Google Chrome wurde die Leistung von JAWS beim Navigieren zwischen Zellen in sehr großen Tabellen verbessert.\n- JAWS sagt nun standardmäßig Regionen mit Namen an.\n- Durch Drücken der **ANWENDUNGSTASTE** auf einem Link wird nun zuverlässig das richtige Kontextmenü geöffnet.\n- Beim Navigieren in Tabellen zeigt JAWS nun sowohl Kopfzeilen als auch Spalten- und Zeileninformationen korrekt an, selbst wenn die Tabelle Span-Elemente enthält.\n- JAWS liest nun Fortschrittsbalken, die die Aria-Fortschrittsbalkenrolle verwenden, korrekt vor.\n- Wenn Sie den Fokus auf eine Tabellenzelle in der Kopfzeile setzen, die sich über mehrere Spalten erstreckt, funktioniert das Drücken von **ALT+STRG+ENDE** nun wie erwartet, um zur letzten Zelle in der Tabelle zu gelangen.\n- In Google Chrome wird der Fokus nicht mehr unerwartet auf die Adressleiste oder das Chrome-Menü verschoben, wenn der Fokus auf einem Kombinationsfeld liegt und die Taste **ESC** gedrückt wird, um den Formularmodus zu verlassen.",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Ich brauche Hilfe zu Aria und Web in JAWS."
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web",
+            "section_title": "Aria und Web",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L6029-L6036"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

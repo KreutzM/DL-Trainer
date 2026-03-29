@@ -1,0 +1,348 @@
+{
+  "source_jobs_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "selection_version": "jaws_de_quality_validation_wave_v1",
+  "rules": {
+    "per_task_train": 2,
+    "per_task_eval": 2,
+    "task_types": [
+      "faq_direct_answer",
+      "troubleshooting",
+      "step_by_step",
+      "clarification",
+      "uncertainty_escalation"
+    ],
+    "heuristics": {
+      "faq_direct_answer": "quality_score>=71",
+      "troubleshooting": "prefer warning/procedure and quality_score>=70; relax to quality_score>=56",
+      "step_by_step": "procedure and quality_score>=80",
+      "clarification": "prefer reference/warning/procedure and quality_score>=52; relax to quality_score>=42",
+      "uncertainty_escalation": "prefer warning and quality_score>=72; relax to quality_score>=54"
+    }
+  },
+  "summary": {
+    "count": 20,
+    "by_task": {
+      "clarification": 4,
+      "faq_direct_answer": 4,
+      "step_by_step": 4,
+      "troubleshooting": 4,
+      "uncertainty_escalation": 4
+    },
+    "by_split": {
+      "eval": 10,
+      "train": 10
+    },
+    "by_doc": {
+      "jaws_de_braille": 5,
+      "jaws_de_hilfe_kernfunktionen": 6,
+      "jaws_de_settingscenter": 6,
+      "jaws_de_tutorial_basics": 3
+    },
+    "by_task_split": {
+      "clarification": {
+        "eval": 2,
+        "train": 2
+      },
+      "faq_direct_answer": {
+        "eval": 2,
+        "train": 2
+      },
+      "step_by_step": {
+        "eval": 2,
+        "train": 2
+      },
+      "troubleshooting": {
+        "eval": 2,
+        "train": 2
+      },
+      "uncertainty_escalation": {
+        "eval": 2,
+        "train": 2
+      }
+    }
+  },
+  "selection_notes": [
+    {
+      "task_type": "faq_direct_answer",
+      "target_split": "train",
+      "selected_job_ids": [
+        "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+        "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002"
+      ]
+    },
+    {
+      "task_type": "troubleshooting",
+      "target_split": "train",
+      "selected_job_ids": [
+        "jaws_de_teacher_wave_v1::train::troubleshooting::0003",
+        "jaws_de_teacher_wave_v1::train::troubleshooting::0004"
+      ]
+    },
+    {
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "selected_job_ids": [
+        "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+        "jaws_de_teacher_wave_v1::train::step_by_step::0002"
+      ]
+    },
+    {
+      "task_type": "clarification",
+      "target_split": "train",
+      "selected_job_ids": [
+        "jaws_de_teacher_wave_v1::train::clarification::0003",
+        "jaws_de_teacher_wave_v1::train::clarification::0008"
+      ]
+    },
+    {
+      "task_type": "uncertainty_escalation",
+      "target_split": "train",
+      "selected_job_ids": [
+        "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+        "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002"
+      ]
+    },
+    {
+      "task_type": "faq_direct_answer",
+      "target_split": "eval",
+      "selected_job_ids": [
+        "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+        "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004"
+      ]
+    },
+    {
+      "task_type": "troubleshooting",
+      "target_split": "eval",
+      "selected_job_ids": [
+        "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+        "jaws_de_teacher_wave_v1::eval::troubleshooting::0007"
+      ]
+    },
+    {
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "selected_job_ids": [
+        "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+        "jaws_de_teacher_wave_v1::eval::step_by_step::0002"
+      ]
+    },
+    {
+      "task_type": "clarification",
+      "target_split": "eval",
+      "selected_job_ids": [
+        "jaws_de_teacher_wave_v1::eval::clarification::0001",
+        "jaws_de_teacher_wave_v1::eval::clarification::0002"
+      ]
+    },
+    {
+      "task_type": "uncertainty_escalation",
+      "target_split": "eval",
+      "selected_job_ids": [
+        "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+        "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004"
+      ]
+    }
+  ],
+  "selected_jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0001",
+      "target_split": "eval",
+      "task_type": "clarification",
+      "source_doc_id": "jaws_de_braille",
+      "source_chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01",
+      "quality_score": 60,
+      "chunk_type": "reference",
+      "section_path_text": "JAWS – Braille (Allgemein & Focus) > Allgemein"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "target_split": "eval",
+      "task_type": "clarification",
+      "source_doc_id": "jaws_de_settingscenter",
+      "source_chunk_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste::chunk_01",
+      "quality_score": 60,
+      "chunk_type": "reference",
+      "section_path_text": "Einstellungsverwaltung Übersicht > Kurztasten zum Navigieren in der Einstellungsverwaltung > Navigation in der Anwendungsliste"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "target_split": "eval",
+      "task_type": "faq_direct_answer",
+      "source_doc_id": "jaws_de_settingscenter",
+      "source_chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01",
+      "quality_score": 71,
+      "chunk_type": "concept",
+      "section_path_text": "Gruppe Sprachausgaben > Gruppe Navigation > Länge des Textblocks"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "target_split": "eval",
+      "task_type": "faq_direct_answer",
+      "source_doc_id": "jaws_de_hilfe_kernfunktionen",
+      "source_chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01",
+      "quality_score": 71,
+      "chunk_type": "concept",
+      "section_path_text": "Schnelleinstellung Übersicht > JAWS Befehle zum Arbeiten in Dialogen"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "target_split": "eval",
+      "task_type": "step_by_step",
+      "source_doc_id": "jaws_de_braille",
+      "source_chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01",
+      "quality_score": 80,
+      "chunk_type": "procedure",
+      "section_path_text": "JAWS – Braille (Allgemein & Focus) > Schreiben in Kurzschrift"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "target_split": "eval",
+      "task_type": "step_by_step",
+      "source_doc_id": "jaws_de_settingscenter",
+      "source_chunk_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__hervorhebungsoptionen::chunk_01",
+      "quality_score": 80,
+      "chunk_type": "procedure",
+      "section_path_text": "JAWS – Einstellungsverwaltung (Settings Center) > Hervorhebungsoptionen"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+      "target_split": "eval",
+      "task_type": "troubleshooting",
+      "source_doc_id": "jaws_de_hilfe_kernfunktionen",
+      "source_chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01",
+      "quality_score": 70,
+      "chunk_type": "warning",
+      "section_path_text": "Schnelleinstellung Übersicht > Gesicht im Blick"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+      "target_split": "eval",
+      "task_type": "troubleshooting",
+      "source_doc_id": "jaws_de_hilfe_kernfunktionen",
+      "source_chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01",
+      "quality_score": 70,
+      "chunk_type": "warning",
+      "section_path_text": "JAWS – Hilfe (Kernfunktionen) > Eine Promptbezeichnung erstellen"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+      "target_split": "eval",
+      "task_type": "uncertainty_escalation",
+      "source_doc_id": "jaws_de_settingscenter",
+      "source_chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01",
+      "quality_score": 72,
+      "chunk_type": "warning",
+      "section_path_text": "Die Gruppe Sprach- und Sound-Schemata > Einsteiger, Fortgeschrittenen oder Experten Einstellungen > Länge von JAWS Meldungen"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004",
+      "target_split": "eval",
+      "task_type": "uncertainty_escalation",
+      "source_doc_id": "jaws_de_hilfe_kernfunktionen",
+      "source_chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen::chunk_01",
+      "quality_score": 72,
+      "chunk_type": "warning",
+      "section_path_text": "Schnelleinstellung Übersicht > Speziellen Symbolen Sprache hinzufügen"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0003",
+      "target_split": "train",
+      "task_type": "clarification",
+      "source_doc_id": "jaws_de_settingscenter",
+      "source_chunk_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01",
+      "quality_score": 60,
+      "chunk_type": "reference",
+      "section_path_text": "Einstellungsverwaltung Übersicht > Kurztasten zum Navigieren in der Einstellungsverwaltung > Navigation in der Strukturansicht"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0008",
+      "target_split": "train",
+      "task_type": "clarification",
+      "source_doc_id": "jaws_de_hilfe_kernfunktionen",
+      "source_chunk_id": "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01",
+      "quality_score": 60,
+      "chunk_type": "reference",
+      "section_path_text": "Was ist neu in JAWS? > Aria und Web"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+      "target_split": "train",
+      "task_type": "faq_direct_answer",
+      "source_doc_id": "jaws_de_braille",
+      "source_chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01",
+      "quality_score": 71,
+      "chunk_type": "concept",
+      "section_path_text": "JAWS – Braille (Allgemein & Focus) > Focus Blue Tastatur"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+      "target_split": "train",
+      "task_type": "faq_direct_answer",
+      "source_doc_id": "jaws_de_tutorial_basics",
+      "source_chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue::chunk_01",
+      "quality_score": 71,
+      "chunk_type": "concept",
+      "section_path_text": "JAWS – Tutorial / Grundlagen > Steuerungsmenü"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "target_split": "train",
+      "task_type": "step_by_step",
+      "source_doc_id": "jaws_de_braille",
+      "source_chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01",
+      "quality_score": 80,
+      "chunk_type": "procedure",
+      "section_path_text": "JAWS – Braille (Allgemein & Focus) > Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "target_split": "train",
+      "task_type": "step_by_step",
+      "source_doc_id": "jaws_de_tutorial_basics",
+      "source_chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01",
+      "quality_score": 80,
+      "chunk_type": "procedure",
+      "section_path_text": "JAWS – Tutorial / Grundlagen > Stimmeneinstellungen"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0003",
+      "target_split": "train",
+      "task_type": "troubleshooting",
+      "source_doc_id": "jaws_de_settingscenter",
+      "source_chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02::chunk_01",
+      "quality_score": 70,
+      "chunk_type": "warning",
+      "section_path_text": "Die Gruppe Sprach- und Sound-Schemata > Standardeinstellungen wiederherstellen"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0004",
+      "target_split": "train",
+      "task_type": "troubleshooting",
+      "source_doc_id": "jaws_de_hilfe_kernfunktionen",
+      "source_chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments::chunk_01",
+      "quality_score": 70,
+      "chunk_type": "warning",
+      "section_path_text": "JAWS – Hilfe (Kernfunktionen) > Texterkennung eines geöffneten PDF Dokuments"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+      "target_split": "train",
+      "task_type": "uncertainty_escalation",
+      "source_doc_id": "jaws_de_braille",
+      "source_chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01",
+      "quality_score": 72,
+      "chunk_type": "warning",
+      "section_path_text": "JAWS – Braille (Allgemein & Focus) > Auswahl einer geteilten Braille-Ansicht > Anmerkungen"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+      "target_split": "train",
+      "task_type": "uncertainty_escalation",
+      "source_doc_id": "jaws_de_tutorial_basics",
+      "source_chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01",
+      "quality_score": 72,
+      "chunk_type": "warning",
+      "section_path_text": "JAWS – Tutorial / Grundlagen > Strukturansicht"
+    }
+  ]
+}

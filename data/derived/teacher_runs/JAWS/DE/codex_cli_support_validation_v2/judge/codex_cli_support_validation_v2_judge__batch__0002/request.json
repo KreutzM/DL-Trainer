@@ -1,0 +1,66 @@
+{
+  "batch_id": "codex_cli_support_validation_v2_judge::batch::0002",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0007"
+  ],
+  "reviewer_run_id": "codex_cli_support_validation_v2_judge",
+  "reviewer_model": "gpt-5.4-mini",
+  "generation_mode": "teacher_judge_codex_cli_v1",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "task_type": "step_by_step",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::step_by_step::0001::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::step_by_step::0001::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::step_by_step::0002::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::step_by_step::0002::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__hervorhebungsoptionen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+      "task_type": "troubleshooting",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::troubleshooting::0004::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::troubleshooting::0004::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+      "task_type": "troubleshooting",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::troubleshooting::0007::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::troubleshooting::0007::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ]
+    }
+  ]
+}

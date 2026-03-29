@@ -1,0 +1,151 @@
+2026-03-29T12:59:29.013784Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T12:59:29.013801Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T12:59:29.013804Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T12:59:29.013807Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.117.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4-mini
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d39ad-8f7a-7261-a248-3d1581dabfca
+--------
+user
+# Teacher Prompt: JAWS-DE User Simulation
+
+## Rolle
+
+Du simulierst eine realistische deutschsprachige Support-Anfrage fuer JAWS.
+
+## Ziel
+
+Erzeuge genau eine hochwertige Nutzeranfrage, die plausibel zu einem realen Supportfall passt und sich eng am bereitgestellten Dokumentkontext orientiert.
+
+## Regeln
+
+- Nutze nur den bereitgestellten Quellkontext.
+- Erfinde keine Menues, Tastenkombinationen oder Funktionen.
+- Verwende keine Chunk-Titel als starre Schablone.
+- Formuliere die Anfrage so, wie ein echter Anwender oder Helpdesk-Nutzer sie stellen koennte.
+- Variiere Schwierigkeitsgrad und Formulierungsstil sinnvoll.
+- Die Anfrage darf unvollstaendig oder alltagsnah sein, aber sie muss zum dokumentierten Fall passen.
+- Keine Loesung in die Anfrage schreiben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- konkret statt generisch
+- supportnah statt dokumenttitelartig
+- glaubwuerdig fuer den jeweiligen `task_type`
+- bei `clarification` oder `uncertainty_escalation` darf die Anfrage bewusst etwas unklar sein
+- bei `step_by_step` sollte die Anfrage typischerweise um eine Bedienfolge oder Vorgehensweise bitten
+
+## Task-Type-spezifische Leitplanken
+
+- `faq_direct_answer`: die Anfrage soll auf eine konkrete, direkt beantwortbare Informationsfrage hinauslaufen.
+- `troubleshooting`: die Anfrage soll ein plausibles Problem, eine Einschränkung oder ein unerwartetes Verhalten schildern.
+- `step_by_step`: die Anfrage soll klar um eine Vorgehensweise, Bedienfolge oder Einrichtung bitten.
+- `clarification`: die Anfrage soll bewusst noch nicht eng genug sein, sodass eine fokussierte Rueckfrage sinnvoll bleibt.
+- `uncertainty_escalation`: die Anfrage darf einen Randfall, eine Voraussetzung oder eine Grenze ansprechen, bei der die Quelle nur begrenzt Antwort gibt.
+
+## Ausgabe
+
+JSON mit:
+- `request_text`
+- `user_goal`
+- `difficulty`
+- `phrasing_style`
+- `scenario_summary`
+- `notes`
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine eigenstaendige Nutzeranfrage.
+- Uebernimm job_id im JSON exakt.
+- Antworte fuer alle Faelle gesammelt in einem JSON-Objekt mit items[].
+- Verwende nur den pro Fall gezeigten Quellkontext.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001
+- task_type: uncertainty_escalation
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Auswahl einer geteilten Braille-Ansicht > Anmerkungen
+- spaeteres supportziel: n/a
+- seed_request: Kann ich mich bei Anmerkungen in JAWS allgemein darauf verlassen, dass das immer gleich unterstuetzt wird?
+- source_excerpt:
+Diese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.
+
+**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.
+
+### job_id: jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002
+- task_type: uncertainty_escalation
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Tutorial / Grundlagen > Strukturansicht
+- spaeteres supportziel: n/a
+- seed_request: Kann ich mich bei Strukturansicht in JAWS allgemein darauf verlassen, dass das immer gleich unterstuetzt wird?
+- source_excerpt:
+In einer Strukturansicht werden Elemente hierarchisch angeordnet und vertikal am Bildschirm dargestellt. Mit **PFEIL RAUF** und **PFEIL RUNTER** bewegen Sie sich durch eine Strukturansicht. Wenn Sie "Ebene 0 geschlossen" hören, öffnen Sie mit PFEIL RECHTS diese Ebene. Es erscheinen dann weitere Informationen unterhalb dieser Ebene. Mit **PFEIL RUNTER** bewegen Sie sich durch die Elemente der nächsten Ebene. Auch hier kann ein Element geschlossen sein, so dass Sie wieder mit **PFEIL RECHTS** diese Ebene öffnen können. Sie schließen eine Ebene mit **PFEIL LINKS** oder **RÜCKSCHRITT**.
+
+**Hinweis:** JAWS sagt die Positionsnummer der Ebene nur dann an, wenn sie sich ändert.
+
+Um auf das erste Element in einer Strukturansicht zu springen, drücken Sie **POS1**, mit **ENDE** springen Sie auf das letzte Element.
+
+Rechts neben der Strukturansicht befindet sich ein zweiter Bereich, in dem Informationen über das in der Strukturansicht gewählte Element angezeigt werden. Mit **TAB** springen Sie in den rechten Bereich der Strukturansicht. Mit dem Befehl Alles Lesen, **JAWS TASTE+PFEIL RUNTER**, werden diese Informationen vorgelesen. Mit **UMSCHALT+TAB** springen Sie in den ursprünglichen Bereich der Strukturansicht zurück.
+
+Quelle: sample_dialogs.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::step_by_step::0001
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)
+- spaeteres supportziel: n/a
+- seed_request: Wie gehe ich bei Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen) in JAWS Schritt fuer Schritt vor?
+- source_excerpt:
+Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:
+
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
+2. Wählen Sie Optionen.
+3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
+
+### job_id: jaws_de_teacher_wave_v1::train::step_by_step::0002
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Tutorial / Grundlagen > Stimmeneinstellungen
+- spaeteres supportziel: n/a
+- seed_request: Wie gehe ich bei Stimmeneinstellungen in JAWS Schritt fuer Schritt vor?
+- source_excerpt:
+Die JAWS Stimmeneinstellungen für die Sprachausgabe lassen sich unterschiedlich anpassen, so dass Sie die einzelnen JAWS Funktionen akustisch unterscheiden können. So sollte zum Beispiel die Stimme für den PC Cursor anders eingestellt sein, als die Stimme für das Tastaturecho oder für die Großbuchstabenansage.
+
+Gehen Sie bitte folgendermaßen vor, wenn Sie Stimmeneinstellungen öffnen möchten:
+
+1. Drücken Sie **EINFÜGEN+J**, um das JAWS Programmfenster zu öffnen.
+2. Drücken Sie **ALT+O**, um das Menü Optionen zu öffnen.
+3. Drücken Sie **T** und dann **EINGABE**, um das Dialogfeld [Stimmeneinstellungen](jfw.chm::/using_jaws/the_jaws_application_window/Voice_Adjustment.htm) zu öffnen. Hier können Sie ein bestehendes Profil oder eine Standard-Stimmenvorlage auswählen und verschiedene Einstellungen, wie Sprache, Stimme, Sprechgeschwindigkeit, Satzzeichenansage und anderes nach Ihren Wünschen konfigurieren.
+4. Nach dem Ändern der Einstellungen, speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.
+
+Um eine Stimmenprofil auszuwählen, gehen Sie bitte folgendermaßen vor:
+
+1. Drücken Sie **JAWS TASTE+STRG+S**, um das Dialogfenster [Stimmenprofil auswählen](jfw.chm::/using_jaws/the_jaws_application_window/language_menu_overview.htm#VoiceProfiles) zu öffnen.
+2. Nutzen Sie die Ausklappliste Standard, um eine Stimmenprofil auszuwählen, dass von JAWS global
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+codex
+{"items":[{"job_id":"jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001","request_text":"Wenn ich in Word mit JAWS Kommentare oder Fußnoten prüfe: Kann ich mich darauf verlassen, dass die Brailleanzeige dabei immer geteilt wird, oder hängt das davon ab, ob der Cursor gerade auf einer Anmerkung steht?","user_goal":"Klären, ob die geteilte Braille-Ansicht bei Anmerkungen zuverlässig und allgemein verfügbar ist.","difficulty":"intermediate","phrasing_style":"uncertain","scenario_summary":"Der Nutzer möchte wissen, wie verlässlich die Anmerkungsansicht in JAWS bei Word ist und ob sie immer gleich funktioniert.","notes":["Beschränkt auf den beschriebenen Fall mit Anmerkungen in Word.","Keine Lösung oder Bedienfolge enthalten.","Fragt bewusst nach einer Grenze bzw. Voraussetzung."]},{"job_id":"jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002","request_text":"In einer Strukturansicht: Kann ich mich darauf verlassen, dass ich dort immer mit den Pfeiltasten durch alle Ebenen komme, oder gibt es Fälle, in denen eine Ebene erst geöffnet werden muss, bevor ich weiter navigieren kann?","user_goal":"Klären, ob die Navigation in der Strukturansicht immer gleich funktioniert oder von geschlossenen Ebenen abhängt.","difficulty":"intermediate","phrasing_style":"uncertain","scenario_summary":"Der Nutzer ist unsicher, ob die Strukturansicht in JAWS in allen Fällen direkt navigierbar ist oder ob Ebenen zuerst geöffnet werden müssen.","notes":["Nur auf die beschriebene Strukturansicht bezogen.","Keine zusätzlichen Menüs oder Funktionen erfunden.","Bewusst als Randfall bzw. Einschränkung formuliert."]},{"job_id":"jaws_de_teacher_wave_v1::train::step_by_step::0001","request_text":"Wie stelle ich in JAWS die Zeilenanzahl für den geteilten Bereich auf einer mehrzeiligen Braillezeile um? Ich brauche die Schritte bitte nacheinander.","user_goal":"Eine genaue Schritt-für-Schritt-Anleitung zum Ändern der Zeilenanzahl für den geteilten Bereich erhalten.","difficulty":"basic","phrasing_style":"task_focused","scenario_summary":"Der Nutzer möchte die Einstellung für die im geteilten Bereich verwendeten Zeilen in JAWS ändern und sucht eine klare Bedienfolge.","notes":["Direkt an der beschriebenen Prozedur orientiert.","Keine Lösung enthalten, nur die Bitte um Vorgehen.","Passend für mehrzeilige Braillezeilen."]},{"job_id":"jaws_de_teacher_wave_v1::train::step_by_step::0002","request_text":"Wie öffne ich in JAWS die Stimmeneinstellungen und wähle dort ein Stimmenprofil aus? Bitte Schritt für Schritt, damit ich nichts verwechseln kann.","user_goal":"Eine Schritt-für-Schritt-Anleitung zum Öffnen der Stimmeneinstellungen und Auswählen eines Stimmenprofils erhalten.","difficulty":"basic","phrasing_style":"task_focused","scenario_summary":"Der Nutzer möchte die JAWS-Stimmeneinstellungen aufrufen und anschließend ein Stimmenprofil auswählen.","notes":["An die im Kontext beschriebene Menüfolge angelehnt.","Keine Details ergänzt, die nicht im Quelltext stehen.","Als praktische Bedienanfrage formuliert."]}]}
+tokens used
+1.649

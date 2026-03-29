@@ -1,0 +1,134 @@
+{
+  "batch_id": "codex_cli_support_validation_v2_user_sim::batch::0002",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0007"
+  ],
+  "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+  "simulator_model": "gpt-5.4-mini",
+  "generation_mode": "teacher_user_simulator_codex_cli_v1",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "task_type": "step_by_step",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "source_excerpt": "Mit BrailleIn werden Ihre Eingaben umgehend in der aktuellen E-Mail, im Dokument oder in Formularfeldern in normalen Text übersetzt, wenn Sie über die Perkins-Tastatur Braille-Kurzschrift eingeben. Sollte eine Anwendung oder spezielle Eingabefelder keine Kurzschrift unterstützen, dann sagt JAWS \"Computer Braille\", sofern die Tutormeldungen eingeschaltet sind. Darüberhinaus wird das Symbol für Computer Braille, Punkte 4-5-6 gefolgt von Punkten 3-4-6, auf der Braillezeile dargestellt, um anzuzeigen, dass Computer Braille benötigt wird.\n\nDie Eingabe in Computer-Braille ist standardmäßig ausgewählt. Um die Braillekurzschrift zu verwenden, gehen Sie bitte folgendermaßen vor:\n1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung.\n\n2. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste Anwendungen.\n\n3. Im Sucheingabefeld geben Sie \"Übersetzung\" ohne Anführungsstriche ein.\n\n4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen und drücken Sie dann **EINGABE**, um den Fokus direkt in die Gruppe Übersetzung zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.\n\n5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einste",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Wie gehe ich bei Schreiben in Kurzschrift in JAWS Schritt fuer Schritt vor?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift",
+            "section_title": "Schreiben in Kurzschrift",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L252-L261"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__hervorhebungsoptionen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "source_excerpt": "Mit dem Dialog Optionen für Hervorhebungsfarbe können Sie steuern, wie JAWS auf Hervorhebungsfarben, die Sie für eine Anwendung definiert haben, reagiert. Sie können die Art ändern, wie JAWS Windows-Hervorhebungen und angepasste Hervorhebungen liest, und Sie können bereits zugewiesene Hervorhebungsfarben löschen. Sie können jedoch aus diesem Dialog heraus keine Farbkombinationen von Hand zuweisen. Lesen Sie dazu [Angepasste Hervorhebungsfarben zuweisen](assigning_custom_highlight_colors.htm).\n\nUm diesen Dialog zu öffnen, gehen Sie bitte folgendermaßen vor:\n\n1. Öffnen Sie die Einstellungsverwaltung und geben Sie \"Hervorhebung\" im Sucheingabefeld ohne Anführungsstriche ein.\n2. Drücken Sie **PFEIL RUNTER**, um in die gefilterten Ergebnisse zu springen und wählen Sie Hervorhebungsfarben konfigurieren.\n3. Drücken Sie **LEERTASTE**, um das Dialogfenster Hervorhebungsoptionen zu öffnen.\n\nDas Dialogfeld enthält die folgenden Elemente:",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Wie gehe ich bei Hervorhebungsoptionen in JAWS Schritt fuer Schritt vor?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__hervorhebungsoptionen::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__hervorhebungsoptionen",
+            "section_title": "Hervorhebungsoptionen",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L515-L523"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+      "task_type": "troubleshooting",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "source_excerpt": "Videoanrufe sind zu einer Standardform der Kommunikation am Arbeitsplatz, in der Schule und in persönlichen Beziehungen geworden. Bevor Sie sich an einem Videoanruf beteiligen, sollten Sie sicherstellen, dass Ihre Einstellung richtig ist und die Kamera richtig auf Sie ausgerichtet ist. Gesicht im Blick hilft Ihnen dabei, indem es Sie auf wichtige visuelle Details aufmerksam macht, wie zum Beispiel:\n\n- Ist mein Gesicht in der Ansicht zentriert?\n- Gucke ich direkt in die Kamera?\n- Ist die Beleuchtung ausgewogen?\n- Sind noch weitere Elemente im Bild sichtbar?\n\nUm Gesicht im Blick zu aktivieren, drücken Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **F** und dann **O**. Sobald die Funktion aktiviert ist, überwacht Gesicht im Blick kontinuierlich Ihre Gesichtsposition und die Lichtverhältnisse. Wenn sich etwas ändert, wenn Sie beispielsweise Ihren Kopf nach links oder rechts neigen oder die Helligkeit abnimmt, werden Sie automatisch benachrichtigt.\n\n**Hinweis:** Gesicht im Blick ist derzeit während eines aktiven Videoanrufs nicht verfügbar, da es vollständigen Zugriff auf die Kamera benötigt.\n\nWährend Gesicht im Blick aktiv ist, sind die folgenden verschachtelten Kurztasten verfügbar:\n\n- Eine andere Kamera auswählen (falls mehrere Kameras verfügbar sind): **EINFÜGEN+LEERTASTE**, **F**, **C**. Sobald die Kamera-Ebene aktiv ist, drücken Sie **PFEIL RAUF** oder *",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Ich komme bei Gesicht im Blick in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick",
+            "section_title": "Gesicht im Blick",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3299-L3316"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+      "task_type": "troubleshooting",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "source_excerpt": "Wenn Sie eine Promptbezeichnung erstellen möchten, gehen Sie bitte folgendermaßen vor:\n\n1. Gehen Sie auf das gewünschte Steuerelement.\n2. Drücken Sie **STRG+JAWS TASTE+TAB**.\n3. Der Dialog \"Prompt für Element erstellen\" wird geöffnet. Geben Sie auf der ersten Seite die Promptbezeichnung so ein, wie sie von JAWS gesprochen werden soll. Danach aktivieren Sie den Schalter Weiter.\n4. Auf der zweiten Seite geben Sie nun die Promptbezeichnung so ein, wie sie von JAWS auf der Braillezeile angezeigt werden soll. Danach aktivieren Sie den Schalter Weiter.\n5. Auf der dritten Seite können Sie nun eine individuelle Tutormeldung eingeben, die Ihnen später beim Navigieren als Erklärung für dieses Steuerelement angesagt wird. Wenn Sie keine Tutormeldung eingeben, wird eine Standardmeldung angesagt. Aktivieren Sie den Schalter Fertigstellen, um die Promptbezeichnung zu erstellen.\n\n**Hinweis:** Alternativ können Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen öffnen und aus der Liste den Eintrag Prompt erstellen wählen.\n\nWenn Sie eine Promptbezeichnung verändern möchten, die Sie bereits erstellt haben, drücken Sie erneut **STRG+JAWS TASTE+TAB** und verändern die vorhandenen Bezeichnungen.\n\nQuelle: create_a_prompt.htm",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Ich komme bei Eine Promptbezeichnung erstellen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen",
+            "section_title": "Eine Promptbezeichnung erstellen",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L357-L369"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

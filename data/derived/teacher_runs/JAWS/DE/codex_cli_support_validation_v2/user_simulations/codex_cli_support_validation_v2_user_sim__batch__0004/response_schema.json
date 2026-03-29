@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "items"
+  ],
+  "properties": {
+    "items": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "job_id",
+          "request_text",
+          "user_goal",
+          "difficulty",
+          "phrasing_style",
+          "scenario_summary",
+          "notes"
+        ],
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "enum": [
+              "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+              "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+              "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+              "jaws_de_teacher_wave_v1::train::step_by_step::0002"
+            ]
+          },
+          "request_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "user_goal": {
+            "type": "string",
+            "minLength": 1
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": [
+              "basic",
+              "intermediate",
+              "advanced"
+            ]
+          },
+          "phrasing_style": {
+            "type": "string",
+            "enum": [
+              "neutral",
+              "urgent",
+              "uncertain",
+              "task_focused",
+              "frustrated"
+            ]
+          },
+          "scenario_summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

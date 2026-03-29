@@ -1,0 +1,156 @@
+2026-03-29T12:58:55.935939Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T12:58:55.935956Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T12:58:55.935960Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T12:58:55.935962Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.117.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4-mini
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d39ad-0e43-7243-9390-2f1f9eb6a50e
+--------
+user
+# Teacher Prompt: JAWS-DE User Simulation
+
+## Rolle
+
+Du simulierst eine realistische deutschsprachige Support-Anfrage fuer JAWS.
+
+## Ziel
+
+Erzeuge genau eine hochwertige Nutzeranfrage, die plausibel zu einem realen Supportfall passt und sich eng am bereitgestellten Dokumentkontext orientiert.
+
+## Regeln
+
+- Nutze nur den bereitgestellten Quellkontext.
+- Erfinde keine Menues, Tastenkombinationen oder Funktionen.
+- Verwende keine Chunk-Titel als starre Schablone.
+- Formuliere die Anfrage so, wie ein echter Anwender oder Helpdesk-Nutzer sie stellen koennte.
+- Variiere Schwierigkeitsgrad und Formulierungsstil sinnvoll.
+- Die Anfrage darf unvollstaendig oder alltagsnah sein, aber sie muss zum dokumentierten Fall passen.
+- Keine Loesung in die Anfrage schreiben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- konkret statt generisch
+- supportnah statt dokumenttitelartig
+- glaubwuerdig fuer den jeweiligen `task_type`
+- bei `clarification` oder `uncertainty_escalation` darf die Anfrage bewusst etwas unklar sein
+- bei `step_by_step` sollte die Anfrage typischerweise um eine Bedienfolge oder Vorgehensweise bitten
+
+## Task-Type-spezifische Leitplanken
+
+- `faq_direct_answer`: die Anfrage soll auf eine konkrete, direkt beantwortbare Informationsfrage hinauslaufen.
+- `troubleshooting`: die Anfrage soll ein plausibles Problem, eine Einschränkung oder ein unerwartetes Verhalten schildern.
+- `step_by_step`: die Anfrage soll klar um eine Vorgehensweise, Bedienfolge oder Einrichtung bitten.
+- `clarification`: die Anfrage soll bewusst noch nicht eng genug sein, sodass eine fokussierte Rueckfrage sinnvoll bleibt.
+- `uncertainty_escalation`: die Anfrage darf einen Randfall, eine Voraussetzung oder eine Grenze ansprechen, bei der die Quelle nur begrenzt Antwort gibt.
+
+## Ausgabe
+
+JSON mit:
+- `request_text`
+- `user_goal`
+- `difficulty`
+- `phrasing_style`
+- `scenario_summary`
+- `notes`
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine eigenstaendige Nutzeranfrage.
+- Uebernimm job_id im JSON exakt.
+- Antworte fuer alle Faelle gesammelt in einem JSON-Objekt mit items[].
+- Verwende nur den pro Fall gezeigten Quellkontext.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::eval::clarification::0001
+- task_type: clarification
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01
+- chunk_type: reference
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Allgemein
+- spaeteres supportziel: Stellt genau eine fokussierte Rueckfrage und grenzt Allgemein sinnvoll ein.
+- seed_request: Ich brauche Hilfe zu Allgemein in JAWS.
+- source_excerpt:
+- [BrailleIn](JAWS_BrailleIn.htm)
+- [Braillezeilen Eingabebefehle](focus/Braille_Display_Input_Commands.htm)
+- [Braille Lern-Modus](Braille_Study_Mode.htm)
+- [Die Modi der Braillezeilen](Braille_Display_Modes.htm)
+- [Statuszellen](Status_Cells.htm)
+- [Braille Blitzmeldungen](Braille_Flash_Messages.htm)
+- [Den Cursor an- und abkoppeln](Linking_and_Unlinking_the_Cursor.htm)
+- [Spezielle JAWS Braille-Kürzel](JAWS_Specific_Braille_Abbreviations.htm)
+- [Braille-Formatierung](Braille_Formatting.htm)
+- [Braille-Einstellungen im laufenden Betrieb vornehmen](braille/adjust_braille_options.htm)
+
+### job_id: jaws_de_teacher_wave_v1::eval::clarification::0002
+- task_type: clarification
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste::chunk_01
+- chunk_type: reference
+- section_path_text: Einstellungsverwaltung Übersicht > Kurztasten zum Navigieren in der Einstellungsverwaltung > Navigation in der Anwendungsliste
+- spaeteres supportziel: Stellt genau eine fokussierte Rueckfrage und grenzt Navigation in der Anwendungsliste sinnvoll ein.
+- seed_request: Ich brauche Hilfe zu Navigation in der Anwendungsliste in JAWS.
+- source_excerpt:
+- Drücken Sie **UMSCHALT+TAB**, bis der Fokus auf der Ausklappliste für Anwendungen landet.
+- Drücken Sie die **PFEILTASTEN**, um Elemente in der Anwendungsliste auszuwählen.
+- Um Elemente in der Liste auszuwählen, nutzen Sie die Navigation über den Anfangsbuchstaben.
+- Drücken Sie **TAB** oder **UMSCHALT+TAB**, um den Fokus von der Ausklappliste weg zu bewegen.
+
+### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003
+- task_type: uncertainty_escalation
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01
+- chunk_type: warning
+- section_path_text: Die Gruppe Sprach- und Sound-Schemata > Einsteiger, Fortgeschrittenen oder Experten Einstellungen > Länge von JAWS Meldungen
+- spaeteres supportziel: Markiert die Evidenzgrenze fuer Länge von JAWS Meldungen klar und erfindet keine generelle Zusage.
+- seed_request: Kann ich mich bei Länge von JAWS Meldungen in JAWS allgemein darauf verlassen, dass das immer gleich unterstuetzt wird?
+- source_excerpt:
+Die Länge der Meldungen kann mit zwei Auswahlschaltern angepasst werden, Lange oder kurze Meldungen. Wählen Sie Kurze Meldungen, wenn Sie zusammengefasste Meldungen hören möchten, und wählen Sie Lange Meldungen, wenn Sie detaillierte Meldungen hören möchten. Wenn Sie zum Beispiel in einem Textdokument arbeiten und **STRG+C** drücken, um Text in die Zwischenablage zu kopieren, und die Länge von Meldungen auf Kurz gesetzt ist, sagt JAWS "kopiert". Ist die Länge der Meldungen auf Lang gesetzt, sagt JAWS "Gewählten Text in die Ablage kopiert".
+
+**Tipp:** Sind Sie noch nicht mit Windows, JAWS oder einer speziellen Anwendung vertraut, dann kann es sehr hilfreich sein, wenn man die Meldungslänge auf Lang festlegt. Wenn Sie mit einer speziellen Anwendung, oder mit JAWS und Windows im Allgemeinen, vertrauter sind, dann kann das Festlegen der Meldungslänge auf Kurz Zeit sparen und die Arbeitsleistung erhöhen.
+
+Dinge, die gesprochen werden, und auf die die Länge der Meldungen angewendet werden, sind:
+
+- JAWS Meldungen
+- Statusmeldungen
+- JAWS Fehlermeldungen
+- Meldungen beim Anwendungsstart
+- Intelligente Hilfemeldungen
+- Hilfemeldungen
+
+**Hinweis:** Hilfemeldungen können im Listenfeld "Zu sprechende Elemente" nicht abgeschaltet werden, die Einstellung, ob lange oder kurze Meldungen gesprochen werden, wirkt sich aber auf sie aus.
+
+### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004
+- task_type: uncertainty_escalation
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen::chunk_01
+- chunk_type: warning
+- section_path_text: Schnelleinstellung Übersicht > Speziellen Symbolen Sprache hinzufügen
+- spaeteres supportziel: Markiert die Evidenzgrenze fuer Speziellen Symbolen Sprache hinzufügen klar und erfindet keine generelle Zusage.
+- seed_request: Kann ich mich bei Speziellen Symbolen Sprache hinzufügen in JAWS allgemein darauf verlassen, dass das immer gleich unterstuetzt wird?
+- source_excerpt:
+Obwohl JAWS fast alle häufig genutzten Symbole über die Sprachausgabe wiedergibt, möchten Sie möglicherweise doch noch weitere hinzufügen. Wenn Sie ein Dokument lesen und den Eindruck haben, dass JAWS ein Symbol nicht richtig wiedergibt oder gar nicht spricht, gehen Sie bitte folgendermaßen vor:
+
+1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**) und erweitern Sie die Gruppe Grafiken und Symbole.
+2. Aktivieren Sie das Kontrollfeld Zeichenwert hexadezimal sprechen.
+3. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
+4. Kehren Sie in das Dokument zurück. Bewegen Sie den Cursor auf ein kleines "a" (sollte keines vorhanden sein, dann geben Sie eins ein) und drücken Sie **NUM 5** dreimal hintereinander. JAWS sollte "Zeichen U+61HEX" ansagen. Wenn Sie irgendeine andere Meldung hören, dürfen Sie diese Schritte nicht weiter ausführen.
+5. Bewegen Sie den Cursor auf das Zeichen, dessen Sprachwiedergabe geändert werden soll und drücken Sie **NUM 5** dreimal schnell hintereinander, damit Sie den Hexadezimal Unicode Wert des Zeichen erhalten. Notieren Sie sich sicherheitshalber den Wert, da Sie diesen für die nächsten Schritte benötigen.
+6. Verwenden Sie einen Texteditor wie Notepad und öffnen Sie die SBL Datei für die aktive Sprachausgabe. Zum Beispiel Eloq.sbl. Diese Datei finden Sie im Ordner der gemeinsamen Einstellungen (C:\ProgramData\
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+codex
+{"items":[{"job_id":"jaws_de_teacher_wave_v1::eval::clarification::0001","request_text":"Ich bin in JAWS bei den Braille-Einstellungen und sehe dort nur \"Allgemein\". Was gehört in diesem Bereich genau dazu?","user_goal":"Klarheit darüber bekommen, welche Themen unter Braille > Allgemein fallen.","difficulty":"basic","phrasing_style":"uncertain","scenario_summary":"Der Nutzer sucht eine fokussierte Einordnung des Bereichs \"Allgemein\" in den Braille-Einstellungen von JAWS.","notes":["Eng am Abschnitt zu JAWS Braille > Allgemein orientiert.","Keine Lösung enthalten, nur eine Rückfrage."]},{"job_id":"jaws_de_teacher_wave_v1::eval::clarification::0002","request_text":"Wenn ich in der Anwendungsliste der Einstellungsverwaltung bin: Muss ich erst mit Umschalt+Tab in die Ausklappliste wechseln, bevor ich dort mit den Pfeiltasten etwas auswählen kann?","user_goal":"Die richtige Tastennavigation in der Anwendungsliste verstehen.","difficulty":"basic","phrasing_style":"task_focused","scenario_summary":"Der Nutzer ist unsicher, wie der Fokus in der Anwendungsliste gesetzt wird und wann die Pfeiltasten wirken.","notes":["Bezieht sich nur auf die Navigation in der Anwendungsliste.","Formuliert als eine konkrete Bedienfrage."]},{"job_id":"jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003","request_text":"Gilt die Einstellung für kurze oder lange JAWS-Meldungen wirklich für alles gleich, oder gibt es Situationen, in denen sie nicht greift?","user_goal":"Die Grenzen und Ausnahmen der Meldungslänge in JAWS einschätzen.","difficulty":"intermediate","phrasing_style":"uncertain","scenario_summary":"Der Nutzer fragt nach der Zuverlässigkeit der Einstellung für Meldungslänge und möchte wissen, ob es Ausnahmen gibt.","notes":["Markiert bewusst eine Evidenzgrenze statt eine allgemeine Zusage zu machen.","Nur aus dem Abschnitt zur Länge von JAWS-Meldungen abgeleitet."]},{"job_id":"jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004","request_text":"Kann ich mit der Funktion zum Hinzufügen spezieller Symbole davon ausgehen, dass JAWS jedes beliebige Zeichen nachträglich korrekt spricht, oder gibt es Fälle, in denen das nicht unterstützt wird?","user_goal":"Klären, ob das Nachrüsten der Sprachwiedergabe für Symbole allgemein oder nur eingeschränkt funktioniert.","difficulty":"intermediate","phrasing_style":"uncertain","scenario_summary":"Der Nutzer fragt nach den Grenzen der Funktion zum Ergänzen der Sprachwiedergabe für Symbole.","notes":["Markiert die Grenze der Quelle, ohne eine pauschale Unterstützung zu behaupten.","An den Warnhinweis und die Schrittfolge des Abschnitts angelehnt."]}]}
+tokens used
+16.828

@@ -1,0 +1,336 @@
+{
+  "wave_size": 20,
+  "selection_summary": {
+    "by_task": {
+      "clarification": 4,
+      "faq_direct_answer": 4,
+      "step_by_step": 4,
+      "troubleshooting": 4,
+      "uncertainty_escalation": 4
+    },
+    "by_doc": {
+      "jaws_de_braille": 5,
+      "jaws_de_hilfe_kernfunktionen": 6,
+      "jaws_de_settingscenter": 6,
+      "jaws_de_tutorial_basics": 3
+    },
+    "by_split": {
+      "eval": 10,
+      "train": 10
+    }
+  },
+  "judge_summary": {
+    "approvals": 16,
+    "rejects": 4,
+    "by_task_decision": {
+      "clarification": {
+        "approve": 4,
+        "reject": 0
+      },
+      "faq_direct_answer": {
+        "approve": 3,
+        "reject": 1
+      },
+      "step_by_step": {
+        "approve": 1,
+        "reject": 3
+      },
+      "troubleshooting": {
+        "approve": 4,
+        "reject": 0
+      },
+      "uncertainty_escalation": {
+        "approve": 4,
+        "reject": 0
+      }
+    },
+    "by_doc_decision": {
+      "jaws_de_braille": {
+        "approve": 4,
+        "reject": 1
+      },
+      "jaws_de_hilfe_kernfunktionen": {
+        "approve": 5,
+        "reject": 1
+      },
+      "jaws_de_settingscenter": {
+        "approve": 5,
+        "reject": 1
+      },
+      "jaws_de_tutorial_basics": {
+        "approve": 2,
+        "reject": 1
+      }
+    },
+    "top_blocking_reasons": {
+      "Der Schrittblock wird zweimal ausgegeben und ist damit nicht sauber nicht dupliziert.": 1,
+      "Die Antwort endet mit einer eigenen Einschränkung statt mit einer klaren, geschlossenen Schrittfolge.": 1,
+      "Für einen Step-by-Step-Goldkandidaten ist die Form zu unruhig und zu wenig präzise strukturiert.": 1,
+      "Die Schrittfolge erscheint einmal als Fliesstext und danach noch einmal als nummerierte Liste.": 1,
+      "Die Form ist dadurch redundant und erfuellt die Anforderung an einen nicht duplizierten Schrittblock nicht sauber.": 1,
+      "Die Antwort ist insgesamt etwas unpraezise benannt, auch wenn die inhaltlichen Schritte stimmen.": 1,
+      "Fuer einen FAQ-Direktantwort-Fall ist die Antwort zu vage und liefert keine brauchbare Zusammenfassung der Befehle.": 1,
+      "Sie paraphrasiert nur die Existenz von Tastenkombinationen, statt die in der Quelle genannten Dialog-Befehle sichtbar zu machen.": 1,
+      "Die Formulierung wirkt eher wie eine Verweisantwort als eine konkrete Beantwortung der Nutzerfrage.": 1,
+      "Die Nutzerfrage verlangt einen klaren Schritt-fuer-Schritt-Ablauf zum Oeffnen der Stimmeneinstellungen und Auswaehlen eines Profils, die Antwort kombiniert dafuer zwei getrennte Bedienpfade ohne klare Trennung.": 1
+    }
+  },
+  "promotion_summary": {
+    "gold_train_rows": 9,
+    "gold_eval_rows": 7
+  },
+  "examples": {
+    "strong_user_request": {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+      "task_type": "faq_direct_answer",
+      "source_doc_id": "jaws_de_tutorial_basics",
+      "request_text": "Wofür ist das Steuerungsmenü in JAWS gedacht, und wie rufe ich es auf, wenn ich ein Fenster wiederherstellen, verschieben oder schließen will?",
+      "judge_quality_score": 99
+    },
+    "strong_support_answer": {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+      "task_type": "faq_direct_answer",
+      "answer_text": "Das Steuerungsmenü dient dazu, ein Fenster wiederherzustellen, zu verschieben, die Größe zu ändern, es zu minimieren, zu maximieren und zu schließen. Sie öffnen es mit ALT+LEERTASTE und gehen dann mit PFEIL RAUF und RUNTER durch die Menüeinträge.",
+      "judge_summary": "Die Antwort ist präzise, dokumentationsgebunden und beantwortet Zweck sowie Aufruf des Steuerungsmenüs direkt."
+    },
+    "rejected_case": {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "request_text": "Wie öffne ich in JAWS die Stimmeneinstellungen und wähle dort ein Stimmenprofil aus? Bitte Schritt für Schritt, damit ich nichts verwechseln kann.",
+      "answer_text": "So öffnen Sie die Stimmeneinstellungen und wählen ein Stimmenprofil aus:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.\n5. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen.\n6. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.",
+      "blocking_reasons": [
+        "Die Nutzerfrage verlangt einen klaren Schritt-fuer-Schritt-Ablauf zum Oeffnen der Stimmeneinstellungen und Auswaehlen eines Profils, die Antwort kombiniert dafuer zwei getrennte Bedienpfade ohne klare Trennung.",
+        "Schritt 4 bis 6 fuehren ueber die Profilauswahl hinaus und wirken wie eine zusammengezogene, teilweise aus dem Kontext abgeleitete Sequenz.",
+        "Die Antwort bleibt zwar nahe an der Quelle, ist aber fuer den step_by_step-Fall nicht sauber genug segmentiert."
+      ],
+      "judge_summary": "Die Antwort ist grundsätzlich quellennah, vermischt aber zwei unterschiedliche Anleitungen und enthält dadurch einen unnötig erweiterten Ablauf. Für einen Gold-Kandidaten ist das zu wenig strikt fokussiert."
+    },
+    "gold_train_example": {
+      "id": "jaws_de_teacher_wave_v1::train::clarification::0003__candidate",
+      "product": "JAWS",
+      "language": "de",
+      "task_type": "clarification",
+      "messages": [
+        {
+          "role": "system",
+          "content": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit"
+        },
+        {
+          "role": "user",
+          "content": "Ich komme in der Einstellungsverwaltung mit der Strukturansicht nicht richtig zurecht. Wie bewege ich mich da zwischen den Gruppen und Einträgen?"
+        },
+        {
+          "role": "assistant",
+          "content": "Geht es Ihnen vor allem darum, wie Sie Gruppen in der Strukturansicht erweitern oder reduzieren und dann zwischen den Einträgen weiter navigieren?"
+        }
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01"
+      ],
+      "teacher_provider": "codex_cli",
+      "teacher_model": "gpt-5.4",
+      "teacher_run_id": "codex_cli_support_validation_v2_answer",
+      "teacher_prompt_version": "jaws_de_support_answer_mvp_v1",
+      "generation_mode": "teacher_answer_codex_cli_v1",
+      "review_status": "promoted",
+      "split": "train",
+      "approved_by": "codex_cli_support_validation_v2_judge",
+      "promoted_from": {
+        "teacher_output_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl",
+        "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::train::clarification::0003",
+        "job_id": "jaws_de_teacher_wave_v1::train::clarification::0003",
+        "teacher_provider": "codex_cli",
+        "teacher_model": "gpt-5.4",
+        "teacher_run_id": "codex_cli_support_validation_v2_answer"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.8.0",
+        "behavior_spec_path": "docs/support_behavior_spec.md",
+        "prompt_template_path": "prompts/teacher/jaws_de_support_answer_mvp.md",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht",
+            "section_title": "Navigation in der Strukturansicht",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L1019-L1025"
+            ]
+          }
+        ]
+      },
+      "meta": {
+        "product": "JAWS",
+        "language": "de",
+        "task_type": "clarification",
+        "teacher_provider": "codex_cli",
+        "teacher_model": "gpt-5.4",
+        "teacher_run_id": "codex_cli_support_validation_v2_answer",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01"
+        ],
+        "teacher_prompt_version": "jaws_de_support_answer_mvp_v1",
+        "generation_mode": "teacher_answer_codex_cli_v1",
+        "needs_clarification": true,
+        "review_status": "promoted",
+        "split": "train",
+        "approved_by": "codex_cli_support_validation_v2_judge",
+        "promoted_from": {
+          "teacher_output_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl",
+          "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::train::clarification::0003",
+          "job_id": "jaws_de_teacher_wave_v1::train::clarification::0003",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer"
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_support_answer_mvp.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01",
+              "section_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht",
+              "section_title": "Navigation in der Strukturansicht",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L1019-L1025"
+              ]
+            }
+          ]
+        },
+        "simulated_user": {
+          "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::train::clarification::0003::simulation",
+          "request_text": "Ich komme in der Einstellungsverwaltung mit der Strukturansicht nicht richtig zurecht. Wie bewege ich mich da zwischen den Gruppen und Einträgen?",
+          "difficulty": "basic",
+          "phrasing_style": "uncertain",
+          "user_goal": "Eine passende Erklärung oder Rückfrage zur Navigation in der Strukturansicht anstoßen.",
+          "scenario_summary": "Ein Nutzer beschreibt allgemeine Probleme mit der Strukturansicht der Einstellungsverwaltung, ohne den genauen Knackpunkt zu benennen.",
+          "simulator_provider": "codex_cli",
+          "simulator_model": "gpt-5.4-mini",
+          "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+          "simulator_prompt_version": "jaws_de_user_simulation_v1"
+        },
+        "auto_review": {
+          "review_id": "codex_cli_support_validation_v2_judge::jaws_de_teacher_wave_v1::train::clarification::0003::review",
+          "decision": "approve",
+          "quality_score": 94,
+          "summary": "Die Rueckfrage ist fokussiert, passt zur Nutzerabsicht und bleibt quellengebunden.",
+          "blocking_reasons": [],
+          "strengths": [
+            "Genau eine zielgerichtete Rueckfrage statt einer voreiligen Endantwort.",
+            "Greift die im Quelltext relevanten Navigationsaspekte auf: Gruppen erweitern oder reduzieren und danach zwischen Eintraegen weiter navigieren.",
+            "Klingt natuerlich fuer Support-Kontext."
+          ],
+          "improvement_notes": [],
+          "reviewer_provider": "codex_cli",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge",
+          "reviewer_prompt_version": "jaws_de_support_judge_v1"
+        }
+      }
+    },
+    "gold_eval_example": {
+      "eval_id": "jaws_de_teacher_wave_v1::eval::clarification::0001__candidate",
+      "product": "JAWS",
+      "language": "de",
+      "case_type": "clarification",
+      "prompt": "Ich bin in JAWS bei den Braille-Einstellungen und sehe dort nur \"Allgemein\". Was gehört in diesem Bereich genau dazu?",
+      "case_description": "Ich bin in JAWS bei den Braille-Einstellungen und sehe dort nur \"Allgemein\". Was gehört in diesem Bereich genau dazu?",
+      "expected_behavior": "Stellt genau eine fokussierte Rueckfrage und grenzt Allgemein sinnvoll ein.",
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01"
+      ],
+      "teacher_provider": "codex_cli",
+      "teacher_model": "gpt-5.4",
+      "teacher_run_id": "codex_cli_support_validation_v2_answer",
+      "teacher_prompt_version": "jaws_de_support_answer_mvp_v1",
+      "generation_mode": "teacher_answer_codex_cli_v1",
+      "review_status": "promoted",
+      "split": "eval",
+      "approved_by": "codex_cli_support_validation_v2_judge",
+      "promoted_from": {
+        "teacher_output_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl",
+        "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::clarification::0001",
+        "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0001",
+        "teacher_provider": "codex_cli",
+        "teacher_model": "gpt-5.4",
+        "teacher_run_id": "codex_cli_support_validation_v2_answer"
+      },
+      "reference_answer": "Meinen Sie eine kurze Übersicht, welche Themen unter Braille > Allgemein aufgeführt sind, oder suchen Sie Hilfe zu einem bestimmten Punkt wie Statuszellen, Braille-Formatierung oder Braille-Blitzmeldungen?",
+      "rubric": {
+        "must_include": [
+          "genau eine fokussierte Rueckfrage",
+          "answer nur als Frage und mit ?",
+          "needs_clarification=true",
+          "escalate=false",
+          "steps=[]"
+        ],
+        "must_not_include": [
+          "direkte inhaltliche Auskunft ohne Rueckfrage",
+          "mehrere Fragen",
+          "erfundene Details"
+        ],
+        "style": "sachlich und knapp",
+        "scoring_notes": ""
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.8.0",
+        "behavior_spec_path": "docs/support_behavior_spec.md",
+        "prompt_template_path": "prompts/teacher/jaws_de_support_answer_mvp.md",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein",
+            "section_title": "Allgemein",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L1033-L1042"
+            ]
+          }
+        ]
+      },
+      "simulated_user": {
+        "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::clarification::0001::simulation",
+        "request_text": "Ich bin in JAWS bei den Braille-Einstellungen und sehe dort nur \"Allgemein\". Was gehört in diesem Bereich genau dazu?",
+        "difficulty": "basic",
+        "phrasing_style": "uncertain",
+        "user_goal": "Klarheit darüber bekommen, welche Themen unter Braille > Allgemein fallen.",
+        "scenario_summary": "Der Nutzer sucht eine fokussierte Einordnung des Bereichs \"Allgemein\" in den Braille-Einstellungen von JAWS.",
+        "simulator_provider": "codex_cli",
+        "simulator_model": "gpt-5.4-mini",
+        "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1"
+      },
+      "auto_review": {
+        "review_id": "codex_cli_support_validation_v2_judge::jaws_de_teacher_wave_v1::eval::clarification::0001::review",
+        "decision": "approve",
+        "quality_score": 95,
+        "summary": "Die Anfrage ist realistisch und die Antwort stellt genau eine fokussierte Rückfrage, die den Bereich Braille > Allgemein sinnvoll eingrenzt.",
+        "blocking_reasons": [],
+        "strengths": [
+          "Nur eine klare Rückfrage statt einer direkten Endantwort",
+          "Gute inhaltliche Anbindung an die aufgelisteten Unterpunkte im Quelltext",
+          "Kein Fakten- oder Menüdrehfehler"
+        ],
+        "improvement_notes": [],
+        "reviewer_provider": "codex_cli",
+        "reviewer_model": "gpt-5.4-mini",
+        "reviewer_run_id": "codex_cli_support_validation_v2_judge",
+        "reviewer_prompt_version": "jaws_de_support_judge_v1"
+      }
+    }
+  }
+}

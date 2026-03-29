@@ -1,0 +1,32 @@
+{
+  "jobs_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+  "simulator_model": "gpt-5.4-mini",
+  "simulator_provider": "codex_cli",
+  "generation_mode": "teacher_user_simulator_codex_cli_v1",
+  "selected_jobs": 20,
+  "completed_jobs": 20,
+  "skipped_existing_jobs": [],
+  "failed_jobs": [],
+  "output": "D:/Codex/DL/DL-Trainer/data/derived/user_simulations/JAWS/DE/codex_cli_support_validation_v2_user_simulations.jsonl",
+  "artifact_dir": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations",
+  "runtime": {
+    "selected_jobs": 20,
+    "completed_jobs": 20,
+    "processed_jobs": 20,
+    "skipped_existing_jobs": 0,
+    "failed_jobs": 0,
+    "configured_batch_size": 4,
+    "executed_batches": 5,
+    "completed_batches": 5,
+    "avg_jobs_per_completed_batch": 4.0,
+    "total_elapsed_ms": 57749,
+    "avg_elapsed_ms_per_processed_job": 2887.45,
+    "avg_elapsed_ms_per_completed_batch": 11549.8,
+    "total_prompt_chars": 43288,
+    "avg_prompt_chars_per_processed_job": 2164.4,
+    "total_source_excerpt_chars": 20013,
+    "avg_source_excerpt_chars_per_processed_job": 1000.65,
+    "total_retry_attempts": 0
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "batch_id": "codex_cli_support_validation_v2_judge::batch::0003",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+    "jaws_de_teacher_wave_v1::train::clarification::0003",
+    "jaws_de_teacher_wave_v1::train::clarification::0008"
+  ],
+  "reviewer_run_id": "codex_cli_support_validation_v2_judge",
+  "reviewer_model": "gpt-5.4-mini",
+  "generation_mode": "teacher_judge_codex_cli_v1",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0003",
+      "task_type": "clarification",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::train::clarification::0003::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::train::clarification::0003::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::train::clarification::0003",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0008",
+      "task_type": "clarification",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::train::clarification::0008::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::train::clarification::0008::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::train::clarification::0008",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ]
+    }
+  ]
+}

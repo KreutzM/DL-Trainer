@@ -1,0 +1,483 @@
+{
+  "batch_id": "codex_cli_support_validation_v2_answer::batch::eval_case::0001",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::clarification::0001",
+    "jaws_de_teacher_wave_v1::eval::clarification::0002",
+    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004"
+  ],
+  "teacher_run_id": "codex_cli_support_validation_v2_answer",
+  "teacher_model": "gpt-5.4",
+  "generation_mode": "teacher_answer_codex_cli_v1",
+  "expected_output_kind": "eval_case",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0001",
+      "task_type": "clarification",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "user_simulation": {
+        "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::clarification::0001::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0001",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "clarification",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_braille"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01"
+        ],
+        "simulator_provider": "codex_cli",
+        "simulator_model": "gpt-5.4-mini",
+        "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_codex_cli_v1",
+        "simulation_status": "completed",
+        "request_text": "Ich bin in JAWS bei den Braille-Einstellungen und sehe dort nur \"Allgemein\". Was gehört in diesem Bereich genau dazu?",
+        "user_goal": "Klarheit darüber bekommen, welche Themen unter Braille > Allgemein fallen.",
+        "difficulty": "basic",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Der Nutzer sucht eine fokussierte Einordnung des Bereichs \"Allgemein\" in den Braille-Einstellungen von JAWS.",
+        "notes": [
+          "Eng am Abschnitt zu JAWS Braille > Allgemein orientiert.",
+          "Keine Lösung enthalten, nur eine Rückfrage."
+        ],
+        "usage": {
+          "elapsed_ms": 3680,
+          "batch_elapsed_ms": 14720,
+          "batch_size": 4,
+          "attempt_count": 1,
+          "prompt_chars": 2177,
+          "source_excerpt_chars": 924
+        },
+        "codex_cli": {
+          "command": [
+            "codex",
+            "exec",
+            "-m",
+            "gpt-5.4-mini",
+            "-s",
+            "read-only",
+            "--skip-git-repo-check",
+            "--ephemeral",
+            "--color",
+            "never",
+            "--output-schema",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_validation_v2\\user_simulations\\codex_cli_support_validation_v2_user_sim__batch__0001\\response_schema.json",
+            "-o",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_validation_v2\\user_simulations\\codex_cli_support_validation_v2_user_sim__batch__0001\\last_message.json",
+            "-C",
+            "D:\\Codex\\DL\\DL-Trainer",
+            "-",
+            "-c",
+            "reasoning_effort=\"low\""
+          ],
+          "batch_id": "codex_cli_support_validation_v2_user_sim::batch::0001",
+          "batch_size": 4,
+          "batch_index": 1,
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/response_schema.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/last_message.json",
+          "stdout_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/stdout.txt",
+          "stderr_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/stderr.txt",
+          "prompt_sha256": "894978b88e958700b2acc99e165e6c10f2d6bebacadc607ae0f7f929e581eac0",
+          "schema_sha256": "44b1b412b7a4284dc7b986c1c712b5f98317e643e86d21de34c69e46f1920d7f"
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_braille",
+              "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01",
+              "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein",
+              "section_title": "Allgemein",
+              "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/braille/index.md#L1033-L1042"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "- [BrailleIn](JAWS_BrailleIn.htm)\n- [Braillezeilen Eingabebefehle](focus/Braille_Display_Input_Commands.htm)\n- [Braille Lern-Modus](Braille_Study_Mode.htm)\n- [Die Modi der Braillezeilen](Braille_Display_Modes.htm)\n- [Statuszellen](Status_Cells.htm)\n- [Braille Blitzmeldungen](Braille_Flash_Messages.htm)\n- [Den Cursor an- und abkoppeln](Linking_and_Unlinking_the_Cursor.htm)\n- [Spezielle JAWS Braille-Kürzel](JAWS_Specific_Braille_Abbreviations.htm)\n- [Braille-Formatierung](Braille_Formatting.htm)\n- [Braille-Einstellungen im laufenden Betrieb vornehmen](braille/adjust_braille_options.htm)",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein",
+            "section_title": "Allgemein",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L1033-L1042"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "task_type": "clarification",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "user_simulation": {
+        "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::clarification::0002::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0002",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "clarification",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste::chunk_01"
+        ],
+        "simulator_provider": "codex_cli",
+        "simulator_model": "gpt-5.4-mini",
+        "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_codex_cli_v1",
+        "simulation_status": "completed",
+        "request_text": "Wenn ich in der Anwendungsliste der Einstellungsverwaltung bin: Muss ich erst mit Umschalt+Tab in die Ausklappliste wechseln, bevor ich dort mit den Pfeiltasten etwas auswählen kann?",
+        "user_goal": "Die richtige Tastennavigation in der Anwendungsliste verstehen.",
+        "difficulty": "basic",
+        "phrasing_style": "task_focused",
+        "scenario_summary": "Der Nutzer ist unsicher, wie der Fokus in der Anwendungsliste gesetzt wird und wann die Pfeiltasten wirken.",
+        "notes": [
+          "Bezieht sich nur auf die Navigation in der Anwendungsliste.",
+          "Formuliert als eine konkrete Bedienfrage."
+        ],
+        "usage": {
+          "elapsed_ms": 3680,
+          "batch_elapsed_ms": 14720,
+          "batch_size": 4,
+          "attempt_count": 1,
+          "prompt_chars": 2177,
+          "source_excerpt_chars": 924
+        },
+        "codex_cli": {
+          "command": [
+            "codex",
+            "exec",
+            "-m",
+            "gpt-5.4-mini",
+            "-s",
+            "read-only",
+            "--skip-git-repo-check",
+            "--ephemeral",
+            "--color",
+            "never",
+            "--output-schema",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_validation_v2\\user_simulations\\codex_cli_support_validation_v2_user_sim__batch__0001\\response_schema.json",
+            "-o",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_validation_v2\\user_simulations\\codex_cli_support_validation_v2_user_sim__batch__0001\\last_message.json",
+            "-C",
+            "D:\\Codex\\DL\\DL-Trainer",
+            "-",
+            "-c",
+            "reasoning_effort=\"low\""
+          ],
+          "batch_id": "codex_cli_support_validation_v2_user_sim::batch::0001",
+          "batch_size": 4,
+          "batch_index": 1,
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/response_schema.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/last_message.json",
+          "stdout_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/stdout.txt",
+          "stderr_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/stderr.txt",
+          "prompt_sha256": "894978b88e958700b2acc99e165e6c10f2d6bebacadc607ae0f7f929e581eac0",
+          "schema_sha256": "44b1b412b7a4284dc7b986c1c712b5f98317e643e86d21de34c69e46f1920d7f"
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste::chunk_01",
+              "section_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste",
+              "section_title": "Navigation in der Anwendungsliste",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L1008-L1011"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "- Drücken Sie **UMSCHALT+TAB**, bis der Fokus auf der Ausklappliste für Anwendungen landet.\n- Drücken Sie die **PFEILTASTEN**, um Elemente in der Anwendungsliste auszuwählen.\n- Um Elemente in der Liste auszuwählen, nutzen Sie die Navigation über den Anfangsbuchstaben.\n- Drücken Sie **TAB** oder **UMSCHALT+TAB**, um den Fokus von der Ausklappliste weg zu bewegen.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste",
+            "section_title": "Navigation in der Anwendungsliste",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L1008-L1011"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+      "task_type": "uncertainty_escalation",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "user_simulation": {
+        "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "uncertainty_escalation",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01"
+        ],
+        "simulator_provider": "codex_cli",
+        "simulator_model": "gpt-5.4-mini",
+        "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_codex_cli_v1",
+        "simulation_status": "completed",
+        "request_text": "Gilt die Einstellung für kurze oder lange JAWS-Meldungen wirklich für alles gleich, oder gibt es Situationen, in denen sie nicht greift?",
+        "user_goal": "Die Grenzen und Ausnahmen der Meldungslänge in JAWS einschätzen.",
+        "difficulty": "intermediate",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Der Nutzer fragt nach der Zuverlässigkeit der Einstellung für Meldungslänge und möchte wissen, ob es Ausnahmen gibt.",
+        "notes": [
+          "Markiert bewusst eine Evidenzgrenze statt eine allgemeine Zusage zu machen.",
+          "Nur aus dem Abschnitt zur Länge von JAWS-Meldungen abgeleitet."
+        ],
+        "usage": {
+          "elapsed_ms": 3680,
+          "batch_elapsed_ms": 14720,
+          "batch_size": 4,
+          "attempt_count": 1,
+          "prompt_chars": 2177,
+          "source_excerpt_chars": 924
+        },
+        "codex_cli": {
+          "command": [
+            "codex",
+            "exec",
+            "-m",
+            "gpt-5.4-mini",
+            "-s",
+            "read-only",
+            "--skip-git-repo-check",
+            "--ephemeral",
+            "--color",
+            "never",
+            "--output-schema",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_validation_v2\\user_simulations\\codex_cli_support_validation_v2_user_sim__batch__0001\\response_schema.json",
+            "-o",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_validation_v2\\user_simulations\\codex_cli_support_validation_v2_user_sim__batch__0001\\last_message.json",
+            "-C",
+            "D:\\Codex\\DL\\DL-Trainer",
+            "-",
+            "-c",
+            "reasoning_effort=\"low\""
+          ],
+          "batch_id": "codex_cli_support_validation_v2_user_sim::batch::0001",
+          "batch_size": 4,
+          "batch_index": 1,
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/response_schema.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/last_message.json",
+          "stdout_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/stdout.txt",
+          "stderr_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/stderr.txt",
+          "prompt_sha256": "894978b88e958700b2acc99e165e6c10f2d6bebacadc607ae0f7f929e581eac0",
+          "schema_sha256": "44b1b412b7a4284dc7b986c1c712b5f98317e643e86d21de34c69e46f1920d7f"
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01",
+              "section_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen",
+              "section_title": "Länge von JAWS Meldungen",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L1537-L1550"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Die Länge der Meldungen kann mit zwei Auswahlschaltern angepasst werden, Lange oder kurze Meldungen. Wählen Sie Kurze Meldungen, wenn Sie zusammengefasste Meldungen hören möchten, und wählen Sie Lange Meldungen, wenn Sie detaillierte Meldungen hören möchten. Wenn Sie zum Beispiel in einem Textdokument arbeiten und **STRG+C** drücken, um Text in die Zwischenablage zu kopieren, und die Länge von Meldungen auf Kurz gesetzt ist, sagt JAWS \"kopiert\". Ist die Länge der Meldungen auf Lang gesetzt, sagt JAWS \"Gewählten Text in die Ablage kopiert\".\n\n**Tipp:** Sind Sie noch nicht mit Windows, JAWS oder einer speziellen Anwendung vertraut, dann kann es sehr hilfreich sein, wenn man die Meldungslänge auf Lang festlegt. Wenn Sie mit einer speziellen Anwendung, oder mit JAWS und Windows im Allgemeinen, vertrauter sind, dann kann das Festlegen der Meldungslänge auf Kurz Zeit sparen und die Arbeitsleistung erhöhen.\n\nDinge, die gesprochen werden, und auf die die Länge der Meldungen angewendet werden, sind:\n\n- JAWS Meldungen\n- Statusmeldungen\n- JAWS Fehlermeldungen\n- Meldungen beim Anwendungsstart\n- Intelligente Hilfemeldungen\n- Hilfemeldungen\n\n**Hinweis:** Hilfemeldungen können im Listenfeld \"Zu sprechende Elemente\" nicht abgeschaltet werden, die Einstellung, ob lange oder kurze Meldungen gesprochen werden, wirkt sich aber auf sie aus.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen",
+            "section_title": "Länge von JAWS Meldungen",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L1537-L1550"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004",
+      "task_type": "uncertainty_escalation",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "user_simulation": {
+        "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "uncertainty_escalation",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_hilfe_kernfunktionen"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen::chunk_01"
+        ],
+        "simulator_provider": "codex_cli",
+        "simulator_model": "gpt-5.4-mini",
+        "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_codex_cli_v1",
+        "simulation_status": "completed",
+        "request_text": "Kann ich mit der Funktion zum Hinzufügen spezieller Symbole davon ausgehen, dass JAWS jedes beliebige Zeichen nachträglich korrekt spricht, oder gibt es Fälle, in denen das nicht unterstützt wird?",
+        "user_goal": "Klären, ob das Nachrüsten der Sprachwiedergabe für Symbole allgemein oder nur eingeschränkt funktioniert.",
+        "difficulty": "intermediate",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Der Nutzer fragt nach den Grenzen der Funktion zum Ergänzen der Sprachwiedergabe für Symbole.",
+        "notes": [
+          "Markiert die Grenze der Quelle, ohne eine pauschale Unterstützung zu behaupten.",
+          "An den Warnhinweis und die Schrittfolge des Abschnitts angelehnt."
+        ],
+        "usage": {
+          "elapsed_ms": 3680,
+          "batch_elapsed_ms": 14720,
+          "batch_size": 4,
+          "attempt_count": 1,
+          "prompt_chars": 2177,
+          "source_excerpt_chars": 924
+        },
+        "codex_cli": {
+          "command": [
+            "codex",
+            "exec",
+            "-m",
+            "gpt-5.4-mini",
+            "-s",
+            "read-only",
+            "--skip-git-repo-check",
+            "--ephemeral",
+            "--color",
+            "never",
+            "--output-schema",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_validation_v2\\user_simulations\\codex_cli_support_validation_v2_user_sim__batch__0001\\response_schema.json",
+            "-o",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_validation_v2\\user_simulations\\codex_cli_support_validation_v2_user_sim__batch__0001\\last_message.json",
+            "-C",
+            "D:\\Codex\\DL\\DL-Trainer",
+            "-",
+            "-c",
+            "reasoning_effort=\"low\""
+          ],
+          "batch_id": "codex_cli_support_validation_v2_user_sim::batch::0001",
+          "batch_size": 4,
+          "batch_index": 1,
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/response_schema.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/last_message.json",
+          "stdout_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/stdout.txt",
+          "stderr_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations/codex_cli_support_validation_v2_user_sim__batch__0001/stderr.txt",
+          "prompt_sha256": "894978b88e958700b2acc99e165e6c10f2d6bebacadc607ae0f7f929e581eac0",
+          "schema_sha256": "44b1b412b7a4284dc7b986c1c712b5f98317e643e86d21de34c69e46f1920d7f"
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_hilfe_kernfunktionen",
+              "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen::chunk_01",
+              "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen",
+              "section_title": "Speziellen Symbolen Sprache hinzufügen",
+              "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L4195-L4206"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Obwohl JAWS fast alle häufig genutzten Symbole über die Sprachausgabe wiedergibt, möchten Sie möglicherweise doch noch weitere hinzufügen. Wenn Sie ein Dokument lesen und den Eindruck haben, dass JAWS ein Symbol nicht richtig wiedergibt oder gar nicht spricht, gehen Sie bitte folgendermaßen vor:\n\n1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**) und erweitern Sie die Gruppe Grafiken und Symbole.\n2. Aktivieren Sie das Kontrollfeld Zeichenwert hexadezimal sprechen.\n3. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.\n4. Kehren Sie in das Dokument zurück. Bewegen Sie den Cursor auf ein kleines \"a\" (sollte keines vorhanden sein, dann geben Sie eins ein) und drücken Sie **NUM 5** dreimal hintereinander. JAWS sollte \"Zeichen U+61HEX\" ansagen. Wenn Sie irgendeine andere Meldung hören, dürfen Sie diese Schritte nicht weiter ausführen.\n5. Bewegen Sie den Cursor auf das Zeichen, dessen Sprachwiedergabe geändert werden soll und drücken Sie **NUM 5** dreimal schnell hintereinander, damit Sie den Hexadezimal Unicode Wert des Zeichen erhalten. Notieren Sie sich sicherheitshalber den Wert, da Sie diesen für die nächsten Schritte benötigen.\n6. Verwenden Sie einen Texteditor wie Notepad und öffnen Sie die SBL Datei für die aktive Sprachausgabe. Zum Beispiel Eloq.sbl. Diese Datei finden Sie im Ordner der gemeinsamen Einstellungen (C:\\ProgramData\\",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen",
+            "section_title": "Speziellen Symbolen Sprache hinzufügen",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L4195-L4206"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

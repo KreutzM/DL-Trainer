@@ -1,0 +1,134 @@
+{
+  "batch_id": "codex_cli_support_validation_v2_user_sim::batch::0004",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0002"
+  ],
+  "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+  "simulator_model": "gpt-5.4-mini",
+  "generation_mode": "teacher_user_simulator_codex_cli_v1",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+      "task_type": "uncertainty_escalation",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "source_excerpt": "Diese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.\n\n**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Kann ich mich bei Anmerkungen in JAWS allgemein darauf verlassen, dass das immer gleich unterstuetzt wird?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen",
+            "section_title": "Anmerkungen",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L536-L538"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+      "task_type": "uncertainty_escalation",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ],
+      "source_excerpt": "In einer Strukturansicht werden Elemente hierarchisch angeordnet und vertikal am Bildschirm dargestellt. Mit **PFEIL RAUF** und **PFEIL RUNTER** bewegen Sie sich durch eine Strukturansicht. Wenn Sie \"Ebene 0 geschlossen\" hören, öffnen Sie mit PFEIL RECHTS diese Ebene. Es erscheinen dann weitere Informationen unterhalb dieser Ebene. Mit **PFEIL RUNTER** bewegen Sie sich durch die Elemente der nächsten Ebene. Auch hier kann ein Element geschlossen sein, so dass Sie wieder mit **PFEIL RECHTS** diese Ebene öffnen können. Sie schließen eine Ebene mit **PFEIL LINKS** oder **RÜCKSCHRITT**.\n\n**Hinweis:** JAWS sagt die Positionsnummer der Ebene nur dann an, wenn sie sich ändert.\n\nUm auf das erste Element in einer Strukturansicht zu springen, drücken Sie **POS1**, mit **ENDE** springen Sie auf das letzte Element.\n\nRechts neben der Strukturansicht befindet sich ein zweiter Bereich, in dem Informationen über das in der Strukturansicht gewählte Element angezeigt werden. Mit **TAB** springen Sie in den rechten Bereich der Strukturansicht. Mit dem Befehl Alles Lesen, **JAWS TASTE+PFEIL RUNTER**, werden diese Informationen vorgelesen. Mit **UMSCHALT+TAB** springen Sie in den ursprünglichen Bereich der Strukturansicht zurück.\n\nQuelle: sample_dialogs.htm",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Kann ich mich bei Strukturansicht in JAWS allgemein darauf verlassen, dass das immer gleich unterstuetzt wird?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_tutorial_basics",
+            "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01",
+            "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht",
+            "section_title": "Strukturansicht",
+            "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/tutorial_basics/index.md#L336-L344"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "task_type": "step_by_step",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "source_excerpt": "Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:\n\n1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.\n2. Wählen Sie Optionen.\n3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.\n4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Wie gehe ich bei Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen) in JAWS Schritt fuer Schritt vor?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen",
+            "section_title": "Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ],
+      "source_excerpt": "Die JAWS Stimmeneinstellungen für die Sprachausgabe lassen sich unterschiedlich anpassen, so dass Sie die einzelnen JAWS Funktionen akustisch unterscheiden können. So sollte zum Beispiel die Stimme für den PC Cursor anders eingestellt sein, als die Stimme für das Tastaturecho oder für die Großbuchstabenansage.\n\nGehen Sie bitte folgendermaßen vor, wenn Sie Stimmeneinstellungen öffnen möchten:\n\n1. Drücken Sie **EINFÜGEN+J**, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie **ALT+O**, um das Menü Optionen zu öffnen.\n3. Drücken Sie **T** und dann **EINGABE**, um das Dialogfeld [Stimmeneinstellungen](jfw.chm::/using_jaws/the_jaws_application_window/Voice_Adjustment.htm) zu öffnen. Hier können Sie ein bestehendes Profil oder eine Standard-Stimmenvorlage auswählen und verschiedene Einstellungen, wie Sprache, Stimme, Sprechgeschwindigkeit, Satzzeichenansage und anderes nach Ihren Wünschen konfigurieren.\n4. Nach dem Ändern der Einstellungen, speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.\n\nUm eine Stimmenprofil auszuwählen, gehen Sie bitte folgendermaßen vor:\n\n1. Drücken Sie **JAWS TASTE+STRG+S**, um das Dialogfenster [Stimmenprofil auswählen](jfw.chm::/using_jaws/the_jaws_application_window/language_menu_overview.htm#VoiceProfiles) zu öffnen.\n2. Nutzen Sie die Ausklappliste Standard, um eine Stimmenprofil auszuwählen, dass von JAWS global ",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Wie gehe ich bei Stimmeneinstellungen in JAWS Schritt fuer Schritt vor?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_tutorial_basics",
+            "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01",
+            "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen",
+            "section_title": "Stimmeneinstellungen",
+            "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/tutorial_basics/index.md#L114-L129"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

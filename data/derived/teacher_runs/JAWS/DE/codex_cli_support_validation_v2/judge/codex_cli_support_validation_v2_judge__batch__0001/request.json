@@ -1,0 +1,66 @@
+{
+  "batch_id": "codex_cli_support_validation_v2_judge::batch::0001",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::clarification::0001",
+    "jaws_de_teacher_wave_v1::eval::clarification::0002",
+    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004"
+  ],
+  "reviewer_run_id": "codex_cli_support_validation_v2_judge",
+  "reviewer_model": "gpt-5.4-mini",
+  "generation_mode": "teacher_judge_codex_cli_v1",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0001",
+      "task_type": "clarification",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::clarification::0001::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::clarification::0001::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::clarification::0001",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "task_type": "clarification",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::clarification::0002::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::clarification::0002::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+      "task_type": "uncertainty_escalation",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004",
+      "task_type": "uncertainty_escalation",
+      "simulation_id": "codex_cli_support_validation_v2_user_sim::jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004::simulation",
+      "response_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004::response",
+      "output_id": "codex_cli_support_validation_v2_answer::jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ]
+    }
+  ]
+}
