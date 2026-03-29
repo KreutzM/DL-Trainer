@@ -70,6 +70,8 @@ def build_sft_candidate(
     teacher_run_id: str,
     generation_mode: str,
     assistant_message: str,
+    *,
+    user_message: str | None = None,
 ) -> dict:
     provenance = {
         "transform_pipeline_version": TRANSFORM_PIPELINE_VERSION,
@@ -102,7 +104,7 @@ def build_sft_candidate(
         "task_type": job["task_type"],
         "messages": [
             {"role": "system", "content": job["runner_input"]["system_message"]},
-            {"role": "user", "content": job["runner_input"]["user_message"]},
+            {"role": "user", "content": user_message or job["runner_input"]["user_message"]},
             {"role": "assistant", "content": assistant_message},
         ],
         "source_doc_ids": job["source_doc_ids"],
@@ -133,6 +135,10 @@ def render_visible_answer(parsed: dict, task_type: str, *, prefer_reference: boo
     steps = [str(step).strip() for step in parsed.get("steps", []) if str(step).strip()]
     if not steps:
         return base_text
+    if base_text:
+        numbered_lines = [line for line in base_text.splitlines() if line.strip()]
+        if numbered_lines and numbered_lines[0].lstrip().startswith("1."):
+            return base_text
 
     numbered_steps = "\n".join(f"{idx}. {step}" for idx, step in enumerate(steps, start=1))
     if not base_text:
@@ -147,6 +153,7 @@ def build_eval_candidate(
     teacher_run_id: str,
     generation_mode: str,
     *,
+    prompt_text: str | None,
     case_description: str,
     expected_behavior: str,
     reference_answer: str,
@@ -160,7 +167,7 @@ def build_eval_candidate(
         "product": job["product"],
         "language": job["language"],
         "case_type": job["task_type"],
-        "prompt": job["runner_input"]["user_message"],
+        "prompt": prompt_text or job["runner_input"]["user_message"],
         "case_description": case_description,
         "expected_behavior": expected_behavior,
         "source_doc_ids": job["source_doc_ids"],
@@ -246,11 +253,27 @@ def build_output_from_candidate(
 
 
 def build_output_from_raw_response(job: dict, raw_response: dict, raw_response_path: str | None) -> dict:
+    return build_output_from_raw_response_with_user_request(
+        job,
+        raw_response,
+        raw_response_path,
+        user_message=None,
+    )
+
+
+def build_output_from_raw_response_with_user_request(
+    job: dict,
+    raw_response: dict,
+    raw_response_path: str | None,
+    *,
+    user_message: str | None,
+) -> dict:
     parsed = raw_response["parsed_response"]
     generation_mode = raw_response["generation_mode"]
     teacher_model = raw_response["teacher_model"]
     teacher_provider = raw_response["teacher_provider"]
     teacher_run_id = raw_response["teacher_run_id"]
+    raw_provenance = raw_response.get("provenance", {})
 
     if job["expected_output_kind"] == "sft_sample":
         candidate = build_sft_candidate(
@@ -260,6 +283,7 @@ def build_output_from_raw_response(job: dict, raw_response: dict, raw_response_p
             teacher_run_id,
             generation_mode,
             render_visible_answer(parsed, job["task_type"]),
+            user_message=user_message,
         )
         candidate["meta"]["needs_clarification"] = bool(parsed.get("needs_clarification", False))
         record_type = "sft_sample"
@@ -270,6 +294,7 @@ def build_output_from_raw_response(job: dict, raw_response: dict, raw_response_p
             teacher_provider,
             teacher_run_id,
             generation_mode,
+            prompt_text=user_message,
             case_description=parsed["case_description"],
             expected_behavior=parsed["expected_behavior"],
             reference_answer=render_visible_answer(parsed, job["task_type"], prefer_reference=True),
@@ -277,7 +302,28 @@ def build_output_from_raw_response(job: dict, raw_response: dict, raw_response_p
         )
         record_type = "eval_case"
 
-    return build_output_from_candidate(
+    candidate["teacher_provider"] = teacher_provider
+    candidate["teacher_model"] = teacher_model
+    candidate["teacher_run_id"] = teacher_run_id
+    candidate["teacher_prompt_version"] = raw_response["teacher_prompt_version"]
+    candidate["generation_mode"] = generation_mode
+    candidate["provenance"]["transform_pipeline_version"] = raw_provenance.get(
+        "transform_pipeline_version",
+        candidate["provenance"].get("transform_pipeline_version"),
+    )
+    if raw_provenance.get("behavior_spec_path"):
+        candidate["provenance"]["behavior_spec_path"] = raw_provenance["behavior_spec_path"]
+    if raw_provenance.get("prompt_template_path"):
+        candidate["provenance"]["prompt_template_path"] = raw_provenance["prompt_template_path"]
+    if record_type == "sft_sample":
+        candidate["meta"]["teacher_provider"] = teacher_provider
+        candidate["meta"]["teacher_model"] = teacher_model
+        candidate["meta"]["teacher_run_id"] = teacher_run_id
+        candidate["meta"]["teacher_prompt_version"] = raw_response["teacher_prompt_version"]
+        candidate["meta"]["generation_mode"] = generation_mode
+        candidate["meta"]["provenance"] = candidate["provenance"]
+
+    output = build_output_from_candidate(
         job,
         teacher_model,
         teacher_provider,
@@ -287,6 +333,15 @@ def build_output_from_raw_response(job: dict, raw_response: dict, raw_response_p
         record_type,
         raw_response_path,
     )
+    output["teacher_prompt_version"] = raw_response["teacher_prompt_version"]
+    output["generation_mode"] = generation_mode
+    output["provenance"]["transform_pipeline_version"] = raw_provenance.get(
+        "transform_pipeline_version",
+        output["provenance"].get("transform_pipeline_version"),
+    )
+    if raw_provenance.get("source_job_path"):
+        output["provenance"]["source_job_path"] = raw_provenance["source_job_path"]
+    return output
 
 
 def build_output(
@@ -326,6 +381,7 @@ def build_output(
                 teacher_run_id,
                 generation_mode,
                 stub_answer,
+                user_message=None,
             )
             record_type = "sft_sample"
         else:
@@ -335,6 +391,7 @@ def build_output(
                 teacher_provider,
                 teacher_run_id,
                 generation_mode,
+                prompt_text=None,
                 case_description=job["fixture_payload"]["case_description"],
                 expected_behavior=job["fixture_payload"]["expected_behavior"],
                 reference_answer=job["fixture_payload"]["reference_answer"],

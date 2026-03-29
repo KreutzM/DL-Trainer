@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Teacher Judge Result",
+  "type": "object",
+  "required": [
+    "review_id",
+    "job_id",
+    "output_id",
+    "simulation_id",
+    "response_id",
+    "target_split",
+    "record_type",
+    "task_type",
+    "product",
+    "language",
+    "source_doc_ids",
+    "source_chunk_ids",
+    "reviewer_provider",
+    "reviewer_model",
+    "reviewer_run_id",
+    "reviewer_prompt_version",
+    "generation_mode",
+    "decision",
+    "quality_score",
+    "summary",
+    "blocking_reasons",
+    "strengths",
+    "improvement_notes",
+    "source_chunk_ids_confirmed",
+    "provenance"
+  ],
+  "properties": {
+    "review_id": { "type": "string", "minLength": 1 },
+    "job_id": { "type": "string", "minLength": 1 },
+    "output_id": { "type": "string", "minLength": 1 },
+    "simulation_id": { "type": "string", "minLength": 1 },
+    "response_id": { "type": "string", "minLength": 1 },
+    "target_split": {
+      "type": "string",
+      "enum": ["train", "eval"]
+    },
+    "record_type": {
+      "type": "string",
+      "enum": ["sft_sample", "eval_case"]
+    },
+    "task_type": {
+      "type": "string",
+      "enum": [
+        "faq_direct_answer",
+        "troubleshooting",
+        "step_by_step",
+        "clarification",
+        "uncertainty_escalation"
+      ]
+    },
+    "product": { "type": "string", "minLength": 1 },
+    "language": { "type": "string", "minLength": 1 },
+    "source_doc_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "source_chunk_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "reviewer_provider": { "type": "string", "minLength": 1 },
+    "reviewer_model": { "type": "string", "minLength": 1 },
+    "reviewer_run_id": { "type": "string", "minLength": 1 },
+    "reviewer_prompt_version": { "type": "string", "minLength": 1 },
+    "generation_mode": { "type": "string", "minLength": 1 },
+    "decision": {
+      "type": "string",
+      "enum": ["approve", "reject"]
+    },
+    "quality_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "summary": { "type": "string", "minLength": 1 },
+    "blocking_reasons": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "strengths": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "improvement_notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source_chunk_ids_confirmed": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "codex_cli": {
+      "type": ["object", "null"]
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source_job_path",
+        "source_records",
+        "transform_pipeline_version"
+      ],
+      "properties": {
+        "transform_pipeline_version": { "type": "string" },
+        "source_job_path": { "type": "string" },
+        "source_records": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["doc_id", "chunk_id", "normalized_path", "source_spans"],
+            "properties": {
+              "doc_id": { "type": "string" },
+              "chunk_id": { "type": "string" },
+              "section_id": { "type": "string" },
+              "section_title": { "type": "string" },
+              "normalized_path": { "type": "string" },
+              "source_spans": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string" }
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

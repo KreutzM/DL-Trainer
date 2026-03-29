@@ -25,11 +25,11 @@
     "job_id": { "type": "string" },
     "job_status": {
       "type": "string",
-      "enum": ["draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"]
+      "enum": ["draft", "seed", "teacher_generated", "codex_reviewed", "human_reviewed", "promoted", "rejected"]
     },
     "review_status": {
       "type": "string",
-      "enum": ["draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"]
+      "enum": ["draft", "seed", "teacher_generated", "codex_reviewed", "human_reviewed", "promoted", "rejected"]
     },
     "target_split": {
       "type": "string",

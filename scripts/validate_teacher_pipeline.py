@@ -10,7 +10,7 @@ from common import make_parser, read_json, read_jsonl
 from teacher_quality_gates import blocking_artifact_reasons
 
 
-REVIEW_STATUSES = {"draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"}
+REVIEW_STATUSES = {"draft", "seed", "teacher_generated", "codex_reviewed", "human_reviewed", "promoted", "rejected"}
 
 
 def load_chunks(chunks_root: Path) -> dict[str, dict]:
@@ -107,9 +107,9 @@ def validate_outputs(
             failures.append(f"Output row {idx}: candidate teacher_run_id mismatch")
         if candidate.get("teacher_provider") not in {None, row.get("teacher_provider")}:
             failures.append(f"Output row {idx}: candidate teacher_provider mismatch")
-        if row.get("review_status") in {"human_reviewed", "rejected"} and not row.get("approved_by"):
+        if row.get("review_status") in {"codex_reviewed", "human_reviewed", "rejected"} and not row.get("approved_by"):
             failures.append(f"Output row {idx}: approved_by required for reviewed outputs")
-        if row.get("review_status") in {"human_reviewed", "promoted"}:
+        if row.get("review_status") in {"codex_reviewed", "human_reviewed", "promoted"}:
             artifact_reasons = blocking_artifact_reasons(row)
             if artifact_reasons:
                 failures.append(f"Output row {idx}: blocking artifacts present: {'; '.join(artifact_reasons)}")
@@ -138,8 +138,8 @@ def validate_gold(
         if source_output is None:
             failures.append(f"{kind} gold row {idx}: promoted_from.output_id not found")
             continue
-        if source_output.get("review_status") != "human_reviewed":
-            failures.append(f"{kind} gold row {idx}: source output is not human_reviewed")
+        if source_output.get("review_status") not in {"human_reviewed", "codex_reviewed"}:
+            failures.append(f"{kind} gold row {idx}: source output is not approved for promotion")
     return failures
 
 

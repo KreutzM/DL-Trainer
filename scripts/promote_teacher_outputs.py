@@ -45,6 +45,7 @@ def parse_args() -> Any:
     parser.add_argument("--input", required=True)
     parser.add_argument("--train-output", required=True)
     parser.add_argument("--eval-output", required=True)
+    parser.add_argument("--allow-codex-reviewed", action="store_true")
     return parser.parse_args()
 
 
@@ -53,9 +54,12 @@ def main() -> None:
     input_path = args.input
     rows = read_jsonl(Path(input_path))
 
-    approved = [row for row in rows if row.get("review_status") == "human_reviewed"]
+    allowed_statuses = {"human_reviewed"}
+    if args.allow_codex_reviewed:
+        allowed_statuses.add("codex_reviewed")
+    approved = [row for row in rows if row.get("review_status") in allowed_statuses]
     if not approved:
-        raise SystemExit("No human_reviewed teacher outputs found to promote")
+        raise SystemExit("No approved teacher outputs found to promote")
 
     blocking_failures: list[str] = []
     for row in approved:
@@ -64,7 +68,7 @@ def main() -> None:
             blocking_failures.append(f"{row['output_id']}: " + "; ".join(reasons))
     if blocking_failures:
         raise SystemExit(
-            "Cannot promote human_reviewed outputs with blocking artifacts:\n" + "\n".join(blocking_failures)
+            "Cannot promote approved outputs with blocking artifacts:\n" + "\n".join(blocking_failures)
         )
 
     train_rows: list[dict] = []

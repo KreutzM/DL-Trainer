@@ -69,7 +69,7 @@
     "generation_mode": { "type": "string", "minLength": 1 },
     "review_status": {
       "type": "string",
-      "enum": ["draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"]
+      "enum": ["draft", "seed", "teacher_generated", "codex_reviewed", "human_reviewed", "promoted", "rejected"]
     },
     "split": { "type": "string", "minLength": 1 },
     "approved_by": {
@@ -154,7 +154,7 @@
         "needs_clarification": { "type": "boolean" },
         "review_status": {
           "type": "string",
-          "enum": ["draft", "seed", "teacher_generated", "human_reviewed", "promoted", "rejected"]
+          "enum": ["draft", "seed", "teacher_generated", "codex_reviewed", "human_reviewed", "promoted", "rejected"]
         },
         "split": { "type": "string" },
         "approved_by": {

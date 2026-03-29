@@ -53,34 +53,54 @@ python scripts/validate_jsonl.py --schema schemas/teacher_job.schema.json --inpu
 python scripts/validate_jsonl.py --schema schemas/teacher_job.schema.json --input data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl
 ```
 
-### 5. Echten Codex-CLI-Teacher-Lauf ausfuehren
+### 5. JAWS-DE MVP-Pfad mit User-Simulation, Answerer und Judge ausfuehren
 
 ```bash
-python scripts/run_codex_cli_teacher_batch.py ^
-  --jobs data/derived/teacher_jobs/JAWS/DE/qwen_step_focus_wave_v1_generation_jobs.jsonl ^
-  --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_smoke_v1_job_ids.txt ^
-  --raw-output data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_raw_responses.jsonl ^
-  --teacher-output data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_teacher_outputs.jsonl ^
-  --report-output data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_report.json ^
-  --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_smoke_v1 ^
-  --teacher-run-id jaws_de_codex_cli_smoke_v1 ^
+python scripts/run_codex_cli_user_sim_batch.py ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
+  --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_support_mvp_v1_job_ids.txt ^
+  --output data/derived/user_simulations/JAWS/DE/codex_cli_support_mvp_v1_user_simulations.jsonl ^
+  --report-output data/derived/user_simulations/JAWS/DE/codex_cli_support_mvp_v1_user_simulations_report.json ^
+  --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations ^
+  --simulator-run-id jaws_de_codex_cli_support_mvp_v1_user_sim ^
+  --simulator-model gpt-5.4 ^
+  --reasoning-effort high
+
+python scripts/run_codex_cli_support_answer_batch.py ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
+  --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_support_mvp_v1_job_ids.txt ^
+  --user-simulations data/derived/user_simulations/JAWS/DE/codex_cli_support_mvp_v1_user_simulations.jsonl ^
+  --raw-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_raw_responses.jsonl ^
+  --teacher-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_teacher_outputs.jsonl ^
+  --report-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_answer_report.json ^
+  --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/answers ^
+  --teacher-run-id jaws_de_codex_cli_support_mvp_v1_answer ^
   --teacher-model gpt-5.4 ^
+  --reasoning-effort high
+
+python scripts/run_codex_cli_support_judge_batch.py ^
+  --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl ^
+  --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_support_mvp_v1_job_ids.txt ^
+  --user-simulations data/derived/user_simulations/JAWS/DE/codex_cli_support_mvp_v1_user_simulations.jsonl ^
+  --raw-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_raw_responses.jsonl ^
+  --teacher-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_teacher_outputs.jsonl ^
+  --judge-output data/derived/teacher_reviews/JAWS/DE/codex_cli_support_mvp_v1_judge_results.jsonl ^
+  --reviewed-output data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_reviewed_teacher_outputs.jsonl ^
+  --report-output data/derived/teacher_reviews/JAWS/DE/codex_cli_support_mvp_v1_judge_report.json ^
+  --artifact-dir data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/judge ^
+  --reviewer-run-id jaws_de_codex_cli_support_mvp_v1_judge ^
+  --reviewer-model gpt-5.4 ^
   --reasoning-effort high
 ```
 
-### 6. Review und Promotion auf dem echten Pfad
+### 6. Optionale Promotion nach dem automatischen Gate
 
 ```bash
-python scripts/review_teacher_outputs.py ^
-  --input data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_teacher_outputs.jsonl ^
-  --output data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_reviewed_teacher_outputs.jsonl ^
-  --reviewer codex-cli-proof ^
-  --approve-file data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_approved_ids.txt
-
 python scripts/promote_teacher_outputs.py ^
-  --input data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_reviewed_teacher_outputs.jsonl ^
-  --train-output data/gold/train/sft/JAWS/DE/codex_cli_smoke_v1_promoted_sft_samples.jsonl ^
-  --eval-output data/gold/eval/JAWS/DE/codex_cli_smoke_v1_promoted_eval_cases.jsonl
+  --input data/derived/teacher_outputs/JAWS/DE/codex_cli_support_mvp_v1_reviewed_teacher_outputs.jsonl ^
+  --train-output data/gold/train/sft/JAWS/DE/codex_cli_support_mvp_v1_promoted_sft_samples.jsonl ^
+  --eval-output data/gold/eval/JAWS/DE/codex_cli_support_mvp_v1_promoted_eval_cases.jsonl ^
+  --allow-codex-reviewed
 ```
 
 ## Repo-Navigation
@@ -108,9 +128,9 @@ python scripts/promote_teacher_outputs.py ^
 1. Eigenes Produkthandbuch oder dokumentierte Importquelle unter `data/raw/<produkt>/...` ablegen.
 2. `docs/metadata_schema.md`, `docs/chunking_policy.md` und die Support-Behavior-Spec anpassen.
 3. Teacher-Prompts im Ordner `prompts/teacher/` verfeinern.
-4. Teacher-Jobs aus `data/derived/teacher_jobs/` mit `scripts/run_codex_cli_teacher_batch.py` laufen lassen.
-5. Echte Teacher-Outputs in `data/derived/teacher_outputs/` reviewen und gezielt nach `data/gold/` uebernehmen.
-6. Fuer JAWS-DE neue Gold- und Exportstaende erst wieder ab frischen echten Teacher-Wellen aufbauen; der aktive Repo-Stand haelt bewusst keinen alten produktiven Qwen-Trainingsdatensatz mehr vor.
+4. Teacher-Jobs aus `data/derived/teacher_jobs/` zuerst durch `scripts/run_codex_cli_user_sim_batch.py` laufen lassen.
+5. Danach mit `scripts/run_codex_cli_support_answer_batch.py` echte Support-Antworten erzeugen.
+6. Anschliessend mit `scripts/run_codex_cli_support_judge_batch.py` automatisch gaten und nur belastbare reviewed Outputs nach `data/gold/` uebernehmen.
 
 ## JSONL-Editor
 
