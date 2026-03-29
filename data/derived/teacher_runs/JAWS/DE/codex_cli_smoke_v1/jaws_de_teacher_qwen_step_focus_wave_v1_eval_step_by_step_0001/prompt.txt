@@ -1,0 +1,57 @@
+Erzeuge einen strukturierten Teacher-Kandidaten fuer genau einen JAWS-DE-Job.
+Nutze nur den angegebenen Quellkontext und die referenzierten normalized Dateien.
+Erfinde keine Fakten, keine Menuepunkte und keine Tastenkombinationen.
+Gib ausschliesslich das sichtbare Endergebnis als JSON gemaess Output-Schema zurueck.
+Keine Codeblocks, keine Erklaerungen, keine Chain-of-thought, keine versteckten Zwischenschritte.
+Wenn die Quelle fuer eine sichere direkte Antwort nicht reicht, antworte konservativ gemaess task_type.
+
+Referenzierte normalized Dateien: data/normalized/JAWS/DE/braille/index.md
+
+Arbeite strikt dokumentationsgebunden. Nutze nur die bereitgestellten Quellen, erfinde keine Fakten und gib nur das sichtbare Endergebnis im JSON-Format aus.
+
+Arbeitskontext:
+{
+  "task_type": "step_by_step",
+  "target_split": "eval",
+  "expected_output_kind": "eval_case",
+  "user_message": "Wie gehe ich bei Navigationsbeispiel in JAWS Schritt fuer Schritt vor?",
+  "prompt_template": "# Teacher Prompt: JAWS-DE Step By Step\n\n## Rolle\n\nDu erzeugst eine knappe Schritt-für-Schritt-Anleitung auf Deutsch.\n\n## Ziel\n\nLeite aus der Quelle eine klare Bedienfolge für einen Supportfall ab.\n\n## Regeln\n\n- Nur Schritte aus der Quelle.\n- Nummeriere nur echte Handlungsanweisungen.\n- Erwähne relevante Tastenkombinationen exakt.\n- Keine zusätzlichen Voraussetzungen erfinden.\n\n## Ausgabe\n\nJSON mit:\n- `answer`\n- `task_type`\n- `steps`\n- `source_chunk_ids`",
+  "source_chunk_ids": [
+    "jaws_de_braille::sec_navigationsbeispiel::chunk_01"
+  ],
+  "source_excerpt": "1. Drücken Sie **RECHTE UMSCHALT+RUNTERGERUTSCHTE 2** (**RECHTE UMSCHALT+PUNKTE 2-3**), um das Dialogfeld JAWS Manager starten zu öffnen.\n2. Scrollen Sie mit den Scrollrädern durch die Liste, bis Sie den Tastaturmanager gefunden haben.\n3. Drücken Sie **PUNKT 8** für **EINGABE**.\n4. Drücken Sie **PUNKTE 4-5**, um mit **TAB** zur Liste der zugewiesenen Tasten zu gelangen.\n5. Scrollen Sie mit den Scrollrädern durch die Liste, bis Sie zu der Tastenkombination gelangen, die Sie sich ansehen möchten.\n6. Verwenden Sie den Befehl Braillezeile auf letzte Fensterzeile (**PUNKTE 4-5-6 CHORD**), um sich die Kurzbeschreibung auf der Statuszeile durchzulesen.\n7. Kehren Sie mit dem Befehl Ziehe Braillezeile zu aktivem Cursor, dem Buchstaben **R** auf Ihrer Braillezeile (**PUNKTE 1-2-3-5**), zur ausgewählten Tastenkombination zurück.\n\nWenn Sie dem Beispiel gefolgt sind, haben Sie die Informationen erhalten, ohne zwischen der Tastatur und der Focus Braillezeile hin und her wechseln zu müssen.\n\nQuelle: focus_nav_ex.htm",
+  "source_records": [
+    {
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_navigationsbeispiel::chunk_01",
+      "section_id": "jaws_de_braille::sec_navigationsbeispiel",
+      "section_title": "Navigationsbeispiel",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L1773-L1783"
+      ]
+    }
+  ],
+  "case_description": "Schrittfolge fuer Navigationsbeispiel.",
+  "expected_behavior": "Gibt eine kurze Schrittfolge fuer Navigationsbeispiel aus dem Abschnitt wieder.",
+  "rubric": {
+    "must_include": [
+      "Navigationsbeispiel"
+    ],
+    "must_not_include": [
+      "erfundene Zwischenschritte"
+    ],
+    "style": "praezise, vorsichtig, dokumentationsgestuetzt"
+  }
+}
+
+Verbindliche Arbeitsregeln:
+- Nutze nur den bereitgestellten Quellkontext.
+- Antwortsprache ist Deutsch.
+- Gib exakt ein JSON-Objekt nach dem angeforderten Schema zurueck.
+- Keine Markdown-Umrahmung, keine Erklaerungen ausserhalb des JSON.
+- Wenn task_type clarification ist, muss answer genau eine fokussierte Rueckfrage sein.
+- Wenn task_type uncertainty_escalation ist, muss answer die Evidenzgrenze klar benennen.
+- Wenn task_type step_by_step ist, darf steps nur dokumentierte Schritte enthalten.
+- source_chunk_ids muessen exakt den uebergebenen Chunk-IDs entsprechen.
+- Keine versteckten Denkschritte, keine Begruendung ausserhalb der sichtbaren Endantwort.

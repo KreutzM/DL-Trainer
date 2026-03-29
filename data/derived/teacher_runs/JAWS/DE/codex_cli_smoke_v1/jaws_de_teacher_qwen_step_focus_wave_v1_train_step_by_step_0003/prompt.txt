@@ -1,0 +1,49 @@
+Erzeuge einen strukturierten Teacher-Kandidaten fuer genau einen JAWS-DE-Job.
+Nutze nur den angegebenen Quellkontext und die referenzierten normalized Dateien.
+Erfinde keine Fakten, keine Menuepunkte und keine Tastenkombinationen.
+Gib ausschliesslich das sichtbare Endergebnis als JSON gemaess Output-Schema zurueck.
+Keine Codeblocks, keine Erklaerungen, keine Chain-of-thought, keine versteckten Zwischenschritte.
+Wenn die Quelle fuer eine sichere direkte Antwort nicht reicht, antworte konservativ gemaess task_type.
+
+Referenzierte normalized Dateien: data/normalized/JAWS/DE/braille/index.md
+
+Arbeite strikt dokumentationsgebunden. Nutze nur die bereitgestellten Quellen, erfinde keine Fakten und gib nur das sichtbare Endergebnis im JSON-Format aus.
+
+Arbeitskontext:
+{
+  "task_type": "step_by_step",
+  "target_split": "train",
+  "expected_output_kind": "sft_sample",
+  "user_message": "Wie gehe ich bei Focus Bluetooth-Verbindung in JAWS Schritt fuer Schritt vor?",
+  "prompt_template": "# Teacher Prompt: JAWS-DE Step By Step\n\n## Rolle\n\nDu erzeugst eine knappe Schritt-für-Schritt-Anleitung auf Deutsch.\n\n## Ziel\n\nLeite aus der Quelle eine klare Bedienfolge für einen Supportfall ab.\n\n## Regeln\n\n- Nur Schritte aus der Quelle.\n- Nummeriere nur echte Handlungsanweisungen.\n- Erwähne relevante Tastenkombinationen exakt.\n- Keine zusätzlichen Voraussetzungen erfinden.\n\n## Ausgabe\n\nJSON mit:\n- `answer`\n- `task_type`\n- `steps`\n- `source_chunk_ids`",
+  "source_chunk_ids": [
+    "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_bluetooth_verbindung::chunk_02"
+  ],
+  "source_excerpt": "1. Drücken Sie **JAWS TASTE+J**, um das JAWS Programmfenster zu öffnen.\n2. Öffnen Sie mit **ALT+O** das Menü Optionen, gehen Sie auf den Eintrag Braille und drücken Sie EINGABE, um den Dialog Braille Grundeinstellungen zu öffnen.\n3. Gehen Sie mit **TAB** auf Braillezeile hinzufügen und drücken Sie **EINGABE**.\n4. Wählen Sie Focus in der Liste der Braillezeilen und drücken Sie **LEERTASTE**, um diese auszuwählen, gehen Sie dann auf Weiter.\n5. Im kombinierten Eingabefeld für die Ausgabeschnittstelle wählen Sie Bluetooth.\n6. Wählen Sie Weiter und stellen Sie sicher, dass die Focus als erste Braillezeile ausgewählt ist.\n7. Aktivieren Sie den Schalter Fertigstellen, und Sie werden aufgefordert, JAWS neu zu starten, damit diese Änderungen wirksam werden. Aktivieren Sie den OK Schalter erneut, um diese Meldung zu schließen und noch einmal, um den Dialog Braille Grundeinstellungen zu schließen.\n8. Beenden Sie JAWS und starten Sie es erneut, und Ihre Focus Blue kommuniziert jetzt mit JAWS über Bluetooth.\n\nWenn Sie gegenwärtig die Focus Braillezeile über USB verwenden und Sie möchten die Verbindung auf Bluetooth umschalten, gehen Sie wie folgt vor:\n\n1. Drücken Sie **JAWS TASTE+J**, um das JAWS Programmfenster zu öffnen.\n2. Öffnen Sie mit **ALT+O** das Menü Optionen, gehen Sie auf den Eintrag Braille und drücken Sie EINGABE, um den Dialog Braille Grundeinstellungen zu öffnen.\n3. Überprüfe",
+  "source_records": [
+    {
+      "doc_id": "jaws_de_braille",
+      "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_bluetooth_verbindung::chunk_02",
+      "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_bluetooth_verbindung",
+      "section_title": "Focus Bluetooth-Verbindung",
+      "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L1609-L1625"
+      ]
+    }
+  ],
+  "case_description": null,
+  "expected_behavior": null,
+  "rubric": null
+}
+
+Verbindliche Arbeitsregeln:
+- Nutze nur den bereitgestellten Quellkontext.
+- Antwortsprache ist Deutsch.
+- Gib exakt ein JSON-Objekt nach dem angeforderten Schema zurueck.
+- Keine Markdown-Umrahmung, keine Erklaerungen ausserhalb des JSON.
+- Wenn task_type clarification ist, muss answer genau eine fokussierte Rueckfrage sein.
+- Wenn task_type uncertainty_escalation ist, muss answer die Evidenzgrenze klar benennen.
+- Wenn task_type step_by_step ist, darf steps nur dokumentierte Schritte enthalten.
+- source_chunk_ids muessen exakt den uebergebenen Chunk-IDs entsprechen.
+- Keine versteckten Denkschritte, keine Begruendung ausserhalb der sichtbaren Endantwort.
