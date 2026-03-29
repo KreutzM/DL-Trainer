@@ -16,7 +16,7 @@ Nach dem Clean-Cut gibt es fuer JAWS-DE im aktiven Repo nur noch einen belastbar
 - menschlicher Review
 - Promotion nach Gold
 
-Alte stub-, fake-, replay-, import- oder anderweitig nicht belastbar echte JAWS-DE-Downstreamdaten wurden aus dem aktiven Stand entfernt.
+Es werden keine committed JAWS-DE-Downstreamdaten mehr als produktiver Stand mitgefuehrt.
 
 ## Statusfluss
 
@@ -39,8 +39,8 @@ Praktisch fuer JAWS-DE:
 ## Produktiver JAWS-DE-Pfad
 
 - `data/derived/teacher_jobs/JAWS/DE/*.jsonl` bleibt die stabile Eingabeschicht.
-- `data/derived/teacher_outputs/JAWS/DE/` enthaelt im aktiven Repo nur noch den echten `codex_cli_smoke_v1`-Nachweis.
-- `data/gold/train/sft/JAWS/DE/` und `data/gold/eval/JAWS/DE/` enthalten nur noch die dazugehoerigen kleinen promoted Proof-Artefakte.
+- `data/derived/teacher_outputs/JAWS/DE/` ist im aktiven Repo leer und wird erst durch neue echte Batches wieder befuellt.
+- `data/gold/train/sft/JAWS/DE/` und `data/gold/eval/JAWS/DE/` sind im aktiven Repo leer.
 - `data/exports/qwen_sft/JAWS/DE/` ist bewusst leer, bis neue echte Teacher-Wellen wieder einen belastbaren Gold-Stand erzeugt haben.
 
 ## Runner-Modi

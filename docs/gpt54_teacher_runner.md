@@ -8,9 +8,9 @@ Nach dem Clean-Cut bleiben im aktiven Repo nur noch:
 
 - Teacher-Jobs als stabile Eingabe
 - der echte Codex-CLI-Runner
-- ein kleiner belastbarer Proof-Batch
+- Review- und Promotion-Skripte
 
-Fruehere stub-, replay-, import- oder anderweitig nicht belastbar echte JAWS-DE-Teacher-Daten wurden aus dem aktiven Projektstand entfernt.
+Es werden keine committed JAWS-DE-Teacher-, Gold- oder Export-Artefakte mehr als produktiver Stand mitgefuehrt. Neue Batches muessen bei Bedarf frisch erzeugt werden.
 
 ## Produktiver Ablauf
 
@@ -23,7 +23,7 @@ Fruehere stub-, replay-, import- oder anderweitig nicht belastbar echte JAWS-DE-
 
 ## Start des echten Pfads
 
-Beispiel fuer den im Repo behaltenen kleinen Proof-Batch:
+Beispiel fuer einen kleinen Batch:
 
 ```bash
 python scripts/run_codex_cli_teacher_batch.py ^
@@ -73,13 +73,6 @@ Pro Job im Artefaktordner:
 - `stdout.txt`
 - `stderr.txt`
 
-Damit bleibt spaeter nachvollziehbar:
-
-- welcher Job ausgefuehrt wurde
-- welches Schema erwartet war
-- welcher sichtbare JSON-Output von Codex zurueckkam
-- welche Job-ID und Quellspans dazu gehoeren
-
 ## Echte vs. Legacy-Pfade
 
 Produktiv:
@@ -123,6 +116,6 @@ Ein echter Codex-CLI-Run ist an folgenden Feldern erkennbar:
 
 ## Aktiver JAWS-DE-Status
 
-- `data/derived/teacher_outputs/JAWS/DE/` enthaelt im aktiven Repo nur noch den echten `codex_cli_smoke_v1`-Nachweis.
-- `data/gold/train/sft/JAWS/DE/` und `data/gold/eval/JAWS/DE/` enthalten nur noch die dazugehoerigen kleinen promoted Proof-Artefakte.
+- `data/derived/teacher_outputs/JAWS/DE/` ist im aktiven Repo leer und wird erst durch neue echte Batches wieder befuellt.
+- `data/gold/train/sft/JAWS/DE/` und `data/gold/eval/JAWS/DE/` sind im aktiven Repo leer.
 - `data/exports/qwen_sft/JAWS/DE/` ist bewusst leer, bis neue echte Teacher-Wellen wieder einen belastbaren Gold-Stand erzeugt haben.

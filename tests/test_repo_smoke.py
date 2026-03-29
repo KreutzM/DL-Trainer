@@ -17,8 +17,8 @@ def test_expected_paths_exist():
         "scripts/audit_qwen_source_faithfulness.py",
         "scripts/run_codex_cli_teacher_batch.py",
         "prompts/teacher/support_answer.md",
-        "data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_raw_responses.jsonl",
-        "data/gold/train/sft/JAWS/DE/codex_cli_smoke_v1_promoted_sft_samples.jsonl",
+        "data/derived/teacher_jobs/JAWS/DE/codex_cli_smoke_v1_job_ids.txt",
+        "training/transformers/requirements-qwen-lora-server.txt",
         ".codex/config.toml",
         "AGENTS.md",
     ]:
