@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 from common import make_parser, read_jsonl, write_jsonl
+from teacher_quality_gates import blocking_artifact_reasons
 
 
 def update_candidate_status(candidate: dict, status: str, reviewer: str) -> None:
@@ -51,6 +52,18 @@ def main() -> None:
     missing = sorted((approve_ids | reject_ids) - seen_ids)
     if missing:
         raise SystemExit("Unknown output IDs: " + ", ".join(missing))
+
+    blocking_failures: list[str] = []
+    for row in rows:
+        if row["output_id"] not in approve_ids:
+            continue
+        reasons = blocking_artifact_reasons(row)
+        if reasons:
+            blocking_failures.append(f"{row['output_id']}: " + "; ".join(reasons))
+    if blocking_failures:
+        raise SystemExit(
+            "Cannot approve reviewed outputs with blocking artifacts:\n" + "\n".join(blocking_failures)
+        )
 
     for row in rows:
         output_id = row["output_id"]

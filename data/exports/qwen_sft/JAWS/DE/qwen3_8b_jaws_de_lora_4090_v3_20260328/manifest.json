@@ -1,0 +1,61 @@
+{
+  "export_id": "jaws_de_qwen3_8b_lora_4090_v3_20260328",
+  "export_generated_at_utc": "2026-03-28T21:26:28.071639Z",
+  "freeze_generated_at_utc": "2026-03-28T21:26:28.071639Z",
+  "freeze_purpose": "server_ready_linux_rtx4090_v3",
+  "freeze_source_gold_train_file": "data/gold/train/sft/JAWS/DE/consolidated_gold_v2_qwen_expansion_sft_samples.jsonl",
+  "freeze_source_gold_eval_file": "data/gold/eval/JAWS/DE/consolidated_gold_v2_qwen_expansion_eval_cases.jsonl",
+  "format": "qwen_openai_messages",
+  "export_pipeline_version": "0.2.0",
+  "output_dir": "data/exports/qwen_sft/JAWS/DE/qwen3_8b_jaws_de_lora_4090_v3_20260328",
+  "train_records": 1003,
+  "eval_records": 123,
+  "train_metadata_records": 1003,
+  "eval_metadata_records": 123,
+  "train_file": "data/exports/qwen_sft/JAWS/DE/qwen3_8b_jaws_de_lora_4090_v3_20260328/train.jsonl",
+  "eval_file": "data/exports/qwen_sft/JAWS/DE/qwen3_8b_jaws_de_lora_4090_v3_20260328/eval.jsonl",
+  "train_metadata_file": "data/exports/qwen_sft/JAWS/DE/qwen3_8b_jaws_de_lora_4090_v3_20260328/train.metadata.jsonl",
+  "eval_metadata_file": "data/exports/qwen_sft/JAWS/DE/qwen3_8b_jaws_de_lora_4090_v3_20260328/eval.metadata.jsonl",
+  "source_train_files": [
+    "data/gold/train/sft/JAWS/DE/consolidated_gold_v2_qwen_expansion_sft_samples.jsonl"
+  ],
+  "source_eval_files": [
+    "data/gold/eval/JAWS/DE/consolidated_gold_v2_qwen_expansion_eval_cases.jsonl"
+  ],
+  "source_inputs": {
+    "train": [
+      {
+        "path": "data/gold/train/sft/JAWS/DE/consolidated_gold_v2_qwen_expansion_sft_samples.jsonl",
+        "size_bytes": 5450938,
+        "sha256": "19661d7bac238152159dbeb27f39696ec57818c4b83ed08ff67eb1ca1676069e"
+      }
+    ],
+    "eval": [
+      {
+        "path": "data/gold/eval/JAWS/DE/consolidated_gold_v2_qwen_expansion_eval_cases.jsonl",
+        "size_bytes": 311206,
+        "sha256": "4fc3b89ef4b4620805ddf73f8683ab4a0c6e47fcb05cdf464d6c5d0e2ba641a9"
+      }
+    ]
+  },
+  "hashes": {
+    "train_file_sha256": "afdf8ef72314e38dd9ce94ba242cf4d41fe6e83a3485340b41fe552d1696f406",
+    "eval_file_sha256": "196da490c3d818c564116953eedc25a6cd88b3981cb6570fd7e7940588047b9d",
+    "train_metadata_file_sha256": "7e76e4fcafb19fcd4b93119bf9e143310608b3583a0449b95e3391db4ba97cb0",
+    "eval_metadata_file_sha256": "9dac079ffce05f663da7846d5b14880005d6ce66c8d9be244b408d1e27e02fe3"
+  },
+  "file_sizes_bytes": {
+    "train_file": 2064842,
+    "eval_file": 251852,
+    "train_metadata_file": 1950927,
+    "eval_metadata_file": 303972,
+    "manifest_file": 2429
+  },
+  "source_doc_distribution": {
+    "jaws_de_braille": 187,
+    "jaws_de_hilfe_kernfunktionen": 494,
+    "jaws_de_settingscenter": 392,
+    "jaws_de_tutorial_basics": 53
+  },
+  "split_chunk_overlap": []
+}

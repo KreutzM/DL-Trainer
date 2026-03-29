@@ -69,6 +69,19 @@ def main() -> None:
                 failures.append(f"Row {idx}: missing provenance.source_records")
             continue
 
+        if "job_id" in row and "runner_input" in row:
+            if not row.get("source_doc_ids"):
+                failures.append(f"Row {idx}: missing source_doc_ids")
+            if not row.get("source_chunk_ids"):
+                failures.append(f"Row {idx}: missing source_chunk_ids")
+            if not row.get("review_status"):
+                failures.append(f"Row {idx}: missing review_status")
+            if not row.get("job_status"):
+                failures.append(f"Row {idx}: missing job_status")
+            if not has_source_records(row):
+                failures.append(f"Row {idx}: missing provenance.source_records")
+            continue
+
         for key in ["doc_id", "source_spans", "review_status"]:
             if key not in row or row.get(key) in (None, "", []):
                 failures.append(f"Row {idx}: missing {key}")

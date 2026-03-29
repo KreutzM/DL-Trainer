@@ -1,0 +1,84 @@
+{
+  "wave_id": "jaws_de_teacher_qwen_focus_wave_v1",
+  "transform_pipeline_version": "0.7.0",
+  "train_targets": {
+    "clarification": 0,
+    "uncertainty_escalation": 0,
+    "step_by_step": 40,
+    "troubleshooting": 0,
+    "faq_direct_answer": 120
+  },
+  "eval_targets": {
+    "clarification": 0,
+    "uncertainty_escalation": 0,
+    "step_by_step": 8,
+    "troubleshooting": 0,
+    "faq_direct_answer": 16
+  },
+  "excluded_chunk_ids": 789,
+  "eval_split_rule": {
+    "modulo": 8,
+    "remainder": 0
+  },
+  "available_by_split_task": {
+    "train": {
+      "clarification": 46,
+      "step_by_step": 1,
+      "uncertainty_escalation": 132,
+      "troubleshooting": 45,
+      "faq_direct_answer": 443
+    },
+    "eval": {
+      "clarification": 11,
+      "step_by_step": 0,
+      "uncertainty_escalation": 28,
+      "troubleshooting": 20,
+      "faq_direct_answer": 96
+    }
+  },
+  "available_by_split_doc": {
+    "train": {
+      "jaws_de_braille": 94,
+      "jaws_de_hilfe_kernfunktionen": 368,
+      "jaws_de_settingscenter": 178,
+      "jaws_de_tutorial_basics": 27
+    },
+    "eval": {
+      "jaws_de_braille": 12,
+      "jaws_de_hilfe_kernfunktionen": 88,
+      "jaws_de_settingscenter": 51,
+      "jaws_de_tutorial_basics": 4
+    }
+  },
+  "shortages": {
+    "train": {
+      "clarification": 0,
+      "step_by_step": 39,
+      "uncertainty_escalation": 0,
+      "troubleshooting": 0,
+      "faq_direct_answer": 0
+    },
+    "eval": {
+      "clarification": 0,
+      "step_by_step": 8,
+      "uncertainty_escalation": 0,
+      "troubleshooting": 0,
+      "faq_direct_answer": 0
+    }
+  },
+  "selected_jobs": 137,
+  "selected_by_split": {
+    "eval": 16,
+    "train": 121
+  },
+  "selected_by_task_type": {
+    "faq_direct_answer": 136,
+    "step_by_step": 1
+  },
+  "selected_by_doc": {
+    "jaws_de_braille": 42,
+    "jaws_de_tutorial_basics": 14,
+    "jaws_de_settingscenter": 40,
+    "jaws_de_hilfe_kernfunktionen": 41
+  }
+}

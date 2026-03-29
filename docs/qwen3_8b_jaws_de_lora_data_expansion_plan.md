@@ -82,6 +82,18 @@ Fokus:
 - `troubleshooting`: Bestand bereinigen und nur gezielt erweitern
 - `uncertainty_escalation`: nur moderat ausbauen, da bereits relativ stark
 
+## Aktueller Ausbau-Stand
+
+- `qwen_data_expansion_wave1` hat aus bereits human-reviewten Wave2-Outputs nur `18` sicher promotable Rows geliefert, ohne neue `faq_direct_answer`- oder `step_by_step`-Ausbeute.
+- Die neue fokussierte Teacher-Welle `qwen_focus_wave_v1` kann den FAQ-Bereich sofort verbreitern: `136` Jobs fuer `faq_direct_answer` plus `1` verbliebener `step_by_step`-Job.
+- Der strenge globale Gap-Audit zeigt, dass nach pauschalen Gold-/Ausbau-Exclusions im bestehenden Chunk-Pool nur noch `1` freier `step_by_step`-Kandidat uebrig ist.
+- Die neue task-spezifische Schrittwelle `qwen_step_focus_wave_v1` korrigiert diese zu grobe Sicht: Wenn nur bereits genutzte `step_by_step`-Quellen ausgeschlossen werden, bleiben `11` saubere neue Schrittjobs (`9` Train / `2` Eval) fuer Braille- und Hilfe-Kernfunktionen uebrig.
+- Fuer beide Fokus-Wellen liegen bereits reviewbare Stub-Outputs vor, so dass der naechste praktische Schritt jetzt Review und anschliessend ein echter Teacher-Lauf auf denselben Job-Dateien ist.
+- Der konkrete manuelle Pfad dafuer steht jetzt in `docs/qwen_data_expansion_review_runbook.md`.
+- Fuer die erste Bereinigungswelle liegt jetzt zusaetzlich ein heuristischer `troubleshooting`-Cleanup-Report mit konkreten Drop-/Relabel-Kandidaten vor, damit der naechste Gold-Stand nicht nur groesser, sondern auch task-schaerfer wird.
+- Die erste durchgesehene `troubleshooting`-Cleanup-Welle umfasst `72` Faelle: `65` sollten zu `faq_direct_answer` umklassifiziert werden, `5` bleiben als echtes `troubleshooting`, `2` sollten komplett entfallen.
+- Aus den `65` Relabel-Faellen entsteht jetzt eine eigene FAQ-Reparaturwelle, damit die problematischen `troubleshooting`-Prompts nicht nur umetikettiert, sondern in task-passende FAQ-Kandidaten neu materialisiert werden.
+
 ## Akzeptanzkriterien vor dem naechsten grossen Run
 
 - neuer Clean-Stand bleibt stub-/artifact-frei

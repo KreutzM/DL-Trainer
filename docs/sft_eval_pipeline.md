@@ -118,6 +118,15 @@ Die erste Wave muss noch nicht das spaetere Endvolumen erreichen. Sinnvoll ist e
 
 Diese Repo-Stufe ist deshalb auf eine groessere reviewbare Welle plus eine kuratierte Gold-Teilmenge ausgelegt, nicht auf eine unkontrollierte Vollabdeckung des gesamten JAWS-Wissens.
 
+## Harte Qualitaetsgrenzen
+
+Fuer die aktuelle Teacher-Pipeline gilt zusaetzlich:
+
+- Train-Jobs koennen ein deterministisches Stub-Fixture fuer Tests enthalten, aber dieses ist keine freizugebende Zielantwort.
+- Review und Promotion muessen Ellipsis-/Abschneideartefakte ablehnen.
+- Review und Promotion muessen Markdown-Tabellen oder Listenmuell in der sichtbaren Antwort ablehnen.
+- Hinweis-/Achtung-Labels duerfen nicht als Inhalt oder Tastenkombination in Gold durchrutschen.
+
 ## Rebuild der ersten Wave
 
 ```bash

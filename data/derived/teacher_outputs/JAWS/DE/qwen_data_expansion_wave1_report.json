@@ -1,0 +1,92 @@
+{
+  "selection_name": "qwen_data_expansion_wave1",
+  "input_paths": [
+    "data/derived/teacher_outputs/JAWS/DE/wave2_scaleup_codex_gpt54_reviewed_outputs.jsonl",
+    "data/derived/teacher_outputs/JAWS/DE/wave2_topoff_codex_gpt54_reviewed_outputs.jsonl"
+  ],
+  "exclude_jsonl": [
+    "data/gold/train/sft/JAWS/DE/consolidated_gold_v1_lora_clean_sft_samples.jsonl",
+    "data/gold/eval/JAWS/DE/consolidated_gold_v1_lora_clean_eval_cases.jsonl"
+  ],
+  "focus_doc_ids": [
+    "jaws_de_braille",
+    "jaws_de_hilfe_kernfunktionen",
+    "jaws_de_settingscenter",
+    "jaws_de_tutorial_basics"
+  ],
+  "min_quality_score": 36,
+  "selected_rows": 18,
+  "selected_by_split": {
+    "eval": 1,
+    "train": 17
+  },
+  "selected_by_task_type": {
+    "troubleshooting": 11,
+    "clarification": 2,
+    "uncertainty_escalation": 5
+  },
+  "selected_by_doc": {
+    "jaws_de_hilfe_kernfunktionen": 9,
+    "jaws_de_braille": 2,
+    "jaws_de_settingscenter": 7
+  },
+  "train_targets": {
+    "clarification": 20,
+    "faq_direct_answer": 28,
+    "step_by_step": 16,
+    "troubleshooting": 10,
+    "uncertainty_escalation": 8
+  },
+  "eval_targets": {
+    "clarification": 4,
+    "faq_direct_answer": 6,
+    "step_by_step": 4,
+    "troubleshooting": 4,
+    "uncertainty_escalation": 4
+  },
+  "shortages": {
+    "train": {
+      "clarification": 18,
+      "faq_direct_answer": 28,
+      "step_by_step": 16,
+      "troubleshooting": 0,
+      "uncertainty_escalation": 3
+    },
+    "eval": {
+      "clarification": 4,
+      "faq_direct_answer": 6,
+      "step_by_step": 4,
+      "troubleshooting": 3,
+      "uncertainty_escalation": 4
+    }
+  },
+  "available_by_split_task": {
+    "train": {
+      "clarification": 42,
+      "uncertainty_escalation": 6,
+      "troubleshooting": 14
+    },
+    "eval": {
+      "clarification": 5,
+      "troubleshooting": 1
+    }
+  },
+  "available_by_split_doc": {
+    "train": {
+      "jaws_de_braille": 14,
+      "jaws_de_tutorial_basics": 4,
+      "jaws_de_settingscenter": 18,
+      "jaws_de_hilfe_kernfunktionen": 26
+    },
+    "eval": {
+      "jaws_de_braille": 3,
+      "jaws_de_hilfe_kernfunktionen": 3
+    }
+  },
+  "rejection_counts": {
+    "chunk_already_in_gold": 682,
+    "terminal_ellipsis": 270
+  },
+  "output_jsonl": "data/derived/teacher_outputs/JAWS/DE/qwen_data_expansion_wave1_reviewed_outputs.jsonl",
+  "output_ids": "data/derived/teacher_outputs/JAWS/DE/qwen_data_expansion_wave1_output_ids.txt"
+}

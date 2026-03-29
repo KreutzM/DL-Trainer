@@ -53,6 +53,12 @@ ACTION_RE = re.compile(
 )
 SHORTCUT_RE = re.compile(r"\*\*([^*]+)\*\*")
 MARKDOWN_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+ELLIPSIS_RE = re.compile(r"…|â€¦|\.\.\.")
+MARKDOWN_TABLE_RE = re.compile(r"\|\s*---|\|\s*Beschreibung\s*\|")
+NOTE_LABEL_RE = re.compile(r"(?i)^(hinweis|achtung|wichtig)\s*:?$")
+SUSPICIOUS_OPTION_PREFIX_RE = re.compile(
+    r"(?i)^(druecken|drücken|waehlen|wählen|verwenden sie|nutzen sie|gehen sie|markieren sie|aktivieren sie|deaktivieren sie|um\b)"
+)
 
 
 @dataclass(frozen=True)
@@ -118,6 +124,36 @@ def extract_sentences(text: str) -> list[str]:
     return cleaned
 
 
+def is_artifact_sentence(text: str) -> bool:
+    normalized = clean_line(text)
+    lowered = normalized.lower()
+    if not normalized:
+        return True
+    if ELLIPSIS_RE.search(normalized):
+        return True
+    if MARKDOWN_TABLE_RE.search(normalized):
+        return True
+    if normalized.startswith("|"):
+        return True
+    if lowered.startswith(("hinweis:", "achtung:", "wichtig:")):
+        return True
+    return False
+
+
+def contains_blocking_artifact(text: str) -> bool:
+    normalized = clean_line(text)
+    return bool(
+        ELLIPSIS_RE.search(normalized)
+        or MARKDOWN_TABLE_RE.search(normalized)
+        or "**Hinweis:**" in normalized
+        or "**Achtung:**" in normalized
+    )
+
+
+def filter_support_sentences(sentences: list[str]) -> list[str]:
+    return [sentence for sentence in sentences if not is_artifact_sentence(sentence)]
+
+
 def extract_numbered_steps(text: str) -> list[str]:
     matches = re.findall(r"(?:^|\n)\s*\d+\.\s*(.+?)(?=(?:\n\s*\d+\.\s)|$)", text, flags=re.DOTALL)
     steps = []
@@ -132,7 +168,7 @@ def first_distinct_sentences(chunk: dict, limit: int = 3) -> list[str]:
     summary = clean_line(chunk.get("summary", ""))
     sentences: list[str] = []
     seen: set[str] = set()
-    content_sentences = extract_sentences(chunk["content"])
+    content_sentences = filter_support_sentences(extract_sentences(chunk["content"]))
     if summary and "..." not in summary and "…" not in summary:
         first_content = content_sentences[0].lower() if content_sentences else ""
         if first_content and (first_content.startswith(summary.lower()) or summary.lower()[:48] in first_content):
@@ -154,10 +190,22 @@ def first_distinct_sentences(chunk: dict, limit: int = 3) -> list[str]:
 
 
 def extract_shortcuts(text: str) -> list[str]:
+    def is_valid_shortcut(value: str) -> bool:
+        shortcut = clean_line(value)
+        if not shortcut:
+            return False
+        if shortcut.endswith(":"):
+            return False
+        if NOTE_LABEL_RE.match(shortcut):
+            return False
+        return True
+
     seen: set[str] = set()
     results: list[str] = []
     for match in SHORTCUT_RE.findall(text):
         shortcut = " ".join(match.split())
+        if not is_valid_shortcut(shortcut):
+            continue
         lowered = shortcut.lower()
         if lowered in seen:
             continue
@@ -199,7 +247,11 @@ def option_labels(chunk: dict, bullets: list[str], shortcuts: list[str]) -> list
         if " - " in label:
             _, label = label.split(" - ", 1)
         label = label.split(",")[0].split(";")[0].strip()
-        if 3 <= len(label) <= 80 and not ACTION_RE.search(label):
+        if (
+            3 <= len(label) <= 80
+            and not ACTION_RE.search(label)
+            and not SUSPICIOUS_OPTION_PREFIX_RE.search(label)
+        ):
             labels.append(label)
     if len(labels) >= 3:
         return labels[:4]
@@ -234,6 +286,8 @@ def build_faq_case(chunk: dict) -> DraftCase | None:
         return None
     if shortcuts and shortcuts[0] not in answer and chunk.get("chunk_type") in {"concept", "reference"}:
         answer = f"{answer} Wichtige Tastenkombination: **{shortcuts[0]}**."
+    if contains_blocking_artifact(answer):
+        return None
     must_include = [chunk["section_title"]]
     if shortcuts and chunk.get("chunk_type") in {"concept", "reference"}:
         must_include.append(shortcuts[0])
@@ -264,7 +318,7 @@ def build_faq_case(chunk: dict) -> DraftCase | None:
 
 
 def build_troubleshooting_case(chunk: dict) -> DraftCase | None:
-    sentences = extract_sentences(chunk["content"])[:6]
+    sentences = filter_support_sentences(extract_sentences(chunk["content"]))[:6]
     if not sentences:
         return None
     shortcuts = extract_shortcuts(chunk["content"])
@@ -283,10 +337,12 @@ def build_troubleshooting_case(chunk: dict) -> DraftCase | None:
         if len(chosen) >= 2:
             break
     if not chosen:
-        chosen.append(sentences[0])
-    answer = "Die Dokumentation empfiehlt fuer diesen Fall: " + " ".join(chosen)
+        return None
+    answer = "Laut Dokumentation sollten Sie Folgendes pruefen oder beachten: " + " ".join(chosen)
     if shortcuts and shortcuts[0] not in answer and action_items:
-        answer = f"{answer} Verwenden Sie dazu **{shortcuts[0]}**."
+        answer = f"{answer} Wichtige Tastenkombination: **{shortcuts[0]}**."
+    if contains_blocking_artifact(answer):
+        return None
     question = f"Ich komme bei {title_phrase(chunk)} in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?"
     score = 42
     if chunk.get("chunk_type") in {"warning", "procedure"}:
@@ -330,6 +386,8 @@ def build_step_case(chunk: dict) -> DraftCase | None:
         return None
     rendered_steps = [f"{index}. {step}" for index, step in enumerate(steps[:5], start=1)]
     answer = "\n".join(rendered_steps)
+    if contains_blocking_artifact(answer):
+        return None
     question = f"Wie gehe ich bei {title_phrase(chunk)} in JAWS Schritt fuer Schritt vor?"
     score = 44
     if chunk.get("chunk_type") == "procedure":
@@ -370,6 +428,8 @@ def build_clarification_case(chunk: dict) -> DraftCase | None:
     else:
         user_message = f"Ich brauche Hilfe zu {title_phrase(chunk)} in JAWS."
     assistant_message = f"Geht es Ihnen um {joined}?"
+    if contains_blocking_artifact(assistant_message):
+        return None
     score = 36
     if chunk.get("contains_list"):
         score += 18
@@ -401,10 +461,12 @@ def build_uncertainty_case(chunk: dict) -> DraftCase | None:
         return None
     limited = limited or sentences[0]
     answer = (
-        "Dafuer gibt der vorliegende Abschnitt keine allgemeine Zusage. "
+        "Die Quelle belegt hier keine allgemeine Zusage. "
         f"{limited} "
         "Pruefen Sie deshalb den konkreten Kontext in JAWS oder in der zugehoerigen Dokumentation, statt eine allgemeine Unterstuetzung anzunehmen."
     )
+    if contains_blocking_artifact(answer):
+        return None
     question = f"Kann ich mich bei {title_phrase(chunk)} in JAWS allgemein darauf verlassen, dass das immer gleich unterstuetzt wird?"
     score = 42
     if chunk.get("chunk_type") == "warning":
@@ -471,7 +533,13 @@ def build_source_record(chunk: dict) -> dict:
 def build_job(split: str, index: int, chunk: dict, draft: DraftCase, system_prompt: str, wave_id: str) -> dict:
     expected_output_kind = "sft_sample" if split == "train" else "eval_case"
     if split == "train":
-        fixture_payload: dict[str, Any] = {"assistant_message": draft.assistant_message}
+        fixture_payload: dict[str, Any] = {
+            "draft_answer": draft.assistant_message,
+            "case_description": draft.case_description,
+            "expected_behavior": draft.expected_behavior,
+            "rubric": draft.rubric,
+            "draft_usage": "stub_only_do_not_treat_as_final_answer",
+        }
     else:
         fixture_payload = {
             "case_description": draft.case_description,
@@ -492,7 +560,7 @@ def build_job(split: str, index: int, chunk: dict, draft: DraftCase, system_prom
         "behavior_spec_path": BEHAVIOR_SPEC_PATH,
         "prompt_template_path": draft.prompt_template_path,
         "teacher_prompt_version": TEACHER_PROMPT_VERSION,
-        "generation_mode": "teacher_wave_fixture_v2",
+        "generation_mode": "teacher_wave_fixture_v3",
         "source_doc_ids": [chunk["doc_id"]],
         "source_chunk_ids": [chunk["chunk_id"]],
         "source_excerpt": chunk["content"][:1400],
