@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "items"
+  ],
+  "properties": {
+    "items": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "job_id",
+          "decision",
+          "quality_score",
+          "summary",
+          "blocking_reasons",
+          "strengths",
+          "improvement_notes",
+          "source_chunk_ids_confirmed"
+        ],
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "enum": [
+              "jaws_de_teacher_wave_v1::train::clarification::0001",
+              "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+              "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+              "jaws_de_teacher_wave_v1::train::troubleshooting::0001",
+              "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001"
+            ]
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "approve",
+              "reject"
+            ]
+          },
+          "quality_score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "blocking_reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "strengths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "improvement_notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_chunk_ids_confirmed": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

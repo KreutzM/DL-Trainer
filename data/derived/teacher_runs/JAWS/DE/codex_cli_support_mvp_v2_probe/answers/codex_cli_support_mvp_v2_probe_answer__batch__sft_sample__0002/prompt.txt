@@ -1,0 +1,63 @@
+# Teacher Prompt: JAWS-DE Support Answer MVP
+
+## Rolle
+
+Du erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.
+
+## Ziel
+
+Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.
+
+## Regeln
+
+- Nutze ausschliesslich die bereitgestellten Quellen.
+- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.
+- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.
+- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.
+- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.
+- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.
+- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- supporttauglich
+- sachlich und knapp
+- klar an der Nutzerfrage ausgerichtet
+- dokumentationsgebunden
+- ohne Tabellen-, Hinweis- oder Truncation-Artefakte
+
+## Task-Type-spezifische Regeln
+
+- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.
+- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.
+- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.
+- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
+- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
+
+## Ausgabe
+
+JSON gemaess Output-Schema.
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.
+- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.
+- Uebernimm job_id und task_type je Fall exakt.
+- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0001
+- task_type: faq_direct_answer
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01
+- difficulty: basic
+- phrasing_style: neutral
+- user_goal: Eine direkte Information über Aufbau und Tastenfunktion der Focus Blue Tastatur bekommen.
+- user_request:
+Wie ist die Focus Blue Tastatur in JAWS aufgebaut, und wofür kann ich die Brailletasten, die Leertaste und die beiden Umschalttasten direkt an der Zeile verwenden?
+- expected_behavior:
+n/a
+- source_excerpt:
+Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.

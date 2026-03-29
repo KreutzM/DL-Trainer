@@ -1,0 +1,130 @@
+{
+  "batch_id": "codex_cli_support_mvp_v2_probe_answer::batch::sft_sample::0002",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001"
+  ],
+  "teacher_run_id": "codex_cli_support_mvp_v2_probe_answer",
+  "teacher_model": "gpt-5.4",
+  "generation_mode": "teacher_answer_codex_cli_v1",
+  "expected_output_kind": "sft_sample",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "user_simulation": {
+        "simulation_id": "codex_cli_support_mvp_v2_probe_user_sim::jaws_de_teacher_wave_v1::train::faq_direct_answer::0001::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_braille"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01"
+        ],
+        "simulator_provider": "codex_cli",
+        "simulator_model": "gpt-5.4-mini",
+        "simulator_run_id": "codex_cli_support_mvp_v2_probe_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_codex_cli_v1",
+        "simulation_status": "completed",
+        "request_text": "Wie ist die Focus Blue Tastatur in JAWS aufgebaut, und wofür kann ich die Brailletasten, die Leertaste und die beiden Umschalttasten direkt an der Zeile verwenden?",
+        "user_goal": "Eine direkte Information über Aufbau und Tastenfunktion der Focus Blue Tastatur bekommen.",
+        "difficulty": "basic",
+        "phrasing_style": "neutral",
+        "scenario_summary": "Nutzer fragt nach der Tastenanordnung und den grundlegenden Funktionen der Focus Blue Tastatur.",
+        "notes": [
+          "Source of truth: jaws_de_braille",
+          "Direkt beantwortbare Fachfrage",
+          "Keine Lösung oder Anleitung erforderlich"
+        ],
+        "usage": {
+          "elapsed_ms": 2116,
+          "batch_elapsed_ms": 10580,
+          "batch_size": 5,
+          "attempt_count": 1,
+          "prompt_chars": 1921,
+          "source_excerpt_chars": 899
+        },
+        "codex_cli": {
+          "command": [
+            "codex",
+            "exec",
+            "-m",
+            "gpt-5.4-mini",
+            "-s",
+            "read-only",
+            "--skip-git-repo-check",
+            "--ephemeral",
+            "--color",
+            "never",
+            "--output-schema",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_mvp_v2_probe\\user_simulations\\codex_cli_support_mvp_v2_probe_user_sim__batch__0001\\response_schema.json",
+            "-o",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_mvp_v2_probe\\user_simulations\\codex_cli_support_mvp_v2_probe_user_sim__batch__0001\\last_message.json",
+            "-C",
+            "D:\\Codex\\DL\\DL-Trainer",
+            "-",
+            "-c",
+            "reasoning_effort=\"low\""
+          ],
+          "batch_id": "codex_cli_support_mvp_v2_probe_user_sim::batch::0001",
+          "batch_size": 5,
+          "batch_index": 1,
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v2_probe/user_simulations/codex_cli_support_mvp_v2_probe_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v2_probe/user_simulations/codex_cli_support_mvp_v2_probe_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v2_probe/user_simulations/codex_cli_support_mvp_v2_probe_user_sim__batch__0001/response_schema.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v2_probe/user_simulations/codex_cli_support_mvp_v2_probe_user_sim__batch__0001/last_message.json",
+          "stdout_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v2_probe/user_simulations/codex_cli_support_mvp_v2_probe_user_sim__batch__0001/stdout.txt",
+          "stderr_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v2_probe/user_simulations/codex_cli_support_mvp_v2_probe_user_sim__batch__0001/stderr.txt",
+          "prompt_sha256": "d025d0e3b147098ad24eaf44599d1df9d0a6cf4760cbcb2c9e294ac8b3ff8dee",
+          "schema_sha256": "88788cade41a9c2847c07643873f759e36bddc8241d0a74d52f8778b9144b31e"
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_braille",
+              "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01",
+              "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur",
+              "section_title": "Focus Blue Tastatur",
+              "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/braille/index.md#L1413-L1413"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur",
+            "section_title": "Focus Blue Tastatur",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L1413-L1413"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
