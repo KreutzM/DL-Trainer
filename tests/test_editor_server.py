@@ -1,5 +1,7 @@
 from pathlib import Path
 import sys
+import tempfile
+import json
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -8,10 +10,207 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import editor_server  # noqa: E402
 
 
+def _write_jsonl(path: Path, rows: list[dict]) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows), encoding="utf-8")
+    return path
+
+
+def _teacher_output_rows() -> list[dict]:
+    return [
+        {
+            "output_id": "out-1",
+            "job_id": "job-1",
+            "record_type": "sft_sample",
+            "target_split": "train",
+            "product": "JAWS",
+            "language": "de",
+            "task_type": "faq_direct_answer",
+            "source_doc_ids": ["doc-1"],
+            "source_chunk_ids": ["chunk-1"],
+            "teacher_provider": "codex_cli",
+            "teacher_model": "gpt-5.4",
+            "teacher_run_id": "run-1",
+            "teacher_prompt_version": "prompt-v1",
+            "generation_mode": "teacher_runner_codex_cli_v1",
+            "review_status": "teacher_generated",
+            "approved_by": None,
+            "quality_score": 80,
+            "selection_reason": "demo",
+            "raw_response_path": "data/derived/teacher_outputs/JAWS/DE/demo_raw_responses.jsonl",
+            "candidate": {
+                "id": "out-1__candidate",
+                "product": "JAWS",
+                "language": "de",
+                "task_type": "faq_direct_answer",
+                "messages": [
+                    {"role": "system", "content": "System"},
+                    {"role": "user", "content": "Wie geht das?"},
+                    {"role": "assistant", "content": "So geht das."},
+                ],
+                "source_doc_ids": ["doc-1"],
+                "source_chunk_ids": ["chunk-1"],
+                "teacher_provider": "codex_cli",
+                "teacher_model": "gpt-5.4",
+                "teacher_run_id": "run-1",
+                "teacher_prompt_version": "prompt-v1",
+                "generation_mode": "teacher_runner_codex_cli_v1",
+                "review_status": "teacher_generated",
+                "split": "train",
+                "approved_by": None,
+                "promoted_from": None,
+                "provenance": {
+                    "transform_pipeline_version": "0.1.0",
+                    "source_records": [
+                        {
+                            "doc_id": "doc-1",
+                            "chunk_id": "chunk-1",
+                            "normalized_path": "data/normalized/x.md",
+                            "source_spans": ["data/normalized/x.md#L1-L2"],
+                        }
+                    ],
+                },
+                "meta": {
+                    "product": "JAWS",
+                    "language": "de",
+                    "task_type": "faq_direct_answer",
+                    "teacher_provider": "codex_cli",
+                    "teacher_model": "gpt-5.4",
+                    "teacher_run_id": "run-1",
+                    "source_doc_ids": ["doc-1"],
+                    "source_chunk_ids": ["chunk-1"],
+                    "teacher_prompt_version": "prompt-v1",
+                    "generation_mode": "teacher_runner_codex_cli_v1",
+                    "needs_clarification": False,
+                    "review_status": "teacher_generated",
+                    "split": "train",
+                    "approved_by": None,
+                    "promoted_from": None,
+                    "provenance": {
+                        "transform_pipeline_version": "0.1.0",
+                        "source_records": [
+                            {
+                                "doc_id": "doc-1",
+                                "chunk_id": "chunk-1",
+                                "normalized_path": "data/normalized/x.md",
+                                "source_spans": ["data/normalized/x.md#L1-L2"],
+                            }
+                        ],
+                    },
+                },
+            },
+            "provenance": {
+                "transform_pipeline_version": "0.1.0",
+                "source_job_path": "data/derived/teacher_jobs/x.jsonl",
+                "source_records": [
+                    {
+                        "doc_id": "doc-1",
+                        "chunk_id": "chunk-1",
+                        "normalized_path": "data/normalized/x.md",
+                        "source_spans": ["data/normalized/x.md#L1-L2"],
+                    }
+                ],
+            },
+        }
+    ]
+
+
+def _reviewed_teacher_output_rows() -> list[dict]:
+    rows = _teacher_output_rows()
+    row = rows[0]
+    row["review_status"] = "human_reviewed"
+    row["approved_by"] = "reviewer-x"
+    row["candidate"]["review_status"] = "human_reviewed"
+    row["candidate"]["approved_by"] = "reviewer-x"
+    row["candidate"]["meta"]["review_status"] = "human_reviewed"
+    row["candidate"]["meta"]["approved_by"] = "reviewer-x"
+
+    rows.append(
+        {
+            "output_id": "out-2",
+            "job_id": "job-2",
+            "record_type": "eval_case",
+            "target_split": "eval",
+            "product": "JAWS",
+            "language": "de",
+            "task_type": "faq_direct_answer",
+            "source_doc_ids": ["doc-2"],
+            "source_chunk_ids": ["chunk-2"],
+            "teacher_provider": "codex_cli",
+            "teacher_model": "gpt-5.4",
+            "teacher_run_id": "run-1",
+            "teacher_prompt_version": "prompt-v1",
+            "generation_mode": "teacher_runner_codex_cli_v1",
+            "review_status": "human_reviewed",
+            "approved_by": "reviewer-x",
+            "quality_score": 85,
+            "selection_reason": "demo",
+            "raw_response_path": "data/derived/teacher_outputs/JAWS/DE/demo_raw_responses.jsonl",
+            "candidate": {
+                "eval_id": "out-2__candidate",
+                "product": "JAWS",
+                "language": "de",
+                "case_type": "faq_direct_answer",
+                "prompt": "Was ist das?",
+                "case_description": "Kurze Direktantwort.",
+                "expected_behavior": "Antwortet knapp.",
+                "source_doc_ids": ["doc-2"],
+                "source_chunk_ids": ["chunk-2"],
+                "teacher_provider": "codex_cli",
+                "teacher_model": "gpt-5.4",
+                "teacher_run_id": "run-1",
+                "teacher_prompt_version": "prompt-v1",
+                "generation_mode": "teacher_runner_codex_cli_v1",
+                "review_status": "human_reviewed",
+                "split": "eval",
+                "approved_by": "reviewer-x",
+                "promoted_from": None,
+                "reference_answer": "Das ist die Antwort.",
+                "rubric": {
+                    "must_include": [],
+                    "must_not_include": [],
+                    "style": "kurz",
+                    "scoring_notes": "",
+                },
+                "provenance": {
+                    "transform_pipeline_version": "0.1.0",
+                    "source_records": [
+                        {
+                            "doc_id": "doc-2",
+                            "chunk_id": "chunk-2",
+                            "normalized_path": "data/normalized/y.md",
+                            "source_spans": ["data/normalized/y.md#L1-L2"],
+                        }
+                    ],
+                },
+            },
+            "provenance": {
+                "transform_pipeline_version": "0.1.0",
+                "source_job_path": "data/derived/teacher_jobs/y.jsonl",
+                "source_records": [
+                    {
+                        "doc_id": "doc-2",
+                        "chunk_id": "chunk-2",
+                        "normalized_path": "data/normalized/y.md",
+                        "source_spans": ["data/normalized/y.md#L1-L2"],
+                    }
+                ],
+            },
+        }
+    )
+    return rows
+
+
+def _repo_temp_dir():
+    base = ROOT / "tmp" / "pytest_editor_server"
+    base.mkdir(parents=True, exist_ok=True)
+    return tempfile.TemporaryDirectory(dir=base)
+
+
 def test_file_class_for_paths():
-    reviewed = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_reviewed_teacher_outputs.jsonl"
-    gold = ROOT / "data" / "gold" / "train" / "sft" / "JAWS" / "DE" / "consolidated_gold_v1_sft_samples.jsonl"
-    raw = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_codex_gpt54_raw_responses.jsonl"
+    reviewed = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_reviewed_teacher_outputs.jsonl"
+    gold = ROOT / "data" / "gold" / "train" / "sft" / "JAWS" / "DE" / "demo_sft_samples.jsonl"
+    raw = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_raw_responses.jsonl"
 
     assert editor_server.file_class_for_path(reviewed).category == "reviewed_teacher_outputs"
     assert editor_server.file_class_for_path(reviewed).editable is True
@@ -44,23 +243,23 @@ def test_normalize_row_for_save_updates_nested_status_fields():
 
 
 def test_validate_rows_rejects_empty_gold_file():
-    path = ROOT / "data" / "gold" / "eval" / "JAWS" / "DE" / "promoted_teacher_wave2_codex_gpt54_topoff_eval_cases.jsonl"
+    path = ROOT / "data" / "gold" / "eval" / "JAWS" / "DE" / "demo_eval_cases.jsonl"
     errors = editor_server.validate_rows(path, [], "eval_case.schema.json")
 
     assert errors == [f"{editor_server.repo_relative_posix(path)} is empty"]
 
 
 def test_suggested_review_output_path_for_teacher_outputs():
-    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_teacher_outputs.jsonl"
+    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_teacher_outputs.jsonl"
     assert (
         editor_server.suggested_review_output_path(source)
-        == "data/derived/teacher_outputs/JAWS/DE/wave1_reviewed_teacher_outputs.jsonl"
+        == "data/derived/teacher_outputs/JAWS/DE/demo_reviewed_teacher_outputs.jsonl"
     )
 
 
 def test_validate_review_export_requires_decision_and_reviewed_target():
-    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_teacher_outputs.jsonl"
-    output = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_reviewed_teacher_outputs.jsonl"
+    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_teacher_outputs.jsonl"
+    output = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_reviewed_teacher_outputs.jsonl"
     info = editor_server.file_class_for_path(source)
     rows = [
         {
@@ -128,28 +327,58 @@ def test_validate_review_export_requires_decision_and_reviewed_target():
 
 
 def test_load_jsonl_payload_exposes_review_context():
-    path = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_teacher_outputs.jsonl"
-    payload = editor_server.load_jsonl_payload(path)
+    with _repo_temp_dir() as tmpdir:
+        base = Path(tmpdir)
+        path = _write_jsonl(
+            base / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_teacher_outputs.jsonl",
+            _teacher_output_rows(),
+        )
+        reviewed_path = _write_jsonl(
+            base / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_reviewed_teacher_outputs.jsonl",
+            _reviewed_teacher_output_rows(),
+        )
+        target_path = ROOT / path.relative_to(base)
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        target_path.write_text(path.read_text(encoding="utf-8"), encoding="utf-8")
+        target_reviewed = ROOT / reviewed_path.relative_to(base)
+        target_reviewed.parent.mkdir(parents=True, exist_ok=True)
+        target_reviewed.write_text(reviewed_path.read_text(encoding="utf-8"), encoding="utf-8")
+        try:
+            payload = editor_server.load_jsonl_payload(target_path)
+        finally:
+            target_path.unlink(missing_ok=True)
+            target_reviewed.unlink(missing_ok=True)
 
     assert payload["review"]["enabled"] is True
     assert payload["review"]["default_status_filter"] == "teacher_generated"
     assert payload["review"]["pending_count"] > 0
     assert payload["review"]["existing_output_exists"] is True
-    assert payload["review"]["existing_output_path"].endswith("wave1_reviewed_teacher_outputs.jsonl")
+    assert payload["review"]["existing_output_path"].endswith("demo_reviewed_teacher_outputs.jsonl")
     assert payload["review"]["existing_merge_summary"]["mergeable_count"] > 0
 
 
 def test_suggested_gold_output_paths_for_reviewed_outputs():
-    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_reviewed_teacher_outputs.jsonl"
+    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_reviewed_teacher_outputs.jsonl"
     suggested = editor_server.suggested_gold_output_paths(source)
 
-    assert suggested["train_output_path"] == "data/gold/train/sft/JAWS/DE/promoted_wave1_sft_samples.jsonl"
-    assert suggested["eval_output_path"] == "data/gold/eval/JAWS/DE/promoted_wave1_eval_cases.jsonl"
+    assert suggested["train_output_path"] == "data/gold/train/sft/JAWS/DE/promoted_demo_sft_samples.jsonl"
+    assert suggested["eval_output_path"] == "data/gold/eval/JAWS/DE/promoted_demo_eval_cases.jsonl"
 
 
 def test_load_jsonl_payload_exposes_promotion_context():
-    path = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_reviewed_teacher_outputs.jsonl"
-    payload = editor_server.load_jsonl_payload(path)
+    with _repo_temp_dir() as tmpdir:
+        base = Path(tmpdir)
+        path = _write_jsonl(
+            base / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_reviewed_teacher_outputs.jsonl",
+            _reviewed_teacher_output_rows(),
+        )
+        target_path = ROOT / path.relative_to(base)
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        target_path.write_text(path.read_text(encoding="utf-8"), encoding="utf-8")
+        try:
+            payload = editor_server.load_jsonl_payload(target_path)
+        finally:
+            target_path.unlink(missing_ok=True)
 
     assert payload["promotion"]["enabled"] is True
     assert payload["promotion"]["eligible_count"] > 0
@@ -158,9 +387,9 @@ def test_load_jsonl_payload_exposes_promotion_context():
 
 
 def test_validate_promotion_export_accepts_real_reviewed_file():
-    path = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_reviewed_teacher_outputs.jsonl"
+    path = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_reviewed_teacher_outputs.jsonl"
     info = editor_server.file_class_for_path(path)
-    rows = editor_server.read_jsonl(path)
+    rows = _reviewed_teacher_output_rows()
     suggested = editor_server.suggested_gold_output_paths(path)
     train_output = ROOT / suggested["train_output_path"]
     eval_output = ROOT / suggested["eval_output_path"]
@@ -275,9 +504,10 @@ def test_merge_reviewed_overlay_skips_conflicts():
 
 
 def test_gold_post_checks_reports_success():
-    path = ROOT / "data" / "gold" / "train" / "sft" / "JAWS" / "DE" / "consolidated_gold_v1_sft_samples.jsonl"
-    rows = editor_server.read_jsonl(path)
-    checks = editor_server.gold_post_checks(path, rows[:2], "sft_sample.schema.json")
+    reviewed_source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "demo_reviewed_teacher_outputs.jsonl"
+    train_rows, _ = editor_server.build_promoted_rows(editor_server.repo_relative_posix(reviewed_source), _reviewed_teacher_output_rows())
+    path = ROOT / "data" / "gold" / "train" / "sft" / "JAWS" / "DE" / "promoted_demo_sft_samples.jsonl"
+    checks = editor_server.gold_post_checks(path, train_rows, "sft_sample.schema.json")
 
     assert checks["schema_ok"] is True
     assert checks["provenance_ok"] is True

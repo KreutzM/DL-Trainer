@@ -69,7 +69,7 @@ python -m pip install \
   "torch==${TORCH_VERSION}" \
   "torchvision==${TORCHVISION_VERSION}" \
   "torchaudio==${TORCHAUDIO_VERSION}"
-python -m pip install -r training/transformers/requirements-qwen-server-4090-v2.txt
+python -m pip install -r training/transformers/requirements-qwen-lora-server.txt
 
 echo
 echo "Environment ready."

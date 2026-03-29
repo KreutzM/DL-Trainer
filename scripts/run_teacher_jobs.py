@@ -10,7 +10,7 @@ from typing import Any
 from common import make_parser, read_jsonl, write_jsonl
 
 
-TRANSFORM_PIPELINE_VERSION = "0.6.0"
+TRANSFORM_PIPELINE_VERSION = "0.7.0"
 OPENAI_API_BASE = "https://api.openai.com/v1"
 RAW_RESPONSE_FORMAT_VERSION = "teacher_response_v1"
 RUNNER_OPENAI_MODE = "teacher_runner_openai_chat_json_v1"
@@ -121,6 +121,25 @@ def build_sft_candidate(
     }
 
 
+def render_visible_answer(parsed: dict, task_type: str, *, prefer_reference: bool = False) -> str:
+    base_text = ""
+    if prefer_reference:
+        base_text = str(parsed.get("reference_answer") or parsed.get("answer") or "").strip()
+    else:
+        base_text = str(parsed.get("answer") or "").strip()
+    if task_type != "step_by_step":
+        return base_text
+
+    steps = [str(step).strip() for step in parsed.get("steps", []) if str(step).strip()]
+    if not steps:
+        return base_text
+
+    numbered_steps = "\n".join(f"{idx}. {step}" for idx, step in enumerate(steps, start=1))
+    if not base_text:
+        return numbered_steps
+    return f"{base_text}\n\n{numbered_steps}"
+
+
 def build_eval_candidate(
     job: dict,
     teacher_model: str,
@@ -133,6 +152,9 @@ def build_eval_candidate(
     reference_answer: str,
     rubric: dict[str, Any],
 ) -> dict:
+    normalized_rubric = dict(rubric)
+    if normalized_rubric.get("scoring_notes") is None:
+        normalized_rubric["scoring_notes"] = ""
     return {
         "eval_id": f"{job['job_id']}__candidate",
         "product": job["product"],
@@ -153,7 +175,7 @@ def build_eval_candidate(
         "approved_by": None,
         "promoted_from": None,
         "reference_answer": reference_answer,
-        "rubric": rubric,
+        "rubric": normalized_rubric,
         "provenance": {
             "transform_pipeline_version": TRANSFORM_PIPELINE_VERSION,
             "behavior_spec_path": job["behavior_spec_path"],
@@ -237,7 +259,7 @@ def build_output_from_raw_response(job: dict, raw_response: dict, raw_response_p
             teacher_provider,
             teacher_run_id,
             generation_mode,
-            parsed["answer"],
+            render_visible_answer(parsed, job["task_type"]),
         )
         candidate["meta"]["needs_clarification"] = bool(parsed.get("needs_clarification", False))
         record_type = "sft_sample"
@@ -250,7 +272,7 @@ def build_output_from_raw_response(job: dict, raw_response: dict, raw_response_p
             generation_mode,
             case_description=parsed["case_description"],
             expected_behavior=parsed["expected_behavior"],
-            reference_answer=parsed["reference_answer"],
+            reference_answer=render_visible_answer(parsed, job["task_type"], prefer_reference=True),
             rubric=parsed["rubric"],
         )
         record_type = "eval_case"
@@ -379,7 +401,7 @@ def build_teacher_response_schema(expected_output_kind: str, task_type: str) -> 
                 "rubric": {
                     "type": "object",
                     "additionalProperties": False,
-                    "required": ["must_include", "must_not_include", "style"],
+                    "required": ["must_include", "must_not_include", "style", "scoring_notes"],
                     "properties": {
                         "must_include": {
                             "type": "array",
@@ -557,7 +579,9 @@ def generate_raw_responses_via_openai(
 
 
 def parse_args() -> Any:
-    parser = make_parser("Run teacher jobs in codex, stub, replay, import or OpenAI mode and produce reviewable teacher outputs.")
+    parser = make_parser(
+        "Materialize teacher outputs from stub, replay, import, precomputed Codex raw responses or OpenAI mode."
+    )
     parser.add_argument("--jobs", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--mode", choices=["codex", "stub", "replay", "import", "openai"], default="stub")
