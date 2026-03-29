@@ -4,13 +4,13 @@
 
 Der produktive Teacher-Pfad fuer JAWS-DE nutzt Codex CLI direkt.
 
-Die eigentliche Generierung erfolgt ueber `codex exec` mit `gpt-5.4`. Das Repo schreibt dabei:
+Nach dem Clean-Cut bleiben im aktiven Repo nur noch:
 
-- stabile Jobdateien unter `data/derived/teacher_jobs/...`
-- echte Roh-Responses unter `data/derived/teacher_outputs/...`
-- optional direkt materialisierte reviewbare Teacher-Outputs
+- Teacher-Jobs als stabile Eingabe
+- der echte Codex-CLI-Runner
+- ein kleiner belastbarer Proof-Batch
 
-Review, Promotion und Gold-Export bleiben danach unveraendert.
+Fruehere stub-, replay-, import- oder anderweitig nicht belastbar echte JAWS-DE-Teacher-Daten wurden aus dem aktiven Projektstand entfernt.
 
 ## Produktiver Ablauf
 
@@ -19,10 +19,11 @@ Review, Promotion und Gold-Export bleiben danach unveraendert.
 3. Dabei entstehen echte Roh-Responses im Schema `schemas/teacher_response.schema.json`.
 4. Optional materialisiert derselbe Lauf direkt reviewbare Teacher-Outputs.
 5. `review_teacher_outputs.py` und `promote_teacher_outputs.py` laufen wie bisher weiter.
+6. Neue Gold- und Export-Staende entstehen erst wieder aus diesen echten reviewed Outputs.
 
-## Neuer Primärpfad
+## Start des echten Pfads
 
-Beispiel fuer einen echten kleinen Smoke-Batch:
+Beispiel fuer den im Repo behaltenen kleinen Proof-Batch:
 
 ```bash
 python scripts/run_codex_cli_teacher_batch.py ^
@@ -36,14 +37,6 @@ python scripts/run_codex_cli_teacher_batch.py ^
   --teacher-model gpt-5.4 ^
   --reasoning-effort high
 ```
-
-Wichtige Eigenschaften:
-
-- echter Modelllauf ueber Codex CLI
-- pro Job eigene Prompt-, Schema- und Response-Artefakte
-- klare Job-ID-Zuordnung
-- keine OpenAI-API-Runner-Hauptarchitektur
-- keine Stub-Antworten im produktiven Lauf
 
 ## Review und Promotion
 
@@ -101,7 +94,6 @@ Legacy oder Nebenweg:
 - `run_teacher_jobs.py --mode replay`
 - `run_teacher_jobs.py --mode import`
 - `run_teacher_jobs.py --mode codex`
-- `scripts/materialize_codex_teacher_responses.py`
 
 Diese Legacy-Pfade bleiben fuer Tests, Reproduktion oder Rueckspielung alter Artefakte erhalten, sind aber nicht mehr der primaere Weg fuer neue produktive Teacher-Wellen.
 
@@ -129,8 +121,8 @@ Ein echter Codex-CLI-Run ist an folgenden Feldern erkennbar:
 - eigener `teacher_run_id`
 - `generation_mode: teacher_runner_codex_cli_v1`
 
-Damit bleiben echte neue Teacher-Daten klar getrennt von:
+## Aktiver JAWS-DE-Status
 
-- `teacher_runner_stub_*`
-- `teacher_runner_replay_*`
-- alten importierten `codex_*`-Artefakten
+- `data/derived/teacher_outputs/JAWS/DE/` enthaelt im aktiven Repo nur noch den echten `codex_cli_smoke_v1`-Nachweis.
+- `data/gold/train/sft/JAWS/DE/` und `data/gold/eval/JAWS/DE/` enthalten nur noch die dazugehoerigen kleinen promoted Proof-Artefakte.
+- `data/exports/qwen_sft/JAWS/DE/` ist bewusst leer, bis neue echte Teacher-Wellen wieder einen belastbaren Gold-Stand erzeugt haben.

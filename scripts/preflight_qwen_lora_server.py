@@ -69,7 +69,7 @@ def _ensure_imports() -> dict[str, str]:
         raise SystemExit(
             "Missing Python packages for server run: "
             + ", ".join(sorted(missing))
-            + ". Install training/transformers/requirements-qwen-server-4090-v2.txt and a CUDA-enabled PyTorch build."
+            + ". Install training/transformers/requirements-qwen-lora-server.txt and a CUDA-enabled PyTorch build."
         )
     return versions
 

@@ -1,6 +1,10 @@
 # JAWS-DE Codex CLI Teacher Runs
 
-Diese Ablage enthaelt pro echtem Codex-CLI-Teacher-Batch die Laufartefakte.
+Diese Ablage enthaelt nur noch Laufartefakte echter Codex-CLI-Teacher-Batches.
+
+Aktiv erhalten:
+
+- `codex_cli_smoke_v1/`: kleiner belastbarer Proof-Lauf fuer den neuen produktiven JAWS-DE-Teacher-Pfad
 
 Typische Struktur pro Batch:
 
@@ -11,4 +15,4 @@ Typische Struktur pro Batch:
 - `<batch>/stdout.txt`
 - `<batch>/stderr.txt`
 
-Diese Dateien sind keine Gold-Daten. Sie dienen der Nachvollziehbarkeit eines echten Teacher-Laufs.
+Diese Dateien sind keine Gold-Daten. Sie dienen der Nachvollziehbarkeit echter Teacher-Laeufe.

@@ -9,9 +9,9 @@ import editor_server  # noqa: E402
 
 
 def test_file_class_for_paths():
-    reviewed = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_reviewed_teacher_outputs.jsonl"
-    gold = ROOT / "data" / "gold" / "train" / "sft" / "JAWS" / "DE" / "consolidated_gold_v1_sft_samples.jsonl"
-    raw = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_codex_gpt54_raw_responses.jsonl"
+    reviewed = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "codex_cli_smoke_v1_reviewed_teacher_outputs.jsonl"
+    gold = ROOT / "data" / "gold" / "train" / "sft" / "JAWS" / "DE" / "codex_cli_smoke_v1_promoted_sft_samples.jsonl"
+    raw = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "codex_cli_smoke_v1_raw_responses.jsonl"
 
     assert editor_server.file_class_for_path(reviewed).category == "reviewed_teacher_outputs"
     assert editor_server.file_class_for_path(reviewed).editable is True
@@ -44,23 +44,23 @@ def test_normalize_row_for_save_updates_nested_status_fields():
 
 
 def test_validate_rows_rejects_empty_gold_file():
-    path = ROOT / "data" / "gold" / "eval" / "JAWS" / "DE" / "promoted_teacher_wave2_codex_gpt54_topoff_eval_cases.jsonl"
+    path = ROOT / "data" / "gold" / "eval" / "JAWS" / "DE" / "codex_cli_smoke_v1_promoted_eval_cases.jsonl"
     errors = editor_server.validate_rows(path, [], "eval_case.schema.json")
 
     assert errors == [f"{editor_server.repo_relative_posix(path)} is empty"]
 
 
 def test_suggested_review_output_path_for_teacher_outputs():
-    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_teacher_outputs.jsonl"
+    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "codex_cli_smoke_v1_teacher_outputs.jsonl"
     assert (
         editor_server.suggested_review_output_path(source)
-        == "data/derived/teacher_outputs/JAWS/DE/wave1_reviewed_teacher_outputs.jsonl"
+        == "data/derived/teacher_outputs/JAWS/DE/codex_cli_smoke_v1_reviewed_teacher_outputs.jsonl"
     )
 
 
 def test_validate_review_export_requires_decision_and_reviewed_target():
-    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_teacher_outputs.jsonl"
-    output = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_reviewed_teacher_outputs.jsonl"
+    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "codex_cli_smoke_v1_teacher_outputs.jsonl"
+    output = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "codex_cli_smoke_v1_reviewed_teacher_outputs.jsonl"
     info = editor_server.file_class_for_path(source)
     rows = [
         {
@@ -128,27 +128,27 @@ def test_validate_review_export_requires_decision_and_reviewed_target():
 
 
 def test_load_jsonl_payload_exposes_review_context():
-    path = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_teacher_outputs.jsonl"
+    path = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "codex_cli_smoke_v1_teacher_outputs.jsonl"
     payload = editor_server.load_jsonl_payload(path)
 
     assert payload["review"]["enabled"] is True
     assert payload["review"]["default_status_filter"] == "teacher_generated"
     assert payload["review"]["pending_count"] > 0
     assert payload["review"]["existing_output_exists"] is True
-    assert payload["review"]["existing_output_path"].endswith("wave1_reviewed_teacher_outputs.jsonl")
+    assert payload["review"]["existing_output_path"].endswith("codex_cli_smoke_v1_reviewed_teacher_outputs.jsonl")
     assert payload["review"]["existing_merge_summary"]["mergeable_count"] > 0
 
 
 def test_suggested_gold_output_paths_for_reviewed_outputs():
-    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_reviewed_teacher_outputs.jsonl"
+    source = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "codex_cli_smoke_v1_reviewed_teacher_outputs.jsonl"
     suggested = editor_server.suggested_gold_output_paths(source)
 
-    assert suggested["train_output_path"] == "data/gold/train/sft/JAWS/DE/promoted_wave1_sft_samples.jsonl"
-    assert suggested["eval_output_path"] == "data/gold/eval/JAWS/DE/promoted_wave1_eval_cases.jsonl"
+    assert suggested["train_output_path"] == "data/gold/train/sft/JAWS/DE/promoted_codex_cli_smoke_v1_sft_samples.jsonl"
+    assert suggested["eval_output_path"] == "data/gold/eval/JAWS/DE/promoted_codex_cli_smoke_v1_eval_cases.jsonl"
 
 
 def test_load_jsonl_payload_exposes_promotion_context():
-    path = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_reviewed_teacher_outputs.jsonl"
+    path = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "codex_cli_smoke_v1_reviewed_teacher_outputs.jsonl"
     payload = editor_server.load_jsonl_payload(path)
 
     assert payload["promotion"]["enabled"] is True
@@ -158,7 +158,7 @@ def test_load_jsonl_payload_exposes_promotion_context():
 
 
 def test_validate_promotion_export_accepts_real_reviewed_file():
-    path = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "wave1_reviewed_teacher_outputs.jsonl"
+    path = ROOT / "data" / "derived" / "teacher_outputs" / "JAWS" / "DE" / "codex_cli_smoke_v1_reviewed_teacher_outputs.jsonl"
     info = editor_server.file_class_for_path(path)
     rows = editor_server.read_jsonl(path)
     suggested = editor_server.suggested_gold_output_paths(path)
@@ -275,7 +275,7 @@ def test_merge_reviewed_overlay_skips_conflicts():
 
 
 def test_gold_post_checks_reports_success():
-    path = ROOT / "data" / "gold" / "train" / "sft" / "JAWS" / "DE" / "consolidated_gold_v1_sft_samples.jsonl"
+    path = ROOT / "data" / "gold" / "train" / "sft" / "JAWS" / "DE" / "codex_cli_smoke_v1_promoted_sft_samples.jsonl"
     rows = editor_server.read_jsonl(path)
     checks = editor_server.gold_post_checks(path, rows[:2], "sft_sample.schema.json")
 
