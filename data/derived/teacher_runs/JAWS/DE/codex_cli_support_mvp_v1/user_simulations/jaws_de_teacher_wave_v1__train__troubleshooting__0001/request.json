@@ -1,0 +1,33 @@
+{
+  "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0001",
+  "simulator_run_id": "jaws_de_codex_cli_support_mvp_v1_user_sim",
+  "simulator_model": "gpt-5.4",
+  "generation_mode": "teacher_user_simulator_codex_cli_v1",
+  "task_type": "troubleshooting",
+  "source_chunk_ids": [
+    "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_02"
+  ],
+  "source_doc_ids": [
+    "jaws_de_braille"
+  ],
+  "source_excerpt": "6. Drücken Sie **LEERTASTE**, um durch die einzelnen Einstellungen in der Ausklappliste Eingabe zu schalten, um den Eingabemodus für die Brailleeingabe über die Perkins-Tastatur Ihrer Braillezeile festzulegen.\n  Die erste Option ist immer Computer Braille. Die anderen zur Verfügung stehenden Einstellungen hängen vom aktuell gewählten Ausgabemodus ab. Wenn Sie beispielsweise ausgewählt haben, dass Braille in Deutsch Kurzschrift angezeigt wird, dann können Sie für die Eingabe entweder Computerbraille oder Deutsch Kurzschrift wählen. Diese Einstellung ist nicht verfügbar, wenn der gewählte Ausgabemodus Computer Braille ist, oder wenn der gewählte Ausgabemodus keine Eingabe unterstützt.\n\n7. Wählen Sie OK, um Ihre Änderungen zu speichern und die Einstellungsverwaltung zu schließen.\n\nQuelle: JAWS_BrailleIn.htm",
+  "runner_input": {
+    "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+    "user_message": "Ich komme bei Schreiben in Kurzschrift in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?"
+  },
+  "provenance": {
+    "transform_pipeline_version": "0.5.0",
+    "source_records": [
+      {
+        "doc_id": "jaws_de_braille",
+        "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_02",
+        "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift",
+        "section_title": "Schreiben in Kurzschrift",
+        "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L262-L266"
+        ]
+      }
+    ]
+  }
+}

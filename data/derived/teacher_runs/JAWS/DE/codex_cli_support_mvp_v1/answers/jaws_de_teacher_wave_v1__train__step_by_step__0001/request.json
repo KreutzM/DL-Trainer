@@ -1,0 +1,113 @@
+{
+  "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+  "teacher_run_id": "jaws_de_codex_cli_support_mvp_v1_answer",
+  "teacher_model": "gpt-5.4",
+  "generation_mode": "teacher_answer_codex_cli_v1",
+  "task_type": "step_by_step",
+  "source_chunk_ids": [
+    "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01"
+  ],
+  "source_doc_ids": [
+    "jaws_de_braille"
+  ],
+  "user_simulation": {
+    "simulation_id": "jaws_de_codex_cli_support_mvp_v1_user_sim::jaws_de_teacher_wave_v1::train::step_by_step::0001::simulation",
+    "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+    "wave_id": "jaws_de_teacher_wave_v1",
+    "target_split": "train",
+    "expected_output_kind": "sft_sample",
+    "task_type": "step_by_step",
+    "product": "JAWS",
+    "language": "de",
+    "source_doc_ids": [
+      "jaws_de_braille"
+    ],
+    "source_chunk_ids": [
+      "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01"
+    ],
+    "simulator_provider": "codex_cli",
+    "simulator_model": "gpt-5.4",
+    "simulator_run_id": "jaws_de_codex_cli_support_mvp_v1_user_sim",
+    "simulator_prompt_version": "jaws_de_user_simulation_v1",
+    "generation_mode": "teacher_user_simulator_codex_cli_v1",
+    "simulation_status": "completed",
+    "request_text": "Ich nutze eine mehrzeilige Braillezeile und im geteilten Bereich werden bei mir standardmäßig zwei Zeilen angezeigt. Wie kann ich in JAWS die Anzahl der dafür verwendeten Zeilen Schritt für Schritt ändern?",
+    "user_goal": "Die Zeilenanzahl für den geteilten Bereich auf einer mehrzeiligen Braillezeile in JAWS anpassen.",
+    "difficulty": "basic",
+    "phrasing_style": "task_focused",
+    "scenario_summary": "Ein Anwender bittet um eine konkrete Bedienfolge, um in JAWS die Anzahl der Zeilen für geteilte Daten auf einer mehrzeiligen Braillezeile zu ändern.",
+    "notes": [
+      "Passend zu `step_by_step`, da ausdrücklich nach einer Vorgehensweise gefragt wird.",
+      "Bezieht sich nur auf den dokumentierten Fall mit mehrzeiligen Braillezeilen und dem geteilten Bereich.",
+      "Keine Lösung vorweggenommen, nur das Support-Anliegen formuliert."
+    ],
+    "usage": {
+      "elapsed_ms": 12289
+    },
+    "codex_cli": {
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Roaming\\npm\\codex.CMD",
+        "exec",
+        "-m",
+        "gpt-5.4",
+        "-s",
+        "read-only",
+        "--skip-git-repo-check",
+        "--ephemeral",
+        "--color",
+        "never",
+        "--output-schema",
+        "data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_mvp_v1\\user_simulations\\jaws_de_teacher_wave_v1__train__step_by_step__0001\\response_schema.json",
+        "-o",
+        "data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_mvp_v1\\user_simulations\\jaws_de_teacher_wave_v1__train__step_by_step__0001\\last_message.json",
+        "-C",
+        "D:\\Codex\\DL\\DL-Trainer",
+        "-",
+        "-c",
+        "reasoning_effort=\"high\""
+      ],
+      "request_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__step_by_step__0001/request.json",
+      "prompt_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__step_by_step__0001/prompt.txt",
+      "schema_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__step_by_step__0001/response_schema.json",
+      "response_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__step_by_step__0001/last_message.json",
+      "stdout_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__step_by_step__0001/stdout.txt",
+      "stderr_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__step_by_step__0001/stderr.txt",
+      "prompt_sha256": "9142942e1eb337e2b1b18dee75dbca0380552469a797d0abb3b45cc1652ce8c9",
+      "schema_sha256": "ea877930bfd52d6876829b2f5fc1c75e50bed6dab8541d91cef94977c27de8b7"
+    },
+    "provenance": {
+      "transform_pipeline_version": "0.8.0",
+      "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+      "behavior_spec_path": "docs/support_behavior_spec.md",
+      "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+      "source_records": [
+        {
+          "doc_id": "jaws_de_braille",
+          "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01",
+          "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen",
+          "section_title": "Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)",
+          "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+          "source_spans": [
+            "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+          ]
+        }
+      ]
+    }
+  },
+  "source_excerpt": "Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:\n\n1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.\n2. Wählen Sie Optionen.\n3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.\n4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.",
+  "provenance": {
+    "transform_pipeline_version": "0.5.0",
+    "source_records": [
+      {
+        "doc_id": "jaws_de_braille",
+        "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01",
+        "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen",
+        "section_title": "Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)",
+        "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+        ]
+      }
+    ]
+  }
+}

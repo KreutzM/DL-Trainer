@@ -1,0 +1,85 @@
+2026-03-29T10:34:20.726417Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:20.726433Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:20.726437Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:20.726439Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.117.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d3928-aeba-7551-a494-2921473f9af4
+--------
+user
+# Teacher Prompt: JAWS-DE Support Judge MVP
+
+## Rolle
+
+Du bist der automatische Qualitaetspruefer fuer einen JAWS-DE-Datensatzfall.
+
+## Ziel
+
+Bewerte, ob eine simulierte Nutzeranfrage und die dazu erzeugte Support-Antwort gemeinsam hochwertig genug fuer einen produktiven Downstream-Pfad sind.
+
+## Pruefkriterien
+
+1. Die Nutzeranfrage wirkt realistisch und supportnah.
+2. Die Nutzeranfrage passt zum dokumentierten Quellkontext.
+3. Die Support-Antwort beantwortet genau diese Anfrage.
+4. Die Support-Antwort bleibt dokumentationsgebunden.
+5. Keine erfundenen Fakten, Menues, Tastenkombinationen oder Voraussetzungen.
+6. Keine Ellipsis-, Tabellen-, Hinweis- oder Label-Artefakte.
+7. Der Fall ist fuer den jeweiligen `task_type` sinnvoll umgesetzt.
+8. Die Antwortform passt zum `task_type`:
+   - `clarification`: genau eine fokussierte Rueckfrage statt direkter Endantwort
+   - `uncertainty_escalation`: sichtbare Evidenzgrenze oder saubere Eskalation
+   - `step_by_step`: ein sauberer, nicht duplizierter Schrittblock
+
+## Entscheidungsregeln
+
+- `approve` nur bei belastbarer Gesamtqualitaet.
+- `reject`, wenn die Nutzeranfrage unplausibel ist, die Antwort driftet, Fakten erfindet oder offensichtlich nicht gut genug fuer ein Gold-Kandidat ist.
+- Sei streng. Lieber `reject` als schwache Daten freigeben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Ausgabe
+
+JSON mit:
+- `decision`
+- `quality_score`
+- `summary`
+- `blocking_reasons`
+- `strengths`
+- `improvement_notes`
+- `source_chunk_ids_confirmed`
+
+## Fallkontext
+- task_type: uncertainty_escalation
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01
+
+## Simulierte Nutzeranfrage
+Ich pruefe in Word ueber die geteilte Braille-Ansicht Kommentare und Aenderungen. Wird der Anmerkungstext dabei immer zuverlaessig in der zweiten Region angezeigt, oder klappt das bei ueberarbeitetem Text nur unter bestimmten Voraussetzungen, zum Beispiel mit einer bestimmten Nachverfolgungsansicht?
+
+## Erzeugte Support-Antwort
+Die Quelle belegt Folgendes: Wenn sich der Cursor auf Text mit einer Anmerkung befindet, wird der Dokumenttext in der ersten Region und der Anmerkungstext in der zweiten Region angezeigt. Fuer ueberarbeiteten Text nennt die Quelle keine allgemeine Zuverlaessigkeitszusage; dokumentiert ist nur, dass Sie in der Anmerkungsansicht die besten Ergebnisse erzielen, wenn die Nachverfolgungsansicht in Word auf „Markup: alle“ steht.
+
+## Quellauszug
+Diese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.
+
+**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.
+
+## Strenge Regel
+Wenn die Antwort auch nur leicht erfunden, zu generisch oder nicht gut genug fuer einen Gold-Kandidaten wirkt, entscheide reject.
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+codex
+{"decision":"approve","quality_score":92,"summary":"Die Nutzeranfrage ist realistisch, eng am Quellkontext und die Antwort bleibt sauber an der dokumentierten Evidenzgrenze: Kommentare werden fuer Text mit Anmerkung in der zweiten Region beschrieben, fuer ueberarbeiteten Text wird keine allgemeine Zusage erfunden und nur die dokumentierte Bedingung zu \"Markup: alle\" genannt.","blocking_reasons":[],"strengths":["Die Anfrage passt direkt zur beschriebenen geteilten Braille-Ansicht in Word.","Die Antwort beantwortet genau die gestellte Unsicherheit statt allgemein abzuschweifen.","Die Antwort bleibt dokumentationsgebunden und fuegt keine Menues, Shortcuts oder Zusatzvoraussetzungen hinzu.","Die Evidenzgrenze fuer ueberarbeiteten Text ist sichtbar gemacht, passend fuer uncertainty_escalation."],"improvement_notes":["Noch etwas klarer waere eine explizite Trennung zwischen gesicherter Aussage zu Kommentaren und eingeschraenkter Aussage zu ueberarbeitetem Text."],"source_chunk_ids_confirmed":["jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01"]}
+tokens used
+14.404

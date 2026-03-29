@@ -1,0 +1,91 @@
+2026-03-29T10:34:35.006625Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:35.006646Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:35.006656Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:35.006661Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.117.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d3928-e682-7750-8b2d-28c4dc56af33
+--------
+user
+# Teacher Prompt: JAWS-DE Support Judge MVP
+
+## Rolle
+
+Du bist der automatische Qualitaetspruefer fuer einen JAWS-DE-Datensatzfall.
+
+## Ziel
+
+Bewerte, ob eine simulierte Nutzeranfrage und die dazu erzeugte Support-Antwort gemeinsam hochwertig genug fuer einen produktiven Downstream-Pfad sind.
+
+## Pruefkriterien
+
+1. Die Nutzeranfrage wirkt realistisch und supportnah.
+2. Die Nutzeranfrage passt zum dokumentierten Quellkontext.
+3. Die Support-Antwort beantwortet genau diese Anfrage.
+4. Die Support-Antwort bleibt dokumentationsgebunden.
+5. Keine erfundenen Fakten, Menues, Tastenkombinationen oder Voraussetzungen.
+6. Keine Ellipsis-, Tabellen-, Hinweis- oder Label-Artefakte.
+7. Der Fall ist fuer den jeweiligen `task_type` sinnvoll umgesetzt.
+8. Die Antwortform passt zum `task_type`:
+   - `clarification`: genau eine fokussierte Rueckfrage statt direkter Endantwort
+   - `uncertainty_escalation`: sichtbare Evidenzgrenze oder saubere Eskalation
+   - `step_by_step`: ein sauberer, nicht duplizierter Schrittblock
+
+## Entscheidungsregeln
+
+- `approve` nur bei belastbarer Gesamtqualitaet.
+- `reject`, wenn die Nutzeranfrage unplausibel ist, die Antwort driftet, Fakten erfindet oder offensichtlich nicht gut genug fuer ein Gold-Kandidat ist.
+- Sei streng. Lieber `reject` als schwache Daten freigeben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Ausgabe
+
+JSON mit:
+- `decision`
+- `quality_score`
+- `summary`
+- `blocking_reasons`
+- `strengths`
+- `improvement_notes`
+- `source_chunk_ids_confirmed`
+
+## Fallkontext
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01
+
+## Simulierte Nutzeranfrage
+Ich nutze eine mehrzeilige Braillezeile und im geteilten Bereich werden bei mir standardmäßig zwei Zeilen angezeigt. Wie kann ich in JAWS die Anzahl der dafür verwendeten Zeilen Schritt für Schritt ändern?
+
+## Erzeugte Support-Antwort
+1. Drücken Sie ALT+EINFÜGEN+V, um den Dialog „Braille-Ansicht auswählen“ zu öffnen.
+2. Wählen Sie „Optionen“.
+3. Navigieren Sie in der Liste der Optionen zu „Für geteilte Daten verwendete Zeilen“ und wählen Sie mit der LEERTASTE die Anzahl der Zeilen aus.
+4. Drücken Sie EINGABE, um den Dialog zu schließen.
+
+## Quellauszug
+Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:
+
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
+2. Wählen Sie Optionen.
+3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
+
+## Strenge Regel
+Wenn die Antwort auch nur leicht erfunden, zu generisch oder nicht gut genug fuer einen Gold-Kandidaten wirkt, entscheide reject.
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+codex
+{"decision":"approve","quality_score":96,"summary":"Realistische supportnahe Anfrage; die Antwort ist vollstaendig dokumentationsgebunden, beantwortet exakt die Frage und liefert einen sauberen Schrittblock ohne erkennbare Artefakte oder erfundene Details.","blocking_reasons":[],"strengths":["Die Nutzeranfrage ist plausibel und passt exakt zum Quellkontext der mehrzeiligen Braillezeile im geteilten Bereich.","Die Support-Antwort deckt die Anfrage direkt ab und bleibt in Inhalt, Reihenfolge und Terminologie eng am Quellauszug.","Das Format passt zu `step_by_step`: ein klarer, nicht duplizierter Vier-Schritte-Ablauf.","Keine erkennbar erfundenen Menues, Tastenkombinationen, Voraussetzungen oder Zusatzbehauptungen."],"improvement_notes":[],"source_chunk_ids_confirmed":["jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01"]}
+tokens used
+14.016

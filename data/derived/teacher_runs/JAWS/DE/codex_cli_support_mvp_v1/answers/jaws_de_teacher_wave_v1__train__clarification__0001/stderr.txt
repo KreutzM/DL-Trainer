@@ -1,0 +1,125 @@
+2026-03-29T10:27:56.295964Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:27:56.295981Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:27:56.295984Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:27:56.295987Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.117.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d3922-d10b-7af0-bdc5-20b48d10323a
+--------
+user
+# Teacher Prompt: JAWS-DE Support Answer MVP
+
+## Rolle
+
+Du erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.
+
+## Ziel
+
+Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.
+
+## Regeln
+
+- Nutze ausschliesslich die bereitgestellten Quellen.
+- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.
+- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.
+- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.
+- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.
+- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.
+- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- supporttauglich
+- sachlich und knapp
+- klar an der Nutzerfrage ausgerichtet
+- dokumentationsgebunden
+- ohne Tabellen-, Hinweis- oder Truncation-Artefakte
+
+## Task-Type-spezifische Regeln
+
+- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.
+- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.
+- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.
+- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
+- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
+
+## Ausgabe
+
+JSON gemaess Output-Schema.
+
+## Support-Verhaltensbasis
+# JAWS-DE Support Assistant Behavior Spec
+
+## Ziel
+
+Diese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.
+
+## Verhaltensregeln
+
+1. Antworte auf Deutsch.
+2. Antworte präzise, knapp und dokumentationsgestützt.
+3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.
+4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.
+5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.
+6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.
+7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.
+8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.
+
+## Erwünschter Stil
+
+- freundlich, sachlich, nicht ausschweifend
+- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise
+- bei Rückfragen genau eine fokussierte Frage
+- bei Eskalation klar benennen, was die Quelle nicht belegt
+
+## Menschlicher Review bleibt nötig für
+
+- Freigabe in `data/gold/train/` und `data/gold/eval/`
+- Grenzfälle mit mehrdeutigen Bedienpfaden
+- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit
+
+## Fallkontext
+- task_type: clarification
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02
+
+## Simulierte Nutzeranfrage
+- difficulty: intermediate
+- phrasing_style: uncertain
+- user_goal: Verstehen, welche Quelle in Bereich 2 bei „Gepufferter Text“ angezeigt wird und warum sich der Inhalt bei neuer Auswahl nicht wie erwartet aendert.
+Ich nutze in JAWS die geteilte Braille-Ansicht und bin gerade unsicher, was bei „Gepufferter Text“ im zweiten Bereich eigentlich angezeigt wird. Wenn ich im Dokument etwas anderes markiere, bleibt dort oft noch der alte Inhalt stehen. Ist das normal, oder habe ich die falsche Auswahl fuer den gepufferten Text erwischt?
+
+## Referenzierte normalized Dateien
+data/normalized/JAWS/DE/braille/index.md
+
+## Quellauszug
+- **Absatz**: Puffert den aktuellen Absatz.
+- **Dokument**: Puffert bis zu 64 KB des aktuellen Dokuments.
+- **Gewählten Text**: Puffert jeden aktuell gewählten Text.
+  Beachten Sie, dass der ausgewählte Text in Bereich 2 nicht automatisch aktualisiert wird, wenn sich die Auswahl ändert. Wenn Sie einen anderen Text auswählen, dann müssen Sie im Dialogfenster Braille-Ansicht auswählen wieder **Gepufferter Text** wählen und dann **Gewählten Text** im Einstellungsdialog wählen, um den Puffer zu aktualisieren.
+- **Zwischenablagetext**: Puffert den Inhalt der Windows-Zwischenablage, so dass Sie den zweiten Bereich effektiv als Notizenbereich nutzen können, in dem Sie Inhalte von verschiedenen Positionen einbringen und leicht darauf verweisen können. So können Sie beispielsweise Text mit **STRG+C** kopieren, weiteren Text von anderen Quellen auswählen und mit **EINFÜGEN+WINDOWS+C** an die Zwischenablage anhängen, dann die Ansicht Gepufferten Text aktivieren und Zwischenablagetext auswählen, um alle Ihrer gesammelten Informationen im Bereich 2 anzuzeigen und nach Bedarf zu verwenden.
+
+Um den Puffer zu aktualisieren, öffnen Sie das Dialogfeld Braille-Ansicht auswählen und wählen Sie erneut die Option **Gepufferter Text**, um den Puffer mit den neuesten Inhalten zu aktualisieren. Aklternativ öffnen Sie das Dialogfenster Teilungs-Ansicht auswählen, stellen sicher, dass **Gepufferter Text*
+
+## Erwartetes Verhalten
+n/a
+
+## Ausgabehinweis
+Die Antwort muss exakt zu der simulierten Nutzeranfrage passen und darf nur dokumentierte Inhalte verwenden.
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+codex
+{"answer":"Welche Option ist bei „Gepufferter Text“ aktuell ausgewählt: „Absatz“, „Dokument“, „Gewählten Text“ oder „Zwischenablagetext“?","task_type":"clarification","needs_clarification":true,"clarification_question":"Welche Option ist bei „Gepufferter Text“ aktuell ausgewählt: „Absatz“, „Dokument“, „Gewählten Text“ oder „Zwischenablagetext“?","escalate":false,"uncertainty_reason":"Welche Inhalte in Bereich 2 angezeigt werden, hängt laut Quelle von der gewählten Puffer-Option ab. Nur für „Gewählten Text“ ist ausdrücklich dokumentiert, dass sich der Inhalt bei neuer Auswahl nicht automatisch aktualisiert.","steps":[],"source_chunk_ids":["jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02"],"notes":["Die Quelle nennt für „Gepufferter Text“ die Optionen „Absatz“, „Dokument“, „Gewählten Text“ und „Zwischenablagetext“.","Für „Gewählten Text“ steht in der Quelle ausdrücklich, dass Bereich 2 bei geänderter Auswahl nicht automatisch aktualisiert wird und der Puffer erneut über „Gepufferter Text“ aktualisiert werden muss."]}
+tokens used
+15.070

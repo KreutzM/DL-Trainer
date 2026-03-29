@@ -1,0 +1,86 @@
+2026-03-29T10:34:44.703009Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:44.703025Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:44.703028Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:44.703031Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.117.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d3929-0c63-7653-9aa8-1efb54f19f95
+--------
+user
+# Teacher Prompt: JAWS-DE Support Judge MVP
+
+## Rolle
+
+Du bist der automatische Qualitaetspruefer fuer einen JAWS-DE-Datensatzfall.
+
+## Ziel
+
+Bewerte, ob eine simulierte Nutzeranfrage und die dazu erzeugte Support-Antwort gemeinsam hochwertig genug fuer einen produktiven Downstream-Pfad sind.
+
+## Pruefkriterien
+
+1. Die Nutzeranfrage wirkt realistisch und supportnah.
+2. Die Nutzeranfrage passt zum dokumentierten Quellkontext.
+3. Die Support-Antwort beantwortet genau diese Anfrage.
+4. Die Support-Antwort bleibt dokumentationsgebunden.
+5. Keine erfundenen Fakten, Menues, Tastenkombinationen oder Voraussetzungen.
+6. Keine Ellipsis-, Tabellen-, Hinweis- oder Label-Artefakte.
+7. Der Fall ist fuer den jeweiligen `task_type` sinnvoll umgesetzt.
+8. Die Antwortform passt zum `task_type`:
+   - `clarification`: genau eine fokussierte Rueckfrage statt direkter Endantwort
+   - `uncertainty_escalation`: sichtbare Evidenzgrenze oder saubere Eskalation
+   - `step_by_step`: ein sauberer, nicht duplizierter Schrittblock
+
+## Entscheidungsregeln
+
+- `approve` nur bei belastbarer Gesamtqualitaet.
+- `reject`, wenn die Nutzeranfrage unplausibel ist, die Antwort driftet, Fakten erfindet oder offensichtlich nicht gut genug fuer ein Gold-Kandidat ist.
+- Sei streng. Lieber `reject` als schwache Daten freigeben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Ausgabe
+
+JSON mit:
+- `decision`
+- `quality_score`
+- `summary`
+- `blocking_reasons`
+- `strengths`
+- `improvement_notes`
+- `source_chunk_ids_confirmed`
+
+## Fallkontext
+- task_type: troubleshooting
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_02
+
+## Simulierte Nutzeranfrage
+Ich will über die Perkins-Tastatur meiner Focus-Zeile in Deutsch Kurzschrift schreiben, aber in den Braille-Einstellungen bekomme ich bei der Eingabe nicht die erwartete Option angezeigt. Woran kann es liegen, dass ich nur Computer Braille auswählen kann oder die Eingabe-Einstellung gar nicht verfügbar ist?
+
+## Erzeugte Support-Antwort
+Das liegt laut Quelle am aktuell gewählten Ausgabemodus. Die Eingabe-Optionen hängen davon ab, welcher Ausgabemodus eingestellt ist. Wenn als Ausgabe `Computer Braille` gewählt ist, ist die Einstellung `Eingabe` nicht verfügbar. Wenn der gewählte Ausgabemodus keine Eingabe unterstützt, ist sie ebenfalls nicht verfügbar. Nur wenn Braille in `Deutsch Kurzschrift` angezeigt wird, können Sie bei der Eingabe zwischen `Computer Braille` und `Deutsch Kurzschrift` wählen.
+
+## Quellauszug
+6. Drücken Sie **LEERTASTE**, um durch die einzelnen Einstellungen in der Ausklappliste Eingabe zu schalten, um den Eingabemodus für die Brailleeingabe über die Perkins-Tastatur Ihrer Braillezeile festzulegen.
+  Die erste Option ist immer Computer Braille. Die anderen zur Verfügung stehenden Einstellungen hängen vom aktuell gewählten Ausgabemodus ab. Wenn Sie beispielsweise ausgewählt haben, dass Braille in Deutsch Kurzschrift angezeigt wird, dann können Sie für die Eingabe entweder Computerbraille oder Deutsch Kurzschrift wählen. Diese Einstellung ist nicht verfügbar, wenn der gewählte Ausgabemodus Computer Braille ist, oder wenn der gewählte Ausgabemodus keine Eingabe unterstützt.
+
+7. Wählen Sie OK, um Ihre Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
+
+Quelle: JAWS_BrailleIn.htm
+
+## Strenge Regel
+Wenn die Antwort auch nur leicht erfunden, zu generisch oder nicht gut genug fuer einen Gold-Kandidaten wirkt, entscheide reject.
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at 1:28 PM.
+ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at 1:28 PM.

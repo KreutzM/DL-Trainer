@@ -1,0 +1,33 @@
+{
+  "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+  "simulator_run_id": "jaws_de_codex_cli_support_mvp_v1_user_sim",
+  "simulator_model": "gpt-5.4",
+  "generation_mode": "teacher_user_simulator_codex_cli_v1",
+  "task_type": "faq_direct_answer",
+  "source_chunk_ids": [
+    "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01"
+  ],
+  "source_doc_ids": [
+    "jaws_de_braille"
+  ],
+  "source_excerpt": "Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.",
+  "runner_input": {
+    "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+    "user_message": "Was sollte ich in JAWS zu Focus Blue Tastatur wissen?"
+  },
+  "provenance": {
+    "transform_pipeline_version": "0.5.0",
+    "source_records": [
+      {
+        "doc_id": "jaws_de_braille",
+        "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01",
+        "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur",
+        "section_title": "Focus Blue Tastatur",
+        "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L1413-L1413"
+        ]
+      }
+    ]
+  }
+}

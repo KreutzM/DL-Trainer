@@ -1,0 +1,113 @@
+{
+  "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0001",
+  "teacher_run_id": "jaws_de_codex_cli_support_mvp_v1_answer",
+  "teacher_model": "gpt-5.4",
+  "generation_mode": "teacher_answer_codex_cli_v1",
+  "task_type": "troubleshooting",
+  "source_chunk_ids": [
+    "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_02"
+  ],
+  "source_doc_ids": [
+    "jaws_de_braille"
+  ],
+  "user_simulation": {
+    "simulation_id": "jaws_de_codex_cli_support_mvp_v1_user_sim::jaws_de_teacher_wave_v1::train::troubleshooting::0001::simulation",
+    "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0001",
+    "wave_id": "jaws_de_teacher_wave_v1",
+    "target_split": "train",
+    "expected_output_kind": "sft_sample",
+    "task_type": "troubleshooting",
+    "product": "JAWS",
+    "language": "de",
+    "source_doc_ids": [
+      "jaws_de_braille"
+    ],
+    "source_chunk_ids": [
+      "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_02"
+    ],
+    "simulator_provider": "codex_cli",
+    "simulator_model": "gpt-5.4",
+    "simulator_run_id": "jaws_de_codex_cli_support_mvp_v1_user_sim",
+    "simulator_prompt_version": "jaws_de_user_simulation_v1",
+    "generation_mode": "teacher_user_simulator_codex_cli_v1",
+    "simulation_status": "completed",
+    "request_text": "Ich will über die Perkins-Tastatur meiner Focus-Zeile in Deutsch Kurzschrift schreiben, aber in den Braille-Einstellungen bekomme ich bei der Eingabe nicht die erwartete Option angezeigt. Woran kann es liegen, dass ich nur Computer Braille auswählen kann oder die Eingabe-Einstellung gar nicht verfügbar ist?",
+    "user_goal": "Verstehen, warum die Eingabe in Deutsch Kurzschrift auf der Braillezeile nicht auswählbar ist, obwohl Kurzschrift genutzt werden soll.",
+    "difficulty": "intermediate",
+    "phrasing_style": "frustrated",
+    "scenario_summary": "Ein JAWS-Nutzer versucht, auf einer Focus-Braillezeile in Deutsch Kurzschrift zu schreiben, kann den gewünschten Eingabemodus in den Braille-Einstellungen aber nicht auswählen.",
+    "notes": [
+      "Troubleshooting-Fall mit plausibler Einschränkung bei der Einstellung 'Eingabe'.",
+      "Eng am Quellkontext: Abhängigkeit der Eingabeoptionen vom gewählten Ausgabemodus.",
+      "Keine Lösung vorweggenommen, nur das beobachtete Problem geschildert."
+    ],
+    "usage": {
+      "elapsed_ms": 14045
+    },
+    "codex_cli": {
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Roaming\\npm\\codex.CMD",
+        "exec",
+        "-m",
+        "gpt-5.4",
+        "-s",
+        "read-only",
+        "--skip-git-repo-check",
+        "--ephemeral",
+        "--color",
+        "never",
+        "--output-schema",
+        "data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_mvp_v1\\user_simulations\\jaws_de_teacher_wave_v1__train__troubleshooting__0001\\response_schema.json",
+        "-o",
+        "data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_mvp_v1\\user_simulations\\jaws_de_teacher_wave_v1__train__troubleshooting__0001\\last_message.json",
+        "-C",
+        "D:\\Codex\\DL\\DL-Trainer",
+        "-",
+        "-c",
+        "reasoning_effort=\"high\""
+      ],
+      "request_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__troubleshooting__0001/request.json",
+      "prompt_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__troubleshooting__0001/prompt.txt",
+      "schema_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__troubleshooting__0001/response_schema.json",
+      "response_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__troubleshooting__0001/last_message.json",
+      "stdout_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__troubleshooting__0001/stdout.txt",
+      "stderr_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__troubleshooting__0001/stderr.txt",
+      "prompt_sha256": "1ad5deb66693487f5205a8ee4fd9b0a059396d7bea1c726b3c1cdd2c496ab419",
+      "schema_sha256": "ea877930bfd52d6876829b2f5fc1c75e50bed6dab8541d91cef94977c27de8b7"
+    },
+    "provenance": {
+      "transform_pipeline_version": "0.8.0",
+      "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+      "behavior_spec_path": "docs/support_behavior_spec.md",
+      "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+      "source_records": [
+        {
+          "doc_id": "jaws_de_braille",
+          "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_02",
+          "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift",
+          "section_title": "Schreiben in Kurzschrift",
+          "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+          "source_spans": [
+            "data/normalized/JAWS/DE/braille/index.md#L262-L266"
+          ]
+        }
+      ]
+    }
+  },
+  "source_excerpt": "6. Drücken Sie **LEERTASTE**, um durch die einzelnen Einstellungen in der Ausklappliste Eingabe zu schalten, um den Eingabemodus für die Brailleeingabe über die Perkins-Tastatur Ihrer Braillezeile festzulegen.\n  Die erste Option ist immer Computer Braille. Die anderen zur Verfügung stehenden Einstellungen hängen vom aktuell gewählten Ausgabemodus ab. Wenn Sie beispielsweise ausgewählt haben, dass Braille in Deutsch Kurzschrift angezeigt wird, dann können Sie für die Eingabe entweder Computerbraille oder Deutsch Kurzschrift wählen. Diese Einstellung ist nicht verfügbar, wenn der gewählte Ausgabemodus Computer Braille ist, oder wenn der gewählte Ausgabemodus keine Eingabe unterstützt.\n\n7. Wählen Sie OK, um Ihre Änderungen zu speichern und die Einstellungsverwaltung zu schließen.\n\nQuelle: JAWS_BrailleIn.htm",
+  "provenance": {
+    "transform_pipeline_version": "0.5.0",
+    "source_records": [
+      {
+        "doc_id": "jaws_de_braille",
+        "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_02",
+        "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift",
+        "section_title": "Schreiben in Kurzschrift",
+        "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L262-L266"
+        ]
+      }
+    ]
+  }
+}

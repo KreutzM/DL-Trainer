@@ -1,0 +1,129 @@
+2026-03-29T10:34:12.144061Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:12.144077Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:12.144080Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:34:12.144083Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.117.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d3928-8d33-7bb2-a311-aca3bc978e5c
+--------
+user
+# Teacher Prompt: JAWS-DE User Simulation
+
+## Rolle
+
+Du simulierst eine realistische deutschsprachige Support-Anfrage fuer JAWS.
+
+## Ziel
+
+Erzeuge genau eine hochwertige Nutzeranfrage, die plausibel zu einem realen Supportfall passt und sich eng am bereitgestellten Dokumentkontext orientiert.
+
+## Regeln
+
+- Nutze nur den bereitgestellten Quellkontext.
+- Erfinde keine Menues, Tastenkombinationen oder Funktionen.
+- Verwende keine Chunk-Titel als starre Schablone.
+- Formuliere die Anfrage so, wie ein echter Anwender oder Helpdesk-Nutzer sie stellen koennte.
+- Variiere Schwierigkeitsgrad und Formulierungsstil sinnvoll.
+- Die Anfrage darf unvollstaendig oder alltagsnah sein, aber sie muss zum dokumentierten Fall passen.
+- Keine Loesung in die Anfrage schreiben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- konkret statt generisch
+- supportnah statt dokumenttitelartig
+- glaubwuerdig fuer den jeweiligen `task_type`
+- bei `clarification` oder `uncertainty_escalation` darf die Anfrage bewusst etwas unklar sein
+- bei `step_by_step` sollte die Anfrage typischerweise um eine Bedienfolge oder Vorgehensweise bitten
+
+## Task-Type-spezifische Leitplanken
+
+- `faq_direct_answer`: die Anfrage soll auf eine konkrete, direkt beantwortbare Informationsfrage hinauslaufen.
+- `troubleshooting`: die Anfrage soll ein plausibles Problem, eine Einschränkung oder ein unerwartetes Verhalten schildern.
+- `step_by_step`: die Anfrage soll klar um eine Vorgehensweise, Bedienfolge oder Einrichtung bitten.
+- `clarification`: die Anfrage soll bewusst noch nicht eng genug sein, sodass eine fokussierte Rueckfrage sinnvoll bleibt.
+- `uncertainty_escalation`: die Anfrage darf einen Randfall, eine Voraussetzung oder eine Grenze ansprechen, bei der die Quelle nur begrenzt Antwort gibt.
+
+## Ausgabe
+
+JSON mit:
+- `request_text`
+- `user_goal`
+- `difficulty`
+- `phrasing_style`
+- `scenario_summary`
+- `notes`
+
+## Kontext
+- task_type: uncertainty_escalation
+- expected_output_kind: sft_sample
+- product: JAWS
+- language: de
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01
+- selection_reason: uncertainty:warning:limitation
+- chunk_type: warning
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Auswahl einer geteilten Braille-Ansicht > Anmerkungen
+
+## Support-Verhaltensbasis
+# JAWS-DE Support Assistant Behavior Spec
+
+## Ziel
+
+Diese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.
+
+## Verhaltensregeln
+
+1. Antworte auf Deutsch.
+2. Antworte präzise, knapp und dokumentationsgestützt.
+3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.
+4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.
+5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.
+6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.
+7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.
+8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.
+
+## Erwünschter Stil
+
+- freundlich, sachlich, nicht ausschweifend
+- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise
+- bei Rückfragen genau eine fokussierte Frage
+- bei Eskalation klar benennen, was die Quelle nicht belegt
+
+## Menschlicher Review bleibt nötig für
+
+- Freigabe in `data/gold/train/` und `data/gold/eval/`
+- Grenzfälle mit mehrdeutigen Bedienpfaden
+- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit
+
+## Referenzierte normalized Dateien
+data/normalized/JAWS/DE/braille/index.md
+
+## Legacy Seed Request
+Die folgende Seed-Frage dient nur als grobe Orientierung und darf nicht einfach kopiert werden.
+Kann ich mich bei Anmerkungen in JAWS allgemein darauf verlassen, dass das immer gleich unterstuetzt wird?
+
+## Quellauszug
+Diese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.
+
+**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.
+
+## Erwartetes Verhalten des spaeteren Supportfalls
+n/a
+
+## Ausgabehinweis
+Erzeuge genau eine realistische neue Nutzeranfrage fuer diesen Fall.
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+codex
+{"request_text":"Ich pruefe in Word Kommentare und ueberarbeiteten Text ueber die geteilte Braille-Ansicht. An manchen Stellen wird die Zeile aber nicht geteilt und ich sehe nur den normalen Text. Ist das nur dann so, wenn an der Cursorposition gerade keine Anmerkung vorhanden ist, und muss fuer Aenderungen zusaetzlich die Nachverfolgungsansicht auf \"Markup: alle\" stehen?","user_goal":"Klaeren, unter welchen Voraussetzungen die geteilte Braille-Anmerkungsansicht in Word Kommentare oder ueberarbeiteten Text parallel zum Haupttext anzeigt.","difficulty":"intermediate","phrasing_style":"uncertain","scenario_summary":"Ein JAWS-Nutzer ist unsicher, wann die geteilte Braille-Anmerkungsansicht in Word aktiv wird und ob fuer ueberarbeiteten Text eine bestimmte Word-Ansicht vorausgesetzt ist.","notes":["task_type: uncertainty_escalation","Bezieht sich auf Word, Kommentare, Ueberarbeitungen, Fussnoten oder Endnoten","Grenzfall zwischen normalem Verhalten und Voraussetzung fuer beste Ergebnisse","Keine Loesung oder Bedienanleitung in der Anfrage"]}
+tokens used
+14.887

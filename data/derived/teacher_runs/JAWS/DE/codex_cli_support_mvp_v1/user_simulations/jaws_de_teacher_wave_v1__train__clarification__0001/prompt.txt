@@ -1,0 +1,110 @@
+# Teacher Prompt: JAWS-DE User Simulation
+
+## Rolle
+
+Du simulierst eine realistische deutschsprachige Support-Anfrage fuer JAWS.
+
+## Ziel
+
+Erzeuge genau eine hochwertige Nutzeranfrage, die plausibel zu einem realen Supportfall passt und sich eng am bereitgestellten Dokumentkontext orientiert.
+
+## Regeln
+
+- Nutze nur den bereitgestellten Quellkontext.
+- Erfinde keine Menues, Tastenkombinationen oder Funktionen.
+- Verwende keine Chunk-Titel als starre Schablone.
+- Formuliere die Anfrage so, wie ein echter Anwender oder Helpdesk-Nutzer sie stellen koennte.
+- Variiere Schwierigkeitsgrad und Formulierungsstil sinnvoll.
+- Die Anfrage darf unvollstaendig oder alltagsnah sein, aber sie muss zum dokumentierten Fall passen.
+- Keine Loesung in die Anfrage schreiben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- konkret statt generisch
+- supportnah statt dokumenttitelartig
+- glaubwuerdig fuer den jeweiligen `task_type`
+- bei `clarification` oder `uncertainty_escalation` darf die Anfrage bewusst etwas unklar sein
+- bei `step_by_step` sollte die Anfrage typischerweise um eine Bedienfolge oder Vorgehensweise bitten
+
+## Task-Type-spezifische Leitplanken
+
+- `faq_direct_answer`: die Anfrage soll auf eine konkrete, direkt beantwortbare Informationsfrage hinauslaufen.
+- `troubleshooting`: die Anfrage soll ein plausibles Problem, eine Einschränkung oder ein unerwartetes Verhalten schildern.
+- `step_by_step`: die Anfrage soll klar um eine Vorgehensweise, Bedienfolge oder Einrichtung bitten.
+- `clarification`: die Anfrage soll bewusst noch nicht eng genug sein, sodass eine fokussierte Rueckfrage sinnvoll bleibt.
+- `uncertainty_escalation`: die Anfrage darf einen Randfall, eine Voraussetzung oder eine Grenze ansprechen, bei der die Quelle nur begrenzt Antwort gibt.
+
+## Ausgabe
+
+JSON mit:
+- `request_text`
+- `user_goal`
+- `difficulty`
+- `phrasing_style`
+- `scenario_summary`
+- `notes`
+
+## Kontext
+- task_type: clarification
+- expected_output_kind: sft_sample
+- product: JAWS
+- language: de
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02
+- selection_reason: clarification:options_4
+- chunk_type: reference
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Auswahl einer geteilten Braille-Ansicht > Gepufferter Text
+
+## Support-Verhaltensbasis
+# JAWS-DE Support Assistant Behavior Spec
+
+## Ziel
+
+Diese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.
+
+## Verhaltensregeln
+
+1. Antworte auf Deutsch.
+2. Antworte präzise, knapp und dokumentationsgestützt.
+3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.
+4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.
+5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.
+6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.
+7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.
+8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.
+
+## Erwünschter Stil
+
+- freundlich, sachlich, nicht ausschweifend
+- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise
+- bei Rückfragen genau eine fokussierte Frage
+- bei Eskalation klar benennen, was die Quelle nicht belegt
+
+## Menschlicher Review bleibt nötig für
+
+- Freigabe in `data/gold/train/` und `data/gold/eval/`
+- Grenzfälle mit mehrdeutigen Bedienpfaden
+- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit
+
+## Referenzierte normalized Dateien
+data/normalized/JAWS/DE/braille/index.md
+
+## Legacy Seed Request
+Die folgende Seed-Frage dient nur als grobe Orientierung und darf nicht einfach kopiert werden.
+Ich brauche Hilfe zu Gepufferter Text in JAWS.
+
+## Quellauszug
+- **Absatz**: Puffert den aktuellen Absatz.
+- **Dokument**: Puffert bis zu 64 KB des aktuellen Dokuments.
+- **Gewählten Text**: Puffert jeden aktuell gewählten Text.
+  Beachten Sie, dass der ausgewählte Text in Bereich 2 nicht automatisch aktualisiert wird, wenn sich die Auswahl ändert. Wenn Sie einen anderen Text auswählen, dann müssen Sie im Dialogfenster Braille-Ansicht auswählen wieder **Gepufferter Text** wählen und dann **Gewählten Text** im Einstellungsdialog wählen, um den Puffer zu aktualisieren.
+- **Zwischenablagetext**: Puffert den Inhalt der Windows-Zwischenablage, so dass Sie den zweiten Bereich effektiv als Notizenbereich nutzen können, in dem Sie Inhalte von verschiedenen Positionen einbringen und leicht darauf verweisen können. So können Sie beispielsweise Text mit **STRG+C** kopieren, weiteren Text von anderen Quellen auswählen und mit **EINFÜGEN+WINDOWS+C** an die Zwischenablage anhängen, dann die Ansicht Gepufferten Text aktivieren und Zwischenablagetext auswählen, um alle Ihrer gesammelten Informationen im Bereich 2 anzuzeigen und nach Bedarf zu verwenden.
+
+Um den Puffer zu aktualisieren, öffnen Sie das Dialogfeld Braille-Ansicht auswählen und wählen Sie erneut die Option **Gepufferter Text**, um den Puffer mit den neuesten Inhalten zu aktualisieren. Aklternativ öffnen Sie das Dialogfenster Teilungs-Ansicht auswählen, stellen sicher, dass **Gepufferter Text*
+
+## Erwartetes Verhalten des spaeteren Supportfalls
+n/a
+
+## Ausgabehinweis
+Erzeuge genau eine realistische neue Nutzeranfrage fuer diesen Fall.

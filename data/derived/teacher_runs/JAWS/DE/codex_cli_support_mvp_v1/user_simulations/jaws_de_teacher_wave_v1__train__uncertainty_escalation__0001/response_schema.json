@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request_text",
+    "user_goal",
+    "difficulty",
+    "phrasing_style",
+    "scenario_summary",
+    "notes"
+  ],
+  "properties": {
+    "request_text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "user_goal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "basic",
+        "intermediate",
+        "advanced"
+      ]
+    },
+    "phrasing_style": {
+      "type": "string",
+      "enum": [
+        "neutral",
+        "urgent",
+        "uncertain",
+        "task_focused",
+        "frustrated"
+      ]
+    },
+    "scenario_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

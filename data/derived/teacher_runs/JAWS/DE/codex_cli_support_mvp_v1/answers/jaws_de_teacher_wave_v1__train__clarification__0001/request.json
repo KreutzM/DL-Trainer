@@ -1,0 +1,113 @@
+{
+  "job_id": "jaws_de_teacher_wave_v1::train::clarification::0001",
+  "teacher_run_id": "jaws_de_codex_cli_support_mvp_v1_answer",
+  "teacher_model": "gpt-5.4",
+  "generation_mode": "teacher_answer_codex_cli_v1",
+  "task_type": "clarification",
+  "source_chunk_ids": [
+    "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02"
+  ],
+  "source_doc_ids": [
+    "jaws_de_braille"
+  ],
+  "user_simulation": {
+    "simulation_id": "jaws_de_codex_cli_support_mvp_v1_user_sim::jaws_de_teacher_wave_v1::train::clarification::0001::simulation",
+    "job_id": "jaws_de_teacher_wave_v1::train::clarification::0001",
+    "wave_id": "jaws_de_teacher_wave_v1",
+    "target_split": "train",
+    "expected_output_kind": "sft_sample",
+    "task_type": "clarification",
+    "product": "JAWS",
+    "language": "de",
+    "source_doc_ids": [
+      "jaws_de_braille"
+    ],
+    "source_chunk_ids": [
+      "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02"
+    ],
+    "simulator_provider": "codex_cli",
+    "simulator_model": "gpt-5.4",
+    "simulator_run_id": "jaws_de_codex_cli_support_mvp_v1_user_sim",
+    "simulator_prompt_version": "jaws_de_user_simulation_v1",
+    "generation_mode": "teacher_user_simulator_codex_cli_v1",
+    "simulation_status": "completed",
+    "request_text": "Ich nutze in JAWS die geteilte Braille-Ansicht und bin gerade unsicher, was bei „Gepufferter Text“ im zweiten Bereich eigentlich angezeigt wird. Wenn ich im Dokument etwas anderes markiere, bleibt dort oft noch der alte Inhalt stehen. Ist das normal, oder habe ich die falsche Auswahl fuer den gepufferten Text erwischt?",
+    "user_goal": "Verstehen, welche Quelle in Bereich 2 bei „Gepufferter Text“ angezeigt wird und warum sich der Inhalt bei neuer Auswahl nicht wie erwartet aendert.",
+    "difficulty": "intermediate",
+    "phrasing_style": "uncertain",
+    "scenario_summary": "Ein Nutzer verwendet die geteilte Braille-Ansicht in JAWS und ist unsicher, warum der gepufferte Text in Bereich 2 nach einer neuen Textauswahl offenbar nicht automatisch aktualisiert wird.",
+    "notes": [
+      "Die Anfrage bleibt bewusst etwas offen, sodass eine gezielte Rueckfrage zur konkret gewaehlten Puffer-Option sinnvoll waere.",
+      "Der Fall lehnt sich an das dokumentierte Verhalten von „Gewaehlten Text“ innerhalb von „Gepufferter Text“ an.",
+      "Keine Loesung oder Menuefolge in der Anfrage enthalten."
+    ],
+    "usage": {
+      "elapsed_ms": 15966
+    },
+    "codex_cli": {
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Roaming\\npm\\codex.CMD",
+        "exec",
+        "-m",
+        "gpt-5.4",
+        "-s",
+        "read-only",
+        "--skip-git-repo-check",
+        "--ephemeral",
+        "--color",
+        "never",
+        "--output-schema",
+        "data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_mvp_v1\\user_simulations\\jaws_de_teacher_wave_v1__train__clarification__0001\\response_schema.json",
+        "-o",
+        "data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_mvp_v1\\user_simulations\\jaws_de_teacher_wave_v1__train__clarification__0001\\last_message.json",
+        "-C",
+        "D:\\Codex\\DL\\DL-Trainer",
+        "-",
+        "-c",
+        "reasoning_effort=\"high\""
+      ],
+      "request_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__clarification__0001/request.json",
+      "prompt_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__clarification__0001/prompt.txt",
+      "schema_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__clarification__0001/response_schema.json",
+      "response_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__clarification__0001/last_message.json",
+      "stdout_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__clarification__0001/stdout.txt",
+      "stderr_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__clarification__0001/stderr.txt",
+      "prompt_sha256": "722e26ce87e9ed1d8b6fe2af21354cb8db28eabbbaae1cc2347f220c8f0f6b2d",
+      "schema_sha256": "ea877930bfd52d6876829b2f5fc1c75e50bed6dab8541d91cef94977c27de8b7"
+    },
+    "provenance": {
+      "transform_pipeline_version": "0.8.0",
+      "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+      "behavior_spec_path": "docs/support_behavior_spec.md",
+      "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+      "source_records": [
+        {
+          "doc_id": "jaws_de_braille",
+          "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02",
+          "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text",
+          "section_title": "Gepufferter Text",
+          "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+          "source_spans": [
+            "data/normalized/JAWS/DE/braille/index.md#L524-L530"
+          ]
+        }
+      ]
+    }
+  },
+  "source_excerpt": "- **Absatz**: Puffert den aktuellen Absatz.\n- **Dokument**: Puffert bis zu 64 KB des aktuellen Dokuments.\n- **Gewählten Text**: Puffert jeden aktuell gewählten Text.\n  Beachten Sie, dass der ausgewählte Text in Bereich 2 nicht automatisch aktualisiert wird, wenn sich die Auswahl ändert. Wenn Sie einen anderen Text auswählen, dann müssen Sie im Dialogfenster Braille-Ansicht auswählen wieder **Gepufferter Text** wählen und dann **Gewählten Text** im Einstellungsdialog wählen, um den Puffer zu aktualisieren.\n- **Zwischenablagetext**: Puffert den Inhalt der Windows-Zwischenablage, so dass Sie den zweiten Bereich effektiv als Notizenbereich nutzen können, in dem Sie Inhalte von verschiedenen Positionen einbringen und leicht darauf verweisen können. So können Sie beispielsweise Text mit **STRG+C** kopieren, weiteren Text von anderen Quellen auswählen und mit **EINFÜGEN+WINDOWS+C** an die Zwischenablage anhängen, dann die Ansicht Gepufferten Text aktivieren und Zwischenablagetext auswählen, um alle Ihrer gesammelten Informationen im Bereich 2 anzuzeigen und nach Bedarf zu verwenden.\n\nUm den Puffer zu aktualisieren, öffnen Sie das Dialogfeld Braille-Ansicht auswählen und wählen Sie erneut die Option **Gepufferter Text**, um den Puffer mit den neuesten Inhalten zu aktualisieren. Aklternativ öffnen Sie das Dialogfenster Teilungs-Ansicht auswählen, stellen sicher, dass **Gepufferter Text*",
+  "provenance": {
+    "transform_pipeline_version": "0.5.0",
+    "source_records": [
+      {
+        "doc_id": "jaws_de_braille",
+        "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02",
+        "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text",
+        "section_title": "Gepufferter Text",
+        "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L524-L530"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "job_id": "jaws_de_teacher_wave_v1::train::clarification::0001",
+  "reviewer_run_id": "jaws_de_codex_cli_support_mvp_v1_judge",
+  "reviewer_model": "gpt-5.4",
+  "generation_mode": "teacher_judge_codex_cli_v1",
+  "task_type": "clarification",
+  "simulation_id": "jaws_de_codex_cli_support_mvp_v1_user_sim::jaws_de_teacher_wave_v1::train::clarification::0001::simulation",
+  "response_id": "jaws_de_codex_cli_support_mvp_v1_answer::jaws_de_teacher_wave_v1::train::clarification::0001::response",
+  "output_id": "jaws_de_codex_cli_support_mvp_v1_answer::jaws_de_teacher_wave_v1::train::clarification::0001",
+  "source_chunk_ids": [
+    "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02"
+  ],
+  "source_doc_ids": [
+    "jaws_de_braille"
+  ]
+}

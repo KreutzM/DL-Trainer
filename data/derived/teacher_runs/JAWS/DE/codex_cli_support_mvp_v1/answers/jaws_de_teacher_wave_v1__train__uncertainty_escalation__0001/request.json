@@ -1,0 +1,113 @@
+{
+  "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+  "teacher_run_id": "jaws_de_codex_cli_support_mvp_v1_answer",
+  "teacher_model": "gpt-5.4",
+  "generation_mode": "teacher_answer_codex_cli_v1",
+  "task_type": "uncertainty_escalation",
+  "source_chunk_ids": [
+    "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01"
+  ],
+  "source_doc_ids": [
+    "jaws_de_braille"
+  ],
+  "user_simulation": {
+    "simulation_id": "jaws_de_codex_cli_support_mvp_v1_user_sim::jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001::simulation",
+    "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+    "wave_id": "jaws_de_teacher_wave_v1",
+    "target_split": "train",
+    "expected_output_kind": "sft_sample",
+    "task_type": "uncertainty_escalation",
+    "product": "JAWS",
+    "language": "de",
+    "source_doc_ids": [
+      "jaws_de_braille"
+    ],
+    "source_chunk_ids": [
+      "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01"
+    ],
+    "simulator_provider": "codex_cli",
+    "simulator_model": "gpt-5.4",
+    "simulator_run_id": "jaws_de_codex_cli_support_mvp_v1_user_sim",
+    "simulator_prompt_version": "jaws_de_user_simulation_v1",
+    "generation_mode": "teacher_user_simulator_codex_cli_v1",
+    "simulation_status": "completed",
+    "request_text": "Ich pruefe in Word ueber die geteilte Braille-Ansicht Kommentare und Aenderungen. Wird der Anmerkungstext dabei immer zuverlaessig in der zweiten Region angezeigt, oder klappt das bei ueberarbeitetem Text nur unter bestimmten Voraussetzungen, zum Beispiel mit einer bestimmten Nachverfolgungsansicht?",
+    "user_goal": "Klaeren, ob die geteilte Braille-Ansicht fuer Kommentare und ueberarbeiteten Text in Word generell verlaesslich ist oder von einer speziellen Ansichtseinstellung abhaengt.",
+    "difficulty": "intermediate",
+    "phrasing_style": "uncertain",
+    "scenario_summary": "Ein JAWS-Nutzer ist unsicher, ob die Anmerkungsansicht in Word fuer Kommentare und Ueberarbeitungen immer gleich funktioniert oder nur unter bestimmten Anzeigevoraussetzungen gute Ergebnisse liefert.",
+    "notes": [
+      "Bezieht sich auf die geteilte Braille-Ansicht mit Haupttext in der ersten und Anmerkungstext in der zweiten Region.",
+      "Der Randfall betrifft speziell die Pruefung von ueberarbeitetem Text in Word.",
+      "Die Anfrage zielt auf eine Einschraenkung bzw. Voraussetzung ab, nicht auf eine konkrete Bedienfolge."
+    ],
+    "usage": {
+      "elapsed_ms": 14036
+    },
+    "codex_cli": {
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Roaming\\npm\\codex.CMD",
+        "exec",
+        "-m",
+        "gpt-5.4",
+        "-s",
+        "read-only",
+        "--skip-git-repo-check",
+        "--ephemeral",
+        "--color",
+        "never",
+        "--output-schema",
+        "data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_mvp_v1\\user_simulations\\jaws_de_teacher_wave_v1__train__uncertainty_escalation__0001\\response_schema.json",
+        "-o",
+        "data\\derived\\teacher_runs\\JAWS\\DE\\codex_cli_support_mvp_v1\\user_simulations\\jaws_de_teacher_wave_v1__train__uncertainty_escalation__0001\\last_message.json",
+        "-C",
+        "D:\\Codex\\DL\\DL-Trainer",
+        "-",
+        "-c",
+        "reasoning_effort=\"high\""
+      ],
+      "request_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__uncertainty_escalation__0001/request.json",
+      "prompt_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__uncertainty_escalation__0001/prompt.txt",
+      "schema_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__uncertainty_escalation__0001/response_schema.json",
+      "response_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__uncertainty_escalation__0001/last_message.json",
+      "stdout_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__uncertainty_escalation__0001/stdout.txt",
+      "stderr_path": "data/derived/teacher_runs/JAWS/DE/codex_cli_support_mvp_v1/user_simulations/jaws_de_teacher_wave_v1__train__uncertainty_escalation__0001/stderr.txt",
+      "prompt_sha256": "4248e150899a4d2364899f6a6aaa3eac0701797c0e531964bd2d69e133629c78",
+      "schema_sha256": "ea877930bfd52d6876829b2f5fc1c75e50bed6dab8541d91cef94977c27de8b7"
+    },
+    "provenance": {
+      "transform_pipeline_version": "0.8.0",
+      "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+      "behavior_spec_path": "docs/support_behavior_spec.md",
+      "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+      "source_records": [
+        {
+          "doc_id": "jaws_de_braille",
+          "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01",
+          "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen",
+          "section_title": "Anmerkungen",
+          "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+          "source_spans": [
+            "data/normalized/JAWS/DE/braille/index.md#L536-L538"
+          ]
+        }
+      ]
+    }
+  },
+  "source_excerpt": "Diese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.\n\n**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.",
+  "provenance": {
+    "transform_pipeline_version": "0.5.0",
+    "source_records": [
+      {
+        "doc_id": "jaws_de_braille",
+        "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01",
+        "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen",
+        "section_title": "Anmerkungen",
+        "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L536-L538"
+        ]
+      }
+    ]
+  }
+}

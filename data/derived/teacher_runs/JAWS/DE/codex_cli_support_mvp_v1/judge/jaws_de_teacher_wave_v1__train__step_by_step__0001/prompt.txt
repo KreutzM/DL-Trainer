@@ -1,0 +1,68 @@
+# Teacher Prompt: JAWS-DE Support Judge MVP
+
+## Rolle
+
+Du bist der automatische Qualitaetspruefer fuer einen JAWS-DE-Datensatzfall.
+
+## Ziel
+
+Bewerte, ob eine simulierte Nutzeranfrage und die dazu erzeugte Support-Antwort gemeinsam hochwertig genug fuer einen produktiven Downstream-Pfad sind.
+
+## Pruefkriterien
+
+1. Die Nutzeranfrage wirkt realistisch und supportnah.
+2. Die Nutzeranfrage passt zum dokumentierten Quellkontext.
+3. Die Support-Antwort beantwortet genau diese Anfrage.
+4. Die Support-Antwort bleibt dokumentationsgebunden.
+5. Keine erfundenen Fakten, Menues, Tastenkombinationen oder Voraussetzungen.
+6. Keine Ellipsis-, Tabellen-, Hinweis- oder Label-Artefakte.
+7. Der Fall ist fuer den jeweiligen `task_type` sinnvoll umgesetzt.
+8. Die Antwortform passt zum `task_type`:
+   - `clarification`: genau eine fokussierte Rueckfrage statt direkter Endantwort
+   - `uncertainty_escalation`: sichtbare Evidenzgrenze oder saubere Eskalation
+   - `step_by_step`: ein sauberer, nicht duplizierter Schrittblock
+
+## Entscheidungsregeln
+
+- `approve` nur bei belastbarer Gesamtqualitaet.
+- `reject`, wenn die Nutzeranfrage unplausibel ist, die Antwort driftet, Fakten erfindet oder offensichtlich nicht gut genug fuer ein Gold-Kandidat ist.
+- Sei streng. Lieber `reject` als schwache Daten freigeben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Ausgabe
+
+JSON mit:
+- `decision`
+- `quality_score`
+- `summary`
+- `blocking_reasons`
+- `strengths`
+- `improvement_notes`
+- `source_chunk_ids_confirmed`
+
+## Fallkontext
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01
+
+## Simulierte Nutzeranfrage
+Ich nutze eine mehrzeilige Braillezeile und im geteilten Bereich werden bei mir standardmäßig zwei Zeilen angezeigt. Wie kann ich in JAWS die Anzahl der dafür verwendeten Zeilen Schritt für Schritt ändern?
+
+## Erzeugte Support-Antwort
+1. Drücken Sie ALT+EINFÜGEN+V, um den Dialog „Braille-Ansicht auswählen“ zu öffnen.
+2. Wählen Sie „Optionen“.
+3. Navigieren Sie in der Liste der Optionen zu „Für geteilte Daten verwendete Zeilen“ und wählen Sie mit der LEERTASTE die Anzahl der Zeilen aus.
+4. Drücken Sie EINGABE, um den Dialog zu schließen.
+
+## Quellauszug
+Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:
+
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
+2. Wählen Sie Optionen.
+3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
+
+## Strenge Regel
+Wenn die Antwort auch nur leicht erfunden, zu generisch oder nicht gut genug fuer einen Gold-Kandidaten wirkt, entscheide reject.

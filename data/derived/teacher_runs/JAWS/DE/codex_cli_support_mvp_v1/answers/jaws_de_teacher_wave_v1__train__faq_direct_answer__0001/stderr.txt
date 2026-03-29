@@ -1,0 +1,119 @@
+2026-03-29T10:29:02.905419Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:29:02.905434Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:29:02.905437Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-03-29T10:29:02.905439Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.117.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d3923-d53d-76d3-8c8a-f487a2ad3832
+--------
+user
+# Teacher Prompt: JAWS-DE Support Answer MVP
+
+## Rolle
+
+Du erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.
+
+## Ziel
+
+Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.
+
+## Regeln
+
+- Nutze ausschliesslich die bereitgestellten Quellen.
+- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.
+- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.
+- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.
+- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.
+- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.
+- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- supporttauglich
+- sachlich und knapp
+- klar an der Nutzerfrage ausgerichtet
+- dokumentationsgebunden
+- ohne Tabellen-, Hinweis- oder Truncation-Artefakte
+
+## Task-Type-spezifische Regeln
+
+- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.
+- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.
+- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.
+- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
+- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
+
+## Ausgabe
+
+JSON gemaess Output-Schema.
+
+## Support-Verhaltensbasis
+# JAWS-DE Support Assistant Behavior Spec
+
+## Ziel
+
+Diese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.
+
+## Verhaltensregeln
+
+1. Antworte auf Deutsch.
+2. Antworte präzise, knapp und dokumentationsgestützt.
+3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.
+4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.
+5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.
+6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.
+7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.
+8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.
+
+## Erwünschter Stil
+
+- freundlich, sachlich, nicht ausschweifend
+- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise
+- bei Rückfragen genau eine fokussierte Frage
+- bei Eskalation klar benennen, was die Quelle nicht belegt
+
+## Menschlicher Review bleibt nötig für
+
+- Freigabe in `data/gold/train/` und `data/gold/eval/`
+- Grenzfälle mit mehrdeutigen Bedienpfaden
+- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit
+
+## Fallkontext
+- task_type: faq_direct_answer
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01
+
+## Simulierte Nutzeranfrage
+- difficulty: basic
+- phrasing_style: uncertain
+- user_goal: Verstehen, welche Eingabetasten an der Focus Blue für Brailleeingabe und für Befehle mit JAWS genutzt werden.
+Ich arbeite zum ersten Mal mit einer Focus Blue an JAWS. Welche Tasten entsprechen dort eigentlich der Braille-Tastatur, und wofür werden die Leertaste und die beiden Umschalt-Tasten bei Befehlen verwendet?
+
+## Referenzierte normalized Dateien
+data/normalized/JAWS/DE/braille/index.md
+
+## Quellauszug
+Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.
+
+## Erwartetes Verhalten
+n/a
+
+## Ausgabehinweis
+Die Antwort muss exakt zu der simulierten Nutzeranfrage passen und darf nur dokumentierte Inhalte verwenden.
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+codex
+{"answer":"An der Focus Blue gibt es oberhalb der Routingtasten 8 Tasten, die der Perkins-Brailletastatur entsprechen. Von links nach rechts sind das: 7, 3, 2, 1, 4, 5, 6 und 8. Diese Brailletasten werden fuer die Texteingabe und zum Ausfuehren von Befehlen verwendet.\n\nAn der Vorderkante unter der Braillezeile befindet sich mittig die LEERTASTE. Sie wird zusammen mit den Brailletasten fuer die Eingabe von Befehlen verwendet. Direkt darunter liegen zwei UMSCHALT-Tasten, die ebenfalls zum Ausfuehren verschiedener Befehle genutzt werden.","task_type":"faq_direct_answer","needs_clarification":false,"clarification_question":null,"escalate":false,"uncertainty_reason":null,"steps":[],"source_chunk_ids":["jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01"],"notes":[]}
+tokens used
+14.445
