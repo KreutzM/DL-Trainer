@@ -46,6 +46,10 @@ def generation_mode_for_backend(backend_name: str) -> str:
     raise ValueError(f"Unsupported teacher backend: {backend_name}")
 
 
+def mode_uses_generated_or_imported_raw_rows(mode: str) -> bool:
+    return mode in {"codex", "import", "openai", "openrouter"}
+
+
 def load_jobs(jobs_path: Path) -> list[dict]:
     jobs = read_jsonl(jobs_path)
     if not jobs:
@@ -702,7 +706,7 @@ def main() -> None:
         raw_response_path = normalized_path(args.import_input)
 
     replay_rows = replay_index(read_jsonl(Path(args.replay_input))) if args.mode == "replay" else {}
-    imported_rows = raw_response_index(raw_rows) if args.mode in {"codex", "import", "openai"} else {}
+    imported_rows = raw_response_index(raw_rows) if mode_uses_generated_or_imported_raw_rows(args.mode) else {}
 
     outputs = []
     for job in jobs:
@@ -710,12 +714,12 @@ def main() -> None:
         if args.mode == "replay" and replay_row is None:
             raise SystemExit(f"Replay input missing job_id {job['job_id']}")
         imported_row = imported_rows.get(job["job_id"])
-        if args.mode in {"codex", "import", "openai", "openrouter"} and imported_row is None:
-            raise SystemExit(f"Imported/OpenAI response missing job_id {job['job_id']}")
+        if mode_uses_generated_or_imported_raw_rows(args.mode) and imported_row is None:
+            raise SystemExit(f"Imported/provider response missing job_id {job['job_id']}")
         output = build_output(
             job,
             args.teacher_model,
-            args.teacher_provider if args.mode not in {"codex", "import", "openai", "openrouter"} else args.mode,
+            args.teacher_provider if not mode_uses_generated_or_imported_raw_rows(args.mode) else args.mode,
             args.teacher_run_id,
             args.mode,
             replay_row,
