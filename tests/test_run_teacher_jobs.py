@@ -93,6 +93,15 @@ def _raw_response() -> dict:
     }
 
 
+def test_generated_or_imported_raw_row_modes_include_openrouter() -> None:
+    assert run_teacher_jobs.mode_uses_generated_or_imported_raw_rows("codex") is True
+    assert run_teacher_jobs.mode_uses_generated_or_imported_raw_rows("import") is True
+    assert run_teacher_jobs.mode_uses_generated_or_imported_raw_rows("openai") is True
+    assert run_teacher_jobs.mode_uses_generated_or_imported_raw_rows("openrouter") is True
+    assert run_teacher_jobs.mode_uses_generated_or_imported_raw_rows("stub") is False
+    assert run_teacher_jobs.mode_uses_generated_or_imported_raw_rows("replay") is False
+
+
 def test_main_materializes_openrouter_raw_rows(monkeypatch, tmp_path: Path) -> None:
     jobs_path = tmp_path / "jobs.jsonl"
     output_path = tmp_path / "outputs.jsonl"
