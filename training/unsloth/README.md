@@ -1,13 +1,7 @@
 # unsloth
 
-Dieser Ordner ist ein Startpunkt für Trainingskonfigurationen und Run-Notizen.
+Dieser Ordner bleibt als generischer Nebenpfad erhalten.
 
-## Empfohlener Inhalt
+Fuer JAWS-DE ist `training/unsloth/` aktuell nicht der unterstuetzte Produktivstandard.
 
-- Basismodell
-- LoRA-/QLoRA-Parameter
-- verwendeter Trainingsdatensatz
-- Evalset
-- Commit-Hash des Daten-Repos
-- Ergebnis-Metriken
-- bekannte Fehlerbilder
+Der aktuelle JAWS-DE-Trainingspfad steht in `training/transformers/` und ist in `docs/jaws_de_workflow.md` festgelegt.

@@ -1,33 +1,43 @@
 # Architektur
 
-## Zielarchitektur
+## Zielbild
 
 ```text
 raw manuals
   -> normalization
-  -> structure extraction
-  -> retrieval chunking
-  -> task-card generation
-  -> teacher data generation
-  -> gold review
-  -> SFT/LoRA export
+  -> retrieval chunks
+  -> teacher jobs
+  -> user simulation
+  -> support answers
+  -> judge gate
+  -> gold promotion
+  -> qwen export
   -> student training
   -> eval loop
 ```
 
 ## Leitideen
 
-- **RAG fuer Wissen**, **LoRA fuer Verhalten**
-- **Versionierung fuer alle Artefakte**
-- **Provenance fuer jede Aussage**
-- **Human review als eigener Schritt**
-- **Skripte statt manueller Klickstrecken**
+- RAG fuer Wissen, Training fuer Verhalten
+- versionierte Artefakte pro Stufe
+- Provenance fuer jede abgeleitete Aussage
+- reviewbare Gold-Zone vor Export und Training
+- sichere Defaults statt impliziter Altpfade
 
-## Rollen
+## JAWS-DE-Entscheidung
 
-- **Teacher**: starkes Modell fuer Transformation, Datengenerierung, optionale Bewertung
-- **Student**: kleines lokales Modell, z. B. Qwen3-8B
-- **Reviewer**: Mensch oder Grader-Layer
-- **Codex CLI**: repo-zentrierte Automations- und Orchestrierungsschicht
-- **Training export**: abgeleitete Qwen-SFT-Artefakte unter `data/exports/qwen_sft/`, nie Source of truth
-- **Lokale Trainingsruntime**: fuer den ersten Qwen3-8B-LoRA-Pilot wird ein optionaler Laufzeit-Stack aus `transformers`, `peft`, `accelerate`, `datasets` und `bitsandbytes` verwendet; diese Abhaengigkeiten bleiben bewusst vom Kern der Datenpipeline getrennt
+Der kanonische produktive JAWS-DE-Ablauf steht in `docs/jaws_de_workflow.md`.
+
+Wesentliche Festlegung:
+
+- `data/derived/teacher_jobs/JAWS/DE/` ist die stabile Eingabeschicht.
+- `codex_cli_support_validation_v2` ist der aktuell massgebliche committed Downstream-Baseline-Stand.
+- `data/exports/qwen_sft/JAWS/DE/current/` ist der aktuelle abgeleitete Trainings-Export.
+- `training/transformers/` ist der aktuell unterstuetzte JAWS-DE-Trainingspfad.
+
+## Architekturgrenzen
+
+- `data/raw/` und `data/normalized/` bleiben Source of truth.
+- `data/gold/` ist die reviewte Freigabezone.
+- `data/exports/` und Training-Outputs sind abgeleitete Verbrauchsartefakte.
+- Legacy-, Probe- und Smoke-Pfade duerfen bestehen bleiben, aber nicht wie produktive Defaults wirken.

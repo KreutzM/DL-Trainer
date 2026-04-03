@@ -1,9 +1,17 @@
 # JAWS-DE User Simulations
 
-Dieser Ordner enthaelt echte, per Codex CLI erzeugte JAWS-DE-Nutzeranfragen.
+Produktiver Pfad:
 
-- Produktiver Pfad: `scripts/run_codex_cli_user_sim_batch.py`
+- Runner: `scripts/run_codex_cli_user_sim_batch.py`
 - Quelle: `data/derived/teacher_jobs/JAWS/DE/*.jsonl`
-- Zweck: realistischere User-Seite vor der eigentlichen Support-Antwortgenerierung
 
-Keine Stub-, Replay- oder Import-Artefakte in diesem Ordner als produktiv behandeln.
+Aktueller committed Referenzstand:
+
+- `codex_cli_support_validation_v2_*`
+
+Historische Prefixe:
+
+- `codex_cli_support_mvp_v1_*`
+- `codex_cli_support_mvp_v2_probe_*`
+
+Historische Prefixe bleiben nur als Vergleich oder Review-Historie erhalten und sind nicht der aktuelle produktive Default.

@@ -1,0 +1,64 @@
+run:
+  run_name: jaws_de_validation_v2_current
+  framework: transformers
+  stage: lora_sft
+
+model:
+  base_model: Qwen/Qwen3-8B
+  tokenizer_name_or_path: Qwen/Qwen3-8B
+  trust_remote_code: true
+  max_length: 4096
+
+dataset:
+  format: qwen_openai_messages
+  train_file: data/exports/qwen_sft/JAWS/DE/current/train.jsonl
+  eval_file: data/exports/qwen_sft/JAWS/DE/current/eval.jsonl
+  train_metadata_file: data/exports/qwen_sft/JAWS/DE/current/train.metadata.jsonl
+  eval_metadata_file: data/exports/qwen_sft/JAWS/DE/current/eval.metadata.jsonl
+  manifest_file: data/exports/qwen_sft/JAWS/DE/current/manifest.json
+
+training:
+  output_dir: training/transformers/outputs/jaws_de_validation_v2_current
+  logging_dir: training/transformers/logs/jaws_de_validation_v2_current
+  num_train_epochs: 3
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 16
+  learning_rate: 0.0002
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.03
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  eval_strategy: steps
+  eval_steps: 10
+  save_strategy: steps
+  save_steps: 25
+  save_total_limit: 2
+  seed: 42
+  bf16: true
+
+lora:
+  enabled: true
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+runtime:
+  report_to: []
+  gradient_checkpointing: true
+  attention_implementation: flash_attention_2
+  expected_platform: linux
+  expected_python_min: "3.10"
+  min_cuda_devices: 1
+  expected_gpu_name_substring: "4090"
+  min_gpu_memory_gb: 20
+  assistant_only_loss: true
+  dataloader_num_workers: 0

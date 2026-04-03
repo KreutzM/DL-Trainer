@@ -1,16 +1,16 @@
 # JAWS-DE Qwen-SFT Exporte
 
-Dieser Ordner ist nach dem Clean-Cut bewusst leer.
+Kanonischer aktueller Exportpfad:
 
-Grund:
+- `data/exports/qwen_sft/JAWS/DE/current/`
 
-- alle frueheren JAWS-DE-Exporte waren aus schwachen oder nicht belastbar echten Teacher-/Gold-Staenden abgeleitet
-- diese Exporte sollen im aktiven Repo nicht mehr als produktiver Startpunkt erscheinen
+Quelle:
 
-Der naechste JAWS-DE-Export darf erst wieder erzeugt werden, wenn:
+- `data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl`
+- `data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl`
 
-1. neue echte Teacher-Outputs direkt ueber Codex CLI erzeugt wurden
-2. diese Outputs reviewt und promoted wurden
-3. daraus ein neuer belastbarer Gold-Stand entstanden ist
+Regel:
 
-Gold-Daten unter `data/gold/` bleiben Source of truth. Exporte immer neu bauen, niemals manuell editieren.
+- Exporte sind abgeleitet und nicht Source of truth.
+- Der aktuelle Export wird reproduzierbar ueber `scripts/export_qwen_sft.py` gebaut.
+- Historische Gold-Dateien nicht still erneut als neuer produktiver Export interpretieren.

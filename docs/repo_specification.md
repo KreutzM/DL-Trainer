@@ -2,85 +2,55 @@
 
 ## Zweck
 
-Dieses Repository dient als reproduzierbare Arbeitsumgebung für:
-- Aufbereitung von Produkthandbüchern
+Dieses Repository ist die reproduzierbare Arbeitsumgebung fuer:
+
+- Aufbereitung von Produkthandbuechern
 - Aufbau lokaler RAG-Korpora
-- Erzeugung von Teacher-basierten SFT-/LoRA-Datensätzen
-- Evaluierung und spätere menschliche Nacharbeit
+- Erzeugung von Teacher-basierten SFT-/LoRA-Datensaetzen
+- Promotion nach Gold
+- Export und Training aus freigegebenen Daten
 
 ## Datenzonen
 
 ### `data/raw/`
-Kanonische Rohquellen für die Pipeline. Bevorzugt unverändert; importierte oder konvertierte Eingänge sind zulässig, wenn Herkunft und Status am Datenpfad dokumentiert sind. Nach Ablage read-only behandeln.
+
+Kanonische Rohquellen. Nach Ablage read-only behandeln.
 
 ### `data/normalized/`
-Bereinigte Normalform in Markdown plus `.meta.json`.
+
+Bereinigte Markdown-Normalform mit `.meta.json`.
 
 ### `data/derived/`
-Automatisch erzeugte Wissensartefakte:
+
+Automatisch erzeugte Zwischenartefakte:
+
 - Chunks
-- Task-Cards
-- Synonyme
+- Teacher-Jobs
+- User-Simulationen
 - Teacher-Outputs
-- Reports
+- Teacher-Reviews
 
 ### `data/gold/`
-Manuell geprüfte oder freigegebene Datensätze.
-Diese Zone gilt als qualitativ höherwertig und darf nicht blind überschrieben werden.
 
-## Artefaktklassen
+Reviewte und freigegebene Datensaetze. Diese Zone ist fuer Downstream massgeblich.
 
-1. **Document artifacts**
-   - Originaldateien
-   - bereinigte Markdown-Normalform
-   - Dokument-Metadaten
+### `data/exports/`
 
-2. **Retrieval artifacts**
-   - Chunks
-   - Chunk-Titel
-   - Kurzbeschreibungen
-   - Synonym-Layer
-   - optionale Query-Expansion-Einträge
+Abgeleitete Trainings-Exporte. Nie Source of truth.
 
-3. **Training artifacts**
-   - Supportdialoge im `messages`-Format
-   - Preference-Paare
-   - Teacher-Outputs
-   - Review-Flags
+## JAWS-DE-Festlegung
 
-4. **Evaluation artifacts**
-   - Gold-Fälle
-   - Rubrics
-   - Modellantworten
-   - Bewertungsresultate
+Die aktuelle JAWS-DE-Single-Source-of-Truth ist `docs/jaws_de_workflow.md`.
 
-## ID-Strategie
+Dort festgelegt:
 
-Empfohlene stabile IDs:
-- `doc_id`: `<product>_<lang>_<manual>_<version>`
-- `section_id`: `<doc_id>::sec_<slug>`
-- `chunk_id`: `<section_id>::chunk_<nnn>`
-- `task_card_id`: `<doc_id>::task_<slug>`
-- `sample_id`: `<product>_<lang>_<running_number>`
+- produktiver Hauptpfad
+- aktiver committed Baseline-Stand
+- historische Prefixe
+- unterstuetzter Trainingsstack
 
-## Reviewstatus
+## Artefaktstatus
 
-Empfohlene Werte:
-- `draft`
-- `auto_generated`
-- `human_checked`
-- `approved`
-- `rejected`
+Fuer produktive Downstream-Nutzung sind nur Artefakte massgeblich, die klar als aktuelle Baseline oder frischer neuer Run eingeordnet sind.
 
-## Commit-Konvention
-
-Jede Änderung an Datenartefakten soll idealerweise mit einem der folgenden Präfixe beginnen:
-- `raw:`
-- `normalize:`
-- `chunk:`
-- `taskcard:`
-- `teacher:`
-- `train:`
-- `eval:`
-- `docs:`
-- `schema:`
+Historische oder unvollstaendige Prefixe muessen explizit als legacy, probe oder smoke verstanden werden und duerfen nicht still als Default weiterverwendet werden.

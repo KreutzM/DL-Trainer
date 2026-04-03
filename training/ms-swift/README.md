@@ -1,12 +1,7 @@
 # ms-swift
 
-Dieser Ordner enthaelt nur noch den generischen MS-SWIFT-Stack.
+Dieser Ordner bleibt als generischer oder historischer Nebenpfad erhalten.
 
-Die frueheren JAWS-DE-spezifischen Konfigurationen wurden im aktiven Repo bewusst entfernt, weil ihre zugrunde liegenden Gold- und Exportdaten nicht mehr als belastbarer produktiver Startpunkt gelten.
+Fuer JAWS-DE ist `training/ms-swift/` aktuell nicht der unterstuetzte Produktivstandard.
 
-Fuer JAWS-DE gilt daher aktuell:
-
-- kein aktiver MS-SWIFT-Trainingsfreeze im Repo
-- neuer Lauf erst wieder nach frischer echter Teacher-Erzeugung, Review, Promotion und neu gebautem Export
-
-Die generische Tooling-Basis bleibt erhalten, damit spaetere saubere Datensaetze erneut darauf aufsetzen koennen.
+Der aktuelle JAWS-DE-Trainingspfad steht in `training/transformers/` und ist in `docs/jaws_de_workflow.md` festgelegt.

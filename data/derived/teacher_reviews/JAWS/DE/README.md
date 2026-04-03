@@ -1,9 +1,19 @@
 # JAWS-DE Teacher Reviews
 
-Dieser Ordner enthaelt echte automatische Judge-/Review-Ergebnisse fuer JAWS-DE.
+Produktive Struktur:
 
-- Produktiver Pfad: `scripts/run_codex_cli_support_judge_batch.py`
-- Eingaben: User-Simulationen plus reale Support-Antworten
-- Ausgaben: Judge-Entscheidungen und automatische Gates fuer `teacher_output`
+- `*_judge_results.jsonl`
+- `*_judge_report.json`
+- `*_pipeline_report.json`
+- optionale Validierungsreports
 
-Dieser Ordner ist fuer echte Codex-CLI-Reviewlaeufe vorgesehen.
+Aktueller committed Referenzstand:
+
+- `codex_cli_support_validation_v2_*`
+
+Historische Prefixe:
+
+- `codex_cli_support_mvp_v1_*`
+- `codex_cli_support_mvp_v2_probe_*`
+
+Diese Ablage ist die Judge- und Gate-Schicht. Fuer aktuelle Entscheidungen ist `validation_v2` der massgebliche committed Referenzstand.

@@ -2,7 +2,7 @@
 
 ## Grundsatz
 
-Das Student-Modell soll primaer **Verhalten** lernen:
+Das Student-Modell soll primaer Verhalten lernen:
 
 - Ton
 - Struktur
@@ -10,24 +10,26 @@ Das Student-Modell soll primaer **Verhalten** lernen:
 - Rueckfrageverhalten
 - Eskalationslogik
 
-Produktwissen bleibt in erster Linie im RAG-Korpus.
+Produktwissen bleibt an Korpus, Chunks und Provenance gebunden.
 
-## Trainingsstufen
+## JAWS-DE-Standard
 
-1. SFT auf hochwertigen Supportbeispielen
-2. optional Preference-/Ranking-Tuning
-3. Eval gegen Gold-Faelle
-4. Fehleranalyse und Datenpflege
+Der kanonische JAWS-DE-Pfad steht in `docs/jaws_de_workflow.md`.
+
+Aktuell gilt:
+
+- committed Produktiv-Baseline: `codex_cli_support_validation_v2`
+- Export-Ziel: `data/exports/qwen_sft/JAWS/DE/current/`
+- unterstuetzter Trainingsstack: `training/transformers/`
+- Trainingsfreeze: `training/transformers/jaws_de_current.yaml`
 
 ## Nicht trainieren
 
-- versteckte Denkschritte als Pflichtformat
 - ungesicherte Produktfakten
-- veraltete oder versionsgemischte Beispiele
+- versionsgemischte Beispiele
+- historische Probe- oder Legacy-Files
+- Datensaetze ohne `review_status=promoted`
 
-## JAWS-DE Baseline
+## Historische Pfade
 
-- Seed-Jobs entstehen zuerst unter `data/derived/teacher_jobs/JAWS/DE/`
-- Seed-Preview-Faelle und Teacher-Outputs leben unter `data/derived/teacher_outputs/JAWS/DE/`
-- Freigabe in `data/gold/train/` und `data/gold/eval/` bleibt ein eigener Review- und Promotion-Schritt
-- LoRA soll Supportverhalten lernen; Faktenbindung bleibt an Chunk- und RAG-Provenance geknuepft
+`codex_cli_support_mvp_v1` und `codex_cli_support_mvp_v2_probe` bleiben als Vergleichsstand erhalten, sind aber kein aktueller Trainingsausgangspunkt.

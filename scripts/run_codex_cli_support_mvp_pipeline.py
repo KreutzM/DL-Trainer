@@ -49,6 +49,17 @@ def normalized_path(path: Path) -> str:
     return str(path).replace("\\", "/")
 
 
+def ensure_safe_run_name(run_name: str, paths: list[Path], resume: bool) -> None:
+    existing = [normalized_path(path) for path in paths if path.exists()]
+    if existing and not resume:
+        formatted = "\n".join(f"- {path}" for path in existing)
+        raise SystemExit(
+            "Run name already has committed or generated artifacts. "
+            "Choose a fresh --run-name or rerun with --resume.\n"
+            f"{formatted}"
+        )
+
+
 def run_command(command: list[str], repo_root: Path) -> None:
     completed = subprocess.run(command, cwd=repo_root, text=True)
     if completed.returncode != 0:
@@ -92,6 +103,24 @@ def main() -> None:
     pipeline_report = repo_root / "data/derived/teacher_reviews/JAWS/DE" / f"{run_name}_pipeline_report.json"
     train_output = repo_root / "data/gold/train/sft/JAWS/DE" / f"{run_name}_promoted_sft_samples.jsonl"
     eval_output = repo_root / "data/gold/eval/JAWS/DE" / f"{run_name}_promoted_eval_cases.jsonl"
+    ensure_safe_run_name(
+        run_name,
+        [
+            user_sim_output,
+            user_sim_report,
+            answer_raw_output,
+            answer_teacher_output,
+            answer_report,
+            judge_output,
+            reviewed_output,
+            judge_report,
+            pipeline_report,
+            train_output,
+            eval_output,
+            repo_root / "data/derived/teacher_runs/JAWS/DE" / run_name,
+        ],
+        resume=args.resume,
+    )
 
     user_command = [
         python_bin,
