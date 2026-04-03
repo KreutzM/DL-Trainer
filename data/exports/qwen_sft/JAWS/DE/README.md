@@ -3,6 +3,7 @@
 Kanonischer aktueller Exportpfad:
 
 - `data/exports/qwen_sft/JAWS/DE/current/`
+- `docs/jaws_de_current_baseline.json`
 
 Quelle:
 

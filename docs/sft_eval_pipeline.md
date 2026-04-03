@@ -1,6 +1,7 @@
 # JAWS-DE SFT- und Eval-Pipeline
 
 Die kanonische Workflow-Beschreibung steht in `docs/jaws_de_workflow.md`.
+Die maschinenlesbare Current-Baseline dazu steht in `docs/jaws_de_current_baseline.json`.
 
 ## Statusfluss
 

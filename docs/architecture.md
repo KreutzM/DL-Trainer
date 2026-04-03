@@ -27,6 +27,7 @@ raw manuals
 ## JAWS-DE-Entscheidung
 
 Der kanonische produktive JAWS-DE-Ablauf steht in `docs/jaws_de_workflow.md`.
+Die maschinenlesbare Baseline-Definition dazu steht in `docs/jaws_de_current_baseline.json`.
 
 Wesentliche Festlegung:
 

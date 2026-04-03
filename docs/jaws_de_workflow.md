@@ -2,6 +2,8 @@
 
 Diese Datei ist die Single Source of Truth fuer den aktuell empfohlenen produktiven JAWS-DE-Pfad.
 
+Die maschinenlesbare Current-Baseline fuer denselben Stand steht in `docs/jaws_de_current_baseline.json`.
+
 ## Produktiver Hauptpfad
 
 1. Rohquelle: `data/raw/JAWS/DE/Converted-Help-Files/`
@@ -27,12 +29,14 @@ Massgebliche Dateien:
 - `data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl`
 - `data/exports/qwen_sft/JAWS/DE/current/`
 - `training/transformers/jaws_de_current.yaml`
+- `data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json`
 
 Verwendung:
 
 - Diese Baseline ist der sichere Ausgangspunkt fuer Validierung, Export und das naechste Training.
 - Neue produktive Wellen sollen nicht auf alten Prefixen aufsetzen.
 - Neue Laeufe muessen einen neuen `run_name` verwenden.
+- Fresh Runs sollen die aktuelle Job-Selektion ueber `current_generation_selection.json` und nicht ueber historisch klingende Dateinamen adressieren.
 
 ## Historische Prefixe
 
@@ -119,8 +123,7 @@ Frischen produktiven Lauf starten:
 
 ```bash
 python scripts/run_codex_cli_support_mvp_pipeline.py \
-  --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl \
-  --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_support_validation_v1_job_ids.txt \
+  --selection-manifest data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json \
   --run-name codex_cli_support_2026_04_03 \
   --promote
 ```
@@ -130,3 +133,4 @@ Wichtig:
 - `--run-name` muss fuer neue Wellen neu sein.
 - Bereits vorhandene Run-Namen werden ohne `--resume` vom Wrapper blockiert.
 - Historische Prefixe nicht fuer neue produktive Laeufe recyceln.
+- Die aktuelle Fresh-Run-Selektion wird maschinenlesbar in `data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json` festgehalten.

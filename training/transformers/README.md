@@ -11,8 +11,10 @@ Massgebliche Dateien:
 Datensatzquelle:
 
 - `data/exports/qwen_sft/JAWS/DE/current/`
+- `docs/jaws_de_current_baseline.json`
 
 Regel:
 
 - Fuer JAWS-DE nur diesen Stack als aktuellen Standard behandeln.
 - Details zur Baseline und zum Export stehen in `docs/jaws_de_workflow.md`.
+- Die maschinenlesbare Pointer-Datei fuer denselben Stand ist `docs/jaws_de_current_baseline.json`.

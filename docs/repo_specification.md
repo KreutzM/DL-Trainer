@@ -41,6 +41,7 @@ Abgeleitete Trainings-Exporte. Nie Source of truth.
 ## JAWS-DE-Festlegung
 
 Die aktuelle JAWS-DE-Single-Source-of-Truth ist `docs/jaws_de_workflow.md`.
+Die maschinenlesbare Baseline-Referenz dazu ist `docs/jaws_de_current_baseline.json`.
 
 Dort festgelegt:
 

@@ -1,0 +1,22 @@
+{
+  "selection_id": "jaws_de_current_generation_selection",
+  "workflow_role": "fresh_run_default",
+  "jobs_file": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/current_generation_job_ids.txt",
+  "selected_job_count": 20,
+  "selection_summary": {
+    "train_examples": 10,
+    "eval_examples": 10,
+    "task_types": [
+      "clarification",
+      "faq_direct_answer",
+      "step_by_step",
+      "troubleshooting",
+      "uncertainty_escalation"
+    ]
+  },
+  "historical_source": {
+    "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/codex_cli_support_validation_v1_job_ids.txt",
+    "selection_report_file": "data/derived/teacher_jobs/JAWS/DE/codex_cli_support_validation_v1_selection_report.json"
+  }
+}

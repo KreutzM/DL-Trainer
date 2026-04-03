@@ -16,7 +16,8 @@ def parse_args() -> Any:
     judge_defaults = stage_defaults(JUDGE_MODE)
 
     parser = make_parser("Run the cost-optimized JAWS-DE Codex CLI MVP pipeline end to end.")
-    parser.add_argument("--jobs", required=True)
+    parser.add_argument("--jobs")
+    parser.add_argument("--selection-manifest")
     parser.add_argument("--run-name", required=True)
     parser.add_argument("--job-id", action="append", default=[])
     parser.add_argument("--job-ids-file", action="append", default=[])
@@ -42,11 +43,26 @@ def parse_args() -> Any:
     parser.add_argument("--judge-reasoning-effort", default=judge_defaults["reasoning_effort"])
     parser.add_argument("--judge-batch-size", type=int, default=judge_defaults["batch_size"])
     parser.add_argument("--judge-max-attempts", type=int, default=judge_defaults["max_attempts"])
-    return parser.parse_args()
+    args = parser.parse_args()
+    if not args.jobs and not args.selection_manifest:
+        parser.error("either --jobs or --selection-manifest is required")
+    return args
 
 
 def normalized_path(path: Path) -> str:
     return str(path).replace("\\", "/")
+
+
+def read_json(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_selection_manifest(path_value: str, repo_root: Path) -> dict[str, Any]:
+    manifest_path = repo_root / path_value
+    manifest = read_json(manifest_path)
+    if not manifest.get("jobs_file"):
+        raise SystemExit("Selection manifest is missing required key: jobs_file")
+    return manifest
 
 
 def ensure_safe_run_name(run_name: str, paths: list[Path], resume: bool) -> None:
@@ -89,6 +105,16 @@ def main() -> None:
     args = parse_args()
     repo_root = find_repo_root(Path.cwd())
     python_bin = sys.executable
+    selection_manifest_path = args.selection_manifest
+    if selection_manifest_path:
+        selection_manifest = load_selection_manifest(selection_manifest_path, repo_root)
+        if args.jobs and args.jobs != selection_manifest["jobs_file"]:
+            raise SystemExit("Selection manifest jobs_file conflicts with explicit --jobs value.")
+        args.jobs = selection_manifest["jobs_file"]
+        if not args.job_id and not args.job_ids_file and args.limit is None:
+            job_ids_file = selection_manifest.get("job_ids_file")
+            if job_ids_file:
+                args.job_ids_file.append(job_ids_file)
     jobs_path = Path(args.jobs)
     run_name = args.run_name
 
@@ -234,6 +260,7 @@ def main() -> None:
     pipeline_summary = {
         "jobs_path": normalized_path(jobs_path),
         "run_name": run_name,
+        "selection_manifest": selection_manifest_path,
         "stages": {
             "user_simulation": user_report,
             "answering": answer_stage_report,

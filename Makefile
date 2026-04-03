@@ -1,11 +1,13 @@
 .PHONY: validate repo-consistency jaws-de-current-validate jaws-de-current-export jaws-de-training-smoke jaws-de-fresh-run
 
+CURRENT_JAWS_DE_BASELINE := docs/jaws_de_current_baseline.json
 CURRENT_JAWS_DE_RUN := codex_cli_support_validation_v2
 CURRENT_JAWS_DE_TRAIN := data/gold/train/sft/JAWS/DE/$(CURRENT_JAWS_DE_RUN)_promoted_sft_samples.jsonl
 CURRENT_JAWS_DE_EVAL := data/gold/eval/JAWS/DE/$(CURRENT_JAWS_DE_RUN)_promoted_eval_cases.jsonl
 CURRENT_JAWS_DE_EXPORT_DIR := data/exports/qwen_sft/JAWS/DE/current
 CURRENT_JAWS_DE_EXPORT_ID := jaws_de_validation_v2_current
 CURRENT_JAWS_DE_TRAINING_CONFIG := training/transformers/jaws_de_current.yaml
+CURRENT_JAWS_DE_SELECTION := data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json
 
 validate: repo-consistency jaws-de-current-validate
 
@@ -27,4 +29,4 @@ jaws-de-training-smoke:
 
 jaws-de-fresh-run:
 	python -c "import sys; run_name = '$(RUN_NAME)'.strip(); sys.exit(0 if run_name else 'RUN_NAME is required')"
-	python scripts/run_codex_cli_support_mvp_pipeline.py --jobs data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl --job-ids-file data/derived/teacher_jobs/JAWS/DE/codex_cli_support_validation_v1_job_ids.txt --run-name $(RUN_NAME) --promote
+	python scripts/run_codex_cli_support_mvp_pipeline.py --selection-manifest $(CURRENT_JAWS_DE_SELECTION) --run-name $(RUN_NAME) --promote

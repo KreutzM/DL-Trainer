@@ -1,0 +1,28 @@
+{
+  "baseline_id": "jaws_de_current",
+  "workflow_doc": "docs/jaws_de_workflow.md",
+  "pipeline_entrypoint": "scripts/run_codex_cli_support_mvp_pipeline.py",
+  "committed_baseline": {
+    "run_name": "codex_cli_support_validation_v2",
+    "user_simulations_file": "data/derived/user_simulations/JAWS/DE/codex_cli_support_validation_v2_user_simulations.jsonl",
+    "teacher_outputs_file": "data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_teacher_outputs.jsonl",
+    "reviewed_teacher_outputs_file": "data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl",
+    "judge_results_file": "data/derived/teacher_reviews/JAWS/DE/codex_cli_support_validation_v2_judge_results.jsonl",
+    "train_file": "data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl",
+    "eval_file": "data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl"
+  },
+  "current_export": {
+    "export_id": "jaws_de_validation_v2_current",
+    "output_dir": "data/exports/qwen_sft/JAWS/DE/current",
+    "manifest_file": "data/exports/qwen_sft/JAWS/DE/current/manifest.json"
+  },
+  "current_training": {
+    "framework": "transformers",
+    "config_file": "training/transformers/jaws_de_current.yaml"
+  },
+  "current_job_selection": {
+    "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json",
+    "jobs_file": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+    "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/current_generation_job_ids.txt"
+  }
+}

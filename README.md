@@ -9,7 +9,7 @@ Dieses Repository baut versionierte Datenartefakte aus Produkthandbuechern fuer:
 
 ## Aktueller JAWS-DE-Standard
 
-Die zentrale Single Source of Truth fuer den produktiven JAWS-DE-Pfad ist [`docs/jaws_de_workflow.md`](docs/jaws_de_workflow.md).
+Die zentrale Single Source of Truth fuer den produktiven JAWS-DE-Pfad ist [`docs/jaws_de_workflow.md`](docs/jaws_de_workflow.md). Die maschinenlesbare Current-Baseline dazu steht in [`docs/jaws_de_current_baseline.json`](docs/jaws_de_current_baseline.json).
 
 Kurzfassung:
 
@@ -19,6 +19,7 @@ Kurzfassung:
 4. Der produktive Generierungspfad laeuft ueber `scripts/run_codex_cli_support_mvp_pipeline.py`.
 5. Der aktuell massgebliche committed Downstream-Baseline-Stand ist `codex_cli_support_validation_v2`.
 6. Der aktuell unterstuetzte Trainingspfad fuer JAWS-DE laeuft ueber `training/transformers/`.
+7. Der Fresh-Run-Default fuer neue produktive Wellen laeuft ueber `data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json`.
 
 Historische Prefixe wie `codex_cli_support_mvp_v1` und `codex_cli_support_mvp_v2_probe` bleiben nur als Vergleichs- oder Review-Historie im Repo und sind nicht der empfohlene Ausgangspunkt fuer neue Exporte oder Training-Runs.
 
@@ -63,6 +64,7 @@ make jaws-de-training-smoke
 ## Wichtige Pfade
 
 - `docs/jaws_de_workflow.md` - kanonisches JAWS-DE-Runbook
+- `docs/jaws_de_current_baseline.json` - maschinenlesbarer Current-Baseline-Pointer
 - `data/raw/JAWS/DE/` - Rohquellen
 - `data/normalized/JAWS/DE/` - Normalform
 - `data/derived/chunks/JAWS/DE/` - Retrieval-Chunks

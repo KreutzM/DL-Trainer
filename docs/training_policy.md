@@ -15,6 +15,7 @@ Produktwissen bleibt an Korpus, Chunks und Provenance gebunden.
 ## JAWS-DE-Standard
 
 Der kanonische JAWS-DE-Pfad steht in `docs/jaws_de_workflow.md`.
+Die maschinenlesbare Current-Baseline dazu steht in `docs/jaws_de_current_baseline.json`.
 
 Aktuell gilt:
 

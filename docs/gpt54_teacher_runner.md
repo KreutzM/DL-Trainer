@@ -1,6 +1,7 @@
 # GPT-5.4 Teacher Runner
 
 Die kanonische Beschreibung des produktiven JAWS-DE-Workflows steht in `docs/jaws_de_workflow.md`.
+Die maschinenlesbare Current-Baseline dazu steht in `docs/jaws_de_current_baseline.json`.
 
 ## Zweck dieser Datei
 
