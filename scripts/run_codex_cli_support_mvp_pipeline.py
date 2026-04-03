@@ -27,6 +27,9 @@ def parse_args() -> Any:
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--codex-config", action="append", default=[])
     parser.add_argument("--timeout-sec", type=int, default=600)
+    parser.add_argument("--llm-backend", choices=["codex_cli", "openrouter"], default="codex_cli")
+    parser.add_argument("--openrouter-api-base", default="https://openrouter.ai/api/v1")
+    parser.add_argument("--openrouter-api-key-env", default="OPENROUTER_API_KEY")
     parser.add_argument("--promote", action="store_true")
 
     parser.add_argument("--user-sim-model", default=user_defaults["model"])
@@ -95,6 +98,9 @@ def add_common_stage_args(command: list[str], args: Any) -> None:
     command.extend(["--codex-bin", args.codex_bin])
     command.extend(["--sandbox", args.sandbox])
     command.extend(["--timeout-sec", str(args.timeout_sec)])
+    command.extend(["--llm-backend", args.llm_backend])
+    command.extend(["--openrouter-api-base", args.openrouter_api_base])
+    command.extend(["--openrouter-api-key-env", args.openrouter_api_key_env])
     if args.resume:
         command.append("--resume")
     for config_value in args.codex_config:

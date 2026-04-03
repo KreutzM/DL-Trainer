@@ -1,14 +1,17 @@
 from __future__ import annotations
 
-import json
 import re
-import shutil
-import subprocess
-import time
 from pathlib import Path
 from typing import Any
 
-from common import find_repo_root, make_parser, read_jsonl, sha256_file, write_json, write_jsonl
+from common import find_repo_root, make_parser, read_jsonl, write_jsonl
+from llm_json_backends import (
+    JsonGenerationRequest,
+    OPENROUTER_API_BASE,
+    build_backend_record,
+    provider_name_for_backend,
+    resolve_json_backend,
+)
 from run_teacher_jobs import (
     RAW_RESPONSE_FORMAT_VERSION,
     build_output_from_raw_response,
@@ -22,11 +25,12 @@ from run_teacher_jobs import (
 
 TRANSFORM_PIPELINE_VERSION = "0.7.0"
 RUNNER_CODEX_CLI_MODE = "teacher_runner_codex_cli_v1"
+RUNNER_OPENROUTER_MODE = "teacher_runner_openrouter_v1"
 
 
 def parse_args() -> Any:
     parser = make_parser(
-        "Generate real teacher raw responses via Codex CLI and optionally materialize teacher outputs."
+        "Generate real teacher raw responses via the configured JSON LLM backend and optionally materialize teacher outputs."
     )
     parser.add_argument("--jobs", required=True)
     parser.add_argument("--raw-output", required=True)
@@ -44,6 +48,9 @@ def parse_args() -> Any:
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--codex-config", action="append", default=[])
     parser.add_argument("--timeout-sec", type=int, default=600)
+    parser.add_argument("--llm-backend", choices=["codex_cli", "openrouter"], default="codex_cli")
+    parser.add_argument("--openrouter-api-base", default=OPENROUTER_API_BASE)
+    parser.add_argument("--openrouter-api-key-env", default="OPENROUTER_API_KEY")
     return parser.parse_args()
 
 
@@ -74,48 +81,6 @@ def build_codex_exec_prompt(job: dict) -> str:
     return "\n".join(prompt_parts).strip() + "\n"
 
 
-def build_codex_command(
-    *,
-    codex_bin: str,
-    repo_root: Path,
-    model: str,
-    reasoning_effort: str,
-    sandbox: str,
-    schema_path: Path,
-    output_path: Path,
-    extra_config: list[str],
-) -> list[str]:
-    resolved_codex = shutil.which(codex_bin)
-    if not resolved_codex and Path(codex_bin).suffix == "":
-        resolved_codex = shutil.which(f"{codex_bin}.cmd") or shutil.which(f"{codex_bin}.exe")
-    if not resolved_codex:
-        raise SystemExit(f"Could not resolve Codex CLI binary: {codex_bin}")
-    command = [
-        resolved_codex,
-        "exec",
-        "-m",
-        model,
-        "-s",
-        sandbox,
-        "--skip-git-repo-check",
-        "--ephemeral",
-        "--color",
-        "never",
-        "--output-schema",
-        str(schema_path),
-        "-o",
-        str(output_path),
-        "-C",
-        str(repo_root),
-        "-",
-        "-c",
-        f'reasoning_effort="{reasoning_effort}"',
-    ]
-    for config_value in extra_config:
-        command.extend(["-c", config_value])
-    return command
-
-
 def load_existing_raw_rows(path: Path) -> dict[str, dict]:
     if not path.exists():
         return {}
@@ -131,10 +96,11 @@ def build_raw_row(
     raw_text: str,
     teacher_model: str,
     teacher_run_id: str,
-    command: list[str],
-    artifact_paths: dict[str, Path],
+    llm_backend: str,
+    generation_result: Any,
     elapsed_ms: int,
 ) -> dict:
+    generation_mode = RUNNER_CODEX_CLI_MODE if llm_backend == "codex_cli" else RUNNER_OPENROUTER_MODE
     return {
         "response_id": f"{teacher_run_id}::{job['job_id']}::response",
         "job_id": job["job_id"],
@@ -147,28 +113,18 @@ def build_raw_row(
         "task_type": job["task_type"],
         "source_doc_ids": job["source_doc_ids"],
         "source_chunk_ids": job["source_chunk_ids"],
-        "teacher_provider": "codex_cli",
+        "teacher_provider": provider_name_for_backend(llm_backend),
         "teacher_model": teacher_model,
         "teacher_run_id": teacher_run_id,
         "teacher_prompt_version": job["teacher_prompt_version"],
-        "generation_mode": RUNNER_CODEX_CLI_MODE,
+        "generation_mode": generation_mode,
         "response_status": "completed",
         "response_format_version": RAW_RESPONSE_FORMAT_VERSION,
-        "provider_response_id": None,
+        "provider_response_id": generation_result.provider_response_id,
         "raw_text": raw_text,
         "parsed_response": parsed_response,
         "usage": {"elapsed_ms": elapsed_ms},
-        "codex_cli": {
-            "command": command,
-            "request_path": normalized_path(artifact_paths["request"]),
-            "prompt_path": normalized_path(artifact_paths["prompt"]),
-            "schema_path": normalized_path(artifact_paths["schema"]),
-            "response_path": normalized_path(artifact_paths["response"]),
-            "stdout_path": normalized_path(artifact_paths["stdout"]),
-            "stderr_path": normalized_path(artifact_paths["stderr"]),
-            "prompt_sha256": sha256_file(artifact_paths["prompt"]),
-            "schema_sha256": sha256_file(artifact_paths["schema"]),
-        },
+        **build_backend_record(generation_result),
         "provenance": {
             "transform_pipeline_version": TRANSFORM_PIPELINE_VERSION,
             "source_job_path": normalized_path(jobs_path),
@@ -201,6 +157,23 @@ def main() -> None:
     jobs = filter_jobs(load_jobs(jobs_path), set(args.job_id), args.job_ids_file, args.limit)
     artifact_root = Path(args.artifact_dir)
     artifact_root.mkdir(parents=True, exist_ok=True)
+    generation_mode = RUNNER_CODEX_CLI_MODE if args.llm_backend == "codex_cli" else RUNNER_OPENROUTER_MODE
+
+    if args.llm_backend == "codex_cli":
+        backend = resolve_json_backend(
+            "codex_cli",
+            repo_root=repo_root,
+            codex_bin=args.codex_bin,
+            reasoning_effort=args.reasoning_effort,
+            sandbox=args.sandbox,
+            extra_config=args.codex_config,
+        )
+    else:
+        backend = resolve_json_backend(
+            "openrouter",
+            api_base=args.openrouter_api_base,
+            api_key_env=args.openrouter_api_key_env,
+        )
 
     existing_raw_rows = load_existing_raw_rows(Path(args.raw_output)) if args.resume else {}
     generated_rows: list[dict] = []
@@ -217,20 +190,13 @@ def main() -> None:
         job_dir = artifact_root / job_slug
         job_dir.mkdir(parents=True, exist_ok=True)
 
-        request_path = job_dir / "request.json"
-        prompt_path = job_dir / "prompt.txt"
-        schema_path = job_dir / "response_schema.json"
-        response_path = job_dir / "last_message.json"
-        stdout_path = job_dir / "stdout.txt"
-        stderr_path = job_dir / "stderr.txt"
-
         prompt_text = build_codex_exec_prompt(job)
         schema = build_teacher_response_schema(job["expected_output_kind"], job["task_type"])
         request_payload = {
             "job_id": job["job_id"],
             "teacher_run_id": args.teacher_run_id,
             "teacher_model": args.teacher_model,
-            "generation_mode": RUNNER_CODEX_CLI_MODE,
+            "generation_mode": generation_mode,
             "expected_output_kind": job["expected_output_kind"],
             "task_type": job["task_type"],
             "source_chunk_ids": job["source_chunk_ids"],
@@ -240,75 +206,33 @@ def main() -> None:
             "fixture_payload": job.get("fixture_payload"),
             "provenance": job["provenance"],
         }
-        write_json(request_path, request_payload)
-        write_json(schema_path, schema)
-        prompt_path.write_text(prompt_text, encoding="utf-8")
-
-        command = build_codex_command(
-            codex_bin=args.codex_bin,
-            repo_root=repo_root,
-            model=args.teacher_model,
-            reasoning_effort=args.reasoning_effort,
-            sandbox=args.sandbox,
-            schema_path=schema_path,
-            output_path=response_path,
-            extra_config=args.codex_config,
-        )
-
-        started = time.perf_counter()
-        completed = subprocess.run(
-            command,
-            input=prompt_text,
-            text=True,
-            capture_output=True,
-            cwd=repo_root,
-            timeout=args.timeout_sec,
-            encoding="utf-8",
-        )
-        elapsed_ms = int((time.perf_counter() - started) * 1000)
-        stdout_path.write_text(completed.stdout or "", encoding="utf-8")
-        stderr_path.write_text(completed.stderr or "", encoding="utf-8")
-
-        if completed.returncode != 0:
-            failures.append(
-                {
-                    "job_id": job["job_id"],
-                    "reason": f"codex_exit_{completed.returncode}",
-                    "stderr_path": normalized_path(stderr_path),
-                }
-            )
-            continue
-        if not response_path.exists():
-            failures.append(
-                {
-                    "job_id": job["job_id"],
-                    "reason": "missing_last_message",
-                    "stderr_path": normalized_path(stderr_path),
-                }
-            )
-            continue
-
-        raw_text = response_path.read_text(encoding="utf-8").strip()
         try:
-            parsed_response = json.loads(raw_text)
-        except json.JSONDecodeError as exc:
+            generation_result = backend.generate(
+                JsonGenerationRequest(
+                    model=args.teacher_model,
+                    prompt_text=prompt_text,
+                    response_schema=schema,
+                    request_payload=request_payload,
+                    artifact_dir=job_dir,
+                    timeout_sec=args.timeout_sec,
+                )
+            )
+        except Exception as exc:
+            failures.append({"job_id": job["job_id"], "reason": str(exc)})
+            continue
+
+        try:
+            parsed_response = dict(generation_result.parsed_response)
+            raw_text = generation_result.raw_text
+        except Exception as exc:
             failures.append(
                 {
                     "job_id": job["job_id"],
                     "reason": f"invalid_json:{exc}",
-                    "response_path": normalized_path(response_path),
+                    "response_path": normalized_path(job_dir),
                 }
             )
             continue
-
-        artifact_paths = {
-            "request": request_path,
-            "prompt": prompt_path,
-            "schema": schema_path,
-            "response": response_path,
-            "stdout": stdout_path,
-            "stderr": stderr_path,
-        }
         generated_rows.append(
             build_raw_row(
                 job=job,
@@ -317,9 +241,9 @@ def main() -> None:
                 raw_text=raw_text,
                 teacher_model=args.teacher_model,
                 teacher_run_id=args.teacher_run_id,
-                command=command,
-                artifact_paths=artifact_paths,
-                elapsed_ms=elapsed_ms,
+                llm_backend=args.llm_backend,
+                generation_result=generation_result,
+                elapsed_ms=generation_result.elapsed_ms,
             )
         )
 
@@ -339,8 +263,8 @@ def main() -> None:
         "jobs_path": normalized_path(jobs_path),
         "teacher_run_id": args.teacher_run_id,
         "teacher_model": args.teacher_model,
-        "teacher_provider": "codex_cli",
-        "generation_mode": RUNNER_CODEX_CLI_MODE,
+        "teacher_provider": provider_name_for_backend(args.llm_backend),
+        "generation_mode": generation_mode,
         "selected_jobs": len(jobs),
         "completed_jobs": len(ordered_rows),
         "skipped_existing_jobs": skipped_job_ids,

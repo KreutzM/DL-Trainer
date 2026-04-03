@@ -7,15 +7,18 @@ from codex_cli_support_mvp_common import (
     JUDGE_MODE,
     JUDGE_PROMPT_VERSION,
     TRANSFORM_PIPELINE_VERSION,
-    build_codex_cli_meta,
+    add_llm_backend_args,
+    build_stage_backend_record,
     build_stage_metrics,
     chunked,
     compact_text,
+    generation_mode_for_backend,
     load_repo_text,
     normalized_path,
     repo_root_from_cwd,
-    run_codex_json_generation,
+    run_stage_json_generation,
     safe_slug,
+    stage_provider_name,
     stage_defaults,
 )
 from common import make_parser, read_jsonl, write_json, write_jsonl
@@ -47,6 +50,7 @@ def parse_args() -> Any:
     parser.add_argument("--max-attempts", type=int, default=defaults["max_attempts"])
     parser.add_argument("--codex-config", action="append", default=[])
     parser.add_argument("--timeout-sec", type=int, default=600)
+    add_llm_backend_args(parser)
     return parser.parse_args()
 
 
@@ -161,8 +165,8 @@ def build_judge_row(
     parsed: dict[str, Any],
     reviewer_model: str,
     reviewer_run_id: str,
-    command: list[str],
-    artifact_paths: dict[str, Path],
+    llm_backend: str,
+    generation_result: Any,
     elapsed_ms: int,
     batch_id: str,
     batch_size: int,
@@ -185,11 +189,11 @@ def build_judge_row(
         "language": job["language"],
         "source_doc_ids": job["source_doc_ids"],
         "source_chunk_ids": job["source_chunk_ids"],
-        "reviewer_provider": "codex_cli",
+        "reviewer_provider": stage_provider_name(llm_backend),
         "reviewer_model": reviewer_model,
         "reviewer_run_id": reviewer_run_id,
         "reviewer_prompt_version": JUDGE_PROMPT_VERSION,
-        "generation_mode": JUDGE_MODE,
+        "generation_mode": generation_mode_for_backend(JUDGE_MODE, llm_backend),
         "decision": parsed["decision"],
         "quality_score": normalized_quality_score,
         "summary": parsed["summary"].strip(),
@@ -205,9 +209,8 @@ def build_judge_row(
             "prompt_chars": prompt_chars,
             "source_excerpt_chars": source_excerpt_chars,
         },
-        "codex_cli": build_codex_cli_meta(
-            command=command,
-            artifact_paths=artifact_paths,
+        **build_stage_backend_record(
+            generation_result,
             batch_id=batch_id,
             batch_size=batch_size,
             batch_index=batch_index,
@@ -364,7 +367,7 @@ def main() -> None:
             "job_ids": [job["job_id"] for job in batch_jobs],
             "reviewer_run_id": args.reviewer_run_id,
             "reviewer_model": args.reviewer_model,
-            "generation_mode": JUDGE_MODE,
+            "generation_mode": generation_mode_for_backend(JUDGE_MODE, args.llm_backend),
             "jobs": [
                 {
                     "job_id": job["job_id"],
@@ -379,25 +382,28 @@ def main() -> None:
             ],
         }
         try:
-            parsed, _raw_text, artifact_paths, command, elapsed_ms, attempt_count = run_codex_json_generation(
-                codex_bin=args.codex_bin,
+            generation_result = run_stage_json_generation(
+                llm_backend=args.llm_backend,
                 repo_root=repo_root,
                 model=args.reviewer_model,
-                reasoning_effort=args.reasoning_effort,
-                sandbox=args.sandbox,
-                schema=build_judge_schema(batch_jobs),
                 prompt_text=prompt_text,
+                schema=build_judge_schema(batch_jobs),
                 artifact_dir=job_dir,
                 request_payload=request_payload,
-                extra_config=args.codex_config,
                 timeout_sec=args.timeout_sec,
                 max_attempts=args.max_attempts,
+                reasoning_effort=args.reasoning_effort,
+                sandbox=args.sandbox,
+                codex_bin=args.codex_bin,
+                extra_config=args.codex_config,
+                openrouter_api_base=args.openrouter_api_base,
+                openrouter_api_key_env=args.openrouter_api_key_env,
             )
         except Exception as exc:
             for job in batch_jobs:
                 failures.append({"job_id": job["job_id"], "reason": str(exc)})
             continue
-        items = parsed.get("items")
+        items = generation_result.parsed_response.get("items")
         if not isinstance(items, list):
             for job in batch_jobs:
                 failures.append({"job_id": job["job_id"], "reason": "batch_response_missing_items"})
@@ -417,9 +423,9 @@ def main() -> None:
             continue
 
         completed_batches += 1
-        total_elapsed_ms += elapsed_ms
-        total_retry_attempts += max(0, attempt_count - 1)
-        elapsed_share_ms = max(1, round(elapsed_ms / len(batch_jobs)))
+        total_elapsed_ms += generation_result.elapsed_ms
+        total_retry_attempts += max(0, generation_result.attempt_count - 1)
+        elapsed_share_ms = max(1, round(generation_result.elapsed_ms / len(batch_jobs)))
         prompt_share_chars = max(1, round(prompt_chars / len(batch_jobs)))
         source_excerpt_share_chars = max(0, round(source_excerpt_chars / len(batch_jobs)))
         for job in batch_jobs:
@@ -436,13 +442,13 @@ def main() -> None:
                 parsed=item_parsed,
                 reviewer_model=args.reviewer_model,
                 reviewer_run_id=args.reviewer_run_id,
-                command=command,
-                artifact_paths=artifact_paths,
+                llm_backend=args.llm_backend,
+                generation_result=generation_result,
                 elapsed_ms=elapsed_share_ms,
                 batch_id=batch_id,
                 batch_size=len(batch_jobs),
                 batch_index=batch_index,
-                attempt_count=attempt_count,
+                attempt_count=generation_result.attempt_count,
                 prompt_chars=prompt_share_chars,
                 source_excerpt_chars=source_excerpt_share_chars,
             )
@@ -477,8 +483,8 @@ def main() -> None:
         "teacher_output": normalized_path(args.teacher_output),
         "reviewer_run_id": args.reviewer_run_id,
         "reviewer_model": args.reviewer_model,
-        "reviewer_provider": "codex_cli",
-        "generation_mode": JUDGE_MODE,
+        "reviewer_provider": stage_provider_name(args.llm_backend),
+        "generation_mode": generation_mode_for_backend(JUDGE_MODE, args.llm_backend),
         "selected_jobs": len(jobs),
         "completed_jobs": len(ordered_judges),
         "approved_jobs": sum(1 for row in ordered_reviewed if row["review_status"] == "codex_reviewed"),

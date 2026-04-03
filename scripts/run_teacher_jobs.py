@@ -1,19 +1,25 @@
 from __future__ import annotations
 
 import json
-import os
-import urllib.error
-import urllib.request
 from pathlib import Path
 from typing import Any
 
-from common import make_parser, read_jsonl, write_jsonl
+from common import find_repo_root, make_parser, read_jsonl, write_jsonl
+from llm_json_backends import (
+    OPENAI_API_BASE,
+    OPENROUTER_API_BASE,
+    JsonGenerationRequest,
+    JsonGenerationResult,
+    build_backend_record,
+    provider_name_for_backend,
+    resolve_json_backend,
+)
 
 
 TRANSFORM_PIPELINE_VERSION = "0.7.0"
-OPENAI_API_BASE = "https://api.openai.com/v1"
 RAW_RESPONSE_FORMAT_VERSION = "teacher_response_v1"
 RUNNER_OPENAI_MODE = "teacher_runner_openai_chat_json_v1"
+RUNNER_OPENROUTER_MODE = "teacher_runner_openrouter_chat_json_v1"
 RUNNER_IMPORT_MODE = "teacher_runner_import_v1"
 RUNNER_CODEX_MODE = "teacher_runner_codex_gpt54_v1"
 RUNNER_REPLAY_MODE = "teacher_runner_replay_v1"
@@ -26,6 +32,18 @@ SYSTEM_INSTRUCTION = (
 
 def normalized_path(path: str | Path) -> str:
     return str(path).replace("\\", "/")
+
+
+def safe_slug(text: str) -> str:
+    return "".join(char if char.isalnum() or char in "._-" else "_" for char in text)
+
+
+def generation_mode_for_backend(backend_name: str) -> str:
+    if backend_name == "openai":
+        return RUNNER_OPENAI_MODE
+    if backend_name == "openrouter":
+        return RUNNER_OPENROUTER_MODE
+    raise ValueError(f"Unsupported teacher backend: {backend_name}")
 
 
 def load_jobs(jobs_path: Path) -> list[dict]:
@@ -522,54 +540,15 @@ def build_prompt_payload(job: dict) -> str:
     )
 
 
-def openai_chat_json(
-    *,
-    api_key: str,
-    api_base: str,
-    model: str,
-    system_message: str,
-    user_message: str,
-    response_schema: dict[str, Any],
-    timeout_sec: int,
-) -> dict[str, Any]:
-    request_body = {
-        "model": model,
-        "messages": [
-            {"role": "system", "content": system_message},
-            {"role": "user", "content": user_message},
-        ],
-        "response_format": {
-            "type": "json_schema",
-            "json_schema": {
-                "name": "teacher_candidate_payload",
-                "strict": True,
-                "schema": response_schema,
-            },
-        },
-    }
-    request = urllib.request.Request(
-        url=f"{api_base.rstrip('/')}/chat/completions",
-        method="POST",
-        data=json.dumps(request_body).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        },
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=timeout_sec) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as exc:
-        body = exc.read().decode("utf-8", errors="replace")
-        raise SystemExit(f"OpenAI API request failed with HTTP {exc.code}: {body}") from exc
-    except urllib.error.URLError as exc:
-        raise SystemExit(f"OpenAI API request failed: {exc}") from exc
-
-
-def build_raw_response(job: dict, response_json: dict, teacher_model: str, teacher_run_id: str) -> dict:
-    choice = response_json["choices"][0]
-    content = choice["message"]["content"]
-    parsed_response = json.loads(content)
+def build_raw_response(
+    job: dict,
+    generation_result: JsonGenerationResult,
+    teacher_model: str,
+    teacher_run_id: str,
+    teacher_provider: str,
+    generation_mode: str,
+) -> dict:
+    parsed_response = dict(generation_result.parsed_response)
     return {
         "response_id": f"{teacher_run_id}::{job['job_id']}::response",
         "job_id": job["job_id"],
@@ -582,17 +561,18 @@ def build_raw_response(job: dict, response_json: dict, teacher_model: str, teach
         "task_type": job["task_type"],
         "source_doc_ids": job["source_doc_ids"],
         "source_chunk_ids": job["source_chunk_ids"],
-        "teacher_provider": "openai",
+        "teacher_provider": teacher_provider,
         "teacher_model": teacher_model,
         "teacher_run_id": teacher_run_id,
         "teacher_prompt_version": job["teacher_prompt_version"],
-        "generation_mode": RUNNER_OPENAI_MODE,
+        "generation_mode": generation_mode,
         "response_status": "completed",
         "response_format_version": RAW_RESPONSE_FORMAT_VERSION,
-        "provider_response_id": response_json.get("id"),
-        "raw_text": content,
+        "provider_response_id": generation_result.provider_response_id,
+        "raw_text": generation_result.raw_text,
         "parsed_response": parsed_response,
-        "usage": response_json.get("usage"),
+        "usage": generation_result.usage,
+        **build_backend_record(generation_result),
         "provenance": {
             "transform_pipeline_version": TRANSFORM_PIPELINE_VERSION,
             "source_job_path": "",
@@ -603,33 +583,61 @@ def build_raw_response(job: dict, response_json: dict, teacher_model: str, teach
     }
 
 
-def generate_raw_responses_via_openai(
+def generate_raw_responses_via_llm(
     jobs: list[dict],
     jobs_path: Path,
     *,
-    api_key_env: str,
+    backend_name: str,
+    artifact_root: Path,
     api_base: str,
+    api_key_env: str | None,
     teacher_model: str,
     teacher_run_id: str,
     timeout_sec: int,
 ) -> list[dict]:
-    api_key = os.environ.get(api_key_env)
-    if not api_key:
-        raise SystemExit(f"Environment variable {api_key_env} is required for --mode openai")
+    backend = resolve_json_backend(
+        backend_name,
+        api_base=api_base,
+        api_key_env=api_key_env,
+    )
+    generation_mode = generation_mode_for_backend(backend_name)
+    teacher_provider = provider_name_for_backend(backend_name)
 
     raw_rows: list[dict] = []
     for job in jobs:
         system_message = f"{job['runner_input']['system_message'].strip()}\n\n{build_prompt_payload(job)}"
-        response_json = openai_chat_json(
-            api_key=api_key,
-            api_base=api_base,
-            model=teacher_model,
-            system_message=system_message,
-            user_message=job["runner_input"]["user_message"],
-            response_schema=build_teacher_response_schema(job["expected_output_kind"], job["task_type"]),
-            timeout_sec=timeout_sec,
+        generation_result = backend.generate(
+            JsonGenerationRequest(
+                model=teacher_model,
+                prompt_text=system_message,
+                response_schema=build_teacher_response_schema(job["expected_output_kind"], job["task_type"]),
+                request_payload={
+                    "job_id": job["job_id"],
+                    "teacher_run_id": teacher_run_id,
+                    "teacher_model": teacher_model,
+                    "teacher_provider": teacher_provider,
+                    "generation_mode": generation_mode,
+                    "runner_input": job["runner_input"],
+                    "source_chunk_ids": job["source_chunk_ids"],
+                    "source_doc_ids": job["source_doc_ids"],
+                },
+                artifact_dir=artifact_root / safe_slug(job["job_id"]),
+                timeout_sec=timeout_sec,
+                messages=[
+                    {"role": "system", "content": system_message},
+                    {"role": "user", "content": job["runner_input"]["user_message"]},
+                ],
+                schema_name="teacher_candidate_payload",
+            )
         )
-        raw_row = build_raw_response(job, response_json, teacher_model, teacher_run_id)
+        raw_row = build_raw_response(
+            job,
+            generation_result,
+            teacher_model,
+            teacher_run_id,
+            teacher_provider,
+            generation_mode,
+        )
         raw_row["provenance"]["source_job_path"] = normalized_path(jobs_path)
         raw_rows.append(raw_row)
     return raw_rows
@@ -637,19 +645,20 @@ def generate_raw_responses_via_openai(
 
 def parse_args() -> Any:
     parser = make_parser(
-        "Materialize teacher outputs from stub, replay, import, precomputed Codex raw responses or OpenAI mode."
+        "Materialize teacher outputs from stub, replay, import, precomputed raw responses or OpenAI-compatible JSON generation."
     )
     parser.add_argument("--jobs", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--mode", choices=["codex", "stub", "replay", "import", "openai"], default="stub")
+    parser.add_argument("--mode", choices=["codex", "stub", "replay", "import", "openai", "openrouter"], default="stub")
     parser.add_argument("--teacher-model", default="teacher-stub-no-llm")
     parser.add_argument("--teacher-provider", default="local")
     parser.add_argument("--teacher-run-id", default="teacher_stub_run_v1")
     parser.add_argument("--replay-input")
     parser.add_argument("--import-input")
     parser.add_argument("--raw-output")
-    parser.add_argument("--api-key-env", default="OPENAI_API_KEY")
-    parser.add_argument("--api-base", default=OPENAI_API_BASE)
+    parser.add_argument("--artifact-dir")
+    parser.add_argument("--api-key-env")
+    parser.add_argument("--api-base")
     parser.add_argument("--request-timeout-sec", type=int, default=120)
     parser.add_argument("--job-id", action="append", default=[])
     parser.add_argument("--job-ids-file", action="append", default=[])
@@ -661,15 +670,24 @@ def main() -> None:
     args = parse_args()
     jobs_path = Path(args.jobs)
     jobs = filter_jobs(load_jobs(jobs_path), set(args.job_id), args.job_ids_file, args.limit)
+    repo_root = find_repo_root(Path.cwd())
 
     raw_rows: list[dict] = []
     raw_response_path: str | None = None
-    if args.mode == "openai":
-        raw_rows = generate_raw_responses_via_openai(
+    if args.mode in {"openai", "openrouter"}:
+        default_api_base = OPENAI_API_BASE if args.mode == "openai" else OPENROUTER_API_BASE
+        artifact_root = (
+            Path(args.artifact_dir)
+            if args.artifact_dir
+            else repo_root / "tmp" / "teacher_runs" / args.teacher_run_id / provider_name_for_backend(args.mode)
+        )
+        raw_rows = generate_raw_responses_via_llm(
             jobs,
             jobs_path,
+            backend_name=args.mode,
+            artifact_root=artifact_root,
+            api_base=args.api_base or default_api_base,
             api_key_env=args.api_key_env,
-            api_base=args.api_base,
             teacher_model=args.teacher_model,
             teacher_run_id=args.teacher_run_id,
             timeout_sec=args.request_timeout_sec,
@@ -692,12 +710,12 @@ def main() -> None:
         if args.mode == "replay" and replay_row is None:
             raise SystemExit(f"Replay input missing job_id {job['job_id']}")
         imported_row = imported_rows.get(job["job_id"])
-        if args.mode in {"codex", "import", "openai"} and imported_row is None:
+        if args.mode in {"codex", "import", "openai", "openrouter"} and imported_row is None:
             raise SystemExit(f"Imported/OpenAI response missing job_id {job['job_id']}")
         output = build_output(
             job,
             args.teacher_model,
-            args.teacher_provider if args.mode not in {"codex", "import", "openai"} else "openai",
+            args.teacher_provider if args.mode not in {"codex", "import", "openai", "openrouter"} else args.mode,
             args.teacher_run_id,
             args.mode,
             replay_row,

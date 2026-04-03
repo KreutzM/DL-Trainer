@@ -8,15 +8,18 @@ from codex_cli_support_mvp_common import (
     ANSWER_MODE,
     ANSWER_PROMPT_VERSION,
     TRANSFORM_PIPELINE_VERSION,
-    build_codex_cli_meta,
+    add_llm_backend_args,
+    build_stage_backend_record,
     build_stage_metrics,
     chunked,
     compact_text,
+    generation_mode_for_backend,
     load_repo_text,
     normalized_path,
     repo_root_from_cwd,
-    run_codex_json_generation,
+    run_stage_json_generation,
     safe_slug,
+    stage_provider_name,
     stage_defaults,
 )
 from common import make_parser, read_jsonl, write_json, write_jsonl
@@ -51,6 +54,7 @@ def parse_args() -> Any:
     parser.add_argument("--max-attempts", type=int, default=defaults["max_attempts"])
     parser.add_argument("--codex-config", action="append", default=[])
     parser.add_argument("--timeout-sec", type=int, default=600)
+    add_llm_backend_args(parser)
     return parser.parse_args()
 
 
@@ -202,8 +206,8 @@ def build_raw_row(
     raw_text: str,
     teacher_model: str,
     teacher_run_id: str,
-    command: list[str],
-    artifact_paths: dict[str, Path],
+    llm_backend: str,
+    generation_result: Any,
     elapsed_ms: int,
     batch_id: str,
     batch_size: int,
@@ -224,14 +228,14 @@ def build_raw_row(
         "task_type": job["task_type"],
         "source_doc_ids": job["source_doc_ids"],
         "source_chunk_ids": job["source_chunk_ids"],
-        "teacher_provider": "codex_cli",
+        "teacher_provider": stage_provider_name(llm_backend),
         "teacher_model": teacher_model,
         "teacher_run_id": teacher_run_id,
         "teacher_prompt_version": ANSWER_PROMPT_VERSION,
-        "generation_mode": ANSWER_MODE,
+        "generation_mode": generation_mode_for_backend(ANSWER_MODE, llm_backend),
         "response_status": "completed",
         "response_format_version": RAW_RESPONSE_FORMAT_VERSION,
-        "provider_response_id": None,
+        "provider_response_id": generation_result.provider_response_id,
         "raw_text": raw_text,
         "parsed_response": parsed_response,
         "usage": {
@@ -252,9 +256,8 @@ def build_raw_row(
             "simulator_run_id": user_simulation["simulator_run_id"],
             "simulator_prompt_version": user_simulation["simulator_prompt_version"],
         },
-        "codex_cli": build_codex_cli_meta(
-            command=command,
-            artifact_paths=artifact_paths,
+        **build_stage_backend_record(
+            generation_result,
             batch_id=batch_id,
             batch_size=batch_size,
             batch_index=batch_index,
@@ -358,7 +361,7 @@ def main() -> None:
                 "job_ids": [job["job_id"] for job in batch_jobs],
                 "teacher_run_id": args.teacher_run_id,
                 "teacher_model": args.teacher_model,
-                "generation_mode": ANSWER_MODE,
+                "generation_mode": generation_mode_for_backend(ANSWER_MODE, args.llm_backend),
                 "expected_output_kind": expected_output_kind,
                 "jobs": [
                     {
@@ -374,25 +377,28 @@ def main() -> None:
                 ],
             }
             try:
-                parsed, raw_text, artifact_paths, command, elapsed_ms, attempt_count = run_codex_json_generation(
-                    codex_bin=args.codex_bin,
+                generation_result = run_stage_json_generation(
+                    llm_backend=args.llm_backend,
                     repo_root=repo_root,
                     model=args.teacher_model,
-                    reasoning_effort=args.reasoning_effort,
-                    sandbox=args.sandbox,
-                    schema=build_batch_teacher_response_schema(batch_jobs),
                     prompt_text=prompt_text,
+                    schema=build_batch_teacher_response_schema(batch_jobs),
                     artifact_dir=job_dir,
                     request_payload=request_payload,
-                    extra_config=args.codex_config,
                     timeout_sec=args.timeout_sec,
                     max_attempts=args.max_attempts,
+                    reasoning_effort=args.reasoning_effort,
+                    sandbox=args.sandbox,
+                    codex_bin=args.codex_bin,
+                    extra_config=args.codex_config,
+                    openrouter_api_base=args.openrouter_api_base,
+                    openrouter_api_key_env=args.openrouter_api_key_env,
                 )
             except Exception as exc:
                 for job in batch_jobs:
                     failures.append({"job_id": job["job_id"], "reason": str(exc)})
                 continue
-            items = parsed.get("items")
+            items = generation_result.parsed_response.get("items")
             if not isinstance(items, list):
                 for job in batch_jobs:
                     failures.append({"job_id": job["job_id"], "reason": "batch_response_missing_items"})
@@ -412,9 +418,9 @@ def main() -> None:
                 continue
 
             completed_batches += 1
-            total_elapsed_ms += elapsed_ms
-            total_retry_attempts += max(0, attempt_count - 1)
-            elapsed_share_ms = max(1, round(elapsed_ms / len(batch_jobs)))
+            total_elapsed_ms += generation_result.elapsed_ms
+            total_retry_attempts += max(0, generation_result.attempt_count - 1)
+            elapsed_share_ms = max(1, round(generation_result.elapsed_ms / len(batch_jobs)))
             prompt_share_chars = max(1, round(prompt_chars / len(batch_jobs)))
             source_excerpt_share_chars = max(0, round(source_excerpt_chars / len(batch_jobs)))
             for job in batch_jobs:
@@ -429,13 +435,13 @@ def main() -> None:
                     raw_text=json.dumps(item_parsed, ensure_ascii=False),
                     teacher_model=args.teacher_model,
                     teacher_run_id=args.teacher_run_id,
-                    command=command,
-                    artifact_paths=artifact_paths,
+                    llm_backend=args.llm_backend,
+                    generation_result=generation_result,
                     elapsed_ms=elapsed_share_ms,
                     batch_id=batch_id,
                     batch_size=len(batch_jobs),
                     batch_index=batch_index,
-                    attempt_count=attempt_count,
+                    attempt_count=generation_result.attempt_count,
                     prompt_chars=prompt_share_chars,
                     source_excerpt_chars=source_excerpt_share_chars,
                 )
@@ -463,8 +469,8 @@ def main() -> None:
         "user_simulations": normalized_path(args.user_simulations),
         "teacher_run_id": args.teacher_run_id,
         "teacher_model": args.teacher_model,
-        "teacher_provider": "codex_cli",
-        "generation_mode": ANSWER_MODE,
+        "teacher_provider": stage_provider_name(args.llm_backend),
+        "generation_mode": generation_mode_for_backend(ANSWER_MODE, args.llm_backend),
         "selected_jobs": len(jobs),
         "completed_jobs": len(ordered_raw_rows),
         "skipped_existing_jobs": skipped,

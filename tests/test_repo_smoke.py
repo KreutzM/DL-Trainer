@@ -20,6 +20,7 @@ def test_expected_paths_exist():
         "scripts/run_codex_cli_user_sim_batch.py",
         "scripts/run_codex_cli_support_answer_batch.py",
         "scripts/run_codex_cli_support_judge_batch.py",
+        "scripts/llm_json_backends.py",
         "schemas/teacher_user_simulation.schema.json",
         "schemas/teacher_judge_result.schema.json",
         "prompts/teacher/support_answer.md",

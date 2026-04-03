@@ -1,14 +1,18 @@
 from __future__ import annotations
 
-import json
-import shutil
-import subprocess
-import time
 from itertools import islice
 from pathlib import Path
 from typing import Any
 
-from common import find_repo_root, sha256_file, write_json
+from common import find_repo_root
+from llm_json_backends import (
+    JsonGenerationRequest,
+    JsonGenerationResult,
+    OPENROUTER_API_BASE,
+    build_backend_record,
+    provider_name_for_backend,
+    resolve_json_backend,
+)
 
 
 TRANSFORM_PIPELINE_VERSION = "0.8.0"
@@ -86,161 +90,82 @@ def stage_defaults(stage_mode: str) -> dict[str, Any]:
         raise KeyError(f"Unknown stage mode: {stage_mode}") from exc
 
 
-def build_codex_command(
-    *,
-    codex_bin: str,
-    repo_root: Path,
-    model: str,
-    reasoning_effort: str,
-    sandbox: str,
-    schema_path: Path,
-    output_path: Path,
-    extra_config: list[str],
-) -> list[str]:
-    resolved_codex = shutil.which(codex_bin)
-    if not resolved_codex and Path(codex_bin).suffix == "":
-        resolved_codex = shutil.which(f"{codex_bin}.cmd") or shutil.which(f"{codex_bin}.exe")
-    if not resolved_codex:
-        raise SystemExit(f"Could not resolve Codex CLI binary: {codex_bin}")
-    command = [
-        resolved_codex,
-        "exec",
-        "-m",
-        model,
-        "-s",
-        sandbox,
-        "--skip-git-repo-check",
-        "--ephemeral",
-        "--color",
-        "never",
-        "--output-schema",
-        str(schema_path),
-        "-o",
-        str(output_path),
-        "-C",
-        str(repo_root),
-        "-",
-        "-c",
-        f'reasoning_effort="{reasoning_effort}"',
-    ]
-    for config_value in extra_config:
-        command.extend(["-c", config_value])
-    return command
+def add_llm_backend_args(parser: Any) -> None:
+    parser.add_argument("--llm-backend", choices=["codex_cli", "openrouter"], default="codex_cli")
+    parser.add_argument("--openrouter-api-base", default=OPENROUTER_API_BASE)
+    parser.add_argument("--openrouter-api-key-env", default="OPENROUTER_API_KEY")
 
 
-def run_codex_json_generation(
+def generation_mode_for_backend(stage_mode: str, backend_name: str) -> str:
+    if backend_name == "codex_cli":
+        return stage_mode
+    return stage_mode.replace("codex_cli", backend_name)
+
+
+def stage_provider_name(backend_name: str) -> str:
+    return provider_name_for_backend(backend_name)
+
+
+def run_stage_json_generation(
     *,
-    codex_bin: str,
+    llm_backend: str,
     repo_root: Path,
     model: str,
-    reasoning_effort: str,
-    sandbox: str,
-    schema: dict[str, Any],
     prompt_text: str,
+    schema: dict[str, Any],
     artifact_dir: Path,
     request_payload: dict[str, Any],
-    extra_config: list[str],
     timeout_sec: int,
     max_attempts: int = 1,
-) -> tuple[dict[str, Any], str, dict[str, Path], list[str], int, int]:
-    artifact_dir.mkdir(parents=True, exist_ok=True)
-    request_path = artifact_dir / "request.json"
-    prompt_path = artifact_dir / "prompt.txt"
-    schema_path = artifact_dir / "response_schema.json"
-    response_path = artifact_dir / "last_message.json"
-    stdout_path = artifact_dir / "stdout.txt"
-    stderr_path = artifact_dir / "stderr.txt"
-
-    write_json(request_path, request_payload)
-    write_json(schema_path, schema)
-    prompt_path.write_text(prompt_text, encoding="utf-8")
-
-    command = build_codex_command(
-        codex_bin=codex_bin,
-        repo_root=repo_root,
-        model=model,
-        reasoning_effort=reasoning_effort,
-        sandbox=sandbox,
-        schema_path=schema_path,
-        output_path=response_path,
-        extra_config=extra_config,
-    )
-
-    last_error: RuntimeError | None = None
-    total_elapsed_ms = 0
-    for attempt in range(1, max_attempts + 1):
-        started = time.perf_counter()
-        completed = subprocess.run(
-            command,
-            input=prompt_text,
-            text=True,
-            capture_output=True,
-            cwd=repo_root,
-            timeout=timeout_sec,
-            encoding="utf-8",
+    reasoning_effort: str = "medium",
+    sandbox: str = "read-only",
+    codex_bin: str = "codex",
+    extra_config: list[str] | None = None,
+    openrouter_api_base: str = OPENROUTER_API_BASE,
+    openrouter_api_key_env: str = "OPENROUTER_API_KEY",
+    metadata: dict[str, Any] | None = None,
+) -> JsonGenerationResult:
+    if llm_backend == "codex_cli":
+        backend = resolve_json_backend(
+            llm_backend,
+            repo_root=repo_root,
+            codex_bin=codex_bin,
+            reasoning_effort=reasoning_effort,
+            sandbox=sandbox,
+            extra_config=extra_config,
         )
-        elapsed_ms = int((time.perf_counter() - started) * 1000)
-        total_elapsed_ms += elapsed_ms
-        stdout_path.write_text(completed.stdout or "", encoding="utf-8")
-        stderr_path.write_text(completed.stderr or "", encoding="utf-8")
-
-        if completed.returncode != 0:
-            last_error = RuntimeError(f"codex_exit_{completed.returncode}: {normalized_path(stderr_path)}")
-            continue
-        if not response_path.exists():
-            last_error = RuntimeError(f"missing_last_message: {normalized_path(stderr_path)}")
-            continue
-
-        raw_text = response_path.read_text(encoding="utf-8").strip()
-        try:
-            parsed = json.loads(raw_text)
-        except json.JSONDecodeError as exc:
-            last_error = RuntimeError(f"invalid_json:{exc}: {normalized_path(response_path)}")
-            continue
-        break
     else:
-        if last_error is not None:
-            raise last_error
-        raise RuntimeError(f"codex_unknown_failure: {normalized_path(stderr_path)}")
+        backend = resolve_json_backend(
+            llm_backend,
+            api_base=openrouter_api_base,
+            api_key_env=openrouter_api_key_env,
+        )
+    request = JsonGenerationRequest(
+        model=model,
+        prompt_text=prompt_text,
+        response_schema=schema,
+        request_payload=request_payload,
+        artifact_dir=artifact_dir,
+        timeout_sec=timeout_sec,
+        max_attempts=max_attempts,
+        metadata=metadata or {},
+    )
+    return backend.generate(request)
 
-    artifact_paths = {
-        "request": request_path,
-        "prompt": prompt_path,
-        "schema": schema_path,
-        "response": response_path,
-        "stdout": stdout_path,
-        "stderr": stderr_path,
-    }
-    return parsed, raw_text, artifact_paths, command, total_elapsed_ms, attempt
 
-
-def build_codex_cli_meta(
+def build_stage_backend_record(
+    result: JsonGenerationResult,
     *,
-    command: list[str],
-    artifact_paths: dict[str, Path],
     batch_id: str | None = None,
     batch_size: int | None = None,
     batch_index: int | None = None,
 ) -> dict[str, Any]:
-    portable_command = list(command)
-    if portable_command:
-        binary_name = Path(portable_command[0]).name.lower()
-        if binary_name.startswith("codex"):
-            portable_command[0] = "codex"
-    return {
-        "command": portable_command,
-        "batch_id": batch_id,
-        "batch_size": batch_size,
-        "batch_index": batch_index,
-        "request_path": normalized_path(artifact_paths["request"]),
-        "prompt_path": normalized_path(artifact_paths["prompt"]),
-        "schema_path": normalized_path(artifact_paths["schema"]),
-        "response_path": normalized_path(artifact_paths["response"]),
-        "stdout_path": normalized_path(artifact_paths["stdout"]),
-        "stderr_path": normalized_path(artifact_paths["stderr"]),
-        "prompt_sha256": sha256_file(artifact_paths["prompt"]),
-        "schema_sha256": sha256_file(artifact_paths["schema"]),
-    }
+    return build_backend_record(
+        result,
+        batch_id=batch_id,
+        batch_size=batch_size,
+        batch_index=batch_index,
+    )
 
 
 def build_stage_metrics(
