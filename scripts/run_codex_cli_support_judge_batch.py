@@ -8,6 +8,7 @@ from codex_cli_support_mvp_common import (
     JUDGE_PROMPT_VERSION,
     TRANSFORM_PIPELINE_VERSION,
     add_llm_backend_args,
+    add_llm_profile_args,
     build_stage_backend_record,
     build_stage_metrics,
     chunked,
@@ -16,6 +17,7 @@ from codex_cli_support_mvp_common import (
     load_repo_text,
     normalized_path,
     repo_root_from_cwd,
+    resolve_stage_runtime_settings,
     run_stage_json_generation,
     safe_slug,
     stage_provider_name,
@@ -51,6 +53,7 @@ def parse_args() -> Any:
     parser.add_argument("--codex-config", action="append", default=[])
     parser.add_argument("--timeout-sec", type=int, default=600)
     add_llm_backend_args(parser)
+    add_llm_profile_args(parser)
     return parser.parse_args()
 
 
@@ -298,6 +301,12 @@ def task_alignment_blocking_reasons(raw_row: dict[str, Any], teacher_output: dic
 def main() -> None:
     args = parse_args()
     repo_root = repo_root_from_cwd()
+    runtime = resolve_stage_runtime_settings(
+        args,
+        repo_root=repo_root,
+        stage_mode=JUDGE_MODE,
+        model_arg_name="reviewer_model",
+    )
     jobs_path = Path(args.jobs)
     jobs = filter_jobs(load_jobs(jobs_path), set(args.job_id), args.job_ids_file, args.limit)
     simulations = {row["job_id"]: row for row in read_jsonl(Path(args.user_simulations))}
@@ -353,7 +362,7 @@ def main() -> None:
         else:
             pending_jobs.append(job)
 
-    for batch_index, batch_jobs in enumerate(chunked(pending_jobs, args.batch_size), start=1):
+    for batch_index, batch_jobs in enumerate(chunked(pending_jobs, runtime.batch_size), start=1):
         batch_id = f"{args.reviewer_run_id}::batch::{batch_index:04d}"
         job_dir = artifact_root / safe_slug(batch_id)
         prompt_text = build_prompt(batch_jobs, simulations, teacher_outputs, repo_root=repo_root)
@@ -366,8 +375,8 @@ def main() -> None:
             "batch_id": batch_id,
             "job_ids": [job["job_id"] for job in batch_jobs],
             "reviewer_run_id": args.reviewer_run_id,
-            "reviewer_model": args.reviewer_model,
-            "generation_mode": generation_mode_for_backend(JUDGE_MODE, args.llm_backend),
+            "reviewer_model": runtime.model,
+            "generation_mode": generation_mode_for_backend(JUDGE_MODE, runtime.llm_backend),
             "jobs": [
                 {
                     "job_id": job["job_id"],
@@ -383,21 +392,26 @@ def main() -> None:
         }
         try:
             generation_result = run_stage_json_generation(
-                llm_backend=args.llm_backend,
+                llm_backend=runtime.llm_backend,
                 repo_root=repo_root,
-                model=args.reviewer_model,
+                model=runtime.model,
                 prompt_text=prompt_text,
                 schema=build_judge_schema(batch_jobs),
                 artifact_dir=job_dir,
                 request_payload=request_payload,
-                timeout_sec=args.timeout_sec,
-                max_attempts=args.max_attempts,
-                reasoning_effort=args.reasoning_effort,
-                sandbox=args.sandbox,
-                codex_bin=args.codex_bin,
-                extra_config=args.codex_config,
-                openrouter_api_base=args.openrouter_api_base,
-                openrouter_api_key_env=args.openrouter_api_key_env,
+                timeout_sec=runtime.timeout_sec,
+                max_attempts=runtime.max_attempts,
+                reasoning_effort=runtime.reasoning_effort,
+                sandbox=runtime.sandbox,
+                codex_bin=runtime.codex_bin,
+                extra_config=runtime.codex_config,
+                openrouter_api_base=runtime.openrouter_api_base,
+                openrouter_api_key_env=runtime.openrouter_api_key_env,
+                openrouter_extra_headers=runtime.openrouter_extra_headers,
+                openrouter_provider_options=runtime.openrouter_provider_options,
+                metadata=runtime.profile_metadata(),
+                temperature=runtime.temperature,
+                max_output_tokens=runtime.max_output_tokens,
             )
         except Exception as exc:
             for job in batch_jobs:
@@ -440,9 +454,9 @@ def main() -> None:
                 simulation=simulation,
                 raw_row=raw_row,
                 parsed=item_parsed,
-                reviewer_model=args.reviewer_model,
+                reviewer_model=runtime.model,
                 reviewer_run_id=args.reviewer_run_id,
-                llm_backend=args.llm_backend,
+                llm_backend=runtime.llm_backend,
                 generation_result=generation_result,
                 elapsed_ms=elapsed_share_ms,
                 batch_id=batch_id,
@@ -482,9 +496,9 @@ def main() -> None:
         "raw_output": normalized_path(args.raw_output),
         "teacher_output": normalized_path(args.teacher_output),
         "reviewer_run_id": args.reviewer_run_id,
-        "reviewer_model": args.reviewer_model,
-        "reviewer_provider": stage_provider_name(args.llm_backend),
-        "generation_mode": generation_mode_for_backend(JUDGE_MODE, args.llm_backend),
+        "reviewer_model": runtime.model,
+        "reviewer_provider": stage_provider_name(runtime.llm_backend),
+        "generation_mode": generation_mode_for_backend(JUDGE_MODE, runtime.llm_backend),
         "selected_jobs": len(jobs),
         "completed_jobs": len(ordered_judges),
         "approved_jobs": sum(1 for row in ordered_reviewed if row["review_status"] == "codex_reviewed"),
@@ -499,7 +513,7 @@ def main() -> None:
             completed_jobs=len(ordered_judges),
             skipped_existing_jobs=skipped,
             failed_jobs=failures,
-            batch_size=args.batch_size,
+            batch_size=runtime.batch_size,
             executed_batches=executed_batches,
             completed_batches=completed_batches,
             total_elapsed_ms=total_elapsed_ms,
@@ -508,6 +522,9 @@ def main() -> None:
             total_retry_attempts=total_retry_attempts,
         ),
     }
+    if runtime.profile_metadata():
+        report["llm_profile"] = runtime.profile_metadata()
+        report["llm_profile_runtime"] = runtime.report_summary()
     write_json(Path(args.report_output), report)
     print(f"Wrote {len(ordered_judges)} judge results -> {args.judge_output}")
     print(f"Wrote {len(ordered_reviewed)} auto-reviewed teacher outputs -> {args.reviewed_output}")

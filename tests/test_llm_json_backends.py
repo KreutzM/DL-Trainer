@@ -191,6 +191,8 @@ def test_openrouter_backend_uses_openai_compatible_json_schema(tmp_path: Path, m
             timeout_sec=30,
             messages=[{"role": "user", "content": "prompt"}],
             schema_name="teacher_candidate_payload",
+            temperature=0.2,
+            max_output_tokens=321,
         )
     )
 
@@ -200,6 +202,8 @@ def test_openrouter_backend_uses_openai_compatible_json_schema(tmp_path: Path, m
     assert request_body["response_format"]["type"] == "json_schema"
     assert request_body["response_format"]["json_schema"]["name"] == "teacher_candidate_payload"
     assert request_body["response_format"]["json_schema"]["strict"] is True
+    assert request_body["temperature"] == 0.2
+    assert request_body["max_tokens"] == 321
     assert result.provider_name == "openrouter"
     assert result.provider_response_id == "or-123"
     assert result.parsed_response == _teacher_payload()

@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "profile_sets": {
+    "support_mvp_default": {
+      "description": "Legacy Codex CLI baseline fuer den bestehenden Support-MVP-Pfad.",
+      "stages": {
+        "user_simulation": {
+          "profile_name": "codex_gpt54mini_low_v1",
+          "backend": "codex_cli",
+          "model": "gpt-5.4-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "codex_cli": {
+            "reasoning_effort": "low",
+            "sandbox": "read-only",
+            "extra_config": []
+          }
+        },
+        "answer": {
+          "profile_name": "codex_gpt54_medium_v1",
+          "backend": "codex_cli",
+          "model": "gpt-5.4",
+          "batch_size": 4,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "codex_cli": {
+            "reasoning_effort": "medium",
+            "sandbox": "read-only",
+            "extra_config": []
+          }
+        },
+        "judge": {
+          "profile_name": "codex_gpt54mini_medium_v1",
+          "backend": "codex_cli",
+          "model": "gpt-5.4-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "codex_cli": {
+            "reasoning_effort": "medium",
+            "sandbox": "read-only",
+            "extra_config": []
+          }
+        }
+      }
+    },
+    "support_mvp_openrouter_candidate": {
+      "description": "Nicht-default OpenRouter-Kandidat fuer kontrollierte Vergleichslaufe im Support-MVP.",
+      "stages": {
+        "user_simulation": {
+          "profile_name": "openrouter_gpt41mini_trial_v1",
+          "backend": "openrouter",
+          "model": "openai/gpt-4.1-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "temperature": 0.2,
+          "max_output_tokens": 1200,
+          "openrouter": {
+            "api_base": "https://openrouter.ai/api/v1",
+            "api_key_env": "OPENROUTER_API_KEY",
+            "extra_headers": {},
+            "provider_options": {}
+          }
+        },
+        "answer": {
+          "profile_name": "openrouter_gpt41_trial_v1",
+          "backend": "openrouter",
+          "model": "openai/gpt-4.1",
+          "batch_size": 4,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "temperature": 0.1,
+          "max_output_tokens": 1600,
+          "openrouter": {
+            "api_base": "https://openrouter.ai/api/v1",
+            "api_key_env": "OPENROUTER_API_KEY",
+            "extra_headers": {},
+            "provider_options": {}
+          }
+        },
+        "judge": {
+          "profile_name": "openrouter_gpt41mini_judge_trial_v1",
+          "backend": "openrouter",
+          "model": "openai/gpt-4.1-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "temperature": 0.0,
+          "max_output_tokens": 1200,
+          "openrouter": {
+            "api_base": "https://openrouter.ai/api/v1",
+            "api_key_env": "OPENROUTER_API_KEY",
+            "extra_headers": {},
+            "provider_options": {}
+          }
+        }
+      }
+    }
+  }
+}

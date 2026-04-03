@@ -34,6 +34,8 @@ class JsonGenerationRequest:
     metadata: dict[str, Any] = field(default_factory=dict)
     messages: list[dict[str, str]] | None = None
     schema_name: str = "json_generation_payload"
+    temperature: float | None = None
+    max_output_tokens: int | None = None
 
 
 @dataclass(slots=True)
@@ -154,6 +156,10 @@ class CodexCliJsonBackend:
         return command
 
     def generate(self, request: JsonGenerationRequest) -> JsonGenerationResult:
+        if request.temperature is not None:
+            raise RuntimeError("codex_cli backend does not support temperature")
+        if request.max_output_tokens is not None:
+            raise RuntimeError("codex_cli backend does not support max_output_tokens")
         request.artifact_dir.mkdir(parents=True, exist_ok=True)
         request_path = request.artifact_dir / "request.json"
         prompt_path = request.artifact_dir / "prompt.txt"
@@ -304,6 +310,10 @@ class OpenAICompatibleJsonBackend:
                 },
             },
         }
+        if request.temperature is not None:
+            request_body["temperature"] = request.temperature
+        if request.max_output_tokens is not None:
+            request_body["max_tokens"] = request.max_output_tokens
         request_body.update(self.provider_options)
         write_json(request_body_path, request_body)
 
@@ -381,6 +391,10 @@ class OpenAICompatibleJsonBackend:
         }
         if self.provider_options:
             backend_metadata["provider_options"] = self.provider_options
+        if request.temperature is not None:
+            backend_metadata["temperature"] = request.temperature
+        if request.max_output_tokens is not None:
+            backend_metadata["max_output_tokens"] = request.max_output_tokens
         if request.metadata:
             backend_metadata["request_metadata"] = request.metadata
 

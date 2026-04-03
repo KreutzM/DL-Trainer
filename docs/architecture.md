@@ -42,3 +42,9 @@ Wesentliche Festlegung:
 - `data/gold/` ist die reviewte Freigabezone.
 - `data/exports/` und Training-Outputs sind abgeleitete Verbrauchsartefakte.
 - Legacy-, Probe- und Smoke-Pfade duerfen bestehen bleiben, aber nicht wie produktive Defaults wirken.
+
+## LLM-Konfiguration
+
+- Stage-Profile fuer den Support-MVP liegen in `config/llm_stage_profiles.json`.
+- Der bestehende Default bleibt Codex CLI; Profilsets schalten nur bei expliziter Auswahl um.
+- Der Preflight fuer Profilsets validiert Backend-, Stage- und OpenRouter-Optionen vor dem Lauf.

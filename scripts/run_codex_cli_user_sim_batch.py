@@ -8,6 +8,7 @@ from codex_cli_support_mvp_common import (
     USER_SIMULATION_MODE,
     USER_SIMULATION_PROMPT_VERSION,
     add_llm_backend_args,
+    add_llm_profile_args,
     build_stage_backend_record,
     build_stage_metrics,
     chunked,
@@ -16,6 +17,7 @@ from codex_cli_support_mvp_common import (
     load_repo_text,
     normalized_path,
     repo_root_from_cwd,
+    resolve_stage_runtime_settings,
     run_stage_json_generation,
     safe_slug,
     stage_provider_name,
@@ -46,6 +48,7 @@ def parse_args() -> Any:
     parser.add_argument("--codex-config", action="append", default=[])
     parser.add_argument("--timeout-sec", type=int, default=600)
     add_llm_backend_args(parser)
+    add_llm_profile_args(parser)
     return parser.parse_args()
 
 
@@ -194,6 +197,12 @@ def build_row(
 def main() -> None:
     args = parse_args()
     repo_root = repo_root_from_cwd()
+    runtime = resolve_stage_runtime_settings(
+        args,
+        repo_root=repo_root,
+        stage_mode=USER_SIMULATION_MODE,
+        model_arg_name="simulator_model",
+    )
     jobs_path = Path(args.jobs)
     jobs = filter_jobs(load_jobs(jobs_path), set(args.job_id), args.job_ids_file, args.limit)
     artifact_root = Path(args.artifact_dir)
@@ -222,7 +231,7 @@ def main() -> None:
     executed_batches = 0
     completed_batches = 0
 
-    for batch_index, batch_jobs in enumerate(chunked(pending_jobs, args.batch_size), start=1):
+    for batch_index, batch_jobs in enumerate(chunked(pending_jobs, runtime.batch_size), start=1):
         batch_id = f"{args.simulator_run_id}::batch::{batch_index:04d}"
         job_dir = artifact_root / safe_slug(batch_id)
         prompt_text = build_prompt(batch_jobs, repo_root=repo_root)
@@ -235,8 +244,8 @@ def main() -> None:
             "batch_id": batch_id,
             "job_ids": [job["job_id"] for job in batch_jobs],
             "simulator_run_id": args.simulator_run_id,
-            "simulator_model": args.simulator_model,
-            "generation_mode": generation_mode_for_backend(USER_SIMULATION_MODE, args.llm_backend),
+            "simulator_model": runtime.model,
+            "generation_mode": generation_mode_for_backend(USER_SIMULATION_MODE, runtime.llm_backend),
             "jobs": [
                 {
                     "job_id": job["job_id"],
@@ -252,21 +261,26 @@ def main() -> None:
         }
         try:
             generation_result = run_stage_json_generation(
-                llm_backend=args.llm_backend,
+                llm_backend=runtime.llm_backend,
                 repo_root=repo_root,
-                model=args.simulator_model,
+                model=runtime.model,
                 prompt_text=prompt_text,
                 schema=build_user_simulation_schema(batch_jobs),
                 artifact_dir=job_dir,
                 request_payload=request_payload,
-                timeout_sec=args.timeout_sec,
-                max_attempts=args.max_attempts,
-                reasoning_effort=args.reasoning_effort,
-                sandbox=args.sandbox,
-                codex_bin=args.codex_bin,
-                extra_config=args.codex_config,
-                openrouter_api_base=args.openrouter_api_base,
-                openrouter_api_key_env=args.openrouter_api_key_env,
+                timeout_sec=runtime.timeout_sec,
+                max_attempts=runtime.max_attempts,
+                reasoning_effort=runtime.reasoning_effort,
+                sandbox=runtime.sandbox,
+                codex_bin=runtime.codex_bin,
+                extra_config=runtime.codex_config,
+                openrouter_api_base=runtime.openrouter_api_base,
+                openrouter_api_key_env=runtime.openrouter_api_key_env,
+                openrouter_extra_headers=runtime.openrouter_extra_headers,
+                openrouter_provider_options=runtime.openrouter_provider_options,
+                metadata=runtime.profile_metadata(),
+                temperature=runtime.temperature,
+                max_output_tokens=runtime.max_output_tokens,
             )
         except Exception as exc:
             for job in batch_jobs:
@@ -304,9 +318,9 @@ def main() -> None:
                     job=job,
                     jobs_path=jobs_path,
                     parsed=items_by_job_id[job["job_id"]],
-                    simulator_model=args.simulator_model,
+                    simulator_model=runtime.model,
                     simulator_run_id=args.simulator_run_id,
-                    llm_backend=args.llm_backend,
+                    llm_backend=runtime.llm_backend,
                     generation_result=generation_result,
                     elapsed_ms=elapsed_share_ms,
                     batch_id=batch_id,
@@ -327,9 +341,9 @@ def main() -> None:
     report = {
         "jobs_path": normalized_path(jobs_path),
         "simulator_run_id": args.simulator_run_id,
-        "simulator_model": args.simulator_model,
-        "simulator_provider": stage_provider_name(args.llm_backend),
-        "generation_mode": generation_mode_for_backend(USER_SIMULATION_MODE, args.llm_backend),
+        "simulator_model": runtime.model,
+        "simulator_provider": stage_provider_name(runtime.llm_backend),
+        "generation_mode": generation_mode_for_backend(USER_SIMULATION_MODE, runtime.llm_backend),
         "selected_jobs": len(jobs),
         "completed_jobs": len(ordered_rows),
         "skipped_existing_jobs": skipped,
@@ -341,7 +355,7 @@ def main() -> None:
             completed_jobs=len(ordered_rows),
             skipped_existing_jobs=skipped,
             failed_jobs=failures,
-            batch_size=args.batch_size,
+            batch_size=runtime.batch_size,
             executed_batches=executed_batches,
             completed_batches=completed_batches,
             total_elapsed_ms=total_elapsed_ms,
@@ -350,6 +364,9 @@ def main() -> None:
             total_retry_attempts=total_retry_attempts,
         ),
     }
+    if runtime.profile_metadata():
+        report["llm_profile"] = runtime.profile_metadata()
+        report["llm_profile_runtime"] = runtime.report_summary()
     write_json(Path(args.report_output), report)
     print(f"Wrote {len(ordered_rows)} user simulations -> {args.output}")
     print(f"Wrote user simulation report -> {args.report_output}")
