@@ -114,6 +114,67 @@ def test_resolve_profile_set_rejects_invalid_backend_and_stage(tmp_path: Path) -
     assert "backend must be one of" in message
 
 
+def test_profile_config_rejects_nested_provider_override(tmp_path: Path) -> None:
+    invalid_config = {
+        "version": 1,
+        "profile_sets": {
+            "broken": {
+                "stages": {
+                    "user_simulation": {
+                        "profile_name": "openrouter-user",
+                        "backend": "openrouter",
+                        "model": "openai/gpt-4.1-mini",
+                        "batch_size": 1,
+                        "max_attempts": 1,
+                        "timeout_sec": 10,
+                        "openrouter": {
+                            "api_base": "https://openrouter.ai/api/v1",
+                            "api_key_env": "OPENROUTER_API_KEY",
+                            "extra_headers": {},
+                            "provider_options": {"provider": {"zdr": True}},
+                        },
+                    },
+                    "answer": {
+                        "profile_name": "openrouter-answer",
+                        "backend": "openrouter",
+                        "model": "openai/gpt-4.1",
+                        "batch_size": 1,
+                        "max_attempts": 1,
+                        "timeout_sec": 10,
+                        "openrouter": {
+                            "api_base": "https://openrouter.ai/api/v1",
+                            "api_key_env": "OPENROUTER_API_KEY",
+                            "extra_headers": {},
+                            "provider_options": {},
+                        },
+                    },
+                    "judge": {
+                        "profile_name": "openrouter-judge",
+                        "backend": "openrouter",
+                        "model": "openai/gpt-4.1-mini",
+                        "batch_size": 1,
+                        "max_attempts": 1,
+                        "timeout_sec": 10,
+                        "openrouter": {
+                            "api_base": "https://openrouter.ai/api/v1",
+                            "api_key_env": "OPENROUTER_API_KEY",
+                            "extra_headers": {},
+                            "provider_options": {},
+                        },
+                    },
+                }
+            }
+        },
+    }
+    config_path = tmp_path / "profiles.json"
+    config_path.write_text(json.dumps(invalid_config), encoding="utf-8")
+
+    with pytest.raises(ValueError) as exc:
+        load_profile_config(tmp_path, config_path)
+
+    assert "cannot override reserved request keys: provider" in str(exc.value)
+
+
 def test_resolve_stage_runtime_settings_uses_profile_runtime(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("OPENROUTER_API_KEY", "test-token")
     args = _stage_args(llm_profile_set="support_mvp_openrouter_candidate")

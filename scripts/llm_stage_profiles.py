@@ -12,7 +12,7 @@ from llm_json_backends import OPENROUTER_API_BASE
 DEFAULT_PROFILE_CONFIG_PATH = Path("config/llm_stage_profiles.json")
 MVP_STAGE_NAMES = ("user_simulation", "answer", "judge")
 SUPPORTED_BACKENDS = {"codex_cli", "openrouter"}
-RESERVED_PROVIDER_OPTION_KEYS = {"model", "messages", "response_format", "temperature", "max_tokens"}
+RESERVED_PROVIDER_OPTION_KEYS = {"model", "messages", "response_format", "temperature", "max_tokens", "provider"}
 
 
 @dataclass(slots=True)

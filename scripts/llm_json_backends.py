@@ -273,6 +273,15 @@ class OpenAICompatibleJsonBackend:
         self.extra_headers = dict(extra_headers or {})
         self.provider_options = dict(provider_options or {})
 
+    def _request_body_with_provider_options(self, request_body: dict[str, Any]) -> dict[str, Any]:
+        if not self.provider_options:
+            return request_body
+        if self.provider_name == "openrouter":
+            request_body["provider"] = dict(self.provider_options)
+            return request_body
+        request_body.update(self.provider_options)
+        return request_body
+
     def _resolve_api_key(self) -> str:
         if self.api_key:
             return self.api_key
@@ -314,7 +323,7 @@ class OpenAICompatibleJsonBackend:
             request_body["temperature"] = request.temperature
         if request.max_output_tokens is not None:
             request_body["max_tokens"] = request.max_output_tokens
-        request_body.update(self.provider_options)
+        request_body = self._request_body_with_provider_options(request_body)
         write_json(request_body_path, request_body)
 
         parsed: dict[str, Any] | None = None

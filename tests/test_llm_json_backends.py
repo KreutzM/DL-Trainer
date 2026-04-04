@@ -180,6 +180,13 @@ def test_openrouter_backend_uses_openai_compatible_json_schema(tmp_path: Path, m
         "openrouter",
         api_base="https://openrouter.ai/api/v1",
         api_key="test-token",
+        provider_options={
+            "order": ["openai", "anthropic"],
+            "allow_fallbacks": False,
+            "require_parameters": True,
+            "data_collection": "deny",
+            "zdr": True,
+        },
     )
     result = backend.generate(
         JsonGenerationRequest(
@@ -204,6 +211,18 @@ def test_openrouter_backend_uses_openai_compatible_json_schema(tmp_path: Path, m
     assert request_body["response_format"]["json_schema"]["strict"] is True
     assert request_body["temperature"] == 0.2
     assert request_body["max_tokens"] == 321
+    assert request_body["provider"] == {
+        "order": ["openai", "anthropic"],
+        "allow_fallbacks": False,
+        "require_parameters": True,
+        "data_collection": "deny",
+        "zdr": True,
+    }
+    assert "order" not in request_body
+    assert "allow_fallbacks" not in request_body
+    assert "require_parameters" not in request_body
+    assert "data_collection" not in request_body
+    assert "zdr" not in request_body
     assert result.provider_name == "openrouter"
     assert result.provider_response_id == "or-123"
     assert result.parsed_response == _teacher_payload()
