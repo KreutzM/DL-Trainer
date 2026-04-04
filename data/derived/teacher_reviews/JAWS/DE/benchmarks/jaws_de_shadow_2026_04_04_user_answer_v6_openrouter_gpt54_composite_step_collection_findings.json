@@ -1,0 +1,157 @@
+{
+  "audit_type": "openrouter_composite_step_collection",
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v6_openrouter_gpt54_composite_step_collection",
+  "selection": {
+    "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v6_composite_step_selection.json",
+    "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v6_composite_step_job_ids.txt",
+    "selected_job_count": 13,
+    "task_type_counts": {
+      "step_by_step": 9,
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "troubleshooting": 1,
+      "uncertainty_escalation": 1
+    },
+    "selection_rationale": "Stress subset for branchy and composite step_by_step cases: adjacent procedures in one section, neighboring subgoals that invite over-merging, and procedures whose last meaningful state is easy to overshoot or under-complete.",
+    "new_codex_cli_run_started": false,
+    "new_codex_reference_run_started": false,
+    "promotion_ran": false,
+    "new_model_family": false,
+    "judge_role": "shadow_only_secondary_audit"
+  },
+  "run_configuration": {
+    "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "user_simulation_model": "openai/gpt-5.4-mini",
+    "answer_model": "openai/gpt-5.4",
+    "judge_model": "openai/gpt-5.4"
+  },
+  "metrics": {
+    "overall": {
+      "approve": 10,
+      "reject": 3
+    },
+    "task_type_decisions": {
+      "clarification": {
+        "approve": 1,
+        "reject": 0
+      },
+      "faq_direct_answer": {
+        "approve": 1,
+        "reject": 0
+      },
+      "step_by_step": {
+        "approve": 6,
+        "reject": 3
+      },
+      "troubleshooting": {
+        "approve": 1,
+        "reject": 0
+      },
+      "uncertainty_escalation": {
+        "approve": 1,
+        "reject": 0
+      }
+    },
+    "score_distribution": {
+      "min": 30,
+      "median": 96,
+      "max": 98
+    },
+    "provider_usage_total_cost_usd_estimate": 0.8536
+  },
+  "step_by_step_focus": {
+    "selected_cases": 9,
+    "approved_cases": 6,
+    "rejected_cases": 3,
+    "rejects": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+        "failure_family": "adjacent_procedure_mix",
+        "summary": "Known blocker reproduced. The answer stays close to the source but still collapses opening Stimmeneinstellungen and the separate Stimmenprofil path into one muddled procedure.",
+        "decision_history": {
+          "v4": {
+            "decision": "reject",
+            "quality_score": 41
+          },
+          "v5_isolated": {
+            "decision": "reject",
+            "quality_score": 28
+          },
+          "v6_collection": {
+            "decision": "reject",
+            "quality_score": 54
+          }
+        }
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0006",
+        "failure_family": "branch_scope_collapse",
+        "summary": "The user asks for add or remove, but the answer narrows the scope to install only. This is not a duplicate issue; it is a one-sided choice of one branch from a composite user goal.",
+        "decision_history": {
+          "v4": {
+            "decision": "approve",
+            "quality_score": 93
+          },
+          "v5_isolated": {
+            "decision": "approve",
+            "quality_score": 95
+          },
+          "v6_collection": {
+            "decision": "reject",
+            "quality_score": 43
+          }
+        }
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+        "failure_family": "unnecessary_escalation_on_long_procedure",
+        "summary": "The answer escalates instead of giving the documented SBAK import steps. This is a hard branchy assistant flow, but the observed failure mode is refusal/escalation rather than procedure mixing.",
+        "decision_history": {
+          "v6_collection": {
+            "decision": "reject",
+            "quality_score": 30
+          }
+        }
+      }
+    ],
+    "stable_green_cases": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0007",
+        "why_it_matters": "Composite-adjacent example stays fully green and no longer drifts into an unwanted second procedure."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0007",
+        "why_it_matters": "Branchy add/remove manager flow stays coherent even with speech vs braille branches."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0031",
+        "why_it_matters": "Nested two-dialog save/close flow stays complete and in scope."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0048",
+        "why_it_matters": "Warning/confirmation plus result-dialog flow remains stable."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0063",
+        "why_it_matters": "Delete-then-restore preset flow stays short, complete, and quellentreu."
+      }
+    ]
+  },
+  "control_group": {
+    "all_controls_approved": true,
+    "controls": [
+      "jaws_de_teacher_wave_v1::eval::clarification::0007",
+      "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010",
+      "jaws_de_teacher_wave_v1::eval::troubleshooting::0005",
+      "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0010"
+    ],
+    "interpretation": "No visible spillover into stable non-step_by_step classes in this focused wave."
+  },
+  "interpretation": {
+    "enough_evidence_for_real_residual_pattern": true,
+    "pattern_statement": "There is now enough evidence that a real residual stress family exists around branchy or composite step_by_step requests. However, the family is not perfectly uniform: one case is adjacent-procedure mixing, one is one-sided branch selection, and one is unnecessary escalation on a long guided assistant flow.",
+    "judge_reaction_only": false,
+    "preferred_if_any_future_tuning": "If a final targeted change is attempted later, prefer a tiny example-backed prompt addition over a rubric note. The current failures are answer-generation behavior problems, not primarily judge calibration problems.",
+    "recommended_next_step": "Collect a few more branchy/composite step_by_step examples before changing the prompt again. The evidence is now strong enough to justify focused data collection, but still a bit too heterogeneous for a clean last prompt or rubric edit this cycle."
+  }
+}
