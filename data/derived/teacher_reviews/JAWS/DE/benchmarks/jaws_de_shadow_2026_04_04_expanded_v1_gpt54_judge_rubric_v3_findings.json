@@ -1,0 +1,73 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "audit_type": "judge_step_scope_reaudit",
+  "reference_run": "jaws_de_shadow_2026_04_04_expanded_v1_codex_reference",
+  "baseline_candidate_run": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2",
+  "rerun_candidate_run": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3",
+  "prompt_changes": {
+    "prompt_version": "jaws_de_support_judge_v3",
+    "intent": [
+      "bind_step_by_step_hardening_explicitly_to_task_type_step_by_step",
+      "avoid_projecting_step_by_step_strictness_onto_faq_direct_answer",
+      "keep_other_task_types_on_their_own_task_specific_quality_criteria"
+    ]
+  },
+  "baseline_vs_rerun_metrics": {
+    "v2_openrouter": {
+      "approved": 17,
+      "rejected": 3,
+      "avg_quality_score": 87.2,
+      "faq_direct_answer_avg_quality_score": 87.5,
+      "step_by_step_avg_quality_score": 65.0
+    },
+    "v3_openrouter": {
+      "approved": 17,
+      "rejected": 3,
+      "avg_quality_score": 85.5,
+      "faq_direct_answer_avg_quality_score": 95.0,
+      "step_by_step_avg_quality_score": 63.75
+    }
+  },
+  "key_effects": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "v2_decision": "reject",
+      "v3_decision": "approve",
+      "classification": "faq_spillover_removed",
+      "rationale": "Der v2-Reject war der zentrale Spillover-Befund. Unter v3 wird derselbe Fall wieder als inhaltlich korrekte, dokumentationsgebundene FAQ-Antwort akzeptiert."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "task_type": "step_by_step",
+      "v2_decision": "reject",
+      "v3_decision": "reject",
+      "classification": "step_by_step_hardening_held",
+      "rationale": "Der kritische fehlende Abschlussschritt bleibt klar als schwerwiegender step_by_step-Fehler markiert."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "v2_decision": "reject",
+      "v3_decision": "reject",
+      "classification": "step_by_step_hardening_held",
+      "rationale": "Die Vermischung zweier Prozeduren bleibt weiterhin ein klarer Reject-Grund; die Begruendung ist etwas weicher, aber fachlich stabil."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "task_type": "clarification",
+      "v2_decision": "approve",
+      "v3_decision": "reject",
+      "classification": "new_non_step_side_effect",
+      "rationale": "Der Spillover auf faq_direct_answer ist kleiner geworden, dafuer taucht ein neuer strengerer Clarification-Reject auf. Das wirkt plausibel begruendbar, ist aber ein neuer Nebeneffekt."
+    }
+  ],
+  "recommendation": {
+    "judge": "shadow_only",
+    "step_by_step_scope_better": true,
+    "faq_spillover_reduced": true,
+    "new_side_effects_present": true,
+    "next_step": "do_one_more_small_scope_pass_for_clarification_or_accept_judge_shadow_only_and_expand_audit_coverage_before_any_rollout",
+    "summary": "Die step_by_step-Haerte ist jetzt besser scoped und der faq_direct_answer-Spillover ist beseitigt. Der Judge bleibt dennoch shadow_only, weil ein neuer Clarification-Nebeneffekt auftaucht und die Gesamtstabilitaet ueber Nicht-step_by_step-Klassen noch nicht robust genug ist."
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "baseline": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge_results.jsonl",
+  "candidate": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge_results.jsonl",
+  "focus_task_types": [
+    "faq_direct_answer",
+    "step_by_step"
+  ],
+  "total_jobs": 20,
+  "decision_changes": 2,
+  "avg_quality_score_delta": -1.7,
+  "improved_scores": 5,
+  "worsened_scores": 11,
+  "unchanged_scores": 4,
+  "changed_cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "task_type": "clarification",
+      "baseline_decision": "approve",
+      "candidate_decision": "reject",
+      "baseline_quality_score": 92,
+      "candidate_quality_score": 41,
+      "quality_score_delta": -51,
+      "baseline_summary": "Die Antwort liefert genau eine gezielte Rueckfrage, die die Unklarheit zwischen Auswahl in der Anwendungsliste und Fokusbewegung zur Liste sauber eingrenzt.",
+      "candidate_summary": "Die Rückfrage ist zwar knapp, verfehlt aber den dokumentierten Kern der Nutzerfrage. Statt zwischen Pfeiltasten und Anfangsbuchstaben zu klären, weicht sie auf Fokusbewegung versus Auswahl aus.",
+      "baseline_blocking_reasons": [],
+      "candidate_blocking_reasons": [
+        "Rückfrage grenzt nicht die eigentliche Unsicherheit der Anfrage ein",
+        "Antwort driftet vom dokumentierten Unterschied zwischen Pfeiltasten und Anfangsbuchstaben ab",
+        "Für clarification nicht präzise genug auf den Quellkontext zugeschnitten"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "baseline_decision": "approve",
+      "candidate_decision": "approve",
+      "baseline_quality_score": 95,
+      "candidate_quality_score": 97,
+      "quality_score_delta": 2,
+      "baseline_summary": "Realistische FAQ-Frage; die Antwort ist knapp, direkt und vollständig durch den Quelltext gedeckt.",
+      "candidate_summary": "Die Antwort ist knapp, direkt und deckt die dokumentierte Funktion der Einstellung vollständig ab, einschließlich Standardwert.",
+      "baseline_blocking_reasons": [],
+      "candidate_blocking_reasons": []
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "baseline_decision": "reject",
+      "candidate_decision": "approve",
+      "baseline_quality_score": 62,
+      "candidate_quality_score": 91,
+      "quality_score_delta": 29,
+      "baseline_summary": "Inhaltlich weitgehend quellentreu, aber die Antwort übernimmt Tabellencharakter als lange Aufzählung und ergänzt den Tipp zu JAWS-TASTE+F1, obwohl die Nutzerfrage knapp nach den wichtigsten Befehlen fragt; insgesamt nicht streng genug als Gold-Fall.",
+      "candidate_summary": "Die Antwort fasst die dokumentierten Dialogbefehle korrekt zusammen und ergänzt passend den Hinweis auf die kontextabhängige Hilfe.",
+      "baseline_blocking_reasons": [
+        "Die Antwort ist eher eine fast vollständige Tabellenabschrift statt einer knappen, sauber kuratierten FAQ-Antwort.",
+        "Für eine Frage nach den Befehlen 'die ich kennen sollte' fehlt eine klare Auswahl oder Rahmung; stattdessen wird nahezu alles inklusive Tipp angehängt."
+      ],
+      "candidate_blocking_reasons": []
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "task_type": "step_by_step",
+      "baseline_decision": "reject",
+      "candidate_decision": "reject",
+      "baseline_quality_score": 38,
+      "candidate_quality_score": 24,
+      "quality_score_delta": -14,
+      "baseline_summary": "Die Schrittfolge ist unvollstaendig und bricht vor dem eigentlichen Ziel ab. Der entscheidende letzte Schritt zur Auswahl von Braille-Kurzschrift fehlt.",
+      "candidate_summary": "Die Schrittfolge ist unvollständig und bricht vor dem eigentlichen Ziel ab. Der entscheidende Abschluss zur tatsächlichen Aktivierung der Braille-Kurzschrift fehlt.",
+      "baseline_blocking_reasons": [
+        "Der letzte inhaltlich entscheidende Schritt fehlt; die Antwort endet bei einem Wechsel durch Einstellungen statt bei der Aktivierung von Braille-Kurzschrift",
+        "Die Prozedur ist dadurch nicht bis zum eigentlichen Nutzerziel vollstaendig"
+      ],
+      "candidate_blocking_reasons": [
+        "Letzter entscheidender Schritt zur Aktivierung fehlt",
+        "Prozedur endet nicht beim eigentlichen Ziel des Nutzers",
+        "Schritt 5 ist zudem unklar formuliert und wirkt abgeschnitten"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "baseline_decision": "approve",
+      "candidate_decision": "approve",
+      "baseline_quality_score": 95,
+      "candidate_quality_score": 91,
+      "quality_score_delta": -4,
+      "baseline_summary": "Die Antwort gibt eine kurze, vollstaendige und korrekt geordnete Prozedur zum Oeffnen der Hervorhebungsoptionen wieder.",
+      "candidate_summary": "Die Antwort gibt eine kurze, klare und vollständige Prozedur wieder, um die Hervorhebungsoptionen in der Einstellungsverwaltung zu öffnen.",
+      "baseline_blocking_reasons": [],
+      "candidate_blocking_reasons": []
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+      "task_type": "faq_direct_answer",
+      "baseline_decision": "approve",
+      "candidate_decision": "approve",
+      "baseline_quality_score": 96,
+      "candidate_quality_score": 95,
+      "quality_score_delta": -1,
+      "baseline_summary": "Realistische supportnahe Frage; die Antwort ist präzise, vollständig und eng an den Quelltext gebunden. Sie nennt die Tastenanordnung korrekt und beantwortet auch den Teil zur Verwendung mit Leertaste und Umschalttasten ohne erfundene Details.",
+      "candidate_summary": "Direkte, präzise FAQ-Antwort mit korrekter Tastenanordnung und passender Erklärung zur Verwendung mit Leertaste und Umschalttasten.",
+      "baseline_blocking_reasons": [],
+      "candidate_blocking_reasons": []
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "task_type": "step_by_step",
+      "baseline_decision": "approve",
+      "candidate_decision": "approve",
+      "baseline_quality_score": 99,
+      "candidate_quality_score": 98,
+      "quality_score_delta": -1,
+      "baseline_summary": "Vollständige, korrekt geordnete und exakt dokumentationsgebundene Prozedur ohne Vermischung.",
+      "candidate_summary": "Die Prozedur ist vollständig, korrekt geordnet und entspricht der Quelle praktisch wörtlich.",
+      "baseline_blocking_reasons": [],
+      "candidate_blocking_reasons": []
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "baseline_decision": "reject",
+      "candidate_decision": "reject",
+      "baseline_quality_score": 28,
+      "candidate_quality_score": 42,
+      "quality_score_delta": 14,
+      "baseline_summary": "Die Antwort vermischt zwei verschiedene dokumentierte Prozeduren: Stimmeneinstellungen öffnen/anpassen und anschließend Stimmenprofil auswählen. Das verletzt die Anforderung an eine saubere, einheitliche Schrittfolge.",
+      "candidate_summary": "Die Antwort vermischt zwei getrennte Prozeduren: das Öffnen und Anpassen der Stimmeneinstellungen sowie das spätere Auswählen eines Stimmenprofils. Dadurch ist die Schrittfolge nicht mehr sauber auf das angefragte Ziel begrenzt.",
+      "baseline_blocking_reasons": [
+        "Schwerwiegende Vermischung zweier separater Prozeduren aus der Quelle.",
+        "Die Schrittfolge endet nicht sauber im Zielzustand der ersten Prozedur, sondern springt danach in einen anderen Dialog.",
+        "Für step_by_step ist die Trennung der Prozeduren zentral; genau das ist hier verletzt."
+      ],
+      "candidate_blocking_reasons": [
+        "Vermischung verschiedener Prozeduren, was bei step_by_step schwerwiegend ist",
+        "Schritte 6 und 7 leiten in eine separate Prozedur zum Auswählen eines Stimmenprofils über",
+        "Das eigentliche Ziel ist nach Schritt 5 bereits erreicht, danach driftet die Antwort ab"
+      ]
+    }
+  ]
+}

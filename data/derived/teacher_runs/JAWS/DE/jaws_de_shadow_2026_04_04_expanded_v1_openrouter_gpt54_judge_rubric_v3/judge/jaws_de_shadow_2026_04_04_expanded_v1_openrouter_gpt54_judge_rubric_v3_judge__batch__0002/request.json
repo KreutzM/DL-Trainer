@@ -1,0 +1,127 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge::batch::0002",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+    "jaws_de_teacher_wave_v1::train::clarification::0003",
+    "jaws_de_teacher_wave_v1::train::clarification::0008",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0002"
+  ],
+  "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge",
+  "reviewer_model": "openai/gpt-5.4",
+  "generation_mode": "teacher_judge_openrouter_v1",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "simulation_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003::response",
+      "output_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "simulation_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004::response",
+      "output_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0003",
+      "task_type": "clarification",
+      "simulation_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::train::clarification::0003::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::clarification::0003::response",
+      "output_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::clarification::0003",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0008",
+      "task_type": "clarification",
+      "simulation_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::train::clarification::0008::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::clarification::0008::response",
+      "output_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::clarification::0008",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+      "task_type": "uncertainty_escalation",
+      "simulation_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001::response",
+      "output_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+      "task_type": "uncertainty_escalation",
+      "simulation_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002::response",
+      "output_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "task_type": "step_by_step",
+      "simulation_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::train::step_by_step::0001::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::step_by_step::0001::response",
+      "output_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "simulation_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::train::step_by_step::0002::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::step_by_step::0002::response",
+      "output_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ]
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "judge",
+    "profile_name": "openrouter_gpt54_judge_shadow_v1"
+  }
+}
