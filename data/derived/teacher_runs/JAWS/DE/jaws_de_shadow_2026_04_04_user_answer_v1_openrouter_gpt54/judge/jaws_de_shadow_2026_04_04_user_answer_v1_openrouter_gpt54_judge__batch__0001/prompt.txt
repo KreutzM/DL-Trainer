@@ -1,0 +1,261 @@
+# Teacher Prompt: JAWS-DE Support Judge MVP
+
+## Rolle
+
+Du bist der automatische Qualitaetspruefer fuer einen JAWS-DE-Datensatzfall.
+
+## Ziel
+
+Bewerte, ob eine simulierte Nutzeranfrage und die dazu erzeugte Support-Antwort gemeinsam hochwertig genug fuer einen produktiven Downstream-Pfad sind.
+
+## Pruefkriterien
+
+1. Die Nutzeranfrage wirkt realistisch und supportnah.
+2. Die Nutzeranfrage passt zum dokumentierten Quellkontext.
+3. Die Support-Antwort beantwortet genau diese Anfrage.
+4. Die Support-Antwort bleibt dokumentationsgebunden.
+5. Keine erfundenen Fakten, Menues, Tastenkombinationen oder Voraussetzungen.
+6. Keine Ellipsis-, Tabellen-, Hinweis- oder Label-Artefakte.
+7. Der Fall ist fuer den jeweiligen `task_type` sinnvoll umgesetzt.
+8. Die Antwortform passt zum `task_type`:
+   - `clarification`: genau eine fokussierte Rueckfrage statt direkter Endantwort
+   - `uncertainty_escalation`: sichtbare Evidenzgrenze oder saubere Eskalation
+   - `faq_direct_answer`: direkte, dokumentationsgebundene und fuer die konkrete Frage sinnvoll kuratierte Antwort; nicht nach `step_by_step`-Massstaeben bewerten
+   - `step_by_step`: genau eine saubere, klar geordnete und bis zum eigentlichen Ziel vollstaendige Prozedur
+9. Fuer `step_by_step` gilt zusaetzlich:
+   - Ein fehlender letzter entscheidender Schritt ist schwerwiegend und fuehrt in der Regel zu `reject`.
+   - Eine Vermischung verschiedener Prozeduren, Dialoge oder Abschlusszustaende ist schwerwiegend und fuehrt in der Regel zu `reject`.
+   - Doppelte oder redundante Schrittfolgen sind relevant, aber weniger schwerwiegend als inhaltliche Unvollstaendigkeit oder Prozedurvermischung.
+   - Kleine Struktur- oder Formatmangel sind nachrangig, wenn die Prozedur fachlich korrekt, vollstaendig und in klarer Reihenfolge bleibt.
+   - Diese Zusatzregeln gelten nur fuer `task_type=step_by_step` und sollen nicht pauschal auf andere Task-Typen uebertragen werden.
+
+## Entscheidungsregeln
+
+- `approve` nur bei belastbarer Gesamtqualitaet.
+- `reject`, wenn die Nutzeranfrage unplausibel ist, die Antwort driftet, Fakten erfindet oder offensichtlich nicht gut genug fuer ein Gold-Kandidat ist.
+- Bei `step_by_step` haben fachliche Vollstaendigkeit, korrekte Reihenfolge und saubere Trennung der Prozedur Vorrang vor stilistischen oder rein formatbezogenen Details.
+- Bei `faq_direct_answer` sind vor allem inhaltliche Korrektheit, Dokumentationsbindung, Relevanz und angemessene Kuerze fuer die konkrete Frage entscheidend; eine laengere, aber weiterhin quellentreue Antwort ist nicht automatisch ein `reject`.
+- Sei streng. Lieber `reject` als schwache Daten freigeben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Ausgabe
+
+JSON mit:
+- `decision`
+- `quality_score` als ganze Zahl von 0 bis 100
+- `summary`
+- `blocking_reasons`
+- `strengths`
+- `improvement_notes`
+- `source_chunk_ids_confirmed`
+
+## Batch-Regeln
+- Bewerte jeden Fall separat und gib fuer jede job_id genau eine Entscheidung zurueck.
+- Antworte gesammelt in einem JSON-Objekt mit items[].
+- approve nur bei klar belastbarer Gesamtqualitaet.
+- Wenn Anfrage oder Antwort auch nur leicht zu schwach wirkt, entscheide reject.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::eval::clarification::0001
+- task_type: clarification
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01
+- chunk_type: reference
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Allgemein
+- expected_behavior: Stellt genau eine fokussierte Rueckfrage und grenzt Allgemein sinnvoll ein.
+- user_request:
+Ich suche Hilfe zu JAWS Braille allgemein – geht es dabei um die Braillezeile selbst, die Statuszellen oder eher um die Braille-Formatierung?
+- support_answer:
+Meinen Sie Hilfe zur Braillezeile selbst, zu den Statuszellen oder zur Braille-Formatierung?
+- source_excerpt:
+- [BrailleIn](JAWS_BrailleIn.htm)
+- [Braillezeilen Eingabebefehle](focus/Braille_Display_Input_Commands.htm)
+- [Braille Lern-Modus](Braille_Study_Mode.htm)
+- [Die Modi der Braillezeilen](Braille_Display_Modes.htm)
+- [Statuszellen](Status_Cells.htm)
+- [Braille Blitzmeldungen](Braille_Flash_Messages.htm)
+- [Den Cursor an- und abkoppeln](Linking_and_Unlinking_the_Cursor.htm)
+- [Spezielle JAWS Braille-Kürzel](JAWS_Specific_Braille_Abbreviations.htm)
+- [Braille-Formatierung](Braille_Formatting.htm)
+- [Braille-Einstellungen im laufenden Betrieb vornehmen](braille/adjust_braille_options.htm)
+
+### job_id: jaws_de_teacher_wave_v1::eval::clarification::0002
+- task_type: clarification
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste::chunk_01
+- chunk_type: reference
+- section_path_text: Einstellungsverwaltung Übersicht > Kurztasten zum Navigieren in der Einstellungsverwaltung > Navigation in der Anwendungsliste
+- expected_behavior: Stellt genau eine fokussierte Rueckfrage und grenzt Navigation in der Anwendungsliste sinnvoll ein.
+- user_request:
+Ich komme in der Anwendungsliste in der Einstellungsverwaltung nicht sauber weiter: Soll ich dort mit den Pfeiltasten nach oben und unten navigieren oder über den Anfangsbuchstaben springen?
+- support_answer:
+Möchten Sie in der Anwendungsliste schrittweise mit den Pfeiltasten navigieren oder gezielt per Anfangsbuchstaben zu einem Eintrag springen?
+- source_excerpt:
+- Drücken Sie **UMSCHALT+TAB**, bis der Fokus auf der Ausklappliste für Anwendungen landet.
+- Drücken Sie die **PFEILTASTEN**, um Elemente in der Anwendungsliste auszuwählen.
+- Um Elemente in der Liste auszuwählen, nutzen Sie die Navigation über den Anfangsbuchstaben.
+- Drücken Sie **TAB** oder **UMSCHALT+TAB**, um den Fokus von der Ausklappliste weg zu bewegen.
+
+### job_id: jaws_de_teacher_wave_v1::eval::clarification::0004
+- task_type: clarification
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__den_cursor_an_und_abkoppeln::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Den Cursor an- und abkoppeln
+- expected_behavior: Stellt genau eine fokussierte Rueckfrage und grenzt Den Cursor an- und abkoppeln sinnvoll ein.
+- user_request:
+Bei JAWS Braille: Meinen Sie mit dem Cursor den aktiven Cursor oder den Braillecursor? Ich bin mir nicht sicher, welcher hier gemeint ist.
+- support_answer:
+Geht es Ihnen um die Einstellung „Braille folgt Aktiv“ oder um „Aktiv folgt Braille“?
+- source_excerpt:
+Es gibt zwei Einstellungen, die festlegen, wie eine Braillezeile den Cursor, oder der Cursor die Braillezeile beeinflusst.
+
+- Braille folgt Aktiv: Ist diese Einstellung aktiviert, wenn Sie sich in Windows bewegen, dann werden die Informationen beim aktiven Cursor in Braille angezeigt. Wenn Sie sich zum Beispiel durch die Elemente eines Dialogfelds bewegen, dann werden die Informationen des aktiven Elements in Braille angezeigt.
+- Aktiv folgt Braille: Ist die Einstellung aktiviert, dann folgt der aktive Cursor dem Braillecursor. Allerdings kann der Braillecursor nicht in Bereiche bewegt werden, in die auch der aktive Cursor nicht hinkommen kann. Ist der PC Cursor aktiv und diese Option gesetzt, dann können Sie mit dem Braillecursor zum Beispiel nicht in die Titelzeile des aktiven Fensters gelangen.
+
+Jede dieser Einstellungen kann dauerhaft über die Einstellungsverwaltung oder temporär über die Schnelleinstellung geändert werden. Für weitere Informationen lesen Sie bitte [Brailleeinstellungen anpassen](braille/adjust_braille_options.htm).
+
+Es gibt auch Befehle, mit denen diese Einstellung über Tasten der meisten Braillezeilen umgeschaltet werden können. Bei einer Focus Braillezeile drücken Sie zum Beispiel **T**, um den aktiven Cursor an den Braillecursor zu koppeln, und **F**, um den Braillecursor an den aktiven Cursor zu koppeln. Werden diese Befehle genutzt, dann bleiben diese
+
+### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0002
+- task_type: uncertainty_escalation
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__statuszeile::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Tutorial / Grundlagen > Statuszeile
+- expected_behavior: Markiert die Evidenzgrenze fuer Statuszeile klar und erfindet keine generelle Zusage.
+- user_request:
+Kann ich die Statuszeile in JAWS überall gleich lesen, oder hängt das davon ab, in welcher Anwendung ich gerade bin?
+- support_answer:
+Die Quelle belegt die Lesefunktion per JAWS TASTE+SEITE RUNTER und zeigt an HJPad und Word, dass der Inhalt der Statuszeile anwendungsabhängig sein kann. Eine allgemeine Aussage, dass dies in allen Anwendungen gleich ist, ist damit nicht belegt.
+- source_excerpt:
+Die Statuszeile befindet sich unterhalb des Dokumentfensters und kann mit herkömmlichen Windows Befehlen nicht aktiviert werden. Die Statuszeile liefert nützliche Informationen über Ihr Dokument. In HJPad zeigt sie Erklärungen über das von Ihnen ausgewählte Menüelement an. In Microsoft Word ist die Statuszeile komplizierter aufgebaut. Dort enthält sie Informationen über die Seitenzahl, Abschnittsnummer, die Position der Schreibmarke und vieles andere. Um die Statuszeile mit JAWS zu lesen, drücken Sie **JAWS TASTE+SEITE RUNTER**.
+
+### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003
+- task_type: uncertainty_escalation
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01
+- chunk_type: warning
+- section_path_text: Die Gruppe Sprach- und Sound-Schemata > Einsteiger, Fortgeschrittenen oder Experten Einstellungen > Länge von JAWS Meldungen
+- expected_behavior: Markiert die Evidenzgrenze fuer Länge von JAWS Meldungen klar und erfindet keine generelle Zusage.
+- user_request:
+Wenn ich die Meldungslänge in JAWS auf kurz stelle: Gilt das auch für alle Hinweise und Fehlermeldungen, oder nur für bestimmte Meldungen?
+- support_answer:
+Ja, laut Quelle wirkt die Einstellung für die Meldungslänge auf bestimmte Meldungsarten, nicht nur auf ein Einzelbeispiel. Genannt werden: JAWS Meldungen, Statusmeldungen, JAWS Fehlermeldungen, Meldungen beim Anwendungsstart, Intelligente Hilfemeldungen und Hilfemeldungen. Ob darüber hinaus noch weitere Hinweisarten erfasst sind, belegt die Quelle nicht.
+- source_excerpt:
+Die Länge der Meldungen kann mit zwei Auswahlschaltern angepasst werden, Lange oder kurze Meldungen. Wählen Sie Kurze Meldungen, wenn Sie zusammengefasste Meldungen hören möchten, und wählen Sie Lange Meldungen, wenn Sie detaillierte Meldungen hören möchten. Wenn Sie zum Beispiel in einem Textdokument arbeiten und **STRG+C** drücken, um Text in die Zwischenablage zu kopieren, und die Länge von Meldungen auf Kurz gesetzt ist, sagt JAWS "kopiert". Ist die Länge der Meldungen auf Lang gesetzt, sagt JAWS "Gewählten Text in die Ablage kopiert".
+
+**Tipp:** Sind Sie noch nicht mit Windows, JAWS oder einer speziellen Anwendung vertraut, dann kann es sehr hilfreich sein, wenn man die Meldungslänge auf Lang festlegt. Wenn Sie mit einer speziellen Anwendung, oder mit JAWS und Windows im Allgemeinen, vertrauter sind, dann kann das Festlegen der Meldungslänge auf Kurz Zeit sparen und die Arbeitsleistung erhöhen.
+
+Dinge, die gesprochen werden, und auf die die Länge der Meldungen angewendet werden, sind:
+
+- JAWS Meldungen
+- Statusmeldungen
+- JAWS Fehlermeldungen
+- Meldungen beim Anwendungsstart
+- Intelligente Hilfemeldungen
+- Hilfemeldungen
+
+**Hinweis:** Hilfemeldungen können im Listenfeld "Zu sprechende Elemente" nicht abgeschaltet werden, die Einstellung, ob lange oder kurze Meldungen gesprochen werden, wirkt sich aber auf sie aus.
+
+### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004
+- task_type: uncertainty_escalation
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen::chunk_01
+- chunk_type: warning
+- section_path_text: Schnelleinstellung Übersicht > Speziellen Symbolen Sprache hinzufügen
+- expected_behavior: Markiert die Evidenzgrenze fuer Speziellen Symbolen Sprache hinzufügen klar und erfindet keine generelle Zusage.
+- user_request:
+Wenn JAWS ein Symbol nicht richtig spricht: Kann ich dann immer einfach bei den speziellen Symbolen etwas nachtragen, oder gibt es da Fälle, in denen das nicht sinnvoll ist?
+- support_answer:
+Nicht in jedem Fall. Die Quelle beschreibt diese Funktion nur für den Fall, dass JAWS ein Symbol nicht richtig oder gar nicht spricht, und nennt dabei eine dokumentierte Prüfung: Wenn bei **NUM 5** dreimal auf einem kleinen „a“ nicht „Zeichen U+61HEX“ angesagt wird, sollen die Schritte nicht weiter ausgeführt werden. Eine allgemeine Zusage, dass man immer einfach bei den speziellen Symbolen etwas nachtragen sollte, belegt die Quelle nicht.
+- source_excerpt:
+Obwohl JAWS fast alle häufig genutzten Symbole über die Sprachausgabe wiedergibt, möchten Sie möglicherweise doch noch weitere hinzufügen. Wenn Sie ein Dokument lesen und den Eindruck haben, dass JAWS ein Symbol nicht richtig wiedergibt oder gar nicht spricht, gehen Sie bitte folgendermaßen vor:
+
+1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**) und erweitern Sie die Gruppe Grafiken und Symbole.
+2. Aktivieren Sie das Kontrollfeld Zeichenwert hexadezimal sprechen.
+3. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
+4. Kehren Sie in das Dokument zurück. Bewegen Sie den Cursor auf ein kleines "a" (sollte keines vorhanden sein, dann geben Sie eins ein) und drücken Sie **NUM 5** dreimal hintereinander. JAWS sollte "Zeichen U+61HEX" ansagen. Wenn Sie irgendeine andere Meldung hören, dürfen Sie diese Schritte nicht weiter ausführen.
+5. Bewegen Sie den Cursor auf das Zeichen, dessen Sprachwiedergabe geändert werden soll und drücken Sie **NUM 5** dreimal schnell hintereinander, damit Sie den Hexadezimal Unicode Wert des Zeichen erhalten. Notieren Sie sich sicherheitshalber den Wert, da Sie diesen für die nächsten Schritte benötigen.
+6. Verwenden Sie einen Texteditor wie Notepad und öffnen Sie die SBL Datei für die aktive Sprachausgabe. Zum Beispiel Eloq.sbl. Diese Datei finden Sie im Ordner der gemeinsamen Einstellungen (C:\ProgramData\
+
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0001
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Schreiben in Kurzschrift
+- expected_behavior: Gibt eine kurze Schrittfolge fuer Schreiben in Kurzschrift aus dem Abschnitt wieder.
+- user_request:
+Wie stelle ich in JAWS die Braille-Kurzschrift ein? Ich brauche die Schritte möglichst einfach nacheinander.
+- support_answer:
+So gehen Sie vor:
+1. Drücken Sie **EINFÜGEN+F2** und wählen Sie **Einstellungsverwaltung**.
+2. Wenn sich die Änderung auf alle Anwendungen auswirken soll, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Wenn die Änderung nur für eine bestimmte Anwendung gelten soll, wählen Sie diese in der Ausklappliste **Anwendungen**.
+3. Geben Sie im Sucheingabefeld **„Übersetzung“** ein.
+4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu **Übersetzung** in den gefilterten Suchergebnissen zu gelangen, und drücken Sie **EINGABE**, um den Fokus direkt in die Gruppe **Übersetzung** zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.
+5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einstellungen zu wechseln.
+
+1. Drücken Sie **EINFÜGEN+F2** und wählen Sie **Einstellungsverwaltung**.
+2. Wenn sich die Änderung auf alle Anwendungen auswirken soll, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Wenn die Änderung nur für eine bestimmte Anwendung gelten soll, wählen Sie diese in der Ausklappliste **Anwendungen**.
+3. Geben Sie im Sucheingabefeld **„Übersetzung“** ein.
+4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu **Übersetzung** in den gefilterten Suchergebnissen zu gelangen, und drücken Sie **EINGABE**, um den Fokus direkt in die Gruppe **Übersetzung** zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.
+5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einstellungen zu wechseln.
+- source_excerpt:
+Mit BrailleIn werden Ihre Eingaben umgehend in der aktuellen E-Mail, im Dokument oder in Formularfeldern in normalen Text übersetzt, wenn Sie über die Perkins-Tastatur Braille-Kurzschrift eingeben. Sollte eine Anwendung oder spezielle Eingabefelder keine Kurzschrift unterstützen, dann sagt JAWS "Computer Braille", sofern die Tutormeldungen eingeschaltet sind. Darüberhinaus wird das Symbol für Computer Braille, Punkte 4-5-6 gefolgt von Punkten 3-4-6, auf der Braillezeile dargestellt, um anzuzeigen, dass Computer Braille benötigt wird.
+
+Die Eingabe in Computer-Braille ist standardmäßig ausgewählt. Um die Braillekurzschrift zu verwenden, gehen Sie bitte folgendermaßen vor:
+1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung.
+
+2. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste Anwendungen.
+
+3. Im Sucheingabefeld geben Sie "Übersetzung" ohne Anführungsstriche ein.
+
+4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen und drücken Sie dann **EINGABE**, um den Fokus direkt in die Gruppe Übersetzung zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.
+
+5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einste
+
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0002
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__hervorhebungsoptionen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Einstellungsverwaltung (Settings Center) > Hervorhebungsoptionen
+- expected_behavior: Gibt eine kurze Schrittfolge fuer Hervorhebungsoptionen aus dem Abschnitt wieder.
+- user_request:
+Wie öffne ich in der Einstellungsverwaltung die Hervorhebungsoptionen? Am besten Schritt für Schritt.
+- support_answer:
+So öffnen Sie die Hervorhebungsoptionen:
+1. Öffnen Sie die **Einstellungsverwaltung** und geben Sie **„Hervorhebung“** im Sucheingabefeld ein.
+2. Drücken Sie **PFEIL RUNTER**, um in die gefilterten Ergebnisse zu springen, und wählen Sie **Hervorhebungsfarben konfigurieren**.
+3. Drücken Sie **LEERTASTE**, um das Dialogfenster **Hervorhebungsoptionen** zu öffnen.
+
+1. Öffnen Sie die **Einstellungsverwaltung** und geben Sie **„Hervorhebung“** im Sucheingabefeld ein.
+2. Drücken Sie **PFEIL RUNTER**, um in die gefilterten Ergebnisse zu springen, und wählen Sie **Hervorhebungsfarben konfigurieren**.
+3. Drücken Sie **LEERTASTE**, um das Dialogfenster **Hervorhebungsoptionen** zu öffnen.
+- source_excerpt:
+Mit dem Dialog Optionen für Hervorhebungsfarbe können Sie steuern, wie JAWS auf Hervorhebungsfarben, die Sie für eine Anwendung definiert haben, reagiert. Sie können die Art ändern, wie JAWS Windows-Hervorhebungen und angepasste Hervorhebungen liest, und Sie können bereits zugewiesene Hervorhebungsfarben löschen. Sie können jedoch aus diesem Dialog heraus keine Farbkombinationen von Hand zuweisen. Lesen Sie dazu [Angepasste Hervorhebungsfarben zuweisen](assigning_custom_highlight_colors.htm).
+
+Um diesen Dialog zu öffnen, gehen Sie bitte folgendermaßen vor:
+
+1. Öffnen Sie die Einstellungsverwaltung und geben Sie "Hervorhebung" im Sucheingabefeld ohne Anführungsstriche ein.
+2. Drücken Sie **PFEIL RUNTER**, um in die gefilterten Ergebnisse zu springen und wählen Sie Hervorhebungsfarben konfigurieren.
+3. Drücken Sie **LEERTASTE**, um das Dialogfenster Hervorhebungsoptionen zu öffnen.
+
+Das Dialogfeld enthält die folgenden Elemente:

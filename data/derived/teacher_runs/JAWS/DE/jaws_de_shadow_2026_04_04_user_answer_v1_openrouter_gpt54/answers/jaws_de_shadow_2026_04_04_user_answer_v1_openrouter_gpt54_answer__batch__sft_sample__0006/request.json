@@ -1,0 +1,436 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::batch::sft_sample::0006",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0003",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0002"
+  ],
+  "teacher_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer",
+  "teacher_model": "openai/gpt-5.4",
+  "generation_mode": "teacher_answer_openrouter_v1",
+  "expected_output_kind": "sft_sample",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+      "task_type": "uncertainty_escalation",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "uncertainty_escalation",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_tutorial_basics"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Bei der Strukturansicht in JAWS: Kann ich mich da immer darauf verlassen, dass die Pfeiltasten und der zweite Bereich so verfügbar sind, oder ist das nur in bestimmten Dialogen bzw. Ansichten so?",
+        "user_goal": "Verstehen, ob die Strukturansicht und der zweite Bereich allgemein immer gleich unterstützt werden.",
+        "difficulty": "basic",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Der Nutzer fragt nach den Grenzen und dem allgemeinen Verhalten der Strukturansicht, insbesondere ob die Bedienung überall gleich ist.",
+        "notes": [
+          "Angelehnt an die Strukturansicht aus den Grundlagen.",
+          "Bewusst als allgemeine Verlässlichkeit formuliert.",
+          "Kein Lösungsweg, sondern Abgrenzungsfrage."
+        ],
+        "usage": {
+          "elapsed_ms": 1161,
+          "batch_elapsed_ms": 9288,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 2042,
+          "source_excerpt_chars": 1187
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response.json",
+          "prompt_sha256": "947ebc615592994602040113dcc4b97097539892a76a4bd97ac926696977086c",
+          "schema_sha256": "8ca29b9c8088d7c4b2bda88edaaa774ef6abc3fe0eab2c008040b143e4b032ef",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0003",
+          "batch_size": 8,
+          "batch_index": 3
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_tutorial_basics",
+              "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01",
+              "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht",
+              "section_title": "Strukturansicht",
+              "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/tutorial_basics/index.md#L336-L344"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "In einer Strukturansicht werden Elemente hierarchisch angeordnet und vertikal am Bildschirm dargestellt. Mit **PFEIL RAUF** und **PFEIL RUNTER** bewegen Sie sich durch eine Strukturansicht. Wenn Sie \"Ebene 0 geschlossen\" hören, öffnen Sie mit PFEIL RECHTS diese Ebene. Es erscheinen dann weitere Informationen unterhalb dieser Ebene. Mit **PFEIL RUNTER** bewegen Sie sich durch die Elemente der nächsten Ebene. Auch hier kann ein Element geschlossen sein, so dass Sie wieder mit **PFEIL RECHTS** diese Ebene öffnen können. Sie schließen eine Ebene mit **PFEIL LINKS** oder **RÜCKSCHRITT**.\n\n**Hinweis:** JAWS sagt die Positionsnummer der Ebene nur dann an, wenn sie sich ändert.\n\nUm auf das erste Element in einer Strukturansicht zu springen, drücken Sie **POS1**, mit **ENDE** springen Sie auf das letzte Element.\n\nRechts neben der Strukturansicht befindet sich ein zweiter Bereich, in dem Informationen über das in der Strukturansicht gewählte Element angezeigt werden. Mit **TAB** springen Sie in den rechten Bereich der Strukturansicht. Mit dem Befehl Alles Lesen, **JAWS TASTE+PFEIL RUNTER**, werden diese Informationen vorgelesen. Mit **UMSCHALT+TAB** springen Sie in den ursprünglichen Bereich der Strukturansicht zurück.\n\nQuelle: sample_dialogs.htm",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_tutorial_basics",
+            "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01",
+            "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht",
+            "section_title": "Strukturansicht",
+            "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/tutorial_basics/index.md#L336-L344"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0003",
+      "task_type": "uncertainty_escalation",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__laenge_von_jaws_meldungen_03::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::uncertainty_escalation::0003::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0003",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "uncertainty_escalation",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__laenge_von_jaws_meldungen_03::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Zu den Meldungslängen in JAWS: Wenn ich auf kurze oder lange Meldungen umstelle, gilt das wirklich für alle JAWS-Hinweise, oder gibt es Ausnahmen, bei denen JAWS trotzdem anders spricht?",
+        "user_goal": "Klären, wie weit die Einstellung für kurze und lange Meldungen in JAWS wirkt.",
+        "difficulty": "basic",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Der Nutzer will wissen, ob die Meldungslänge überall gleichermaßen greift oder ob es Ausnahmen gibt.",
+        "notes": [
+          "Bezieht sich auf die Gruppe Sprach- und Sound-Schemata.",
+          "Grenzfrage zu Umfang und Ausnahmen der Einstellung.",
+          "Alltagsnah formuliert."
+        ],
+        "usage": {
+          "elapsed_ms": 1161,
+          "batch_elapsed_ms": 9288,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 2042,
+          "source_excerpt_chars": 1187
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response.json",
+          "prompt_sha256": "947ebc615592994602040113dcc4b97097539892a76a4bd97ac926696977086c",
+          "schema_sha256": "8ca29b9c8088d7c4b2bda88edaaa774ef6abc3fe0eab2c008040b143e4b032ef",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0003",
+          "batch_size": 8,
+          "batch_index": 3
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__laenge_von_jaws_meldungen_03::chunk_01",
+              "section_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__laenge_von_jaws_meldungen_03",
+              "section_title": "Länge von JAWS Meldungen",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L1574-L1587"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Die Länge der Meldungen kann mit zwei Auswahlschaltern angepasst werden, Lange oder kurze Meldungen. Wählen Sie Kurze Meldungen, wenn Sie zusammengefasste Meldungen hören möchten, und wählen Sie Lange Meldungen, wenn Sie detaillierte Meldungen hören möchten. Wenn Sie zum Beispiel in einem Textdokument arbeiten und **STRG+C** drücken, um Text in die Zwischenablage zu kopieren, und die Länge von Meldungen auf Kurz gesetzt ist, sagt JAWS \"kopiert\". Ist die Länge der Meldungen auf Lang gesetzt, sagt JAWS \"Gewählten Text in die Ablage kopiert\".\n\n**Tipp:** Sind Sie noch nicht mit Windows, JAWS oder einer speziellen Anwendung vertraut, dann kann es sehr hilfreich sein, wenn man die Meldungslänge auf Lang festlegt. Wenn Sie mit einer speziellen Anwendung, oder mit JAWS und Windows im Allgemeinen, vertrauter sind, dann kann das Festlegen der Meldungslänge auf Kurz Zeit sparen und die Arbeitsleistung erhöhen.\n\nDinge, die gesprochen werden, und auf die die Länge der Meldungen angewendet werden, sind:\n\n- JAWS Meldungen\n- Statusmeldungen\n- JAWS Fehlermeldungen\n- Meldungen beim Anwendungsstart\n- Intelligente Hilfemeldungen\n- Hilfemeldungen\n\n**Hinweis:** Hilfemeldungen können im Listenfeld \"Zu sprechende Elemente\" nicht abgeschaltet werden, die Einstellung, ob lange oder kurze Meldungen gesprochen werden, wirkt sich aber auf sie aus.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__laenge_von_jaws_meldungen_03::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__laenge_von_jaws_meldungen_03",
+            "section_title": "Länge von JAWS Meldungen",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L1574-L1587"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "task_type": "step_by_step",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::step_by_step::0001::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "step_by_step",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_braille"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Ich nutze eine mehrzeilige Braillezeile und möchte für den geteilten Bereich nicht immer zwei Zeilen verwenden. Können Sie mir bitte Schritt für Schritt sagen, wo ich das in JAWS umstelle?",
+        "user_goal": "Anleitung zum Ändern der Zeilenanzahl für den geteilten Bereich in der Braille-Ansicht.",
+        "difficulty": "intermediate",
+        "phrasing_style": "task_focused",
+        "scenario_summary": "Der Nutzer benötigt eine klare Bedienfolge, um die Zeilenanzahl für den geteilten Braille-Bereich anzupassen.",
+        "notes": [
+          "Soll eine Vorgehensweise abfragen.",
+          "Bezieht sich auf mehrzeilige Braillezeilen und den geteilten Bereich.",
+          "Keine zusätzlichen Menüs erfunden."
+        ],
+        "usage": {
+          "elapsed_ms": 1161,
+          "batch_elapsed_ms": 9288,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 2042,
+          "source_excerpt_chars": 1187
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response.json",
+          "prompt_sha256": "947ebc615592994602040113dcc4b97097539892a76a4bd97ac926696977086c",
+          "schema_sha256": "8ca29b9c8088d7c4b2bda88edaaa774ef6abc3fe0eab2c008040b143e4b032ef",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0003",
+          "batch_size": 8,
+          "batch_index": 3
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_braille",
+              "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01",
+              "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen",
+              "section_title": "Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)",
+              "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:\n\n1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.\n2. Wählen Sie Optionen.\n3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.\n4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen",
+            "section_title": "Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::step_by_step::0002::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "step_by_step",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_tutorial_basics"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Wie öffne ich in JAWS die Stimmeneinstellungen und ändere dort ein Profil? Ich brauche die Schritte möglichst genau, weil ich mich in dem Menü noch nicht gut auskenne.",
+        "user_goal": "Schritt-für-Schritt-Anleitung zum Öffnen der Stimmeneinstellungen und Auswählen eines Stimmenprofils.",
+        "difficulty": "intermediate",
+        "phrasing_style": "task_focused",
+        "scenario_summary": "Der Nutzer möchte eine genaue Bedienfolge für die Stimmeneinstellungen und das Stimmenprofil in JAWS.",
+        "notes": [
+          "Passt zur Tutorial-/Grundlagenbeschreibung.",
+          "Anfrage nach konkreter Vorgehensweise.",
+          "Keine Lösung vorweggenommen."
+        ],
+        "usage": {
+          "elapsed_ms": 1161,
+          "batch_elapsed_ms": 9288,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 2042,
+          "source_excerpt_chars": 1187
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response.json",
+          "prompt_sha256": "947ebc615592994602040113dcc4b97097539892a76a4bd97ac926696977086c",
+          "schema_sha256": "8ca29b9c8088d7c4b2bda88edaaa774ef6abc3fe0eab2c008040b143e4b032ef",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0003",
+          "batch_size": 8,
+          "batch_index": 3
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_tutorial_basics",
+              "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01",
+              "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen",
+              "section_title": "Stimmeneinstellungen",
+              "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/tutorial_basics/index.md#L114-L129"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Die JAWS Stimmeneinstellungen für die Sprachausgabe lassen sich unterschiedlich anpassen, so dass Sie die einzelnen JAWS Funktionen akustisch unterscheiden können. So sollte zum Beispiel die Stimme für den PC Cursor anders eingestellt sein, als die Stimme für das Tastaturecho oder für die Großbuchstabenansage.\n\nGehen Sie bitte folgendermaßen vor, wenn Sie Stimmeneinstellungen öffnen möchten:\n\n1. Drücken Sie **EINFÜGEN+J**, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie **ALT+O**, um das Menü Optionen zu öffnen.\n3. Drücken Sie **T** und dann **EINGABE**, um das Dialogfeld [Stimmeneinstellungen](jfw.chm::/using_jaws/the_jaws_application_window/Voice_Adjustment.htm) zu öffnen. Hier können Sie ein bestehendes Profil oder eine Standard-Stimmenvorlage auswählen und verschiedene Einstellungen, wie Sprache, Stimme, Sprechgeschwindigkeit, Satzzeichenansage und anderes nach Ihren Wünschen konfigurieren.\n4. Nach dem Ändern der Einstellungen, speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.\n\nUm eine Stimmenprofil auszuwählen, gehen Sie bitte folgendermaßen vor:\n\n1. Drücken Sie **JAWS TASTE+STRG+S**, um das Dialogfenster [Stimmenprofil auswählen](jfw.chm::/using_jaws/the_jaws_application_window/language_menu_overview.htm#VoiceProfiles) zu öffnen.\n2. Nutzen Sie die Ausklappliste Standard, um eine Stimmenprofil auszuwählen, dass von JAWS global ",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_tutorial_basics",
+            "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01",
+            "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen",
+            "section_title": "Stimmeneinstellungen",
+            "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/tutorial_basics/index.md#L114-L129"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "answer",
+    "profile_name": "openrouter_gpt54_shadow_v1"
+  }
+}

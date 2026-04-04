@@ -1,0 +1,418 @@
+{
+  "audit_type": "openrouter_shadow_wave_v2_step_by_step_robustness_check",
+  "candidate_run": "jaws_de_shadow_2026_04_04_user_answer_v4_openrouter_gpt54",
+  "baseline_run_for_context": "jaws_de_shadow_2026_04_04_user_answer_v3_openrouter_gpt54",
+  "selection": {
+    "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v4_selection.json",
+    "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v4_job_ids.txt",
+    "selected_job_count": 44,
+    "task_type_counts": {
+      "clarification": 8,
+      "faq_direct_answer": 8,
+      "step_by_step": 12,
+      "troubleshooting": 8,
+      "uncertainty_escalation": 8
+    },
+    "split_task_counts": {
+      "eval": {
+        "clarification": 4,
+        "faq_direct_answer": 4,
+        "step_by_step": 6,
+        "troubleshooting": 4,
+        "uncertainty_escalation": 4
+      },
+      "train": {
+        "clarification": 4,
+        "faq_direct_answer": 4,
+        "step_by_step": 6,
+        "troubleshooting": 4,
+        "uncertainty_escalation": 4
+      }
+    },
+    "seed_job_count": 20,
+    "top_off_job_count": 24,
+    "selection_strategy": "Starts from the existing current_generation_selection seed, then deterministically tops off wave1 jobs without reusing source_chunk_ids. Additional jobs are chosen by split/task target, preferring lower already-selected document counts, then higher fixture quality_score, then stable doc_id/job_id ordering.",
+    "comparison_to_prior_32_wave": {
+      "prior_selection_job_count": 32,
+      "overlap_job_count": 27,
+      "new_top_off_job_count_vs_prior_wave": 17,
+      "removed_job_count_vs_prior_wave": 5,
+      "added_task_type_counts": {
+        "clarification": 2,
+        "faq_direct_answer": 3,
+        "step_by_step": 6,
+        "troubleshooting": 3,
+        "uncertainty_escalation": 3
+      },
+      "removed_job_ids": [
+        "jaws_de_teacher_wave_v1::train::faq_direct_answer::0003",
+        "jaws_de_teacher_wave_v1::train::step_by_step::0005",
+        "jaws_de_teacher_wave_v1::train::step_by_step::0008",
+        "jaws_de_teacher_wave_v1::train::troubleshooting::0002",
+        "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0003"
+      ],
+      "caveat": "The new wave is larger and not a strict same-job superset of the 32-job wave, so the cleanest comparison is overlap-plus-top-off, not raw totals alone."
+    }
+  },
+  "run_configuration": {
+    "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "user_simulation_model": "openai/gpt-5.4-mini",
+    "answer_model": "openai/gpt-5.4",
+    "judge_model": "openai/gpt-5.4",
+    "judge_role": "shadow_only_secondary_audit",
+    "promotion_ran": false,
+    "new_codex_cli_run_started": false,
+    "new_codex_reference_run_started": false,
+    "new_model_family": false
+  },
+  "operational_health": {
+    "jobs_total": 44,
+    "all_stages_completed": true,
+    "failed_jobs_total": 0,
+    "retry_histograms": {
+      "user_simulation": {
+        "1": 44
+      },
+      "answer": {
+        "1": 44
+      },
+      "judge": {
+        "1": 44
+      }
+    },
+    "stage_health": {
+      "user_simulation": {
+        "selected_jobs": 44,
+        "completed_jobs": 44,
+        "failed_jobs": [],
+        "total_retry_attempts": 0,
+        "executed_batches": 6,
+        "completed_batches": 6,
+        "avg_elapsed_ms_per_processed_job": 977.02
+      },
+      "answering": {
+        "selected_jobs": 44,
+        "completed_jobs": 44,
+        "failed_jobs": [],
+        "total_retry_attempts": 0,
+        "executed_batches": 12,
+        "completed_batches": 12,
+        "avg_elapsed_ms_per_processed_job": 3660.68
+      },
+      "judge": {
+        "selected_jobs": 44,
+        "completed_jobs": 44,
+        "failed_jobs": [],
+        "total_retry_attempts": 0,
+        "executed_batches": 6,
+        "completed_batches": 6,
+        "avg_elapsed_ms_per_processed_job": 2616.05
+      }
+    }
+  },
+  "metrics": {
+    "overall_decisions": {
+      "approve": 43,
+      "reject": 1
+    },
+    "score_distribution": {
+      "count": 44,
+      "min": 41,
+      "median": 95.0,
+      "max": 98,
+      "score_bands": {
+        "<60": 1,
+        "60-69": 0,
+        "70-79": 0,
+        "80-89": 2,
+        "90+": 41
+      }
+    },
+    "task_type_distribution": {
+      "clarification": 8,
+      "faq_direct_answer": 8,
+      "step_by_step": 12,
+      "troubleshooting": 8,
+      "uncertainty_escalation": 8
+    },
+    "task_type_decisions": {
+      "clarification": {
+        "approve": 8,
+        "reject": 0
+      },
+      "faq_direct_answer": {
+        "approve": 8,
+        "reject": 0
+      },
+      "step_by_step": {
+        "approve": 11,
+        "reject": 1
+      },
+      "troubleshooting": {
+        "approve": 8,
+        "reject": 0
+      },
+      "uncertainty_escalation": {
+        "approve": 8,
+        "reject": 0
+      }
+    },
+    "provider_usage": {
+      "user_simulation": {
+        "rows_with_provider_usage": 44,
+        "prompt_tokens": 166348,
+        "completion_tokens": 52372,
+        "total_tokens": 218720,
+        "reported_cost_usd_estimate": 0.3604,
+        "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+      },
+      "answer": {
+        "rows_with_provider_usage": 44,
+        "prompt_tokens": 135470,
+        "completion_tokens": 51228,
+        "total_tokens": 186698,
+        "reported_cost_usd_estimate": 1.1071,
+        "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+      },
+      "judge": {
+        "rows_with_provider_usage": 44,
+        "prompt_tokens": 218776,
+        "completion_tokens": 65576,
+        "total_tokens": 284352,
+        "reported_cost_usd_estimate": 1.5306,
+        "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+      }
+    },
+    "provider_usage_total_cost_usd_estimate": 2.9981
+  },
+  "comparison_to_prior_32_wave": {
+    "prior_32_wave_metrics": {
+      "overall_decisions": {
+        "approve": 29,
+        "reject": 3,
+        "step_by_step": {
+          "approve": 5,
+          "reject": 3
+        }
+      }
+    },
+    "new_44_wave_metrics": {
+      "overall_approve": 43,
+      "overall_reject": 1,
+      "step_by_step": {
+        "approve": 11,
+        "reject": 1
+      }
+    },
+    "overlap_metrics": {
+      "job_count": 27,
+      "overall_v3": {
+        "approve": 25,
+        "reject": 2
+      },
+      "overall_v4": {
+        "approve": 26,
+        "reject": 1
+      },
+      "step_by_step_v3": {
+        "approve": 4,
+        "reject": 2
+      },
+      "step_by_step_v4": {
+        "approve": 5,
+        "reject": 1
+      },
+      "decision_flips": [
+        {
+          "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+          "task_type": "step_by_step",
+          "baseline_v3_decision": "reject",
+          "shadow_v2_decision": "approve",
+          "baseline_v3_score": 45,
+          "shadow_v2_score": 95,
+          "note": "Fresh user_sim + answer + judge on a larger wave; this is not a same-simulation pure prompt-isolation comparison."
+        }
+      ]
+    },
+    "added_slice_metrics": {
+      "job_count": 17,
+      "overall": {
+        "approve": 17
+      },
+      "by_task_type": {
+        "clarification": {
+          "job_count": 2,
+          "approve": 2,
+          "reject": 0,
+          "job_ids": [
+            "jaws_de_teacher_wave_v1::eval::clarification::0007",
+            "jaws_de_teacher_wave_v1::train::clarification::0005"
+          ]
+        },
+        "faq_direct_answer": {
+          "job_count": 3,
+          "approve": 3,
+          "reject": 0,
+          "job_ids": [
+            "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0006",
+            "jaws_de_teacher_wave_v1::train::faq_direct_answer::0006",
+            "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010"
+          ]
+        },
+        "step_by_step": {
+          "job_count": 6,
+          "approve": 6,
+          "reject": 0,
+          "job_ids": [
+            "jaws_de_teacher_wave_v1::eval::step_by_step::0006",
+            "jaws_de_teacher_wave_v1::eval::step_by_step::0007",
+            "jaws_de_teacher_wave_v1::train::step_by_step::0003",
+            "jaws_de_teacher_wave_v1::train::step_by_step::0006",
+            "jaws_de_teacher_wave_v1::train::step_by_step::0009",
+            "jaws_de_teacher_wave_v1::train::step_by_step::0012"
+          ]
+        },
+        "troubleshooting": {
+          "job_count": 3,
+          "approve": 3,
+          "reject": 0,
+          "job_ids": [
+            "jaws_de_teacher_wave_v1::eval::troubleshooting::0003",
+            "jaws_de_teacher_wave_v1::train::troubleshooting::0001",
+            "jaws_de_teacher_wave_v1::train::troubleshooting::0005"
+          ]
+        },
+        "uncertainty_escalation": {
+          "job_count": 3,
+          "approve": 3,
+          "reject": 0,
+          "job_ids": [
+            "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0006",
+            "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0006",
+            "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0010"
+          ]
+        }
+      }
+    }
+  },
+  "step_by_step_reading": {
+    "wave_v4": {
+      "approve": 11,
+      "reject": 1
+    },
+    "prior_wave_v3": {
+      "approve": 5,
+      "reject": 3
+    },
+    "overlap_to_prior_wave": {
+      "job_count": 6,
+      "v3": {
+        "approve": 4,
+        "reject": 2
+      },
+      "v4": {
+        "approve": 5,
+        "reject": 1
+      }
+    },
+    "new_top_off_step_by_step_slice": {
+      "job_count": 6,
+      "decisions": {
+        "approve": 6
+      },
+      "job_ids": [
+        "jaws_de_teacher_wave_v1::eval::step_by_step::0006",
+        "jaws_de_teacher_wave_v1::eval::step_by_step::0007",
+        "jaws_de_teacher_wave_v1::train::step_by_step::0003",
+        "jaws_de_teacher_wave_v1::train::step_by_step::0006",
+        "jaws_de_teacher_wave_v1::train::step_by_step::0009",
+        "jaws_de_teacher_wave_v1::train::step_by_step::0012"
+      ]
+    },
+    "remaining_rejects": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+        "quality_score": 41,
+        "summary": "Die Antwort vermischt zwei getrennte Prozeduren und bleibt für das genannte Ziel unvollständig. Sie nennt zwar die Öffnung von Stimmeneinstellungen und Stimmenprofil-Auswahl, aber keine saubere, bis zum Ziel vollständige Schrittfolge.",
+        "blocking_reasons": [
+          "Vermischung zweier separater Prozeduren aus der Quelle",
+          "Kein sauberer Abschluss der Schritte zum tatsächlichen Ziel",
+          "Für step_by_step nicht als eine klar geordnete vollständige Prozedur umgesetzt"
+        ],
+        "request_text": "Ich möchte die Stimmeneinstellungen in JAWS öffnen und ein Stimmenprofil auswählen. Können Sie mir die genaue Reihenfolge der Tastenkombinationen dafür geben?",
+        "answer_lead_in": "Gehen Sie so vor:",
+        "steps": [
+          "Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.",
+          "Drücken Sie ALT+O, um das Menü Optionen zu öffnen.",
+          "Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.",
+          "Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.",
+          "Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen."
+        ],
+        "failure_pattern": "mixed_procedures_plus_incomplete_goal_state"
+      }
+    ],
+    "borderline_cases": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0007",
+        "decision": "approve",
+        "quality_score": 89,
+        "summary": "Die Antwort beantwortet die Frage nach dem Virtualisieren des aktuellen Steuerelements korrekt und mit einer dokumentierten Kurzprozedur anhand des Beispiels.",
+        "blocking_reasons": [],
+        "request_text": "Kann ich mir das aktuelle Steuerelement in JAWS virtualisieren, statt gleich das ganze Fenster zu nehmen? Wenn ja, wie gehe ich dabei vor?",
+        "answer_lead_in": "Ja. So virtualisieren Sie nur das aktuelle Steuerelement:",
+        "steps": [
+          "Öffnen Sie den Windows Explorer mit WINDOWSTASTE+E.",
+          "Drücken Sie TAB, um auf die Dateienliste zu springen.",
+          "Drücken Sie EINFÜGEN+UMSCHALT+V. Jetzt erscheint nur die Dateienliste im Virtuellen Betrachter."
+        ]
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+        "decision": "reject",
+        "quality_score": 41,
+        "summary": "Die Antwort vermischt zwei getrennte Prozeduren und bleibt für das genannte Ziel unvollständig. Sie nennt zwar die Öffnung von Stimmeneinstellungen und Stimmenprofil-Auswahl, aber keine saubere, bis zum Ziel vollständige Schrittfolge.",
+        "blocking_reasons": [
+          "Vermischung zweier separater Prozeduren aus der Quelle",
+          "Kein sauberer Abschluss der Schritte zum tatsächlichen Ziel",
+          "Für step_by_step nicht als eine klar geordnete vollständige Prozedur umgesetzt"
+        ],
+        "request_text": "Ich möchte die Stimmeneinstellungen in JAWS öffnen und ein Stimmenprofil auswählen. Können Sie mir die genaue Reihenfolge der Tastenkombinationen dafür geben?",
+        "answer_lead_in": "Gehen Sie so vor:",
+        "steps": [
+          "Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.",
+          "Drücken Sie ALT+O, um das Menü Optionen zu öffnen.",
+          "Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.",
+          "Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.",
+          "Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen."
+        ]
+      }
+    ],
+    "error_pattern_readout": {
+      "duplicate_or_redundant_step_sequences_visible": false,
+      "answer_plus_steps_double_emission_visible": false,
+      "mixed_procedure_failures_visible": true,
+      "missing_or_incomplete_goal_state_visible": true,
+      "interpretation": "The old duplication family is absent in this 44-job wave. The only remaining step_by_step reject still combines mixed-procedure drift with an incomplete goal-achieving sequence."
+    }
+  },
+  "side_effects_outside_step_by_step": {
+    "new_rejects_outside_step_by_step": 0,
+    "all_other_task_types_fully_approved": true,
+    "task_types": [
+      "clarification",
+      "faq_direct_answer",
+      "troubleshooting",
+      "uncertainty_escalation"
+    ],
+    "summary": "No non-step_by_step class produced a reject in the 44-job wave, including the newly added top-off cases."
+  },
+  "conclusion": {
+    "holds_under_larger_shadow_wave": true,
+    "step_by_step_more_robust": true,
+    "step_by_step_still_main_blocker": true,
+    "main_remaining_failure_mode": "procedural completeness plus occasional procedure-mixing on harder composite requests",
+    "robust_enough_for_still_larger_shadow_waves": true,
+    "why": "The larger 44-job wave finished cleanly, the added 17-job top-off slice approved cleanly, all non-step_by_step classes stayed fully approved, and step_by_step dropped to a single reject out of twelve. The remaining failure is narrow and high-signal rather than broad instability.",
+    "next_sensible_step": "Prefer one more narrow prompt pass on step_by_step completeness/composite-procedure scoping, then continue with broader shadowing rather than spending the next iteration on judge changes."
+  }
+}

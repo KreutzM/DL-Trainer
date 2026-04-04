@@ -1,0 +1,120 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_answer::batch::eval_case::0002",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003"
+  ],
+  "teacher_run_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_answer",
+  "teacher_model": "openai/gpt-5.4",
+  "generation_mode": "teacher_answer_openrouter_v1",
+  "expected_output_kind": "eval_case",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Wofür brauche ich in JAWS die Einstellung \"Länge des Textblocks\" genau?",
+        "user_goal": "Eine direkte, kurze Erklärung zur Funktion \"Länge des Textblocks\" bekommen.",
+        "difficulty": "basic",
+        "phrasing_style": "neutral",
+        "scenario_summary": "Der Nutzer möchte wissen, welchen Zweck die Einstellung \"Länge des Textblocks\" im Bereich Navigation hat.",
+        "notes": [
+          "Frage zielt direkt auf die dokumentierte Funktion beim Springen zum nächsten Text ohne Link.",
+          "Erwartet eine knappe, faktenbasierte Antwort."
+        ],
+        "usage": {
+          "elapsed_ms": 949,
+          "batch_elapsed_ms": 7592,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1806,
+          "source_excerpt_chars": 912
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/response.json",
+          "prompt_sha256": "88aa2316b6b0d912e178f417837867a3eff99302721d683419367ee917434c06",
+          "schema_sha256": "d03d77e4f1344fe45c1ad61ffaf40ea92c339339d7ab13d860376281b22c6430",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim::batch::0001",
+          "batch_size": 8,
+          "batch_index": 1
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01",
+              "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks",
+              "section_title": "Länge des Textblocks",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L2371-L2371"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Wenn Sie **JAWS TASTE+EINGABE** drücken, um zum nächsten Text zu springen, der kein Link ist, sucht JAWS nach einem Textblock, der nicht Teil eines Links ist und so viele oder mehr Zeichen aufweist, wie der Wert, der hier angegeben wird. Der Standardwert ist 25.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks",
+            "section_title": "Länge des Textblocks",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L2371-L2371"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "answer",
+    "profile_name": "openrouter_gpt54_shadow_v1"
+  }
+}

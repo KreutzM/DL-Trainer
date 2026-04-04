@@ -1,0 +1,14 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "audit_type": "judge_borderline_audit",
+  "subset_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_borderline_audit_subset.json",
+  "findings_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_borderline_audit_findings.json",
+  "notes_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_borderline_audit_notes.md",
+  "selected_case_count": 12,
+  "headline_result": {
+    "judge_recommendation": "shadow_only",
+    "larger_shadow_wave_ready_as_secondary_judge": true,
+    "step_by_step_still_main_blocker": true,
+    "next_step": "continue_shadow_auditing_before_any_new_prompt_tuning_or_rollout_change"
+  }
+}

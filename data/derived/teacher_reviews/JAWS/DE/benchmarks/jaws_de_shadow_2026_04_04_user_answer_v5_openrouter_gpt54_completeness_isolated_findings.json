@@ -1,0 +1,86 @@
+{
+  "audit_type": "openrouter_step_by_step_completeness_pass",
+  "baseline_run": "jaws_de_shadow_2026_04_04_user_answer_v4_openrouter_gpt54",
+  "candidate_run": "jaws_de_shadow_2026_04_04_user_answer_v5_openrouter_gpt54_completeness_isolated",
+  "selection": {
+    "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v4_selection.json",
+    "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v4_job_ids.txt",
+    "job_count": 44,
+    "comparison_basis": "same 44 job ids and the same saved v4 user simulations",
+    "user_simulations_reused_from": "data/derived/user_simulations/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v4_openrouter_gpt54_user_simulations.jsonl",
+    "new_codex_cli_run_started": false,
+    "new_codex_reference_run_started": false,
+    "promotion_ran": false,
+    "new_model_family": false,
+    "judge_role": "shadow_only_secondary_audit"
+  },
+  "prompt_changes": {
+    "teacher_prompt_version_before": "jaws_de_support_answer_mvp_v3",
+    "teacher_prompt_version_after": "jaws_de_support_answer_mvp_v4",
+    "target_task_type": "step_by_step",
+    "derived_guardrails": [
+      "If source context or user goal touches adjacent but separate procedures, choose one continuous documented flow instead of building a hybrid.",
+      "Carry the procedure to the actual requested target state; the last step must reach or confirm that state, not only open the next dialog.",
+      "Keep the first and last step inside the same documented procedure when the source contains neighboring subgoals."
+    ],
+    "files": [
+      "prompts/teacher/jaws_de_support_answer_mvp.md",
+      "scripts/run_codex_cli_support_answer_batch.py",
+      "scripts/codex_cli_support_mvp_common.py"
+    ]
+  },
+  "metrics": {
+    "baseline_v4": {
+      "overall": {
+        "approve": 43,
+        "reject": 1
+      },
+      "step_by_step": {
+        "approve": 11,
+        "reject": 1
+      }
+    },
+    "candidate_v5_isolated": {
+      "overall": {
+        "approve": 43,
+        "reject": 1
+      },
+      "step_by_step": {
+        "approve": 11,
+        "reject": 1
+      }
+    },
+    "decision_flips_total": 0,
+    "decision_flips_outside_step_by_step": 0
+  },
+  "step_by_step_focus": {
+    "remaining_reject_job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+    "baseline_v4": {
+      "decision": "reject",
+      "quality_score": 41,
+      "failure_shape": "mixed two adjacent procedures and stopped without a clean goal-completing finish"
+    },
+    "candidate_v5_isolated": {
+      "decision": "reject",
+      "quality_score": 28,
+      "failure_shape": "over-corrected into only the direct voice-profile path and dropped the documented opening sequence for Stimmeneinstellungen"
+    },
+    "other_step_by_step_cases_stable": true,
+    "borderline_step_by_step_cases": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0007",
+        "baseline_v4_score": 89,
+        "candidate_v5_isolated_score": 88,
+        "decision": "approve"
+      }
+    ]
+  },
+  "interpretation": {
+    "improved_target_case": false,
+    "new_spillover": false,
+    "step_by_step_mostly_robust": true,
+    "step_by_step_still_main_blocker": true,
+    "remaining_problem_shape": "The blocker stays narrow but is better described as composite-goal scoping plus completeness on hard step_by_step requests, not just a missing final step.",
+    "next_sensible_step": "Do not broaden the prompt further. Prefer collecting and shadowing a few more hard composite-goal step_by_step examples, then decide whether a more specific data-backed prompt example or rubric note is justified."
+  }
+}

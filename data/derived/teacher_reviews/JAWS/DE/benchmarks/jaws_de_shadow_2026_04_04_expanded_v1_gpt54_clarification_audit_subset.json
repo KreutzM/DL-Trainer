@@ -1,0 +1,399 @@
+{
+  "scope": {
+    "task_type": "clarification",
+    "included_runs": {
+      "codex": {
+        "run_name": "jaws_de_shadow_2026_04_04_expanded_v1_codex_reference",
+        "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_codex_reference_pipeline_report.json"
+      },
+      "openrouter_v1": {
+        "run_name": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1",
+        "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_pipeline_report.json"
+      },
+      "openrouter_v2": {
+        "run_name": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2",
+        "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_pipeline_report.json"
+      },
+      "openrouter_v3": {
+        "run_name": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3",
+        "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_pipeline_report.json"
+      }
+    },
+    "supplemental_runs": [
+      {
+        "run_name": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1",
+        "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_pipeline_report.json"
+      }
+    ]
+  },
+  "selected_case_count": 4,
+  "run_case_counts": {
+    "codex": 4,
+    "openrouter_v1": 4,
+    "openrouter_v2": 4,
+    "openrouter_v3": 4
+  },
+  "decision_counts": {
+    "codex": {
+      "approve": 4
+    },
+    "openrouter_v1": {
+      "approve": 4
+    },
+    "openrouter_v2": {
+      "approve": 4
+    },
+    "openrouter_v3": {
+      "approve": 3,
+      "reject": 1
+    }
+  },
+  "mismatch_counts_vs_codex": {
+    "openrouter_v1": 0,
+    "openrouter_v2": 0,
+    "openrouter_v3": 1
+  },
+  "classification_hint_counts": {
+    "stable_alignment": 3,
+    "v3_outlier": 1
+  },
+  "cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0001",
+      "target_split": "eval",
+      "task_type": "clarification",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L1033-L1042"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 95,
+          "summary": "Die Anfrage ist realistisch und die Antwort stellt genau eine fokussierte Rückfrage, die den Bereich Braille > Allgemein sinnvoll eingrenzt.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 96,
+          "summary": "Realistische supportnahe Anfrage; die Antwort stellt genau eine fokussierte Rückfrage und grenzt sauber zwischen allgemeinen Braille-Funktionen und Focus-Braillezeile ein.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 96,
+          "summary": "Realistische supportnahe Anfrage; die Antwort stellt genau eine passende Rueckfrage zur sinnvollen Abgrenzung zwischen allgemeinen Braille-Funktionen und Focus.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 95,
+          "summary": "Plausible supportnahe Anfrage; die Antwort stellt genau eine fokussierte Rückfrage und grenzt sauber zwischen allgemeinen Braille-Funktionen und Focus ab.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Meinen Sie eine kurze Übersicht, welche Themen unter Braille > Allgemein aufgeführt sind, oder suchen Sie Hilfe zu einem bestimmten Punkt wie Statuszellen, Braille-Formatierung oder Braille-Blitzmeldungen?"
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Geht es bei Ihrer Frage um allgemeine Braille-Funktionen in JAWS oder um eine Focus-Braillezeile?"
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Geht es bei Ihrer Frage um allgemeine Braille-Funktionen in JAWS oder um eine Focus-Braillezeile?"
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Geht es bei Ihrer Frage um allgemeine Braille-Funktionen in JAWS oder um eine Focus-Braillezeile?"
+        }
+      },
+      "supplemental_runs": [
+        {
+          "run_name": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1",
+          "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_pipeline_report.json",
+          "answer": {
+            "review_status": "codex_reviewed",
+            "teacher_provider": "openrouter",
+            "teacher_model": "openai/gpt-5.4",
+            "teacher_run_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_answer",
+            "answer_text": "Meinen Sie mit „Allgemein“ eher Themen zur Anzeige und Ausgabe auf der Braillezeile, zum Beispiel Modi, Statuszellen oder Blitzmeldungen, oder geht es Ihnen um Eingabe über die Brailletastatur und Eingabebefehle?"
+          },
+          "judge": {
+            "decision": "approve",
+            "quality_score": 96,
+            "summary": "Realistische supportnahe Anfrage; die Antwort stellt genau eine fokussierte Rückfrage und grenzt den Bereich „Allgemein“ sinnvoll entlang der in der Quelle genannten Themen ein.",
+            "blocking_reasons": [],
+            "reviewer_prompt_version": "jaws_de_support_judge_v1",
+            "reviewer_model": "openai/gpt-5.4",
+            "reviewer_run_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_judge"
+          }
+        }
+      ],
+      "classification_hint": "stable_alignment"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "target_split": "eval",
+      "task_type": "clarification",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1008-L1011"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 93,
+          "summary": "Die Frage ist supportnah und die Antwort fragt präzise nach dem relevanten Fokuszustand in der Anwendungsliste.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 88,
+          "summary": "Die Antwort ist eine einzelne, fokussierte Rückfrage zur Eingrenzung, ob Auswahl in der Anwendungsliste oder nur Fokusnavigation gemeint ist; insgesamt brauchbar und dokumentationsnah.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 92,
+          "summary": "Die Antwort liefert genau eine gezielte Rueckfrage, die die Unklarheit zwischen Auswahl in der Anwendungsliste und Fokusbewegung zur Liste sauber eingrenzt.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "reject",
+          "quality_score": 41,
+          "summary": "Die Rückfrage ist zwar knapp, verfehlt aber den dokumentierten Kern der Nutzerfrage. Statt zwischen Pfeiltasten und Anfangsbuchstaben zu klären, weicht sie auf Fokusbewegung versus Auswahl aus.",
+          "blocking_reasons": [
+            "Rückfrage grenzt nicht die eigentliche Unsicherheit der Anfrage ein",
+            "Antwort driftet vom dokumentierten Unterschied zwischen Pfeiltasten und Anfangsbuchstaben ab",
+            "Für clarification nicht präzise genug auf den Quellkontext zugeschnitten"
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Meinen Sie den Fall, dass der Fokus noch nicht auf der Ausklappliste für Anwendungen steht?"
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Meinen Sie die Auswahl eines Eintrags in der Anwendungsliste oder nur das Bewegen des Fokus zur Anwendungsliste?"
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Meinen Sie die Auswahl eines Eintrags in der Anwendungsliste oder nur das Bewegen des Fokus zur Anwendungsliste?"
+        },
+        "openrouter_v3": {
+          "review_status": "rejected",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Meinen Sie die Auswahl eines Eintrags in der Anwendungsliste oder nur das Bewegen des Fokus zur Anwendungsliste?"
+        }
+      },
+      "supplemental_runs": [],
+      "classification_hint": "v3_outlier"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0003",
+      "target_split": "train",
+      "task_type": "clarification",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1019-L1025"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 94,
+          "summary": "Die Rueckfrage ist fokussiert, passt zur Nutzerabsicht und bleibt quellengebunden.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 94,
+          "summary": "Saubere, fokussierte Rückfrage, die die mehrdeutige Bitte sinnvoll eingrenzt, ohne vorschnell eine Endantwort zu geben.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 93,
+          "summary": "Saubere, einzelne Rückfrage, die den offenen Umfang der Anfrage sinnvoll eingrenzt und dabei eng am Quellkontext bleibt.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 95,
+          "summary": "Die Antwort stellt genau eine sinnvolle Rückfrage, um den Umfang zwischen Grundnavigation und erweiterten Aktionen in der Strukturansicht zu klären.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Geht es Ihnen vor allem darum, wie Sie Gruppen in der Strukturansicht erweitern oder reduzieren und dann zwischen den Einträgen weiter navigieren?"
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Möchten Sie nur die Tasten zum Bewegen und Auf- bzw. Zuklappen in der Strukturansicht wissen, oder auch die weiteren Tasten zum Auswählen, Status ändern und Wechseln in den Einstellungsbereich?"
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Möchten Sie nur die Tasten zum Bewegen und Auf- bzw. Zuklappen in der Strukturansicht wissen, oder auch die weiteren Tasten zum Auswählen, Status ändern und Wechseln in den Einstellungsbereich?"
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Möchten Sie nur die Tasten zum Bewegen und Auf- bzw. Zuklappen in der Strukturansicht wissen, oder auch die weiteren Tasten zum Auswählen, Status ändern und Wechseln in den Einstellungsbereich?"
+        }
+      },
+      "supplemental_runs": [],
+      "classification_hint": "stable_alignment"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0008",
+      "target_split": "train",
+      "task_type": "clarification",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L6029-L6036"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 91,
+          "summary": "Die Rueckfrage ist eine saubere, eng gefasste Klaerung zum Alltagseinsatz von Aria und Web.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 92,
+          "summary": "Gute Rückfrage für eine breit formulierte Anfrage zu ARIA- und Web-Neuerungen; sie grenzt den gewünschten Umfang sinnvoll ein.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 94,
+          "summary": "Die Rückfrage ist fokussiert, sinnvoll und passend, weil die Nutzerfrage sehr breit auf mehrere Neuerungen im Bereich ARIA und Web zielt.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 93,
+          "summary": "Die Rückfrage ist fokussiert und sinnvoll, weil die Quelle mehrere unterschiedliche Neuerungen zu ARIA und Web bündelt.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Geht es Ihnen vor allem um die Einordnung der Web-Funktionen im Browser-Alltag, zum Beispiel bei Tabellen, Regionen, Links und Aria-Elementen?"
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Möchten Sie eine kurze Übersicht aller genannten Web- und ARIA-Neuerungen, oder geht es Ihnen um einen bestimmten Punkt wie Tabellen, Regionen, Fortschrittsbalken oder mathematische Elemente?"
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Möchten Sie eine kurze Übersicht aller genannten Web- und ARIA-Neuerungen, oder geht es Ihnen um einen bestimmten Punkt wie Tabellen, Regionen, Fortschrittsbalken oder mathematische Elemente?"
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Möchten Sie eine kurze Übersicht aller genannten Web- und ARIA-Neuerungen, oder geht es Ihnen um einen bestimmten Punkt wie Tabellen, Regionen, Fortschrittsbalken oder mathematische Elemente?"
+        }
+      },
+      "supplemental_runs": [],
+      "classification_hint": "stable_alignment"
+    }
+  ]
+}

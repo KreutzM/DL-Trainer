@@ -1,0 +1,140 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_sim_gpt41mini_answer_gpt54_benchmark_v1",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v4_selection.json",
+  "reference_run_name": "jaws_de_shadow_2026_04_04_user_answer_v4_openrouter_gpt54",
+  "candidate_model_rationale": {
+    "tested_user_sim_model": "openai/gpt-4.1-mini",
+    "why_this_candidate": [
+      "OpenRouter lists GPT-4.1 Mini at $0.40/M input and $1.60/M output tokens.",
+      "The current GPT-5.4 Mini user-sim baseline is listed at $0.75/M input and $4.50/M output tokens.",
+      "That keeps the candidate materially cheaper while staying on an OpenAI instruction-following model likely to preserve structure better than a harder jump to a different family."
+    ],
+    "stages": {
+      "user_simulation": "openai/gpt-4.1-mini",
+      "answer": "openai/gpt-5.4",
+      "judge": "openai/gpt-5.4"
+    }
+  },
+  "selection_scope": {
+    "jobs_total": 44,
+    "same_as_reference_v4": true,
+    "task_type_counts": {
+      "clarification": 8,
+      "faq_direct_answer": 8,
+      "step_by_step": 12,
+      "troubleshooting": 8,
+      "uncertainty_escalation": 8
+    }
+  },
+  "metrics": {
+    "reference": {
+      "overall": {
+        "approve": 43,
+        "reject": 1
+      },
+      "step_by_step": {
+        "approve": 11,
+        "reject": 1
+      },
+      "user_sim_provider_cost_usd_estimate": 0.3604
+    },
+    "candidate": {
+      "overall": {
+        "approve": 42,
+        "reject": 2
+      },
+      "step_by_step": {
+        "approve": 10,
+        "reject": 2
+      },
+      "user_sim_provider_cost_usd_estimate": 0.155
+    },
+    "delta": {
+      "overall_approve": -1,
+      "overall_reject": 1,
+      "step_by_step_approve": -1,
+      "step_by_step_reject": 1,
+      "user_sim_provider_cost_usd_estimate": -0.2054,
+      "user_sim_provider_cost_relative_change": -0.57
+    }
+  },
+  "decision_flips": {
+    "count": 3,
+    "all_within_step_by_step": true,
+    "items": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+        "reference_decision": "approve",
+        "reference_quality_score": 95,
+        "candidate_decision": "reject",
+        "candidate_quality_score": 62,
+        "pattern": "User request became more explicit about the final goal state, and the answer then missed the final takeover/confirmation step."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+        "reference_decision": "reject",
+        "reference_quality_score": 41,
+        "candidate_decision": "approve",
+        "candidate_quality_score": 92,
+        "pattern": "User request narrowed away from the mixed voice-profile path and stayed inside one documented Stimmeneinstellungen procedure."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0003",
+        "reference_decision": "approve",
+        "reference_quality_score": 98,
+        "candidate_decision": "reject",
+        "candidate_quality_score": 38,
+        "pattern": "User request overreached to an unsupported end goal ('als Standard festlegen'), so the answer could only satisfy the opening subset of the request."
+      }
+    ]
+  },
+  "user_sim_shift": {
+    "request_length_avg_chars": {
+      "reference": 164.8,
+      "candidate": 174.6
+    },
+    "difficulty_counts": {
+      "reference": {
+        "advanced": 1,
+        "basic": 20,
+        "intermediate": 23
+      },
+      "candidate": {
+        "advanced": 1,
+        "basic": 23,
+        "intermediate": 20
+      }
+    },
+    "phrasing_style_counts": {
+      "reference": {
+        "frustrated": 2,
+        "neutral": 6,
+        "task_focused": 13,
+        "uncertain": 23
+      },
+      "candidate": {
+        "frustrated": 2,
+        "neutral": 27,
+        "task_focused": 3,
+        "uncertain": 12
+      }
+    },
+    "summary": "The cheaper user-sim candidate stayed structurally valid but shifted toward more neutral and slightly more explicit requests. That helped in one composite step case, but it also created stricter or partially unsupported end-goal asks in two other step_by_step cases."
+  },
+  "qualitative_readout": {
+    "stable_classes": [
+      "clarification",
+      "faq_direct_answer",
+      "troubleshooting",
+      "uncertainty_escalation"
+    ],
+    "step_by_step_effect": "Indirectly worse overall. The class still contains the only rejects, and the candidate run moves from 11/1 to 10/2 in step_by_step.",
+    "judge_read": "No new spillover outside step_by_step. The changes read as real downstream effects from different user requests rather than broad judge drift."
+  },
+  "conclusion": {
+    "switch_user_sim_now": false,
+    "keep_answer_on_gpt54": true,
+    "summary": "GPT-4.1 Mini delivers a meaningful user-sim cost reduction, but on this controlled 44-job benchmark it makes the net downstream result slightly worse by destabilizing step_by_step. The non-step classes remain fully stable, so the candidate is promising but not yet strong enough for a blind user-sim switch.",
+    "next_step": "If price-performance work continues, keep Answer on GPT-5.4 and run one more small step_by_step-sensitive user-sim benchmark or tighten the user-sim prompt on goal scoping before any switch decision."
+  }
+}

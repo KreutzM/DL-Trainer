@@ -1,0 +1,224 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer::batch::eval_case::0003",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004"
+  ],
+  "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+  "teacher_model": "openai/gpt-5.4",
+  "generation_mode": "teacher_answer_openrouter_v1",
+  "expected_output_kind": "eval_case",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Wofür ist die Einstellung „Länge des Textblocks“ in JAWS gedacht?",
+        "user_goal": "Ich möchte wissen, wie diese Einstellung beim Springen zum nächsten nicht verlinkten Text wirkt.",
+        "difficulty": "basic",
+        "phrasing_style": "neutral",
+        "scenario_summary": "Direkte Frage nach dem Zweck der Einstellung „Länge des Textblocks“ in der Gruppe Navigation der Sprachausgaben.",
+        "notes": [
+          "Soll knapp beantwortbar sein.",
+          "Bezug auf das Springen zum nächsten Text ohne Link."
+        ],
+        "usage": {
+          "elapsed_ms": 1102,
+          "batch_elapsed_ms": 8816,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1861,
+          "source_excerpt_chars": 994
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim__batch__0002/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim__batch__0002/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim__batch__0002/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim__batch__0002/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim__batch__0002/response.json",
+          "prompt_sha256": "ece0801c0efc7f3ec494687c565684ef340074b7544beaa7b5c12d89322ab6f1",
+          "schema_sha256": "cfe75013165f18fbd2fb5d098bfb655fba66240405b95e402d87397dac6cf716",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::batch::0002",
+          "batch_size": 8,
+          "batch_index": 2
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01",
+              "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks",
+              "section_title": "Länge des Textblocks",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L2371-L2371"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Wenn Sie **JAWS TASTE+EINGABE** drücken, um zum nächsten Text zu springen, der kein Link ist, sucht JAWS nach einem Textblock, der nicht Teil eines Links ist und so viele oder mehr Zeichen aufweist, wie der Wert, der hier angegeben wird. Der Standardwert ist 25.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks",
+            "section_title": "Länge des Textblocks",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L2371-L2371"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_hilfe_kernfunktionen"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Welche JAWS-Befehle sollte ich für das Arbeiten in Dialogen kennen?",
+        "user_goal": "Ich suche eine kurze Übersicht über die wichtigsten Tastenbefehle in Dialogfenstern.",
+        "difficulty": "basic",
+        "phrasing_style": "task_focused",
+        "scenario_summary": "Direkte Informationsfrage zu den Befehlen zum Arbeiten in Dialogen.",
+        "notes": [
+          "Soll auf die Befehlsliste hinauslaufen.",
+          "Kontextabhängige Hilfe per JAWS-Taste+F1 darf erwähnt werden, aber nicht als Lösung vorwegnehmen."
+        ],
+        "usage": {
+          "elapsed_ms": 1102,
+          "batch_elapsed_ms": 8816,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1861,
+          "source_excerpt_chars": 994
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim__batch__0002/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim__batch__0002/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim__batch__0002/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim__batch__0002/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim__batch__0002/response.json",
+          "prompt_sha256": "ece0801c0efc7f3ec494687c565684ef340074b7544beaa7b5c12d89322ab6f1",
+          "schema_sha256": "cfe75013165f18fbd2fb5d098bfb655fba66240405b95e402d87397dac6cf716",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_user_sim::batch::0002",
+          "batch_size": 8,
+          "batch_index": 2
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_hilfe_kernfunktionen",
+              "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01",
+              "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen",
+              "section_title": "JAWS Befehle zum Arbeiten in Dialogen",
+              "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2379-L2399"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Tabelle: Befehle zum Arbeiten in Dialogen\n\n| Beschreibung | Befehl |\n| --- | --- |\n| Standardschalter ansagen | JAWS TASTE+E |\n| Kurztaste des aktuellen Steuerelements ansagen | UMSCHALT+NUM 5 |\n| Aktuelles Fenster lesen | JAWS TASTE+B |\n| Fenstertyp und Text lesen | JAWS TASTE+TAB |\n| Wort im Kontext lesen | JAWS TASTE+C |\n| Ausklappliste öffnen | ALT+PFEIL RUNTER |\n| Ausklappliste schließen | ALT+PFEIL RAUF |\n| Mehrere Listenelemente markieren | STRG+UMSCHALT oder STRG+LEERTASTE |\n| Alle Markierungen aufheben | STRG+\\ |\n| Spalten 1 bis 10 der Listenansicht lesen | STRG+JAWS TASTE+1 bis 0 |\n\n**Tipp:** Wenn Sie auf einem Steuerelement des Dialogfensters **JAWS-TASTE+F1** drücken, erhalten Sie eine kontextabhängige Hilfe.\n\n*Siehe auch:*\n[Windows Befehle für das Arbeiten in Dialogfeldern](../standard_windows_keystrokes/windows_keystrokes_for_working_in_dialog_boxes.htm)\n\nQuelle: jaws_keystrokes_for_working_in_dialog_boxes.htm",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen",
+            "section_title": "JAWS Befehle zum Arbeiten in Dialogen",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2379-L2399"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "answer",
+    "profile_name": "openrouter_gpt54_shadow_v1"
+  }
+}

@@ -25,6 +25,7 @@ Dieses Repository erzeugt aus Produkthandbüchern versionierte Datenartefakte f�
 - Erzeuge deterministische Outputs, wenn möglich.
 - Bewahre Tabellen, Warnhinweise, Tastenkombinationen und Versionshinweise.
 - Wenn Unsicherheit über Quelltreue besteht, markiere den Fall statt zu raten.
+- Nutze den Codex-CLI-Pfad nur in echten Ausnahmefällen. Vor jeder erneuten Nutzung dieses Pfads muss immer erst explizit nachgefragt und eine Freigabe eingeholt werden, da dieser Pfad teuer ist.
 - Beende jeden inhaltlichen Arbeitslauf in reviewbarem Git-Status: sinnvolle Commits, klare Zusammenfassung, kein unfertiger Rest ohne Hinweis.
 
 ## Git-Workflow

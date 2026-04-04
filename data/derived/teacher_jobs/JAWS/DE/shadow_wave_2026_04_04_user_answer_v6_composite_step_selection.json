@@ -1,0 +1,68 @@
+{
+  "selection_id": "jaws_de_shadow_wave_2026_04_04_user_answer_v6_composite_step",
+  "workflow_role": "shadow_wave_user_answer_gpt54_composite_step_collection",
+  "jobs_file": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v6_composite_step_job_ids.txt",
+  "selected_job_count": 13,
+  "selection_summary": {
+    "train_examples": 9,
+    "eval_examples": 4,
+    "task_types": [
+      "clarification",
+      "faq_direct_answer",
+      "step_by_step",
+      "troubleshooting",
+      "uncertainty_escalation"
+    ],
+    "task_type_counts": {
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "step_by_step": 9,
+      "troubleshooting": 1,
+      "uncertainty_escalation": 1
+    },
+    "focus_task_type_counts": {
+      "step_by_step": 9
+    },
+    "selection_strategy": "Manually curated composite-step stress subset. Prioritizes step_by_step jobs whose source excerpts contain adjacent procedures, branchy neighboring subgoals, or fragile goal-closing steps that are easy to over-merge or over-scope. Adds four stable non-step controls to detect spillover.",
+    "composite_step_hypotheses": [
+      "adjacent documented procedures in one source section",
+      "branching subgoals such as add/remove/modify or import/merge/overwrite",
+      "fragile final goal state that can drift into a nearby but different dialog or follow-up path"
+    ]
+  },
+  "historical_source": {
+    "baseline_prompt_isolation_run": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_user_answer_v5_openrouter_gpt54_completeness_isolated_findings.json",
+    "current_prompt_version": "jaws_de_support_answer_mvp_v4"
+  },
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0006",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0007",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0007",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0017",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0031",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0048",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0063",
+    "jaws_de_teacher_wave_v1::eval::clarification::0007",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0005",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0010"
+  ],
+  "selection_notes": {
+    "jaws_de_teacher_wave_v1::train::step_by_step::0002": "Known residual blocker: one section carries both opening Stimmeneinstellungen and separate Stimmenprofil selection.",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0006": "User wording asks for add/remove while excerpt foregrounds installation; tests one-sided scope drift.",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0007": "Example procedure can drift from virtualization into copying/sending follow-up actions.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0007": "Procedure branches between speech and braille devices plus add/remove/modify subgoals.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0017": "Installation flow ends with setup completion, restart, and later usability; tests clean goal closure.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0031": "Nested flow opens one dialog from another and requires saving/closing both without losing scope.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0048": "Import from previous version includes destructive warning confirmation and result dialog; tests final-state handling.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0061": "Import assistant contains multiple stages and later branch points around merge behavior.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0063": "Resetting a preset voice profile uses delete-then-reselect; easy to confuse restoration target.",
+    "jaws_de_teacher_wave_v1::eval::clarification::0007": "Stable control from clarification.",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010": "Stable control from faq_direct_answer.",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0005": "Stable control from troubleshooting.",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0010": "Stable control from uncertainty_escalation."
+  }
+}

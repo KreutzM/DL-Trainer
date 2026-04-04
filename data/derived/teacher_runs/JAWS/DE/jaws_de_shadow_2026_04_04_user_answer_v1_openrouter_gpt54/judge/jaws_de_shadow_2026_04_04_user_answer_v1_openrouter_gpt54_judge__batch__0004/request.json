@@ -1,0 +1,127 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_judge::batch::0004",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::train::step_by_step::0005",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0008",
+    "jaws_de_teacher_wave_v1::train::troubleshooting::0002",
+    "jaws_de_teacher_wave_v1::train::troubleshooting::0003",
+    "jaws_de_teacher_wave_v1::train::troubleshooting::0004",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0003"
+  ],
+  "reviewer_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_judge",
+  "reviewer_model": "openai/gpt-5.4",
+  "generation_mode": "teacher_judge_openrouter_v1",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0005",
+      "task_type": "step_by_step",
+      "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::step_by_step::0005::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::step_by_step::0005::response",
+      "output_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::step_by_step::0005",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__braillesymbole_hinzufuegen_und_veraendern::chunk_02"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0008",
+      "task_type": "step_by_step",
+      "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::step_by_step::0008::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::step_by_step::0008::response",
+      "output_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::step_by_step::0008",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__text_auf_einer_braillezeile_markieren::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0002",
+      "task_type": "troubleshooting",
+      "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::troubleshooting::0002::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::troubleshooting::0002::response",
+      "output_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::troubleshooting::0002",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__windows_explorer__dateien_suchen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0003",
+      "task_type": "troubleshooting",
+      "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::troubleshooting::0003::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::troubleshooting::0003::response",
+      "output_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::troubleshooting::0003",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0004",
+      "task_type": "troubleshooting",
+      "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::troubleshooting::0004::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::troubleshooting::0004::response",
+      "output_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::troubleshooting::0004",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+      "task_type": "faq_direct_answer",
+      "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::faq_direct_answer::0001::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::faq_direct_answer::0001::response",
+      "output_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+      "task_type": "faq_direct_answer",
+      "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::faq_direct_answer::0002::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::faq_direct_answer::0002::response",
+      "output_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::faq_direct_answer::0003::simulation",
+      "response_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::faq_direct_answer::0003::response",
+      "output_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::jaws_de_teacher_wave_v1::train::faq_direct_answer::0003",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__schlauer_navigationsmodus::chunk_03"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ]
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "judge",
+    "profile_name": "openrouter_gpt54_judge_shadow_v1"
+  }
+}

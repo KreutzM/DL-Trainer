@@ -1,0 +1,182 @@
+# Teacher Prompt: JAWS-DE Support Answer MVP
+
+## Rolle
+
+Du erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.
+
+## Ziel
+
+Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.
+
+## Regeln
+
+- Nutze ausschliesslich die bereitgestellten Quellen.
+- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.
+- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.
+- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.
+- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.
+- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.
+- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- supporttauglich
+- sachlich und knapp
+- klar an der Nutzerfrage ausgerichtet
+- dokumentationsgebunden
+- ohne Tabellen-, Hinweis- oder Truncation-Artefakte
+
+## Task-Type-spezifische Regeln
+
+- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.
+- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.
+- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.
+- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
+- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
+
+## Feldpflichten pro Fall
+
+- Setze `task_type` exakt wie vorgegeben.
+- `clarification`:
+  - `needs_clarification=true`
+  - `clarification_question` genau eine fokussierte Frage
+  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`
+  - `steps=[]`
+  - `escalate=false`
+- `uncertainty_escalation`:
+  - `escalate=true`
+  - `uncertainty_reason` kurz und konkret
+  - `needs_clarification=false`
+- `faq_direct_answer`, `troubleshooting`, `step_by_step`:
+  - `needs_clarification=false`
+  - `clarification_question=null`
+- `step_by_step`:
+  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt
+  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten
+
+## Ausgabe
+
+JSON gemaess Output-Schema.
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.
+- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.
+- Uebernimm job_id und task_type je Fall exakt.
+- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003
+- task_type: uncertainty_escalation
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01
+- chunk_type: warning
+- section_path_text: Die Gruppe Sprach- und Sound-Schemata > Einsteiger, Fortgeschrittenen oder Experten Einstellungen > Länge von JAWS Meldungen
+- difficulty: intermediate
+- phrasing_style: uncertain
+- user_goal: Verstehen, für welche Meldungsarten die Einstellung zur Länge von JAWS-Meldungen gilt.
+- output_contract: escalate=true; uncertainty_reason kurz nennen; Antwort muss Evidenzgrenze sichtbar machen; needs_clarification=false
+- user_request:
+Wenn ich die Meldungslänge in JAWS auf kurz stelle: Gilt das auch für alle Hinweise und Fehlermeldungen, oder nur für bestimmte Meldungen?
+- expected_behavior:
+Markiert die Evidenzgrenze fuer Länge von JAWS Meldungen klar und erfindet keine generelle Zusage.
+- source_excerpt:
+Die Länge der Meldungen kann mit zwei Auswahlschaltern angepasst werden, Lange oder kurze Meldungen. Wählen Sie Kurze Meldungen, wenn Sie zusammengefasste Meldungen hören möchten, und wählen Sie Lange Meldungen, wenn Sie detaillierte Meldungen hören möchten. Wenn Sie zum Beispiel in einem Textdokument arbeiten und **STRG+C** drücken, um Text in die Zwischenablage zu kopieren, und die Länge von Meldungen auf Kurz gesetzt ist, sagt JAWS "kopiert". Ist die Länge der Meldungen auf Lang gesetzt, sagt JAWS "Gewählten Text in die Ablage kopiert".
+
+**Tipp:** Sind Sie noch nicht mit Windows, JAWS oder einer speziellen Anwendung vertraut, dann kann es sehr hilfreich sein, wenn man die Meldungslänge auf Lang festlegt. Wenn Sie mit einer speziellen Anwendung, oder mit JAWS und Windows im Allgemeinen, vertrauter sind, dann kann das Festlegen der Meldungslänge auf Kurz Zeit sparen und die Arbeitsleistung erhöhen.
+
+Dinge, die gesprochen werden, und auf die die Länge der Meldungen angewendet werden, sind:
+
+- JAWS Meldungen
+- Statusmeldungen
+- JAWS Fehlermeldungen
+- Meldungen beim Anwendungsstart
+- Intelligente Hilfemeldungen
+- Hilfemeldungen
+
+**Hinweis:** Hilfemeldungen können im Listenfeld "Zu sprechende Elemente" nicht abgeschaltet werden, die Einstellung, ob lange oder kurze Meldungen gesprochen werden, wirkt sich aber auf sie aus.
+
+### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004
+- task_type: uncertainty_escalation
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen::chunk_01
+- chunk_type: warning
+- section_path_text: Schnelleinstellung Übersicht > Speziellen Symbolen Sprache hinzufügen
+- difficulty: intermediate
+- phrasing_style: uncertain
+- user_goal: Klären, wie allgemein die Funktion zum Hinzufügen spezieller Symbolsprache einsetzbar ist.
+- output_contract: escalate=true; uncertainty_reason kurz nennen; Antwort muss Evidenzgrenze sichtbar machen; needs_clarification=false
+- user_request:
+Wenn JAWS ein Symbol nicht richtig spricht: Kann ich dann immer einfach bei den speziellen Symbolen etwas nachtragen, oder gibt es da Fälle, in denen das nicht sinnvoll ist?
+- expected_behavior:
+Markiert die Evidenzgrenze fuer Speziellen Symbolen Sprache hinzufügen klar und erfindet keine generelle Zusage.
+- source_excerpt:
+Obwohl JAWS fast alle häufig genutzten Symbole über die Sprachausgabe wiedergibt, möchten Sie möglicherweise doch noch weitere hinzufügen. Wenn Sie ein Dokument lesen und den Eindruck haben, dass JAWS ein Symbol nicht richtig wiedergibt oder gar nicht spricht, gehen Sie bitte folgendermaßen vor:
+
+1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**) und erweitern Sie die Gruppe Grafiken und Symbole.
+2. Aktivieren Sie das Kontrollfeld Zeichenwert hexadezimal sprechen.
+3. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
+4. Kehren Sie in das Dokument zurück. Bewegen Sie den Cursor auf ein kleines "a" (sollte keines vorhanden sein, dann geben Sie eins ein) und drücken Sie **NUM 5** dreimal hintereinander. JAWS sollte "Zeichen U+61HEX" ansagen. Wenn Sie irgendeine andere Meldung hören, dürfen Sie diese Schritte nicht weiter ausführen.
+5. Bewegen Sie den Cursor auf das Zeichen, dessen Sprachwiedergabe geändert werden soll und drücken Sie **NUM 5** dreimal schnell hintereinander, damit Sie den Hexadezimal Unicode Wert des Zeichen erhalten. Notieren Sie sich sicherheitshalber den Wert, da Sie diesen für die nächsten Schritte benötigen.
+6. Verwenden Sie einen Texteditor wie Notepad und öffnen Sie die SBL Datei für die aktive Sprachausgabe. Zum Beispiel Eloq.sbl. Diese Datei finden Sie im Ordner der gemeinsamen Einstellungen (C:\ProgramData\
+
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0001
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Schreiben in Kurzschrift
+- difficulty: intermediate
+- phrasing_style: task_focused
+- user_goal: Eine Schritt-für-Schritt-Anleitung zum Aktivieren von Braille-Kurzschrift erhalten.
+- output_contract: steps nur mit echten Schritten aus der Quelle fuellen; keine zweite oder widerspruechliche Schrittfolge
+- user_request:
+Wie stelle ich in JAWS die Braille-Kurzschrift ein? Ich brauche die Schritte möglichst einfach nacheinander.
+- expected_behavior:
+Gibt eine kurze Schrittfolge fuer Schreiben in Kurzschrift aus dem Abschnitt wieder.
+- source_excerpt:
+Mit BrailleIn werden Ihre Eingaben umgehend in der aktuellen E-Mail, im Dokument oder in Formularfeldern in normalen Text übersetzt, wenn Sie über die Perkins-Tastatur Braille-Kurzschrift eingeben. Sollte eine Anwendung oder spezielle Eingabefelder keine Kurzschrift unterstützen, dann sagt JAWS "Computer Braille", sofern die Tutormeldungen eingeschaltet sind. Darüberhinaus wird das Symbol für Computer Braille, Punkte 4-5-6 gefolgt von Punkten 3-4-6, auf der Braillezeile dargestellt, um anzuzeigen, dass Computer Braille benötigt wird.
+
+Die Eingabe in Computer-Braille ist standardmäßig ausgewählt. Um die Braillekurzschrift zu verwenden, gehen Sie bitte folgendermaßen vor:
+1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung.
+
+2. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste Anwendungen.
+
+3. Im Sucheingabefeld geben Sie "Übersetzung" ohne Anführungsstriche ein.
+
+4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen und drücken Sie dann **EINGABE**, um den Fokus direkt in die Gruppe Übersetzung zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.
+
+5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einste
+
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0002
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_jaws_einstellungsverwaltung_settings_center__hervorhebungsoptionen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Einstellungsverwaltung (Settings Center) > Hervorhebungsoptionen
+- difficulty: basic
+- phrasing_style: task_focused
+- user_goal: Eine kurze Vorgehensweise zum Öffnen der Hervorhebungsoptionen bekommen.
+- output_contract: steps nur mit echten Schritten aus der Quelle fuellen; keine zweite oder widerspruechliche Schrittfolge
+- user_request:
+Wie öffne ich in der Einstellungsverwaltung die Hervorhebungsoptionen? Am besten Schritt für Schritt.
+- expected_behavior:
+Gibt eine kurze Schrittfolge fuer Hervorhebungsoptionen aus dem Abschnitt wieder.
+- source_excerpt:
+Mit dem Dialog Optionen für Hervorhebungsfarbe können Sie steuern, wie JAWS auf Hervorhebungsfarben, die Sie für eine Anwendung definiert haben, reagiert. Sie können die Art ändern, wie JAWS Windows-Hervorhebungen und angepasste Hervorhebungen liest, und Sie können bereits zugewiesene Hervorhebungsfarben löschen. Sie können jedoch aus diesem Dialog heraus keine Farbkombinationen von Hand zuweisen. Lesen Sie dazu [Angepasste Hervorhebungsfarben zuweisen](assigning_custom_highlight_colors.htm).
+
+Um diesen Dialog zu öffnen, gehen Sie bitte folgendermaßen vor:
+
+1. Öffnen Sie die Einstellungsverwaltung und geben Sie "Hervorhebung" im Sucheingabefeld ohne Anführungsstriche ein.
+2. Drücken Sie **PFEIL RUNTER**, um in die gefilterten Ergebnisse zu springen und wählen Sie Hervorhebungsfarben konfigurieren.
+3. Drücken Sie **LEERTASTE**, um das Dialogfenster Hervorhebungsoptionen zu öffnen.
+
+Das Dialogfeld enthält die folgenden Elemente:

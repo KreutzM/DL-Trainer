@@ -1,0 +1,166 @@
+# Teacher Prompt: JAWS-DE Support Answer MVP
+
+## Rolle
+
+Du erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.
+
+## Ziel
+
+Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.
+
+## Regeln
+
+- Nutze ausschliesslich die bereitgestellten Quellen.
+- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.
+- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.
+- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.
+- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.
+- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.
+- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- supporttauglich
+- sachlich und knapp
+- klar an der Nutzerfrage ausgerichtet
+- dokumentationsgebunden
+- ohne Tabellen-, Hinweis- oder Truncation-Artefakte
+
+## Task-Type-spezifische Regeln
+
+- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.
+- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.
+- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.
+- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
+- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
+
+## Feldpflichten pro Fall
+
+- Setze `task_type` exakt wie vorgegeben.
+- `clarification`:
+  - `needs_clarification=true`
+  - `clarification_question` genau eine fokussierte Frage
+  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`
+  - `steps=[]`
+  - `escalate=false`
+- `uncertainty_escalation`:
+  - `escalate=true`
+  - `uncertainty_reason` kurz und konkret
+  - `needs_clarification=false`
+- `faq_direct_answer`, `troubleshooting`, `step_by_step`:
+  - `needs_clarification=false`
+  - `clarification_question=null`
+- `step_by_step`:
+  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt
+  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten
+
+## Ausgabe
+
+JSON gemaess Output-Schema.
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.
+- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.
+- Uebernimm job_id und task_type je Fall exakt.
+- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::train::clarification::0003
+- task_type: clarification
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01
+- chunk_type: reference
+- section_path_text: Einstellungsverwaltung Übersicht > Kurztasten zum Navigieren in der Einstellungsverwaltung > Navigation in der Strukturansicht
+- difficulty: intermediate
+- phrasing_style: uncertain
+- user_goal: Ich brauche eine kurze Orientierung, welche Tasten in der Strukturansicht wofür sind.
+- output_contract: needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]
+- user_request:
+Ich komme in der Einstellungsverwaltung mit der Strukturansicht noch nicht ganz klar. Wie bewege ich mich da eigentlich zwischen den Punkten und kann eine Gruppe auf- oder zuklappen?
+- expected_behavior:
+n/a
+- source_excerpt:
+- Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER**, um sich in der Strukturansicht auf- oder abwärts zu bewegen.
+- Drücken Sie **PFEIL RECHTS** oder **PFEIL LINKS**, um eine Gruppe der Strukturansicht zu erweitern oder zu reduzieren.
+- Um eine Gruppe oder ein Element in der Strukturansicht auszuwählen, nutzen Sie die Navigation über Anfangsbuchstaben.
+- Drücken Sie **LEERTASTE** oder **EINGABE**, um den Status des Element zu ändern, während es in der Strukturansicht fokussiert ist. Dieses funktioniert für Optionen wie Auswahlschalter, Kontrollfelder oder Schalter, ohne dass Sie **F6** drücken müssen, um in den Einstellungsbereich zu wechseln.
+- Drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungsdatei Default.jcf zu laden und Änderungen global vorzunehmen.
+- Wenn Sie in der Einstellungsverwaltung nach einem Element suchen, dann wird das Suchergebnis in der Strukturansicht angezeigt. Drücken Sie **EINGABE** auf einem beliebigen Eintrag, um die komplette Strukturansicht wieder herzustellen und navigieren Sie dann direkt zu dem Element. Drücken Sie innerhalb des Suchergebnisses **ESCAPE**, dann wird die volle Strukturansicht mit dem vorherigen Element, bevor Sie die Suche gestartet haben, wieder hergestellt.
+- Mit **F6** wechseln Sie in den Einstellungsbereich. Drücken Sie **F6** ein weiteres Mal, um zur Strukturansicht zurückzukehren.
+
+### job_id: jaws_de_teacher_wave_v1::train::clarification::0008
+- task_type: clarification
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01
+- chunk_type: reference
+- section_path_text: Was ist neu in JAWS? > Aria und Web
+- difficulty: intermediate
+- phrasing_style: uncertain
+- user_goal: Ich möchte eine kurze Einordnung, welche Web- und Aria-Verbesserungen in JAWS gemeint sind.
+- output_contract: needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]
+- user_request:
+Ich habe gelesen, dass sich bei JAWS irgendwas mit Aria und Web geändert hat. Worauf bezieht sich das genau und was ist daran neu?
+- expected_behavior:
+n/a
+- source_excerpt:
+- JAWS bietet nun die Möglichkeit, direkt zu mathematischen Elementen auf Webseiten zu springen. Um diese Funktion zu nutzen, können Sie über den Schnellnavigationstastenmanager, der über das Dialogfenster JAWS Manager ausführen (**EINFÜGEN+F2**) aufgerufen wird, eine Tastenkombination zuweisen.
+- In Google Chrome wurde die Leistung von JAWS beim Navigieren zwischen Zellen in sehr großen Tabellen verbessert.
+- JAWS sagt nun standardmäßig Regionen mit Namen an.
+- Durch Drücken der **ANWENDUNGSTASTE** auf einem Link wird nun zuverlässig das richtige Kontextmenü geöffnet.
+- Beim Navigieren in Tabellen zeigt JAWS nun sowohl Kopfzeilen als auch Spalten- und Zeileninformationen korrekt an, selbst wenn die Tabelle Span-Elemente enthält.
+- JAWS liest nun Fortschrittsbalken, die die Aria-Fortschrittsbalkenrolle verwenden, korrekt vor.
+- Wenn Sie den Fokus auf eine Tabellenzelle in der Kopfzeile setzen, die sich über mehrere Spalten erstreckt, funktioniert das Drücken von **ALT+STRG+ENDE** nun wie erwartet, um zur letzten Zelle in der Tabelle zu gelangen.
+- In Google Chrome wird der Fokus nicht mehr unerwartet auf die Adressleiste oder das Chrome-Menü verschoben, wenn der Fokus auf einem Kombinationsfeld liegt und die Taste **ESC** gedrückt wird, um den Formularmodus zu verlassen.
+
+### job_id: jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001
+- task_type: uncertainty_escalation
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Auswahl einer geteilten Braille-Ansicht > Anmerkungen
+- difficulty: intermediate
+- phrasing_style: uncertain
+- user_goal: Ich möchte einschätzen, wie zuverlässig die Anmerkungsansicht in JAWS allgemein unterstützt wird.
+- output_contract: escalate=true; uncertainty_reason kurz nennen; Antwort muss Evidenzgrenze sichtbar machen; needs_clarification=false
+- user_request:
+Ich arbeite in Word mit Anmerkungen und würde das gern in der geteilten Braille-Ansicht nutzen. Gilt das nur in Word oder kann JAWS das allgemein in solchen Ansichten anzeigen?
+- expected_behavior:
+n/a
+- source_excerpt:
+Diese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.
+
+**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.
+
+### job_id: jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002
+- task_type: uncertainty_escalation
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Tutorial / Grundlagen > Strukturansicht
+- difficulty: intermediate
+- phrasing_style: uncertain
+- user_goal: Ich möchte wissen, ob ich mich bei der Strukturansicht auf ein einheitliches Verhalten verlassen kann.
+- output_contract: escalate=true; uncertainty_reason kurz nennen; Antwort muss Evidenzgrenze sichtbar machen; needs_clarification=false
+- user_request:
+Bei der Strukturansicht: Funktioniert die Bedienung und das Vorlesen eigentlich in allen Dialogen gleich, oder gibt es da Einschränkungen?
+- expected_behavior:
+n/a
+- source_excerpt:
+In einer Strukturansicht werden Elemente hierarchisch angeordnet und vertikal am Bildschirm dargestellt. Mit **PFEIL RAUF** und **PFEIL RUNTER** bewegen Sie sich durch eine Strukturansicht. Wenn Sie "Ebene 0 geschlossen" hören, öffnen Sie mit PFEIL RECHTS diese Ebene. Es erscheinen dann weitere Informationen unterhalb dieser Ebene. Mit **PFEIL RUNTER** bewegen Sie sich durch die Elemente der nächsten Ebene. Auch hier kann ein Element geschlossen sein, so dass Sie wieder mit **PFEIL RECHTS** diese Ebene öffnen können. Sie schließen eine Ebene mit **PFEIL LINKS** oder **RÜCKSCHRITT**.
+
+**Hinweis:** JAWS sagt die Positionsnummer der Ebene nur dann an, wenn sie sich ändert.
+
+Um auf das erste Element in einer Strukturansicht zu springen, drücken Sie **POS1**, mit **ENDE** springen Sie auf das letzte Element.
+
+Rechts neben der Strukturansicht befindet sich ein zweiter Bereich, in dem Informationen über das in der Strukturansicht gewählte Element angezeigt werden. Mit **TAB** springen Sie in den rechten Bereich der Strukturansicht. Mit dem Befehl Alles Lesen, **JAWS TASTE+PFEIL RUNTER**, werden diese Informationen vorgelesen. Mit **UMSCHALT+TAB** springen Sie in den ursprünglichen Bereich der Strukturansicht zurück.
+
+Quelle: sample_dialogs.htm

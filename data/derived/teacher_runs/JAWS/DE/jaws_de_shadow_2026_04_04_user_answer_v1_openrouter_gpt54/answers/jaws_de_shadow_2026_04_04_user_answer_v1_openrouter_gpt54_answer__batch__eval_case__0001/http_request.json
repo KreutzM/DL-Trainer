@@ -1,0 +1,159 @@
+{
+  "model": "openai/gpt-5.4",
+  "messages": [
+    {
+      "role": "user",
+      "content": "# Teacher Prompt: JAWS-DE Support Answer MVP\n\n## Rolle\n\nDu erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.\n\n## Ziel\n\nBeantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.\n\n## Regeln\n\n- Nutze ausschliesslich die bereitgestellten Quellen.\n- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.\n- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.\n- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.\n- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.\n- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.\n- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.\n- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.\n\n## Gewuenschte Qualitaet\n\n- supporttauglich\n- sachlich und knapp\n- klar an der Nutzerfrage ausgerichtet\n- dokumentationsgebunden\n- ohne Tabellen-, Hinweis- oder Truncation-Artefakte\n\n## Task-Type-spezifische Regeln\n\n- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.\n- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.\n- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.\n- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.\n- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.\n\n## Feldpflichten pro Fall\n\n- Setze `task_type` exakt wie vorgegeben.\n- `clarification`:\n  - `needs_clarification=true`\n  - `clarification_question` genau eine fokussierte Frage\n  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`\n  - `steps=[]`\n  - `escalate=false`\n- `uncertainty_escalation`:\n  - `escalate=true`\n  - `uncertainty_reason` kurz und konkret\n  - `needs_clarification=false`\n- `faq_direct_answer`, `troubleshooting`, `step_by_step`:\n  - `needs_clarification=false`\n  - `clarification_question=null`\n- `step_by_step`:\n  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt\n  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten\n\n## Ausgabe\n\nJSON gemaess Output-Schema.\n\n## Batch-Regeln\n- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.\n- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.\n- Uebernimm job_id und task_type je Fall exakt.\n- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.\n\n## Faelle\n### job_id: jaws_de_teacher_wave_v1::eval::clarification::0001\n- task_type: clarification\n- expected_output_kind: eval_case\n- target_split: eval\n- source_doc_ids: jaws_de_braille\n- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01\n- chunk_type: reference\n- section_path_text: JAWS – Braille (Allgemein & Focus) > Allgemein\n- difficulty: basic\n- phrasing_style: neutral\n- user_goal: Eine gezielte Rückfrage zur passenden Unterfunktion in JAWS Braille erhalten.\n- output_contract: needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]\n- user_request:\nIch suche Hilfe zu JAWS Braille allgemein – geht es dabei um die Braillezeile selbst, die Statuszellen oder eher um die Braille-Formatierung?\n- expected_behavior:\nStellt genau eine fokussierte Rueckfrage und grenzt Allgemein sinnvoll ein.\n- source_excerpt:\n- [BrailleIn](JAWS_BrailleIn.htm)\n- [Braillezeilen Eingabebefehle](focus/Braille_Display_Input_Commands.htm)\n- [Braille Lern-Modus](Braille_Study_Mode.htm)\n- [Die Modi der Braillezeilen](Braille_Display_Modes.htm)\n- [Statuszellen](Status_Cells.htm)\n- [Braille Blitzmeldungen](Braille_Flash_Messages.htm)\n- [Den Cursor an- und abkoppeln](Linking_and_Unlinking_the_Cursor.htm)\n- [Spezielle JAWS Braille-Kürzel](JAWS_Specific_Braille_Abbreviations.htm)\n- [Braille-Formatierung](Braille_Formatting.htm)\n- [Braille-Einstellungen im laufenden Betrieb vornehmen](braille/adjust_braille_options.htm)\n\n### job_id: jaws_de_teacher_wave_v1::eval::clarification::0002\n- task_type: clarification\n- expected_output_kind: eval_case\n- target_split: eval\n- source_doc_ids: jaws_de_settingscenter\n- source_chunk_ids: jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste::chunk_01\n- chunk_type: reference\n- section_path_text: Einstellungsverwaltung Übersicht > Kurztasten zum Navigieren in der Einstellungsverwaltung > Navigation in der Anwendungsliste\n- difficulty: basic\n- phrasing_style: task_focused\n- user_goal: Eine Rückfrage zur richtigen Navigation in der Anwendungsliste auslösen.\n- output_contract: needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]\n- user_request:\nIch komme in der Anwendungsliste in der Einstellungsverwaltung nicht sauber weiter: Soll ich dort mit den Pfeiltasten nach oben und unten navigieren oder über den Anfangsbuchstaben springen?\n- expected_behavior:\nStellt genau eine fokussierte Rueckfrage und grenzt Navigation in der Anwendungsliste sinnvoll ein.\n- source_excerpt:\n- Drücken Sie **UMSCHALT+TAB**, bis der Fokus auf der Ausklappliste für Anwendungen landet.\n- Drücken Sie die **PFEILTASTEN**, um Elemente in der Anwendungsliste auszuwählen.\n- Um Elemente in der Liste auszuwählen, nutzen Sie die Navigation über den Anfangsbuchstaben.\n- Drücken Sie **TAB** oder **UMSCHALT+TAB**, um den Fokus von der Ausklappliste weg zu bewegen.\n\n### job_id: jaws_de_teacher_wave_v1::eval::clarification::0004\n- task_type: clarification\n- expected_output_kind: eval_case\n- target_split: eval\n- source_doc_ids: jaws_de_braille\n- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__den_cursor_an_und_abkoppeln::chunk_01\n- chunk_type: concept\n- section_path_text: JAWS – Braille (Allgemein & Focus) > Den Cursor an- und abkoppeln\n- difficulty: basic\n- phrasing_style: uncertain\n- user_goal: Eine präzise Klärung zum Begriff Cursor im Braille-Kontext bekommen.\n- output_contract: needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]\n- user_request:\nBei JAWS Braille: Meinen Sie mit dem Cursor den aktiven Cursor oder den Braillecursor? Ich bin mir nicht sicher, welcher hier gemeint ist.\n- expected_behavior:\nStellt genau eine fokussierte Rueckfrage und grenzt Den Cursor an- und abkoppeln sinnvoll ein.\n- source_excerpt:\nEs gibt zwei Einstellungen, die festlegen, wie eine Braillezeile den Cursor, oder der Cursor die Braillezeile beeinflusst.\n\n- Braille folgt Aktiv: Ist diese Einstellung aktiviert, wenn Sie sich in Windows bewegen, dann werden die Informationen beim aktiven Cursor in Braille angezeigt. Wenn Sie sich zum Beispiel durch die Elemente eines Dialogfelds bewegen, dann werden die Informationen des aktiven Elements in Braille angezeigt.\n- Aktiv folgt Braille: Ist die Einstellung aktiviert, dann folgt der aktive Cursor dem Braillecursor. Allerdings kann der Braillecursor nicht in Bereiche bewegt werden, in die auch der aktive Cursor nicht hinkommen kann. Ist der PC Cursor aktiv und diese Option gesetzt, dann können Sie mit dem Braillecursor zum Beispiel nicht in die Titelzeile des aktiven Fensters gelangen.\n\nJede dieser Einstellungen kann dauerhaft über die Einstellungsverwaltung oder temporär über die Schnelleinstellung geändert werden. Für weitere Informationen lesen Sie bitte [Brailleeinstellungen anpassen](braille/adjust_braille_options.htm).\n\nEs gibt auch Befehle, mit denen diese Einstellung über Tasten der meisten Braillezeilen umgeschaltet werden können. Bei einer Focus Braillezeile drücken Sie zum Beispiel **T**, um den aktiven Cursor an den Braillecursor zu koppeln, und **F**, um den Braillecursor an den aktiven Cursor zu koppeln. Werden diese Befehle genutzt, dann bleiben diese\n\n### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0002\n- task_type: uncertainty_escalation\n- expected_output_kind: eval_case\n- target_split: eval\n- source_doc_ids: jaws_de_tutorial_basics\n- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__statuszeile::chunk_01\n- chunk_type: concept\n- section_path_text: JAWS – Tutorial / Grundlagen > Statuszeile\n- difficulty: intermediate\n- phrasing_style: uncertain\n- user_goal: Klären, wie weit die Funktion Statuszeile allgemein und anwendungsabhängig unterstützt wird.\n- output_contract: escalate=true; uncertainty_reason kurz nennen; Antwort muss Evidenzgrenze sichtbar machen; needs_clarification=false\n- user_request:\nKann ich die Statuszeile in JAWS überall gleich lesen, oder hängt das davon ab, in welcher Anwendung ich gerade bin?\n- expected_behavior:\nMarkiert die Evidenzgrenze fuer Statuszeile klar und erfindet keine generelle Zusage.\n- source_excerpt:\nDie Statuszeile befindet sich unterhalb des Dokumentfensters und kann mit herkömmlichen Windows Befehlen nicht aktiviert werden. Die Statuszeile liefert nützliche Informationen über Ihr Dokument. In HJPad zeigt sie Erklärungen über das von Ihnen ausgewählte Menüelement an. In Microsoft Word ist die Statuszeile komplizierter aufgebaut. Dort enthält sie Informationen über die Seitenzahl, Abschnittsnummer, die Position der Schreibmarke und vieles andere. Um die Statuszeile mit JAWS zu lesen, drücken Sie **JAWS TASTE+SEITE RUNTER**.\n"
+    }
+  ],
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "json_generation_payload",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "job_id",
+                "answer",
+                "task_type",
+                "needs_clarification",
+                "clarification_question",
+                "escalate",
+                "uncertainty_reason",
+                "steps",
+                "source_chunk_ids",
+                "notes",
+                "case_description",
+                "expected_behavior",
+                "reference_answer",
+                "rubric"
+              ],
+              "properties": {
+                "job_id": {
+                  "type": "string",
+                  "enum": [
+                    "jaws_de_teacher_wave_v1::eval::clarification::0001",
+                    "jaws_de_teacher_wave_v1::eval::clarification::0002",
+                    "jaws_de_teacher_wave_v1::eval::clarification::0004",
+                    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0002"
+                  ]
+                },
+                "task_type": {
+                  "type": "string",
+                  "enum": [
+                    "clarification",
+                    "uncertainty_escalation"
+                  ]
+                },
+                "answer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "needs_clarification": {
+                  "type": "boolean"
+                },
+                "clarification_question": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "escalate": {
+                  "type": "boolean"
+                },
+                "uncertainty_reason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "steps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "source_chunk_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "notes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "case_description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "expected_behavior": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reference_answer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "rubric": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "must_include",
+                    "must_not_include",
+                    "style",
+                    "scoring_notes"
+                  ],
+                  "properties": {
+                    "must_include": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "must_not_include": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "style": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "scoring_notes": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "temperature": 0.1,
+  "max_tokens": 2600
+}

@@ -1,0 +1,14 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54",
+  "selection_id": "jaws_de_shadow_wave_2026_04_04_user_answer_v1",
+  "completed": true,
+  "promotion_ran": false,
+  "judge_shadow_only": true,
+  "jobs_total": 32,
+  "approvals": 28,
+  "rejects": 4,
+  "all_rejects_in_step_by_step": true,
+  "topoff_jobs": 12,
+  "topoff_rejects": 1,
+  "recommendation": "Continue with larger shadow waves for OpenRouter user_sim + answer, but keep step_by_step as the main blocker and keep judge limited to secondary/audit use."
+}

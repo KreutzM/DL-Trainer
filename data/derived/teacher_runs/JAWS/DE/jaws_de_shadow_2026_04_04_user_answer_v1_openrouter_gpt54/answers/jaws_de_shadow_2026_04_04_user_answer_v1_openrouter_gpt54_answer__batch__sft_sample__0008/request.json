@@ -1,0 +1,436 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::batch::sft_sample::0008",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::train::troubleshooting::0004",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0003"
+  ],
+  "teacher_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer",
+  "teacher_model": "openai/gpt-5.4",
+  "generation_mode": "teacher_answer_openrouter_v1",
+  "expected_output_kind": "sft_sample",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0004",
+      "task_type": "troubleshooting",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::troubleshooting::0004::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0004",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "troubleshooting",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_hilfe_kernfunktionen"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Ich öffne ein PDF im Adobe Reader, aber JAWS liest es nicht sinnvoll vor. Wie gehe ich vor, damit die Texterkennung für das geöffnete Dokument startet, und worauf muss ich bei großen oder passwortgeschützten PDFs achten?",
+        "user_goal": "Problemlösung für die Texterkennung eines geöffneten PDF-Dokuments in JAWS erhalten.",
+        "difficulty": "intermediate",
+        "phrasing_style": "task_focused",
+        "scenario_summary": "Nutzer hat ein nicht zugängliches PDF im Adobe Reader und braucht Hinweise, wie die Texterkennung angestoßen wird und welche Einschränkungen es gibt.",
+        "notes": [
+          "Bezug auf OCR eines geöffneten PDF-Dokuments",
+          "schildert ein typisches Problem mit zusätzlicher Unsicherheit zu großen/passwortgeschützten PDFs",
+          "keine unzulässigen Zusatzfunktionen"
+        ],
+        "usage": {
+          "elapsed_ms": 964,
+          "batch_elapsed_ms": 7712,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1802,
+          "source_excerpt_chars": 974
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/response.json",
+          "prompt_sha256": "fc48c8f22e6b16305dd5def30fc14a5ee0f3f728dcb6ad13874ffc67a178dcb8",
+          "schema_sha256": "71f053af0d83bca01bbdf3c8d26ca63456b03939ab31537b15d93ee918fe8fbf",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0004",
+          "batch_size": 8,
+          "batch_index": 4
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_hilfe_kernfunktionen",
+              "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments::chunk_01",
+              "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments",
+              "section_title": "Texterkennung eines geöffneten PDF Dokuments",
+              "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L54-L58"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Wenn Sie ein PDF im Adobe Reader öffnen und es stellt sich heraus, dass dieses nicht zugänglich ist, dann drücken Sie **EINFÜGEN+LEERTASTE, O, D**, damit JAWS mit einer Texterkennung des gesamten Dokuments startet. Nach einigen Sekunden zeigt JAWS den Inhalt der PDF Datei im Ergebnisbetrachter, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren.\n\n**Hinweis:** Der OCR Vorgang dauert bei großen PDF Dateien länger. Wenn Text erkannt wird, dann wird dieser am Ende des bereits im Ergebnisbetrachter bestehenden Textes hinzugefügt. Dieses ermöglicht Ihnen, das Lesen ohne Unterbrechungen fortzusetzen, während das Dokument verarbeitet wird. Lesen Sie aktuell nicht über den Befehl Alles Lesen, dann spricht JAWS die aktuelle Zeile wenn neuer Text dem Ergebnisbetrachter hinzugefügt wurde, was anzeigt, dass die Texterkennung noch nicht abgeschlossen ist.\n\n**Hinweis:** Wenn das PDF Dokument ein Passwort erfordert, dann werden Sie zur Eingabe des Passworts aufgefordert, wenn Sie **EINFÜGEN+LEERTASTE, O, D** erstmalig drücken. Bevor der OCR Vorgang fortgesetzt werden kann, müssen Sie das Passwort korrekt eingeben.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments",
+            "section_title": "Texterkennung eines geöffneten PDF Dokuments",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L54-L58"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::faq_direct_answer::0001::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_braille"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Wie ist die Focus Blue Tastatur bei JAWS aufgebaut, also welche Tasten sind die Brailletasten und wofür werden Leertaste und Umschalttasten verwendet?",
+        "user_goal": "Die Grundbelegung und Funktion der Focus Blue Tastatur verstehen.",
+        "difficulty": "basic",
+        "phrasing_style": "neutral",
+        "scenario_summary": "Nutzer fragt nach der Tastenanordnung und den grundlegenden Funktionen der Focus Blue Tastatur in JAWS.",
+        "notes": [
+          "direkte Wissensfrage",
+          "Bezug auf Focus Blue Tastatur",
+          "sucht nach Aufbau und Verwendung"
+        ],
+        "usage": {
+          "elapsed_ms": 964,
+          "batch_elapsed_ms": 7712,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1802,
+          "source_excerpt_chars": 974
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/response.json",
+          "prompt_sha256": "fc48c8f22e6b16305dd5def30fc14a5ee0f3f728dcb6ad13874ffc67a178dcb8",
+          "schema_sha256": "71f053af0d83bca01bbdf3c8d26ca63456b03939ab31537b15d93ee918fe8fbf",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0004",
+          "batch_size": 8,
+          "batch_index": 4
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_braille",
+              "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01",
+              "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur",
+              "section_title": "Focus Blue Tastatur",
+              "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/braille/index.md#L1413-L1413"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur",
+            "section_title": "Focus Blue Tastatur",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L1413-L1413"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::faq_direct_answer::0002::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_tutorial_basics"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Wofür brauche ich das Steuerungsmenü in JAWS, und wie öffne ich es?",
+        "user_goal": "Kurz erklärt bekommen, wozu das Steuerungsmenü dient und wie man es aufruft.",
+        "difficulty": "basic",
+        "phrasing_style": "neutral",
+        "scenario_summary": "Nutzer möchte wissen, wozu das Steuerungsmenü da ist und wie es geöffnet wird.",
+        "notes": [
+          "direkte FAQ-Frage",
+          "Bezug auf Steuerungsmenü",
+          "Antwort soll auf Funktion und Aufruf abzielen"
+        ],
+        "usage": {
+          "elapsed_ms": 964,
+          "batch_elapsed_ms": 7712,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1802,
+          "source_excerpt_chars": 974
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/response.json",
+          "prompt_sha256": "fc48c8f22e6b16305dd5def30fc14a5ee0f3f728dcb6ad13874ffc67a178dcb8",
+          "schema_sha256": "71f053af0d83bca01bbdf3c8d26ca63456b03939ab31537b15d93ee918fe8fbf",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0004",
+          "batch_size": 8,
+          "batch_index": 4
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_tutorial_basics",
+              "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue::chunk_01",
+              "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue",
+              "section_title": "Steuerungsmenü",
+              "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/tutorial_basics/index.md#L386-L388"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Das Steuerungsmenü wird dazu verwendet, ein Fenster wiederherzustellen, es zu verschieben, die Größe zu verändern, es zu minimieren, zu maximieren und zu schließen. Das Steuerungsmenü ist meist unsichtbar, Sie können es jedoch mit **ALT+LEERTASTE** öffnen. Gehen Sie dann mit **PFEIL RAUF** und **RUNTER** durch die Menüeinträge.\n\nQuelle: typical_application_layout.htm",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_tutorial_basics",
+            "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue::chunk_01",
+            "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue",
+            "section_title": "Steuerungsmenü",
+            "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/tutorial_basics/index.md#L386-L388"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__schlauer_navigationsmodus::chunk_03"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::faq_direct_answer::0003::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0003",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__schlauer_navigationsmodus::chunk_03"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Was macht der schlaue Navigationsmodus in JAWS genau, und wie kann ich ihn vorübergehend ein- oder ausschalten?",
+        "user_goal": "Eine direkte Erklärung zum schlauen Navigationsmodus und seiner temporären Umschaltung erhalten.",
+        "difficulty": "intermediate",
+        "phrasing_style": "neutral",
+        "scenario_summary": "Nutzer fragt nach Funktion und Umschalten des schlauen Navigationsmodus in den JAWS-Einstellungen.",
+        "notes": [
+          "direkte Informationsfrage",
+          "Bezug auf Sprachausgaben > Navigation > Schlauer Navigationsmodus",
+          "fragt nach Verhalten und Umschaltung"
+        ],
+        "usage": {
+          "elapsed_ms": 964,
+          "batch_elapsed_ms": 7712,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1802,
+          "source_excerpt_chars": 974
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0004/response.json",
+          "prompt_sha256": "fc48c8f22e6b16305dd5def30fc14a5ee0f3f728dcb6ad13874ffc67a178dcb8",
+          "schema_sha256": "71f053af0d83bca01bbdf3c8d26ca63456b03939ab31537b15d93ee918fe8fbf",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0004",
+          "batch_size": 8,
+          "batch_index": 4
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__schlauer_navigationsmodus::chunk_03",
+              "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__schlauer_navigationsmodus",
+              "section_title": "Schlauer Navigationsmodus",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L2355-L2357"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Wenn Sie die schlaue Navigation verwenden, wird JAWS immer im Bildschirmlayout arbeiten. Dadurch werden die Seiten im virtuellen Speicher so dargestellt, wie sie auch visuell auf dem Bildschirm zu sehen sind. Symbole der Werkzeugleisten oder andere Auflistungen von Steuerelementen, die visuell waagerecht auf dem Bildschirm angezeigt werden, werden im virtuellen Dokument in einer Zeile dargestellt, wodurch mit einem einzelnen Druck auf **PFEIL RUNTER** die gesamte Werkzeugleiste übersprungen werden kann, anstatt dass man von Schalter zu Schalter springen muss, um hinter diese Leiste zu gelangen.\n\nUm die schlaue Navigation temporär ein- oder auszuschalten, drücken Sie **EINFÜGEN+X**. Hierdurch wird auch der Dokumentpräsentationsmodus entsprechend angepasst. Wird **EINFÜGEN+X** gedrückt, um die schlaue Navigation zu aktivieren, dann wechselt JAWS automatisch zum Bildschirmlayout. Wird die schlaue Navigation ausgeschaltet, dann wechselt JAWS zurück zum einfachen Layout. Wenn Sie mit **EINFÜGEN+X** die schlaue Navigation temporär umschalten, dann schaltet es zurück auf die vorherige Einstellung, wemm Sie einen Befehl ausführen, der den Fokus vom aktuellen Browserfenster wegbewegt, wie etwa **ALT+TAB**.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__schlauer_navigationsmodus::chunk_03",
+            "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__schlauer_navigationsmodus",
+            "section_title": "Schlauer Navigationsmodus",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L2355-L2357"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "answer",
+    "profile_name": "openrouter_gpt54_shadow_v1"
+  }
+}

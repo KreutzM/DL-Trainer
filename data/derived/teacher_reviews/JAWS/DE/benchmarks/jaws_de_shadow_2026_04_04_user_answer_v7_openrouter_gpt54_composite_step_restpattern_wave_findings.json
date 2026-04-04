@@ -1,0 +1,180 @@
+{
+  "audit_type": "openrouter_composite_step_restpattern_wave",
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v7_openrouter_gpt54_composite_step_restpattern_wave",
+  "selection": {
+    "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v7_composite_step_restpattern_selection.json",
+    "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v7_composite_step_restpattern_job_ids.txt",
+    "selected_job_count": 16,
+    "task_type_counts": {
+      "step_by_step": 12,
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "troubleshooting": 1,
+      "uncertainty_escalation": 1
+    },
+    "selection_rationale": "Focused rest-pattern subset. Repeats the known composite-step blockers, adds fresh branchy/composite procedures with one-of-many branches or fragile finish states, and keeps four stable non-step controls to detect spillover.",
+    "new_codex_cli_run_started": false,
+    "new_codex_reference_run_started": false,
+    "promotion_ran": false,
+    "new_model_family": false,
+    "judge_role": "shadow_only_secondary_audit"
+  },
+  "run_configuration": {
+    "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "user_simulation_model": "openai/gpt-5.4-mini",
+    "answer_model": "openai/gpt-5.4",
+    "judge_model": "openai/gpt-5.4"
+  },
+  "metrics": {
+    "overall": {
+      "approve": 13,
+      "reject": 3
+    },
+    "task_type_decisions": {
+      "clarification": {
+        "approve": 1,
+        "reject": 0
+      },
+      "faq_direct_answer": {
+        "approve": 1,
+        "reject": 0
+      },
+      "step_by_step": {
+        "approve": 10,
+        "reject": 2
+      },
+      "troubleshooting": {
+        "approve": 1,
+        "reject": 0
+      },
+      "uncertainty_escalation": {
+        "approve": 0,
+        "reject": 1
+      }
+    },
+    "score_distribution": {
+      "min": 35,
+      "median": 94,
+      "max": 97
+    },
+    "provider_usage_total_cost_usd_estimate": 1.1709
+  },
+  "step_by_step_focus": {
+    "selected_cases": 12,
+    "approved_cases": 10,
+    "rejected_cases": 2,
+    "rejects": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0054",
+        "failure_family": "documented_long_dialog_escalation",
+        "summary": "Clean new hard fail. The source contains a concrete multi-dialog procedure, but the answer escalates immediately with 'Ich muss kurz eskalieren.' instead of following the documented path.",
+        "quality_score": 40,
+        "why_it_counts_as_prompt_evidence": "This is a real answer-generation failure on a documented long procedure and points at avoidable escalation on multi-dialog flows."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+        "failure_family": "chunk_boundary_completeness_gap",
+        "summary": "The answer again stops before the finish/result-dialog steps. However, this job's source chunk only covers the first half of the import assistant, while the closing steps live in sibling job train::step_by_step::0062.",
+        "quality_score": 42,
+        "why_it_counts_only_partially_as_prompt_evidence": "The observed reject is entangled with source coverage and user-goal scope, so it is weaker evidence for another prompt edit than a fully self-contained documented failure."
+      }
+    ],
+    "new_branchy_cases_that_stayed_green": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0004",
+        "why_it_matters": "Dual edit/delete excerpt stayed in one requested branch and closed cleanly with OK."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0013",
+        "why_it_matters": "Edit/delete/rename context-menu case stayed coherent and did not merge competing options."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0019",
+        "why_it_matters": "Move-up/move-down branch stress case stayed scoped to the requested upward reorder path."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0037",
+        "why_it_matters": "Application-vs-default settings scope plus optional sound toggle remained stable."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0053",
+        "why_it_matters": "Another add/remove voice utility case stayed green and did not collapse or mix the wrong branch."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+        "why_it_matters": "The second half of the import assistant, including merge-vs-keep conflict handling and Finish/OK closure, was answered correctly when scoped to that subprocedure."
+      }
+    ],
+    "overlap_with_v6_collection": {
+      "overlap_case_count": 9,
+      "decision_flips": [
+        {
+          "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+          "v6": {
+            "decision": "reject",
+            "quality_score": 54
+          },
+          "v7": {
+            "decision": "approve",
+            "quality_score": 94
+          }
+        },
+        {
+          "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0006",
+          "v6": {
+            "decision": "reject",
+            "quality_score": 43
+          },
+          "v7": {
+            "decision": "approve",
+            "quality_score": 90
+          }
+        },
+        {
+          "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0010",
+          "v6": {
+            "decision": "approve",
+            "quality_score": 95
+          },
+          "v7": {
+            "decision": "reject",
+            "quality_score": 35
+          }
+        }
+      ],
+      "interpretation": "Two of the earlier composite-step blocker shapes did not reproduce in this wave. The only repeated step reject was train::step_by_step::0061."
+    }
+  },
+  "control_group": {
+    "controls": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0007",
+        "decision": "approve",
+        "quality_score": 95
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010",
+        "decision": "approve",
+        "quality_score": 97
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0005",
+        "decision": "approve",
+        "quality_score": 87
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0010",
+        "decision": "reject",
+        "quality_score": 35
+      }
+    ],
+    "interpretation": "There is one new non-step control reject, but it is a task-type miss in uncertainty_escalation rather than a branchy/composite step_by_step failure. It should be tracked separately and not used as evidence for step_by_step prompt tuning."
+  },
+  "interpretation": {
+    "same_branchy_composite_pattern_repeated_cleanly": false,
+    "pattern_statement": "This wave does not cleanly reproduce a single generic branchy/composite step_by_step rest pattern. The new strong step reject is avoidable escalation on a documented long dialog flow, while the repeated import reject is entangled with a split source section whose closing steps live in a sibling job.",
+    "homogeneous_enough_for_example_backed_prompt_addition_now": false,
+    "recommended_next_step": "Keep collecting or isolating a few more long assistant or multi-dialog step_by_step cases before changing the prompt again. If a later targeted edit is attempted, it should be narrower than 'branchy/composite' and focus on documented long flows: do not escalate when the procedure exists, and continue through the final Finish/OK state.",
+    "why_not_rubric_first": "The new clean failure is answer behavior, not primarily judge calibration. But the total evidence is still too mixed to justify a last generic prompt addition today."
+  }
+}

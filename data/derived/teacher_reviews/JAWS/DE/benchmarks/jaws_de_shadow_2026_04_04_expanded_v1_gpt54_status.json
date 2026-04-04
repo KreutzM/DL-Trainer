@@ -1,0 +1,64 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_benchmark_2026_04_04_expanded_v1_selection.json",
+  "reference": {
+    "source_run": "codex_cli_support_validation_v2",
+    "benchmark_report": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_codex_reference_pipeline_report.json",
+    "reviewed_outputs": "data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl",
+    "judge_results": "data/derived/teacher_reviews/JAWS/DE/codex_cli_support_validation_v2_judge_results.jsonl"
+  },
+  "candidate": {
+    "run_name": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1",
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "pipeline_report": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_pipeline_report.json",
+    "reviewed_outputs": "data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_reviewed_teacher_outputs.jsonl",
+    "judge_results": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge_results.jsonl"
+  },
+  "comparison_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_comparison.json",
+  "judge_crosscheck_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_judge_crosscheck.json",
+  "selection_summary": {
+    "train_examples": 10,
+    "eval_examples": 10,
+    "task_types": [
+      "clarification",
+      "faq_direct_answer",
+      "step_by_step",
+      "troubleshooting",
+      "uncertainty_escalation"
+    ],
+    "selection_strategy": "Expanded GPT-5.4 shadow subset reusing the exact 20-job Codex validation v2 baseline for job-identical comparison, with all four available step_by_step cases retained and four cases each for clarification, faq_direct_answer, troubleshooting and uncertainty_escalation."
+  },
+  "metrics": {
+    "reference": {
+      "reviewed_outputs": 20,
+      "approved_jobs": 16,
+      "rejected_jobs": 4,
+      "average_quality_score": 88.7
+    },
+    "candidate": {
+      "reviewed_outputs": 20,
+      "approved_jobs": 18,
+      "rejected_jobs": 2,
+      "average_quality_score": 90.8,
+      "usage": {
+        "prompt_tokens": 38378,
+        "completion_tokens": 14008,
+        "reasoning_tokens": 0,
+        "reported_cost_usd": null,
+        "batches": 12
+      }
+    },
+    "decision_matrix": {
+      "approve_to_approve": 16,
+      "approve_to_reject": 0,
+      "reject_to_approve": 2,
+      "reject_to_reject": 2
+    }
+  },
+  "assessment": {
+    "user_simulation": "brauchbar fuer groessere Shadow-Runs",
+    "answer": "brauchbar fuer groessere Shadow-Runs; besonders bei faq_direct_answer und einem step_by_step-Grenzfall staerker als die Codex-Basis",
+    "judge": "verbessert, aber weiter shadow_only; keine neuen Fehlablehnungen, aber noch zwei OpenRouter-Freigaben fuer ehemals abgelehnte Codex-Faelle",
+    "main_blocker": "judge_kalibrierung_bleibt_restunsicher_bei_step_by_step"
+  }
+}

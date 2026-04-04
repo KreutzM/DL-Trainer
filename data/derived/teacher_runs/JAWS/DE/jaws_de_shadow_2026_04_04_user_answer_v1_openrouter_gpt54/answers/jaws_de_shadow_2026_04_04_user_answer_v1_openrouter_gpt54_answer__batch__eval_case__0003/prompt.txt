@@ -1,0 +1,172 @@
+# Teacher Prompt: JAWS-DE Support Answer MVP
+
+## Rolle
+
+Du erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.
+
+## Ziel
+
+Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.
+
+## Regeln
+
+- Nutze ausschliesslich die bereitgestellten Quellen.
+- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.
+- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.
+- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.
+- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.
+- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.
+- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- supporttauglich
+- sachlich und knapp
+- klar an der Nutzerfrage ausgerichtet
+- dokumentationsgebunden
+- ohne Tabellen-, Hinweis- oder Truncation-Artefakte
+
+## Task-Type-spezifische Regeln
+
+- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.
+- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.
+- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.
+- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
+- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
+
+## Feldpflichten pro Fall
+
+- Setze `task_type` exakt wie vorgegeben.
+- `clarification`:
+  - `needs_clarification=true`
+  - `clarification_question` genau eine fokussierte Frage
+  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`
+  - `steps=[]`
+  - `escalate=false`
+- `uncertainty_escalation`:
+  - `escalate=true`
+  - `uncertainty_reason` kurz und konkret
+  - `needs_clarification=false`
+- `faq_direct_answer`, `troubleshooting`, `step_by_step`:
+  - `needs_clarification=false`
+  - `clarification_question=null`
+- `step_by_step`:
+  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt
+  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten
+
+## Ausgabe
+
+JSON gemaess Output-Schema.
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.
+- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.
+- Uebernimm job_id und task_type je Fall exakt.
+- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0003
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__sprache_und_braille_fuer_spalten_umschalten::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Hilfe (Kernfunktionen) > Sprache und Braille für Spalten umschalten
+- difficulty: basic
+- phrasing_style: task_focused
+- user_goal: Eine kurze Bedienfolge zum Umschalten von Sprache und Braille für eine Spalte erhalten.
+- output_contract: steps nur mit echten Schritten aus der Quelle fuellen; keine zweite oder widerspruechliche Schrittfolge
+- user_request:
+Ich möchte in JAWS eine bestimmte Spalte so einstellen, dass sie nicht mehr gesprochen und auch nicht in Braille angezeigt wird. Wie gehe ich dafür Schritt für Schritt vor?
+- expected_behavior:
+Gibt eine kurze Schrittfolge fuer Sprache und Braille für Spalten umschalten aus dem Abschnitt wieder.
+- source_excerpt:
+Wenn JAWS eine bestimmte Spalte nicht lesen und/oder in Braille anzeigen soll, gehen Sie bitte folgendermaßen vor:
+
+1. Wählen Sie auf der Registerkarte Sprache mit **PFEIL RAUF** und **RUNTER** die Spalte aus.
+2. Aktivieren Sie den Schalter Sprache umschalten. Dadurch wird die Spalte auf "Nicht sprechen" umgeschaltet. Sie können diesen Schalter erneut aktivieren, um die Eigenschaft wieder auf "Spalte sprechen" zu setzen.
+3. Drücken Sie **STRG+TAB**, um auf die Registerkarte Braille zu wechseln und wählen Sie die Spalte aus der Liste.
+4. Aktivieren Sie den Schalter Braille umschalten. Dadurch wird die Spalte auf "Kein Braille" umgeschaltet. Sie können diesen Schalter erneut aktivieren, um die Eigenschaft wieder auf "Braille Spalte" zu setzen.
+5. Betätigen Sie den OK Schalter.
+
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0005
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__erkennung_von_bildschirminhalten__beispiel_fuer_geteilte_folien_in_teams_und_zoom::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Hilfe (Kernfunktionen) > Erkennung von Bildschirminhalten > Beispiel für geteilte Folien in Teams und Zoom
+- difficulty: intermediate
+- phrasing_style: task_focused
+- user_goal: Eine Schrittfolge zur Hintergrund-OCR für geteilte Inhalte in Teams oder Zoom erhalten.
+- output_contract: steps nur mit echten Schritten aus der Quelle fuellen; keine zweite oder widerspruechliche Schrittfolge
+- user_request:
+In einer Teams- oder Zoom-Besprechung wird gerade eine Präsentation geteilt. Wie kann ich mit JAWS den Text auf diesem freigegebenen Bildschirm Schritt für Schritt erkennen und lesen?
+- expected_behavior:
+Gibt eine kurze Schrittfolge fuer Beispiel für geteilte Folien in Teams und Zoom aus dem Abschnitt wieder.
+- source_excerpt:
+So verwenden Sie die Hintergrund-OCR, um Text eines freigegebenen Bildschirms oder einer Präsentation in einer Teams- oder Zoom-Besprechung zu erkennen:
+
+1. Nehmen Sie an einem Teams- oder Zoom-Meeting teil, in dem Inhalte geteilt oder freigegeben werden.
+2. Drücken Sie **EINFÜGEN+LEERTASTE**, **O**, **EINGABE**. JAWS startet die Hintergrund-OCR, aktiviert dann den unsichtbaren Cursor und bewegt ihn zum geteilten Inhaltsbereich.
+3. Verwenden Sie Ihre **Pfeiltasten**, um den erkannten Text zu erkunden.
+4. Sie können jederzeit überprüfen, ob die Hintergrund-OCR aktiv ist, indem Sie **ALT+ENTFERNEN** drücken. Wenn die Hintergrund-OCR aktiviert ist, wird dies gefolgt von Informationen über den aktiven Cursor und dessen Position angesagt.
+5. Brechen Sie die Hintergrund-OCR ab, indem Sie einen der folgenden Schritte ausführen:
+
+- Drücken Sie **EINFÜGEN+LEERTASTE**, **O**, **Q**, um die Erkennung abzubrechen.
+- Schalten Sie auf den PC oder Virtuellen PC Cursor um.
+- Bewegen Sie den Fokus in eine andere Anwendung oder ein anderes Fenster.
+
+### job_id: jaws_de_teacher_wave_v1::eval::troubleshooting::0002
+- task_type: troubleshooting
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__taskleiste::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Tutorial / Grundlagen > Taskleiste
+- difficulty: basic
+- phrasing_style: uncertain
+- user_goal: Hilfe zum Umgang mit der Taskleiste und den laufenden Anwendungen erhalten.
+- output_contract: symptombezogen antworten; dokumentierte Bedingung, Pruefung oder Abhilfe klar benennen
+- user_request:
+Ich komme in JAWS mit der Taskleiste nicht richtig weiter. Ich springe zwar hin, aber ich bin unsicher, wie ich die laufenden Anwendungen auswähle oder woran ich erkenne, ob überhaupt mehr als eine offen ist. Was soll ich laut Doku prüfen?
+- expected_behavior:
+Leitet aus dem Abschnitt Taskleiste eine konkrete dokumentierte Hilfestellung ab.
+- source_excerpt:
+Die Taskleiste befindet sich rechts neben der Schnellstartleiste. Ist die Schnellstartleiste ausgeblendet, dann befindet sich die Taskleiste rechts neben dem Start Schalter. In der Taskleiste werden alle zur Zeit laufenden Anwendungen aufgeführt. Nachdem Sie mit **TAB** auf die Taskleiste gesprungen sind, drücken Sie **PFEIL** **RECHTS** und **LINKS**, um sich durch die laufenden Anwendungen zu bewegen. Drücken Sie **EINGABE** auf der gewünschten Anwendung, damit diese den Fokus erhält. Wenn nur ein Element in der Taskleiste angesagt wird, ist nur eine laufende Anwendung vorhanden.
+
+### job_id: jaws_de_teacher_wave_v1::eval::troubleshooting::0004
+- task_type: troubleshooting
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01
+- chunk_type: warning
+- section_path_text: Schnelleinstellung Übersicht > Gesicht im Blick
+- difficulty: intermediate
+- phrasing_style: uncertain
+- user_goal: Dokumentierte Hinweise zur Nutzung von Gesicht im Blick vor einem Videoanruf erhalten.
+- output_contract: symptombezogen antworten; dokumentierte Bedingung, Pruefung oder Abhilfe klar benennen
+- user_request:
+Bei Videoanrufen will ich in JAWS die Funktion für Gesicht im Blick nutzen, aber ich weiß nicht genau, was ich vorher beachten muss. Muss ich etwas an der Kamera oder an der aktuellen Situation prüfen, bevor ich das aktiviere?
+- expected_behavior:
+Leitet aus dem Abschnitt Gesicht im Blick eine konkrete dokumentierte Hilfestellung ab.
+- source_excerpt:
+Videoanrufe sind zu einer Standardform der Kommunikation am Arbeitsplatz, in der Schule und in persönlichen Beziehungen geworden. Bevor Sie sich an einem Videoanruf beteiligen, sollten Sie sicherstellen, dass Ihre Einstellung richtig ist und die Kamera richtig auf Sie ausgerichtet ist. Gesicht im Blick hilft Ihnen dabei, indem es Sie auf wichtige visuelle Details aufmerksam macht, wie zum Beispiel:
+
+- Ist mein Gesicht in der Ansicht zentriert?
+- Gucke ich direkt in die Kamera?
+- Ist die Beleuchtung ausgewogen?
+- Sind noch weitere Elemente im Bild sichtbar?
+
+Um Gesicht im Blick zu aktivieren, drücken Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **F** und dann **O**. Sobald die Funktion aktiviert ist, überwacht Gesicht im Blick kontinuierlich Ihre Gesichtsposition und die Lichtverhältnisse. Wenn sich etwas ändert, wenn Sie beispielsweise Ihren Kopf nach links oder rechts neigen oder die Helligkeit abnimmt, werden Sie automatisch benachrichtigt.
+
+**Hinweis:** Gesicht im Blick ist derzeit während eines aktiven Videoanrufs nicht verfügbar, da es vollständigen Zugriff auf die Kamera benötigt.
+
+Während Gesicht im Blick aktiv ist, sind die folgenden verschachtelten Kurztasten verfügbar:
+
+- Eine andere Kamera auswählen (falls mehrere Kameras verfügbar sind): **EINFÜGEN+LEERTASTE**, **F**, **C**. Sobald die Kamera-Ebene aktiv ist, drücken Sie **PFEIL RAUF** oder *

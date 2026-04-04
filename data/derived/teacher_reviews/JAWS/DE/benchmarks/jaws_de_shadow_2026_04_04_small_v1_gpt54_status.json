@@ -1,0 +1,78 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_small_v1",
+  "status": "completed",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_benchmark_2026_04_04_small_v1_selection.json",
+  "reference_artifacts_reused": true,
+  "comparison_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_small_v1_gpt54_comparison.json",
+  "reference": {
+    "run_name": "jaws_de_shadow_2026_04_04_small_v1_codex",
+    "profile_set": "support_mvp_default",
+    "pipeline_report": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_pipeline_report.json",
+    "completed_jobs": 8,
+    "failed_jobs": 0,
+    "review_status_counts": {
+      "codex_reviewed": 7,
+      "rejected": 1
+    },
+    "judge_decision_counts": {
+      "approve": 7,
+      "reject": 1
+    },
+    "average_quality_score": 88.12
+  },
+  "previous_openrouter_candidate": {
+    "run_name": "jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1",
+    "profile_set": "support_mvp_openrouter_candidate",
+    "pipeline_report": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_pipeline_report.json",
+    "completed_jobs": 8,
+    "failed_jobs": 0,
+    "judge_decision_counts": {
+      "approve": 8
+    },
+    "average_quality_score": 91.25
+  },
+  "candidate": {
+    "run_name": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1",
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "pipeline_report": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_pipeline_report.json",
+    "completed_jobs": 8,
+    "failed_jobs": 0,
+    "review_status_counts": {
+      "codex_reviewed": 7,
+      "rejected": 1
+    },
+    "judge_decision_counts": {
+      "approve": 7,
+      "reject": 1
+    },
+    "average_quality_score": 90.12,
+    "provider_usage": {
+      "prompt_tokens": 15409,
+      "completion_tokens": 5593,
+      "reasoning_tokens": 0,
+      "reported_cost_usd": 0.101883
+    }
+  },
+  "comparison": {
+    "selected_jobs_match": true,
+    "teacher_outputs_row_delta": 0,
+    "reviewed_outputs_row_delta": 0,
+    "approved_jobs_delta": 0,
+    "rejected_jobs_delta": 0,
+    "average_quality_score_delta": 2.0,
+    "validation": {
+      "reference_ok": true,
+      "candidate_ok": true
+    }
+  },
+  "recommendation": {
+    "rollout_candidate": false,
+    "summary": "The GPT-5.4 OpenRouter line is a serious shadow-benchmark candidate for user_simulation and answer, and materially improves judge strictness over the earlier OpenRouter run, but judge still needs larger-sample confirmation before any rollout step.",
+    "stage_recommendation": {
+      "user_simulation": "continue shadow benchmarking",
+      "answer": "continue shadow benchmarking with larger subset",
+      "judge": "shadow-only, keep off rollout path for now"
+    },
+    "next_step": "Run a larger GPT-5.4 shadow benchmark with more step_by_step coverage and add a cross-check against the Codex judge baseline."
+  }
+}

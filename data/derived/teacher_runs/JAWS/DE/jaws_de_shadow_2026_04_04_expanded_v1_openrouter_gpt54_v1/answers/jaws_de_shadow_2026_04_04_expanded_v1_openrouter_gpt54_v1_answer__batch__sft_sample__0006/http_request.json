@@ -1,0 +1,106 @@
+{
+  "model": "openai/gpt-5.4",
+  "messages": [
+    {
+      "role": "user",
+      "content": "# Teacher Prompt: JAWS-DE Support Answer MVP\n\n## Rolle\n\nDu erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.\n\n## Ziel\n\nBeantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.\n\n## Regeln\n\n- Nutze ausschliesslich die bereitgestellten Quellen.\n- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.\n- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.\n- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.\n- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.\n- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.\n- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.\n- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.\n\n## Gewuenschte Qualitaet\n\n- supporttauglich\n- sachlich und knapp\n- klar an der Nutzerfrage ausgerichtet\n- dokumentationsgebunden\n- ohne Tabellen-, Hinweis- oder Truncation-Artefakte\n\n## Task-Type-spezifische Regeln\n\n- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.\n- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.\n- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.\n- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.\n- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.\n\n## Feldpflichten pro Fall\n\n- Setze `task_type` exakt wie vorgegeben.\n- `clarification`:\n  - `needs_clarification=true`\n  - `clarification_question` genau eine fokussierte Frage\n  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`\n  - `steps=[]`\n  - `escalate=false`\n- `uncertainty_escalation`:\n  - `escalate=true`\n  - `uncertainty_reason` kurz und konkret\n  - `needs_clarification=false`\n- `faq_direct_answer`, `troubleshooting`, `step_by_step`:\n  - `needs_clarification=false`\n  - `clarification_question=null`\n- `step_by_step`:\n  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt\n  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten\n\n## Ausgabe\n\nJSON gemaess Output-Schema.\n\n## Batch-Regeln\n- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.\n- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.\n- Uebernimm job_id und task_type je Fall exakt.\n- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.\n\n## Faelle\n### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0001\n- task_type: faq_direct_answer\n- expected_output_kind: sft_sample\n- target_split: train\n- source_doc_ids: jaws_de_braille\n- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01\n- chunk_type: concept\n- section_path_text: JAWS – Braille (Allgemein & Focus) > Focus Blue Tastatur\n- difficulty: basic\n- phrasing_style: neutral\n- user_goal: Eine direkte Info zur Tastenanordnung und zu den für Befehle genutzten Tasten der Focus Blue Tastatur bekommen.\n- output_contract: direkte, dokumentationsgebundene Antwort ohne unnoetige Vorrede\n- user_request:\nWie sind die Tasten an der Focus Blue Tastatur in JAWS angeordnet, und welche davon kann ich zusammen mit der Leertaste oder den Umschalttasten für Befehle verwenden?\n- expected_behavior:\nn/a\n- source_excerpt:\nDirekt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.\n\n### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0002\n- task_type: faq_direct_answer\n- expected_output_kind: sft_sample\n- target_split: train\n- source_doc_ids: jaws_de_tutorial_basics\n- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue::chunk_01\n- chunk_type: concept\n- section_path_text: JAWS – Tutorial / Grundlagen > Steuerungsmenü\n- difficulty: basic\n- phrasing_style: neutral\n- user_goal: Direkt wissen, wofür das Steuerungsmenü gedacht ist und wie man es öffnet.\n- output_contract: direkte, dokumentationsgebundene Antwort ohne unnoetige Vorrede\n- user_request:\nWozu brauche ich in JAWS das Steuerungsmenü eigentlich, und wie rufe ich es auf, wenn es normalerweise unsichtbar ist?\n- expected_behavior:\nn/a\n- source_excerpt:\nDas Steuerungsmenü wird dazu verwendet, ein Fenster wiederherzustellen, es zu verschieben, die Größe zu verändern, es zu minimieren, zu maximieren und zu schließen. Das Steuerungsmenü ist meist unsichtbar, Sie können es jedoch mit **ALT+LEERTASTE** öffnen. Gehen Sie dann mit **PFEIL RAUF** und **RUNTER** durch die Menüeinträge.\n\nQuelle: typical_application_layout.htm\n"
+    }
+  ],
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "json_generation_payload",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "job_id",
+                "answer",
+                "task_type",
+                "needs_clarification",
+                "clarification_question",
+                "escalate",
+                "uncertainty_reason",
+                "steps",
+                "source_chunk_ids",
+                "notes"
+              ],
+              "properties": {
+                "job_id": {
+                  "type": "string",
+                  "enum": [
+                    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+                    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002"
+                  ]
+                },
+                "task_type": {
+                  "type": "string",
+                  "enum": [
+                    "faq_direct_answer"
+                  ]
+                },
+                "answer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "needs_clarification": {
+                  "type": "boolean"
+                },
+                "clarification_question": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "escalate": {
+                  "type": "boolean"
+                },
+                "uncertainty_reason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "steps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "source_chunk_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "notes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "temperature": 0.1,
+  "max_tokens": 2600
+}

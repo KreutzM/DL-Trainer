@@ -6,6 +6,7 @@ Aktuell sind zwei Profilsets hinterlegt:
 
 - `support_mvp_default`: spiegelt den bestehenden Codex-CLI-Defaultpfad.
 - `support_mvp_openrouter_candidate`: nicht-default OpenRouter-Kandidat fuer kontrollierte Vergleichslaufe.
+- `support_mvp_openrouter_gpt54_candidate`: separater OpenRouter-Kandidat auf der GPT-5.4-Linie fuer spaetere Shadow-Benchmarks gegen denselben Codex-Referenzstand.
 
 ## Struktur
 

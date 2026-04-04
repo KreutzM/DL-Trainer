@@ -1,0 +1,255 @@
+# Teacher Prompt: JAWS-DE Support Judge MVP
+
+## Rolle
+
+Du bist der automatische Qualitaetspruefer fuer einen JAWS-DE-Datensatzfall.
+
+## Ziel
+
+Bewerte, ob eine simulierte Nutzeranfrage und die dazu erzeugte Support-Antwort gemeinsam hochwertig genug fuer einen produktiven Downstream-Pfad sind.
+
+## Pruefkriterien
+
+1. Die Nutzeranfrage wirkt realistisch und supportnah.
+2. Die Nutzeranfrage passt zum dokumentierten Quellkontext.
+3. Die Support-Antwort beantwortet genau diese Anfrage.
+4. Die Support-Antwort bleibt dokumentationsgebunden.
+5. Keine erfundenen Fakten, Menues, Tastenkombinationen oder Voraussetzungen.
+6. Keine Ellipsis-, Tabellen-, Hinweis- oder Label-Artefakte.
+7. Der Fall ist fuer den jeweiligen `task_type` sinnvoll umgesetzt.
+8. Die Antwortform passt zum `task_type`:
+   - `clarification`: genau eine fokussierte Rueckfrage statt direkter Endantwort
+   - `uncertainty_escalation`: sichtbare Evidenzgrenze oder saubere Eskalation
+   - `step_by_step`: genau eine saubere, klar geordnete und bis zum eigentlichen Ziel vollstaendige Prozedur
+9. Fuer `step_by_step` gilt zusaetzlich:
+   - Ein fehlender letzter entscheidender Schritt ist schwerwiegend und fuehrt in der Regel zu `reject`.
+   - Eine Vermischung verschiedener Prozeduren, Dialoge oder Abschlusszustaende ist schwerwiegend und fuehrt in der Regel zu `reject`.
+   - Doppelte oder redundante Schrittfolgen sind relevant, aber weniger schwerwiegend als inhaltliche Unvollstaendigkeit oder Prozedurvermischung.
+   - Kleine Struktur- oder Formatmangel sind nachrangig, wenn die Prozedur fachlich korrekt, vollstaendig und in klarer Reihenfolge bleibt.
+
+## Entscheidungsregeln
+
+- `approve` nur bei belastbarer Gesamtqualitaet.
+- `reject`, wenn die Nutzeranfrage unplausibel ist, die Antwort driftet, Fakten erfindet oder offensichtlich nicht gut genug fuer ein Gold-Kandidat ist.
+- Bei `step_by_step` haben fachliche Vollstaendigkeit, korrekte Reihenfolge und saubere Trennung der Prozedur Vorrang vor stilistischen oder rein formatbezogenen Details.
+- Sei streng. Lieber `reject` als schwache Daten freigeben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Ausgabe
+
+JSON mit:
+- `decision`
+- `quality_score` als ganze Zahl von 0 bis 100
+- `summary`
+- `blocking_reasons`
+- `strengths`
+- `improvement_notes`
+- `source_chunk_ids_confirmed`
+
+## Batch-Regeln
+- Bewerte jeden Fall separat und gib fuer jede job_id genau eine Entscheidung zurueck.
+- Antworte gesammelt in einem JSON-Objekt mit items[].
+- approve nur bei klar belastbarer Gesamtqualitaet.
+- Wenn Anfrage oder Antwort auch nur leicht zu schwach wirkt, entscheide reject.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003
+- task_type: faq_direct_answer
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01
+- chunk_type: concept
+- section_path_text: Gruppe Sprachausgaben > Gruppe Navigation > Länge des Textblocks
+- expected_behavior: Beantwortet die Frage knapp und dokumentationsgestuetzt zu Länge des Textblocks.
+- user_request:
+Wofür ist die Einstellung „Länge des Textblocks“ in JAWS gedacht?
+- support_answer:
+Die Einstellung „Länge des Textblocks“ legt fest, wie lang ein nicht verlinkter Textblock mindestens sein muss, damit JAWS ihn beim Sprung mit JAWS TASTE+EINGABE als nächsten Text findet. JAWS sucht dabei nach einem Textblock, der kein Teil eines Links ist und mindestens so viele Zeichen hat wie der hier eingestellte Wert. Der Standardwert ist 25.
+- source_excerpt:
+Wenn Sie **JAWS TASTE+EINGABE** drücken, um zum nächsten Text zu springen, der kein Link ist, sucht JAWS nach einem Textblock, der nicht Teil eines Links ist und so viele oder mehr Zeichen aufweist, wie der Wert, der hier angegeben wird. Der Standardwert ist 25.
+
+### job_id: jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004
+- task_type: faq_direct_answer
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01
+- chunk_type: concept
+- section_path_text: Schnelleinstellung Übersicht > JAWS Befehle zum Arbeiten in Dialogen
+- expected_behavior: Beantwortet die Frage knapp und dokumentationsgestuetzt zu JAWS Befehle zum Arbeiten in Dialogen.
+- user_request:
+Welche JAWS-Befehle sollte ich für das Arbeiten in Dialogen kennen?
+- support_answer:
+Wichtige JAWS-Befehle für Dialoge sind: Standardschalter ansagen (JAWS TASTE+E), Kurztaste des aktuellen Steuerelements ansagen (UMSCHALT+NUM 5), aktuelles Fenster lesen (JAWS TASTE+B), Fenstertyp und Text lesen (JAWS TASTE+TAB), Wort im Kontext lesen (JAWS TASTE+C), Ausklappliste öffnen (ALT+PFEIL RUNTER), Ausklappliste schließen (ALT+PFEIL RAUF), mehrere Listenelemente markieren (STRG+UMSCHALT oder STRG+LEERTASTE), alle Markierungen aufheben (STRG+\), Spalten 1 bis 10 der Listenansicht lesen (STRG+JAWS TASTE+1 bis 0). Für kontextabhängige Hilfe: JAWS-TASTE+F1.
+- source_excerpt:
+Tabelle: Befehle zum Arbeiten in Dialogen
+
+| Beschreibung | Befehl |
+| --- | --- |
+| Standardschalter ansagen | JAWS TASTE+E |
+| Kurztaste des aktuellen Steuerelements ansagen | UMSCHALT+NUM 5 |
+| Aktuelles Fenster lesen | JAWS TASTE+B |
+| Fenstertyp und Text lesen | JAWS TASTE+TAB |
+| Wort im Kontext lesen | JAWS TASTE+C |
+| Ausklappliste öffnen | ALT+PFEIL RUNTER |
+| Ausklappliste schließen | ALT+PFEIL RAUF |
+| Mehrere Listenelemente markieren | STRG+UMSCHALT oder STRG+LEERTASTE |
+| Alle Markierungen aufheben | STRG+\ |
+| Spalten 1 bis 10 der Listenansicht lesen | STRG+JAWS TASTE+1 bis 0 |
+
+**Tipp:** Wenn Sie auf einem Steuerelement des Dialogfensters **JAWS-TASTE+F1** drücken, erhalten Sie eine kontextabhängige Hilfe.
+
+*Siehe auch:*
+[Windows Befehle für das Arbeiten in Dialogfeldern](../standard_windows_keystrokes/windows_keystrokes_for_working_in_dialog_boxes.htm)
+
+Quelle: jaws_keystrokes_for_working_in_dialog_boxes.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::clarification::0003
+- task_type: clarification
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01
+- chunk_type: reference
+- section_path_text: Einstellungsverwaltung Übersicht > Kurztasten zum Navigieren in der Einstellungsverwaltung > Navigation in der Strukturansicht
+- expected_behavior: n/a
+- user_request:
+Ich komme in der Einstellungsverwaltung mit der Strukturansicht noch nicht ganz klar. Wie bewege ich mich da eigentlich zwischen den Punkten und kann eine Gruppe auf- oder zuklappen?
+- support_answer:
+Möchten Sie nur die Tasten zum Bewegen und Auf- bzw. Zuklappen in der Strukturansicht wissen, oder auch die weiteren Tasten zum Auswählen, Status ändern und Wechseln in den Einstellungsbereich?
+- source_excerpt:
+- Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER**, um sich in der Strukturansicht auf- oder abwärts zu bewegen.
+- Drücken Sie **PFEIL RECHTS** oder **PFEIL LINKS**, um eine Gruppe der Strukturansicht zu erweitern oder zu reduzieren.
+- Um eine Gruppe oder ein Element in der Strukturansicht auszuwählen, nutzen Sie die Navigation über Anfangsbuchstaben.
+- Drücken Sie **LEERTASTE** oder **EINGABE**, um den Status des Element zu ändern, während es in der Strukturansicht fokussiert ist. Dieses funktioniert für Optionen wie Auswahlschalter, Kontrollfelder oder Schalter, ohne dass Sie **F6** drücken müssen, um in den Einstellungsbereich zu wechseln.
+- Drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungsdatei Default.jcf zu laden und Änderungen global vorzunehmen.
+- Wenn Sie in der Einstellungsverwaltung nach einem Element suchen, dann wird das Suchergebnis in der Strukturansicht angezeigt. Drücken Sie **EINGABE** auf einem beliebigen Eintrag, um die komplette Strukturansicht wieder herzustellen und navigieren Sie dann direkt zu dem Element. Drücken Sie innerhalb des Suchergebnisses **ESCAPE**, dann wird die volle Strukturansicht mit dem vorherigen Element, bevor Sie die Suche gestartet haben, wieder hergestellt.
+- Mit **F6** wechseln Sie in den Einstellungsbereich. Drücken Sie **F6** ein weiteres Mal, um zur Strukturansicht zurückzukehren.
+
+### job_id: jaws_de_teacher_wave_v1::train::clarification::0008
+- task_type: clarification
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01
+- chunk_type: reference
+- section_path_text: Was ist neu in JAWS? > Aria und Web
+- expected_behavior: n/a
+- user_request:
+Ich habe gelesen, dass sich bei JAWS irgendwas mit Aria und Web geändert hat. Worauf bezieht sich das genau und was ist daran neu?
+- support_answer:
+Möchten Sie eine kurze Übersicht aller genannten Web- und ARIA-Neuerungen, oder geht es Ihnen um einen bestimmten Punkt wie Tabellen, Regionen, Fortschrittsbalken oder mathematische Elemente?
+- source_excerpt:
+- JAWS bietet nun die Möglichkeit, direkt zu mathematischen Elementen auf Webseiten zu springen. Um diese Funktion zu nutzen, können Sie über den Schnellnavigationstastenmanager, der über das Dialogfenster JAWS Manager ausführen (**EINFÜGEN+F2**) aufgerufen wird, eine Tastenkombination zuweisen.
+- In Google Chrome wurde die Leistung von JAWS beim Navigieren zwischen Zellen in sehr großen Tabellen verbessert.
+- JAWS sagt nun standardmäßig Regionen mit Namen an.
+- Durch Drücken der **ANWENDUNGSTASTE** auf einem Link wird nun zuverlässig das richtige Kontextmenü geöffnet.
+- Beim Navigieren in Tabellen zeigt JAWS nun sowohl Kopfzeilen als auch Spalten- und Zeileninformationen korrekt an, selbst wenn die Tabelle Span-Elemente enthält.
+- JAWS liest nun Fortschrittsbalken, die die Aria-Fortschrittsbalkenrolle verwenden, korrekt vor.
+- Wenn Sie den Fokus auf eine Tabellenzelle in der Kopfzeile setzen, die sich über mehrere Spalten erstreckt, funktioniert das Drücken von **ALT+STRG+ENDE** nun wie erwartet, um zur letzten Zelle in der Tabelle zu gelangen.
+- In Google Chrome wird der Fokus nicht mehr unerwartet auf die Adressleiste oder das Chrome-Menü verschoben, wenn der Fokus auf einem Kombinationsfeld liegt und die Taste **ESC** gedrückt wird, um den Formularmodus zu verlassen.
+
+### job_id: jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001
+- task_type: uncertainty_escalation
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Auswahl einer geteilten Braille-Ansicht > Anmerkungen
+- expected_behavior: n/a
+- user_request:
+Ich arbeite in Word mit Anmerkungen und würde das gern in der geteilten Braille-Ansicht nutzen. Gilt das nur in Word oder kann JAWS das allgemein in solchen Ansichten anzeigen?
+- support_answer:
+Die vorliegende Quelle beschreibt diese geteilte Braille-Ansicht nur als vor allem in Word nützlich und nennt dort konkret Kommentare, Überarbeitungen, Fußnoten und Endnoten. Ob JAWS das allgemein auch in anderen Anwendungen oder Ansichten in gleicher Weise unterstützt, ist hier nicht belegt.
+- source_excerpt:
+Diese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.
+
+**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.
+
+### job_id: jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002
+- task_type: uncertainty_escalation
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__strukturansicht::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Tutorial / Grundlagen > Strukturansicht
+- expected_behavior: n/a
+- user_request:
+Bei der Strukturansicht: Funktioniert die Bedienung und das Vorlesen eigentlich in allen Dialogen gleich, oder gibt es da Einschränkungen?
+- support_answer:
+Die Quelle beschreibt die Bedienung einer Strukturansicht mit Pfeiltasten, POS1/ENDE, TAB und UMSCHALT+TAB und nennt auch, dass JAWS die Positionsnummer einer Ebene nur dann ansagt, wenn sie sich ändert. Sie belegt damit ein typisches Verhalten, aber nicht, dass dieses in allen Dialogen ohne Einschränkungen einheitlich ist.
+- source_excerpt:
+In einer Strukturansicht werden Elemente hierarchisch angeordnet und vertikal am Bildschirm dargestellt. Mit **PFEIL RAUF** und **PFEIL RUNTER** bewegen Sie sich durch eine Strukturansicht. Wenn Sie "Ebene 0 geschlossen" hören, öffnen Sie mit PFEIL RECHTS diese Ebene. Es erscheinen dann weitere Informationen unterhalb dieser Ebene. Mit **PFEIL RUNTER** bewegen Sie sich durch die Elemente der nächsten Ebene. Auch hier kann ein Element geschlossen sein, so dass Sie wieder mit **PFEIL RECHTS** diese Ebene öffnen können. Sie schließen eine Ebene mit **PFEIL LINKS** oder **RÜCKSCHRITT**.
+
+**Hinweis:** JAWS sagt die Positionsnummer der Ebene nur dann an, wenn sie sich ändert.
+
+Um auf das erste Element in einer Strukturansicht zu springen, drücken Sie **POS1**, mit **ENDE** springen Sie auf das letzte Element.
+
+Rechts neben der Strukturansicht befindet sich ein zweiter Bereich, in dem Informationen über das in der Strukturansicht gewählte Element angezeigt werden. Mit **TAB** springen Sie in den rechten Bereich der Strukturansicht. Mit dem Befehl Alles Lesen, **JAWS TASTE+PFEIL RUNTER**, werden diese Informationen vorgelesen. Mit **UMSCHALT+TAB** springen Sie in den ursprünglichen Bereich der Strukturansicht zurück.
+
+Quelle: sample_dialogs.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::step_by_step::0001
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)
+- expected_behavior: n/a
+- user_request:
+Wie ändere ich in JAWS die Anzahl der Zeilen für den geteilten Bereich auf einer mehrzeiligen Braillezeile? Bitte Schritt für Schritt.
+- support_answer:
+Gehen Sie so vor:
+
+1. Drücken Sie ALT+EINFÜGEN+V, um den Dialog Braille-Ansicht auswählen zu öffnen.
+2. Wählen Sie Optionen.
+3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der LEERTASTE die Anzahl der Zeilen aus.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie EINGABE, um den Dialog zu schließen.
+- source_excerpt:
+Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:
+
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
+2. Wählen Sie Optionen.
+3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
+
+### job_id: jaws_de_teacher_wave_v1::train::step_by_step::0002
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__stimmeneinstellungen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Tutorial / Grundlagen > Stimmeneinstellungen
+- expected_behavior: n/a
+- user_request:
+Ich möchte die Stimmeneinstellungen in JAWS öffnen und dort ein Stimmenprofil anpassen. Wie gehe ich dabei genau vor?
+- support_answer:
+Gehen Sie so vor:
+
+1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.
+2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.
+3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.
+4. Wählen Sie hier ein bestehendes Profil oder eine Standard-Stimmenvorlage aus und konfigurieren Sie verschiedene Einstellungen wie Sprache, Stimme, Sprechgeschwindigkeit oder Satzzeichenansage.
+5. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen das Dialogfenster Stimmeneinstellungen.
+6. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.
+7. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen.
+- source_excerpt:
+Die JAWS Stimmeneinstellungen für die Sprachausgabe lassen sich unterschiedlich anpassen, so dass Sie die einzelnen JAWS Funktionen akustisch unterscheiden können. So sollte zum Beispiel die Stimme für den PC Cursor anders eingestellt sein, als die Stimme für das Tastaturecho oder für die Großbuchstabenansage.
+
+Gehen Sie bitte folgendermaßen vor, wenn Sie Stimmeneinstellungen öffnen möchten:
+
+1. Drücken Sie **EINFÜGEN+J**, um das JAWS Programmfenster zu öffnen.
+2. Drücken Sie **ALT+O**, um das Menü Optionen zu öffnen.
+3. Drücken Sie **T** und dann **EINGABE**, um das Dialogfeld [Stimmeneinstellungen](jfw.chm::/using_jaws/the_jaws_application_window/Voice_Adjustment.htm) zu öffnen. Hier können Sie ein bestehendes Profil oder eine Standard-Stimmenvorlage auswählen und verschiedene Einstellungen, wie Sprache, Stimme, Sprechgeschwindigkeit, Satzzeichenansage und anderes nach Ihren Wünschen konfigurieren.
+4. Nach dem Ändern der Einstellungen, speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.
+
+Um eine Stimmenprofil auszuwählen, gehen Sie bitte folgendermaßen vor:
+
+1. Drücken Sie **JAWS TASTE+STRG+S**, um das Dialogfenster [Stimmenprofil auswählen](jfw.chm::/using_jaws/the_jaws_application_window/language_menu_overview.htm#VoiceProfiles) zu öffnen.
+2. Nutzen Sie die Ausklappliste Standard, um eine Stimmenprofil auszuwählen, dass von JAWS global

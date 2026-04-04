@@ -1,0 +1,159 @@
+{
+  "model": "openai/gpt-5.4",
+  "messages": [
+    {
+      "role": "user",
+      "content": "# Teacher Prompt: JAWS-DE Support Answer MVP\n\n## Rolle\n\nDu erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.\n\n## Ziel\n\nBeantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.\n\n## Regeln\n\n- Nutze ausschliesslich die bereitgestellten Quellen.\n- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.\n- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.\n- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.\n- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.\n- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.\n- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.\n- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.\n\n## Gewuenschte Qualitaet\n\n- supporttauglich\n- sachlich und knapp\n- klar an der Nutzerfrage ausgerichtet\n- dokumentationsgebunden\n- ohne Tabellen-, Hinweis- oder Truncation-Artefakte\n\n## Task-Type-spezifische Regeln\n\n- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.\n- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.\n- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.\n- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.\n- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.\n\n## Feldpflichten pro Fall\n\n- Setze `task_type` exakt wie vorgegeben.\n- `clarification`:\n  - `needs_clarification=true`\n  - `clarification_question` genau eine fokussierte Frage\n  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`\n  - `steps=[]`\n  - `escalate=false`\n- `uncertainty_escalation`:\n  - `escalate=true`\n  - `uncertainty_reason` kurz und konkret\n  - `needs_clarification=false`\n- `faq_direct_answer`, `troubleshooting`, `step_by_step`:\n  - `needs_clarification=false`\n  - `clarification_question=null`\n- `step_by_step`:\n  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt\n  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten\n\n## Ausgabe\n\nJSON gemaess Output-Schema.\n\n## Batch-Regeln\n- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.\n- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.\n- Uebernimm job_id und task_type je Fall exakt.\n- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.\n\n## Faelle\n### job_id: jaws_de_teacher_wave_v1::eval::clarification::0001\n- task_type: clarification\n- expected_output_kind: eval_case\n- target_split: eval\n- source_doc_ids: jaws_de_braille\n- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01\n- chunk_type: reference\n- section_path_text: JAWS – Braille (Allgemein & Focus) > Allgemein\n- difficulty: basic\n- phrasing_style: uncertain\n- user_goal: Eine fokussierte Rückfrage zur Einordnung von Braille-Hilfe in JAWS stellen.\n- output_contract: needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]\n- user_request:\nIch komme bei den Braille-Einstellungen in JAWS nicht ganz mit: Geht es hier um die allgemeinen Braille-Funktionen oder speziell um den Focus?\n- expected_behavior:\nStellt genau eine fokussierte Rueckfrage und grenzt Allgemein sinnvoll ein.\n- source_excerpt:\n- [BrailleIn](JAWS_BrailleIn.htm)\n- [Braillezeilen Eingabebefehle](focus/Braille_Display_Input_Commands.htm)\n- [Braille Lern-Modus](Braille_Study_Mode.htm)\n- [Die Modi der Braillezeilen](Braille_Display_Modes.htm)\n- [Statuszellen](Status_Cells.htm)\n- [Braille Blitzmeldungen](Braille_Flash_Messages.htm)\n- [Den Cursor an- und abkoppeln](Linking_and_Unlinking_the_Cursor.htm)\n- [Spezielle JAWS Braille-Kürzel](JAWS_Specific_Braille_Abbreviations.htm)\n- [Braille-Formatierung](Braille_Formatting.htm)\n- [Braille-Einstellungen im laufenden Betrieb vornehmen](braille/adjust_braille_options.htm)\n\n### job_id: jaws_de_teacher_wave_v1::eval::clarification::0002\n- task_type: clarification\n- expected_output_kind: eval_case\n- target_split: eval\n- source_doc_ids: jaws_de_settingscenter\n- source_chunk_ids: jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_anwendungsliste::chunk_01\n- chunk_type: reference\n- section_path_text: Einstellungsverwaltung Übersicht > Kurztasten zum Navigieren in der Einstellungsverwaltung > Navigation in der Anwendungsliste\n- difficulty: basic\n- phrasing_style: uncertain\n- user_goal: Eine präzise Rückfrage zur Navigation in der Anwendungsliste stellen.\n- output_contract: needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]\n- user_request:\nBei der Anwendungsliste in der Einstellungsverwaltung: Muss ich zum Auswählen wirklich nur mit den Pfeiltasten durch die Liste gehen, oder geht das auch über den Anfangsbuchstaben?\n- expected_behavior:\nStellt genau eine fokussierte Rueckfrage und grenzt Navigation in der Anwendungsliste sinnvoll ein.\n- source_excerpt:\n- Drücken Sie **UMSCHALT+TAB**, bis der Fokus auf der Ausklappliste für Anwendungen landet.\n- Drücken Sie die **PFEILTASTEN**, um Elemente in der Anwendungsliste auszuwählen.\n- Um Elemente in der Liste auszuwählen, nutzen Sie die Navigation über den Anfangsbuchstaben.\n- Drücken Sie **TAB** oder **UMSCHALT+TAB**, um den Fokus von der Ausklappliste weg zu bewegen.\n\n### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003\n- task_type: uncertainty_escalation\n- expected_output_kind: eval_case\n- target_split: eval\n- source_doc_ids: jaws_de_settingscenter\n- source_chunk_ids: jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01\n- chunk_type: warning\n- section_path_text: Die Gruppe Sprach- und Sound-Schemata > Einsteiger, Fortgeschrittenen oder Experten Einstellungen > Länge von JAWS Meldungen\n- difficulty: intermediate\n- phrasing_style: uncertain\n- user_goal: Die Grenzen und mögliche Ausnahmen der Einstellung zur Meldungslänge klären.\n- output_contract: escalate=true; uncertainty_reason kurz nennen; Antwort muss Evidenzgrenze sichtbar machen; needs_clarification=false\n- user_request:\nBei der Einstellung für die Länge von JAWS-Meldungen: Gilt das wirklich für alle Meldungen gleichermaßen, oder gibt es da Ausnahmen, bei denen die Umschaltung auf kurz und lang nicht greift?\n- expected_behavior:\nMarkiert die Evidenzgrenze fuer Länge von JAWS Meldungen klar und erfindet keine generelle Zusage.\n- source_excerpt:\nDie Länge der Meldungen kann mit zwei Auswahlschaltern angepasst werden, Lange oder kurze Meldungen. Wählen Sie Kurze Meldungen, wenn Sie zusammengefasste Meldungen hören möchten, und wählen Sie Lange Meldungen, wenn Sie detaillierte Meldungen hören möchten. Wenn Sie zum Beispiel in einem Textdokument arbeiten und **STRG+C** drücken, um Text in die Zwischenablage zu kopieren, und die Länge von Meldungen auf Kurz gesetzt ist, sagt JAWS \"kopiert\". Ist die Länge der Meldungen auf Lang gesetzt, sagt JAWS \"Gewählten Text in die Ablage kopiert\".\n\n**Tipp:** Sind Sie noch nicht mit Windows, JAWS oder einer speziellen Anwendung vertraut, dann kann es sehr hilfreich sein, wenn man die Meldungslänge auf Lang festlegt. Wenn Sie mit einer speziellen Anwendung, oder mit JAWS und Windows im Allgemeinen, vertrauter sind, dann kann das Festlegen der Meldungslänge auf Kurz Zeit sparen und die Arbeitsleistung erhöhen.\n\nDinge, die gesprochen werden, und auf die die Länge der Meldungen angewendet werden, sind:\n\n- JAWS Meldungen\n- Statusmeldungen\n- JAWS Fehlermeldungen\n- Meldungen beim Anwendungsstart\n- Intelligente Hilfemeldungen\n- Hilfemeldungen\n\n**Hinweis:** Hilfemeldungen können im Listenfeld \"Zu sprechende Elemente\" nicht abgeschaltet werden, die Einstellung, ob lange oder kurze Meldungen gesprochen werden, wirkt sich aber auf sie aus.\n\n### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004\n- task_type: uncertainty_escalation\n- expected_output_kind: eval_case\n- target_split: eval\n- source_doc_ids: jaws_de_hilfe_kernfunktionen\n- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__speziellen_symbolen_sprache_hinzufuegen::chunk_01\n- chunk_type: warning\n- section_path_text: Schnelleinstellung Übersicht > Speziellen Symbolen Sprache hinzufügen\n- difficulty: advanced\n- phrasing_style: uncertain\n- user_goal: Die Grenzen der Funktion zum Hinzufügen spezieller Symbolsprache einschätzen.\n- output_contract: escalate=true; uncertainty_reason kurz nennen; Antwort muss Evidenzgrenze sichtbar machen; needs_clarification=false\n- user_request:\nWenn JAWS ein Symbol gar nicht oder falsch spricht: Kann ich mich darauf verlassen, dass ich das in jedem Fall über die Funktion zum Hinzufügen spezieller Symbolsprache lösen kann, oder gibt es dabei Grenzen?\n- expected_behavior:\nMarkiert die Evidenzgrenze fuer Speziellen Symbolen Sprache hinzufügen klar und erfindet keine generelle Zusage.\n- source_excerpt:\nObwohl JAWS fast alle häufig genutzten Symbole über die Sprachausgabe wiedergibt, möchten Sie möglicherweise doch noch weitere hinzufügen. Wenn Sie ein Dokument lesen und den Eindruck haben, dass JAWS ein Symbol nicht richtig wiedergibt oder gar nicht spricht, gehen Sie bitte folgendermaßen vor:\n\n1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**) und erweitern Sie die Gruppe Grafiken und Symbole.\n2. Aktivieren Sie das Kontrollfeld Zeichenwert hexadezimal sprechen.\n3. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.\n4. Kehren Sie in das Dokument zurück. Bewegen Sie den Cursor auf ein kleines \"a\" (sollte keines vorhanden sein, dann geben Sie eins ein) und drücken Sie **NUM 5** dreimal hintereinander. JAWS sollte \"Zeichen U+61HEX\" ansagen. Wenn Sie irgendeine andere Meldung hören, dürfen Sie diese Schritte nicht weiter ausführen.\n5. Bewegen Sie den Cursor auf das Zeichen, dessen Sprachwiedergabe geändert werden soll und drücken Sie **NUM 5** dreimal schnell hintereinander, damit Sie den Hexadezimal Unicode Wert des Zeichen erhalten. Notieren Sie sich sicherheitshalber den Wert, da Sie diesen für die nächsten Schritte benötigen.\n6. Verwenden Sie einen Texteditor wie Notepad und öffnen Sie die SBL Datei für die aktive Sprachausgabe. Zum Beispiel Eloq.sbl. Diese Datei finden Sie im Ordner der gemeinsamen Einstellungen (C:\\ProgramData\\\n"
+    }
+  ],
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "json_generation_payload",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "job_id",
+                "answer",
+                "task_type",
+                "needs_clarification",
+                "clarification_question",
+                "escalate",
+                "uncertainty_reason",
+                "steps",
+                "source_chunk_ids",
+                "notes",
+                "case_description",
+                "expected_behavior",
+                "reference_answer",
+                "rubric"
+              ],
+              "properties": {
+                "job_id": {
+                  "type": "string",
+                  "enum": [
+                    "jaws_de_teacher_wave_v1::eval::clarification::0001",
+                    "jaws_de_teacher_wave_v1::eval::clarification::0002",
+                    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+                    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004"
+                  ]
+                },
+                "task_type": {
+                  "type": "string",
+                  "enum": [
+                    "clarification",
+                    "uncertainty_escalation"
+                  ]
+                },
+                "answer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "needs_clarification": {
+                  "type": "boolean"
+                },
+                "clarification_question": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "escalate": {
+                  "type": "boolean"
+                },
+                "uncertainty_reason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "steps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "source_chunk_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "notes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "case_description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "expected_behavior": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reference_answer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "rubric": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "must_include",
+                    "must_not_include",
+                    "style",
+                    "scoring_notes"
+                  ],
+                  "properties": {
+                    "must_include": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "must_not_include": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "style": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "scoring_notes": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "temperature": 0.1,
+  "max_tokens": 2600
+}

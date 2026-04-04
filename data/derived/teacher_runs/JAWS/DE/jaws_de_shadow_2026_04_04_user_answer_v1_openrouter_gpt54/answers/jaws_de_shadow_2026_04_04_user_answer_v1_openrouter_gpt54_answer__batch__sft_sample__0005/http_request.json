@@ -1,0 +1,109 @@
+{
+  "model": "openai/gpt-5.4",
+  "messages": [
+    {
+      "role": "user",
+      "content": "# Teacher Prompt: JAWS-DE Support Answer MVP\n\n## Rolle\n\nDu erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.\n\n## Ziel\n\nBeantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.\n\n## Regeln\n\n- Nutze ausschliesslich die bereitgestellten Quellen.\n- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.\n- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.\n- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.\n- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.\n- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.\n- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.\n- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.\n\n## Gewuenschte Qualitaet\n\n- supporttauglich\n- sachlich und knapp\n- klar an der Nutzerfrage ausgerichtet\n- dokumentationsgebunden\n- ohne Tabellen-, Hinweis- oder Truncation-Artefakte\n\n## Task-Type-spezifische Regeln\n\n- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.\n- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.\n- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.\n- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.\n- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.\n\n## Feldpflichten pro Fall\n\n- Setze `task_type` exakt wie vorgegeben.\n- `clarification`:\n  - `needs_clarification=true`\n  - `clarification_question` genau eine fokussierte Frage\n  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`\n  - `steps=[]`\n  - `escalate=false`\n- `uncertainty_escalation`:\n  - `escalate=true`\n  - `uncertainty_reason` kurz und konkret\n  - `needs_clarification=false`\n- `faq_direct_answer`, `troubleshooting`, `step_by_step`:\n  - `needs_clarification=false`\n  - `clarification_question=null`\n- `step_by_step`:\n  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt\n  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten\n\n## Ausgabe\n\nJSON gemaess Output-Schema.\n\n## Batch-Regeln\n- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.\n- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.\n- Uebernimm job_id und task_type je Fall exakt.\n- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.\n\n## Faelle\n### job_id: jaws_de_teacher_wave_v1::train::clarification::0001\n- task_type: clarification\n- expected_output_kind: sft_sample\n- target_split: train\n- source_doc_ids: jaws_de_braille\n- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02\n- chunk_type: reference\n- section_path_text: JAWS – Braille (Allgemein & Focus) > Auswahl einer geteilten Braille-Ansicht > Gepufferter Text\n- difficulty: basic\n- phrasing_style: uncertain\n- user_goal: Verstehen, wann der gepufferte Text in der Braille-Ansicht aktualisiert wird und wie man ihn neu lädt.\n- output_contract: needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]\n- user_request:\nIch komme mit „Gepufferter Text“ in der geteilten Braille-Ansicht nicht ganz klar: Wenn ich erst einen Text als gewählten Text puffere und dann etwas anderes markiere, bleibt in Bereich 2 dann immer der alte Inhalt stehen? Und wie aktualisiere ich den Puffer am besten wieder?\n- expected_behavior:\nn/a\n- source_excerpt:\n- **Absatz**: Puffert den aktuellen Absatz.\n- **Dokument**: Puffert bis zu 64 KB des aktuellen Dokuments.\n- **Gewählten Text**: Puffert jeden aktuell gewählten Text.\nBeachten Sie, dass der ausgewählte Text in Bereich 2 nicht automatisch aktualisiert wird, wenn sich die Auswahl ändert. Wenn Sie einen anderen Text auswählen, dann müssen Sie im Dialogfenster Braille-Ansicht auswählen wieder **Gepufferter Text** wählen und dann **Gewählten Text** im Einstellungsdialog wählen, um den Puffer zu aktualisieren.\n- **Zwischenablagetext**: Puffert den Inhalt der Windows-Zwischenablage, so dass Sie den zweiten Bereich effektiv als Notizenbereich nutzen können, in dem Sie Inhalte von verschiedenen Positionen einbringen und leicht darauf verweisen können. So können Sie beispielsweise Text mit **STRG+C** kopieren, weiteren Text von anderen Quellen auswählen und mit **EINFÜGEN+WINDOWS+C** an die Zwischenablage anhängen, dann die Ansicht Gepufferten Text aktivieren und Zwischenablagetext auswählen, um alle Ihrer gesammelten Informationen im Bereich 2 anzuzeigen und nach Bedarf zu verwenden.\n\nUm den Puffer zu aktualisieren, öffnen Sie das Dialogfeld Braille-Ansicht auswählen und wählen Sie erneut die Option **Gepufferter Text**, um den Puffer mit den neuesten Inhalten zu aktualisieren. Aklternativ öffnen Sie das Dialogfenster Teilungs-Ansicht auswählen, stellen sicher, dass **Gepufferter Text*\n\n### job_id: jaws_de_teacher_wave_v1::train::clarification::0003\n- task_type: clarification\n- expected_output_kind: sft_sample\n- target_split: train\n- source_doc_ids: jaws_de_settingscenter\n- source_chunk_ids: jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01\n- chunk_type: reference\n- section_path_text: Einstellungsverwaltung Übersicht > Kurztasten zum Navigieren in der Einstellungsverwaltung > Navigation in der Strukturansicht\n- difficulty: basic\n- phrasing_style: uncertain\n- user_goal: Hilfe zur Navigation in der Strukturansicht der Einstellungsverwaltung.\n- output_contract: needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]\n- user_request:\nIch verliere in der Einstellungsverwaltung manchmal die Orientierung in der Strukturansicht. Mit den Pfeiltasten komme ich zwar hoch und runter, aber ich bin mir nicht sicher, wie ich Gruppen auf- und zuklappe oder nach einem Suchergebnis wieder in die normale Struktur zurückkomme. Können Sie mir sagen, wie das dort genau gedacht ist?\n- expected_behavior:\nn/a\n- source_excerpt:\n- Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER**, um sich in der Strukturansicht auf- oder abwärts zu bewegen.\n- Drücken Sie **PFEIL RECHTS** oder **PFEIL LINKS**, um eine Gruppe der Strukturansicht zu erweitern oder zu reduzieren.\n- Um eine Gruppe oder ein Element in der Strukturansicht auszuwählen, nutzen Sie die Navigation über Anfangsbuchstaben.\n- Drücken Sie **LEERTASTE** oder **EINGABE**, um den Status des Element zu ändern, während es in der Strukturansicht fokussiert ist. Dieses funktioniert für Optionen wie Auswahlschalter, Kontrollfelder oder Schalter, ohne dass Sie **F6** drücken müssen, um in den Einstellungsbereich zu wechseln.\n- Drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungsdatei Default.jcf zu laden und Änderungen global vorzunehmen.\n- Wenn Sie in der Einstellungsverwaltung nach einem Element suchen, dann wird das Suchergebnis in der Strukturansicht angezeigt. Drücken Sie **EINGABE** auf einem beliebigen Eintrag, um die komplette Strukturansicht wieder herzustellen und navigieren Sie dann direkt zu dem Element. Drücken Sie innerhalb des Suchergebnisses **ESCAPE**, dann wird die volle Strukturansicht mit dem vorherigen Element, bevor Sie die Suche gestartet haben, wieder hergestellt.\n- Mit **F6** wechseln Sie in den Einstellungsbereich. Drücken Sie **F6** ein weiteres Mal, um zur Strukturansicht zurückzukehren.\n\n### job_id: jaws_de_teacher_wave_v1::train::clarification::0008\n- task_type: clarification\n- expected_output_kind: sft_sample\n- target_split: train\n- source_doc_ids: jaws_de_hilfe_kernfunktionen\n- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01\n- chunk_type: reference\n- section_path_text: Was ist neu in JAWS? > Aria und Web\n- difficulty: intermediate\n- phrasing_style: uncertain\n- user_goal: Einordnung, was die neuen Aria- und Web-Verbesserungen in JAWS konkret abdecken.\n- output_contract: needs_clarification=true; clarification_question genau eine fokussierte Rueckfrage; answer nur diese Rueckfrage und mit '?'; escalate=false; steps=[]\n- user_request:\nIn den neuen Hinweisen zu Aria und Web: Ich sehe, dass JAWS jetzt bei manchen Webinhalten besser mit Tabellen und Regionen umgehen soll. Ich bin mir aber nicht sicher, was davon in Chrome gilt und ob das nur für bestimmte Webseiten oder Elemente gedacht ist. Können Sie das kurz einordnen?\n- expected_behavior:\nn/a\n- source_excerpt:\n- JAWS bietet nun die Möglichkeit, direkt zu mathematischen Elementen auf Webseiten zu springen. Um diese Funktion zu nutzen, können Sie über den Schnellnavigationstastenmanager, der über das Dialogfenster JAWS Manager ausführen (**EINFÜGEN+F2**) aufgerufen wird, eine Tastenkombination zuweisen.\n- In Google Chrome wurde die Leistung von JAWS beim Navigieren zwischen Zellen in sehr großen Tabellen verbessert.\n- JAWS sagt nun standardmäßig Regionen mit Namen an.\n- Durch Drücken der **ANWENDUNGSTASTE** auf einem Link wird nun zuverlässig das richtige Kontextmenü geöffnet.\n- Beim Navigieren in Tabellen zeigt JAWS nun sowohl Kopfzeilen als auch Spalten- und Zeileninformationen korrekt an, selbst wenn die Tabelle Span-Elemente enthält.\n- JAWS liest nun Fortschrittsbalken, die die Aria-Fortschrittsbalkenrolle verwenden, korrekt vor.\n- Wenn Sie den Fokus auf eine Tabellenzelle in der Kopfzeile setzen, die sich über mehrere Spalten erstreckt, funktioniert das Drücken von **ALT+STRG+ENDE** nun wie erwartet, um zur letzten Zelle in der Tabelle zu gelangen.\n- In Google Chrome wird der Fokus nicht mehr unerwartet auf die Adressleiste oder das Chrome-Menü verschoben, wenn der Fokus auf einem Kombinationsfeld liegt und die Taste **ESC** gedrückt wird, um den Formularmodus zu verlassen.\n\n### job_id: jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001\n- task_type: uncertainty_escalation\n- expected_output_kind: sft_sample\n- target_split: train\n- source_doc_ids: jaws_de_braille\n- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01\n- chunk_type: warning\n- section_path_text: JAWS – Braille (Allgemein & Focus) > Auswahl einer geteilten Braille-Ansicht > Anmerkungen\n- difficulty: basic\n- phrasing_style: uncertain\n- user_goal: Klären, ob die Anmerkungsansicht in JAWS allgemein zuverlässig in allen Fällen nutzbar ist.\n- output_contract: escalate=true; uncertainty_reason kurz nennen; Antwort muss Evidenzgrenze sichtbar machen; needs_clarification=false\n- user_request:\nIch arbeite in Word mit Kommentaren und Überarbeitungen. Kann ich mich bei der Anmerkungsansicht in JAWS darauf verlassen, dass sie immer so funktioniert, oder gibt es dabei Einschränkungen, die man kennen sollte?\n- expected_behavior:\nn/a\n- source_excerpt:\nDiese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.\n\n**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.\n"
+    }
+  ],
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "json_generation_payload",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "job_id",
+                "answer",
+                "task_type",
+                "needs_clarification",
+                "clarification_question",
+                "escalate",
+                "uncertainty_reason",
+                "steps",
+                "source_chunk_ids",
+                "notes"
+              ],
+              "properties": {
+                "job_id": {
+                  "type": "string",
+                  "enum": [
+                    "jaws_de_teacher_wave_v1::train::clarification::0001",
+                    "jaws_de_teacher_wave_v1::train::clarification::0003",
+                    "jaws_de_teacher_wave_v1::train::clarification::0008",
+                    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001"
+                  ]
+                },
+                "task_type": {
+                  "type": "string",
+                  "enum": [
+                    "clarification",
+                    "uncertainty_escalation"
+                  ]
+                },
+                "answer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "needs_clarification": {
+                  "type": "boolean"
+                },
+                "clarification_question": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "escalate": {
+                  "type": "boolean"
+                },
+                "uncertainty_reason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "steps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "source_chunk_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "notes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "temperature": 0.1,
+  "max_tokens": 2600
+}

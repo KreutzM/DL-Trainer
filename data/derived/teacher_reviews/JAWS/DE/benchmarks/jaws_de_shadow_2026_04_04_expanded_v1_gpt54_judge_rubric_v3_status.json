@@ -1,0 +1,21 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "audit_type": "judge_step_scope_reaudit",
+  "reference_run": "jaws_de_shadow_2026_04_04_expanded_v1_codex_reference",
+  "candidate_run": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3",
+  "judge_results_artifact": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge_results.jsonl",
+  "reviewed_outputs_artifact": "data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_reviewed_teacher_outputs.jsonl",
+  "delta_vs_v2_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_judge_rubric_v3_vs_v2_delta.json",
+  "delta_vs_v1_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_judge_rubric_v3_vs_v1_delta.json",
+  "audit_subset_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_judge_rubric_v3_audit_subset.json",
+  "findings_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_judge_rubric_v3_findings.json",
+  "notes_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_judge_rubric_v3_notes.md",
+  "summary": {
+    "prompt_version": "jaws_de_support_judge_v3",
+    "judge_recommendation": "shadow_only",
+    "step_by_step_scope_better": true,
+    "faq_spillover_reduced": true,
+    "new_non_step_side_effect": "clarification",
+    "next_step": "either_small_clarification_scope_fix_or_keep_shadow_only_and_expand_audit_coverage"
+  }
+}
