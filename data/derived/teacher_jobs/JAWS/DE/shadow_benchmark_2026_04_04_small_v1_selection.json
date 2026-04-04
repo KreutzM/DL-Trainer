@@ -1,0 +1,23 @@
+{
+  "selection_id": "jaws_de_shadow_2026_04_04_small_v1",
+  "workflow_role": "shadow_benchmark_small_v1",
+  "jobs_file": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_benchmark_2026_04_04_small_v1_job_ids.txt",
+  "selected_job_count": 8,
+  "selection_summary": {
+    "train_examples": 3,
+    "eval_examples": 5,
+    "task_types": [
+      "clarification",
+      "faq_direct_answer",
+      "step_by_step",
+      "troubleshooting",
+      "uncertainty_escalation"
+    ],
+    "selection_strategy": "Small first shadow benchmark subset from current_generation_selection with one eval example per task type plus extra train coverage for faq_direct_answer, step_by_step and troubleshooting."
+  },
+  "historical_source": {
+    "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json",
+    "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/current_generation_job_ids.txt"
+  }
+}

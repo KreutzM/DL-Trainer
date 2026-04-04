@@ -1,0 +1,269 @@
+2026-04-04T05:17:15.724733Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-04-04T05:17:15.724756Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-04-04T05:17:15.724760Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-04-04T05:17:15.724763Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.118.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4-mini
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d56ec-8a52-7333-afb4-86b407274a9a
+--------
+user
+# Teacher Prompt: JAWS-DE User Simulation
+
+## Rolle
+
+Du simulierst eine realistische deutschsprachige Support-Anfrage fuer JAWS.
+
+## Ziel
+
+Erzeuge genau eine hochwertige Nutzeranfrage, die plausibel zu einem realen Supportfall passt und sich eng am bereitgestellten Dokumentkontext orientiert.
+
+## Regeln
+
+- Nutze nur den bereitgestellten Quellkontext.
+- Erfinde keine Menues, Tastenkombinationen oder Funktionen.
+- Verwende keine Chunk-Titel als starre Schablone.
+- Formuliere die Anfrage so, wie ein echter Anwender oder Helpdesk-Nutzer sie stellen koennte.
+- Variiere Schwierigkeitsgrad und Formulierungsstil sinnvoll.
+- Die Anfrage darf unvollstaendig oder alltagsnah sein, aber sie muss zum dokumentierten Fall passen.
+- Keine Loesung in die Anfrage schreiben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- konkret statt generisch
+- supportnah statt dokumenttitelartig
+- glaubwuerdig fuer den jeweiligen `task_type`
+- bei `clarification` oder `uncertainty_escalation` darf die Anfrage bewusst etwas unklar sein
+- bei `step_by_step` sollte die Anfrage typischerweise um eine Bedienfolge oder Vorgehensweise bitten
+
+## Task-Type-spezifische Leitplanken
+
+- `faq_direct_answer`: die Anfrage soll auf eine konkrete, direkt beantwortbare Informationsfrage hinauslaufen.
+- `troubleshooting`: die Anfrage soll ein plausibles Problem, eine Einschränkung oder ein unerwartetes Verhalten schildern.
+- `step_by_step`: die Anfrage soll klar um eine Vorgehensweise, Bedienfolge oder Einrichtung bitten.
+- `clarification`: die Anfrage soll bewusst noch nicht eng genug sein, sodass eine fokussierte Rueckfrage sinnvoll bleibt.
+- `uncertainty_escalation`: die Anfrage darf einen Randfall, eine Voraussetzung oder eine Grenze ansprechen, bei der die Quelle nur begrenzt Antwort gibt.
+
+## Ausgabe
+
+JSON mit:
+- `request_text`
+- `user_goal`
+- `difficulty`
+- `phrasing_style`
+- `scenario_summary`
+- `notes`
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine eigenstaendige Nutzeranfrage.
+- Uebernimm job_id im JSON exakt.
+- Antworte fuer alle Faelle gesammelt in einem JSON-Objekt mit items[].
+- Verwende nur den pro Fall gezeigten Quellkontext.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::eval::clarification::0001
+- task_type: clarification
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01
+- chunk_type: reference
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Allgemein
+- spaeteres supportziel: Stellt genau eine fokussierte Rueckfrage und grenzt Allgemein sinnvoll ein.
+- seed_request: Ich brauche Hilfe zu Allgemein in JAWS.
+- source_excerpt:
+- [BrailleIn](JAWS_BrailleIn.htm)
+- [Braillezeilen Eingabebefehle](focus/Braille_Display_Input_Commands.htm)
+- [Braille Lern-Modus](Braille_Study_Mode.htm)
+- [Die Modi der Braillezeilen](Braille_Display_Modes.htm)
+- [Statuszellen](Status_Cells.htm)
+- [Braille Blitzmeldungen](Braille_Flash_Messages.htm)
+- [Den Cursor an- und abkoppeln](Linking_and_Unlinking_the_Cursor.htm)
+- [Spezielle JAWS Braille-Kürzel](JAWS_Specific_Braille_Abbreviations.htm)
+- [Braille-Formatierung](Braille_Formatting.htm)
+- [Braille-Einstellungen im laufenden Betrieb vornehmen](braille/adjust_braille_options.htm)
+
+### job_id: jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003
+- task_type: uncertainty_escalation
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01
+- chunk_type: warning
+- section_path_text: Die Gruppe Sprach- und Sound-Schemata > Einsteiger, Fortgeschrittenen oder Experten Einstellungen > Länge von JAWS Meldungen
+- spaeteres supportziel: Markiert die Evidenzgrenze fuer Länge von JAWS Meldungen klar und erfindet keine generelle Zusage.
+- seed_request: Kann ich mich bei Länge von JAWS Meldungen in JAWS allgemein darauf verlassen, dass das immer gleich unterstuetzt wird?
+- source_excerpt:
+Die Länge der Meldungen kann mit zwei Auswahlschaltern angepasst werden, Lange oder kurze Meldungen. Wählen Sie Kurze Meldungen, wenn Sie zusammengefasste Meldungen hören möchten, und wählen Sie Lange Meldungen, wenn Sie detaillierte Meldungen hören möchten. Wenn Sie zum Beispiel in einem Textdokument arbeiten und **STRG+C** drücken, um Text in die Zwischenablage zu kopieren, und die Länge von Meldungen auf Kurz gesetzt ist, sagt JAWS "kopiert". Ist die Länge der Meldungen auf Lang gesetzt, sagt JAWS "Gewählten Text in die Ablage kopiert".
+
+**Tipp:** Sind Sie noch nicht mit Windows, JAWS oder einer speziellen Anwendung vertraut, dann kann es sehr hilfreich sein, wenn man die Meldungslänge auf Lang festlegt. Wenn Sie mit einer speziellen Anwendung, oder mit JAWS und Windows im Allgemeinen, vertrauter sind, dann kann das Festlegen der Meldungslänge auf Kurz Zeit sparen und die Arbeitsleistung erhöhen.
+
+Dinge, die gesprochen werden, und auf die die Länge der Meldungen angewendet werden, sind:
+
+- JAWS Meldungen
+- Statusmeldungen
+- JAWS Fehlermeldungen
+- Meldungen beim Anwendungsstart
+- Intelligente Hilfemeldungen
+- Hilfemeldungen
+
+**Hinweis:** Hilfemeldungen können im Listenfeld "Zu sprechende Elemente" nicht abgeschaltet werden, die Einstellung, ob lange oder kurze Meldungen gesprochen werden, wirkt sich aber auf sie aus.
+
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0001
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Schreiben in Kurzschrift
+- spaeteres supportziel: Gibt eine kurze Schrittfolge fuer Schreiben in Kurzschrift aus dem Abschnitt wieder.
+- seed_request: Wie gehe ich bei Schreiben in Kurzschrift in JAWS Schritt fuer Schritt vor?
+- source_excerpt:
+Mit BrailleIn werden Ihre Eingaben umgehend in der aktuellen E-Mail, im Dokument oder in Formularfeldern in normalen Text übersetzt, wenn Sie über die Perkins-Tastatur Braille-Kurzschrift eingeben. Sollte eine Anwendung oder spezielle Eingabefelder keine Kurzschrift unterstützen, dann sagt JAWS "Computer Braille", sofern die Tutormeldungen eingeschaltet sind. Darüberhinaus wird das Symbol für Computer Braille, Punkte 4-5-6 gefolgt von Punkten 3-4-6, auf der Braillezeile dargestellt, um anzuzeigen, dass Computer Braille benötigt wird.
+
+Die Eingabe in Computer-Braille ist standardmäßig ausgewählt. Um die Braillekurzschrift zu verwenden, gehen Sie bitte folgendermaßen vor:
+1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung.
+
+2. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste Anwendungen.
+
+3. Im Sucheingabefeld geben Sie "Übersetzung" ohne Anführungsstriche ein.
+
+4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen und drücken Sie dann **EINGABE**, um den Fokus direkt in die Gruppe Übersetzung zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.
+
+5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einste
+
+### job_id: jaws_de_teacher_wave_v1::eval::troubleshooting::0004
+- task_type: troubleshooting
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01
+- chunk_type: warning
+- section_path_text: Schnelleinstellung Übersicht > Gesicht im Blick
+- spaeteres supportziel: Leitet aus dem Abschnitt Gesicht im Blick eine konkrete dokumentierte Hilfestellung ab.
+- seed_request: Ich komme bei Gesicht im Blick in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?
+- source_excerpt:
+Videoanrufe sind zu einer Standardform der Kommunikation am Arbeitsplatz, in der Schule und in persönlichen Beziehungen geworden. Bevor Sie sich an einem Videoanruf beteiligen, sollten Sie sicherstellen, dass Ihre Einstellung richtig ist und die Kamera richtig auf Sie ausgerichtet ist. Gesicht im Blick hilft Ihnen dabei, indem es Sie auf wichtige visuelle Details aufmerksam macht, wie zum Beispiel:
+
+- Ist mein Gesicht in der Ansicht zentriert?
+- Gucke ich direkt in die Kamera?
+- Ist die Beleuchtung ausgewogen?
+- Sind noch weitere Elemente im Bild sichtbar?
+
+Um Gesicht im Blick zu aktivieren, drücken Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **F** und dann **O**. Sobald die Funktion aktiviert ist, überwacht Gesicht im Blick kontinuierlich Ihre Gesichtsposition und die Lichtverhältnisse. Wenn sich etwas ändert, wenn Sie beispielsweise Ihren Kopf nach links oder rechts neigen oder die Helligkeit abnimmt, werden Sie automatisch benachrichtigt.
+
+**Hinweis:** Gesicht im Blick ist derzeit während eines aktiven Videoanrufs nicht verfügbar, da es vollständigen Zugriff auf die Kamera benötigt.
+
+Während Gesicht im Blick aktiv ist, sind die folgenden verschachtelten Kurztasten verfügbar:
+
+- Eine andere Kamera auswählen (falls mehrere Kameras verfügbar sind): **EINFÜGEN+LEERTASTE**, **F**, **C**. Sobald die Kamera-Ebene aktiv ist, drücken Sie **PFEIL RAUF** oder *
+
+### job_id: jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003
+- task_type: faq_direct_answer
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01
+- chunk_type: concept
+- section_path_text: Gruppe Sprachausgaben > Gruppe Navigation > Länge des Textblocks
+- spaeteres supportziel: Beantwortet die Frage knapp und dokumentationsgestuetzt zu Länge des Textblocks.
+- seed_request: Wofuer ist Länge des Textblocks in JAWS gedacht?
+- source_excerpt:
+Wenn Sie **JAWS TASTE+EINGABE** drücken, um zum nächsten Text zu springen, der kein Link ist, sucht JAWS nach einem Textblock, der nicht Teil eines Links ist und so viele oder mehr Zeichen aufweist, wie der Wert, der hier angegeben wird. Der Standardwert ist 25.
+
+### job_id: jaws_de_teacher_wave_v1::train::step_by_step::0001
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)
+- spaeteres supportziel: n/a
+- seed_request: Wie gehe ich bei Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen) in JAWS Schritt fuer Schritt vor?
+- source_excerpt:
+Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:
+
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
+2. Wählen Sie Optionen.
+3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
+
+### job_id: jaws_de_teacher_wave_v1::train::troubleshooting::0003
+- task_type: troubleshooting
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02::chunk_01
+- chunk_type: warning
+- section_path_text: Die Gruppe Sprach- und Sound-Schemata > Standardeinstellungen wiederherstellen
+- spaeteres supportziel: n/a
+- seed_request: Ich komme bei Standardeinstellungen wiederherstellen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?
+- source_excerpt:
+Standardeinstellungen wiederherstellen löscht lediglich alle Angaben, die auf die aktuelle Ausführlichkeitsstufe in der geladenen JCF-Datei zutreffen. Ist die Datei Default.jcf geladen, werden Werkseinstellungen wiederhergestellt. Obwohl das Dialogfeld diese Änderung widerspiegelt, werden die wiederhergestellten Standardeinstellungen erst wirksam, wenn Sie die JCF-Datei speichern.
+
+**Hinweis:** Wenn Sie einen der Dialoge Einstellungen schließen, hängt es von der Methode ab, mit der Sie den Dialog Einstellungen geöffnet haben, wo der Fokus im Dialog Ausführlichkeitsoptionen landet. Wenn Sie einen der Dialoge Einstellungen im Dialog Ausführlichkeitseinstellungen mit einer Tastenkombination geöffnet haben, landen Sie wieder auf dem Element, welches vorher den Fokus hatte. Wenn Sie mit **TAB** zu dem Schalter für die Einstellungen gesprungen sind, wird der Fokus auf den **OK** Schalter im Dialog Ausführlichkeitsoptionen gesetzt.
+
+Quelle: beginner_preferences_dialog.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0001
+- task_type: faq_direct_answer
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Focus Blue Tastatur
+- spaeteres supportziel: n/a
+- seed_request: Was sollte ich in JAWS zu Focus Blue Tastatur wissen?
+- source_excerpt:
+Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'Get-ChildItem -Force' in D:\Codex\DL\DL-Trainer
+ succeeded in 527ms:
+
+
+    Verzeichnis: D:\Codex\DL\DL-Trainer
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----        25.03.2026     18:32                .agents                                                              
+d-----        26.03.2026     21:14                .codex                                                               
+d--h--        04.04.2026     07:15                .git                                                                 
+d-----        25.03.2026     22:04                .pytest_cache                                                        
+d-----        04.04.2026     06:47                config                                                               
+d-----        25.03.2026     22:13                data                                                                 
+d-----        04.04.2026     07:14                docs                                                                 
+d-----        25.03.2026     18:33                prompts                                                              
+d-----        29.03.2026     12:07                schemas                                                              
+d-----        04.04.2026     07:14                scripts                                                              
+d-----        04.04.2026     07:14                tests                                                                
+d-----        04.04.2026     06:57                tmp                                                                  
+d-----        28.03.2026     18:21                tools                                                                
+d-----        26.03.2026     21:56                training                                                             
+-a----        25.03.2026     18:33            139 .editorconfig                                                        
+-a----        27.03.2026     09:34            230 .gitignore                                                           
+-a----        25.03.2026     19:16           3687 AGENTS.md                                                            
+-a----        04.04.2026     07:14           3847 Makefile                                                             
+-a----        25.03.2026     18:33            372 pyproject.toml                                                       
+-a----        04.04.2026     07:14           4108 README.md                                                            
+-a----        25.03.2026     18:33             88 requirements.txt                                                     
+
+
+Die Eigenschaft kann nicht festgelegt werden. Das Festlegen der Eigenschaft wird in diesem Sprachmodus nur für 
+Kerntypen unterstützt.
+In Zeile:1 Zeichen:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+codex
+{"items":[{"job_id":"jaws_de_teacher_wave_v1::eval::clarification::0001","request_text":"Ich bin in JAWS bei Braille > Allgemein gelandet und bin mir nicht sicher, was dort genau dazugehört. Geht es in diesem Bereich eher um BrailleIn und die Eingabebefehle oder auch um Dinge wie Statuszellen und Cursor-Ankopplung?","user_goal":"Den Bereich Allgemein innerhalb der JAWS-Braille-Hilfe genauer eingrenzen.","difficulty":"basic","phrasing_style":"uncertain","scenario_summary":"Eine Nutzerin will den Umfang von 'Allgemein' in der Braille-Hilfe verstehen und braucht eine fokussierte Rückfrage.","notes":["Orientiert sich nur an den im Abschnitt aufgelisteten Themen.","Keine Lösung oder Funktionsbeschreibung über den Quellkontext hinaus."]},{"job_id":"jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003","request_text":"Kann ich die Länge der JAWS-Meldungen wirklich allgemein für alle Meldungsarten gleich verwenden, oder gibt es Stellen wie Hilfemeldungen oder bestimmte Anwendungen, bei denen das anders wirkt?","user_goal":"Die Grenzen der Einstellung für die Meldungslänge verstehen.","difficulty":"intermediate","phrasing_style":"uncertain","scenario_summary":"Ein Nutzer fragt nach der Reichweite und Grenze der Einstellung für lange oder kurze JAWS-Meldungen.","notes":["Soll die Evidenzgrenze klar ansprechen, ohne eine allgemeine Zusage zu erfinden.","Bezieht sich auf Meldungen, Statusmeldungen und Hilfemeldungen aus dem Quelltext."]},{"job_id":"jaws_de_teacher_wave_v1::eval::step_by_step::0001","request_text":"Ich möchte in JAWS von Computer-Braille auf Braillekurzschrift umstellen. Kann mir jemand die Schritte dafür nacheinander nennen?","user_goal":"Die Braillekurzschrift in JAWS aktivieren.","difficulty":"intermediate","phrasing_style":"task_focused","scenario_summary":"Ein Nutzer braucht eine konkrete Bedienfolge zum Wechsel der Braille-Eingabe von Computer-Braille auf Kurzschrift.","notes":["Passt zum Verfahren im Abschnitt 'Schreiben in Kurzschrift'.","Keine zusätzlichen Menüs oder Abkürzungen ergänzen."]},{"job_id":"jaws_de_teacher_wave_v1::eval::troubleshooting::0004","request_text":"Bei Videoanrufen bekomme ich Gesicht im Blick nicht so hin, wie es sein sollte. Was soll ich laut Doku zuerst prüfen oder wie aktiviere ich das richtig?","user_goal":"Gesicht im Blick korrekt prüfen und aktivieren.","difficulty":"intermediate","phrasing_style":"frustrated","scenario_summary":"Ein Nutzer kommt mit der Schnellfunktion 'Gesicht im Blick' nicht weiter und sucht die dokumentierte Prüfung bzw. Aktivierung.","notes":["Die Anfrage soll auf die dokumentierte Hilfestellung aus dem Abschnitt hinauslaufen.","Den Hinweis zur Nichtverfügbarkeit während eines aktiven Videoanrufs nicht vorwegnehmen."]},{"job_id":"jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003","request_text":"Wofür ist die Einstellung Länge des Textblocks in JAWS gedacht?","user_goal":"Den Zweck der Einstellung für die Textblocklänge verstehen.","difficulty":"basic","phrasing_style":"neutral","scenario_summary":"Eine direkte FAQ-Frage zur Bedeutung der Navigationseinstellung 'Länge des Textblocks'.","notes":["Die Frage zielt auf die dokumentierte Funktion bei JAWS TASTE+EINGABE.","Keine Bedienanleitung, nur die Informationsfrage."]},{"job_id":"jaws_de_teacher_wave_v1::train::step_by_step::0001","request_text":"Wie ändere ich in JAWS die Zeilenanzahl für den geteilten Bereich auf meiner mehrzeiligen Braillezeile?","user_goal":"Die Zeilenanzahl für den geteilten Bereich anpassen.","difficulty":"intermediate","phrasing_style":"task_focused","scenario_summary":"Eine Trainingsanfrage nach einer konkreten Schrittfolge für die Braille-Ansicht auf mehrzeiligen Braillezeilen.","notes":["Bezieht sich auf die Einstellung für geteilte Daten in der Braille-Ansicht.","Keine Angaben zu nicht genannten Braille-Modellen machen."]},{"job_id":"jaws_de_teacher_wave_v1::train::troubleshooting::0003","request_text":"Nach 'Standardeinstellungen wiederherstellen' sehe ich zwar die Änderung im Dialog, aber die Werte scheinen danach nicht richtig aktiv zu sein. Muss ich noch etwas speichern oder beachten?","user_goal":"Verstehen, warum zurückgesetzte Standardeinstellungen nicht sofort wirksam sind.","difficulty":"intermediate","phrasing_style":"frustrated","scenario_summary":"Ein Nutzer meldet, dass das Wiederherstellen von Standardeinstellungen zwar sichtbar ist, aber offenbar noch nicht wirksam wird.","notes":["Soll die Frage auf das Speichern der JCF-Datei und den Wirksamkeitszeitpunkt hinausführen.","Keine neue Ursache außerhalb des Quelltexts erfinden."]},{"job_id":"jaws_de_teacher_wave_v1::train::faq_direct_answer::0001","request_text":"Was sollte ich über die Focus Blue Tastatur in JAWS wissen?","user_goal":"Den Aufbau und die Grundfunktion der Focus Blue Tastatur verstehen.","difficulty":"basic","phrasing_style":"neutral","scenario_summary":"Eine direkte Wissensfrage zum Aufbau der Focus Blue Tastatur und zur Nutzung ihrer Tasten.","notes":["Orientiert sich am beschriebenen Tastenlayout oberhalb der Routingtasten.","Keine zusätzlichen Gerätefunktionen ergänzen."]}]}
+tokens used
+20.173

@@ -1,0 +1,109 @@
+2026-04-04T05:18:45.939990Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\chunk-builder\SKILL.md: missing YAML frontmatter delimited by ---
+2026-04-04T05:18:45.940031Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\manual-normalizer\SKILL.md: missing YAML frontmatter delimited by ---
+2026-04-04T05:18:45.940044Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\provenance-auditor\SKILL.md: missing YAML frontmatter delimited by ---
+2026-04-04T05:18:45.940048Z ERROR codex_core::codex: failed to load skill D:\Codex\DL\DL-Trainer\.agents\skills\task-card-generator\SKILL.md: missing YAML frontmatter delimited by ---
+OpenAI Codex v0.118.0 (research preview)
+--------
+workdir: D:\Codex\DL\DL-Trainer
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d56ed-eab9-72a1-97a4-34625b6e5d17
+--------
+user
+# Teacher Prompt: JAWS-DE Support Answer MVP
+
+## Rolle
+
+Du erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.
+
+## Ziel
+
+Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.
+
+## Regeln
+
+- Nutze ausschliesslich die bereitgestellten Quellen.
+- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.
+- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.
+- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.
+- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.
+- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.
+- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- supporttauglich
+- sachlich und knapp
+- klar an der Nutzerfrage ausgerichtet
+- dokumentationsgebunden
+- ohne Tabellen-, Hinweis- oder Truncation-Artefakte
+
+## Task-Type-spezifische Regeln
+
+- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.
+- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.
+- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.
+- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
+- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
+
+## Feldpflichten pro Fall
+
+- Setze `task_type` exakt wie vorgegeben.
+- `clarification`:
+  - `needs_clarification=true`
+  - `clarification_question` genau eine fokussierte Frage
+  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`
+  - `steps=[]`
+  - `escalate=false`
+- `uncertainty_escalation`:
+  - `escalate=true`
+  - `uncertainty_reason` kurz und konkret
+  - `needs_clarification=false`
+- `faq_direct_answer`, `troubleshooting`, `step_by_step`:
+  - `needs_clarification=false`
+  - `clarification_question=null`
+- `step_by_step`:
+  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt
+  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten
+
+## Ausgabe
+
+JSON gemaess Output-Schema.
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.
+- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.
+- Uebernimm job_id und task_type je Fall exakt.
+- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003
+- task_type: faq_direct_answer
+- expected_output_kind: eval_case
+- target_split: eval
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01
+- chunk_type: concept
+- section_path_text: Gruppe Sprachausgaben > Gruppe Navigation > Länge des Textblocks
+- difficulty: basic
+- phrasing_style: neutral
+- user_goal: Den Zweck der Einstellung für die Textblocklänge verstehen.
+- output_contract: direkte, dokumentationsgebundene Antwort ohne unnoetige Vorrede
+- user_request:
+Wofür ist die Einstellung Länge des Textblocks in JAWS gedacht?
+- expected_behavior:
+Beantwortet die Frage knapp und dokumentationsgestuetzt zu Länge des Textblocks.
+- source_excerpt:
+Wenn Sie **JAWS TASTE+EINGABE** drücken, um zum nächsten Text zu springen, der kein Link ist, sucht JAWS nach einem Textblock, der nicht Teil eines Links ist und so viele oder mehr Zeichen aufweist, wie der Wert, der hier angegeben wird. Der Standardwert ist 25.
+
+deprecated: `[features].web_search_request` is deprecated because web search is enabled by default.
+Set `web_search` to `"live"`, `"cached"`, or `"disabled"` at the top level (or under a profile) in config.toml if you want to override it.
+codex
+{"items":[{"job_id":"jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003","task_type":"faq_direct_answer","answer":"Die Einstellung „Länge des Textblocks“ legt fest, wie viele Zeichen ein Textblock mindestens haben muss, damit JAWS ihn bei `JAWS TASTE+EINGABE` als nächsten Text berücksichtigt, der kein Link ist. Der Standardwert ist 25.","needs_clarification":false,"clarification_question":null,"escalate":false,"uncertainty_reason":null,"steps":[],"source_chunk_ids":["jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"],"notes": [],"case_description":"Frage nach dem Zweck der JAWS-Einstellung „Länge des Textblocks“.","expected_behavior":"Knapp dokumentationsgebunden erklären, dass die Einstellung die Mindestanzahl Zeichen für den nächsten Nicht-Link-Textblock bei JAWS TASTE+EINGABE festlegt.","reference_answer":"Die Einstellung bestimmt die Mindestlänge eines Textblocks in Zeichen, den JAWS bei JAWS TASTE+EINGABE als nächsten Text ohne Link berücksichtigt; Standardwert 25.","rubric":{"must_include":["Mindestlänge eines Textblocks in Zeichen","Bezug auf JAWS TASTE+EINGABE bzw. Sprung zum nächsten Text ohne Link","Standardwert 25"],"must_not_include":["erfundene Menüpunkte","nicht belegte Zusatzfunktionen","abweichende Tastenkombinationen"],"style":"sachlich und knapp","scoring_notes":null}}]}
+tokens used
+14.503

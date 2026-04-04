@@ -1,0 +1,133 @@
+# Teacher Prompt: JAWS-DE Support Answer MVP
+
+## Rolle
+
+Du erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.
+
+## Ziel
+
+Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.
+
+## Regeln
+
+- Nutze ausschliesslich die bereitgestellten Quellen.
+- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.
+- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.
+- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.
+- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.
+- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.
+- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- supporttauglich
+- sachlich und knapp
+- klar an der Nutzerfrage ausgerichtet
+- dokumentationsgebunden
+- ohne Tabellen-, Hinweis- oder Truncation-Artefakte
+
+## Task-Type-spezifische Regeln
+
+- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.
+- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.
+- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.
+- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
+- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
+
+## Feldpflichten pro Fall
+
+- Setze `task_type` exakt wie vorgegeben.
+- `clarification`:
+  - `needs_clarification=true`
+  - `clarification_question` genau eine fokussierte Frage
+  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`
+  - `steps=[]`
+  - `escalate=false`
+- `uncertainty_escalation`:
+  - `escalate=true`
+  - `uncertainty_reason` kurz und konkret
+  - `needs_clarification=false`
+- `faq_direct_answer`, `troubleshooting`, `step_by_step`:
+  - `needs_clarification=false`
+  - `clarification_question=null`
+- `step_by_step`:
+  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt
+  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten
+
+## Ausgabe
+
+JSON gemaess Output-Schema.
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.
+- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.
+- Uebernimm job_id und task_type je Fall exakt.
+- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::train::step_by_step::0001
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)
+- difficulty: intermediate
+- phrasing_style: task_focused
+- user_goal: Die Zeilenanzahl für den geteilten Bereich anpassen.
+- output_contract: steps nur mit echten Schritten aus der Quelle fuellen; keine zweite oder widerspruechliche Schrittfolge
+- user_request:
+Wie ändere ich in JAWS die Zeilenanzahl für den geteilten Bereich auf meiner mehrzeiligen Braillezeile?
+- expected_behavior:
+n/a
+- source_excerpt:
+Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:
+
+1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.
+2. Wählen Sie Optionen.
+3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.
+4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.
+
+### job_id: jaws_de_teacher_wave_v1::train::troubleshooting::0003
+- task_type: troubleshooting
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02::chunk_01
+- chunk_type: warning
+- section_path_text: Die Gruppe Sprach- und Sound-Schemata > Standardeinstellungen wiederherstellen
+- difficulty: intermediate
+- phrasing_style: frustrated
+- user_goal: Verstehen, warum zurückgesetzte Standardeinstellungen nicht sofort wirksam sind.
+- output_contract: symptombezogen antworten; dokumentierte Bedingung, Pruefung oder Abhilfe klar benennen
+- user_request:
+Nach 'Standardeinstellungen wiederherstellen' sehe ich zwar die Änderung im Dialog, aber die Werte scheinen danach nicht richtig aktiv zu sein. Muss ich noch etwas speichern oder beachten?
+- expected_behavior:
+n/a
+- source_excerpt:
+Standardeinstellungen wiederherstellen löscht lediglich alle Angaben, die auf die aktuelle Ausführlichkeitsstufe in der geladenen JCF-Datei zutreffen. Ist die Datei Default.jcf geladen, werden Werkseinstellungen wiederhergestellt. Obwohl das Dialogfeld diese Änderung widerspiegelt, werden die wiederhergestellten Standardeinstellungen erst wirksam, wenn Sie die JCF-Datei speichern.
+
+**Hinweis:** Wenn Sie einen der Dialoge Einstellungen schließen, hängt es von der Methode ab, mit der Sie den Dialog Einstellungen geöffnet haben, wo der Fokus im Dialog Ausführlichkeitsoptionen landet. Wenn Sie einen der Dialoge Einstellungen im Dialog Ausführlichkeitseinstellungen mit einer Tastenkombination geöffnet haben, landen Sie wieder auf dem Element, welches vorher den Fokus hatte. Wenn Sie mit **TAB** zu dem Schalter für die Einstellungen gesprungen sind, wird der Fokus auf den **OK** Schalter im Dialog Ausführlichkeitsoptionen gesetzt.
+
+Quelle: beginner_preferences_dialog.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0001
+- task_type: faq_direct_answer
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Focus Blue Tastatur
+- difficulty: basic
+- phrasing_style: neutral
+- user_goal: Den Aufbau und die Grundfunktion der Focus Blue Tastatur verstehen.
+- output_contract: direkte, dokumentationsgebundene Antwort ohne unnoetige Vorrede
+- user_request:
+Was sollte ich über die Focus Blue Tastatur in JAWS wissen?
+- expected_behavior:
+n/a
+- source_excerpt:
+Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.

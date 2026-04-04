@@ -1,0 +1,508 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_small_v1_codex_answer::batch::eval_case::0001",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::clarification::0001",
+    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0004"
+  ],
+  "teacher_run_id": "jaws_de_shadow_2026_04_04_small_v1_codex_answer",
+  "teacher_model": "gpt-5.4",
+  "generation_mode": "teacher_answer_codex_cli_v1",
+  "expected_output_kind": "eval_case",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0001",
+      "task_type": "clarification",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim::jaws_de_teacher_wave_v1::eval::clarification::0001::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0001",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "clarification",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_braille"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01"
+        ],
+        "simulator_provider": "codex_cli",
+        "simulator_model": "gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_codex_cli_v1",
+        "simulation_status": "completed",
+        "request_text": "Ich bin in JAWS bei Braille > Allgemein gelandet und bin mir nicht sicher, was dort genau dazugehört. Geht es in diesem Bereich eher um BrailleIn und die Eingabebefehle oder auch um Dinge wie Statuszellen und Cursor-Ankopplung?",
+        "user_goal": "Den Bereich Allgemein innerhalb der JAWS-Braille-Hilfe genauer eingrenzen.",
+        "difficulty": "basic",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Eine Nutzerin will den Umfang von 'Allgemein' in der Braille-Hilfe verstehen und braucht eine fokussierte Rückfrage.",
+        "notes": [
+          "Orientiert sich nur an den im Abschnitt aufgelisteten Themen.",
+          "Keine Lösung oder Funktionsbeschreibung über den Quellkontext hinaus."
+        ],
+        "usage": {
+          "elapsed_ms": 2859,
+          "batch_elapsed_ms": 22872,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1806,
+          "source_excerpt_chars": 912
+        },
+        "codex_cli": {
+          "command": [
+            "codex",
+            "exec",
+            "-m",
+            "gpt-5.4-mini",
+            "-s",
+            "read-only",
+            "--skip-git-repo-check",
+            "--ephemeral",
+            "--color",
+            "never",
+            "--output-schema",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\jaws_de_shadow_2026_04_04_small_v1_codex\\user_simulations\\jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001\\response_schema.json",
+            "-o",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\jaws_de_shadow_2026_04_04_small_v1_codex\\user_simulations\\jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001\\last_message.json",
+            "-C",
+            "D:\\Codex\\DL\\DL-Trainer",
+            "-",
+            "-c",
+            "reasoning_effort=\"low\""
+          ],
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/response_schema.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/last_message.json",
+          "stdout_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/stdout.txt",
+          "stderr_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/stderr.txt",
+          "prompt_sha256": "88aa2316b6b0d912e178f417837867a3eff99302721d683419367ee917434c06",
+          "schema_sha256": "d03d77e4f1344fe45c1ad61ffaf40ea92c339339d7ab13d860376281b22c6430",
+          "request_metadata": {
+            "profile_set": "support_mvp_default",
+            "profile_stage": "user_simulation",
+            "profile_name": "codex_gpt54mini_low_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim::batch::0001",
+          "batch_size": 8,
+          "batch_index": 1
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_braille",
+              "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01",
+              "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein",
+              "section_title": "Allgemein",
+              "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/braille/index.md#L1033-L1042"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "- [BrailleIn](JAWS_BrailleIn.htm)\n- [Braillezeilen Eingabebefehle](focus/Braille_Display_Input_Commands.htm)\n- [Braille Lern-Modus](Braille_Study_Mode.htm)\n- [Die Modi der Braillezeilen](Braille_Display_Modes.htm)\n- [Statuszellen](Status_Cells.htm)\n- [Braille Blitzmeldungen](Braille_Flash_Messages.htm)\n- [Den Cursor an- und abkoppeln](Linking_and_Unlinking_the_Cursor.htm)\n- [Spezielle JAWS Braille-Kürzel](JAWS_Specific_Braille_Abbreviations.htm)\n- [Braille-Formatierung](Braille_Formatting.htm)\n- [Braille-Einstellungen im laufenden Betrieb vornehmen](braille/adjust_braille_options.htm)",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__allgemein",
+            "section_title": "Allgemein",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L1033-L1042"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+      "task_type": "uncertainty_escalation",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim::jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "uncertainty_escalation",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01"
+        ],
+        "simulator_provider": "codex_cli",
+        "simulator_model": "gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_codex_cli_v1",
+        "simulation_status": "completed",
+        "request_text": "Kann ich die Länge der JAWS-Meldungen wirklich allgemein für alle Meldungsarten gleich verwenden, oder gibt es Stellen wie Hilfemeldungen oder bestimmte Anwendungen, bei denen das anders wirkt?",
+        "user_goal": "Die Grenzen der Einstellung für die Meldungslänge verstehen.",
+        "difficulty": "intermediate",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Ein Nutzer fragt nach der Reichweite und Grenze der Einstellung für lange oder kurze JAWS-Meldungen.",
+        "notes": [
+          "Soll die Evidenzgrenze klar ansprechen, ohne eine allgemeine Zusage zu erfinden.",
+          "Bezieht sich auf Meldungen, Statusmeldungen und Hilfemeldungen aus dem Quelltext."
+        ],
+        "usage": {
+          "elapsed_ms": 2859,
+          "batch_elapsed_ms": 22872,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1806,
+          "source_excerpt_chars": 912
+        },
+        "codex_cli": {
+          "command": [
+            "codex",
+            "exec",
+            "-m",
+            "gpt-5.4-mini",
+            "-s",
+            "read-only",
+            "--skip-git-repo-check",
+            "--ephemeral",
+            "--color",
+            "never",
+            "--output-schema",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\jaws_de_shadow_2026_04_04_small_v1_codex\\user_simulations\\jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001\\response_schema.json",
+            "-o",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\jaws_de_shadow_2026_04_04_small_v1_codex\\user_simulations\\jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001\\last_message.json",
+            "-C",
+            "D:\\Codex\\DL\\DL-Trainer",
+            "-",
+            "-c",
+            "reasoning_effort=\"low\""
+          ],
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/response_schema.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/last_message.json",
+          "stdout_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/stdout.txt",
+          "stderr_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/stderr.txt",
+          "prompt_sha256": "88aa2316b6b0d912e178f417837867a3eff99302721d683419367ee917434c06",
+          "schema_sha256": "d03d77e4f1344fe45c1ad61ffaf40ea92c339339d7ab13d860376281b22c6430",
+          "request_metadata": {
+            "profile_set": "support_mvp_default",
+            "profile_stage": "user_simulation",
+            "profile_name": "codex_gpt54mini_low_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim::batch::0001",
+          "batch_size": 8,
+          "batch_index": 1
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01",
+              "section_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen",
+              "section_title": "Länge von JAWS Meldungen",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L1537-L1550"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Die Länge der Meldungen kann mit zwei Auswahlschaltern angepasst werden, Lange oder kurze Meldungen. Wählen Sie Kurze Meldungen, wenn Sie zusammengefasste Meldungen hören möchten, und wählen Sie Lange Meldungen, wenn Sie detaillierte Meldungen hören möchten. Wenn Sie zum Beispiel in einem Textdokument arbeiten und **STRG+C** drücken, um Text in die Zwischenablage zu kopieren, und die Länge von Meldungen auf Kurz gesetzt ist, sagt JAWS \"kopiert\". Ist die Länge der Meldungen auf Lang gesetzt, sagt JAWS \"Gewählten Text in die Ablage kopiert\".\n\n**Tipp:** Sind Sie noch nicht mit Windows, JAWS oder einer speziellen Anwendung vertraut, dann kann es sehr hilfreich sein, wenn man die Meldungslänge auf Lang festlegt. Wenn Sie mit einer speziellen Anwendung, oder mit JAWS und Windows im Allgemeinen, vertrauter sind, dann kann das Festlegen der Meldungslänge auf Kurz Zeit sparen und die Arbeitsleistung erhöhen.\n\nDinge, die gesprochen werden, und auf die die Länge der Meldungen angewendet werden, sind:\n\n- JAWS Meldungen\n- Statusmeldungen\n- JAWS Fehlermeldungen\n- Meldungen beim Anwendungsstart\n- Intelligente Hilfemeldungen\n- Hilfemeldungen\n\n**Hinweis:** Hilfemeldungen können im Listenfeld \"Zu sprechende Elemente\" nicht abgeschaltet werden, die Einstellung, ob lange oder kurze Meldungen gesprochen werden, wirkt sich aber auf sie aus.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__einsteiger_fortgeschrittenen_oder_experten_einstellungen__laenge_von_jaws_meldungen",
+            "section_title": "Länge von JAWS Meldungen",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L1537-L1550"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "task_type": "step_by_step",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim::jaws_de_teacher_wave_v1::eval::step_by_step::0001::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "step_by_step",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_braille"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01"
+        ],
+        "simulator_provider": "codex_cli",
+        "simulator_model": "gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_codex_cli_v1",
+        "simulation_status": "completed",
+        "request_text": "Ich möchte in JAWS von Computer-Braille auf Braillekurzschrift umstellen. Kann mir jemand die Schritte dafür nacheinander nennen?",
+        "user_goal": "Die Braillekurzschrift in JAWS aktivieren.",
+        "difficulty": "intermediate",
+        "phrasing_style": "task_focused",
+        "scenario_summary": "Ein Nutzer braucht eine konkrete Bedienfolge zum Wechsel der Braille-Eingabe von Computer-Braille auf Kurzschrift.",
+        "notes": [
+          "Passt zum Verfahren im Abschnitt 'Schreiben in Kurzschrift'.",
+          "Keine zusätzlichen Menüs oder Abkürzungen ergänzen."
+        ],
+        "usage": {
+          "elapsed_ms": 2859,
+          "batch_elapsed_ms": 22872,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1806,
+          "source_excerpt_chars": 912
+        },
+        "codex_cli": {
+          "command": [
+            "codex",
+            "exec",
+            "-m",
+            "gpt-5.4-mini",
+            "-s",
+            "read-only",
+            "--skip-git-repo-check",
+            "--ephemeral",
+            "--color",
+            "never",
+            "--output-schema",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\jaws_de_shadow_2026_04_04_small_v1_codex\\user_simulations\\jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001\\response_schema.json",
+            "-o",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\jaws_de_shadow_2026_04_04_small_v1_codex\\user_simulations\\jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001\\last_message.json",
+            "-C",
+            "D:\\Codex\\DL\\DL-Trainer",
+            "-",
+            "-c",
+            "reasoning_effort=\"low\""
+          ],
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/response_schema.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/last_message.json",
+          "stdout_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/stdout.txt",
+          "stderr_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/stderr.txt",
+          "prompt_sha256": "88aa2316b6b0d912e178f417837867a3eff99302721d683419367ee917434c06",
+          "schema_sha256": "d03d77e4f1344fe45c1ad61ffaf40ea92c339339d7ab13d860376281b22c6430",
+          "request_metadata": {
+            "profile_set": "support_mvp_default",
+            "profile_stage": "user_simulation",
+            "profile_name": "codex_gpt54mini_low_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim::batch::0001",
+          "batch_size": 8,
+          "batch_index": 1
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_braille",
+              "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01",
+              "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift",
+              "section_title": "Schreiben in Kurzschrift",
+              "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/braille/index.md#L252-L261"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Mit BrailleIn werden Ihre Eingaben umgehend in der aktuellen E-Mail, im Dokument oder in Formularfeldern in normalen Text übersetzt, wenn Sie über die Perkins-Tastatur Braille-Kurzschrift eingeben. Sollte eine Anwendung oder spezielle Eingabefelder keine Kurzschrift unterstützen, dann sagt JAWS \"Computer Braille\", sofern die Tutormeldungen eingeschaltet sind. Darüberhinaus wird das Symbol für Computer Braille, Punkte 4-5-6 gefolgt von Punkten 3-4-6, auf der Braillezeile dargestellt, um anzuzeigen, dass Computer Braille benötigt wird.\n\nDie Eingabe in Computer-Braille ist standardmäßig ausgewählt. Um die Braillekurzschrift zu verwenden, gehen Sie bitte folgendermaßen vor:\n1. Drücken Sie **EINFÜGEN+F2** und wählen Sie Einstellungsverwaltung.\n\n2. Damit sich Änderungen auf alle Anwendungen auswirken, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Damit Änderungen für eine spezielle Anwendung wirksam werden, wählen Sie diese in der Ausklappliste Anwendungen.\n\n3. Im Sucheingabefeld geben Sie \"Übersetzung\" ohne Anführungsstriche ein.\n\n4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen und drücken Sie dann **EINGABE**, um den Fokus direkt in die Gruppe Übersetzung zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.\n\n5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einste",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__schreiben_in_kurzschrift",
+            "section_title": "Schreiben in Kurzschrift",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L252-L261"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+      "task_type": "troubleshooting",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim::jaws_de_teacher_wave_v1::eval::troubleshooting::0004::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "troubleshooting",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_hilfe_kernfunktionen"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01"
+        ],
+        "simulator_provider": "codex_cli",
+        "simulator_model": "gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_codex_cli_v1",
+        "simulation_status": "completed",
+        "request_text": "Bei Videoanrufen bekomme ich Gesicht im Blick nicht so hin, wie es sein sollte. Was soll ich laut Doku zuerst prüfen oder wie aktiviere ich das richtig?",
+        "user_goal": "Gesicht im Blick korrekt prüfen und aktivieren.",
+        "difficulty": "intermediate",
+        "phrasing_style": "frustrated",
+        "scenario_summary": "Ein Nutzer kommt mit der Schnellfunktion 'Gesicht im Blick' nicht weiter und sucht die dokumentierte Prüfung bzw. Aktivierung.",
+        "notes": [
+          "Die Anfrage soll auf die dokumentierte Hilfestellung aus dem Abschnitt hinauslaufen.",
+          "Den Hinweis zur Nichtverfügbarkeit während eines aktiven Videoanrufs nicht vorwegnehmen."
+        ],
+        "usage": {
+          "elapsed_ms": 2859,
+          "batch_elapsed_ms": 22872,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1806,
+          "source_excerpt_chars": 912
+        },
+        "codex_cli": {
+          "command": [
+            "codex",
+            "exec",
+            "-m",
+            "gpt-5.4-mini",
+            "-s",
+            "read-only",
+            "--skip-git-repo-check",
+            "--ephemeral",
+            "--color",
+            "never",
+            "--output-schema",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\jaws_de_shadow_2026_04_04_small_v1_codex\\user_simulations\\jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001\\response_schema.json",
+            "-o",
+            "D:\\Codex\\DL\\DL-Trainer\\data\\derived\\teacher_runs\\JAWS\\DE\\jaws_de_shadow_2026_04_04_small_v1_codex\\user_simulations\\jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001\\last_message.json",
+            "-C",
+            "D:\\Codex\\DL\\DL-Trainer",
+            "-",
+            "-c",
+            "reasoning_effort=\"low\""
+          ],
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/response_schema.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/last_message.json",
+          "stdout_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/stdout.txt",
+          "stderr_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/user_simulations/jaws_de_shadow_2026_04_04_small_v1_codex_user_sim__batch__0001/stderr.txt",
+          "prompt_sha256": "88aa2316b6b0d912e178f417837867a3eff99302721d683419367ee917434c06",
+          "schema_sha256": "d03d77e4f1344fe45c1ad61ffaf40ea92c339339d7ab13d860376281b22c6430",
+          "request_metadata": {
+            "profile_set": "support_mvp_default",
+            "profile_stage": "user_simulation",
+            "profile_name": "codex_gpt54mini_low_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_small_v1_codex_user_sim::batch::0001",
+          "batch_size": 8,
+          "batch_index": 1
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_hilfe_kernfunktionen",
+              "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01",
+              "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick",
+              "section_title": "Gesicht im Blick",
+              "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3299-L3316"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Videoanrufe sind zu einer Standardform der Kommunikation am Arbeitsplatz, in der Schule und in persönlichen Beziehungen geworden. Bevor Sie sich an einem Videoanruf beteiligen, sollten Sie sicherstellen, dass Ihre Einstellung richtig ist und die Kamera richtig auf Sie ausgerichtet ist. Gesicht im Blick hilft Ihnen dabei, indem es Sie auf wichtige visuelle Details aufmerksam macht, wie zum Beispiel:\n\n- Ist mein Gesicht in der Ansicht zentriert?\n- Gucke ich direkt in die Kamera?\n- Ist die Beleuchtung ausgewogen?\n- Sind noch weitere Elemente im Bild sichtbar?\n\nUm Gesicht im Blick zu aktivieren, drücken Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **F** und dann **O**. Sobald die Funktion aktiviert ist, überwacht Gesicht im Blick kontinuierlich Ihre Gesichtsposition und die Lichtverhältnisse. Wenn sich etwas ändert, wenn Sie beispielsweise Ihren Kopf nach links oder rechts neigen oder die Helligkeit abnimmt, werden Sie automatisch benachrichtigt.\n\n**Hinweis:** Gesicht im Blick ist derzeit während eines aktiven Videoanrufs nicht verfügbar, da es vollständigen Zugriff auf die Kamera benötigt.\n\nWährend Gesicht im Blick aktiv ist, sind die folgenden verschachtelten Kurztasten verfügbar:\n\n- Eine andere Kamera auswählen (falls mehrere Kameras verfügbar sind): **EINFÜGEN+LEERTASTE**, **F**, **C**. Sobald die Kamera-Ebene aktiv ist, drücken Sie **PFEIL RAUF** oder *",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick",
+            "section_title": "Gesicht im Blick",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3299-L3316"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_default",
+    "profile_stage": "answer",
+    "profile_name": "codex_gpt54_medium_v1"
+  }
+}

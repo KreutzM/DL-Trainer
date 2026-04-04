@@ -1,0 +1,60 @@
+{
+  "jobs_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "user_simulations": "D:/Codex/DL/DL-Trainer/data/derived/user_simulations/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_user_simulations.jsonl",
+  "raw_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_raw_responses.jsonl",
+  "teacher_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_teacher_outputs.jsonl",
+  "reviewer_run_id": "jaws_de_shadow_2026_04_04_small_v1_codex_judge",
+  "reviewer_model": "gpt-5.4-mini",
+  "reviewer_provider": "codex_cli",
+  "generation_mode": "teacher_judge_codex_cli_v1",
+  "selected_jobs": 8,
+  "completed_jobs": 8,
+  "approved_jobs": 7,
+  "rejected_jobs": 1,
+  "skipped_existing_jobs": [],
+  "failed_jobs": [],
+  "judge_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_judge_results.jsonl",
+  "reviewed_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_reviewed_teacher_outputs.jsonl",
+  "artifact_dir": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex/judge",
+  "runtime": {
+    "selected_jobs": 8,
+    "completed_jobs": 8,
+    "processed_jobs": 8,
+    "skipped_existing_jobs": 0,
+    "failed_jobs": 0,
+    "configured_batch_size": 8,
+    "executed_batches": 1,
+    "completed_batches": 1,
+    "avg_jobs_per_completed_batch": 8.0,
+    "total_elapsed_ms": 15319,
+    "avg_elapsed_ms_per_processed_job": 1914.88,
+    "avg_elapsed_ms_per_completed_batch": 15319.0,
+    "total_prompt_chars": 17764,
+    "avg_prompt_chars_per_processed_job": 2220.5,
+    "total_source_excerpt_chars": 7295,
+    "avg_source_excerpt_chars_per_processed_job": 911.88,
+    "total_retry_attempts": 0
+  },
+  "llm_profile": {
+    "profile_set": "support_mvp_default",
+    "profile_stage": "judge",
+    "profile_name": "codex_gpt54mini_medium_v1"
+  },
+  "llm_profile_runtime": {
+    "backend": "codex_cli",
+    "model": "gpt-5.4-mini",
+    "batch_size": 8,
+    "max_attempts": 1,
+    "timeout_sec": 600,
+    "codex_cli": {
+      "reasoning_effort": "medium",
+      "sandbox": "read-only",
+      "extra_config": []
+    },
+    "llm_profile": {
+      "profile_set": "support_mvp_default",
+      "profile_stage": "judge",
+      "profile_name": "codex_gpt54mini_medium_v1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_small_v1",
+  "status": "partial_blocked",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_benchmark_2026_04_04_small_v1_selection.json",
+  "reference": {
+    "run_name": "jaws_de_shadow_2026_04_04_small_v1_codex",
+    "profile_set": "support_mvp_default",
+    "pipeline_report": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_pipeline_report.json",
+    "completed_jobs": 8,
+    "failed_jobs": 0,
+    "review_status_counts": {
+      "codex_reviewed": 7,
+      "rejected": 1
+    },
+    "judge_decision_counts": {
+      "approve": 7,
+      "reject": 1
+    },
+    "average_quality_score": 88.12
+  },
+  "candidate": {
+    "run_name": "jaws_de_shadow_2026_04_04_small_v1_openrouter",
+    "profile_set": "support_mvp_openrouter_candidate",
+    "status": "blocked_preflight",
+    "error": "Profile set 'support_mvp_openrouter_candidate' stage 'user_simulation' requires environment variable OPENROUTER_API_KEY"
+  },
+  "comparison": {
+    "status": "not_run",
+    "reason": "candidate benchmark report missing because OpenRouter runtime secret was not available"
+  },
+  "recommendation": {
+    "rollout_candidate": false,
+    "summary": "OpenRouter is not yet a real rollout candidate in this environment because no candidate run could be executed.",
+    "next_step": "Provision OPENROUTER_API_KEY and rerun the candidate benchmark against the same subset before making any stage-level rollout decision."
+  }
+}
