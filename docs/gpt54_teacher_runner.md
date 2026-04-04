@@ -17,7 +17,7 @@ Diese Datei beschreibt nur noch die Runner-Einordnung:
 ## Aktueller Produktivstandard
 
 - neuer produktiver JAWS-DE-Run immer mit neuem `run_name`
-- committed Referenz-Baseline: `codex_cli_support_validation_v2`
+- committed Referenz-Baseline: `openrouter_gpt54_controlled_gold_v16`
 - historische Prefixe: `codex_cli_support_mvp_v1`, `codex_cli_support_mvp_v2_probe`, `codex_cli_smoke_v1`
 
 ## Legacy-Einordnung

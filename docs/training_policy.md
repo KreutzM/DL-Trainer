@@ -19,7 +19,7 @@ Die maschinenlesbare Current-Baseline dazu steht in `docs/jaws_de_current_baseli
 
 Aktuell gilt:
 
-- committed Produktiv-Baseline: `codex_cli_support_validation_v2`
+- committed Produktiv-Baseline: `openrouter_gpt54_controlled_gold_v16`
 - Export-Ziel: `data/exports/qwen_sft/JAWS/DE/current/`
 - unterstuetzter Trainingsstack: `training/transformers/`
 - Trainingsfreeze: `training/transformers/jaws_de_current.yaml`

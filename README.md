@@ -17,7 +17,7 @@ Kurzfassung:
 2. `data/normalized/JAWS/DE/` und `data/derived/chunks/JAWS/DE/` sind die kanonischen Dokument- und Retrieval-Stufen.
 3. `data/derived/teacher_jobs/JAWS/DE/` ist die stabile Eingabeschicht fuer neue Teacher-Laeufe.
 4. Der produktive Generierungspfad laeuft ueber `scripts/run_codex_cli_support_mvp_pipeline.py`.
-5. Der aktuell massgebliche committed Downstream-Baseline-Stand ist `codex_cli_support_validation_v2`.
+5. Der aktuell massgebliche committed Downstream-Baseline-Stand ist `openrouter_gpt54_controlled_gold_v16`.
 6. Der aktuell unterstuetzte Trainingspfad fuer JAWS-DE laeuft ueber `training/transformers/`.
 7. Der Fresh-Run-Default fuer neue produktive Wellen laeuft ueber `data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json`.
 
