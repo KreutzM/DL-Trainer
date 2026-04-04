@@ -1,0 +1,148 @@
+{
+  "jobs_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "run_name": "jaws_de_shadow_2026_04_04_expanded_v1_codex_reference",
+  "stages": {
+    "user_simulation": {
+      "jobs_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+      "simulator_run_id": "codex_cli_support_validation_v2_user_sim",
+      "simulator_model": "gpt-5.4-mini",
+      "simulator_provider": "codex_cli",
+      "generation_mode": "teacher_user_simulator_codex_cli_v1",
+      "selected_jobs": 20,
+      "completed_jobs": 20,
+      "skipped_existing_jobs": [],
+      "failed_jobs": [],
+      "output": "D:/Codex/DL/DL-Trainer/data/derived/user_simulations/JAWS/DE/codex_cli_support_validation_v2_user_simulations.jsonl",
+      "artifact_dir": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/user_simulations",
+      "runtime": {
+        "selected_jobs": 20,
+        "completed_jobs": 20,
+        "processed_jobs": 20,
+        "skipped_existing_jobs": 0,
+        "failed_jobs": 0,
+        "configured_batch_size": 4,
+        "executed_batches": 5,
+        "completed_batches": 5,
+        "avg_jobs_per_completed_batch": 4.0,
+        "total_elapsed_ms": 57749,
+        "avg_elapsed_ms_per_processed_job": 2887.45,
+        "avg_elapsed_ms_per_completed_batch": 11549.8,
+        "total_prompt_chars": 43288,
+        "avg_prompt_chars_per_processed_job": 2164.4,
+        "total_source_excerpt_chars": 20013,
+        "avg_source_excerpt_chars_per_processed_job": 1000.65,
+        "total_retry_attempts": 0
+      }
+    },
+    "answering": {
+      "jobs_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+      "user_simulations": "D:/Codex/DL/DL-Trainer/data/derived/user_simulations/JAWS/DE/codex_cli_support_validation_v2_user_simulations.jsonl",
+      "teacher_run_id": "codex_cli_support_validation_v2_answer",
+      "teacher_model": "gpt-5.4",
+      "teacher_provider": "codex_cli",
+      "generation_mode": "teacher_answer_codex_cli_v1",
+      "selected_jobs": 20,
+      "completed_jobs": 20,
+      "skipped_existing_jobs": [],
+      "failed_jobs": [],
+      "raw_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_raw_responses.jsonl",
+      "teacher_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_teacher_outputs.jsonl",
+      "artifact_dir": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/answers",
+      "runtime": {
+        "selected_jobs": 20,
+        "completed_jobs": 20,
+        "processed_jobs": 20,
+        "skipped_existing_jobs": 0,
+        "failed_jobs": 0,
+        "configured_batch_size": 4,
+        "executed_batches": 6,
+        "completed_batches": 6,
+        "avg_jobs_per_completed_batch": 3.33,
+        "total_elapsed_ms": 229819,
+        "avg_elapsed_ms_per_processed_job": 11490.95,
+        "avg_elapsed_ms_per_completed_batch": 38303.17,
+        "total_prompt_chars": 56317,
+        "avg_prompt_chars_per_processed_job": 2815.85,
+        "total_source_excerpt_chars": 20013,
+        "avg_source_excerpt_chars_per_processed_job": 1000.65,
+        "total_retry_attempts": 0
+      }
+    },
+    "judge": {
+      "jobs_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+      "user_simulations": "D:/Codex/DL/DL-Trainer/data/derived/user_simulations/JAWS/DE/codex_cli_support_validation_v2_user_simulations.jsonl",
+      "raw_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_raw_responses.jsonl",
+      "teacher_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_teacher_outputs.jsonl",
+      "reviewer_run_id": "codex_cli_support_validation_v2_judge",
+      "reviewer_model": "gpt-5.4-mini",
+      "reviewer_provider": "codex_cli",
+      "generation_mode": "teacher_judge_codex_cli_v1",
+      "selected_jobs": 20,
+      "completed_jobs": 20,
+      "approved_jobs": 16,
+      "rejected_jobs": 4,
+      "skipped_existing_jobs": [],
+      "failed_jobs": [],
+      "judge_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/codex_cli_support_validation_v2_judge_results.jsonl",
+      "reviewed_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl",
+      "artifact_dir": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/codex_cli_support_validation_v2/judge",
+      "runtime": {
+        "selected_jobs": 20,
+        "completed_jobs": 20,
+        "processed_jobs": 20,
+        "skipped_existing_jobs": 0,
+        "failed_jobs": 0,
+        "configured_batch_size": 4,
+        "executed_batches": 5,
+        "completed_batches": 5,
+        "avg_jobs_per_completed_batch": 4.0,
+        "total_elapsed_ms": 63991,
+        "avg_elapsed_ms_per_processed_job": 3199.55,
+        "avg_elapsed_ms_per_completed_batch": 12798.2,
+        "total_prompt_chars": 51533,
+        "avg_prompt_chars_per_processed_job": 2576.65,
+        "total_source_excerpt_chars": 20013,
+        "avg_source_excerpt_chars_per_processed_job": 1000.65,
+        "total_retry_attempts": 0
+      }
+    }
+  },
+  "defaults": {
+    "user_simulation": {
+      "model": "gpt-5.4-mini",
+      "reasoning_effort": "low",
+      "batch_size": 4,
+      "max_attempts": 1
+    },
+    "answering": {
+      "model": "gpt-5.4",
+      "reasoning_effort": "medium",
+      "batch_size": 4,
+      "max_attempts": 1
+    },
+    "judge": {
+      "model": "gpt-5.4-mini",
+      "reasoning_effort": "medium",
+      "batch_size": 4,
+      "max_attempts": 1
+    }
+  },
+  "paths": {
+    "user_simulations": "D:/Codex/DL/DL-Trainer/data/derived/user_simulations/JAWS/DE/codex_cli_support_validation_v2_user_simulations.jsonl",
+    "raw_responses": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_raw_responses.jsonl",
+    "teacher_outputs": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_teacher_outputs.jsonl",
+    "judge_results": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/codex_cli_support_validation_v2_judge_results.jsonl",
+    "reviewed_outputs": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl",
+    "train_output": "D:/Codex/DL/DL-Trainer/data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl",
+    "eval_output": "D:/Codex/DL/DL-Trainer/data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl"
+  },
+  "promotion_ran": true,
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_benchmark_2026_04_04_expanded_v1_selection.json",
+  "benchmark": {
+    "name": "jaws_de_shadow_2026_04_04_expanded_v1",
+    "role": "reference",
+    "profile_set": "support_mvp_default"
+  },
+  "llm_profile_set": "support_mvp_default",
+  "reference_source_run": "codex_cli_support_validation_v2"
+}

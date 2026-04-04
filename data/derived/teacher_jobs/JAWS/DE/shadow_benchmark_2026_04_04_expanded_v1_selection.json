@@ -1,0 +1,25 @@
+{
+  "selection_id": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "workflow_role": "shadow_benchmark_expanded_step_sensitive_v1",
+  "jobs_file": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_benchmark_2026_04_04_expanded_v1_job_ids.txt",
+  "selected_job_count": 20,
+  "selection_summary": {
+    "train_examples": 10,
+    "eval_examples": 10,
+    "task_types": [
+      "clarification",
+      "faq_direct_answer",
+      "step_by_step",
+      "troubleshooting",
+      "uncertainty_escalation"
+    ],
+    "selection_strategy": "Expanded GPT-5.4 shadow subset reusing the exact 20-job Codex validation v2 baseline for job-identical comparison, with all four available step_by_step cases retained and four cases each for clarification, faq_direct_answer, troubleshooting and uncertainty_escalation."
+  },
+  "historical_source": {
+    "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json",
+    "reference_run": "codex_cli_support_validation_v2",
+    "reference_reviewed_outputs": "data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl",
+    "reference_judge_results": "data/derived/teacher_reviews/JAWS/DE/codex_cli_support_validation_v2_judge_results.jsonl"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "reference_run": "codex_cli_support_validation_v2",
+  "candidate_run": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_benchmark_2026_04_04_expanded_v1_selection.json",
+  "decision_matrix": {
+    "approve_to_approve": 16,
+    "approve_to_reject": 0,
+    "reject_to_approve": 2,
+    "reject_to_reject": 2
+  },
+  "by_task_type": {
+    "clarification": {
+      "approve->approve": 4
+    },
+    "faq_direct_answer": {
+      "approve->approve": 3,
+      "reject->approve": 1
+    },
+    "step_by_step": {
+      "reject->reject": 2,
+      "reject->approve": 1,
+      "approve->approve": 1
+    },
+    "troubleshooting": {
+      "approve->approve": 4
+    },
+    "uncertainty_escalation": {
+      "approve->approve": 4
+    }
+  },
+  "disagreements": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "codex_decision": "reject",
+      "openrouter_decision": "approve",
+      "codex_quality_score": 52,
+      "openrouter_quality_score": 90,
+      "quality_score_delta": 38,
+      "codex_review_status": "rejected",
+      "openrouter_review_status": "codex_reviewed",
+      "codex_answer": "Die relevanten Dialog-Befehle sind die in der Quelle aufgefuehrten JAWS- und Windows-Tastenkombinationen inklusive `JAWS-TASTE+F1` fuer kontextabhaengige Hilfe.",
+      "openrouter_answer": "Wichtige JAWS-Befehle für Dialoge sind: Standardschalter ansagen (JAWS TASTE+E), Kurztaste des aktuellen Steuerelements ansagen (UMSCHALT+NUM 5), aktuelles Fenster lesen (JAWS TASTE+B), Fenstertyp und Text lesen (JAWS TASTE+TAB), Wort im Kontext lesen (JAWS TASTE+C), Ausklappliste öffnen (ALT+PFEIL RUNTER), Ausklappliste schließen (ALT+PFEIL RAUF), mehrere Listenelemente markieren (STRG+UMSCHALT oder STRG+LEERTASTE), alle Markierungen aufheben (STRG+\\), Spalten 1 bis 10 der Listenansicht lesen (STRG+JAWS TASTE+1 bis 0). Für kontextabhängige Hilfe: JAWS-TASTE+F1.",
+      "codex_summary": "Die Antwort ist dokumentationsnah, bleibt aber zu allgemein und nennt die relevanten Befehle nicht konkret genug.",
+      "openrouter_summary": "Die Antwort fasst die dokumentierten JAWS-Befehle für Dialoge korrekt zusammen und ergänzt passend den dokumentierten Hinweis zur kontextabhängigen Hilfe.",
+      "codex_blocking_reasons": [
+        "Fuer einen FAQ-Direktantwort-Fall ist die Antwort zu vage und liefert keine brauchbare Zusammenfassung der Befehle.",
+        "Sie paraphrasiert nur die Existenz von Tastenkombinationen, statt die in der Quelle genannten Dialog-Befehle sichtbar zu machen.",
+        "Die Formulierung wirkt eher wie eine Verweisantwort als eine konkrete Beantwortung der Nutzerfrage."
+      ],
+      "openrouter_blocking_reasons": []
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "codex_decision": "reject",
+      "openrouter_decision": "approve",
+      "codex_quality_score": 64,
+      "openrouter_quality_score": 94,
+      "quality_score_delta": 30,
+      "codex_review_status": "rejected",
+      "openrouter_review_status": "codex_reviewed",
+      "codex_answer": "Gehen Sie so vor: 1. Einstellungsverwaltung öffnen und \"Hervorhebung\" im Sucheingabefeld eingeben. 2. Mit PFEIL RUNTER in die gefilterten Ergebnisse springen und Hervorhebungsfarben konfigurieren wählen. 3. LEERTASTE drücken, um das Dialogfenster Hervorhebungsoptionen zu öffnen.\n\n1. Öffnen Sie die Einstellungsverwaltung und geben Sie \"Hervorhebung\" im Sucheingabefeld ein.\n2. Drücken Sie PFEIL RUNTER, um in die gefilterten Ergebnisse zu springen, und wählen Sie Hervorhebungsfarben konfigurieren.\n3. Drücken Sie LEERTASTE, um das Dialogfenster Hervorhebungsoptionen zu öffnen.",
+      "openrouter_answer": "1. Einstellungsverwaltung öffnen und nach „Hervorhebung“ suchen. 2. Mit PFEIL RUNTER zu den gefilterten Ergebnissen gehen und „Hervorhebungsfarben konfigurieren“ wählen. 3. Mit LEERTASTE die Hervorhebungsoptionen öffnen.",
+      "codex_summary": "Der Inhalt ist dokumentationsnah, aber die Antwort ist doppelt ausgegeben und damit als sauberer Schritt-fuer-Schritt-Kandidat zu schwach.",
+      "openrouter_summary": "Kurze, saubere und dokumentationsnahe Schrittfolge zum Öffnen der Hervorhebungsoptionen; entspricht der Quelle ohne unnötige Zusätze.",
+      "codex_blocking_reasons": [
+        "Die Schrittfolge erscheint einmal als Fliesstext und danach noch einmal als nummerierte Liste.",
+        "Die Form ist dadurch redundant und erfuellt die Anforderung an einen nicht duplizierten Schrittblock nicht sauber.",
+        "Die Antwort ist insgesamt etwas unpraezise benannt, auch wenn die inhaltlichen Schritte stimmen."
+      ],
+      "openrouter_blocking_reasons": []
+    }
+  ],
+  "high_score_delta_cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "codex_decision": "reject",
+      "openrouter_decision": "approve",
+      "codex_quality_score": 52,
+      "openrouter_quality_score": 90,
+      "quality_score_delta": 38,
+      "codex_review_status": "rejected",
+      "openrouter_review_status": "codex_reviewed",
+      "codex_answer": "Die relevanten Dialog-Befehle sind die in der Quelle aufgefuehrten JAWS- und Windows-Tastenkombinationen inklusive `JAWS-TASTE+F1` fuer kontextabhaengige Hilfe.",
+      "openrouter_answer": "Wichtige JAWS-Befehle für Dialoge sind: Standardschalter ansagen (JAWS TASTE+E), Kurztaste des aktuellen Steuerelements ansagen (UMSCHALT+NUM 5), aktuelles Fenster lesen (JAWS TASTE+B), Fenstertyp und Text lesen (JAWS TASTE+TAB), Wort im Kontext lesen (JAWS TASTE+C), Ausklappliste öffnen (ALT+PFEIL RUNTER), Ausklappliste schließen (ALT+PFEIL RAUF), mehrere Listenelemente markieren (STRG+UMSCHALT oder STRG+LEERTASTE), alle Markierungen aufheben (STRG+\\), Spalten 1 bis 10 der Listenansicht lesen (STRG+JAWS TASTE+1 bis 0). Für kontextabhängige Hilfe: JAWS-TASTE+F1.",
+      "codex_summary": "Die Antwort ist dokumentationsnah, bleibt aber zu allgemein und nennt die relevanten Befehle nicht konkret genug.",
+      "openrouter_summary": "Die Antwort fasst die dokumentierten JAWS-Befehle für Dialoge korrekt zusammen und ergänzt passend den dokumentierten Hinweis zur kontextabhängigen Hilfe.",
+      "codex_blocking_reasons": [
+        "Fuer einen FAQ-Direktantwort-Fall ist die Antwort zu vage und liefert keine brauchbare Zusammenfassung der Befehle.",
+        "Sie paraphrasiert nur die Existenz von Tastenkombinationen, statt die in der Quelle genannten Dialog-Befehle sichtbar zu machen.",
+        "Die Formulierung wirkt eher wie eine Verweisantwort als eine konkrete Beantwortung der Nutzerfrage."
+      ],
+      "openrouter_blocking_reasons": []
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "codex_decision": "reject",
+      "openrouter_decision": "approve",
+      "codex_quality_score": 64,
+      "openrouter_quality_score": 94,
+      "quality_score_delta": 30,
+      "codex_review_status": "rejected",
+      "openrouter_review_status": "codex_reviewed",
+      "codex_answer": "Gehen Sie so vor: 1. Einstellungsverwaltung öffnen und \"Hervorhebung\" im Sucheingabefeld eingeben. 2. Mit PFEIL RUNTER in die gefilterten Ergebnisse springen und Hervorhebungsfarben konfigurieren wählen. 3. LEERTASTE drücken, um das Dialogfenster Hervorhebungsoptionen zu öffnen.\n\n1. Öffnen Sie die Einstellungsverwaltung und geben Sie \"Hervorhebung\" im Sucheingabefeld ein.\n2. Drücken Sie PFEIL RUNTER, um in die gefilterten Ergebnisse zu springen, und wählen Sie Hervorhebungsfarben konfigurieren.\n3. Drücken Sie LEERTASTE, um das Dialogfenster Hervorhebungsoptionen zu öffnen.",
+      "openrouter_answer": "1. Einstellungsverwaltung öffnen und nach „Hervorhebung“ suchen. 2. Mit PFEIL RUNTER zu den gefilterten Ergebnissen gehen und „Hervorhebungsfarben konfigurieren“ wählen. 3. Mit LEERTASTE die Hervorhebungsoptionen öffnen.",
+      "codex_summary": "Der Inhalt ist dokumentationsnah, aber die Antwort ist doppelt ausgegeben und damit als sauberer Schritt-fuer-Schritt-Kandidat zu schwach.",
+      "openrouter_summary": "Kurze, saubere und dokumentationsnahe Schrittfolge zum Öffnen der Hervorhebungsoptionen; entspricht der Quelle ohne unnötige Zusätze.",
+      "codex_blocking_reasons": [
+        "Die Schrittfolge erscheint einmal als Fliesstext und danach noch einmal als nummerierte Liste.",
+        "Die Form ist dadurch redundant und erfuellt die Anforderung an einen nicht duplizierten Schrittblock nicht sauber.",
+        "Die Antwort ist insgesamt etwas unpraezise benannt, auch wenn die inhaltlichen Schritte stimmen."
+      ],
+      "openrouter_blocking_reasons": []
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "codex_decision": "reject",
+      "openrouter_decision": "reject",
+      "codex_quality_score": 82,
+      "openrouter_quality_score": 56,
+      "quality_score_delta": -26,
+      "codex_review_status": "rejected",
+      "openrouter_review_status": "rejected",
+      "codex_answer": "So öffnen Sie die Stimmeneinstellungen und wählen ein Stimmenprofil aus:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.\n5. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen.\n6. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.",
+      "openrouter_answer": "Gehen Sie so vor:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Wählen Sie hier ein bestehendes Profil oder eine Standard-Stimmenvorlage aus und konfigurieren Sie verschiedene Einstellungen wie Sprache, Stimme, Sprechgeschwindigkeit oder Satzzeichenansage.\n5. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen das Dialogfenster Stimmeneinstellungen.\n6. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.\n7. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen.",
+      "codex_summary": "Die Antwort ist grundsätzlich quellennah, vermischt aber zwei unterschiedliche Anleitungen und enthält dadurch einen unnötig erweiterten Ablauf. Für einen Gold-Kandidaten ist das zu wenig strikt fokussiert.",
+      "openrouter_summary": "Die Antwort startet zwar korrekt mit den Schritten zum Öffnen der Stimmeneinstellungen, vermischt dann aber zwei getrennte Prozeduren und driftet von der eigentlichen Anfrage ab.",
+      "codex_blocking_reasons": [
+        "Die Nutzerfrage verlangt einen klaren Schritt-fuer-Schritt-Ablauf zum Oeffnen der Stimmeneinstellungen und Auswaehlen eines Profils, die Antwort kombiniert dafuer zwei getrennte Bedienpfade ohne klare Trennung.",
+        "Schritt 4 bis 6 fuehren ueber die Profilauswahl hinaus und wirken wie eine zusammengezogene, teilweise aus dem Kontext abgeleitete Sequenz.",
+        "Die Antwort bleibt zwar nahe an der Quelle, ist aber fuer den step_by_step-Fall nicht sauber genug segmentiert."
+      ],
+      "openrouter_blocking_reasons": [
+        "Die Antwort kombiniert das Anpassen in den Stimmeneinstellungen mit der separaten Prozedur zum Auswählen eines Stimmenprofils, statt einen sauberen, zusammenhängenden Schrittblock zur Anfrage zu liefern.",
+        "Für task_type step_by_step ist der Schrittblock nicht sauber fokussiert; nach dem Speichern springt die Antwort unnötig in ein anderes Dialogfenster.",
+        "Die Nutzerfrage zielt auf das Öffnen und Anpassen in den Stimmeneinstellungen; die zusätzlichen Schritte 6 und 7 sind dafür nicht erforderlich und wirken wie Prozedurvermischung."
+      ]
+    }
+  ]
+}
