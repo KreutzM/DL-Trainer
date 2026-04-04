@@ -1,0 +1,214 @@
+{
+  "export_id": "jaws_de_openrouter_gpt54_controlled_gold_v16",
+  "output_dir": "D:/Codex/DL/DL-Trainer/data/derived/gold/JAWS/DE/openrouter_gpt54_controlled_gold_v16",
+  "export_generated_at_utc": "2026-04-04T19:09:24.587504Z",
+  "export_pipeline_version": "0.1.0",
+  "source_pre_gold_dir": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16",
+  "source_pre_gold_summary": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16/summary.json",
+  "source_pre_gold_manifest": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16/manifest.json",
+  "source_reviewed_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave_reviewed_teacher_outputs.jsonl",
+  "derived_train_rows": 27,
+  "derived_eval_rows": 23,
+  "derived_rows": 50,
+  "derived_train_task_type_counts": {
+    "clarification": 6,
+    "faq_direct_answer": 6,
+    "step_by_step": 3,
+    "troubleshooting": 6,
+    "uncertainty_escalation": 6
+  },
+  "derived_eval_task_type_counts": {
+    "clarification": 4,
+    "faq_direct_answer": 6,
+    "step_by_step": 1,
+    "troubleshooting": 6,
+    "uncertainty_escalation": 6
+  },
+  "source_doc_distribution": {
+    "jaws_de_braille": 11,
+    "jaws_de_hilfe_kernfunktionen": 8,
+    "jaws_de_settingscenter": 15,
+    "jaws_de_tutorial_basics": 16
+  },
+  "rejected_rows": 10,
+  "rejected_task_type_counts": {
+    "clarification": 2,
+    "step_by_step": 8
+  },
+  "rejected_decision_counts": {
+    "reject": 10
+  },
+  "excluded_rows": [
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::clarification::0005",
+      "task_type": "clarification",
+      "record_type": "eval_case",
+      "decision": "reject",
+      "quality_score": 48,
+      "summary": "Die Rückfrage ist zwar dokumentationsnah, aber unnötig breit und verfehlt die konkrete Nutzerfrage nach Fenster versus gesamtem Bildschirm, obwohl diese bereits klar fokussiert gestellt ist."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::clarification::0007",
+      "task_type": "clarification",
+      "record_type": "eval_case",
+      "decision": "reject",
+      "quality_score": 35,
+      "summary": "Die Rückfrage ist zu eng und verliert den Kern der Nutzerfrage, weil sie nur nach dem Flächenmodus fragt statt die Gegenüberstellung Cursorpositionierung versus Menüöffnung zu klären."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "record_type": "eval_case",
+      "decision": "reject",
+      "quality_score": 42,
+      "summary": "Die Antwort übernimmt nur den Beispielanfang aus der Quelle, lässt aber den weiteren dokumentierten Ablauf weg und wirkt dadurch als unvollständige Prozedur für den angefragten Vorgang."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0003",
+      "task_type": "step_by_step",
+      "record_type": "eval_case",
+      "decision": "reject",
+      "quality_score": 42,
+      "summary": "Inhaltlich nah an der Quelle, aber die Schrittfolge ist unvollständig und zudem vollständig doppelt ausgegeben."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0004",
+      "task_type": "step_by_step",
+      "record_type": "eval_case",
+      "decision": "reject",
+      "quality_score": 58,
+      "summary": "Fachlich korrekt und quellentreu, aber die komplette Schrittfolge ist unnötig doppelt wiederholt, was die Qualität für einen Gold-Fall senkt."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0005",
+      "task_type": "step_by_step",
+      "record_type": "eval_case",
+      "decision": "reject",
+      "quality_score": 61,
+      "summary": "Die Antwort ist quellentreu und vollständig, wird aber komplett doppelt wiederholt; für step_by_step ist das kein sauberer Gold-Kandidat."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0006",
+      "task_type": "step_by_step",
+      "record_type": "eval_case",
+      "decision": "reject",
+      "quality_score": 60,
+      "summary": "Inhaltlich korrekt und vollständig, aber die gesamte Prozedur wird doppelt ausgegeben und ist damit nicht sauber genug für einen strengen step_by_step-Goldfall."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0008",
+      "task_type": "step_by_step",
+      "record_type": "sft_sample",
+      "decision": "reject",
+      "quality_score": 57,
+      "summary": "Grundsätzlich quellennah, aber als Schritt-für-Schritt-Prozedur unvollständig und am Ende abgeschnitten: Es fehlt der eigentliche Schritt zum Ändern der ausgewählten Einstellung beziehungsweise ein sauberer Abschluss."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0011",
+      "task_type": "step_by_step",
+      "record_type": "sft_sample",
+      "decision": "reject",
+      "quality_score": 41,
+      "summary": "Die Antwort ist als Prozedur unvollständig und potenziell irreführend: Sie bildet nur einen Teil des Administrator-Pfads ab, lässt den Abschluss weg und berücksichtigt den in der Quelle erwähnten Standardbenutzer-Fall nicht sauber."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0017",
+      "task_type": "step_by_step",
+      "record_type": "sft_sample",
+      "decision": "reject",
+      "quality_score": 64,
+      "summary": "Weitgehend quellentreu, aber die Prozedur ist im entscheidenden Dialogschritt verfälscht und dadurch für step_by_step nicht belastbar genug."
+    }
+  ],
+  "sensitive_rest_areas": {
+    "step_by_step": [
+      {
+        "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0002",
+        "task_type": "step_by_step",
+        "record_type": "eval_case",
+        "decision": "reject",
+        "quality_score": 42,
+        "summary": "Die Antwort übernimmt nur den Beispielanfang aus der Quelle, lässt aber den weiteren dokumentierten Ablauf weg und wirkt dadurch als unvollständige Prozedur für den angefragten Vorgang."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0003",
+        "task_type": "step_by_step",
+        "record_type": "eval_case",
+        "decision": "reject",
+        "quality_score": 42,
+        "summary": "Inhaltlich nah an der Quelle, aber die Schrittfolge ist unvollständig und zudem vollständig doppelt ausgegeben."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0004",
+        "task_type": "step_by_step",
+        "record_type": "eval_case",
+        "decision": "reject",
+        "quality_score": 58,
+        "summary": "Fachlich korrekt und quellentreu, aber die komplette Schrittfolge ist unnötig doppelt wiederholt, was die Qualität für einen Gold-Fall senkt."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0005",
+        "task_type": "step_by_step",
+        "record_type": "eval_case",
+        "decision": "reject",
+        "quality_score": 61,
+        "summary": "Die Antwort ist quellentreu und vollständig, wird aber komplett doppelt wiederholt; für step_by_step ist das kein sauberer Gold-Kandidat."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0006",
+        "task_type": "step_by_step",
+        "record_type": "eval_case",
+        "decision": "reject",
+        "quality_score": 60,
+        "summary": "Inhaltlich korrekt und vollständig, aber die gesamte Prozedur wird doppelt ausgegeben und ist damit nicht sauber genug für einen strengen step_by_step-Goldfall."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0008",
+        "task_type": "step_by_step",
+        "record_type": "sft_sample",
+        "decision": "reject",
+        "quality_score": 57,
+        "summary": "Grundsätzlich quellennah, aber als Schritt-für-Schritt-Prozedur unvollständig und am Ende abgeschnitten: Es fehlt der eigentliche Schritt zum Ändern der ausgewählten Einstellung beziehungsweise ein sauberer Abschluss."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0011",
+        "task_type": "step_by_step",
+        "record_type": "sft_sample",
+        "decision": "reject",
+        "quality_score": 41,
+        "summary": "Die Antwort ist als Prozedur unvollständig und potenziell irreführend: Sie bildet nur einen Teil des Administrator-Pfads ab, lässt den Abschluss weg und berücksichtigt den in der Quelle erwähnten Standardbenutzer-Fall nicht sauber."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0017",
+        "task_type": "step_by_step",
+        "record_type": "sft_sample",
+        "decision": "reject",
+        "quality_score": 64,
+        "summary": "Weitgehend quellentreu, aber die Prozedur ist im entscheidenden Dialogschritt verfälscht und dadurch für step_by_step nicht belastbar genug."
+      }
+    ],
+    "clarification": [
+      {
+        "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::clarification::0005",
+        "task_type": "clarification",
+        "record_type": "eval_case",
+        "decision": "reject",
+        "quality_score": 48,
+        "summary": "Die Rückfrage ist zwar dokumentationsnah, aber unnötig breit und verfehlt die konkrete Nutzerfrage nach Fenster versus gesamtem Bildschirm, obwohl diese bereits klar fokussiert gestellt ist."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::clarification::0007",
+        "task_type": "clarification",
+        "record_type": "eval_case",
+        "decision": "reject",
+        "quality_score": 35,
+        "summary": "Die Rückfrage ist zu eng und verliert den Kern der Nutzerfrage, weil sie nur nach dem Flächenmodus fragt statt die Gegenüberstellung Cursorpositionierung versus Menüöffnung zu klären."
+      }
+    ]
+  },
+  "decision": {
+    "status": "controlled_gold_derived",
+    "no_new_gold_promotion": true,
+    "statement": "This gold stand is derived offline from the approved rows of the v16 pre-gold candidate set. The rejected step_by_step and clarification rows remain excluded and visible in the summary."
+  }
+}
