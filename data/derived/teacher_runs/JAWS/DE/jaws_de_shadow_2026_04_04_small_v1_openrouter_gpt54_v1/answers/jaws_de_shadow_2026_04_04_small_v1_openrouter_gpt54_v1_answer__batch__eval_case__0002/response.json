@@ -1,0 +1,23 @@
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+{"id":"gen-1775286323-Y7NmB1unXrhFAkRinPa9","object":"chat.completion","created":1775286323,"model":"openai/gpt-5.4-20260305","provider":"OpenAI","system_fingerprint":null,"service_tier":"default","choices":[{"index":0,"logprobs":null,"finish_reason":"stop","native_finish_reason":"completed","message":{"role":"assistant","content":"{\"items\":[{\"job_id\":\"jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003\",\"task_type\":\"faq_direct_answer\",\"answer\":\"Die Einstellung „Länge des Textblocks“ legt fest, wie viele Zeichen ein Textblock mindestens haben muss, damit JAWS ihn beim Sprung mit JAWS TASTE+EINGABE als nächsten Text berücksichtigt, der kein Link ist. Standardwert ist 25.\",\"needs_clarification\":false,\"clarification_question\":null,\"escalate\":false,\"uncertainty_reason\":null,\"steps\":[],\"source_chunk_ids\":[\"jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01\"],\"notes\":[],\"case_description\":\"Der Nutzer möchte eine kurze, direkte Erklärung der Funktion der JAWS-Einstellung „Länge des Textblocks“.\",\"expected_behavior\":\"Beantwortet die Frage knapp und dokumentationsgestuetzt zu Länge des Textblocks.\",\"reference_answer\":\"Die Einstellung bestimmt, wie viele Zeichen ein nicht verlinkter Textblock mindestens haben muss, damit JAWS ihn beim Befehl JAWS TASTE+EINGABE als nächsten Text findet. Der Standardwert ist 25.\",\"rubric\":{\"must_include\":[\"Mindestlänge in Zeichen für einen Textblock\",\"Bezug auf Sprung mit JAWS TASTE+EINGABE\",\"nur Text, der kein Link ist\",\"Standardwert 25\"],\"must_not_include\":[\"nicht belegte Zusatzfunktionen\",\"erfundene Menünavigation\",\"allgemeine Spekulationen\"],\"style\":\"kurz, sachlich, direkt\",\"scoring_notes\":null}}]}","refusal":null,"reasoning":null}}],"usage":{"prompt_tokens":1241,"completion_tokens":346,"total_tokens":1587,"cost":0.0082925,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0082925,"upstream_inference_prompt_cost":0.0031025,"upstream_inference_completions_cost":0.00519},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}}

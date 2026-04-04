@@ -1,0 +1,328 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_answer::batch::sft_sample::0003",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+    "jaws_de_teacher_wave_v1::train::troubleshooting::0003",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001"
+  ],
+  "teacher_run_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_answer",
+  "teacher_model": "openai/gpt-5.4",
+  "generation_mode": "teacher_answer_openrouter_v1",
+  "expected_output_kind": "sft_sample",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "task_type": "step_by_step",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::train::step_by_step::0001::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "step_by_step",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_braille"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Kannst du mir kurz sagen, wie ich die Zeilenanzahl für den geteilten Bereich auf meiner mehrzeiligen Braillezeile ändere?",
+        "user_goal": "Eine kurze Schrittfolge zum Anpassen der Zeilenanzahl für den geteilten Bereich erhalten.",
+        "difficulty": "basic",
+        "phrasing_style": "task_focused",
+        "scenario_summary": "Der Nutzer möchte auf einer mehrzeiligen Braillezeile die Anzahl der Zeilen für den geteilten Bereich ändern und fragt nach dem Vorgehen.",
+        "notes": [
+          "Entspricht der beschriebenen Dialogfolge über Braille-Ansicht auswählen und Optionen.",
+          "Beschränkt auf den dokumentierten Anwendungsfall mehrzeiliger Braillezeilen."
+        ],
+        "usage": {
+          "elapsed_ms": 949,
+          "batch_elapsed_ms": 7592,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1806,
+          "source_excerpt_chars": 912
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/response.json",
+          "prompt_sha256": "88aa2316b6b0d912e178f417837867a3eff99302721d683419367ee917434c06",
+          "schema_sha256": "d03d77e4f1344fe45c1ad61ffaf40ea92c339339d7ab13d860376281b22c6430",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim::batch::0001",
+          "batch_size": 8,
+          "batch_index": 1
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_braille",
+              "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01",
+              "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen",
+              "section_title": "Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)",
+              "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Standardmäßig werden auf mehrzeiligen Braillezeilen zwei Zeilen verwendet, um den geteilten Bereich darzustellen. Um dies zu ändern:\n\n1. Drücken Sie **ALT+EINFÜGEN+V**, um den Dialog Braille-Ansicht auswählen zu öffnen.\n2. Wählen Sie Optionen.\n3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der **LEERTASTE** die Anzahl der Zeilen aus.\n4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie **EINGABE**, um den Dialog zu schließen.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__anpassen_der_zeilenanzahl_fuer_den_geteilten_bereich_nur_bei_mehrzeiligen_braillezeilen",
+            "section_title": "Anpassen der Zeilenanzahl für den geteilten Bereich (nur bei mehrzeiligen Braillezeilen)",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0003",
+      "task_type": "troubleshooting",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::train::troubleshooting::0003::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0003",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "troubleshooting",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Ich habe in JAWS die Standardeinstellungen wiederhergestellt, aber irgendwie scheint sich nichts geändert zu haben. Muss ich danach noch etwas speichern oder woran kann das liegen?",
+        "user_goal": "Ein Problem mit dem Wiederherstellen von Standardeinstellungen verstehen und den nötigen nächsten Schritt erkennen.",
+        "difficulty": "intermediate",
+        "phrasing_style": "frustrated",
+        "scenario_summary": "Der Nutzer hat Standardeinstellungen wiederhergestellt, sieht aber keine Wirkung und fragt nach dem fehlenden Schritt oder einer möglichen Ursache.",
+        "notes": [
+          "Bezieht sich auf den Hinweis, dass die Änderungen erst nach dem Speichern der JCF-Datei wirksam werden.",
+          "Keine über den Kontext hinausgehenden Ursachen genannt."
+        ],
+        "usage": {
+          "elapsed_ms": 949,
+          "batch_elapsed_ms": 7592,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1806,
+          "source_excerpt_chars": 912
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/response.json",
+          "prompt_sha256": "88aa2316b6b0d912e178f417837867a3eff99302721d683419367ee917434c06",
+          "schema_sha256": "d03d77e4f1344fe45c1ad61ffaf40ea92c339339d7ab13d860376281b22c6430",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim::batch::0001",
+          "batch_size": 8,
+          "batch_index": 1
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02::chunk_01",
+              "section_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02",
+              "section_title": "Standardeinstellungen wiederherstellen",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L1512-L1516"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Standardeinstellungen wiederherstellen löscht lediglich alle Angaben, die auf die aktuelle Ausführlichkeitsstufe in der geladenen JCF-Datei zutreffen. Ist die Datei Default.jcf geladen, werden Werkseinstellungen wiederhergestellt. Obwohl das Dialogfeld diese Änderung widerspiegelt, werden die wiederhergestellten Standardeinstellungen erst wirksam, wenn Sie die JCF-Datei speichern.\n\n**Hinweis:** Wenn Sie einen der Dialoge Einstellungen schließen, hängt es von der Methode ab, mit der Sie den Dialog Einstellungen geöffnet haben, wo der Fokus im Dialog Ausführlichkeitsoptionen landet. Wenn Sie einen der Dialoge Einstellungen im Dialog Ausführlichkeitseinstellungen mit einer Tastenkombination geöffnet haben, landen Sie wieder auf dem Element, welches vorher den Fokus hatte. Wenn Sie mit **TAB** zu dem Schalter für die Einstellungen gesprungen sind, wird der Fokus auf den **OK** Schalter im Dialog Ausführlichkeitsoptionen gesetzt.\n\nQuelle: beginner_preferences_dialog.htm",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02",
+            "section_title": "Standardeinstellungen wiederherstellen",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L1512-L1516"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim::jaws_de_teacher_wave_v1::train::faq_direct_answer::0001::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_braille"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Was sollte ich über die Focus Blue Tastatur in JAWS wissen, also wofür die Tasten oben und die Leertaste bzw. Umschalttasten gedacht sind?",
+        "user_goal": "Eine direkte Übersicht zur Focus Blue Tastatur und ihren Bedienelementen erhalten.",
+        "difficulty": "basic",
+        "phrasing_style": "neutral",
+        "scenario_summary": "Der Nutzer fragt nach der grundlegenden Belegung und Nutzung der Focus Blue Tastatur in JAWS.",
+        "notes": [
+          "Bezieht sich auf Braille-Tasten, Leertaste und Umschalttasten an der Focus Blue.",
+          "Keine Details aus anderen Dokumenten ergänzt."
+        ],
+        "usage": {
+          "elapsed_ms": 949,
+          "batch_elapsed_ms": 7592,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1806,
+          "source_excerpt_chars": 912
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1/user_simulations/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim__batch__0001/response.json",
+          "prompt_sha256": "88aa2316b6b0d912e178f417837867a3eff99302721d683419367ee917434c06",
+          "schema_sha256": "d03d77e4f1344fe45c1ad61ffaf40ea92c339339d7ab13d860376281b22c6430",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_user_sim::batch::0001",
+          "batch_size": 8,
+          "batch_index": 1
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_braille",
+              "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01",
+              "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur",
+              "section_title": "Focus Blue Tastatur",
+              "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/braille/index.md#L1413-L1413"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur",
+            "section_title": "Focus Blue Tastatur",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L1413-L1413"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "answer",
+    "profile_name": "openrouter_gpt54_shadow_v1"
+  }
+}

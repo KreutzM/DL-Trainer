@@ -8,6 +8,7 @@ Die Benchmark-Laeufe bauen auf den bestehenden Profilsets in `config/llm_stage_p
 
 - `support_mvp_default`: Codex-Referenzprofil fuer reproduzierbare Baseline-Laeufe
 - `support_mvp_openrouter_candidate`: OpenRouter-Kandidatenprofil fuer Shadow- und Vergleichslaeufe
+- `support_mvp_openrouter_gpt54_candidate`: separater GPT-5.4-Kandidatenpfad fuer weitere Shadow-Benchmarks ohne Ueberschreiben des ersten OpenRouter-Laufs
 
 Vor Benchmark-Laeufen kann der Kandidat separat geprueft werden:
 

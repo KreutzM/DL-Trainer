@@ -194,6 +194,21 @@ def test_resolve_stage_runtime_settings_uses_profile_runtime(monkeypatch: pytest
     assert runtime.openrouter_api_key_env == "OPENROUTER_API_KEY"
 
 
+def test_gpt54_openrouter_profile_set_resolves_expected_stage_models(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("OPENROUTER_API_KEY", "test-token")
+    resolved = resolve_profile_set(
+        ROOT,
+        profile_set_name="support_mvp_openrouter_gpt54_candidate",
+        check_runtime_env=True,
+    )
+
+    assert resolved["user_simulation"].model == "openai/gpt-5.4-mini"
+    assert resolved["answer"].model == "openai/gpt-5.4"
+    assert resolved["judge"].model == "openai/gpt-5.4"
+    assert resolved["judge"].temperature == 0.0
+    assert resolved["judge"].max_output_tokens == 3600
+
+
 def test_resolve_stage_runtime_settings_rejects_legacy_override_with_profile(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
