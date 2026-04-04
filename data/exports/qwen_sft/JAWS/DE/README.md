@@ -7,8 +7,8 @@ Kanonischer aktueller Exportpfad:
 
 Quelle:
 
-- `data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl`
-- `data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl`
+- `data/gold/train/sft/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_sft_samples.jsonl`
+- `data/gold/eval/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_eval_cases.jsonl`
 
 Regel:
 

@@ -1,57 +1,57 @@
 {
-  "export_id": "jaws_de_validation_v2_current",
-  "export_generated_at_utc": "2026-04-03T17:48:03.399960Z",
+  "export_id": "jaws_de_controlled_gold_v16_current",
+  "export_generated_at_utc": "2026-04-04T19:21:41.176105Z",
   "format": "qwen_openai_messages",
   "export_pipeline_version": "0.2.0",
   "output_dir": "data/exports/qwen_sft/JAWS/DE/current",
-  "train_records": 9,
-  "eval_records": 7,
-  "train_metadata_records": 9,
-  "eval_metadata_records": 7,
+  "train_records": 27,
+  "eval_records": 23,
+  "train_metadata_records": 27,
+  "eval_metadata_records": 23,
   "train_file": "data/exports/qwen_sft/JAWS/DE/current/train.jsonl",
   "eval_file": "data/exports/qwen_sft/JAWS/DE/current/eval.jsonl",
   "train_metadata_file": "data/exports/qwen_sft/JAWS/DE/current/train.metadata.jsonl",
   "eval_metadata_file": "data/exports/qwen_sft/JAWS/DE/current/eval.metadata.jsonl",
   "source_train_files": [
-    "data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl"
+    "data/gold/train/sft/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_sft_samples.jsonl"
   ],
   "source_eval_files": [
-    "data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl"
+    "data/gold/eval/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_eval_cases.jsonl"
   ],
   "source_inputs": {
     "train": [
       {
-        "path": "data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl",
-        "size_bytes": 66094,
-        "sha256": "78fb16825e6e68dbfa782d0e78a7bce77fa733ab8e2d8ab1c4cb05c8476db40e"
+        "path": "data/gold/train/sft/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_sft_samples.jsonl",
+        "size_bytes": 188427,
+        "sha256": "dfee7e7238b9a5498d5ad72892f5ea3c9bb20a84536f784170b24ea89bedbc8e"
       }
     ],
     "eval": [
       {
-        "path": "data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl",
-        "size_bytes": 31271,
-        "sha256": "0df2ed06c3ec7ab3721b46bf83c728a920323206450192b67d5a5c6b5a64ccbf"
+        "path": "data/gold/eval/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_eval_cases.jsonl",
+        "size_bytes": 118875,
+        "sha256": "e794a3222427a6ea7dd8dc84575112185bf140b3a1eab5b6120cdfb924ebf9d4"
       }
     ]
   },
   "hashes": {
-    "train_file_sha256": "7ee21a4b4bb0b02edc5292757c9680e2e95c6162d7b82a130565972b4e286dd6",
-    "eval_file_sha256": "b106cad426f7e808ac03b2a6182f19a389d68abbe42db9730ffe0de1a74a4970",
-    "train_metadata_file_sha256": "a77c574555aaab65c35066f754596520458fd1f81d8893f95a030e9c5ac33ddd",
-    "eval_metadata_file_sha256": "5cae796a1d8214442c88c2ca32ed7b7ccfa49e152ecbd1fce4fc5afc318c3468"
+    "train_file_sha256": "be1d4ec7b6a2958bd9b8e18f7b539ed4e9e2ca4d16d640fcdde72cde99d9d550",
+    "eval_file_sha256": "bdd23b0c4b0035be95f43ddab569dc1c5f3620e74417e7013c53c212612523e1",
+    "train_metadata_file_sha256": "88cc5479a31a5c3cf7568337f02906191249a1010be51d2bd2531b7450b45997",
+    "eval_metadata_file_sha256": "0e5f8ed2907d1213fb771f4589266116b347a2b4c68eb36df4ba7e89cbef38bb"
   },
   "file_sizes_bytes": {
-    "train_file": 19880,
-    "eval_file": 14916,
-    "train_metadata_file": 18017,
-    "eval_metadata_file": 18992,
-    "manifest_file": 2259
+    "train_file": 60297,
+    "eval_file": 49972,
+    "train_metadata_file": 61092,
+    "eval_metadata_file": 69738,
+    "manifest_file": 2294
   },
   "source_doc_distribution": {
-    "jaws_de_braille": 4,
-    "jaws_de_hilfe_kernfunktionen": 5,
-    "jaws_de_settingscenter": 5,
-    "jaws_de_tutorial_basics": 2
+    "jaws_de_braille": 11,
+    "jaws_de_hilfe_kernfunktionen": 8,
+    "jaws_de_settingscenter": 15,
+    "jaws_de_tutorial_basics": 16
   },
   "split_chunk_overlap": []
 }

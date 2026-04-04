@@ -1,0 +1,39 @@
+{
+  "export_id": "jaws_de_openrouter_gpt54_controlled_gold_v16",
+  "export_generated_at_utc": "2026-04-04T19:09:24.587504Z",
+  "format": "qwen_openai_messages",
+  "export_pipeline_version": "0.1.0",
+  "output_dir": "D:/Codex/DL/DL-Trainer/data/derived/gold/JAWS/DE/openrouter_gpt54_controlled_gold_v16",
+  "source_pre_gold_dir": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16",
+  "source_pre_gold_summary": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16/summary.json",
+  "source_pre_gold_manifest": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16/manifest.json",
+  "source_reviewed_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave_reviewed_teacher_outputs.jsonl",
+  "derived_train_rows": 27,
+  "derived_eval_rows": 23,
+  "train_file": "D:/Codex/DL/DL-Trainer/data/gold/train/sft/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_sft_samples.jsonl",
+  "eval_file": "D:/Codex/DL/DL-Trainer/data/gold/eval/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_eval_cases.jsonl",
+  "train_metadata_file": "D:/Codex/DL/DL-Trainer/data/derived/gold/JAWS/DE/openrouter_gpt54_controlled_gold_v16/train.metadata.jsonl",
+  "eval_metadata_file": "D:/Codex/DL/DL-Trainer/data/derived/gold/JAWS/DE/openrouter_gpt54_controlled_gold_v16/eval.metadata.jsonl",
+  "file_sizes_bytes": {
+    "train_file": 188427,
+    "eval_file": 118875,
+    "train_metadata_file": 74442,
+    "eval_metadata_file": 81304
+  },
+  "hashes": {
+    "train_file_sha256": "dfee7e7238b9a5498d5ad72892f5ea3c9bb20a84536f784170b24ea89bedbc8e",
+    "eval_file_sha256": "e794a3222427a6ea7dd8dc84575112185bf140b3a1eab5b6120cdfb924ebf9d4",
+    "train_metadata_file_sha256": "84f0773e2c2c4947dcda75ff100faf2882c22f84f6e6439521ab25e7c6463d82",
+    "eval_metadata_file_sha256": "2ecd204009ec8a0f98c5468b7d45378dc8fb8c93304dd348bcab0553b9215194"
+  },
+  "source_doc_distribution": {
+    "jaws_de_braille": 11,
+    "jaws_de_hilfe_kernfunktionen": 8,
+    "jaws_de_settingscenter": 15,
+    "jaws_de_tutorial_basics": 16
+  },
+  "split_chunk_overlap": [],
+  "source_pre_gold_summary_sha256": "a4259df454734ab86b2a47a3f66edcca5ba1b5614604b12c64b49246abb60f44",
+  "source_pre_gold_manifest_sha256": "464b260fd95c28d6b0da0f145e21195900d2d4c5d91d92401d9884da070d785b",
+  "source_reviewed_path_sha256": "53b8ea9c0c11a7590375aab5be2d4b1ec6a965d5f034ae804f7d81c6fa32dec5"
+}

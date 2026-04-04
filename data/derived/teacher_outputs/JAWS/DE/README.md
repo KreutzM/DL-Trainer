@@ -9,7 +9,7 @@ Produktive Struktur:
 
 Aktueller committed Referenzstand:
 
-- `codex_cli_support_validation_v2_*`
+- `openrouter_gpt54_controlled_gold_v16_*`
 
 Historische Prefixe:
 
@@ -18,6 +18,6 @@ Historische Prefixe:
 
 Leseregel:
 
-- `validation_v2` ist der aktuelle committed Referenzstand.
+- `openrouter_gpt54_controlled_gold_v16` ist der aktuelle committed Referenzstand.
 - Historische Prefixe bleiben fuer Vergleich, Audit oder Review-Historie erhalten.
 - Neue produktive Runs sollen neue Prefixe verwenden und keine historischen Namen recyceln.

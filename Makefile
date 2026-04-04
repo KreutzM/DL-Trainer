@@ -1,11 +1,11 @@
 .PHONY: validate repo-consistency jaws-de-current-validate jaws-de-current-export jaws-de-training-smoke jaws-de-fresh-run support-mvp-benchmark-reference support-mvp-benchmark-candidate support-mvp-benchmark-compare
 
 CURRENT_JAWS_DE_BASELINE := docs/jaws_de_current_baseline.json
-CURRENT_JAWS_DE_RUN := codex_cli_support_validation_v2
+CURRENT_JAWS_DE_RUN := openrouter_gpt54_controlled_gold_v16
 CURRENT_JAWS_DE_TRAIN := data/gold/train/sft/JAWS/DE/$(CURRENT_JAWS_DE_RUN)_promoted_sft_samples.jsonl
 CURRENT_JAWS_DE_EVAL := data/gold/eval/JAWS/DE/$(CURRENT_JAWS_DE_RUN)_promoted_eval_cases.jsonl
 CURRENT_JAWS_DE_EXPORT_DIR := data/exports/qwen_sft/JAWS/DE/current
-CURRENT_JAWS_DE_EXPORT_ID := jaws_de_validation_v2_current
+CURRENT_JAWS_DE_EXPORT_ID := jaws_de_controlled_gold_v16_current
 CURRENT_JAWS_DE_TRAINING_CONFIG := training/transformers/jaws_de_current.yaml
 CURRENT_JAWS_DE_SELECTION := data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json
 SUPPORT_MVP_BENCHMARK_SELECTION := data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json

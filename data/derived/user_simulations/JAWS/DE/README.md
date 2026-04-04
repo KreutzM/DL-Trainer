@@ -7,7 +7,7 @@ Produktiver Pfad:
 
 Aktueller committed Referenzstand:
 
-- `codex_cli_support_validation_v2_*`
+- `openrouter_gpt54_controlled_gold_v16_*`
 
 Historische Prefixe:
 

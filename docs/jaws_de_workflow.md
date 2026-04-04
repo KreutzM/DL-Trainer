@@ -17,16 +17,16 @@ Die maschinenlesbare Current-Baseline fuer denselben Stand steht in `docs/jaws_d
 
 ## Aktuell massgeblicher committed Baseline-Stand
 
-Der aktuell empfohlene committed Downstream-Stand fuer JAWS-DE ist `codex_cli_support_validation_v2`.
+Der aktuell empfohlene committed Downstream-Stand fuer JAWS-DE ist der kontrollierte Gold-Stand `openrouter_gpt54_controlled_gold_v16`.
 
 Massgebliche Dateien:
 
-- `data/derived/user_simulations/JAWS/DE/codex_cli_support_validation_v2_user_simulations.jsonl`
-- `data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_teacher_outputs.jsonl`
-- `data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl`
-- `data/derived/teacher_reviews/JAWS/DE/codex_cli_support_validation_v2_judge_results.jsonl`
-- `data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl`
-- `data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl`
+- `data/derived/user_simulations/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave_user_simulations.jsonl`
+- `data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave_teacher_outputs.jsonl`
+- `data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave_reviewed_teacher_outputs.jsonl`
+- `data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave_judge_results.jsonl`
+- `data/gold/train/sft/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_sft_samples.jsonl`
+- `data/gold/eval/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_eval_cases.jsonl`
 - `data/exports/qwen_sft/JAWS/DE/current/`
 - `training/transformers/jaws_de_current.yaml`
 - `data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json`
@@ -101,20 +101,20 @@ Vorgehen:
 Aktuelle Baseline validieren:
 
 ```bash
-python scripts/validate_jsonl.py --schema schemas/sft_sample.schema.json --input data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl
-python scripts/check_provenance.py --input data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl
-python scripts/validate_jsonl.py --schema schemas/eval_case.schema.json --input data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl
-python scripts/check_provenance.py --input data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl
+python scripts/validate_jsonl.py --schema schemas/sft_sample.schema.json --input data/gold/train/sft/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_sft_samples.jsonl
+python scripts/check_provenance.py --input data/gold/train/sft/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_sft_samples.jsonl
+python scripts/validate_jsonl.py --schema schemas/eval_case.schema.json --input data/gold/eval/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_eval_cases.jsonl
+python scripts/check_provenance.py --input data/gold/eval/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_eval_cases.jsonl
 ```
 
 Aktuellen Export bauen:
 
 ```bash
 python scripts/export_qwen_sft.py \
-  --train-input data/gold/train/sft/JAWS/DE/codex_cli_support_validation_v2_promoted_sft_samples.jsonl \
-  --eval-input data/gold/eval/JAWS/DE/codex_cli_support_validation_v2_promoted_eval_cases.jsonl \
+  --train-input data/gold/train/sft/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_sft_samples.jsonl \
+  --eval-input data/gold/eval/JAWS/DE/openrouter_gpt54_controlled_gold_v16_promoted_eval_cases.jsonl \
   --output-dir data/exports/qwen_sft/JAWS/DE/current \
-  --export-id jaws_de_validation_v2_current
+  --export-id jaws_de_controlled_gold_v16_current
 
 python scripts/validate_qwen_sft_export.py --input-dir data/exports/qwen_sft/JAWS/DE/current
 ```

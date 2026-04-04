@@ -32,7 +32,7 @@ Die maschinenlesbare Baseline-Definition dazu steht in `docs/jaws_de_current_bas
 Wesentliche Festlegung:
 
 - `data/derived/teacher_jobs/JAWS/DE/` ist die stabile Eingabeschicht.
-- `codex_cli_support_validation_v2` ist der aktuell massgebliche committed Downstream-Baseline-Stand.
+- `openrouter_gpt54_controlled_gold_v16` ist der aktuell massgebliche committed Downstream-Baseline-Stand.
 - `data/exports/qwen_sft/JAWS/DE/current/` ist der aktuelle abgeleitete Trainings-Export.
 - `training/transformers/` ist der aktuell unterstuetzte JAWS-DE-Trainingspfad.
 
