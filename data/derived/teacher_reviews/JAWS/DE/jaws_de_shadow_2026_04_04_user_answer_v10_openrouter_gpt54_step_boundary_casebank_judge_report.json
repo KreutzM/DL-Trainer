@@ -1,0 +1,63 @@
+{
+  "jobs_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "user_simulations": "D:/Codex/DL/DL-Trainer/data/derived/user_simulations/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v10_openrouter_gpt54_step_boundary_casebank_user_simulations.jsonl",
+  "raw_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v10_openrouter_gpt54_step_boundary_casebank_raw_responses.jsonl",
+  "teacher_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v10_openrouter_gpt54_step_boundary_casebank_teacher_outputs.jsonl",
+  "reviewer_run_id": "jaws_de_shadow_2026_04_04_user_answer_v10_openrouter_gpt54_step_boundary_casebank_judge",
+  "reviewer_model": "openai/gpt-5.4",
+  "reviewer_provider": "openrouter",
+  "generation_mode": "teacher_judge_openrouter_v1",
+  "selected_jobs": 10,
+  "completed_jobs": 10,
+  "approved_jobs": 7,
+  "rejected_jobs": 3,
+  "skipped_existing_jobs": [],
+  "failed_jobs": [],
+  "judge_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v10_openrouter_gpt54_step_boundary_casebank_judge_results.jsonl",
+  "reviewed_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v10_openrouter_gpt54_step_boundary_casebank_reviewed_teacher_outputs.jsonl",
+  "artifact_dir": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v10_openrouter_gpt54_step_boundary_casebank/judge",
+  "runtime": {
+    "selected_jobs": 10,
+    "completed_jobs": 10,
+    "processed_jobs": 10,
+    "skipped_existing_jobs": 0,
+    "failed_jobs": 0,
+    "configured_batch_size": 8,
+    "executed_batches": 2,
+    "completed_batches": 2,
+    "avg_jobs_per_completed_batch": 5.0,
+    "total_elapsed_ms": 31650,
+    "avg_elapsed_ms_per_processed_job": 3165.0,
+    "avg_elapsed_ms_per_completed_batch": 15825.0,
+    "total_prompt_chars": 29957,
+    "avg_prompt_chars_per_processed_job": 2995.7,
+    "total_source_excerpt_chars": 10918,
+    "avg_source_excerpt_chars_per_processed_job": 1091.8,
+    "total_retry_attempts": 0
+  },
+  "llm_profile": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "judge",
+    "profile_name": "openrouter_gpt54_judge_shadow_v1"
+  },
+  "llm_profile_runtime": {
+    "backend": "openrouter",
+    "model": "openai/gpt-5.4",
+    "batch_size": 8,
+    "max_attempts": 1,
+    "timeout_sec": 600,
+    "temperature": 0.0,
+    "max_output_tokens": 3600,
+    "openrouter": {
+      "api_base": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "extra_headers": {},
+      "provider_options": {}
+    },
+    "llm_profile": {
+      "profile_set": "support_mvp_openrouter_gpt54_candidate",
+      "profile_stage": "judge",
+      "profile_name": "openrouter_gpt54_judge_shadow_v1"
+    }
+  }
+}

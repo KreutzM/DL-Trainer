@@ -1,0 +1,282 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v10_openrouter_gpt54_step_boundary_casebank",
+  "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v10_openrouter_gpt54_step_boundary_casebank_pipeline_report.json",
+  "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v10_step_boundary_casebank_selection.json",
+  "judge_role": {
+    "intended_role": "secondary_audit_judge",
+    "shadow_only": true,
+    "statement": "This wave treats the GPT-5.4 OpenRouter judge as a secondary audit signal only. The primary observation target is OpenRouter user_simulation plus answer quality; judge outputs are reported for calibration and triage, not for promotion or rollout gating.",
+    "judge_profile": {
+      "profile_set": "support_mvp_openrouter_gpt54_candidate",
+      "profile_stage": "judge",
+      "profile_name": "openrouter_gpt54_judge_shadow_v1"
+    }
+  },
+  "processing": {
+    "jobs_total": 10,
+    "task_type_distribution": {
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "step_by_step": 8
+    },
+    "split_distribution": {
+      "eval": 1,
+      "train": 9
+    }
+  },
+  "approval_distribution": {
+    "approve": 7,
+    "reject": 3
+  },
+  "score_distribution": {
+    "count": 10,
+    "min": 34,
+    "median": 92.0,
+    "max": 96,
+    "score_bands": {
+      "<60": 3,
+      "60-69": 0,
+      "70-79": 0,
+      "80-89": 0,
+      "90+": 7
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 1,
+      "reject": 0
+    },
+    "faq_direct_answer": {
+      "approve": 1,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 5,
+      "reject": 3
+    }
+  },
+  "stage_health": {
+    "user_simulation": {
+      "selected_jobs": 10,
+      "completed_jobs": 10,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 2,
+      "completed_batches": 2,
+      "avg_elapsed_ms_per_processed_job": 989.2
+    },
+    "answering": {
+      "selected_jobs": 10,
+      "completed_jobs": 10,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 4,
+      "completed_batches": 4,
+      "avg_elapsed_ms_per_processed_job": 3244.9
+    },
+    "judge": {
+      "selected_jobs": 10,
+      "completed_jobs": 10,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 2,
+      "completed_batches": 2,
+      "avg_elapsed_ms_per_processed_job": 3165.0
+    }
+  },
+  "attempt_histograms": {
+    "user_simulation": {
+      "1": 10
+    },
+    "answer": {
+      "1": 10
+    },
+    "judge": {
+      "1": 10
+    }
+  },
+  "provider_usage": {
+    "user_simulation": {
+      "rows_with_provider_usage": 10,
+      "prompt_tokens": 34088,
+      "completion_tokens": 10276,
+      "total_tokens": 44364,
+      "reported_cost_usd_estimate": 0.0718,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "answer": {
+      "rows_with_provider_usage": 10,
+      "prompt_tokens": 31783,
+      "completion_tokens": 9019,
+      "total_tokens": 40802,
+      "reported_cost_usd_estimate": 0.2147,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "judge": {
+      "rows_with_provider_usage": 10,
+      "prompt_tokens": 48264,
+      "completion_tokens": 13116,
+      "total_tokens": 61380,
+      "reported_cost_usd_estimate": 0.3174,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    }
+  },
+  "qualitative_focus_cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0016",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 34,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort bricht die Prozedur zu frueh ab und enthaelt nicht die fuer das Ziel vollstaendige Schrittfolge.",
+      "blocking_reasons": [
+        "Fuer step_by_step fehlt der weitere entscheidende Verlauf nach Auswahl des Regeltyps.",
+        "Die Prozedur ist offensichtlich unvollstaendig und fuehrt nicht bis zum eigentlichen Ziel einer erstellten Regel."
+      ],
+      "request_text": "Wie erstelle ich in JAWS eine Benachrichtigungsregel? Ich brauche die einzelnen Schritte, damit ich eine bestimmte Benachrichtigung später anders behandeln kann.",
+      "answer_text": "So erstellen Sie eine Benachrichtigungsregel:\n\n1. Drücken Sie EINFÜGEN+LEERTASTE, N, um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.\n2. Wählen Sie eine Benachrichtigung aus, für die Sie eine Regel erstellen möchten, drücken Sie die ANWENDUNGSTASTE, um das Kontextmenü zu öffnen, und wählen Sie Regel erstellen. Ein Dialogfenster öffnet sich mit dem Fokus auf der Ausklappliste Regeltyp.\n3. Wählen Sie in der Ausklappliste Regeltyp die passende Option für den gewünschten Regeltyp aus.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L964-L974"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 34,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort ist zwar quellentreu für die gezeigten Import-Endschritte, erfüllt aber den Step-by-step-Auftrag nicht, weil sie selbst eine unvollständige Prozedur einräumt und den Anfang der Importprozedur nicht liefert.",
+      "blocking_reasons": [
+        "Für task_type=step_by_step fehlt der vollständige Ablauf vom Anfang bis zum Ziel; die Antwort deckt nur spätere Schritte ab.",
+        "Die Antwort enthält eine Evidenzgrenze statt einer vollständigen Prozedur, was nicht zur geforderten Antwortform für step_by_step passt.",
+        "Die Nutzerfrage verlangt die Schritte der Reihe nach; geliefert wird keine durchgehende Schrittfolge vom Start bis zum Abschluss."
+      ],
+      "request_text": "Ich möchte meine JAWS-Einstellungen aus einem Backup importieren. Können Sie mir die Schritte dafür bitte der Reihe nach erklären, vor allem was ich auswähle, wenn meine aktuellen Einstellungen mit denen aus der Sicherung in Konflikt stehen, und was am Ende noch bestätigt werden muss?",
+      "answer_text": "Dafür reicht der bereitgestellte Ausschnitt allein nicht für eine vollständige Schrittfolge vom Anfang bis zum Ende.\n\n1. Wenn Sie die Auswahl zum Zusammenführen der Einstellungen wählen, entscheiden Sie bei Konflikten zwischen einer Einstellung in Ihrem Benutzerordner und der Einstellung im Backup: Wählen Sie Aktuelle Einstellung aktualisieren, um die bestehende Einstellung mit der Einstellung aus der Backup-Datei zu ersetzen, oder Aktuelle Einstellung beibehalten, damit die Einstellung in Ihrem Benutzerordner nicht ersetzt wird.\n2. Nachdem Sie die gewünschte Option ausgewählt haben, wählen Sie Weiter.\n3. Auf der letzten Seite des Assistenten lesen Sie die Zusammenfassung Ihrer Import-Auswahl und wählen Fertigstellen, um die Einstellungen zu importieren.\n4. Sobald der Import abgeschlossen ist, lesen Sie im Ergebnisdialog die Informationen zum Importvorgang und wählen OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1596-L1598"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 39,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort endet vor dem eigentlichen Importabschluss und ist fuer eine step_by_step-Prozedur dadurch unvollstaendig.",
+      "blocking_reasons": [
+        "Der letzte entscheidende Schritt zum tatsaechlichen Start bzw. Abschluss des Imports fehlt.",
+        "Die Prozedur fuehrt nicht bis zum in der Nutzerfrage geforderten Ziel, den Import zu starten."
+      ],
+      "request_text": "Wie importiere ich meine JAWS-Einstellungen aus einer SBAK-Datei? Ich brauche die genaue Reihenfolge im Programm, damit ich die Datei richtig auswähle und den Import starte.",
+      "answer_text": "Die dokumentierte Reihenfolge ist:\n\n1. Öffnen Sie im JAWS-Anwendungsfenster das Menü Hilfsprogramme, öffnen Sie das Untermenü Einstellungen importieren/exportieren und wählen Sie Importieren.\n2. Geben Sie im Eingabefeld Eine Backup-Datei auswählen den Namen der SBAK-Datei an, die Sie importieren möchten, oder wählen Sie Durchsuchen, navigieren Sie zum Ordner mit der gespeicherten Datei und wählen Sie diese aus.\n3. Nachdem die Backup-Datei ausgewählt ist, lesen Sie die angezeigten Archiv-Informationen und Kommentare und wählen Sie Weiter.\n4. Sehen Sie sich die Vorschau der Einstellungen an, die importiert werden, und wählen Sie Weiter.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1589-L1595"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0041",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 90,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Prozedur ist fachlich korrekt und weitgehend vollstaendig; nur die optionale Abschlussalternative fehlt.",
+      "blocking_reasons": [],
+      "request_text": "Wie lege ich in JAWS unter Attribute eine neue Attributkombination an? Ich brauche die Schritte vom Wechsel zur Registerkarte bis zum Fertigstellen.",
+      "answer_text": "So gehen Sie vor:\n\n1. Drücken Sie STRG+TAB, um zur Registerkarte Attribute zu wechseln.\n2. Wählen Sie den Schalter Hinzufügen und drücken Sie LEERTASTE, um das Dialogfeld Attribute hinzufügen zu öffnen.\n3. Drücken Sie LEERTASTE, um ein Element auszuwählen, das zu dieser Attributkombination hinzugefügt werden soll, und wählen Sie dann Weiter.\n4. Im Dialog Verhalten auswählen wählen Sie ein Sprach- und Soundverhalten aus der Liste der Auswahlschalter und wählen Weiter.\n5. In den danach geöffneten Dialogen wählen Sie weitere Elemente oder vervollständigen alle Eingabefelder, zu denen Sie aufgefordert werden, und wählen jeweils Weiter oder Fertigstellen zum Fortsetzen.\n6. Nachdem dies abgeschlossen ist, erscheint die neue Attributkombination in der Liste der Attribute.\n7. Wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1232-L1241"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0043",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 91,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Loesch-Prozedur ist korrekt, sauber getrennt und fuer die konkrete Anfrage passend.",
+      "blocking_reasons": [],
+      "request_text": "Wie lösche ich in JAWS eine Schriftartregel wieder? Ich habe eine Regel in der Liste und möchte sie entfernen, aber nicht aus Versehen etwas anderes ändern.",
+      "answer_text": "So löschen Sie die Schriftartregel:\n\n1. Wählen Sie das entsprechende Element aus der Liste aus.\n2. Drücken Sie TAB, um zum Schalter Entfernen zu springen, und aktivieren Sie diesen.\n3. Wählen Sie Ja, um das Löschen zu bestätigen.\n4. Wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1281-L1286"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0033",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 94,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Schritte zur Bearbeitung einer vorhandenen Attributkombination sind korrekt, geordnet und inhaltlich eng an der Quelle.",
+      "blocking_reasons": [],
+      "request_text": "Wie kann ich in JAWS eine vorhandene Attributkombination ändern? Ich suche die Schritte, um die Kombination auszuwählen und anschließend zu bearbeiten.",
+      "answer_text": "So bearbeiten Sie eine vorhandene Attributkombination:\n\n1. Wählen Sie das entsprechende Element aus der Liste aus.\n2. Drücken Sie TAB, um zur Gruppe der Auswahlschalter zu springen, die das Sprach- und Soundverhalten steuern, und wählen Sie bei Bedarf ein neues Verhalten.\n3. Drücken Sie TAB, um zum Schalter Bearbeiten zu springen, und aktivieren Sie diesen.\n4. Im Dialogfeld Attribute modifizieren drücken Sie LEERTASTE, um Elemente auszuwählen, die zu dieser Attributkombination hinzugefügt werden sollen, und wählen Sie dann Weiter.\n5. Mit TAB springen Sie auf einen anderen Schalter oder auf Eingabefelder, die dann zur Verfügung stehen, wenn Sie das gewünschte Element markiert haben.\n6. Wählen Sie OK, um das Dialogfenster zu schließen, oder drücken Sie STRG+TAB, um zu einer anderen Registerkarte zu wechseln.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1243-L1257"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0034",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 95,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort deckt den dokumentierten Abschluss der Benachrichtigungsregel inklusive Benennung und Speichern korrekt ab.",
+      "blocking_reasons": [],
+      "request_text": "Ich habe in JAWS eine Benachrichtigungsregel erstellt, bin mir aber nicht sicher, wie ich sie abschließe und benenne. Was muss ich nach den Auswahlmöglichkeiten noch machen, damit die Regel gespeichert wird?",
+      "answer_text": "So schließen Sie die Benachrichtigungsregel ab und speichern sie:\n\n1. Wenn Sie nicht möchten, dass empfangene Benachrichtigungen, die den Kriterien der aktuellen Regel entsprechen, in die Liste der letzten Benachrichtigungen aufgenommen werden, aktivieren Sie das Kontrollfeld Nicht im Verlauf anzeigen.\n2. Nachdem Sie Ihre Auswahl getroffen haben, drücken Sie OK.\n3. Wenn Sie dazu aufgefordert werden, geben Sie einen Namen für die Regel ein und drücken Sie dann OK, um ihn zu speichern.\n4. Drücken Sie ESC, um das Dialogfenster Benachrichtigungsverlauf zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L998-L1003"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0024",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort bildet die dokumentierte Prozedur vollstaendig, in korrekter Reihenfolge und ohne inhaltliche Drift ab.",
+      "blocking_reasons": [],
+      "request_text": "Ich möchte in JAWS für eine bestimmte Schriftart eine Regel anlegen. Können Sie mir bitte Schritt für Schritt sagen, wie ich im Bereich Schriftname eine neue Schrift hinzufüge und das passende Verhalten auswähle?",
+      "answer_text": "So fügen Sie im Bereich Schriftname eine Schriftartregel hinzu:\n\n1. Drücken Sie STRG+TAB, um zur Registerkarte Schriftname zu wechseln.\n2. Wählen Sie den Schalter Hinzufügen und drücken Sie LEERTASTE, um das Dialogfeld Schrift hinzufügen zu öffnen.\n3. Wählen Sie aus der Liste der auf Ihrem Rechner installierten Schriftarten eine Schrift aus und wählen Sie Weiter.\n4. Im Dialog Verhalten auswählen wählen Sie ein Sprach- und Soundverhalten aus der Liste der Auswahlschalter und wählen Weiter.\n5. Wählen Sie in den anschließend geöffneten Dialogen weitere Elemente oder vervollständigen Sie alle Eingabefelder, zu denen Sie aufgefordert werden. Wählen Sie zum Fortsetzen innerhalb dieser Dialoge Weiter oder Fertigstellen. Danach erscheint die neue Regel in der Liste der Schriftnamen.\n6. Wählen Sie OK, um das Dialogfenster zu schließen, oder drücken Sie STRG+TAB, um zu einer anderen Registerkarte zu wechseln.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1261-L1279"
+      ]
+    }
+  ]
+}
