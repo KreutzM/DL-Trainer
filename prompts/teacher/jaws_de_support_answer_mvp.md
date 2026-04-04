@@ -31,7 +31,12 @@ Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkon
 
 - `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.
 - `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.
-- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.
+- `step_by_step`: nur echte Schritte aus der Quelle ausgeben.
+- `step_by_step`: genau eine konsolidierte Prozedur liefern, keine Doppelausgabe und keine alternative zweite Schrittfolge.
+- `step_by_step`: nur Schritte aus derselben dokumentierten Prozedur mischen; zwei getrennte Verfahren nicht zu einem Ablauf verschmelzen.
+- `step_by_step`: die Prozedur bis zum eigentlichen Zielzustand der Nutzerfrage zu Ende fuehren; nicht vor dem letzten entscheidenden Schritt abbrechen.
+- `step_by_step`: Reihenfolge eindeutig und kohärent halten; Schritte knapp, aber operativ brauchbar formulieren.
+- `step_by_step`: die eigentliche Prozedur in `steps` ablegen, nicht zusaetzlich noch einmal als nummerierte oder aufgelistete Schrittfolge in `answer`.
 - `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
 - `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
 
@@ -53,7 +58,10 @@ Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkon
   - `clarification_question=null`
 - `step_by_step`:
   - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt
-  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten
+  - `steps` muessen genau eine geordnete, zusammenhaengende Prozedur abbilden
+  - `answer` darf nur leerer Rahmen oder eine kurze Einleitung sein, aber keine nummerierte, bulleted oder anderweitig ausgeschriebene Schrittfolge enthalten
+  - wenn die Quelle mehrere getrennte Prozeduren beschreibt, nur die zur Nutzerfrage passende ausgeben statt sie zu vermischen
+  - die letzten zielerreichenden Schritte nicht weglassen
 
 ## Ausgabe
 

@@ -153,7 +153,12 @@ def answer_contract_for_task(task_type: str) -> str:
             "needs_clarification=false"
         )
     if task_type == "step_by_step":
-        return "steps nur mit echten Schritten aus der Quelle fuellen; keine zweite oder widerspruechliche Schrittfolge"
+        return (
+            "steps nur mit echten Schritten aus der Quelle fuellen; genau eine konsolidierte Prozedur; "
+            "keine doppelte Ausgabe; keine Vermischung getrennter Verfahren; Reihenfolge eindeutig; "
+            "bis zum eigentlichen Zielzustand zu Ende fuehren; answer hoechstens als kurze Einleitung, "
+            "keine nummerierten oder aufgelisteten Schritte in answer"
+        )
     if task_type == "troubleshooting":
         return "symptombezogen antworten; dokumentierte Bedingung, Pruefung oder Abhilfe klar benennen"
     return "direkte, dokumentationsgebundene Antwort ohne unnoetige Vorrede"

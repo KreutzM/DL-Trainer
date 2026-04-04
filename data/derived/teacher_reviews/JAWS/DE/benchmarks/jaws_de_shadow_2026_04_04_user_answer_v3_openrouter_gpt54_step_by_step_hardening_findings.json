@@ -1,0 +1,126 @@
+{
+  "audit_type": "answer_prompt_step_by_step_hardening_rerun",
+  "baseline_run": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54",
+  "intermediate_run": "jaws_de_shadow_2026_04_04_user_answer_v2_openrouter_gpt54",
+  "rerun_candidate_run": "jaws_de_shadow_2026_04_04_user_answer_v3_openrouter_gpt54",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v1_selection.json",
+  "user_simulation_basis": "data/derived/user_simulations/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_simulations.jsonl",
+  "prompt_changes": {
+    "prompt_version": "jaws_de_support_answer_mvp_v3",
+    "files": [
+      "prompts/teacher/jaws_de_support_answer_mvp.md",
+      "scripts/run_codex_cli_support_answer_batch.py",
+      "scripts/codex_cli_support_mvp_common.py"
+    ],
+    "addressed_failure_patterns": [
+      "missing_final_decisive_step_or_missing_goal_state",
+      "duplicate_or_repeated_step_sequences",
+      "mixed_procedures_in_one_step_flow",
+      "unclear_or_incoherent_order",
+      "step_content_split_between_answer_and_steps_fields"
+    ],
+    "rules_added": [
+      "step_by_step must provide exactly one consolidated procedure",
+      "step_by_step must not mix distinct documented procedures",
+      "step_by_step must continue until the actual user goal is reached",
+      "step_by_step answer must stay a short lead-in and must not repeat numbered or listed steps",
+      "step_by_step procedural content belongs in steps"
+    ]
+  },
+  "baseline_vs_rerun_metrics": {
+    "baseline_v1": {
+      "approve": 28,
+      "reject": 4,
+      "step_by_step": {
+        "approve": 4,
+        "reject": 4
+      }
+    },
+    "intermediate_v2": {
+      "approve": 27,
+      "reject": 5,
+      "step_by_step": {
+        "approve": 3,
+        "reject": 5
+      },
+      "interpretation": "Initial v2 hardening fixed one old duplication case but still allowed answer-plus-steps double emission, which created two new duplication regressions."
+    },
+    "rerun_v3": {
+      "approve": 29,
+      "reject": 3,
+      "step_by_step": {
+        "approve": 5,
+        "reject": 3
+      }
+    }
+  },
+  "step_by_step_outcome": {
+    "old_rejects_total": 4,
+    "new_rejects_total": 3,
+    "improved_cases": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+        "change": "reject_to_approve",
+        "baseline_score": 52,
+        "rerun_score": 95,
+        "improvement_type": "real_answer_improvement",
+        "rationale": "The old answer repeated the same 3-step procedure twice. The v3 answer emits one clean procedure only once."
+      }
+    ],
+    "remaining_rejects": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+        "failure_pattern": "missing_final_decisive_step",
+        "baseline_score": 34,
+        "rerun_score": 45
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+        "failure_pattern": "still_too_vague_for_exact_profile_change",
+        "baseline_score": 41,
+        "rerun_score": 54
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0005",
+        "failure_pattern": "still_incomplete_before_actual_symbol_change",
+        "baseline_score": 32,
+        "rerun_score": 28
+      }
+    ],
+    "error_pattern_reduction": {
+      "duplicate_or_redundant_sequences": {
+        "baseline_rejects": 2,
+        "rerun_rejects": 0
+      },
+      "mixed_procedures": {
+        "baseline_rejects": 1,
+        "rerun_rejects": 0
+      },
+      "missing_final_decisive_step_or_incomplete_goal_state": {
+        "baseline_rejects": 2,
+        "rerun_rejects": 3
+      }
+    }
+  },
+  "side_effects_outside_step_by_step": {
+    "decision_flips": 0,
+    "all_other_task_types_remain_fully_approved": true,
+    "summary": "No clarification, faq_direct_answer, troubleshooting or uncertainty_escalation case flipped decision in the v3 rerun."
+  },
+  "answer_quality_vs_judge_reaction": {
+    "primary_interpretation": "The measurable gain is concentrated in one former step_by_step duplication reject and comes from changed answer text, not from judge drift on the same answer.",
+    "supporting_points": [
+      "The rerun reused the exact same 32-job selection and the same saved user simulations from v1.",
+      "The only decision flip from baseline to v3 is eval::step_by_step::0002, where the visible answer changed from duplicated procedure to a single clean procedure.",
+      "No non-step_by_step decision changed."
+    ]
+  },
+  "conclusion": {
+    "step_by_step_spurbar_besser": true,
+    "step_by_step_deutlich_robuster_than_v1": true,
+    "still_main_blocker": true,
+    "safe_for_larger_shadow_waves_with_less_risk": true,
+    "why_not_done": "The concentrated duplication and mixed-procedure failure modes are meaningfully reduced, but hard completeness cases still fail and remain the highest-risk class.",
+    "next_step": "Target the remaining completeness blocker directly: for step_by_step, prefer refusing to imply a finished procedure when the excerpt stops before the actual goal state, and explicitly force the last goal-achieving step or a narrower answer scope."
+  }
+}

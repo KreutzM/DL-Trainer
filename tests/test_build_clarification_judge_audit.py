@@ -33,7 +33,7 @@ def _reviewed_output(job_id: str, answer_text: str) -> dict[str, object]:
         "teacher_provider": "openrouter",
         "teacher_model": "openai/gpt-5.4",
         "teacher_run_id": "run-answer",
-        "teacher_prompt_version": "jaws_de_support_answer_mvp_v1",
+        "teacher_prompt_version": "jaws_de_support_answer_mvp_v3",
         "generation_mode": "teacher_answer_openrouter_v1",
         "review_status": "codex_reviewed",
         "raw_response_path": "data/derived/teacher_outputs/JAWS/DE/run_raw_responses.jsonl",

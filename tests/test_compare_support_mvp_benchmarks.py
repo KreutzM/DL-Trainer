@@ -35,7 +35,7 @@ def _teacher_output(job_id: str, *, review_status: str) -> dict[str, object]:
         "teacher_provider": "openai",
         "teacher_model": "gpt-5.4",
         "teacher_run_id": "run-answer",
-        "teacher_prompt_version": "jaws_de_support_answer_mvp_v1",
+        "teacher_prompt_version": "jaws_de_support_answer_mvp_v3",
         "generation_mode": "teacher_answer_codex_cli_v1",
         "review_status": review_status,
         "approved_by": None,
