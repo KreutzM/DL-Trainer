@@ -20,12 +20,18 @@ Bewerte, ob eine simulierte Nutzeranfrage und die dazu erzeugte Support-Antwort 
 8. Die Antwortform passt zum `task_type`:
    - `clarification`: genau eine fokussierte Rueckfrage statt direkter Endantwort
    - `uncertainty_escalation`: sichtbare Evidenzgrenze oder saubere Eskalation
-   - `step_by_step`: ein sauberer, nicht duplizierter Schrittblock
+   - `step_by_step`: genau eine saubere, klar geordnete und bis zum eigentlichen Ziel vollstaendige Prozedur
+9. Fuer `step_by_step` gilt zusaetzlich:
+   - Ein fehlender letzter entscheidender Schritt ist schwerwiegend und fuehrt in der Regel zu `reject`.
+   - Eine Vermischung verschiedener Prozeduren, Dialoge oder Abschlusszustaende ist schwerwiegend und fuehrt in der Regel zu `reject`.
+   - Doppelte oder redundante Schrittfolgen sind relevant, aber weniger schwerwiegend als inhaltliche Unvollstaendigkeit oder Prozedurvermischung.
+   - Kleine Struktur- oder Formatmangel sind nachrangig, wenn die Prozedur fachlich korrekt, vollstaendig und in klarer Reihenfolge bleibt.
 
 ## Entscheidungsregeln
 
 - `approve` nur bei belastbarer Gesamtqualitaet.
 - `reject`, wenn die Nutzeranfrage unplausibel ist, die Antwort driftet, Fakten erfindet oder offensichtlich nicht gut genug fuer ein Gold-Kandidat ist.
+- Bei `step_by_step` haben fachliche Vollstaendigkeit, korrekte Reihenfolge und saubere Trennung der Prozedur Vorrang vor stilistischen oder rein formatbezogenen Details.
 - Sei streng. Lieber `reject` als schwache Daten freigeben.
 - Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
 

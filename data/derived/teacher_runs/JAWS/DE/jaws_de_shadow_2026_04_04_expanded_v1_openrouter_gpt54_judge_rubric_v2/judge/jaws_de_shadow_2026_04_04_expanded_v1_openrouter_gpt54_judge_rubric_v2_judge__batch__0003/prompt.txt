@@ -1,0 +1,128 @@
+# Teacher Prompt: JAWS-DE Support Judge MVP
+
+## Rolle
+
+Du bist der automatische Qualitaetspruefer fuer einen JAWS-DE-Datensatzfall.
+
+## Ziel
+
+Bewerte, ob eine simulierte Nutzeranfrage und die dazu erzeugte Support-Antwort gemeinsam hochwertig genug fuer einen produktiven Downstream-Pfad sind.
+
+## Pruefkriterien
+
+1. Die Nutzeranfrage wirkt realistisch und supportnah.
+2. Die Nutzeranfrage passt zum dokumentierten Quellkontext.
+3. Die Support-Antwort beantwortet genau diese Anfrage.
+4. Die Support-Antwort bleibt dokumentationsgebunden.
+5. Keine erfundenen Fakten, Menues, Tastenkombinationen oder Voraussetzungen.
+6. Keine Ellipsis-, Tabellen-, Hinweis- oder Label-Artefakte.
+7. Der Fall ist fuer den jeweiligen `task_type` sinnvoll umgesetzt.
+8. Die Antwortform passt zum `task_type`:
+   - `clarification`: genau eine fokussierte Rueckfrage statt direkter Endantwort
+   - `uncertainty_escalation`: sichtbare Evidenzgrenze oder saubere Eskalation
+   - `step_by_step`: genau eine saubere, klar geordnete und bis zum eigentlichen Ziel vollstaendige Prozedur
+9. Fuer `step_by_step` gilt zusaetzlich:
+   - Ein fehlender letzter entscheidender Schritt ist schwerwiegend und fuehrt in der Regel zu `reject`.
+   - Eine Vermischung verschiedener Prozeduren, Dialoge oder Abschlusszustaende ist schwerwiegend und fuehrt in der Regel zu `reject`.
+   - Doppelte oder redundante Schrittfolgen sind relevant, aber weniger schwerwiegend als inhaltliche Unvollstaendigkeit oder Prozedurvermischung.
+   - Kleine Struktur- oder Formatmangel sind nachrangig, wenn die Prozedur fachlich korrekt, vollstaendig und in klarer Reihenfolge bleibt.
+
+## Entscheidungsregeln
+
+- `approve` nur bei belastbarer Gesamtqualitaet.
+- `reject`, wenn die Nutzeranfrage unplausibel ist, die Antwort driftet, Fakten erfindet oder offensichtlich nicht gut genug fuer ein Gold-Kandidat ist.
+- Bei `step_by_step` haben fachliche Vollstaendigkeit, korrekte Reihenfolge und saubere Trennung der Prozedur Vorrang vor stilistischen oder rein formatbezogenen Details.
+- Sei streng. Lieber `reject` als schwache Daten freigeben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Ausgabe
+
+JSON mit:
+- `decision`
+- `quality_score` als ganze Zahl von 0 bis 100
+- `summary`
+- `blocking_reasons`
+- `strengths`
+- `improvement_notes`
+- `source_chunk_ids_confirmed`
+
+## Batch-Regeln
+- Bewerte jeden Fall separat und gib fuer jede job_id genau eine Entscheidung zurueck.
+- Antworte gesammelt in einem JSON-Objekt mit items[].
+- approve nur bei klar belastbarer Gesamtqualitaet.
+- Wenn Anfrage oder Antwort auch nur leicht zu schwach wirkt, entscheide reject.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::train::troubleshooting::0003
+- task_type: troubleshooting
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02::chunk_01
+- chunk_type: warning
+- section_path_text: Die Gruppe Sprach- und Sound-Schemata > Standardeinstellungen wiederherstellen
+- expected_behavior: n/a
+- user_request:
+Ich habe in JAWS die Standardeinstellungen wiederhergestellt, aber ich merke keine Änderung. Muss ich die JCF-Datei danach noch speichern, damit das wirksam wird? Und worauf sollte ich dabei achten, wenn die Default.jcf geladen ist?
+- support_answer:
+Ja. Laut Dokumentation werden die wiederhergestellten Standardeinstellungen erst wirksam, wenn Sie die JCF-Datei speichern. Das Wiederherstellen löscht nur die Angaben zur aktuellen Ausführlichkeitsstufe in der geladenen JCF-Datei. Wenn Default.jcf geladen ist, werden dabei die Werkseinstellungen wiederhergestellt. Achten Sie außerdem darauf, dass sich der Fokus nach dem Schließen eines Einstellungen-Dialogs je nach Öffnungsmethode unterschiedlich verhält: Haben Sie den Dialog per Tastenkombination geöffnet, kehrt der Fokus zum vorherigen Element zurück. Wenn Sie mit TAB zum Schalter für die Einstellungen gegangen sind, landet der Fokus im Dialog Ausführlichkeitsoptionen auf dem Schalter OK.
+- source_excerpt:
+Standardeinstellungen wiederherstellen löscht lediglich alle Angaben, die auf die aktuelle Ausführlichkeitsstufe in der geladenen JCF-Datei zutreffen. Ist die Datei Default.jcf geladen, werden Werkseinstellungen wiederhergestellt. Obwohl das Dialogfeld diese Änderung widerspiegelt, werden die wiederhergestellten Standardeinstellungen erst wirksam, wenn Sie die JCF-Datei speichern.
+
+**Hinweis:** Wenn Sie einen der Dialoge Einstellungen schließen, hängt es von der Methode ab, mit der Sie den Dialog Einstellungen geöffnet haben, wo der Fokus im Dialog Ausführlichkeitsoptionen landet. Wenn Sie einen der Dialoge Einstellungen im Dialog Ausführlichkeitseinstellungen mit einer Tastenkombination geöffnet haben, landen Sie wieder auf dem Element, welches vorher den Fokus hatte. Wenn Sie mit **TAB** zu dem Schalter für die Einstellungen gesprungen sind, wird der Fokus auf den **OK** Schalter im Dialog Ausführlichkeitsoptionen gesetzt.
+
+Quelle: beginner_preferences_dialog.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::troubleshooting::0004
+- task_type: troubleshooting
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Hilfe (Kernfunktionen) > Texterkennung eines geöffneten PDF Dokuments
+- expected_behavior: n/a
+- user_request:
+Ich öffne ein PDF im Adobe Reader, aber JAWS liest den Inhalt nicht richtig bzw. ich bekomme den Text nicht sauber angezeigt. Gibt es laut Dokumentation einen Befehl, mit dem JAWS die Texterkennung für das ganze Dokument startet, und muss ich bei großen oder passwortgeschützten PDFs noch etwas beachten?
+- support_answer:
+Ja. Laut Dokumentation starten Sie die Texterkennung für das gesamte geöffnete PDF in Adobe Reader mit EINFÜGEN+LEERTASTE, O, D. Nach einigen Sekunden zeigt JAWS den Inhalt im Ergebnisbetrachter an; dort können Sie die Standardlesebefehle verwenden, den Text lesen, auswählen oder in andere Anwendungen kopieren. Bei großen PDF-Dateien dauert der OCR-Vorgang länger. Erkannter Text wird am Ende des bereits im Ergebnisbetrachter vorhandenen Textes angefügt, damit Sie ohne Unterbrechung weiterlesen können. Wenn Sie nicht mit Alles Lesen lesen, spricht JAWS die aktuelle Zeile, sobald neuer Text hinzugefügt wurde; das zeigt an, dass die Texterkennung noch nicht abgeschlossen ist. Wenn das PDF passwortgeschützt ist, fordert JAWS beim ersten Drücken von EINFÜGEN+LEERTASTE, O, D zur Passworteingabe auf. Der OCR-Vorgang wird erst fortgesetzt, wenn Sie das Passwort korrekt eingegeben haben.
+- source_excerpt:
+Wenn Sie ein PDF im Adobe Reader öffnen und es stellt sich heraus, dass dieses nicht zugänglich ist, dann drücken Sie **EINFÜGEN+LEERTASTE, O, D**, damit JAWS mit einer Texterkennung des gesamten Dokuments startet. Nach einigen Sekunden zeigt JAWS den Inhalt der PDF Datei im Ergebnisbetrachter, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren.
+
+**Hinweis:** Der OCR Vorgang dauert bei großen PDF Dateien länger. Wenn Text erkannt wird, dann wird dieser am Ende des bereits im Ergebnisbetrachter bestehenden Textes hinzugefügt. Dieses ermöglicht Ihnen, das Lesen ohne Unterbrechungen fortzusetzen, während das Dokument verarbeitet wird. Lesen Sie aktuell nicht über den Befehl Alles Lesen, dann spricht JAWS die aktuelle Zeile wenn neuer Text dem Ergebnisbetrachter hinzugefügt wurde, was anzeigt, dass die Texterkennung noch nicht abgeschlossen ist.
+
+**Hinweis:** Wenn das PDF Dokument ein Passwort erfordert, dann werden Sie zur Eingabe des Passworts aufgefordert, wenn Sie **EINFÜGEN+LEERTASTE, O, D** erstmalig drücken. Bevor der OCR Vorgang fortgesetzt werden kann, müssen Sie das Passwort korrekt eingeben.
+
+### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0001
+- task_type: faq_direct_answer
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Focus Blue Tastatur
+- expected_behavior: n/a
+- user_request:
+Wie sind die Tasten an der Focus Blue Tastatur in JAWS angeordnet, und welche davon kann ich zusammen mit der Leertaste oder den Umschalttasten für Befehle verwenden?
+- support_answer:
+Direkt oberhalb der Routingtasten liegen 8 Tasten wie bei einer Perkins-Braille-Tastatur. Von links nach rechts sind das: 7, 3, 2, 1, 4, 5, 6 und 8. Diese Brailletasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile, befindet sich die LEERTASTE; sie wird zusammen mit den Brailletasten für die Eingabe von Befehlen verwendet. Direkt unter der LEERTASTE befinden sich außerdem zwei UMSCHALT-Tasten, die ebenfalls zum Ausführen verschiedener Befehle genutzt werden können.
+- source_excerpt:
+Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.
+
+### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0002
+- task_type: faq_direct_answer
+- expected_output_kind: sft_sample
+- target_split: train
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Tutorial / Grundlagen > Steuerungsmenü
+- expected_behavior: n/a
+- user_request:
+Wozu brauche ich in JAWS das Steuerungsmenü eigentlich, und wie rufe ich es auf, wenn es normalerweise unsichtbar ist?
+- support_answer:
+Das Steuerungsmenü brauchen Sie, um ein Fenster wiederherzustellen, zu verschieben, die Größe zu ändern, zu minimieren, zu maximieren und zu schließen. Obwohl es meist unsichtbar ist, öffnen Sie es mit ALT+LEERTASTE. Danach gehen Sie mit PFEIL RAUF und RUNTER durch die Menüeinträge.
+- source_excerpt:
+Das Steuerungsmenü wird dazu verwendet, ein Fenster wiederherzustellen, es zu verschieben, die Größe zu verändern, es zu minimieren, zu maximieren und zu schließen. Das Steuerungsmenü ist meist unsichtbar, Sie können es jedoch mit **ALT+LEERTASTE** öffnen. Gehen Sie dann mit **PFEIL RAUF** und **RUNTER** durch die Menüeinträge.
+
+Quelle: typical_application_layout.htm

@@ -23,7 +23,7 @@ ANSWER_MODE = "teacher_answer_codex_cli_v1"
 JUDGE_MODE = "teacher_judge_codex_cli_v1"
 USER_SIMULATION_PROMPT_VERSION = "jaws_de_user_simulation_v1"
 ANSWER_PROMPT_VERSION = "jaws_de_support_answer_mvp_v1"
-JUDGE_PROMPT_VERSION = "jaws_de_support_judge_v1"
+JUDGE_PROMPT_VERSION = "jaws_de_support_judge_v2"
 STAGE_DEFAULTS = {
     USER_SIMULATION_MODE: {
         "model": "gpt-5.4-mini",
