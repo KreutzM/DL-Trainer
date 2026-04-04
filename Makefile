@@ -1,4 +1,4 @@
-.PHONY: validate repo-consistency jaws-de-current-validate jaws-de-current-export jaws-de-training-smoke jaws-de-fresh-run support-mvp-benchmark-reference support-mvp-benchmark-candidate support-mvp-benchmark-compare
+.PHONY: validate repo-consistency jaws-de-current-validate jaws-de-current-export jaws-de-current-training-smoke jaws-de-training-smoke jaws-de-fresh-run support-mvp-benchmark-reference support-mvp-benchmark-candidate support-mvp-benchmark-compare
 
 CURRENT_JAWS_DE_BASELINE := docs/jaws_de_current_baseline.json
 CURRENT_JAWS_DE_RUN := openrouter_gpt54_controlled_gold_v16
@@ -27,6 +27,11 @@ jaws-de-current-validate:
 jaws-de-current-export:
 	python scripts/export_qwen_sft.py --train-input $(CURRENT_JAWS_DE_TRAIN) --eval-input $(CURRENT_JAWS_DE_EVAL) --output-dir $(CURRENT_JAWS_DE_EXPORT_DIR) --export-id $(CURRENT_JAWS_DE_EXPORT_ID)
 	python scripts/validate_qwen_sft_export.py --input-dir $(CURRENT_JAWS_DE_EXPORT_DIR)
+
+jaws-de-current-training-smoke:
+	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_smoke.yaml --summary-output training/transformers/outputs/jaws_de_current_smoke/preflight_summary.json
+	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_smoke.yaml
+	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_smoke.yaml --adapter-dir training/transformers/outputs/jaws_de_current_smoke/final_adapter --output training/transformers/outputs/jaws_de_current_smoke/adapter_smoke.json
 
 jaws-de-training-smoke:
 	python scripts/smoke_test_qwen_sft.py --config $(CURRENT_JAWS_DE_TRAINING_CONFIG)

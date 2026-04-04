@@ -119,6 +119,12 @@ python scripts/export_qwen_sft.py \
 python scripts/validate_qwen_sft_export.py --input-dir data/exports/qwen_sft/JAWS/DE/current
 ```
 
+Lokaler Smoke auf dem aktuellen Current-Stand:
+
+```bash
+make jaws-de-current-training-smoke
+```
+
 Frischen produktiven Lauf starten:
 
 ```bash
