@@ -1,0 +1,79 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v11_openrouter_gpt54_step_boundary_casebank",
+  "comparison_to_previous_wave": {
+    "previous_run_name": "jaws_de_shadow_2026_04_04_user_answer_v10_openrouter_gpt54_step_boundary_casebank",
+    "overall_previous": {
+      "approve": 7,
+      "reject": 3
+    },
+    "overall_current": {
+      "approve": 6,
+      "reject": 4
+    },
+    "step_by_step_previous": {
+      "approve": 5,
+      "reject": 3
+    },
+    "step_by_step_current": {
+      "approve": 4,
+      "reject": 4
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 1,
+      "reject": 0
+    },
+    "faq_direct_answer": {
+      "approve": 1,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 4,
+      "reject": 4
+    }
+  },
+  "restpattern_summary": {
+    "prompt_helpful": false,
+    "prompt_effect_size": "negative_to_neutral",
+    "summary": "The mini prompt pass did not reduce the boundary rest zone. The task-shape failure remains a reject, and the two boundary completeness cases also remain rejects. Controls stayed clean."
+  },
+  "case_outcomes": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0016",
+      "previous_wave": "reject",
+      "current_wave": "reject",
+      "verdict": "unchanged",
+      "note": "Still a task-shape failure: the answer asks a question or deflects instead of delivering a procedure."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+      "previous_wave": "reject",
+      "current_wave": "reject",
+      "verdict": "unchanged",
+      "note": "Still stops before the decisive import completion step."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+      "previous_wave": "reject",
+      "current_wave": "reject",
+      "verdict": "unchanged",
+      "note": "Still only returns the closing import fragment and misses the setup flow."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0007",
+      "previous_wave": "approve",
+      "current_wave": "approve",
+      "verdict": "stable",
+      "note": "Control remains green."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010",
+      "previous_wave": "approve",
+      "current_wave": "approve",
+      "verdict": "stable",
+      "note": "Control remains green."
+    }
+  ],
+  "conclusion": "The miniature prompt addition does not help on this boundary casebank. It does not reduce the two stable rest types and should not be generalized further without a different, more targeted edit."
+}

@@ -39,6 +39,18 @@ Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkon
 - `step_by_step`: der letzte Schritt muss den gefragten Zielzustand wirklich erreichen oder bestaetigen, nicht nur das naechste Dialogfenster oeffnen.
 - `step_by_step`: Reihenfolge eindeutig und kohärent halten; Schritte knapp, aber operativ brauchbar formulieren.
 - `step_by_step`: die eigentliche Prozedur in `steps` ablegen, nicht zusaetzlich noch einmal als nummerierte oder aufgelistete Schrittfolge in `answer`.
+- `step_by_step`: wenn die Nutzerfrage nach einem Ablauf fragt, liefere eine Prozedur und keine Rueckfrage.
+- `step_by_step`: beginne nicht mitten in einer Prozedur, wenn der davorliegende dokumentierte Einstieg im selben Fall sichtbar ist.
+- `step_by_step`: wenn ein sauberer Abschluss im sichtbaren Kontext belegt ist, fuehre die Prozedur bis zu diesem Abschluss statt nur Teilschritte zu nennen.
+- `step_by_step`: bei Chunk-Grenzen den sichtbaren Ablauf als zusammenhaengend behandeln, solange er zur selben dokumentierten Prozedur gehoert.
+- `step_by_step`: keine Evidenzgrenze als Ersatz fuer eine noch sichtbare, durchgehende Schrittfolge ausgeben.
+- `step_by_step`: den letzten entscheidenden Zielschritt nicht durch eine blosse Zwischenstation ersetzen.
+- `step_by_step`: bei Import- und Assistentenfolgen sowohl den Start als auch den Abschluss derselben Prozedur im Blick behalten.
+- `step_by_step`: keine benachbarten Teilziele als zwei getrennte Antworten behandeln, wenn sie zur selben dokumentierten Prozedur gehoeren.
+- `step_by_step`: wenn mehrere Verfahren in der Quelle stehen, waehle nur das eine, das die Nutzerfrage wirklich trifft.
+- `step_by_step`: hybride Schrittfolgen aus Start eines Verfahrens und Ende eines anderen vermeiden.
+- `step_by_step`: keine Rueckfrage oder Eskalation ausgeben, wenn die Quelle die geforderte Prozedur bereits hergibt.
+- `step_by_step`: die Antwort soll den Zielzustand erreichen, nicht nur den naechsten Zwischenzustand beschreiben.
 - `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
 - `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.
 

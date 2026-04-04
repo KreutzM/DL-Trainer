@@ -1,0 +1,334 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v8_openrouter_gpt54_long_dialog_step_audit",
+  "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v8_openrouter_gpt54_long_dialog_step_audit_pipeline_report.json",
+  "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v8_long_dialog_step_audit_selection.json",
+  "judge_role": {
+    "intended_role": "secondary_audit_judge",
+    "shadow_only": true,
+    "statement": "This wave treats the GPT-5.4 OpenRouter judge as a secondary audit signal only. The primary observation target is OpenRouter user_simulation plus answer quality; judge outputs are reported for calibration and triage, not for promotion or rollout gating.",
+    "judge_profile": {
+      "profile_set": "support_mvp_openrouter_gpt54_candidate",
+      "profile_stage": "judge",
+      "profile_name": "openrouter_gpt54_judge_shadow_v1"
+    }
+  },
+  "processing": {
+    "jobs_total": 13,
+    "task_type_distribution": {
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "step_by_step": 10,
+      "troubleshooting": 1
+    },
+    "split_distribution": {
+      "eval": 3,
+      "train": 10
+    }
+  },
+  "approval_distribution": {
+    "approve": 8,
+    "reject": 5
+  },
+  "score_distribution": {
+    "count": 13,
+    "min": 42,
+    "median": 95,
+    "max": 100,
+    "score_bands": {
+      "<60": 1,
+      "60-69": 0,
+      "70-79": 0,
+      "80-89": 3,
+      "90+": 9
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 1,
+      "reject": 0
+    },
+    "faq_direct_answer": {
+      "approve": 1,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 5,
+      "reject": 5
+    },
+    "troubleshooting": {
+      "approve": 1,
+      "reject": 0
+    }
+  },
+  "stage_health": {
+    "user_simulation": {
+      "selected_jobs": 13,
+      "completed_jobs": 13,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 2,
+      "completed_batches": 2,
+      "avg_elapsed_ms_per_processed_job": 931.85
+    },
+    "answering": {
+      "selected_jobs": 13,
+      "completed_jobs": 13,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 4,
+      "completed_batches": 4,
+      "avg_elapsed_ms_per_processed_job": 3434.38
+    },
+    "judge": {
+      "selected_jobs": 13,
+      "completed_jobs": 13,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 2,
+      "completed_batches": 2,
+      "avg_elapsed_ms_per_processed_job": 3045.92
+    }
+  },
+  "attempt_histograms": {
+    "user_simulation": {
+      "1": 13
+    },
+    "answer": {
+      "1": 13
+    },
+    "judge": {
+      "1": 13
+    }
+  },
+  "provider_usage": {
+    "user_simulation": {
+      "rows_with_provider_usage": 13,
+      "prompt_tokens": 49145,
+      "completion_tokens": 13111,
+      "total_tokens": 62256,
+      "reported_cost_usd_estimate": 0.0959,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "answer": {
+      "rows_with_provider_usage": 13,
+      "prompt_tokens": 43409,
+      "completion_tokens": 13012,
+      "total_tokens": 56421,
+      "reported_cost_usd_estimate": 0.3037,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "judge": {
+      "rows_with_provider_usage": 13,
+      "prompt_tokens": 65677,
+      "completion_tokens": 19092,
+      "total_tokens": 84769,
+      "reported_cost_usd_estimate": 0.4506,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    }
+  },
+  "qualitative_focus_cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0004",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 42,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort ist inhaltlich weitgehend quellentreu, aber die komplette Schrittfolge wurde unnötig doppelt ausgegeben. Für step_by_step ist das ein relevanter Qualitätsmangel, auch wenn die eigentliche Prozedur korrekt ist.",
+      "blocking_reasons": [
+        "Die gesamte Prozedur ist vollständig doppelt wiederholt.",
+        "Die doppelte Ausgabe schwächt die Klarheit und Qualität der Schrittfolge deutlich."
+      ],
+      "request_text": "Können Sie mir bitte die Schritte nennen, wie ich in JAWS eine Schriftgröße ändere?",
+      "answer_text": "So bearbeiten Sie eine Schriftgrößenregel:\n1. Wählen Sie in der Liste eine Schriftgröße aus.\n2. Drücken Sie TAB, um zur Gruppe der Auswahlschalter zu springen, die das Sprach- und Soundverhalten steuern, und wählen Sie bei Bedarf ein neues Verhalten.\n3. Drücken Sie TAB, um zum Schalter Bearbeiten zu springen, und aktivieren Sie diesen.\n4. Geben Sie im Dialogfenster Schriftgröße verändern einen neuen Wert ein und wählen Sie Weiter.\n5. Wählen Sie OK, um das Dialogfenster zu schließen, oder drücken Sie STRG+TAB, um zu einer anderen Registerkarte zu wechseln.\n\n1. Wählen Sie in der Liste eine Schriftgröße aus.\n2. Drücken Sie TAB, um zur Gruppe der Auswahlschalter zu springen, die das Sprach- und Soundverhalten steuern, und wählen Sie bei Bedarf ein neues Verhalten.\n3. Drücken Sie TAB, um zum Schalter Bearbeiten zu springen, und aktivieren Sie diesen.\n4. Geben Sie im Dialogfenster Schriftgröße verändern einen neuen Wert ein und wählen Sie Weiter.\n5. Wählen Sie OK, um das Dialogfenster zu schließen, oder drücken Sie STRG+TAB, um zu einer anderen Registerkarte zu wechseln.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1301-L1314"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0044",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 80,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort verweigert die Prozedur mit einem Metakommentar statt eine nutzbare Schrittfolge zu liefern. Für step_by_step ist das klar unzureichend.",
+      "blocking_reasons": [
+        "Keine eigentliche Schritt-für-Schritt-Anleitung gegeben",
+        "Antwort besteht nur aus einem Meta-Hinweis zur Quellenlage",
+        "Das dokumentierte Material wird nicht in konkrete Hilfe umgesetzt"
+      ],
+      "request_text": "Ich möchte eine Grafik in JAWS manuell bezeichnen. Können Sie mir die genaue Reihenfolge der Schritte dafür sagen?",
+      "answer_text": "Die Quelle ist an der eigentlichen Prozedur abgeschnitten.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1725-L1745"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0054",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 80,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort liefert keine nutzbare Schritt-für-Schritt-Prozedur, obwohl die Quelle eine solche zumindest teilweise dokumentiert.",
+      "blocking_reasons": [
+        "Statt einer Prozedur wird nur eine Meta-Aussage über Unvollständigkeit der Quelle gegeben.",
+        "Für task_type step_by_step fehlt die eigentliche Handlungsanweisung nahezu vollständig.",
+        "Die Antwort beantwortet die konkrete Nutzerfrage nicht."
+      ],
+      "request_text": "Bei mehrseitigen Dialogen scheint meine Promptbezeichnung auf mehreren Registerkarten zu landen. Wie muss ich in JAWS vorgehen, damit sie nur einer eindeutigen Registerkarte zugeordnet wird?",
+      "answer_text": "Die Quelle enthält die zugehörige Prozedur nur unvollständig.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L323-L338"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0046",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 100,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort enthält keine Schrittfolge, sondern nur einen Hinweis auf die unvollständige Quelle. Das erfüllt den Task-Typ step_by_step nicht.",
+      "blocking_reasons": [
+        "Keine dokumentierte Prozedur ausgegeben",
+        "Meta-Kommentar statt handlungsorientierter Antwort",
+        "Der eigentliche Nutzerwunsch bleibt unbeantwortet"
+      ],
+      "request_text": "Wie stelle ich in JAWS den mathematischen Braillecode um, wenn ich eine Braillezeile angeschlossen habe?",
+      "answer_text": "Die Quelle trägt die Umschaltung und den Beginn der nötigen Konfiguration, aber nicht die vollständige Schrittfolge bis zum Zielzustand.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3214-L3228"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 100,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort verweigert die eigentliche Anleitung, obwohl mehrere konkrete Importschritte in der Quelle vorhanden sind.",
+      "blocking_reasons": [
+        "Keine Schritt-für-Schritt-Anleitung zum Import vorhanden.",
+        "Die konkrete Frage nach Ort des Imports und Start des Vorgangs bleibt unbeantwortet.",
+        "Für task_type step_by_step ist die Antwort fachlich unvollständig und damit nicht produktionsreif."
+      ],
+      "request_text": "Ich habe eine SBAK-Datei mit JAWS-Einstellungen bekommen und möchte sie importieren. Wo finde ich den Import und wie starte ich den Vorgang Schritt für Schritt?",
+      "answer_text": "Die Quelle enthält den Importablauf nur unvollständig.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1589-L1595"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0041",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 94,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort gibt die dokumentierte Schrittfolge zum Anlegen einer neuen Attributkombination korrekt, vollständig und in klarer Reihenfolge wieder.",
+      "blocking_reasons": [],
+      "request_text": "Wie kann ich in JAWS eine neue Attributkombination anlegen, zum Beispiel für Fett oder unterstrichenen Text?",
+      "answer_text": "So fügen Sie eine neue Attributkombination hinzu.\n\n1. Drücken Sie STRG+TAB, um zur Registerkarte Attribute zu wechseln.\n2. Wählen Sie den Schalter Hinzufügen und drücken Sie LEERTASTE, um das Dialogfeld Attribute hinzufügen zu öffnen.\n3. Drücken Sie LEERTASTE, um ein Element auszuwählen, das zu dieser Attributkombination hinzugefügt werden soll, und wählen Sie dann Weiter.\n4. Der Dialog Verhalten auswählen erscheint. Wählen Sie ein Sprach- und Soundverhalten aus der Liste der Auswahlschalter und wählen Sie Weiter zum Fortsetzen.\n5. Eine Reihe von Dialogen wird geöffnet, die auf der Art des vorher gewählten Verhaltens basieren. Wählen Sie weitere Elemente oder vervollständigen Sie alle Eingabefelder, zu denen Sie aufgefordert werden. Wählen Sie die Schalter Weiter oder Fertigstellen, um innerhalb dieser Dialoge fortzusetzen. Danach erscheint die neue Attributkombination in der Liste der Attribute.\n6. Wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1232-L1241"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 94,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort beantwortet die konkrete Frage präzise und stützt sich eng auf die dokumentierten Schritte zum Zusammenführen bei Konflikten.",
+      "blocking_reasons": [],
+      "request_text": "Ich bin im Assistenten zum Importieren von JAWS-Einstellungen bei der Auswahl zum Zusammenführen angekommen. Was muss ich dann genau auswählen, wenn es einen Konflikt zwischen einer Einstellung im Benutzerordner und der Sicherung gibt?",
+      "answer_text": "So gehen Sie bei einem Konflikt im Schritt „Zusammenführen“ vor:\n\n1. Wählen Sie bei der Frage zum Konflikt zwischen einer Einstellung in Ihrem Benutzerordner und der Einstellung im Backup entweder „Aktuelle Einstellung aktualisieren“, um die bestehende Einstellung durch die Einstellung aus der Backup-Datei zu ersetzen, oder „Aktuelle Einstellung beibehalten“, damit die Einstellung in Ihrem Benutzerordner nicht ersetzt wird.\n2. Wählen Sie nach Ihrer Auswahl „Weiter“.\n3. Lesen Sie auf der letzten Seite des Assistenten die Zusammenfassung Ihrer Import-Auswahl und wählen Sie „Fertigstellen“, um die Einstellungen zu importieren.\n4. Lesen Sie nach Abschluss des Imports die angezeigten Ergebnisse des Importvorgangs und wählen Sie „OK“, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1596-L1598"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0048",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort ist eine saubere, vollständige und quellentreue Schrittfolge zum Übernehmen von Einstellungen aus einer früheren JAWS-Version.",
+      "blocking_reasons": [],
+      "request_text": "Ich muss meine Einstellungen aus einer früheren JAWS-Version übernehmen. Wie gehe ich dabei genau vor, ohne etwas falsch zu machen?",
+      "answer_text": "Gehen Sie so vor, um Einstellungen aus einer vorherigen JAWS-Version zu übernehmen:\n\n1. Öffnen Sie mit JAWS TASTE+J das JAWS Programmfenster und mit ALT+P das Menü Hilfsprogramme.\n2. Wählen Sie im Menü Hilfsprogramme das Untermenü Einstellungen importieren/exportieren und dann Übernehmen. Das Dialogfenster Benutzereinstellungen übernehmen wird geöffnet.\n3. Wählen Sie die vorherige JAWS Version, aus der Sie Einstellungen importieren möchten, und wählen Sie Ja. Es werden nur die letzten zwei Versionen aufgelistet.\n4. Wenn die Warnmeldung angezeigt wird, dass bei der Übernahme alle bestehenden Benutzereinstellungen gelöscht werden, wählen Sie Ja, um die Einstellungen von der vorherigen Version zu übernehmen, oder Nein, wenn Sie die Einstellungen jetzt nicht übernehmen möchten.\n5. Wenn die Übernahme durchgeführt wurde, lesen Sie die Informationen im Ergebnisdialog und wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1612-L1620"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0052",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Realistische supportnahe Anfrage; die Antwort bildet die dokumentierte Prozedur vollständig, korrekt und in klarer Reihenfolge ab.",
+      "blocking_reasons": [],
+      "request_text": "Ich möchte in JAWS eine einzelne benutzerdefinierte Benachrichtigungsregel ausschalten, damit mir wieder alle Benachrichtigungen angesagt werden. Wie gehe ich dabei Schritt für Schritt vor?",
+      "answer_text": "So deaktivieren Sie eine einzelne benutzerdefinierte Benachrichtigungsregel:\n\n1. Drücken Sie EINFÜGEN+LEERTASTE, N, um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.\n2. Drücken Sie TAB, um auf Regeln verwalten zu springen, und drücken Sie EINGABE. Der Fokus befindet sich in der Liste Ihrer Regeln.\n3. Wählen Sie die Regel, die Sie deaktivieren möchten, drücken Sie die ANWENDUNGSTASTE, um das Kontextmenü zu öffnen, und wählen Sie Deaktivieren.\n4. Drücken Sie Schließen, um das Dialogfenster zum Verwalten der Regeln zu schließen, und drücken Sie dann ESC, um den Benachrichtigungsverlauf zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1034-L1053"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0030",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 97,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort kombiniert die zwei zusammengehörigen dokumentierten Teilprozeduren sauber zu einer vollständigen Schrittfolge bis zum Ziel, die Braille-Darstellung bestimmter Elementtypen im strukturierten Modus zu ändern.",
+      "blocking_reasons": [],
+      "request_text": "Wie richte ich den Strukturierten Modus in JAWS ein, wenn ich die Braille-Darstellung für bestimmte Elementtypen ändern möchte?",
+      "answer_text": "So ändern Sie die Braille-Darstellung für bestimmte Elementtypen im Strukturierten Modus.\n\n1. Öffnen Sie die Einstellungsverwaltung und geben Sie \"Strukturierter Modus Erweitert\" im Sucheingabefeld ohne Anführungsstriche ein.\n2. Drücken Sie PFEIL RUNTER, um zu den gefilterten Ergebnissen der Strukturansicht zu springen.\n3. Drücken Sie LEERTASTE auf Erweitert, um das Dialogfenster Optionen für Elementtypen zu öffnen.\n4. Mit STRG+TAB öffnen Sie die jeweilige Registerkarte.\n5. Drücken Sie TAB und gehen Sie mit den Pfeiltasten auf das Steuerelement, den Status oder das HTML-Attribut, das Sie verändern möchten.\n6. Drücken Sie F2.\n7. Geben Sie die neue Braille-Bezeichnung ein, die JAWS für das entsprechende Element verwenden soll, und drücken Sie danach EINGABE.\n8. Aktivieren Sie den OK Schalter, um die vorgenommenen Änderungen zu speichern.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L5-L21"
+      ]
+    }
+  ]
+}

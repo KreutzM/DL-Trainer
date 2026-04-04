@@ -1,0 +1,84 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v15_openrouter_gpt54_large_strong_shadow_wave",
+  "selection_summary": {
+    "selected_job_count": 44,
+    "train_examples": 22,
+    "eval_examples": 22,
+    "task_type_counts": {
+      "clarification": 8,
+      "faq_direct_answer": 8,
+      "step_by_step": 12,
+      "troubleshooting": 8,
+      "uncertainty_escalation": 8
+    },
+    "selection_rationale": "Broad balanced 44-job wave from the current_generation seed-top-off selection. It keeps all major task types in equal-sized buckets and includes step_by_step without making it dominant."
+  },
+  "metrics": {
+    "overall": {
+      "approve": 43,
+      "reject": 1
+    },
+    "task_type_decisions": {
+      "clarification": {
+        "approve": 8,
+        "reject": 0
+      },
+      "faq_direct_answer": {
+        "approve": 8,
+        "reject": 0
+      },
+      "step_by_step": {
+        "approve": 11,
+        "reject": 1
+      },
+      "troubleshooting": {
+        "approve": 8,
+        "reject": 0
+      },
+      "uncertainty_escalation": {
+        "approve": 8,
+        "reject": 0
+      }
+    },
+    "stage_health": {
+      "user_simulation": {
+        "completed_jobs": 44,
+        "failed_jobs": [],
+        "total_retry_attempts": 0
+      },
+      "answering": {
+        "completed_jobs": 44,
+        "failed_jobs": [],
+        "total_retry_attempts": 0
+      },
+      "judge": {
+        "completed_jobs": 44,
+        "failed_jobs": [],
+        "total_retry_attempts": 0
+      }
+    },
+    "provider_usage_cost_usd_estimate": {
+      "user_simulation": 0.3660,
+      "answer": 1.1923,
+      "judge": 1.5394,
+      "total": 3.0977
+    }
+  },
+  "key_observation": {
+    "broad_stability": true,
+    "step_by_step_residue_isolated": true,
+    "summary": "The strong OpenRouter path is broadly stable across all major task types. The only reject is a single step_by_step mixed-procedure case, with no spillover into clarification, faq_direct_answer, troubleshooting, or uncertainty_escalation."
+  },
+  "notable_rejects": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "decision": "reject",
+      "quality_score": 41,
+      "failure_family": "mixed_procedure_missing_completion",
+      "summary": "The answer mixes two different procedures and drops the documented completion step for the first one.",
+      "interpretation": "This is the only remaining miss on the large wave and it is isolated to step_by_step."
+    }
+  ],
+  "conclusion": "User-Sim + Answer are broad enough stable for the next step toward a larger curated shadow/pre-gold basis. The remaining gap is narrow and isolated to a single step_by_step mixed-procedure example, not a general stability problem."
+}

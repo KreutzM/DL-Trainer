@@ -1,0 +1,59 @@
+{
+  "selection_id": "jaws_de_shadow_wave_2026_04_04_user_answer_v12_boundary_sibling_pair_audit",
+  "workflow_role": "shadow_wave_user_answer_gpt54_boundary_sibling_pair_audit",
+  "jobs_file": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v12_boundary_sibling_pair_audit_job_ids.txt",
+  "selected_job_count": 10,
+  "selection_summary": {
+    "train_examples": 9,
+    "eval_examples": 2,
+    "task_types": [
+      "clarification",
+      "faq_direct_answer",
+      "step_by_step"
+    ],
+    "task_type_counts": {
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "step_by_step": 8
+    },
+    "focus_task_type_counts": {
+      "step_by_step": 8
+    },
+    "selection_strategy": "Small boundary/sibling audit bank. It combines the known task-shape failure with two boundary-completeness pairs and two stable sibling pairs so we can see whether setup and finish split across adjacent chunks in a reproducible way.",
+    "restpattern_hypotheses": [
+      "task-shape violations should remain separable from completeness failures",
+      "import assistant fragments should split into setup-missing and finish-missing sides",
+      "stable sibling pairs should stay green if the boundary is not the real root cause"
+    ]
+  },
+  "historical_source": {
+    "recent_boundary_bank": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_user_answer_v11_openrouter_gpt54_step_boundary_casebank_findings.json",
+    "long_dialog_reference": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_user_answer_v9_openrouter_gpt54_complete_long_dialog_step_collection_findings.json",
+    "current_prompt_version": "jaws_de_support_answer_mvp_v4"
+  },
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::train::step_by_step::0016",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0034",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0033",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0041",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0024",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0043",
+    "jaws_de_teacher_wave_v1::eval::clarification::0007",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010"
+  ],
+  "selection_notes": {
+    "jaws_de_teacher_wave_v1::train::step_by_step::0016": "Task-shape violation anchor: the response asks a question instead of giving the requested procedure.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0034": "Boundary sibling candidate: later chunk in the notification-rule flow, used to test missing setup versus completion.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0061": "Boundary sibling candidate: first half of the import assistant, useful for setup-versus-finish separation.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0062": "Boundary sibling candidate: second half of the same import assistant, useful for finish-versus-setup separation.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0033": "Boundary sibling candidate in the Attribute flow; paired with the companion chunk to see if the same procedure remains coherent.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0041": "Companion chunk in the Attribute flow; used as the visible completion side of the pair.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0024": "Boundary sibling candidate in the Schriftname flow; paired with the companion chunk to test end-state continuity.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0043": "Companion chunk in the Schriftname flow; used as the visible completion side of the pair.",
+    "jaws_de_teacher_wave_v1::eval::clarification::0007": "Stable clarification control.",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010": "Stable faq_direct_answer control."
+  }
+}

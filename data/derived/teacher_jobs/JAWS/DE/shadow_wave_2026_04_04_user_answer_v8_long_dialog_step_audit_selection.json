@@ -1,0 +1,67 @@
+{
+  "selection_id": "jaws_de_shadow_wave_2026_04_04_user_answer_v8_long_dialog_step_audit",
+  "workflow_role": "shadow_wave_user_answer_gpt54_long_dialog_step_audit",
+  "jobs_file": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v8_long_dialog_step_audit_job_ids.txt",
+  "selected_job_count": 13,
+  "selection_summary": {
+    "train_examples": 10,
+    "eval_examples": 3,
+    "task_types": [
+      "clarification",
+      "faq_direct_answer",
+      "step_by_step",
+      "troubleshooting"
+    ],
+    "task_type_counts": {
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "step_by_step": 10,
+      "troubleshooting": 1
+    },
+    "focus_task_type_counts": {
+      "step_by_step": 10
+    },
+    "selection_strategy": "Manual long-dialog audit subset. Reuses the known import and multi-page-dialog boundary cases, adds nearby long assistant flows with explicit end states, and keeps three stable non-step controls to detect spillover.",
+    "restpattern_hypotheses": [
+      "long assistant flows fail mainly when the answer escalates before the documented procedure",
+      "chunk boundaries can hide the true completion step and create a pseudo-failure",
+      "when the full procedure is present, clean long-dialog completions should stay green"
+    ]
+  },
+  "historical_source": {
+    "broader_reference_wave": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_user_answer_v4_openrouter_gpt54_findings.json",
+    "composite_collection_wave": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_user_answer_v7_openrouter_gpt54_composite_step_restpattern_wave_findings.json",
+    "current_prompt_version": "jaws_de_support_answer_mvp_v4"
+  },
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0004",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0030",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0041",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0044",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0046",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0048",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0052",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0054",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+    "jaws_de_teacher_wave_v1::eval::clarification::0007",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0005"
+  ],
+  "selection_notes": {
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0004": "Long branchy procedure with neighboring edit/delete paths and a clean final OK state.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0030": "Multi-tab settings dialog with a long setup sequence before the actual element-type edits.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0041": "Another long settings-center path with several structure and attribute steps before completion.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0044": "Graphic-labeling flow that combines HJPad setup, JAWS Manager navigation, and a late end state.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0046": "Braille-math configuration flow with prerequisite setup and a final mode toggle.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0048": "Stable import-completion anchor with warning confirmation and a visible result dialog.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0052": "Long rule-management path that exercises deactivate/reactivate and bulk-disable branches.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0054": "Documented multi-page dialog case that previously escalated instead of following the full procedure.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0061": "First half of the SBAK import assistant; useful only together with its sibling completion chunk.",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0062": "Second half of the same import assistant, including merge-vs-keep conflict handling and true finish.",
+    "jaws_de_teacher_wave_v1::eval::clarification::0007": "Stable clarification control.",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010": "Stable faq_direct_answer control.",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0005": "Stable troubleshooting control."
+  }
+}

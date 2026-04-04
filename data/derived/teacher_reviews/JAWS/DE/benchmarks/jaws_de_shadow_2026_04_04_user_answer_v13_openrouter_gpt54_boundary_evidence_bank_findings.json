@@ -1,0 +1,129 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v13_openrouter_gpt54_boundary_evidence_bank",
+  "comparison_to_previous_runs": {
+    "v12_boundary_sibling_pair_audit": {
+      "overall": {
+        "approve": 7,
+        "reject": 3
+      },
+      "step_by_step": {
+        "approve": 5,
+        "reject": 3
+      }
+    },
+    "v13_boundary_evidence_bank": {
+      "overall": {
+        "approve": 10,
+        "reject": 2
+      },
+      "step_by_step": {
+        "approve": 8,
+        "reject": 2
+      }
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 1,
+      "reject": 0
+    },
+    "faq_direct_answer": {
+      "approve": 1,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 8,
+      "reject": 2
+    }
+  },
+  "restpattern_summary": {
+    "selection_chunk_boundary_dominant": true,
+    "prompt_problem_remaining": "narrow",
+    "summary": "The evidence bank is now structured enough to separate the remaining failures. The stable sibling pairs stay green, the split import assistant resolves on the completion side, and the only rejects are a task-shape deflection and one earlier import fragment that stops before the final completion step."
+  },
+  "case_outcomes": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0016",
+      "group": "task_shape_violation",
+      "decision": "reject",
+      "quality_score": 20,
+      "note": "Still a non-procedural response instead of a step list."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+      "group": "completion_missing",
+      "decision": "reject",
+      "quality_score": 41,
+      "note": "The answer stops before the decisive final import completion."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+      "group": "sibling_pair_green_completion_side",
+      "decision": "approve",
+      "quality_score": 94,
+      "note": "The completion side of the import assistant is now answered correctly."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0034",
+      "group": "setup_and_completion_visible",
+      "decision": "approve",
+      "quality_score": 96,
+      "note": "Notification-rule boundary no longer behaves like a failure."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0033",
+      "group": "sibling_pair_green",
+      "decision": "approve",
+      "quality_score": 90,
+      "note": "Attribute pair remains coherent."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0041",
+      "group": "sibling_pair_green",
+      "decision": "approve",
+      "quality_score": 95,
+      "note": "Attribute companion chunk remains coherent."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0024",
+      "group": "sibling_pair_green",
+      "decision": "approve",
+      "quality_score": 95,
+      "note": "Schriftname pair remains coherent."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0043",
+      "group": "sibling_pair_green",
+      "decision": "approve",
+      "quality_score": 97,
+      "note": "Schriftname companion chunk remains coherent."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0012",
+      "group": "sibling_pair_green",
+      "decision": "approve",
+      "quality_score": 95,
+      "note": "Einrückung pair remains coherent."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0027",
+      "group": "sibling_pair_green",
+      "decision": "approve",
+      "quality_score": 93,
+      "note": "Einrückung companion chunk remains coherent."
+    }
+  ],
+  "controls": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0007",
+      "decision": "approve",
+      "quality_score": 94
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010",
+      "decision": "approve",
+      "quality_score": 98
+    }
+  ],
+  "conclusion": "The remaining boundary evidence is now mostly selection/chunk-boundary driven. A broad new prompt change is not justified; the only prompt-sensitive residue is the single task-shape deflection in 0016, which should be handled separately if needed."
+}

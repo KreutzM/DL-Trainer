@@ -1,0 +1,405 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave",
+  "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave_pipeline_report.json",
+  "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v16_curated_pre_gold_wave_selection.json",
+  "judge_role": {
+    "intended_role": "secondary_audit_judge",
+    "shadow_only": true,
+    "statement": "This wave treats the GPT-5.4 OpenRouter judge as a secondary audit signal only. The primary observation target is OpenRouter user_simulation plus answer quality; judge outputs are reported for calibration and triage, not for promotion or rollout gating.",
+    "judge_profile": {
+      "profile_set": "support_mvp_openrouter_gpt54_candidate",
+      "profile_stage": "judge",
+      "profile_name": "openrouter_gpt54_judge_shadow_v1"
+    }
+  },
+  "processing": {
+    "jobs_total": 60,
+    "task_type_distribution": {
+      "clarification": 12,
+      "faq_direct_answer": 12,
+      "step_by_step": 12,
+      "troubleshooting": 12,
+      "uncertainty_escalation": 12
+    },
+    "split_distribution": {
+      "eval": 30,
+      "train": 30
+    }
+  },
+  "approval_distribution": {
+    "approve": 50,
+    "reject": 10
+  },
+  "score_distribution": {
+    "count": 60,
+    "min": 35,
+    "median": 94.0,
+    "max": 99,
+    "score_bands": {
+      "<60": 7,
+      "60-69": 3,
+      "70-79": 0,
+      "80-89": 2,
+      "90+": 48
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 10,
+      "reject": 2
+    },
+    "faq_direct_answer": {
+      "approve": 12,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 4,
+      "reject": 8
+    },
+    "troubleshooting": {
+      "approve": 12,
+      "reject": 0
+    },
+    "uncertainty_escalation": {
+      "approve": 12,
+      "reject": 0
+    }
+  },
+  "stage_health": {
+    "user_simulation": {
+      "selected_jobs": 60,
+      "completed_jobs": 60,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 0,
+      "completed_batches": 0,
+      "avg_elapsed_ms_per_processed_job": 0
+    },
+    "answering": {
+      "selected_jobs": 60,
+      "completed_jobs": 60,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 0,
+      "completed_batches": 0,
+      "avg_elapsed_ms_per_processed_job": 0
+    },
+    "judge": {
+      "selected_jobs": 60,
+      "completed_jobs": 60,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 0,
+      "completed_batches": 0,
+      "avg_elapsed_ms_per_processed_job": 0
+    }
+  },
+  "attempt_histograms": {
+    "user_simulation": {
+      "1": 60
+    },
+    "answer": {
+      "1": 60
+    },
+    "judge": {
+      "1": 60
+    }
+  },
+  "provider_usage": {
+    "user_simulation": {
+      "rows_with_provider_usage": 60,
+      "prompt_tokens": 208364,
+      "completion_tokens": 73548,
+      "total_tokens": 281912,
+      "reported_cost_usd_estimate": 0.4872,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "answer": {
+      "rows_with_provider_usage": 60,
+      "prompt_tokens": 204212,
+      "completion_tokens": 73340,
+      "total_tokens": 277552,
+      "reported_cost_usd_estimate": 1.6106,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "judge": {
+      "rows_with_provider_usage": 60,
+      "prompt_tokens": 280916,
+      "completion_tokens": 93944,
+      "total_tokens": 374860,
+      "reported_cost_usd_estimate": 2.1114,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    }
+  },
+  "qualitative_focus_cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0011",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 41,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort ist als Prozedur unvollständig und potenziell irreführend: Sie bildet nur einen Teil des Administrator-Pfads ab, lässt den Abschluss weg und berücksichtigt den in der Quelle erwähnten Standardbenutzer-Fall nicht sauber.",
+      "blocking_reasons": [
+        "Die Schrittfolge endet vor dem eigentlichen Abschluss der Wiederherstellung der Standard-Startoptionen.",
+        "Für step_by_step fehlt damit ein entscheidender letzter Schritt bzw. ein vollständiger Abschlusszustand.",
+        "Die Quelle unterscheidet Administratorrechte und Standard-Benutzerkonto, die Antwort liefert aber keinen sauberen, vollständigen Umgang mit dieser Verzweigung.",
+        "Der letzte dokumentierte Administrator-Unterpunkt aus der Quelle ist abgeschnitten; die Antwort kann daher keine belastbar vollständige Prozedur liefern."
+      ],
+      "request_text": "Ich habe JAWS umgestellt und möchte es wieder so einrichten, dass es automatisch startet. Wie gehe ich dafür im Start-Assistenten Schritt für Schritt vor?",
+      "answer_text": "So stellen Sie den automatischen Start über den JAWS Start-Assistenten wieder her.\n\n1. Starten Sie JAWS manuell und drücken Sie JAWS TASTE+J, um das JAWS Programmfenster zu öffnen.\n2. Öffnen Sie mit ALT+H das Menü Hilfe und drücken Sie dann S, um den JAWS Start-Assistenten zu öffnen.\n3. Aktivieren Sie den Schalter Weiter, bis Sie auf der Seite JAWS Start-Einstellungen sind.\n4. Wenn Sie über ein Administrator-Konto verfügen, aktivieren Sie das Kontrollfeld JAWS im Anmeldedialog starten.\n5. Deaktivieren Sie das Kontrollfeld JAWS nach dem Anmelden für alle Anwender starten.\n6. Wählen Sie in der Ausklappliste JAWS nach dem Anmelden für diesen Anwender starten den Eintrag Immer.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5080-L5097"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 42,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort übernimmt nur den Beispielanfang aus der Quelle, lässt aber den weiteren dokumentierten Ablauf weg und wirkt dadurch als unvollständige Prozedur für den angefragten Vorgang.",
+      "blocking_reasons": [
+        "Die Schrittfolge endet vor dem in der Quelle gezeigten vollständigen Ablauf des Beispiels",
+        "Für step_by_step ist die Prozedur nicht bis zum eigentlichen Zielkontext vollständig wiedergegeben",
+        "Die Antwort stützt sich auf ein konkretes Explorer-Beispiel statt den allgemeinen Vorgang klar als Befehl zum aktuellen Steuerelement zu erklären"
+      ],
+      "request_text": "Wie mache ich in JAWS das aktuelle Steuerelement virtualisierbar, damit ich nur diese Liste oder diesen Bereich im Virtuellen Betrachter habe?",
+      "answer_text": "So geht es:\n\n1. Öffnen Sie den Windows Explorer mit WINDOWSTASTE+E.\n2. Drücken Sie TAB, um auf die Dateienliste zu springen.\n3. Drücken Sie EINFÜGEN+UMSCHALT+V. Jetzt erscheint nur die Dateienliste im Virtuellen Betrachter.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3253-L3261"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0003",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 42,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Inhaltlich nah an der Quelle, aber die Schrittfolge ist unvollständig und zudem vollständig doppelt ausgegeben.",
+      "blocking_reasons": [
+        "Für task_type=step_by_step fehlt der abschließende entscheidende Schritt nach 'Geben Sie einen der folgenden Ausdrücke ein'.",
+        "Die komplette Prozedur ist redundant doppelt wiederholt.",
+        "Die Antwort endet offen und führt den Nutzer nicht bis zu einem sinnvollen Abschluss der Prozedur."
+      ],
+      "request_text": "Kann mir jemand kurz die Schritte nennen, wie ich JAWS mit den speziellen Befehlen zur Installation starte? Ich finde den Punkt zwar, bin aber unsicher, was ich danach genau drücken bzw. auswählen muss.",
+      "answer_text": "So starten Sie die Installation mit den speziellen Befehlen:\n1. Drücken Sie WINDOWSTASTE+R.\n2. Aktivieren Sie den Schalter Durchsuchen.\n3. Gehen Sie in den Ordner, in dem sich das JAWS Setup Paket befindet.\n4. Markieren Sie dieses Setup Paket und drücken Sie EINGABE.\n5. Drücken Sie ENDE und dann LEERTASTE.\n6. Geben Sie einen der folgenden Ausdrücke ein.\n\n1. Drücken Sie WINDOWSTASTE+R.\n2. Aktivieren Sie den Schalter Durchsuchen.\n3. Gehen Sie in den Ordner, in dem sich das JAWS Setup Paket befindet.\n4. Markieren Sie dieses Setup Paket und drücken Sie EINGABE.\n5. Drücken Sie ENDE und dann LEERTASTE.\n6. Geben Sie einen der folgenden Ausdrücke ein.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L4936-L4943"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0008",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 57,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Grundsätzlich quellennah, aber als Schritt-für-Schritt-Prozedur unvollständig und am Ende abgeschnitten: Es fehlt der eigentliche Schritt zum Ändern der ausgewählten Einstellung beziehungsweise ein sauberer Abschluss.",
+      "blocking_reasons": [
+        "Die Prozedur endet nach dem Aufrufen der gesicherten Ebene und beschreibt nicht vollständig, wie die gewünschte Einstellung tatsächlich geändert wird.",
+        "Für task_type step_by_step ist das Fehlen eines letzten entscheidenden Schritts schwerwiegend.",
+        "Der Ablauf wirkt inhaltlich unvollständig, weil nur Suche und optionaler Gesicherte-Ebene-Schritt genannt werden, aber kein vollständiger Endzustand erreicht wird."
+      ],
+      "request_text": "Wie stelle ich die Schnelleinstellung in JAWS auf, wenn ich direkt aus einem geöffneten Dokument heraus eine bestimmte Einstellung finden und ändern möchte?",
+      "answer_text": "So rufen Sie die Schnelleinstellung aus einem geöffneten Dokument auf und verwenden sie zum Auffinden und Ändern einer Einstellung:\n\n1. Drücken Sie JAWS TASTE+V.\n2. Schreiben Sie im Sucheingabefeld ein Wort für die Einstellung, die Sie ändern möchten.\n3. Drücken Sie PFEIL RUNTER, um zu den gefilterten Ergebnissen in der Strukturansicht zu springen.\n4. Drücken Sie EINGABE auf dem gewünschten Ergebnis, damit der Fokus auf diese Einstellung in der Strukturansicht springt.\n5. Wenn Sie die Gesicherte Ebene ändern möchten, drücken Sie die APPLIKATIONSTASTE und wählen dann Einstellung beim Beenden von JAWS wiederherstellen oder Einstellung bei Fokusänderung wiederherstellen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1179-L1190"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0004",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 58,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Fachlich korrekt und quellentreu, aber die komplette Schrittfolge ist unnötig doppelt wiederholt, was die Qualität für einen Gold-Fall senkt.",
+      "blocking_reasons": [
+        "Die gesamte Prozedur wird vollständig doppelt ausgegeben.",
+        "Für step_by_step ist die Ausgabe dadurch unsauber und redundant statt als eine klare geordnete Prozedur dargestellt."
+      ],
+      "request_text": "Wie aktiviere ich in JAWS die Einstellung, damit beim Verschieben oder Verändern von Rahmen mit den Pfeiltasten der Fensterinhalt mit angezeigt wird? Ich brauche die Schritte möglichst einfach erklärt.",
+      "answer_text": "So aktivieren Sie die Einstellung:\n1. Drücken Sie die WINDOWSTASTE auf Ihrer Tastatur, um das Windows Startmenü zu öffnen.\n2. Wählen Sie den Eintrag Einstellungen und im Untermenü den Eintrag Systemsteuerung.\n3. Wählen Sie Anzeige.\n4. Drücken Sie STRG+TAB, bis Sie die Registerkarte Darstellung geöffnet haben. Drücken Sie so lange TAB, bis Sie auf dem Schalter Effekte gelandet sind und drücken Sie dann EINGABE.\n5. Gehen Sie mit TAB auf die Option „Fensterinhalt beim Ziehen anzeigen“ und aktivieren Sie gegebenenfalls mit LEERTASTE das Kontrollkästchen.\n\n1. Drücken Sie die WINDOWSTASTE auf Ihrer Tastatur, um das Windows Startmenü zu öffnen.\n2. Wählen Sie den Eintrag Einstellungen und im Untermenü den Eintrag Systemsteuerung.\n3. Wählen Sie Anzeige.\n4. Drücken Sie STRG+TAB, bis Sie die Registerkarte Darstellung geöffnet haben. Drücken Sie so lange TAB, bis Sie auf dem Schalter Effekte gelandet sind und drücken Sie dann EINGABE.\n5. Gehen Sie mit TAB auf die Option „Fensterinhalt beim Ziehen anzeigen“ und aktivieren Sie gegebenenfalls mit LEERTASTE das Kontrollkästchen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L672-L680"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0006",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 60,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Inhaltlich korrekt und vollständig, aber die gesamte Prozedur wird doppelt ausgegeben und ist damit nicht sauber genug für einen strengen step_by_step-Goldfall.",
+      "blocking_reasons": [
+        "Die komplette Schrittfolge ist vollständig dupliziert.",
+        "Für task_type=step_by_step ist eine einzige klar geordnete Prozedur gefordert, keine redundante Wiederholung."
+      ],
+      "request_text": "Ich habe einen speziellen Freedom-Scientific-Update-Code bekommen. Wie gehe ich in JAWS Schritt für Schritt vor, damit ich nach solchen speziellen Updates suchen kann?",
+      "answer_text": "So suchen Sie nach speziellen Updates mit Ihrem Update-Code:\n1. Bauen Sie die Verbindung mit dem Internet auf.\n2. Starten Sie JAWS.\n3. Im JAWS Hilfemenü wählen Sie Über JAWS.\n4. Aktivieren Sie den Schalter Spezieller Update Code.\n5. Geben Sie Ihren Freedom Scientific speziellen Update Code in das Eingabefeld ein und drücken Sie dann EINGABE.\n6. Im Hilfemenü wählen Sie Nach Updates suchen und folgen der Vorgehensweise zum Herunterladen und Installieren der Updates, wie im vorherigen Kapitel beschrieben.\n\n1. Bauen Sie die Verbindung mit dem Internet auf.\n2. Starten Sie JAWS.\n3. Im JAWS Hilfemenü wählen Sie Über JAWS.\n4. Aktivieren Sie den Schalter Spezieller Update Code.\n5. Geben Sie Ihren Freedom Scientific speziellen Update Code in das Eingabefeld ein und drücken Sie dann EINGABE.\n6. Im Hilfemenü wählen Sie Nach Updates suchen und folgen der Vorgehensweise zum Herunterladen und Installieren der Updates, wie im vorherigen Kapitel beschrieben.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L4833-L4842"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0005",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 61,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort ist quellentreu und vollständig, wird aber komplett doppelt wiederholt; für step_by_step ist das kein sauberer Gold-Kandidat.",
+      "blocking_reasons": [
+        "Die gleiche Schrittfolge erscheint zweimal vollständig hintereinander.",
+        "Damit wird keine einzelne saubere, klar geordnete Prozedur geliefert."
+      ],
+      "request_text": "Kann mir jemand sagen, wie ich den Virtuellen Betrachter für eine bestimmte Anwendung in JAWS ein- oder ausschalte? Am besten mit den einzelnen Schritten in der Einstellungsverwaltung.",
+      "answer_text": "So schalten Sie den Virtuellen Betrachter für eine bestimmte Anwendung ein oder aus:\n1. Öffnen Sie die Einstellungsverwaltung (EINFÜGEN+F2) und wählen Sie eine Anwendung in der Ausklappliste Anwendungen.\n2. Erweitern Sie die Gruppe Anwender.\n3. Aktivieren oder deaktivieren Sie das Kontrollfeld Virtuellen Betrachter am Bildschirm anzeigen, um die Anzeige des Virtuellen Betrachters ein- oder auszuschalten.\n\n1. Öffnen Sie die Einstellungsverwaltung (EINFÜGEN+F2) und wählen Sie eine Anwendung in der Ausklappliste Anwendungen.\n2. Erweitern Sie die Gruppe Anwender.\n3. Aktivieren oder deaktivieren Sie das Kontrollfeld Virtuellen Betrachter am Bildschirm anzeigen, um die Anzeige des Virtuellen Betrachters ein- oder auszuschalten.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3508-L3516"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0017",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 64,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Weitgehend quellentreu, aber die Prozedur ist im entscheidenden Dialogschritt verfälscht und dadurch für step_by_step nicht belastbar genug.",
+      "blocking_reasons": [
+        "Im Schritt zum Dialog 'Rahmen oder Prompt erstellen' fehlt die dokumentierte Reihenfolge 'Rahmen erstellen' und danach 'Prompt erstellen'.",
+        "Für task_type=step_by_step ist dieser ausgelassene bzw. verkürzte entscheidende Schritt schwerwiegend, weil die Prozedur dadurch nicht vollständig belegt ist."
+      ],
+      "request_text": "Ich arbeite in JAWS mit einer Promptbezeichnung, aber der Bereich passt nicht genau zu dem Element bzw. dem Bildschirmbereich, den ich markieren will. Wie gehe ich da Schritt für Schritt vor, damit ich den Bereich über den JAWS-Cursor sauber festlege?",
+      "answer_text": "So legen Sie den Bereich der Promptbezeichnung über den JAWS-Cursor fest.\n\n1. Bewegen Sie den JAWS Cursor zur linken oberen Ecke des Bereichs, den Sie eingrenzen wollen.\n2. Drücken Sie STRG+UMSCHALT+Ü.\n3. Navigieren Sie mit dem JAWS Cursor zur unteren rechten Ecke des Bereichs, für den die Promptbezeichnung gelten soll, und drücken Sie STRG+UMSCHALT+PLUS.\n4. Im Dialog Rahmen oder Prompt erstellen wählen Sie Prompt erstellen.\n5. Tragen Sie im Standard-Dialog Prompt für Element erstellen auf jeder Seite die gewünschten Informationen wie für jede andere Promptbezeichnung ein.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L342-L353"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::clarification::0007",
+      "task_type": "clarification",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 35,
+      "selection_tags": [
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Rückfrage ist zu eng und verliert den Kern der Nutzerfrage, weil sie nur nach dem Flächenmodus fragt statt die Gegenüberstellung Cursorpositionierung versus Menüöffnung zu klären.",
+      "blocking_reasons": [
+        "Die Antwort grenzt nicht die eigentliche Unklarheit ein, sondern reduziert sie auf einen Teilaspekt",
+        "Die dokumentierte Mehrdeutigkeit der Nutzerfrage wird nicht sinnvoll aufgegriffen",
+        "Zu schwach als Gold-Kandidat für einen Clarification-Fall"
+      ],
+      "request_text": "Ich bin gerade bei den Cursorroutingtasten: Sind die nur zum Positionieren des Cursors gedacht, oder kann ich darüber im Flächenmodus auch Menüs öffnen?",
+      "answer_text": "Geht es Ihnen speziell um den Flächenmodus?",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L1386-L1386"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::clarification::0005",
+      "task_type": "clarification",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 48,
+      "selection_tags": [
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Rückfrage ist zwar dokumentationsnah, aber unnötig breit und verfehlt die konkrete Nutzerfrage nach Fenster versus gesamtem Bildschirm, obwohl diese bereits klar fokussiert gestellt ist.",
+      "blocking_reasons": [
+        "Die Rückfrage erweitert die Frage um 'aktuelles Steuerelement', obwohl der Nutzer nur zwischen aktuellem Fenster und gesamtem Bildschirm differenzieren wollte",
+        "Für einen Clarification-Fall ist die Eingrenzung nicht fokussiert genug auf die bereits benannte Unklarheit"
+      ],
+      "request_text": "Ich sehe in den JAWS-Einstellungen etwas zu Microsoft OCR für die Einfache Texterkennung. Ist das die Erkennung für das aktuelle Fenster oder für den ganzen Bildschirm?",
+      "answer_text": "Meinen Sie die Einfache Texterkennung für das aktuelle Steuerelement, das aktuelle Fenster oder den gesamten Bildschirm?",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L463-L463"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0019",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 92,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Saubere, vollständige und quellentreue Schrittfolge zum Löschen und Speichern der Tastenzuweisung.",
+      "blocking_reasons": [],
+      "request_text": "Ich möchte in JAWS eine Schnellnavigationstaste von einer Aktion entfernen. Wie muss ich dabei genau vorgehen, damit die Tastenzuweisung wirklich gelöscht und gespeichert wird?",
+      "answer_text": "So löschen und speichern Sie die Tastenzuweisung.\n\n1. Gehen Sie mit PFEIL RAUF oder RUNTER auf eine Aktion in der Liste.\n2. Gehen Sie mit TAB auf den Schalter Tastenzuweisung löschen und drücken Sie die LEERTASTE.\n3. Prüfen Sie, dass die Wörter Nicht zugewiesen neben der Tastenaktion im Dialog Schnellnavigationstasten-Manager erscheinen.\n4. Gehen Sie auf den OK-Schalter und drücken Sie EINGABE, um die Änderungen zu speichern.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L926-L936"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0001",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Schrittfolge ist vollständig, korrekt geordnet und gibt die dokumentierte Prozedur zum Ändern der Position des geteilten Bereichs sauber wieder.",
+      "blocking_reasons": [],
+      "request_text": "Können Sie mir die Schritte zeigen, um bei JAWS die Position des geteilten Bereichs zu ändern?",
+      "answer_text": "So ändern Sie die Position des geteilten Bereichs:\n\n1. Drücken Sie ALT+EINFÜGEN+V, um den Dialog Braille-Ansicht auswählen zu öffnen.\n2. Wählen Sie Optionen.\n3. Navigieren Sie in der Liste der Optionen zu Geteilte Daten anzeigen und verwenden Sie die LEERTASTE, um die Einstellung umzuschalten.\n4. Wählen Sie bei einzeiligen Braillezeilen, ob der geteilte Bereich rechts oder links angezeigt werden soll, beziehungsweise bei mehrzeiligen Braillezeilen unten, oben oder unterhalb der aktiven Zeile mit dem Cursor.\n5. Drücken Sie EINGABE, um den Dialog zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L589-L597"
+      ]
+    }
+  ]
+}
