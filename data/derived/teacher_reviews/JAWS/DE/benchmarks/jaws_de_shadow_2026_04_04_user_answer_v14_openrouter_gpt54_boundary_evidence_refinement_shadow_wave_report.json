@@ -1,0 +1,259 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v14_openrouter_gpt54_boundary_evidence_refinement",
+  "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v14_openrouter_gpt54_boundary_evidence_refinement_pipeline_report.json",
+  "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v14_boundary_evidence_refinement_selection.json",
+  "judge_role": {
+    "intended_role": "secondary_audit_judge",
+    "shadow_only": true,
+    "statement": "This wave treats the GPT-5.4 OpenRouter judge as a secondary audit signal only. The primary observation target is OpenRouter user_simulation plus answer quality; judge outputs are reported for calibration and triage, not for promotion or rollout gating.",
+    "judge_profile": {
+      "profile_set": "support_mvp_openrouter_gpt54_candidate",
+      "profile_stage": "judge",
+      "profile_name": "openrouter_gpt54_judge_shadow_v1"
+    }
+  },
+  "processing": {
+    "jobs_total": 9,
+    "task_type_distribution": {
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "step_by_step": 7
+    },
+    "split_distribution": {
+      "eval": 1,
+      "train": 8
+    }
+  },
+  "approval_distribution": {
+    "approve": 7,
+    "reject": 2
+  },
+  "score_distribution": {
+    "count": 9,
+    "min": 12,
+    "median": 95,
+    "max": 98,
+    "score_bands": {
+      "<60": 2,
+      "60-69": 0,
+      "70-79": 0,
+      "80-89": 0,
+      "90+": 7
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 1,
+      "reject": 0
+    },
+    "faq_direct_answer": {
+      "approve": 1,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 5,
+      "reject": 2
+    }
+  },
+  "stage_health": {
+    "user_simulation": {
+      "selected_jobs": 9,
+      "completed_jobs": 9,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 2,
+      "completed_batches": 2,
+      "avg_elapsed_ms_per_processed_job": 1146.89
+    },
+    "answering": {
+      "selected_jobs": 9,
+      "completed_jobs": 9,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 3,
+      "completed_batches": 3,
+      "avg_elapsed_ms_per_processed_job": 2963.33
+    },
+    "judge": {
+      "selected_jobs": 9,
+      "completed_jobs": 9,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 2,
+      "completed_batches": 2,
+      "avg_elapsed_ms_per_processed_job": 2641.11
+    }
+  },
+  "attempt_histograms": {
+    "user_simulation": {
+      "1": 9
+    },
+    "answer": {
+      "1": 9
+    },
+    "judge": {
+      "1": 9
+    }
+  },
+  "provider_usage": {
+    "user_simulation": {
+      "rows_with_provider_usage": 9,
+      "prompt_tokens": 31945,
+      "completion_tokens": 9441,
+      "total_tokens": 41386,
+      "reported_cost_usd_estimate": 0.0664,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "answer": {
+      "rows_with_provider_usage": 9,
+      "prompt_tokens": 32460,
+      "completion_tokens": 8164,
+      "total_tokens": 40624,
+      "reported_cost_usd_estimate": 0.2036,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "judge": {
+      "rows_with_provider_usage": 9,
+      "prompt_tokens": 44315,
+      "completion_tokens": 11878,
+      "total_tokens": 56193,
+      "reported_cost_usd_estimate": 0.289,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    }
+  },
+  "qualitative_focus_cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0016",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 12,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort liefert keine Schritt-für-Schritt-Prozedur, sondern bittet um fehlenden Kontext. Damit erfüllt sie den task_type nicht.",
+      "blocking_reasons": [
+        "Keine eigentliche Prozedur geliefert",
+        "Für step_by_step ist die Antwortform klar verfehlt",
+        "Nicht als nutzbare Support-Antwort einsetzbar"
+      ],
+      "request_text": "Kannst du mir bitte Schritt für Schritt zeigen, wie ich in JAWS eine Benachrichtigungsregel anlege? Ich möchte eine bestimmte Meldung künftig anders behandeln.",
+      "answer_text": "Kannst du den restlichen dokumentierten Ablauf ab Schritt 3 bereitstellen, damit ich eine vollständige Schrittfolge bis zum Speichern der Benachrichtigungsregel geben kann?",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L964-L974"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 41,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort bricht vor dem eigentlichen Importabschluss ab und lässt damit einen entscheidenden letzten Teil der Prozedur aus.",
+      "blocking_reasons": [
+        "Für step_by_step fehlt der letzte entscheidende Abschnitt bis zum tatsächlichen Import bzw. Abschluss",
+        "Die Nutzerfrage verlangt die Schritte 'bis zum Import', die Antwort endet zu früh"
+      ],
+      "request_text": "Wie importiere ich in JAWS Einstellungen aus einer SBAK-Datei? Ich suche die einzelnen Schritte vom Auswählen der Datei bis zum Import.",
+      "answer_text": "So importieren Sie Einstellungen aus einer SBAK-Datei.\n\n1. Öffnen Sie im JAWS-Anwendungsfenster das Menü Hilfsprogramme, öffnen Sie das Untermenü Einstellungen importieren/exportieren und wählen Sie Importieren. Der Assistent zum Importieren von Einstellungen wird geöffnet.\n2. Geben Sie im Eingabefeld Eine Backup-Datei auswählen den Namen der SBAK-Datei an, die Sie importieren möchten. Alternativ wählen Sie Durchsuchen, navigieren zum Ordner mit der gespeicherten Datei und wählen diese aus.\n3. Lesen Sie nach der Dateiauswahl die angezeigten Archiv-Informationen und Kommentare über das Backup und wählen Sie Weiter.\n4. Sehen Sie sich die Vorschau der Einstellungen an, die importiert werden, und wählen Sie Weiter.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1589-L1595"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0012",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 94,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Schrittfolge ist vollständig, korrekt geordnet und nahezu wörtlich an die dokumentierte Prozedur zum Hinzufügen einer Einrückungsregel angelehnt.",
+      "blocking_reasons": [],
+      "request_text": "Wie richte ich in JAWS eine Einrückungsregel ein? Ich brauche die einzelnen Schritte, um das in den Einstellungen anzulegen.",
+      "answer_text": "So fügen Sie eine Einrückungsregel hinzu:\n\n1. Drücken Sie STRG+TAB, um zur Registerkarte Einrückung zu wechseln.\n2. Wählen Sie den Schalter Hinzufügen und drücken Sie LEERTASTE, um das Dialogfeld Einrückung hinzufügen zu öffnen.\n3. Geben Sie einen Wert in das Eingabefeld ein und wählen Sie Weiter.\n4. Wenn der Dialog Verhalten auswählen erscheint, wählen Sie ein Sprach- und Soundverhalten aus der Liste der Auswahlschalter und wählen Sie Weiter.\n5. Wählen Sie in den folgenden Dialogen weitere Elemente oder vervollständigen Sie alle Eingabefelder, zu denen Sie aufgefordert werden. Wählen Sie dabei Weiter oder Fertigstellen, bis die neue Regel in der Liste der Einrückungen erscheint.\n6. Wählen Sie OK, um das Dialogfenster zu schließen, oder drücken Sie STRG+TAB, um zu einer anderen Registerkarte zu wechseln.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1345-L1362"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 95,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort beantwortet die konkrete Teilfrage zu Konfliktbehandlung und Abschluss des Imports vollständig und bleibt eng an der Quelle.",
+      "blocking_reasons": [],
+      "request_text": "Beim Import von JAWS-Einstellungen aus einer Backup-Datei: Was mache ich, wenn es einen Konflikt mit einer vorhandenen Einstellung gibt? Ich brauche die Schritte für diese Auswahl und den Abschluss des Imports.",
+      "answer_text": "So gehen Sie bei einem Konflikt vor und schließen den Import ab.\n\n1. Wenn Sie beim Zusammenführen der Einstellungen gefragt werden, was bei einem Konflikt zwischen einer Einstellung in Ihrem Benutzerordner und der Einstellung im Backup geschehen soll, wählen Sie Aktuelle Einstellung aktualisieren, um die bestehende Einstellung durch die Einstellung aus der Backup-Datei zu ersetzen, oder Aktuelle Einstellung beibehalten, damit die Einstellung in Ihrem Benutzerordner nicht ersetzt wird.\n2. Nachdem Sie die gewünschte Option ausgewählt haben, wählen Sie Weiter.\n3. Lesen Sie auf der letzten Seite des Assistenten die Zusammenfassung Ihrer Import-Auswahl und wählen Sie Fertigstellen, um die Einstellungen zu importieren.\n4. Sobald der Import abgeschlossen ist, lesen Sie die Ergebnisse im angezeigten Dialogfenster und wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1596-L1598"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0048",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Prozedur zum Übernehmen von Einstellungen aus einer früheren JAWS-Version ist vollständig, korrekt und quellennah wiedergegeben.",
+      "blocking_reasons": [],
+      "request_text": "Wie übernehme ich meine Einstellungen aus einer früheren JAWS-Version? Ich brauche die genaue Vorgehensweise im Programm.",
+      "answer_text": "So übernehmen Sie Benutzereinstellungen aus einer früheren JAWS-Version.\n\n1. Öffnen Sie mit JAWS TASTE+J das JAWS-Programmfenster und mit ALT+P das Menü Hilfsprogramme.\n2. Wählen Sie im Menü Hilfsprogramme das Untermenü Einstellungen importieren/exportieren und dann Übernehmen. Das Dialogfenster Benutzereinstellungen übernehmen wird geöffnet.\n3. Wählen Sie die vorherige JAWS-Version, aus der Sie Einstellungen importieren möchten, und wählen Sie Ja. Es werden nur die letzten zwei Versionen aufgelistet.\n4. Wenn die Warnmeldung angezeigt wird, dass bei der Übernahme alle bestehenden Benutzereinstellungen gelöscht werden, wählen Sie Ja, um die Einstellungen von der vorherigen Version zu übernehmen, oder Nein, wenn Sie die Einstellungen jetzt nicht übernehmen möchten.\n5. Wenn die Übernahme durchgeführt wurde, lesen Sie die Ergebnisse im angezeigten Dialogfenster und wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1612-L1620"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0034",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 97,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort passt zur gezielten Nachfrage nach dem späteren Teil der Prozedur und deckt die dokumentierten Schritte bis zum Speichern und Schließen korrekt ab.",
+      "blocking_reasons": [],
+      "request_text": "Ich habe eine Benachrichtigung in JAWS, für die ich eine Regel erstellt habe. Wie geht es danach weiter, damit die Regel gespeichert wird und ich sie benennen kann?",
+      "answer_text": "Ab diesem Punkt geht es so weiter:\n\n1. Wenn Sie nicht möchten, dass empfangene Benachrichtigungen, die den Kriterien der aktuellen Regel entsprechen, in die Liste der letzten Benachrichtigungen aufgenommen werden, aktivieren Sie das Kontrollfeld Nicht im Verlauf anzeigen.\n2. Nachdem Sie Ihre Auswahl getroffen haben, drücken Sie OK.\n3. Wenn ein Dialogfeld Sie auffordert, einen Namen für die Regel einzugeben, geben Sie den gewünschten Namen ein und drücken Sie dann OK, um ihn zu speichern.\n4. Drücken Sie ESC, um das Dialogfenster Benachrichtigungsverlauf zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L998-L1003"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0027",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 98,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort ist eine saubere, vollständige und dokumentationsgetreue Prozedur zum Löschen einer Einrückungsregel.",
+      "blocking_reasons": [],
+      "request_text": "Wie lösche ich in JAWS eine Einrückungsregel wieder? Ich suche die Schritte dafür, weil ich eine falsch angelegte Regel entfernen muss.",
+      "answer_text": "So löschen Sie eine Einrückungsregel:\n\n1. Wählen Sie das entsprechende Element aus der Liste aus.\n2. Drücken Sie TAB, um zum Schalter Entfernen zu springen, und aktivieren Sie diesen.\n3. Wählen Sie Ja, um das Löschen zu bestätigen.\n4. Wählen Sie OK, um das Dialogfenster zu schließen, oder drücken Sie STRG+TAB, um zu einer anderen Registerkarte zu wechseln.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1364-L1369"
+      ]
+    }
+  ]
+}
