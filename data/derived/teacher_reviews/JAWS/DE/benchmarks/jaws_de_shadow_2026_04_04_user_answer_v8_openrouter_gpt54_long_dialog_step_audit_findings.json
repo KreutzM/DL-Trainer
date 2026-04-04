@@ -1,0 +1,148 @@
+{
+  "audit_type": "openrouter_long_dialog_step_audit",
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v8_openrouter_gpt54_long_dialog_step_audit",
+  "selection": {
+    "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v8_long_dialog_step_audit_selection.json",
+    "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v8_long_dialog_step_audit_job_ids.txt",
+    "selected_job_count": 13,
+    "task_type_counts": {
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "step_by_step": 10,
+      "troubleshooting": 1
+    },
+    "selection_rationale": "Focused long-dialog and chunk-scope audit subset. Reuses long assistant flows with late closure, adds the import assistant split across adjacent chunks, and keeps three stable non-step controls to detect spillover.",
+    "new_codex_cli_run_started": false,
+    "new_codex_reference_run_started": false,
+    "promotion_ran": false,
+    "new_model_family": false,
+    "judge_role": "shadow_only_secondary_audit"
+  },
+  "run_configuration": {
+    "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "user_simulation_model": "openai/gpt-5.4-mini",
+    "answer_model": "openai/gpt-5.4",
+    "judge_model": "openai/gpt-5.4"
+  },
+  "metrics": {
+    "overall": {
+      "approve": 8,
+      "reject": 5
+    },
+    "task_type_decisions": {
+      "clarification": {
+        "approve": 1,
+        "reject": 0
+      },
+      "faq_direct_answer": {
+        "approve": 1,
+        "reject": 0
+      },
+      "step_by_step": {
+        "approve": 5,
+        "reject": 5
+      },
+      "troubleshooting": {
+        "approve": 1,
+        "reject": 0
+      }
+    },
+    "score_distribution": {
+      "min": 42,
+      "median": 95,
+      "max": 100
+    },
+    "provider_usage_total_cost_usd_estimate": 0.8502
+  },
+  "step_by_step_focus": {
+    "selected_cases": 10,
+    "approved_cases": 5,
+    "rejected_cases": 5,
+    "rejects": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0004",
+        "failure_family": "duplicated_entire_procedure",
+        "summary": "The answer is otherwise correct but repeats the full procedure twice, which makes the step-by-step output noisy and lower quality.",
+        "quality_score": 42,
+        "why_it_counts_as_prompt_evidence": "This is a real answer-generation defect on a long step flow, but it is a different family from the chunk-scope rejects below."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0044",
+        "failure_family": "source_cutoff_meta_response",
+        "summary": "The model refuses to continue with a meta-comment that the source is cut off, instead of giving a usable step sequence.",
+        "quality_score": 80,
+        "why_it_counts_only_partially_as_prompt_evidence": "The excerpt ends mid-procedure, so the failure is entangled with source coverage rather than a clean standalone answer bug."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0046",
+        "failure_family": "source_cutoff_meta_response",
+        "summary": "Again the answer comments on incomplete source coverage instead of finishing the documented step flow.",
+        "quality_score": 100,
+        "why_it_counts_only_partially_as_prompt_evidence": "This looks like a chunk-boundary problem more than a stable prompt failure."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0054",
+        "failure_family": "source_cutoff_meta_response",
+        "summary": "The response does not provide the procedure and instead states that the source is incomplete.",
+        "quality_score": 80,
+        "why_it_counts_only_partially_as_prompt_evidence": "The source excerpt itself is truncated before the final steps, so the reject is not a clean signal for a generic prompt edit."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+        "failure_family": "source_cutoff_meta_response",
+        "summary": "The response again stops at a meta statement about an incomplete import procedure.",
+        "quality_score": 100,
+        "why_it_counts_only_partially_as_prompt_evidence": "This is the clearest chunk/scope boundary case, but it is still source-entangled."
+      }
+    ],
+    "green_examples": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0030",
+        "why_it_matters": "Long multi-tab settings flow stays coherent and reaches the end state."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0041",
+        "why_it_matters": "Long settings-center configuration with multiple nested dialogs stays green."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0048",
+        "why_it_matters": "Import-from-previous-version completion anchor remains fully correct."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0052",
+        "why_it_matters": "Rule-management flow with deactivate/reactivate branches remains stable."
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+        "why_it_matters": "The second half of the import assistant, including the true finish state, is answered correctly."
+      }
+    ]
+  },
+  "control_group": {
+    "controls": [
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0007",
+        "decision": "approve",
+        "quality_score": 95
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010",
+        "decision": "approve",
+        "quality_score": 97
+      },
+      {
+        "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0005",
+        "decision": "approve",
+        "quality_score": 88
+      }
+    ],
+    "interpretation": "The non-step controls stay clean, so the wave does not show broad spillover outside step_by_step."
+  },
+  "interpretation": {
+    "same_long_dialog_chunk_pattern_repeated_cleanly": false,
+    "pattern_statement": "The wave does not yet expose one homogeneous long-dialog rest pattern. The new rejects split between a pure duplication defect and several chunk/scope-entangled meta-responses caused by truncated source excerpts.",
+    "homogeneous_enough_for_example_backed_prompt_addition_now": false,
+    "recommended_next_step": "Keep collecting or isolating more complete long assistant and chunk-boundary step_by_step cases before changing the prompt again. If a later edit is attempted, it should target a narrower rule about partial excerpts and final-state completion, not a broad long-dialog prompt hardening.",
+    "why_not_rubric_first": "The primary visible problem is answer behavior on truncated or split source coverage, but the evidence is still mixed enough that one more prompt example would be premature."
+  }
+}
