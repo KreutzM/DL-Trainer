@@ -1,0 +1,143 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v16_curated_pre_gold_wave_selection.json",
+  "report_path": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave_shadow_wave_report.json",
+  "conclusion": "The strong OpenRouter path is stable enough to serve as the basis for a larger curated pre-gold candidate pool. The remaining rejects are localized and concentrated in step_by_step plus two clarification edge cases, with no spillover into faq_direct_answer, troubleshooting, or uncertainty_escalation.",
+  "overall_metrics": {
+    "approval_distribution": {
+      "approve": 50,
+      "reject": 10
+    },
+    "task_type_decisions": {
+      "clarification": {
+        "approve": 10,
+        "reject": 2
+      },
+      "faq_direct_answer": {
+        "approve": 12,
+        "reject": 0
+      },
+      "step_by_step": {
+        "approve": 4,
+        "reject": 8
+      },
+      "troubleshooting": {
+        "approve": 12,
+        "reject": 0
+      },
+      "uncertainty_escalation": {
+        "approve": 12,
+        "reject": 0
+      }
+    },
+    "score_distribution": {
+      "count": 60,
+      "min": 35,
+      "median": 94.0,
+      "max": 99,
+      "score_bands": {
+        "<60": 7,
+        "60-69": 3,
+        "70-79": 0,
+        "80-89": 2,
+        "90+": 48
+      }
+    },
+    "stage_health": {
+      "user_simulation": {
+        "selected_jobs": 60,
+        "completed_jobs": 60,
+        "failed_jobs": [],
+        "total_retry_attempts": 0
+      },
+      "answering": {
+        "selected_jobs": 60,
+        "completed_jobs": 60,
+        "failed_jobs": [],
+        "total_retry_attempts": 0
+      },
+      "judge": {
+        "selected_jobs": 60,
+        "completed_jobs": 60,
+        "failed_jobs": [],
+        "total_retry_attempts": 0
+      }
+    },
+    "provider_usage": {
+      "user_simulation_cost_usd_estimate": 0.4872,
+      "answer_cost_usd_estimate": 1.6106,
+      "judge_cost_usd_estimate": 2.1114
+    }
+  },
+  "rejects": [
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::clarification::0005",
+      "task_type": "clarification",
+      "quality_score": 48,
+      "pattern": "clarification too broad; asks about the wrong framing and misses the user's concrete distinction"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::clarification::0007",
+      "task_type": "clarification",
+      "quality_score": 35,
+      "pattern": "clarification too narrow; loses the core user question"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "quality_score": 42,
+      "pattern": "incomplete procedure; the response only covers the example opening and drops the documented continuation"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0003",
+      "task_type": "step_by_step",
+      "quality_score": 42,
+      "pattern": "incomplete procedure and duplicated full output"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0011",
+      "task_type": "step_by_step",
+      "quality_score": 41,
+      "pattern": "partial administrator path; omits the completion and mishandles the documented default-user branch"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0008",
+      "task_type": "step_by_step",
+      "quality_score": 57,
+      "pattern": "procedure cut off before the final setting change or clean completion"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0004",
+      "task_type": "step_by_step",
+      "quality_score": 58,
+      "pattern": "complete but fully duplicated procedure"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0006",
+      "task_type": "step_by_step",
+      "quality_score": 60,
+      "pattern": "complete but duplicated procedure"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::eval::step_by_step::0005",
+      "task_type": "step_by_step",
+      "quality_score": 61,
+      "pattern": "complete but duplicated procedure"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v2_scaleup::train::step_by_step::0017",
+      "task_type": "step_by_step",
+      "quality_score": 64,
+      "pattern": "mostly faithful but the decisive dialog step is distorted"
+    }
+  ],
+  "direct_next_step": {
+    "recommended_action": "controlled pre-gold derivation",
+    "not_recommended": [
+      "another broad prompt hardening pass",
+      "model-family changes",
+      "price-performance benchmarking"
+    ],
+    "reason": "The remaining errors are localized enough to filter or isolate in selection, while the overall path is stable enough to support a larger curated candidate pool."
+  }
+}
