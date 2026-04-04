@@ -185,6 +185,40 @@ def build_run_summary(repo_root: Path, report_path: Path) -> dict[str, Any]:
     }
 
 
+def require_benchmark_metadata(run_summary: dict[str, Any], *, expected_role: str) -> dict[str, str]:
+    benchmark = run_summary.get("benchmark")
+    run_name = run_summary["run_name"]
+    if not isinstance(benchmark, dict):
+        raise SystemExit(
+            f"Run {run_name} is missing benchmark metadata. "
+            "Only benchmark-marked pipeline reports can be compared."
+        )
+    benchmark_name = str(benchmark.get("name") or "").strip()
+    benchmark_role = str(benchmark.get("role") or "").strip()
+    if not benchmark_name:
+        raise SystemExit(f"Run {run_name} is missing benchmark.name in its pipeline report.")
+    if benchmark_role != expected_role:
+        raise SystemExit(
+            f"Run {run_name} has benchmark.role={benchmark_role or '<missing>'}, expected {expected_role}."
+        )
+    return {
+        "name": benchmark_name,
+        "role": benchmark_role,
+    }
+
+
+def validate_benchmark_pair(reference: dict[str, Any], candidate: dict[str, Any]) -> str:
+    reference_benchmark = require_benchmark_metadata(reference, expected_role="reference")
+    candidate_benchmark = require_benchmark_metadata(candidate, expected_role="candidate")
+    if reference_benchmark["name"] != candidate_benchmark["name"]:
+        raise SystemExit(
+            "Benchmark names do not match: "
+            f"{reference['run_name']} -> {reference_benchmark['name']}, "
+            f"{candidate['run_name']} -> {candidate_benchmark['name']}."
+        )
+    return reference_benchmark["name"]
+
+
 def build_comparison(reference: dict[str, Any], candidate: dict[str, Any]) -> dict[str, Any]:
     reference_judge = reference["artifacts"]["judge_results"]
     candidate_judge = candidate["artifacts"]["judge_results"]
@@ -260,12 +294,7 @@ def build_comparison(reference: dict[str, Any], candidate: dict[str, Any]) -> di
 def build_benchmark_summary(repo_root: Path, reference_report_path: Path, candidate_report_path: Path) -> dict[str, Any]:
     reference_summary = build_run_summary(repo_root, reference_report_path)
     candidate_summary = build_run_summary(repo_root, candidate_report_path)
-    reference_benchmark = reference_summary.get("benchmark") or {}
-    candidate_benchmark = candidate_summary.get("benchmark") or {}
-    benchmark_name = (
-        reference_benchmark.get("name")
-        or candidate_benchmark.get("name")
-    )
+    benchmark_name = validate_benchmark_pair(reference_summary, candidate_summary)
     return {
         "benchmark_name": benchmark_name,
         "reference": reference_summary,

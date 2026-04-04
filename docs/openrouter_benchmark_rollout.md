@@ -51,6 +51,12 @@ Das schreibt eine strukturierte Zusammenfassung nach:
 
 - `data/derived/teacher_reviews/JAWS/DE/benchmarks/<BENCHMARK_NAME>_comparison.json`
 
+Der Vergleich erwartet zwei echte Benchmark-Reports mit konsistenten Metadaten:
+
+- Referenzreport mit `benchmark.role=reference`
+- Kandidatenreport mit `benchmark.role=candidate`
+- identischem `benchmark.name` in beiden Reports
+
 Die Vergleichshilfe liest die vorhandenen Pipeline-Reports und Artefakte und fasst insbesondere zusammen:
 
 - verwendetes Profilset, Backend und Modell je Stage

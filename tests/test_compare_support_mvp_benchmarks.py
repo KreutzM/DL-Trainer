@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 import sys
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
@@ -259,7 +261,7 @@ def test_build_benchmark_summary_compares_reference_and_candidate(tmp_path: Path
     assert summary["candidate"]["artifacts"]["judge_results"]["schema"]["ok"] is True
 
 
-def test_build_benchmark_summary_tolerates_missing_benchmark_metadata(tmp_path: Path) -> None:
+def test_build_benchmark_summary_rejects_missing_benchmark_metadata(tmp_path: Path) -> None:
     teacher_outputs = tmp_path / "teacher_outputs.jsonl"
     reviewed_outputs = tmp_path / "reviewed_teacher_outputs.jsonl"
     judge_results = tmp_path / "judge_results.jsonl"
@@ -286,7 +288,94 @@ def test_build_benchmark_summary_tolerates_missing_benchmark_metadata(tmp_path: 
         encoding="utf-8",
     )
 
-    summary = benchmark_compare.build_benchmark_summary(ROOT, report_path, report_path)
+    with pytest.raises(SystemExit) as exc:
+        benchmark_compare.build_benchmark_summary(ROOT, report_path, report_path)
 
-    assert summary["benchmark_name"] is None
-    assert summary["comparison"]["validation"]["reference_ok"] is True
+    assert "missing benchmark metadata" in str(exc.value)
+
+
+def test_build_benchmark_summary_rejects_mismatched_benchmark_names(tmp_path: Path) -> None:
+    reference_report = tmp_path / "reference_pipeline_report.json"
+    candidate_report = tmp_path / "candidate_pipeline_report.json"
+    teacher_outputs = tmp_path / "teacher_outputs.jsonl"
+    reviewed_outputs = tmp_path / "reviewed_teacher_outputs.jsonl"
+    judge_results = tmp_path / "judge_results.jsonl"
+
+    _write_jsonl(teacher_outputs, [_teacher_output("job-1", review_status="teacher_generated")])
+    _write_jsonl(reviewed_outputs, [_teacher_output("job-1", review_status="codex_reviewed")])
+    _write_jsonl(judge_results, [_judge_result("job-1", decision="approve", quality_score=80)])
+    reference_payload = _pipeline_report_with_benchmark(
+        run_name="reference-run",
+        teacher_outputs=teacher_outputs,
+        reviewed_outputs=reviewed_outputs,
+        judge_results=judge_results,
+        profile_set="support_mvp_default",
+        benchmark_role="reference",
+        answer_backend="codex_cli",
+        answer_model="gpt-5.4",
+        approved_jobs=1,
+        rejected_jobs=0,
+    )
+    candidate_payload = _pipeline_report_with_benchmark(
+        run_name="candidate-run",
+        teacher_outputs=teacher_outputs,
+        reviewed_outputs=reviewed_outputs,
+        judge_results=judge_results,
+        profile_set="support_mvp_openrouter_candidate",
+        benchmark_role="candidate",
+        answer_backend="openrouter",
+        answer_model="openai/gpt-4.1",
+        approved_jobs=1,
+        rejected_jobs=0,
+    )
+    candidate_payload["benchmark"]["name"] = "other-benchmark"
+    reference_report.write_text(json.dumps(reference_payload), encoding="utf-8")
+    candidate_report.write_text(json.dumps(candidate_payload), encoding="utf-8")
+
+    with pytest.raises(SystemExit) as exc:
+        benchmark_compare.build_benchmark_summary(ROOT, reference_report, candidate_report)
+
+    assert "Benchmark names do not match" in str(exc.value)
+
+
+def test_build_benchmark_summary_rejects_wrong_roles(tmp_path: Path) -> None:
+    reference_report = tmp_path / "reference_pipeline_report.json"
+    candidate_report = tmp_path / "candidate_pipeline_report.json"
+    teacher_outputs = tmp_path / "teacher_outputs.jsonl"
+    reviewed_outputs = tmp_path / "reviewed_teacher_outputs.jsonl"
+    judge_results = tmp_path / "judge_results.jsonl"
+
+    _write_jsonl(teacher_outputs, [_teacher_output("job-1", review_status="teacher_generated")])
+    _write_jsonl(reviewed_outputs, [_teacher_output("job-1", review_status="codex_reviewed")])
+    _write_jsonl(judge_results, [_judge_result("job-1", decision="approve", quality_score=80)])
+    reference_payload = _pipeline_report_with_benchmark(
+        run_name="reference-run",
+        teacher_outputs=teacher_outputs,
+        reviewed_outputs=reviewed_outputs,
+        judge_results=judge_results,
+        profile_set="support_mvp_default",
+        benchmark_role="reference",
+        answer_backend="codex_cli",
+        answer_model="gpt-5.4",
+        approved_jobs=1,
+        rejected_jobs=0,
+    )
+    candidate_payload = _pipeline_report_with_benchmark(
+        run_name="candidate-run",
+        teacher_outputs=teacher_outputs,
+        reviewed_outputs=reviewed_outputs,
+        judge_results=judge_results,
+        profile_set="support_mvp_openrouter_candidate",
+        benchmark_role="reference",
+        answer_backend="openrouter",
+        answer_model="openai/gpt-4.1",
+        approved_jobs=1,
+        rejected_jobs=0,
+    )
+    reference_report.write_text(json.dumps(reference_payload), encoding="utf-8")
+    candidate_report.write_text(json.dumps(candidate_payload), encoding="utf-8")
+
+    with pytest.raises(SystemExit) as exc:
+        benchmark_compare.build_benchmark_summary(ROOT, reference_report, candidate_report)
+
+    assert "expected candidate" in str(exc.value)
