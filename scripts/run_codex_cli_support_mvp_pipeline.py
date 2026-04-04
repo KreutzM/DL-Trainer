@@ -40,6 +40,8 @@ def parse_args() -> Any:
     parser.add_argument("--openrouter-api-key-env", default="OPENROUTER_API_KEY")
     parser.add_argument("--llm-profile-config")
     parser.add_argument("--llm-profile-set")
+    parser.add_argument("--benchmark-name")
+    parser.add_argument("--benchmark-role", choices=["reference", "candidate"])
     parser.add_argument("--promote", action="store_true")
 
     parser.add_argument("--user-sim-model", default=user_defaults["model"])
@@ -179,6 +181,22 @@ def resolved_profile_report(profiles: dict[str, ResolvedStageLlmProfile]) -> dic
     return {stage_name: profile.summary() for stage_name, profile in profiles.items()}
 
 
+def resolve_benchmark_metadata(args: Any) -> dict[str, str] | None:
+    if not args.benchmark_name and not args.benchmark_role:
+        return None
+    if not args.benchmark_name or not args.benchmark_role:
+        raise SystemExit("--benchmark-name and --benchmark-role must be provided together")
+    if not args.llm_profile_set:
+        raise SystemExit("--benchmark-name requires --llm-profile-set for reproducible benchmark runs")
+    if args.promote:
+        raise SystemExit("Benchmark runs cannot be combined with --promote")
+    return {
+        "name": args.benchmark_name,
+        "role": args.benchmark_role,
+        "profile_set": args.llm_profile_set,
+    }
+
+
 def legacy_stage_summary(
     *,
     backend: str,
@@ -218,6 +236,7 @@ def legacy_stage_summary(
 def main() -> None:
     args = parse_args()
     repo_root = find_repo_root(Path.cwd())
+    benchmark_metadata = resolve_benchmark_metadata(args)
     resolved_profiles: dict[str, ResolvedStageLlmProfile] | None = None
     if args.llm_profile_set:
         ensure_profile_mode_has_no_pipeline_overrides(args)
@@ -462,6 +481,8 @@ def main() -> None:
     if resolved_profiles:
         pipeline_summary["llm_profile_set"] = args.llm_profile_set
         pipeline_summary["llm_profiles"] = resolved_profile_report(resolved_profiles)
+    if benchmark_metadata:
+        pipeline_summary["benchmark"] = benchmark_metadata
     write_json(pipeline_report, pipeline_summary)
     print(f"Wrote pipeline report -> {pipeline_report}")
 

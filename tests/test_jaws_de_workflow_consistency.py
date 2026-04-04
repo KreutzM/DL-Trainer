@@ -110,6 +110,15 @@ def test_pipeline_entrypoint_supports_selection_manifest() -> None:
     assert "load_selection_manifest" in text
 
 
+def test_makefile_exposes_support_mvp_benchmark_targets() -> None:
+    text = _read("Makefile")
+    assert "support-mvp-benchmark-reference:" in text
+    assert "support-mvp-benchmark-candidate:" in text
+    assert "support-mvp-benchmark-compare:" in text
+    assert "support_mvp_default" in text
+    assert "support_mvp_openrouter_candidate" in text
+
+
 def test_current_selection_manifest_matches_current_job_ids() -> None:
     baseline = _read_json(BASELINE_PATH)
     selection = _read_json(baseline["current_job_selection"]["selection_manifest"])

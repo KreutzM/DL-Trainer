@@ -61,9 +61,20 @@ make jaws-de-fresh-run RUN_NAME=codex_cli_support_2026_04_03
 make jaws-de-training-smoke
 ```
 
+### 6. OpenRouter benchmarken, ohne den Default umzuschalten
+
+```bash
+make support-mvp-benchmark-reference BENCHMARK_NAME=jaws_de_shadow_apr2026 RUN_NAME=jaws_de_shadow_apr2026_codex
+make support-mvp-benchmark-candidate BENCHMARK_NAME=jaws_de_shadow_apr2026 RUN_NAME=jaws_de_shadow_apr2026_openrouter
+make support-mvp-benchmark-compare BENCHMARK_NAME=jaws_de_shadow_apr2026 REFERENCE_RUN=jaws_de_shadow_apr2026_codex CANDIDATE_RUN=jaws_de_shadow_apr2026_openrouter
+```
+
+Die Details dazu stehen in `docs/openrouter_benchmark_rollout.md`. Codex CLI bleibt bis auf Weiteres der produktive Default.
+
 ## Wichtige Pfade
 
 - `docs/jaws_de_workflow.md` - kanonisches JAWS-DE-Runbook
+- `docs/openrouter_benchmark_rollout.md` - Benchmark- und Rollout-Vorbereitung fuer OpenRouter
 - `docs/jaws_de_current_baseline.json` - maschinenlesbarer Current-Baseline-Pointer
 - `data/raw/JAWS/DE/` - Rohquellen
 - `data/normalized/JAWS/DE/` - Normalform

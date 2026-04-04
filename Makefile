@@ -1,4 +1,4 @@
-.PHONY: validate repo-consistency jaws-de-current-validate jaws-de-current-export jaws-de-training-smoke jaws-de-fresh-run
+.PHONY: validate repo-consistency jaws-de-current-validate jaws-de-current-export jaws-de-training-smoke jaws-de-fresh-run support-mvp-benchmark-reference support-mvp-benchmark-candidate support-mvp-benchmark-compare
 
 CURRENT_JAWS_DE_BASELINE := docs/jaws_de_current_baseline.json
 CURRENT_JAWS_DE_RUN := codex_cli_support_validation_v2
@@ -8,6 +8,10 @@ CURRENT_JAWS_DE_EXPORT_DIR := data/exports/qwen_sft/JAWS/DE/current
 CURRENT_JAWS_DE_EXPORT_ID := jaws_de_validation_v2_current
 CURRENT_JAWS_DE_TRAINING_CONFIG := training/transformers/jaws_de_current.yaml
 CURRENT_JAWS_DE_SELECTION := data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json
+SUPPORT_MVP_BENCHMARK_SELECTION := data/derived/teacher_jobs/JAWS/DE/current_generation_selection.json
+SUPPORT_MVP_REFERENCE_PROFILE_SET := support_mvp_default
+SUPPORT_MVP_CANDIDATE_PROFILE_SET := support_mvp_openrouter_candidate
+SUPPORT_MVP_BENCHMARK_OUTPUT_DIR := data/derived/teacher_reviews/JAWS/DE/benchmarks
 
 validate: repo-consistency jaws-de-current-validate
 
@@ -30,3 +34,15 @@ jaws-de-training-smoke:
 jaws-de-fresh-run:
 	python -c "import sys; run_name = '$(RUN_NAME)'.strip(); sys.exit(0 if run_name else 'RUN_NAME is required')"
 	python scripts/run_codex_cli_support_mvp_pipeline.py --selection-manifest $(CURRENT_JAWS_DE_SELECTION) --run-name $(RUN_NAME) --promote
+
+support-mvp-benchmark-reference:
+	python -c "import sys; benchmark_name = '$(BENCHMARK_NAME)'.strip(); run_name = '$(RUN_NAME)'.strip(); sys.exit(0 if benchmark_name and run_name else 'BENCHMARK_NAME and RUN_NAME are required')"
+	python scripts/run_codex_cli_support_mvp_pipeline.py --selection-manifest $(SUPPORT_MVP_BENCHMARK_SELECTION) --run-name $(RUN_NAME) --llm-profile-set $(SUPPORT_MVP_REFERENCE_PROFILE_SET) --benchmark-name $(BENCHMARK_NAME) --benchmark-role reference
+
+support-mvp-benchmark-candidate:
+	python -c "import sys; benchmark_name = '$(BENCHMARK_NAME)'.strip(); run_name = '$(RUN_NAME)'.strip(); sys.exit(0 if benchmark_name and run_name else 'BENCHMARK_NAME and RUN_NAME are required')"
+	python scripts/run_codex_cli_support_mvp_pipeline.py --selection-manifest $(SUPPORT_MVP_BENCHMARK_SELECTION) --run-name $(RUN_NAME) --llm-profile-set $(SUPPORT_MVP_CANDIDATE_PROFILE_SET) --benchmark-name $(BENCHMARK_NAME) --benchmark-role candidate
+
+support-mvp-benchmark-compare:
+	python -c "import sys; benchmark_name = '$(BENCHMARK_NAME)'.strip(); reference_run = '$(REFERENCE_RUN)'.strip(); candidate_run = '$(CANDIDATE_RUN)'.strip(); sys.exit(0 if benchmark_name and reference_run and candidate_run else 'BENCHMARK_NAME, REFERENCE_RUN and CANDIDATE_RUN are required')"
+	python scripts/compare_support_mvp_benchmarks.py --reference-run $(REFERENCE_RUN) --candidate-run $(CANDIDATE_RUN) --output $(SUPPORT_MVP_BENCHMARK_OUTPUT_DIR)/$(BENCHMARK_NAME)_comparison.json

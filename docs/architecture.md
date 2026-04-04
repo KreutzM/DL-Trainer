@@ -48,3 +48,4 @@ Wesentliche Festlegung:
 - Stage-Profile fuer den Support-MVP liegen in `config/llm_stage_profiles.json`.
 - Der bestehende Default bleibt Codex CLI; Profilsets schalten nur bei expliziter Auswahl um.
 - Der Preflight fuer Profilsets validiert Backend-, Stage- und OpenRouter-Optionen vor dem Lauf.
+- Benchmark- und Rollout-Vorbereitung fuer OpenRouter laeuft ueber explizite Referenz-/Kandidatenlaeufe und bleibt getrennt vom produktiven Defaultpfad.

@@ -40,6 +40,8 @@ Fuer einen separaten Check gibt es:
 python scripts/preflight_llm_profiles.py --profile-set support_mvp_default
 ```
 
+Fuer Benchmark- und Rollout-Vorbereitung im Support-MVP siehe zusaetzlich `docs/openrouter_benchmark_rollout.md`.
+
 ## Bewusst noch offen
 
 Schritt 2 fuehrt noch keinen produktiven Default-Wechsel auf OpenRouter durch. Ebenso bleiben groessere Rollout-Themen fuer spaeter offen:

@@ -31,6 +31,8 @@ def _base_args(tmp_path: Path, **overrides: object) -> Namespace:
         "openrouter_api_key_env": "OPENROUTER_API_KEY",
         "llm_profile_config": str(ROOT / "config" / "llm_stage_profiles.json"),
         "llm_profile_set": None,
+        "benchmark_name": None,
+        "benchmark_role": None,
         "promote": False,
         "user_sim_model": "gpt-5.4-mini",
         "user_sim_reasoning_effort": "low",
@@ -55,7 +57,12 @@ def _fake_report() -> dict[str, object]:
 
 def test_pipeline_profile_mode_passes_profile_args(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     monkeypatch.setenv("OPENROUTER_API_KEY", "test-token")
-    args = _base_args(tmp_path, llm_profile_set="support_mvp_openrouter_candidate")
+    args = _base_args(
+        tmp_path,
+        llm_profile_set="support_mvp_openrouter_candidate",
+        benchmark_name="shadow-apr-2026",
+        benchmark_role="candidate",
+    )
     commands: list[list[str]] = []
     written_reports: dict[str, dict[str, object]] = {}
 
@@ -103,6 +110,11 @@ def test_pipeline_profile_mode_passes_profile_args(monkeypatch: pytest.MonkeyPat
     assert all("--teacher-model" not in command for command in commands[:3])
     pipeline_report = written_reports[str(tmp_path / "data/derived/teacher_reviews/JAWS/DE/demo-run_pipeline_report.json")]
     assert pipeline_report["llm_profile_set"] == "support_mvp_openrouter_candidate"
+    assert pipeline_report["benchmark"] == {
+        "name": "shadow-apr-2026",
+        "role": "candidate",
+        "profile_set": "support_mvp_openrouter_candidate",
+    }
 
 
 def test_pipeline_profile_mode_rejects_legacy_overrides(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
@@ -115,3 +127,15 @@ def test_pipeline_profile_mode_rejects_legacy_overrides(monkeypatch: pytest.Monk
         pipeline.main()
 
     assert "--llm-backend" in str(exc.value)
+
+
+def test_pipeline_benchmark_mode_requires_profile_set(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    args = _base_args(tmp_path, benchmark_name="shadow-apr-2026", benchmark_role="reference")
+
+    monkeypatch.setattr(pipeline, "parse_args", lambda: args)
+    monkeypatch.setattr(pipeline, "find_repo_root", lambda _: tmp_path)
+
+    with pytest.raises(SystemExit) as exc:
+        pipeline.main()
+
+    assert "--llm-profile-set" in str(exc.value)
