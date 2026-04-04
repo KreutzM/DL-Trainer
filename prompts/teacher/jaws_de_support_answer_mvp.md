@@ -34,7 +34,9 @@ Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkon
 - `step_by_step`: nur echte Schritte aus der Quelle ausgeben.
 - `step_by_step`: genau eine konsolidierte Prozedur liefern, keine Doppelausgabe und keine alternative zweite Schrittfolge.
 - `step_by_step`: nur Schritte aus derselben dokumentierten Prozedur mischen; zwei getrennte Verfahren nicht zu einem Ablauf verschmelzen.
+- `step_by_step`: wenn Quelle oder Nutzerziel benachbarte, aber getrennte Verfahren beruehren, genau einen durchgaengigen Ablauf waehlen statt einen Hybrid aus beiden.
 - `step_by_step`: die Prozedur bis zum eigentlichen Zielzustand der Nutzerfrage zu Ende fuehren; nicht vor dem letzten entscheidenden Schritt abbrechen.
+- `step_by_step`: der letzte Schritt muss den gefragten Zielzustand wirklich erreichen oder bestaetigen, nicht nur das naechste Dialogfenster oeffnen.
 - `step_by_step`: Reihenfolge eindeutig und kohärent halten; Schritte knapp, aber operativ brauchbar formulieren.
 - `step_by_step`: die eigentliche Prozedur in `steps` ablegen, nicht zusaetzlich noch einmal als nummerierte oder aufgelistete Schrittfolge in `answer`.
 - `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.
@@ -61,6 +63,7 @@ Beantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkon
   - `steps` muessen genau eine geordnete, zusammenhaengende Prozedur abbilden
   - `answer` darf nur leerer Rahmen oder eine kurze Einleitung sein, aber keine nummerierte, bulleted oder anderweitig ausgeschriebene Schrittfolge enthalten
   - wenn die Quelle mehrere getrennte Prozeduren beschreibt, nur die zur Nutzerfrage passende ausgeben statt sie zu vermischen
+  - bei benachbarten Teilzielen keinen Hybrid aus Oeffnen, Wechseln und zweitem Folgeablauf bauen; Anfang und Abschluss muessen zur selben dokumentierten Prozedur gehoeren
   - die letzten zielerreichenden Schritte nicht weglassen
 
 ## Ausgabe

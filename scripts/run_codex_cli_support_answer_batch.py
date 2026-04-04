@@ -155,8 +155,9 @@ def answer_contract_for_task(task_type: str) -> str:
     if task_type == "step_by_step":
         return (
             "steps nur mit echten Schritten aus der Quelle fuellen; genau eine konsolidierte Prozedur; "
-            "keine doppelte Ausgabe; keine Vermischung getrennter Verfahren; Reihenfolge eindeutig; "
-            "bis zum eigentlichen Zielzustand zu Ende fuehren; answer hoechstens als kurze Einleitung, "
+            "keine doppelte Ausgabe; bei benachbarten Teilzielen genau einen durchgaengigen Ablauf waehlen; "
+            "keine Vermischung getrennter Verfahren; Reihenfolge eindeutig; bis zum eigentlichen Zielzustand "
+            "inklusive letztem zielerreichenden Schritt zu Ende fuehren; answer hoechstens als kurze Einleitung, "
             "keine nummerierten oder aufgelisteten Schritte in answer"
         )
     if task_type == "troubleshooting":
