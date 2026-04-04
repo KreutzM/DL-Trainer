@@ -1,0 +1,360 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v7_openrouter_gpt54_composite_step_restpattern_wave",
+  "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v7_openrouter_gpt54_composite_step_restpattern_wave_pipeline_report.json",
+  "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v7_composite_step_restpattern_selection.json",
+  "judge_role": {
+    "intended_role": "secondary_audit_judge",
+    "shadow_only": true,
+    "statement": "This wave treats the GPT-5.4 OpenRouter judge as a secondary audit signal only. The primary observation target is OpenRouter user_simulation plus answer quality; judge outputs are reported for calibration and triage, not for promotion or rollout gating.",
+    "judge_profile": {
+      "profile_set": "support_mvp_openrouter_gpt54_candidate",
+      "profile_stage": "judge",
+      "profile_name": "openrouter_gpt54_judge_shadow_v1"
+    }
+  },
+  "processing": {
+    "jobs_total": 16,
+    "task_type_distribution": {
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "step_by_step": 12,
+      "troubleshooting": 1,
+      "uncertainty_escalation": 1
+    },
+    "split_distribution": {
+      "eval": 4,
+      "train": 12
+    }
+  },
+  "approval_distribution": {
+    "approve": 13,
+    "reject": 3
+  },
+  "score_distribution": {
+    "count": 16,
+    "min": 35,
+    "median": 94.0,
+    "max": 97,
+    "score_bands": {
+      "<60": 3,
+      "60-69": 0,
+      "70-79": 0,
+      "80-89": 1,
+      "90+": 12
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 1,
+      "reject": 0
+    },
+    "faq_direct_answer": {
+      "approve": 1,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 10,
+      "reject": 2
+    },
+    "troubleshooting": {
+      "approve": 1,
+      "reject": 0
+    },
+    "uncertainty_escalation": {
+      "approve": 0,
+      "reject": 1
+    }
+  },
+  "stage_health": {
+    "user_simulation": {
+      "selected_jobs": 16,
+      "completed_jobs": 16,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 2,
+      "completed_batches": 2,
+      "avg_elapsed_ms_per_processed_job": 874.5
+    },
+    "answering": {
+      "selected_jobs": 16,
+      "completed_jobs": 16,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 4,
+      "completed_batches": 4,
+      "avg_elapsed_ms_per_processed_job": 3702.94
+    },
+    "judge": {
+      "selected_jobs": 16,
+      "completed_jobs": 16,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 2,
+      "completed_batches": 2,
+      "avg_elapsed_ms_per_processed_job": 2976.38
+    }
+  },
+  "attempt_histograms": {
+    "user_simulation": {
+      "1": 16
+    },
+    "answer": {
+      "1": 16
+    },
+    "judge": {
+      "1": 16
+    }
+  },
+  "provider_usage": {
+    "user_simulation": {
+      "rows_with_provider_usage": 16,
+      "prompt_tokens": 67096,
+      "completion_tokens": 18816,
+      "total_tokens": 85912,
+      "reported_cost_usd_estimate": 0.135,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "answer": {
+      "rows_with_provider_usage": 16,
+      "prompt_tokens": 56808,
+      "completion_tokens": 18256,
+      "total_tokens": 75064,
+      "reported_cost_usd_estimate": 0.4159,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "judge": {
+      "rows_with_provider_usage": 16,
+      "prompt_tokens": 91080,
+      "completion_tokens": 26152,
+      "total_tokens": 117232,
+      "reported_cost_usd_estimate": 0.62,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    }
+  },
+  "qualitative_focus_cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0054",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 40,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Anfrage verlangt eine Schritt-für-Schritt-Prozedur, aber die Antwort enthält nur eine knappe Eskalation und beantwortet die dokumentierte Aufgabe nicht.",
+      "blocking_reasons": [
+        "Für task_type step_by_step fehlt die eigentliche Prozedur vollständig.",
+        "Die Antwort beantwortet die konkrete Nutzeranfrage nicht.",
+        "Keine dokumentationsgebundene Umsetzung der vorhandenen Schritte aus der Quelle."
+      ],
+      "request_text": "In einem mehrseitigen Dialog werden meine Promptbezeichnungen auf mehrere Registerkarten verteilt. Wie gehe ich vor, damit die Zuordnung nur an den eindeutigen Text der richtigen Registerkarte gebunden ist?",
+      "answer_text": "Ich muss kurz eskalieren.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L323-L338"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 42,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort ist zwar quellentreu in den ersten Schritten, bricht aber vor dem entscheidenden Abschluss des Importvorgangs ab und ist damit für step_by_step unvollständig.",
+      "blocking_reasons": [
+        "Der letzte entscheidende Teil der Prozedur fehlt; die Antwort endet nach 'Weiter' bei der Vorschau.",
+        "Die Nutzerfrage verlangt die genaue Reihenfolge bis zum Abschluss, was nicht geliefert wird.",
+        "Bei step_by_step ist diese Unvollständigkeit schwerwiegend."
+      ],
+      "request_text": "Wie importiere ich in JAWS Einstellungen aus einer SBAK-Datei Schritt für Schritt? Ich brauche die genaue Reihenfolge von der Dateiauswahl bis zum Abschluss.",
+      "answer_text": "So gehen Sie beim Import aus einer SBAK-Datei vor.\n\n1. Öffnen Sie im JAWS-Anwendungsfenster das Menü Hilfsprogramme, öffnen Sie dann das Untermenü Einstellungen importieren/exportieren und wählen Sie Importieren.\n2. Geben Sie im Eingabefeld Eine Backup-Datei auswählen den Namen der SBAK-Datei an, die Sie importieren möchten. Alternativ wählen Sie Durchsuchen, navigieren zum Ordner mit der gespeicherten Datei und wählen diese aus.\n3. Lesen Sie nach der Auswahl der Backup-Datei die angezeigten Archiv-Informationen und Kommentare im Nur-Lesen-Eingabefeld und wählen Sie Weiter.\n4. Sehen Sie sich die Vorschau der Einstellungen an, die importiert werden, und wählen Sie Weiter.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1589-L1595"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0010",
+      "task_type": "uncertainty_escalation",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 35,
+      "selection_tags": [
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Inhaltlich zwar quellengebunden, aber keine echte Evidenzgrenze oder Eskalation; die Antwort ist eher eine direkte FAQ-Antwort und verfehlt damit den Task-Typ.",
+      "blocking_reasons": [
+        "Task-Typ uncertainty_escalation nicht erfüllt",
+        "Keine sichtbare Evidenzgrenze oder saubere Eskalation trotz gefordertem Antwortformat"
+      ],
+      "request_text": "Kann ich mich bei der Zuweisung einer Kurztaste in JAWS darauf verlassen, dass Windows das immer gleich behandelt, oder gibt es Fälle, in denen die Tastenkombination anders übernommen wird?",
+      "answer_text": "Nein, darauf sollten Sie sich nicht verlassen. Laut Dokumentation kann Windows eine bereits vergebene Tastenkombination automatisch verändern, indem es eine weitere Taste hinzufügt. Prüfen Sie die tatsächlich übernommene Kurztaste daher mit JAWS TASTE+PFEIL RAUF, bevor Sie sie aktivieren.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L222-L236"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0006",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "approve",
+      "quality_score": 90,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Korrekte, kurze und quellengebundene Schrittfolge zum Installieren zusätzlicher Stimmen über Stimmen hinzufügen/entfernen.",
+      "blocking_reasons": [],
+      "request_text": "Wie installiere ich in JAWS eine zusätzliche Stimme über Stimmen hinzufügen/entfernen? Ich brauche die Schritte direkt nacheinander.",
+      "answer_text": "So installieren Sie eine zusätzliche Stimme:\n\n1. Drücken Sie im JAWS Programmfenster ALT+O, um das Menü Optionen zu öffnen, erweitern Sie das Untermenü Stimmen und wählen Sie dann Stimmen hinzufügen/entfernen, um das Hilfsprogramm zum Hinzufügen und Entfernen von Vocalizer Expressive Stimmen zu öffnen.\n2. Wählen Sie in der Ausklappliste Sprache auswählen die Sprache, für die Sie Stimmen herunterladen möchten.\n3. Im Listenfeld Premium Stimmen drücken Sie LEERTASTE auf den Stimmen, die Sie installieren möchten.\n4. Wählen Sie den Schalter Gewählte Stimmen installieren, um die Installation zu starten.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5105-L5114"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0004",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "approve",
+      "quality_score": 92,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Saubere, vollständige und korrekt geordnete Schrittfolge zum Bearbeiten einer Schriftgrößenregel einschließlich Abschluss durch OK.",
+      "blocking_reasons": [],
+      "request_text": "Wie bearbeite ich in JAWS eine Schriftgrößenregel Schritt für Schritt? Ich möchte den Wert ändern und danach wieder speichern.",
+      "answer_text": "So bearbeiten und speichern Sie eine Schriftgrößenregel:\n\n1. Wählen Sie in der Liste eine Schriftgröße aus.\n2. Drücken Sie TAB, um zur Gruppe der Auswahlschalter zu springen, die das Sprach- und Soundverhalten steuern, und wählen Sie bei Bedarf ein neues Verhalten.\n3. Drücken Sie TAB, um zum Schalter Bearbeiten zu springen, und aktivieren Sie diesen.\n4. Geben Sie im Dialogfenster Schriftgröße verändern einen neuen Wert ein und wählen Sie Weiter.\n5. Wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1301-L1314"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 93,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort greift genau den nachgefragten Abschnitt des Importassistenten auf und führt die Schritte ab der Zusammenführungsfrage bis zum Abschluss sauber und quellentreu aus.",
+      "blocking_reasons": [],
+      "request_text": "Beim Import von JAWS-Einstellungen komme ich bei der Frage zum Zusammenführen und möglichen Konflikten nicht ganz klar. Wie muss ich da Schritt für Schritt weiter vorgehen?",
+      "answer_text": "So gehen Sie ab der Frage zum Zusammenführen und bei möglichen Konflikten weiter vor.\n\n1. Wenn Sie die Auswahl zum Zusammenführen der Einstellungen wählen, legen Sie für Konflikte fest, was geschehen soll: Wählen Sie Aktuelle Einstellung aktualisieren, um die bestehende Einstellung mit der Einstellung aus der Backup-Datei zu ersetzen, oder Aktuelle Einstellung beibehalten, damit die Einstellung in Ihrem Benutzerordner nicht ersetzt wird.\n2. Wählen Sie nach der gewünschten Auswahl Weiter.\n3. Lesen Sie auf der letzten Seite des Assistenten die Zusammenfassung Ihrer Import-Auswahl und wählen Sie Fertigstellen zum Importieren der Einstellungen.\n4. Lesen Sie nach Abschluss des Imports die Ergebnisse im angezeigten Dialogfenster und wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1596-L1598"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 94,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Kurze, vollständige und korrekt geordnete Schrittfolge zum Öffnen und Ändern der Stimmeneinstellungen mit passendem Abschluss durch Speichern und Schließen.",
+      "blocking_reasons": [],
+      "request_text": "Wie öffne und ändere ich die Stimmeneinstellungen in JAWS Schritt für Schritt? Ich möchte Sprache, Stimme und Sprechgeschwindigkeit anpassen.",
+      "answer_text": "So öffnen und ändern Sie die Stimmeneinstellungen:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Wählen Sie dort ein bestehendes Profil oder eine Standard-Stimmenvorlage aus und konfigurieren Sie die gewünschten Einstellungen wie Sprache, Stimme und Sprechgeschwindigkeit.\n5. Speichern Sie nach dem Ändern der Einstellungen das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L114-L129"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0037",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 94,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Realistische supportnahe Anfrage; die Antwort folgt der dokumentierten Prozedur in korrekter Reihenfolge und bleibt inhaltlich quellentreu.",
+      "blocking_reasons": [],
+      "request_text": "Ich möchte die Standard-Einstellung für „Sprache auf Abruf“ in JAWS ändern, damit das nicht nach jedem Neustart wieder auf Voll-Sprache zurückgeht. Wie gehe ich dabei Schritt für Schritt vor?",
+      "answer_text": "So ändern Sie die Standard-Einstellung für Sprache auf Abruf dauerhaft:\n\n1. Drücken Sie EINFÜGEN+F2 und wählen Sie Einstellungsverwaltung.\n2. Wenn die Änderung nur für eine bestimmte Anwendung gelten soll, wählen Sie diese in der Anwendungsliste. Andernfalls drücken Sie STRG+UMSCHALT+D, um die Standardeinstellungsdatei zu laden.\n3. Erweitern Sie in der Strukturansicht die Gruppe Sprachoptionen.\n4. Drücken Sie die LEERTASTE auf Sprache auf Abruf, um die Standardauswahl zwischen Reduzierter Sprache oder Voll-Sprache zu ändern.\n5. Drücken Sie die LEERTASTE auf Reduzierte Sprache, um die Standardauswahl zwischen Stummschalten und Sprache auf Abruf zu ändern.\n6. Wenn Sie während aktiver Sprache auf Abruf oder Stummschaltung keine von JAWS generierten Sounds hören möchten, drücken Sie bei fokussierter Auswahlschaltergruppe für Reduzierte Sprache PFEIL RECHTS und deaktivieren Sie dann mit der LEERTASTE das Kontrollfeld JAWS Sounds abspielen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1714-L1724"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0019",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 95,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Korrekte und vollständige Prozedur zum Neuordnen von Benachrichtigungsregeln nach oben, inklusive sauberem Abschluss beider Dialoge.",
+      "blocking_reasons": [],
+      "request_text": "Wie ordne ich in JAWS meine Benachrichtigungsregeln neu, damit eine bestimmte Regel weiter oben steht?",
+      "answer_text": "So ordnen Sie Ihre Benachrichtigungsregeln neu:\n\n1. Drücken Sie EINFÜGEN+LEERTASTE, N, um das Dialogfenster Benachrichtigungsverlauf zu öffnen.\n2. Drücken Sie TAB, um auf Regeln verwalten zu springen, und drücken Sie EINGABE.\n3. Suchen Sie in der Regelliste die Regel, die Sie verschieben möchten.\n4. Drücken Sie STRG+UMSCHALT+PFEIL RAUF oder ALT+U, um die ausgewählte Regel in der Liste nach oben zu bewegen.\n5. Wenn Sie fertig sind, drücken Sie Schließen, um das Dialogfenster zum Verwalten der Regeln zu schließen, und drücken dann ESC, um den Benachrichtigungsverlauf zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1020-L1030"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0053",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 95,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort beantwortet die Anfrage direkt und bildet die dokumentierte Installationsprozedur für zusätzliche Vocalizer-Expressive-Stimmen vollständig und korrekt ab.",
+      "blocking_reasons": [],
+      "request_text": "Ich möchte bei JAWS noch weitere Vocalizer-Expressive-Stimmen hinzufügen. Wie läuft das Schritt für Schritt ab, also vom Öffnen der Funktion bis zur Installation?",
+      "answer_text": "So fügen Sie weitere Vocalizer-Expressive-Stimmen hinzu:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen, erweitern Sie das Untermenü Stimmen und wählen Sie dann Stimmen hinzufügen/entfernen, um das Hilfsprogramm zum Hinzufügen und Entfernen von Vocalizer Expressive Stimmen zu öffnen.\n3. Wählen Sie in der Ausklappliste Sprache auswählen die Sprache, für die Sie Stimmen herunterladen möchten.\n4. Drücken Sie im Listenfeld Premium Stimmen die LEERTASTE auf den Stimmen, die Sie installieren möchten. Sie können mehrere Stimmen auswählen. Wenn Sie vorab ein Sprechbeispiel der aktuellen Stimme hören möchten, drücken Sie ALT+B.\n5. Wählen Sie den Schalter Gewählte Stimmen installieren, um die Installation zu starten.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L4561-L4569"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0013",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Sehr gute, vollständige Schrittfolge zum Ändern oder Löschen einer vorhandenen Regel mit korrekten Tastenschritten und sauberem Abschluss.",
+      "blocking_reasons": [],
+      "request_text": "Wie kann ich in JAWS eine vorhandene Regel ändern oder löschen? Am besten mit den genauen Tastenschritten.",
+      "answer_text": "So ändern oder löschen Sie eine vorhandene Regel:\n\n1. Drücken Sie EINFÜGEN+LEERTASTE, N, um das Dialogfenster Benachrichtigungsverlauf zu öffnen.\n2. Drücken Sie TAB, um auf Regeln verwalten zu springen, und drücken Sie EINGABE.\n3. Wählen Sie in der Regelliste die Regel aus, die Sie ändern oder löschen möchten.\n4. Drücken Sie die ANWENDUNGSTASTE, um das Kontextmenü zu öffnen.\n5. Wählen Sie Bearbeiten, um die Regel zu ändern, nehmen Sie die gewünschten Änderungen vor und wählen Sie dann OK, oder wählen Sie Löschen, um die ausgewählte Regel zu entfernen. Alternativ können Sie zum Löschen auch ENTFERNEN auf der ausgewählten Regel drücken.\n6. Wählen Sie Schließen, um das Dialogfenster Regeln verwalten zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1007-L1016"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0048",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Anfrage ist plausibel, und die Antwort liefert eine vollständige, sauber geordnete und dokumentationsgebundene Schritt-für-Schritt-Anleitung zum Übernehmen von Einstellungen aus einer früheren JAWS-Version.",
+      "blocking_reasons": [],
+      "request_text": "Ich muss meine JAWS-Einstellungen aus einer vorherigen Version übernehmen. Können Sie mir die genaue Vorgehensweise Schritt für Schritt nennen?",
+      "answer_text": "So übernehmen Sie Einstellungen aus einer vorherigen JAWS-Version:\n\n1. Öffnen Sie mit JAWS TASTE+J das JAWS Programmfenster und mit ALT+P das Menü Hilfsprogramme.\n2. Wählen Sie im Menü Hilfsprogramme das Untermenü Einstellungen importieren/exportieren und dann Übernehmen. Das Dialogfenster Benutzereinstellungen übernehmen wird geöffnet.\n3. Wählen Sie die vorherige JAWS-Version, aus der Sie Einstellungen importieren möchten, und wählen Sie Ja. Es werden nur die letzten zwei Versionen aufgelistet.\n4. Wenn die Warnmeldung angezeigt wird, dass alle bestehenden Benutzereinstellungen gelöscht werden, wählen Sie Ja, um die Einstellungen von der vorherigen Version zu übernehmen, oder Nein, wenn Sie die Einstellungen jetzt nicht übernehmen möchten.\n5. Wenn die Übernahme durchgeführt wird, lesen Sie die angezeigten Ergebnisse des Übernahmevorgangs und wählen Sie anschließend OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1612-L1620"
+      ]
+    }
+  ]
+}
