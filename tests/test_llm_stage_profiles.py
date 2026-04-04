@@ -189,7 +189,7 @@ def test_resolve_stage_runtime_settings_uses_profile_runtime(monkeypatch: pytest
     assert runtime.llm_backend == "openrouter"
     assert runtime.model == "openai/gpt-4.1-mini"
     assert runtime.temperature == 0.2
-    assert runtime.max_output_tokens == 1200
+    assert runtime.max_output_tokens == 2200
     assert runtime.llm_profile_set == "support_mvp_openrouter_candidate"
     assert runtime.openrouter_api_key_env == "OPENROUTER_API_KEY"
 

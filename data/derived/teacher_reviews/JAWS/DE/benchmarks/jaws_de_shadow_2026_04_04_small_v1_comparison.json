@@ -1,0 +1,504 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_small_v1",
+  "reference": {
+    "run_name": "jaws_de_shadow_2026_04_04_small_v1_codex",
+    "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_pipeline_report.json",
+    "benchmark": {
+      "name": "jaws_de_shadow_2026_04_04_small_v1",
+      "role": "reference",
+      "profile_set": "support_mvp_default"
+    },
+    "llm_profile_set": "support_mvp_default",
+    "paths": {
+      "user_simulations": "D:/Codex/DL/DL-Trainer/data/derived/user_simulations/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_user_simulations.jsonl",
+      "raw_responses": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_raw_responses.jsonl",
+      "teacher_outputs": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_teacher_outputs.jsonl",
+      "judge_results": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_judge_results.jsonl",
+      "reviewed_outputs": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_reviewed_teacher_outputs.jsonl",
+      "train_output": null,
+      "eval_output": null
+    },
+    "stages": {
+      "user_simulation": {
+        "stage": "user_simulation",
+        "provider": "codex_cli",
+        "model": "gpt-5.4-mini",
+        "generation_mode": "teacher_user_simulator_codex_cli_v1",
+        "selected_jobs": 8,
+        "completed_jobs": 8,
+        "failed_jobs": 0,
+        "executed_batches": 1,
+        "completed_batches": 1,
+        "total_elapsed_ms": 22870,
+        "total_retry_attempts": 0,
+        "profile": {
+          "profile_set": "support_mvp_default",
+          "profile_stage": "user_simulation",
+          "profile_name": "codex_gpt54mini_low_v1",
+          "backend": "codex_cli",
+          "model": "gpt-5.4-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "codex_cli": {
+            "reasoning_effort": "low",
+            "sandbox": "read-only",
+            "extra_config": []
+          }
+        },
+        "configured_defaults": {
+          "profile_set": "support_mvp_default",
+          "profile_stage": "user_simulation",
+          "profile_name": "codex_gpt54mini_low_v1",
+          "backend": "codex_cli",
+          "model": "gpt-5.4-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "codex_cli": {
+            "reasoning_effort": "low",
+            "sandbox": "read-only",
+            "extra_config": []
+          }
+        }
+      },
+      "answering": {
+        "stage": "answering",
+        "provider": "codex_cli",
+        "model": "gpt-5.4",
+        "generation_mode": "teacher_answer_codex_cli_v1",
+        "selected_jobs": 8,
+        "completed_jobs": 8,
+        "failed_jobs": 0,
+        "executed_batches": 3,
+        "completed_batches": 3,
+        "total_elapsed_ms": 98403,
+        "total_retry_attempts": 0,
+        "profile": {
+          "profile_set": "support_mvp_default",
+          "profile_stage": "answer",
+          "profile_name": "codex_gpt54_medium_v1",
+          "backend": "codex_cli",
+          "model": "gpt-5.4",
+          "batch_size": 4,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "codex_cli": {
+            "reasoning_effort": "medium",
+            "sandbox": "read-only",
+            "extra_config": []
+          }
+        },
+        "configured_defaults": {
+          "profile_set": "support_mvp_default",
+          "profile_stage": "answer",
+          "profile_name": "codex_gpt54_medium_v1",
+          "backend": "codex_cli",
+          "model": "gpt-5.4",
+          "batch_size": 4,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "codex_cli": {
+            "reasoning_effort": "medium",
+            "sandbox": "read-only",
+            "extra_config": []
+          }
+        }
+      },
+      "judge": {
+        "stage": "judge",
+        "provider": "codex_cli",
+        "model": "gpt-5.4-mini",
+        "generation_mode": "teacher_judge_codex_cli_v1",
+        "selected_jobs": 8,
+        "completed_jobs": 8,
+        "failed_jobs": 0,
+        "executed_batches": 1,
+        "completed_batches": 1,
+        "total_elapsed_ms": 15319,
+        "total_retry_attempts": 0,
+        "profile": {
+          "profile_set": "support_mvp_default",
+          "profile_stage": "judge",
+          "profile_name": "codex_gpt54mini_medium_v1",
+          "backend": "codex_cli",
+          "model": "gpt-5.4-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "codex_cli": {
+            "reasoning_effort": "medium",
+            "sandbox": "read-only",
+            "extra_config": []
+          }
+        },
+        "configured_defaults": {
+          "profile_set": "support_mvp_default",
+          "profile_stage": "judge",
+          "profile_name": "codex_gpt54mini_medium_v1",
+          "backend": "codex_cli",
+          "model": "gpt-5.4-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "codex_cli": {
+            "reasoning_effort": "medium",
+            "sandbox": "read-only",
+            "extra_config": []
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "teacher_outputs": {
+        "path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_teacher_outputs.jsonl",
+        "rows": 8,
+        "schema": {
+          "ok": true,
+          "error_count": 0,
+          "sample_errors": []
+        },
+        "source_records": {
+          "ok": true,
+          "missing_rows": [],
+          "missing_count": 0
+        },
+        "review_status_counts": {
+          "teacher_generated": 8
+        },
+        "record_type_counts": {
+          "eval_case": 5,
+          "sft_sample": 3
+        }
+      },
+      "reviewed_outputs": {
+        "path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_reviewed_teacher_outputs.jsonl",
+        "rows": 8,
+        "schema": {
+          "ok": true,
+          "error_count": 0,
+          "sample_errors": []
+        },
+        "source_records": {
+          "ok": true,
+          "missing_rows": [],
+          "missing_count": 0
+        },
+        "review_status_counts": {
+          "codex_reviewed": 7,
+          "rejected": 1
+        },
+        "record_type_counts": {
+          "eval_case": 5,
+          "sft_sample": 3
+        }
+      },
+      "judge_results": {
+        "path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_judge_results.jsonl",
+        "rows": 8,
+        "schema": {
+          "ok": true,
+          "error_count": 0,
+          "sample_errors": []
+        },
+        "source_records": {
+          "ok": true,
+          "missing_rows": [],
+          "missing_count": 0
+        },
+        "decision_counts": {
+          "approve": 7,
+          "reject": 1
+        },
+        "average_quality_score": 88.12
+      }
+    },
+    "approval": {
+      "approved_jobs": 7,
+      "rejected_jobs": 1,
+      "approval_rate": 0.875
+    }
+  },
+  "candidate": {
+    "run_name": "jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1",
+    "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_pipeline_report.json",
+    "benchmark": {
+      "name": "jaws_de_shadow_2026_04_04_small_v1",
+      "role": "candidate",
+      "profile_set": "support_mvp_openrouter_candidate"
+    },
+    "llm_profile_set": "support_mvp_openrouter_candidate",
+    "paths": {
+      "user_simulations": "D:/Codex/DL/DL-Trainer/data/derived/user_simulations/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_user_simulations.jsonl",
+      "raw_responses": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_raw_responses.jsonl",
+      "teacher_outputs": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_teacher_outputs.jsonl",
+      "judge_results": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_judge_results.jsonl",
+      "reviewed_outputs": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_reviewed_teacher_outputs.jsonl",
+      "train_output": null,
+      "eval_output": null
+    },
+    "stages": {
+      "user_simulation": {
+        "stage": "user_simulation",
+        "provider": "openrouter",
+        "model": "openai/gpt-4.1-mini",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "selected_jobs": 8,
+        "completed_jobs": 8,
+        "failed_jobs": 0,
+        "executed_batches": 1,
+        "completed_batches": 1,
+        "total_elapsed_ms": 13107,
+        "total_retry_attempts": 0,
+        "profile": {
+          "profile_set": "support_mvp_openrouter_candidate",
+          "profile_stage": "user_simulation",
+          "profile_name": "openrouter_gpt41mini_trial_v1",
+          "backend": "openrouter",
+          "model": "openai/gpt-4.1-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "openrouter": {
+            "api_base": "https://openrouter.ai/api/v1",
+            "api_key_env": "OPENROUTER_API_KEY",
+            "extra_headers": {},
+            "provider_options": {}
+          }
+        },
+        "configured_defaults": {
+          "profile_set": "support_mvp_openrouter_candidate",
+          "profile_stage": "user_simulation",
+          "profile_name": "openrouter_gpt41mini_trial_v1",
+          "backend": "openrouter",
+          "model": "openai/gpt-4.1-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "openrouter": {
+            "api_base": "https://openrouter.ai/api/v1",
+            "api_key_env": "OPENROUTER_API_KEY",
+            "extra_headers": {},
+            "provider_options": {}
+          }
+        }
+      },
+      "answering": {
+        "stage": "answering",
+        "provider": "openrouter",
+        "model": "openai/gpt-4.1",
+        "generation_mode": "teacher_answer_openrouter_v1",
+        "selected_jobs": 8,
+        "completed_jobs": 8,
+        "failed_jobs": 0,
+        "executed_batches": 3,
+        "completed_batches": 3,
+        "total_elapsed_ms": 19975,
+        "total_retry_attempts": 0,
+        "profile": {
+          "profile_set": "support_mvp_openrouter_candidate",
+          "profile_stage": "answer",
+          "profile_name": "openrouter_gpt41_trial_v1",
+          "backend": "openrouter",
+          "model": "openai/gpt-4.1",
+          "batch_size": 4,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "temperature": 0.1,
+          "max_output_tokens": 2600,
+          "openrouter": {
+            "api_base": "https://openrouter.ai/api/v1",
+            "api_key_env": "OPENROUTER_API_KEY",
+            "extra_headers": {},
+            "provider_options": {}
+          }
+        },
+        "configured_defaults": {
+          "profile_set": "support_mvp_openrouter_candidate",
+          "profile_stage": "answer",
+          "profile_name": "openrouter_gpt41_trial_v1",
+          "backend": "openrouter",
+          "model": "openai/gpt-4.1",
+          "batch_size": 4,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "temperature": 0.1,
+          "max_output_tokens": 2600,
+          "openrouter": {
+            "api_base": "https://openrouter.ai/api/v1",
+            "api_key_env": "OPENROUTER_API_KEY",
+            "extra_headers": {},
+            "provider_options": {}
+          }
+        }
+      },
+      "judge": {
+        "stage": "judge",
+        "provider": "openrouter",
+        "model": "openai/gpt-4.1-mini",
+        "generation_mode": "teacher_judge_openrouter_v1",
+        "selected_jobs": 8,
+        "completed_jobs": 8,
+        "failed_jobs": 0,
+        "executed_batches": 1,
+        "completed_batches": 1,
+        "total_elapsed_ms": 14872,
+        "total_retry_attempts": 0,
+        "profile": {
+          "profile_set": "support_mvp_openrouter_candidate",
+          "profile_stage": "judge",
+          "profile_name": "openrouter_gpt41mini_judge_trial_v1",
+          "backend": "openrouter",
+          "model": "openai/gpt-4.1-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "temperature": 0.0,
+          "max_output_tokens": 3600,
+          "openrouter": {
+            "api_base": "https://openrouter.ai/api/v1",
+            "api_key_env": "OPENROUTER_API_KEY",
+            "extra_headers": {},
+            "provider_options": {}
+          }
+        },
+        "configured_defaults": {
+          "profile_set": "support_mvp_openrouter_candidate",
+          "profile_stage": "judge",
+          "profile_name": "openrouter_gpt41mini_judge_trial_v1",
+          "backend": "openrouter",
+          "model": "openai/gpt-4.1-mini",
+          "batch_size": 8,
+          "max_attempts": 1,
+          "timeout_sec": 600,
+          "temperature": 0.0,
+          "max_output_tokens": 3600,
+          "openrouter": {
+            "api_base": "https://openrouter.ai/api/v1",
+            "api_key_env": "OPENROUTER_API_KEY",
+            "extra_headers": {},
+            "provider_options": {}
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "teacher_outputs": {
+        "path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_teacher_outputs.jsonl",
+        "rows": 8,
+        "schema": {
+          "ok": true,
+          "error_count": 0,
+          "sample_errors": []
+        },
+        "source_records": {
+          "ok": true,
+          "missing_rows": [],
+          "missing_count": 0
+        },
+        "review_status_counts": {
+          "teacher_generated": 8
+        },
+        "record_type_counts": {
+          "eval_case": 5,
+          "sft_sample": 3
+        }
+      },
+      "reviewed_outputs": {
+        "path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_reviewed_teacher_outputs.jsonl",
+        "rows": 8,
+        "schema": {
+          "ok": true,
+          "error_count": 0,
+          "sample_errors": []
+        },
+        "source_records": {
+          "ok": true,
+          "missing_rows": [],
+          "missing_count": 0
+        },
+        "review_status_counts": {
+          "codex_reviewed": 8
+        },
+        "record_type_counts": {
+          "eval_case": 5,
+          "sft_sample": 3
+        }
+      },
+      "judge_results": {
+        "path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_judge_results.jsonl",
+        "rows": 8,
+        "schema": {
+          "ok": true,
+          "error_count": 0,
+          "sample_errors": []
+        },
+        "source_records": {
+          "ok": true,
+          "missing_rows": [],
+          "missing_count": 0
+        },
+        "decision_counts": {
+          "approve": 8
+        },
+        "average_quality_score": 91.25
+      }
+    },
+    "approval": {
+      "approved_jobs": 8,
+      "rejected_jobs": 0,
+      "approval_rate": 1.0
+    }
+  },
+  "comparison": {
+    "reference_run": "jaws_de_shadow_2026_04_04_small_v1_codex",
+    "candidate_run": "jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1",
+    "selected_jobs_match": true,
+    "teacher_outputs_row_delta": 0,
+    "reviewed_outputs_row_delta": 0,
+    "approved_jobs_delta": 1,
+    "rejected_jobs_delta": -1,
+    "approval_rate_delta": 0.125,
+    "average_quality_score_delta": 3.13,
+    "validation": {
+      "reference_ok": true,
+      "candidate_ok": true
+    },
+    "stages": {
+      "user_simulation": {
+        "reference_backend": "codex_cli",
+        "candidate_backend": "openrouter",
+        "reference_model": "gpt-5.4-mini",
+        "candidate_model": "openai/gpt-4.1-mini",
+        "completed_jobs_delta": 0,
+        "failed_jobs_delta": 0,
+        "total_elapsed_ms_delta": -9763,
+        "total_retry_attempts_delta": 0
+      },
+      "answering": {
+        "reference_backend": "codex_cli",
+        "candidate_backend": "openrouter",
+        "reference_model": "gpt-5.4",
+        "candidate_model": "openai/gpt-4.1",
+        "completed_jobs_delta": 0,
+        "failed_jobs_delta": 0,
+        "total_elapsed_ms_delta": -78428,
+        "total_retry_attempts_delta": 0
+      },
+      "judge": {
+        "reference_backend": "codex_cli",
+        "candidate_backend": "openrouter",
+        "reference_model": "gpt-5.4-mini",
+        "candidate_model": "openai/gpt-4.1-mini",
+        "completed_jobs_delta": 0,
+        "failed_jobs_delta": 0,
+        "total_elapsed_ms_delta": -447,
+        "total_retry_attempts_delta": 0
+      }
+    }
+  }
+}

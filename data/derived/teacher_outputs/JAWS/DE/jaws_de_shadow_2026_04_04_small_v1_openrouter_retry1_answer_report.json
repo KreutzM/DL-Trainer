@@ -1,0 +1,59 @@
+{
+  "jobs_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "user_simulations": "D:/Codex/DL/DL-Trainer/data/derived/user_simulations/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_user_simulations.jsonl",
+  "teacher_run_id": "jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_answer",
+  "teacher_model": "openai/gpt-4.1",
+  "teacher_provider": "openrouter",
+  "generation_mode": "teacher_answer_openrouter_v1",
+  "selected_jobs": 8,
+  "completed_jobs": 8,
+  "skipped_existing_jobs": [],
+  "failed_jobs": [],
+  "raw_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_raw_responses.jsonl",
+  "teacher_output": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_teacher_outputs.jsonl",
+  "artifact_dir": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1/answers",
+  "runtime": {
+    "selected_jobs": 8,
+    "completed_jobs": 8,
+    "processed_jobs": 8,
+    "skipped_existing_jobs": 0,
+    "failed_jobs": 0,
+    "configured_batch_size": 4,
+    "executed_batches": 3,
+    "completed_batches": 3,
+    "avg_jobs_per_completed_batch": 2.67,
+    "total_elapsed_ms": 19975,
+    "avg_elapsed_ms_per_processed_job": 2496.88,
+    "avg_elapsed_ms_per_completed_batch": 6658.33,
+    "total_prompt_chars": 24077,
+    "avg_prompt_chars_per_processed_job": 3009.62,
+    "total_source_excerpt_chars": 7295,
+    "avg_source_excerpt_chars_per_processed_job": 911.88,
+    "total_retry_attempts": 0
+  },
+  "llm_profile": {
+    "profile_set": "support_mvp_openrouter_candidate",
+    "profile_stage": "answer",
+    "profile_name": "openrouter_gpt41_trial_v1"
+  },
+  "llm_profile_runtime": {
+    "backend": "openrouter",
+    "model": "openai/gpt-4.1",
+    "batch_size": 4,
+    "max_attempts": 1,
+    "timeout_sec": 600,
+    "temperature": 0.1,
+    "max_output_tokens": 2600,
+    "openrouter": {
+      "api_base": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "extra_headers": {},
+      "provider_options": {}
+    },
+    "llm_profile": {
+      "profile_set": "support_mvp_openrouter_candidate",
+      "profile_stage": "answer",
+      "profile_name": "openrouter_gpt41_trial_v1"
+    }
+  }
+}

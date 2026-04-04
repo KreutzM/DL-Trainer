@@ -9,7 +9,7 @@
 - Task coverage: `clarification`, `faq_direct_answer`, `step_by_step`, `troubleshooting`, `uncertainty_escalation`
 - Strategy: one eval example per task type plus extra train coverage for `faq_direct_answer`, `step_by_step` and `troubleshooting`
 
-## Runs Attempted
+## Runs Used
 
 Reference run:
 
@@ -19,64 +19,103 @@ Reference run:
 
 Candidate run:
 
-- Run name: `jaws_de_shadow_2026_04_04_small_v1_openrouter`
+- Run name: `jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1`
 - Profile set: `support_mvp_openrouter_candidate`
-- Status: blocked before execution
-- Blocking error: `Profile set 'support_mvp_openrouter_candidate' stage 'user_simulation' requires environment variable OPENROUTER_API_KEY`
+- Status: completed
 
-Because the OpenRouter candidate run never produced a benchmark-marked pipeline report, `scripts/compare_support_mvp_benchmarks.py` could not be executed for this benchmark pair without violating the existing comparison guardrails.
+Comparison artifact:
 
-## Reference Metrics
+- `data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_small_v1_comparison.json`
 
-Pipeline report: `data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_codex_pipeline_report.json`
+Operational note:
 
-Stage completion:
+- The first OpenRouter attempt failed in `user_simulation` because `max_output_tokens` was too low for the 8-item JSON batch and the response ended with `finish_reason=length`.
+- For the actual benchmark run, the OpenRouter candidate profile stayed otherwise unchanged but raised `max_output_tokens` to workable benchmark values:
+  - `user_simulation`: 2200
+  - `answer`: 2600
+  - `judge`: 3600
 
-- User simulation: 8/8 completed, 0 failed, 0 retries, `gpt-5.4-mini`, 22.87 s total
-- Answer: 8/8 completed, 0 failed, 0 retries, `gpt-5.4`, 98.40 s total
-- Judge: 8/8 completed, 0 failed, 0 retries, `gpt-5.4-mini`, 15.32 s total
+## Core Metrics
 
-Artifact quality:
+Reference:
 
-- Teacher outputs: 8 rows
-- Reviewed outputs: 8 rows
-- Judge results: 8 rows
-- Review status: 7 `codex_reviewed`, 1 `rejected`
-- Judge decisions: 7 `approve`, 1 `reject`
-- Average judge quality score: 88.12
-- Schema and provenance checks: passed on reviewed outputs
+- 8/8 jobs completed in all stages
+- 7 approved, 1 rejected
+- average judge quality score: 88.12
+- schema and provenance checks: passed
 
-## Qualitative Spot Checks
+Candidate:
 
-Observed strengths in the Codex reference run:
+- 8/8 jobs completed in all stages
+- 8 approved, 0 rejected
+- average judge quality score: 91.25
+- schema and provenance checks: passed
 
-- `faq_direct_answer` stayed compact and documentation-bound. Example `eval::faq_direct_answer::0003` correctly explained `Länge des Textblocks` with the documented shortcut context and default value 25.
-- `clarification` stayed disciplined. Example `eval::clarification::0001` was approved for using exactly one narrowing follow-up question instead of drifting into explanation.
-- `uncertainty_escalation` handled evidence limits well. Example `eval::uncertainty_escalation::0003` explicitly avoided claiming that the setting applies uniformly across all message types.
-- A train-side `step_by_step` example (`train::step_by_step::0001`) produced a clean four-step procedure and was approved with quality score 95.
+Comparison deltas from the benchmark summary:
 
-Known risk confirmed even in the reference path:
+- selected jobs match: `true`
+- teacher output rows delta: `0`
+- reviewed output rows delta: `0`
+- approval delta: `+1` for candidate
+- rejection delta: `-1` for candidate
+- average quality score delta: `+3.13` for candidate
 
-- `eval::step_by_step::0001` was rejected. The judge flagged that the response stopped before the decisive documented switch to Braillekurzschrift and therefore failed the requirement for a complete documented procedure.
-- This means `step_by_step` remains a sensitive stage/output type even before comparing providers. It is a bad candidate for a first low-supervision rollout.
+Observed elapsed time deltas on this 8-job subset:
+
+- `user_simulation`: candidate faster by 9.76 s
+- `answer`: candidate faster by 78.43 s
+- `judge`: candidate faster by 0.45 s
+
+These runtime numbers are only indicative because the benchmark is very small and network/provider variance is still high.
+
+## Qualitative Observations
+
+### User-Sim
+
+OpenRouter produced structurally clean user simulations and matched the full 8/8 job count without schema issues after the token-limit fix. The sampled requests were plausible and support-like, but tended to be slightly more explanatory and less tightly narrowed than the Codex baseline.
+
+Example:
+
+- `eval::clarification::0001` asks for a general explanation of Braille functions and focus behavior instead of a narrower support-style uncertainty. This is usable, but slightly less sharp than the Codex reference style.
+
+### Answer
+
+OpenRouter looks promising for `faq_direct_answer` and `uncertainty_escalation` on this subset.
+
+- `eval::faq_direct_answer::0003` stayed concise, documentation-bound and was judged stronger than the Codex reference.
+- `eval::uncertainty_escalation::0003` correctly preserved the evidence boundary and did not invent a blanket guarantee.
+- `train::step_by_step::0001` produced a complete, clean four-step answer and was approved.
+
+The main caution remains `step_by_step` on eval-style cases.
+
+### Judge / Reviewer Behavior
+
+This is the clearest no-go signal from the first shadow benchmark.
+
+For `eval::step_by_step::0001`:
+
+- Codex reference judge rejected the generated answer because the procedure stopped too early and missed the decisive documented switch to Braille-Kurzschrift.
+- OpenRouter candidate judge approved its own corresponding answer with quality score 90, while also noting that the final step still ended abruptly and could be more complete.
+
+That means the candidate judge currently appears more lenient than the Codex baseline on a known high-risk case. The better headline metrics for the candidate run therefore cannot yet be interpreted as a real quality win. Part of the gain is plausibly judge strictness drift.
 
 ## Conclusion
 
-This benchmark is only a partial benchmark, not a valid Codex-vs-OpenRouter comparison.
+OpenRouter is now technically runnable on the Support-MVP benchmark path and produced valid artifacts on the chosen subset. That is a real milestone.
 
-- Codex reference path is stable on the chosen 8-job subset.
-- OpenRouter is not yet benchmarked in this environment because the required runtime secret is missing locally.
-- No stage is currently rollout-ready for OpenRouter on the basis of this run, because there is no candidate evidence.
-- If OpenRouter becomes runnable, the first serious comparison should keep this exact subset and start with close review of `user_simulation` and `judge`, while treating `step_by_step` answer cases as the primary no-go check.
+However, the first actual benchmark does **not** justify a rollout switch.
+
+Current recommendation by stage:
+
+- `user_simulation`: realistic candidate for further shadow benchmarking
+- `answer`: promising candidate, especially for `faq_direct_answer` and evidence-bound direct answers, but still needs more `step_by_step` coverage
+- `judge`: not rollout-ready; strictness drift versus Codex is the main blocker
 
 ## Recommended Next Step
 
-1. Provision `OPENROUTER_API_KEY` locally and rerun the candidate benchmark with the same selection manifest and benchmark name.
-2. Run `scripts/compare_support_mvp_benchmarks.py` on the resulting reference/candidate pair.
-3. Review stage-level deltas with extra attention on:
-   - `step_by_step` completeness
-   - `faq_direct_answer` brevity and source fidelity
-   - evidence-bound escalation behavior
-   - judge strictness drift versus the Codex baseline
+1. Keep Codex CLI as production default.
+2. Run a second OpenRouter shadow benchmark on a slightly larger subset with extra `step_by_step` coverage.
+3. Add a cross-check pass for judge behavior instead of trusting candidate self-judging alone.
+4. Treat `judge` as frozen on Codex until strictness drift is better understood.
 
-Until that candidate run exists, Codex CLI should remain the only realistic path for production and for any further rollout decisions.
+If a selective OpenRouter rollout is explored later, `user_simulation` is the first plausible candidate, `answer` is a possible second candidate, and `judge` should stay on Codex for now.

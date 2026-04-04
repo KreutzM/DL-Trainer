@@ -1,7 +1,8 @@
 {
   "benchmark_name": "jaws_de_shadow_2026_04_04_small_v1",
-  "status": "partial_blocked",
+  "status": "completed",
   "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_benchmark_2026_04_04_small_v1_selection.json",
+  "comparison_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_small_v1_comparison.json",
   "reference": {
     "run_name": "jaws_de_shadow_2026_04_04_small_v1_codex",
     "profile_set": "support_mvp_default",
@@ -19,18 +20,34 @@
     "average_quality_score": 88.12
   },
   "candidate": {
-    "run_name": "jaws_de_shadow_2026_04_04_small_v1_openrouter",
+    "run_name": "jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1",
     "profile_set": "support_mvp_openrouter_candidate",
-    "status": "blocked_preflight",
-    "error": "Profile set 'support_mvp_openrouter_candidate' stage 'user_simulation' requires environment variable OPENROUTER_API_KEY"
+    "pipeline_report": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_retry1_pipeline_report.json",
+    "completed_jobs": 8,
+    "failed_jobs": 0,
+    "review_status_counts": {
+      "codex_reviewed": 8
+    },
+    "judge_decision_counts": {
+      "approve": 8
+    },
+    "average_quality_score": 91.25
   },
   "comparison": {
-    "status": "not_run",
-    "reason": "candidate benchmark report missing because OpenRouter runtime secret was not available"
+    "selected_jobs_match": true,
+    "teacher_outputs_row_delta": 0,
+    "reviewed_outputs_row_delta": 0,
+    "approved_jobs_delta": 1,
+    "rejected_jobs_delta": -1,
+    "average_quality_score_delta": 3.13,
+    "validation": {
+      "reference_ok": true,
+      "candidate_ok": true
+    }
   },
   "recommendation": {
     "rollout_candidate": false,
-    "summary": "OpenRouter is not yet a real rollout candidate in this environment because no candidate run could be executed.",
-    "next_step": "Provision OPENROUTER_API_KEY and rerun the candidate benchmark against the same subset before making any stage-level rollout decision."
+    "summary": "OpenRouter is a realistic shadow-benchmark candidate for user_simulation and possibly answering, but not yet for judge because the first benchmark shows strictness drift on a known step_by_step risk case.",
+    "next_step": "Run a larger shadow benchmark with extra step_by_step coverage and keep judge on Codex until cross-checking confirms comparable strictness."
   }
 }
