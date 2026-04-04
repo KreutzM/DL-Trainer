@@ -1,0 +1,109 @@
+{
+  "model": "openai/gpt-5.4",
+  "messages": [
+    {
+      "role": "user",
+      "content": "# Teacher Prompt: JAWS-DE Support Answer MVP\n\n## Rolle\n\nDu erzeugst eine hochwertige, dokumentationsgebundene Support-Antwort fuer eine simulierte JAWS-DE-Nutzeranfrage.\n\n## Ziel\n\nBeantworte die simulierte Nutzeranfrage nur anhand des bereitgestellten Quellkontexts so, dass die Antwort fuer einen spaeteren Support-Datensatz taugt.\n\n## Regeln\n\n- Nutze ausschliesslich die bereitgestellten Quellen.\n- Keine erfundenen Fakten, Menuepunkte, Tastenkombinationen oder Voraussetzungen.\n- Antworte auf die konkrete simulierte Nutzeranfrage, nicht auf einen generischen Dokumenttitel.\n- Wenn die Quelle eine klare direkte Antwort traegt, antworte direkt.\n- Wenn die Quelle eine echte Schrittfolge traegt, gib nur diese Schritte aus.\n- Wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist, stelle genau eine fokussierte Rueckfrage.\n- Wenn die Quelle nicht ausreicht, markiere die Unsicherheit knapp und eskaliere sauber statt zu raten.\n- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.\n\n## Gewuenschte Qualitaet\n\n- supporttauglich\n- sachlich und knapp\n- klar an der Nutzerfrage ausgerichtet\n- dokumentationsgebunden\n- ohne Tabellen-, Hinweis- oder Truncation-Artefakte\n\n## Task-Type-spezifische Regeln\n\n- `faq_direct_answer`: direkt beantworten, ohne unnötige Vorrede.\n- `troubleshooting`: symptombezogen antworten und die dokumentierte Bedingung oder Prüfung klar benennen.\n- `step_by_step`: nur echte Schritte aus der Quelle ausgeben, keine Doppelausgabe.\n- `clarification`: genau eine fokussierte Rueckfrage stellen, wenn der Fall nicht sicher direkt beantwortbar ist.\n- `uncertainty_escalation`: klar benennen, was die Quelle trägt und wo die Evidenzgrenze liegt; nicht so tun, als sei mehr belegt als dokumentiert.\n\n## Feldpflichten pro Fall\n\n- Setze `task_type` exakt wie vorgegeben.\n- `clarification`:\n  - `needs_clarification=true`\n  - `clarification_question` genau eine fokussierte Frage\n  - `answer` enthaelt nur diese Rueckfrage und endet mit `?`\n  - `steps=[]`\n  - `escalate=false`\n- `uncertainty_escalation`:\n  - `escalate=true`\n  - `uncertainty_reason` kurz und konkret\n  - `needs_clarification=false`\n- `faq_direct_answer`, `troubleshooting`, `step_by_step`:\n  - `needs_clarification=false`\n  - `clarification_question=null`\n- `step_by_step`:\n  - `steps` nur fuellen, wenn die Quelle eine echte Bedienfolge traegt\n  - `answer` darf kurz einleiten, aber keine zweite abweichende Schrittfolge enthalten\n\n## Ausgabe\n\nJSON gemaess Output-Schema.\n\n## Batch-Regeln\n- Erzeuge fuer jede job_id genau eine dokumentationsgebundene Support-Antwort.\n- Gib alle Ergebnisse gesammelt in einem JSON-Objekt mit items[] zurueck.\n- Uebernimm job_id und task_type je Fall exakt.\n- Antworte nur auf die gegebene Nutzeranfrage und nur mit belegtem Quellinhalt.\n\n## Faelle\n### job_id: jaws_de_teacher_wave_v1::train::troubleshooting::0004\n- task_type: troubleshooting\n- expected_output_kind: sft_sample\n- target_split: train\n- source_doc_ids: jaws_de_hilfe_kernfunktionen\n- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments::chunk_01\n- chunk_type: warning\n- section_path_text: JAWS – Hilfe (Kernfunktionen) > Texterkennung eines geöffneten PDF Dokuments\n- difficulty: intermediate\n- phrasing_style: task_focused\n- user_goal: Problemlösung für die Texterkennung eines geöffneten PDF-Dokuments in JAWS erhalten.\n- output_contract: symptombezogen antworten; dokumentierte Bedingung, Pruefung oder Abhilfe klar benennen\n- user_request:\nIch öffne ein PDF im Adobe Reader, aber JAWS liest es nicht sinnvoll vor. Wie gehe ich vor, damit die Texterkennung für das geöffnete Dokument startet, und worauf muss ich bei großen oder passwortgeschützten PDFs achten?\n- expected_behavior:\nn/a\n- source_excerpt:\nWenn Sie ein PDF im Adobe Reader öffnen und es stellt sich heraus, dass dieses nicht zugänglich ist, dann drücken Sie **EINFÜGEN+LEERTASTE, O, D**, damit JAWS mit einer Texterkennung des gesamten Dokuments startet. Nach einigen Sekunden zeigt JAWS den Inhalt der PDF Datei im Ergebnisbetrachter, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren.\n\n**Hinweis:** Der OCR Vorgang dauert bei großen PDF Dateien länger. Wenn Text erkannt wird, dann wird dieser am Ende des bereits im Ergebnisbetrachter bestehenden Textes hinzugefügt. Dieses ermöglicht Ihnen, das Lesen ohne Unterbrechungen fortzusetzen, während das Dokument verarbeitet wird. Lesen Sie aktuell nicht über den Befehl Alles Lesen, dann spricht JAWS die aktuelle Zeile wenn neuer Text dem Ergebnisbetrachter hinzugefügt wurde, was anzeigt, dass die Texterkennung noch nicht abgeschlossen ist.\n\n**Hinweis:** Wenn das PDF Dokument ein Passwort erfordert, dann werden Sie zur Eingabe des Passworts aufgefordert, wenn Sie **EINFÜGEN+LEERTASTE, O, D** erstmalig drücken. Bevor der OCR Vorgang fortgesetzt werden kann, müssen Sie das Passwort korrekt eingeben.\n\n### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0001\n- task_type: faq_direct_answer\n- expected_output_kind: sft_sample\n- target_split: train\n- source_doc_ids: jaws_de_braille\n- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01\n- chunk_type: concept\n- section_path_text: JAWS – Braille (Allgemein & Focus) > Focus Blue Tastatur\n- difficulty: basic\n- phrasing_style: neutral\n- user_goal: Die Grundbelegung und Funktion der Focus Blue Tastatur verstehen.\n- output_contract: direkte, dokumentationsgebundene Antwort ohne unnoetige Vorrede\n- user_request:\nWie ist die Focus Blue Tastatur bei JAWS aufgebaut, also welche Tasten sind die Brailletasten und wofür werden Leertaste und Umschalttasten verwendet?\n- expected_behavior:\nn/a\n- source_excerpt:\nDirekt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.\n\n### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0002\n- task_type: faq_direct_answer\n- expected_output_kind: sft_sample\n- target_split: train\n- source_doc_ids: jaws_de_tutorial_basics\n- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue::chunk_01\n- chunk_type: concept\n- section_path_text: JAWS – Tutorial / Grundlagen > Steuerungsmenü\n- difficulty: basic\n- phrasing_style: neutral\n- user_goal: Kurz erklärt bekommen, wozu das Steuerungsmenü dient und wie man es aufruft.\n- output_contract: direkte, dokumentationsgebundene Antwort ohne unnoetige Vorrede\n- user_request:\nWofür brauche ich das Steuerungsmenü in JAWS, und wie öffne ich es?\n- expected_behavior:\nn/a\n- source_excerpt:\nDas Steuerungsmenü wird dazu verwendet, ein Fenster wiederherzustellen, es zu verschieben, die Größe zu verändern, es zu minimieren, zu maximieren und zu schließen. Das Steuerungsmenü ist meist unsichtbar, Sie können es jedoch mit **ALT+LEERTASTE** öffnen. Gehen Sie dann mit **PFEIL RAUF** und **RUNTER** durch die Menüeinträge.\n\nQuelle: typical_application_layout.htm\n\n### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0003\n- task_type: faq_direct_answer\n- expected_output_kind: sft_sample\n- target_split: train\n- source_doc_ids: jaws_de_settingscenter\n- source_chunk_ids: jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__schlauer_navigationsmodus::chunk_03\n- chunk_type: concept\n- section_path_text: Gruppe Sprachausgaben > Gruppe Navigation > Schlauer Navigationsmodus\n- difficulty: intermediate\n- phrasing_style: neutral\n- user_goal: Eine direkte Erklärung zum schlauen Navigationsmodus und seiner temporären Umschaltung erhalten.\n- output_contract: direkte, dokumentationsgebundene Antwort ohne unnoetige Vorrede\n- user_request:\nWas macht der schlaue Navigationsmodus in JAWS genau, und wie kann ich ihn vorübergehend ein- oder ausschalten?\n- expected_behavior:\nn/a\n- source_excerpt:\nWenn Sie die schlaue Navigation verwenden, wird JAWS immer im Bildschirmlayout arbeiten. Dadurch werden die Seiten im virtuellen Speicher so dargestellt, wie sie auch visuell auf dem Bildschirm zu sehen sind. Symbole der Werkzeugleisten oder andere Auflistungen von Steuerelementen, die visuell waagerecht auf dem Bildschirm angezeigt werden, werden im virtuellen Dokument in einer Zeile dargestellt, wodurch mit einem einzelnen Druck auf **PFEIL RUNTER** die gesamte Werkzeugleiste übersprungen werden kann, anstatt dass man von Schalter zu Schalter springen muss, um hinter diese Leiste zu gelangen.\n\nUm die schlaue Navigation temporär ein- oder auszuschalten, drücken Sie **EINFÜGEN+X**. Hierdurch wird auch der Dokumentpräsentationsmodus entsprechend angepasst. Wird **EINFÜGEN+X** gedrückt, um die schlaue Navigation zu aktivieren, dann wechselt JAWS automatisch zum Bildschirmlayout. Wird die schlaue Navigation ausgeschaltet, dann wechselt JAWS zurück zum einfachen Layout. Wenn Sie mit **EINFÜGEN+X** die schlaue Navigation temporär umschalten, dann schaltet es zurück auf die vorherige Einstellung, wemm Sie einen Befehl ausführen, der den Fokus vom aktuellen Browserfenster wegbewegt, wie etwa **ALT+TAB**.\n"
+    }
+  ],
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "json_generation_payload",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "job_id",
+                "answer",
+                "task_type",
+                "needs_clarification",
+                "clarification_question",
+                "escalate",
+                "uncertainty_reason",
+                "steps",
+                "source_chunk_ids",
+                "notes"
+              ],
+              "properties": {
+                "job_id": {
+                  "type": "string",
+                  "enum": [
+                    "jaws_de_teacher_wave_v1::train::troubleshooting::0004",
+                    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+                    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+                    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0003"
+                  ]
+                },
+                "task_type": {
+                  "type": "string",
+                  "enum": [
+                    "faq_direct_answer",
+                    "troubleshooting"
+                  ]
+                },
+                "answer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "needs_clarification": {
+                  "type": "boolean"
+                },
+                "clarification_question": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "escalate": {
+                  "type": "boolean"
+                },
+                "uncertainty_reason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "steps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "source_chunk_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "notes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "temperature": 0.1,
+  "max_tokens": 2600
+}

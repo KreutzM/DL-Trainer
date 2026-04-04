@@ -1,0 +1,263 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0002",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0003",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0005",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0002",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0002",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004"
+  ],
+  "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+  "simulator_model": "openai/gpt-5.4-mini",
+  "generation_mode": "teacher_user_simulator_openrouter_v1",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0003",
+      "task_type": "step_by_step",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__sprache_und_braille_fuer_spalten_umschalten::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "source_excerpt": "Wenn JAWS eine bestimmte Spalte nicht lesen und/oder in Braille anzeigen soll, gehen Sie bitte folgendermaßen vor:\n\n1. Wählen Sie auf der Registerkarte Sprache mit **PFEIL RAUF** und **RUNTER** die Spalte aus.\n2. Aktivieren Sie den Schalter Sprache umschalten. Dadurch wird die Spalte auf \"Nicht sprechen\" umgeschaltet. Sie können diesen Schalter erneut aktivieren, um die Eigenschaft wieder auf \"Spalte sprechen\" zu setzen.\n3. Drücken Sie **STRG+TAB**, um auf die Registerkarte Braille zu wechseln und wählen Sie die Spalte aus der Liste.\n4. Aktivieren Sie den Schalter Braille umschalten. Dadurch wird die Spalte auf \"Kein Braille\" umgeschaltet. Sie können diesen Schalter erneut aktivieren, um die Eigenschaft wieder auf \"Braille Spalte\" zu setzen.\n5. Betätigen Sie den OK Schalter.",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Wie gehe ich bei Sprache und Braille für Spalten umschalten in JAWS Schritt fuer Schritt vor?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__sprache_und_braille_fuer_spalten_umschalten::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__sprache_und_braille_fuer_spalten_umschalten",
+            "section_title": "Sprache und Braille für Spalten umschalten",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L156-L162"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0005",
+      "task_type": "step_by_step",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__erkennung_von_bildschirminhalten__beispiel_fuer_geteilte_folien_in_teams_und_zoom::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "source_excerpt": "So verwenden Sie die Hintergrund-OCR, um Text eines freigegebenen Bildschirms oder einer Präsentation in einer Teams- oder Zoom-Besprechung zu erkennen:\n\n1. Nehmen Sie an einem Teams- oder Zoom-Meeting teil, in dem Inhalte geteilt oder freigegeben werden.\n2. Drücken Sie **EINFÜGEN+LEERTASTE**, **O**, **EINGABE**. JAWS startet die Hintergrund-OCR, aktiviert dann den unsichtbaren Cursor und bewegt ihn zum geteilten Inhaltsbereich.\n3. Verwenden Sie Ihre **Pfeiltasten**, um den erkannten Text zu erkunden.\n4. Sie können jederzeit überprüfen, ob die Hintergrund-OCR aktiv ist, indem Sie **ALT+ENTFERNEN** drücken. Wenn die Hintergrund-OCR aktiviert ist, wird dies gefolgt von Informationen über den aktiven Cursor und dessen Position angesagt.\n5. Brechen Sie die Hintergrund-OCR ab, indem Sie einen der folgenden Schritte ausführen:\n\n- Drücken Sie **EINFÜGEN+LEERTASTE**, **O**, **Q**, um die Erkennung abzubrechen.\n    - Schalten Sie auf den PC oder Virtuellen PC Cursor um.\n    - Bewegen Sie den Fokus in eine andere Anwendung oder ein anderes Fenster.",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Wie gehe ich bei Beispiel für geteilte Folien in Teams und Zoom in JAWS Schritt fuer Schritt vor?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__erkennung_von_bildschirminhalten__beispiel_fuer_geteilte_folien_in_teams_und_zoom::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__erkennung_von_bildschirminhalten__beispiel_fuer_geteilte_folien_in_teams_und_zoom",
+            "section_title": "Beispiel für geteilte Folien in Teams und Zoom",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L100-L110"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0002",
+      "task_type": "troubleshooting",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__taskleiste::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ],
+      "source_excerpt": "Die Taskleiste befindet sich rechts neben der Schnellstartleiste. Ist die Schnellstartleiste ausgeblendet, dann befindet sich die Taskleiste rechts neben dem Start Schalter. In der Taskleiste werden alle zur Zeit laufenden Anwendungen aufgeführt. Nachdem Sie mit **TAB** auf die Taskleiste gesprungen sind, drücken Sie **PFEIL** **RECHTS** und **LINKS**, um sich durch die laufenden Anwendungen zu bewegen. Drücken Sie **EINGABE** auf der gewünschten Anwendung, damit diese den Fokus erhält. Wenn nur ein Element in der Taskleiste angesagt wird, ist nur eine laufende Anwendung vorhanden.",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Ich komme bei Taskleiste in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_tutorial_basics",
+            "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__taskleiste::chunk_01",
+            "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__taskleiste",
+            "section_title": "Taskleiste",
+            "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/tutorial_basics/index.md#L208-L208"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+      "task_type": "troubleshooting",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "source_excerpt": "Videoanrufe sind zu einer Standardform der Kommunikation am Arbeitsplatz, in der Schule und in persönlichen Beziehungen geworden. Bevor Sie sich an einem Videoanruf beteiligen, sollten Sie sicherstellen, dass Ihre Einstellung richtig ist und die Kamera richtig auf Sie ausgerichtet ist. Gesicht im Blick hilft Ihnen dabei, indem es Sie auf wichtige visuelle Details aufmerksam macht, wie zum Beispiel:\n\n- Ist mein Gesicht in der Ansicht zentriert?\n- Gucke ich direkt in die Kamera?\n- Ist die Beleuchtung ausgewogen?\n- Sind noch weitere Elemente im Bild sichtbar?\n\nUm Gesicht im Blick zu aktivieren, drücken Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **F** und dann **O**. Sobald die Funktion aktiviert ist, überwacht Gesicht im Blick kontinuierlich Ihre Gesichtsposition und die Lichtverhältnisse. Wenn sich etwas ändert, wenn Sie beispielsweise Ihren Kopf nach links oder rechts neigen oder die Helligkeit abnimmt, werden Sie automatisch benachrichtigt.\n\n**Hinweis:** Gesicht im Blick ist derzeit während eines aktiven Videoanrufs nicht verfügbar, da es vollständigen Zugriff auf die Kamera benötigt.\n\nWährend Gesicht im Blick aktiv ist, sind die folgenden verschachtelten Kurztasten verfügbar:\n\n- Eine andere Kamera auswählen (falls mehrere Kameras verfügbar sind): **EINFÜGEN+LEERTASTE**, **F**, **C**. Sobald die Kamera-Ebene aktiv ist, drücken Sie **PFEIL RAUF** oder *",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Ich komme bei Gesicht im Blick in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick",
+            "section_title": "Gesicht im Blick",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3299-L3316"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+      "task_type": "troubleshooting",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "source_excerpt": "Wenn Sie eine Promptbezeichnung erstellen möchten, gehen Sie bitte folgendermaßen vor:\n\n1. Gehen Sie auf das gewünschte Steuerelement.\n2. Drücken Sie **STRG+JAWS TASTE+TAB**.\n3. Der Dialog \"Prompt für Element erstellen\" wird geöffnet. Geben Sie auf der ersten Seite die Promptbezeichnung so ein, wie sie von JAWS gesprochen werden soll. Danach aktivieren Sie den Schalter Weiter.\n4. Auf der zweiten Seite geben Sie nun die Promptbezeichnung so ein, wie sie von JAWS auf der Braillezeile angezeigt werden soll. Danach aktivieren Sie den Schalter Weiter.\n5. Auf der dritten Seite können Sie nun eine individuelle Tutormeldung eingeben, die Ihnen später beim Navigieren als Erklärung für dieses Steuerelement angesagt wird. Wenn Sie keine Tutormeldung eingeben, wird eine Standardmeldung angesagt. Aktivieren Sie den Schalter Fertigstellen, um die Promptbezeichnung zu erstellen.\n\n**Hinweis:** Alternativ können Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen öffnen und aus der Liste den Eintrag Prompt erstellen wählen.\n\nWenn Sie eine Promptbezeichnung verändern möchten, die Sie bereits erstellt haben, drücken Sie erneut **STRG+JAWS TASTE+TAB** und verändern die vorhandenen Bezeichnungen.\n\nQuelle: create_a_prompt.htm",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Ich komme bei Eine Promptbezeichnung erstellen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen",
+            "section_title": "Eine Promptbezeichnung erstellen",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L357-L369"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0002",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_typische_aufbau_eines_anwendungsfensters::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ],
+      "source_excerpt": "Dieser Abschnitt beschreibt den Aufbau eines typischen Anwendungsfensters, beginnend am oberen und endend am unteren Rand des Fensters. HJPad, ein einfaches Textverarbeitungsprogramm, das zusammen mit JAWS ausgeliefert wird, dient als Beispielanwendung. Öffnen Sie das Startmenü und wählen Sie Programme, dann den Menüeintrag JAWS. Gehen Sie dann mit **PFEIL RUNTER** durch das Menü auf den Eintrag HJPad starten. Drücken Sie **EINGABE**, um die Anwendung zu starten.\n\n[Titelzeile](typical_application_layout.htm#Title_Bar)\n\n[Menüleiste](typical_application_layout.htm#Menu_Bar)\n\n[Symbolleiste](typical_application_layout.htm#Toolbars)\n\n[Dokumenteingabefeld](typical_application_layout.htm#Document_Edit_Field)\n\n[Statuszeile](typical_application_layout.htm#Status_bar)\n\n[Steuerungsmenü](typical_application_layout.htm#Control_Menu)",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Was sollte ich in JAWS zu Der typische Aufbau eines Anwendungsfensters wissen?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_tutorial_basics",
+            "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_typische_aufbau_eines_anwendungsfensters::chunk_01",
+            "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_typische_aufbau_eines_anwendungsfensters",
+            "section_title": "Der typische Aufbau eines Anwendungsfensters",
+            "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/tutorial_basics/index.md#L348-L360"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "source_excerpt": "Wenn Sie **JAWS TASTE+EINGABE** drücken, um zum nächsten Text zu springen, der kein Link ist, sucht JAWS nach einem Textblock, der nicht Teil eines Links ist und so viele oder mehr Zeichen aufweist, wie der Wert, der hier angegeben wird. Der Standardwert ist 25.",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Wofuer ist Länge des Textblocks in JAWS gedacht?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks",
+            "section_title": "Länge des Textblocks",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L2371-L2371"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "source_excerpt": "Tabelle: Befehle zum Arbeiten in Dialogen\n\n| Beschreibung | Befehl |\n| --- | --- |\n| Standardschalter ansagen | JAWS TASTE+E |\n| Kurztaste des aktuellen Steuerelements ansagen | UMSCHALT+NUM 5 |\n| Aktuelles Fenster lesen | JAWS TASTE+B |\n| Fenstertyp und Text lesen | JAWS TASTE+TAB |\n| Wort im Kontext lesen | JAWS TASTE+C |\n| Ausklappliste öffnen | ALT+PFEIL RUNTER |\n| Ausklappliste schließen | ALT+PFEIL RAUF |\n| Mehrere Listenelemente markieren | STRG+UMSCHALT oder STRG+LEERTASTE |\n| Alle Markierungen aufheben | STRG+\\ |\n| Spalten 1 bis 10 der Listenansicht lesen | STRG+JAWS TASTE+1 bis 0 |\n\n**Tipp:** Wenn Sie auf einem Steuerelement des Dialogfensters **JAWS-TASTE+F1** drücken, erhalten Sie eine kontextabhängige Hilfe.\n\n*Siehe auch:*\n[Windows Befehle für das Arbeiten in Dialogfeldern](../standard_windows_keystrokes/windows_keystrokes_for_working_in_dialog_boxes.htm)\n\nQuelle: jaws_keystrokes_for_working_in_dialog_boxes.htm",
+      "runner_input": {
+        "system_message": "# JAWS-DE Support Assistant Behavior Spec\n\n## Ziel\n\nDiese Baseline beschreibt das Verhalten eines lokalen deutschsprachigen Support-Assistenten für JAWS. Produktwissen bleibt primär im RAG-Korpus; das Modell soll vor allem Antwortstil, Rückfrageverhalten und saubere Evidenzbindung lernen.\n\n## Verhaltensregeln\n\n1. Antworte auf Deutsch.\n2. Antworte präzise, knapp und dokumentationsgestützt.\n3. Erfinde keine Produktfakten, Menüpunkte oder Tastenkombinationen.\n4. Nutze genau eine Rückfrage nur dann, wenn der Fall ohne weitere Eingrenzung nicht sicher beantwortbar ist.\n5. Wenn die Evidenz nicht ausreicht, markiere die Unsicherheit klar und eskaliere sauber statt zu raten.\n6. Gib Schrittfolgen nur dann als Schritte aus, wenn die Quelle tatsächlich eine Prozedur oder eine klare Bedienfolge hergibt.\n7. Verweise implizit auf die Dokumentlage; keine Behauptung ohne belegende Quelle.\n8. Mische kein allgemeines KI-Wissen in produktspezifische Antworten.\n\n## Erwünschter Stil\n\n- freundlich, sachlich, nicht ausschweifend\n- erst die konkrete Hilfestellung, dann knappe Einschränkungen oder Hinweise\n- bei Rückfragen genau eine fokussierte Frage\n- bei Eskalation klar benennen, was die Quelle nicht belegt\n\n## Menschlicher Review bleibt nötig für\n\n- Freigabe in `data/gold/train/` und `data/gold/eval/`\n- Grenzfälle mit mehrdeutigen Bedienpfaden\n- Fälle mit impliziten Voraussetzungen oder möglicher Versionsabhängigkeit",
+        "user_message": "Was sollte ich in JAWS zu JAWS Befehle zum Arbeiten in Dialogen wissen?"
+      },
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen",
+            "section_title": "JAWS Befehle zum Arbeiten in Dialogen",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2379-L2399"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "user_simulation",
+    "profile_name": "openrouter_gpt54mini_shadow_v1"
+  }
+}

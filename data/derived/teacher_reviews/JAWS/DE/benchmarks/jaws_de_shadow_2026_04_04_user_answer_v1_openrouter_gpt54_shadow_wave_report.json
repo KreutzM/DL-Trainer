@@ -1,0 +1,301 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54",
+  "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_pipeline_report.json",
+  "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v1_selection.json",
+  "judge_role": {
+    "intended_role": "secondary_audit_judge",
+    "shadow_only": true,
+    "statement": "This wave treats the GPT-5.4 OpenRouter judge as a secondary audit signal only. The primary observation target is OpenRouter user_simulation plus answer quality; judge outputs are reported for calibration and triage, not for promotion or rollout gating.",
+    "judge_profile": {
+      "profile_set": "support_mvp_openrouter_gpt54_candidate",
+      "profile_stage": "judge",
+      "profile_name": "openrouter_gpt54_judge_shadow_v1"
+    }
+  },
+  "processing": {
+    "jobs_total": 32,
+    "task_type_distribution": {
+      "clarification": 6,
+      "faq_direct_answer": 6,
+      "step_by_step": 8,
+      "troubleshooting": 6,
+      "uncertainty_escalation": 6
+    },
+    "split_distribution": {
+      "eval": 16,
+      "train": 16
+    }
+  },
+  "approval_distribution": {
+    "approve": 28,
+    "reject": 4
+  },
+  "score_distribution": {
+    "count": 32,
+    "min": 32,
+    "median": 94.5,
+    "max": 98,
+    "score_bands": {
+      "<60": 4,
+      "60-69": 0,
+      "70-79": 0,
+      "80-89": 0,
+      "90+": 28
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 6,
+      "reject": 0
+    },
+    "faq_direct_answer": {
+      "approve": 6,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 4,
+      "reject": 4
+    },
+    "troubleshooting": {
+      "approve": 6,
+      "reject": 0
+    },
+    "uncertainty_escalation": {
+      "approve": 6,
+      "reject": 0
+    }
+  },
+  "stage_health": {
+    "user_simulation": {
+      "selected_jobs": 32,
+      "completed_jobs": 32,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 4,
+      "completed_batches": 4,
+      "avg_elapsed_ms_per_processed_job": 1013.59
+    },
+    "answering": {
+      "selected_jobs": 32,
+      "completed_jobs": 32,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 8,
+      "completed_batches": 8,
+      "avg_elapsed_ms_per_processed_job": 3863.09
+    },
+    "judge": {
+      "selected_jobs": 32,
+      "completed_jobs": 32,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 4,
+      "completed_batches": 4,
+      "avg_elapsed_ms_per_processed_job": 2745.75
+    }
+  },
+  "attempt_histograms": {
+    "user_simulation": {
+      "1": 32
+    },
+    "answer": {
+      "1": 32
+    },
+    "judge": {
+      "1": 32
+    }
+  },
+  "provider_usage": {
+    "user_simulation": {
+      "rows_with_provider_usage": 32,
+      "prompt_tokens": 128720,
+      "completion_tokens": 40800,
+      "total_tokens": 169520,
+      "reported_cost_usd_estimate": 0.2801,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "answer": {
+      "rows_with_provider_usage": 32,
+      "prompt_tokens": 94076,
+      "completion_tokens": 44176,
+      "total_tokens": 138252,
+      "reported_cost_usd_estimate": 0.8978,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "judge": {
+      "rows_with_provider_usage": 32,
+      "prompt_tokens": 173928,
+      "completion_tokens": 50624,
+      "total_tokens": 224552,
+      "reported_cost_usd_estimate": 1.1942,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    }
+  },
+  "qualitative_focus_cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0005",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 32,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Anfrage ist passend und die Antwort beginnt quelltreu, bricht aber nach Schritt 6 vor dem eigentlichen Ziel ab und liefert damit keine vollständige Prozedur zum Ändern der Brailledarstellung.",
+      "blocking_reasons": [
+        "Für task_type step_by_step ist die Prozedur klar unvollständig; der letzte entscheidende Teil zum tatsächlichen Ändern des Symbols fehlt.",
+        "Die Antwort endet mitten im Ablauf und erreicht das in der Nutzerfrage genannte Ziel nicht.",
+        "Bei step_by_step ist ein fehlender abschließender Kernschritt schwerwiegend und führt hier zum Reject."
+      ],
+      "request_text": "Ich habe in JAWS ein Braillesymbol, das im Moment nur als leeres Modul angezeigt wird. Wie gehe ich Schritt für Schritt vor, um das Symbol bzw. seine Brailledarstellung zu ändern?",
+      "answer_text": "Gehen Sie wie folgt vor:\n\n1. Öffnen Sie die Einstellungsverwaltung (EINFÜGEN+F2) und erweitern Sie die Gruppe Bilder und Symbole.\n2. Aktivieren Sie das Kontrollfeld Zeichenwert hexadezimal sprechen.\n3. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.\n4. Kehren Sie in das Dokument zurück. Bewegen Sie den Cursor auf ein kleines „a“; wenn keines vorhanden ist, geben Sie eins ein. Drücken Sie dann NUM 5 dreimal hintereinander. JAWS sollte „Zeichen U+61HEX“ ansagen. Wenn Sie eine andere Meldung hören, führen Sie diese Schritte nicht weiter aus.\n5. Bewegen Sie den Cursor auf das Zeichen, dessen Brailledarstellung geändert werden soll, und drücken Sie NUM 5 dreimal schnell hintereinander, damit Sie den hexadezimalen Unicode-Wert des Zeichens erhalten. Notieren Sie sich den Wert für die nächsten Schritte.\n6. Öffnen Sie mit einem Texteditor wie Notepad die zur Zeit aktive Brailletabelle. Die Tabellen werden in Dateien mit der Endung .jbt im JAWS-Verzeichnis gespeichert. Die Standard-Brailletabellen-Datei heißt EURO_Unicode.jbt.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L15-L27"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 34,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort ist als Prozedur unzureichend, weil sie die Schrittfolge doppelt wiedergibt und vor allem den entscheidenden Abschluss zur tatsächlichen Umstellung auf Braille-Kurzschrift nicht enthält.",
+      "blocking_reasons": [
+        "Entscheidende letzte Schritte zur eigentlichen Aktivierung der Braille-Kurzschrift fehlen",
+        "Schrittfolge ist doppelt und redundant wiederholt",
+        "Prozedur endet vor dem eigentlichen Ziel der Nutzerfrage"
+      ],
+      "request_text": "Wie stelle ich in JAWS die Braille-Kurzschrift ein? Ich brauche die Schritte möglichst einfach nacheinander.",
+      "answer_text": "So gehen Sie vor:\n1. Drücken Sie **EINFÜGEN+F2** und wählen Sie **Einstellungsverwaltung**.\n2. Wenn sich die Änderung auf alle Anwendungen auswirken soll, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Wenn die Änderung nur für eine bestimmte Anwendung gelten soll, wählen Sie diese in der Ausklappliste **Anwendungen**.\n3. Geben Sie im Sucheingabefeld **„Übersetzung“** ein.\n4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu **Übersetzung** in den gefilterten Suchergebnissen zu gelangen, und drücken Sie **EINGABE**, um den Fokus direkt in die Gruppe **Übersetzung** zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.\n5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einstellungen zu wechseln.\n\n1. Drücken Sie **EINFÜGEN+F2** und wählen Sie **Einstellungsverwaltung**.\n2. Wenn sich die Änderung auf alle Anwendungen auswirken soll, drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungen von JAWS zu laden. Wenn die Änderung nur für eine bestimmte Anwendung gelten soll, wählen Sie diese in der Ausklappliste **Anwendungen**.\n3. Geben Sie im Sucheingabefeld **„Übersetzung“** ein.\n4. Drücken Sie **PFEIL RUNTER**, um in der Strukturansicht zu **Übersetzung** in den gefilterten Suchergebnissen zu gelangen, und drücken Sie **EINGABE**, um den Fokus direkt in die Gruppe **Übersetzung** zu platzieren. Mit **PFEIL RECHTS** erweitern Sie die Gruppe.\n5. Drücken Sie **LEERTASTE**, um durch die einzelnen Einstellungen zu wechseln.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L252-L261"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 41,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort vermischt zwei getrennte Prozeduren aus der Quelle: das Öffnen/Ändern der Stimmeneinstellungen und das separate Auswählen eines Stimmenprofils. Dadurch ist die Schrittfolge für das konkrete Ziel unsauber und potenziell verwirrend.",
+      "blocking_reasons": [
+        "Für step_by_step werden zwei unterschiedliche Prozeduren in eine einzige Schrittfolge gemischt",
+        "Die Quelle trennt klar zwischen Stimmeneinstellungen öffnen und Stimmenprofil auswählen",
+        "Schritt 4 bleibt zu unkonkret ('Ändern Sie die gewünschten Einstellungen') trotz Nutzerwunsch nach möglichst genauen Schritten",
+        "Der Abschlusszustand der kombinierten Prozedur ist nicht sauber definiert"
+      ],
+      "request_text": "Wie öffne ich in JAWS die Stimmeneinstellungen und ändere dort ein Profil? Ich brauche die Schritte möglichst genau, weil ich mich in dem Menü noch nicht gut auskenne.",
+      "answer_text": "So öffnen Sie die Stimmeneinstellungen und ändern bzw. wählen ein Profil:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Ändern Sie die gewünschten Einstellungen und speichern Sie das Stimmenprofil. Schließen Sie danach das Dialogfenster Stimmeneinstellungen.\n5. Wenn Sie ein Stimmenprofil auswählen möchten, drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.\n6. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L114-L129"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 52,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die inhaltliche Prozedur ist zwar korrekt und vollständig genug, wird aber unnötig doppelt ausgegeben; für einen Gold-Kandidaten ist diese Redundanz zu schwach.",
+      "blocking_reasons": [
+        "Schrittfolge ist vollständig doppelt wiederholt",
+        "Antwort ist dadurch unnötig redundant und qualitativ klar geschwächt"
+      ],
+      "request_text": "Wie öffne ich in der Einstellungsverwaltung die Hervorhebungsoptionen? Am besten Schritt für Schritt.",
+      "answer_text": "So öffnen Sie die Hervorhebungsoptionen:\n1. Öffnen Sie die **Einstellungsverwaltung** und geben Sie **„Hervorhebung“** im Sucheingabefeld ein.\n2. Drücken Sie **PFEIL RUNTER**, um in die gefilterten Ergebnisse zu springen, und wählen Sie **Hervorhebungsfarben konfigurieren**.\n3. Drücken Sie **LEERTASTE**, um das Dialogfenster **Hervorhebungsoptionen** zu öffnen.\n\n1. Öffnen Sie die **Einstellungsverwaltung** und geben Sie **„Hervorhebung“** im Sucheingabefeld ein.\n2. Drücken Sie **PFEIL RUNTER**, um in die gefilterten Ergebnisse zu springen, und wählen Sie **Hervorhebungsfarben konfigurieren**.\n3. Drücken Sie **LEERTASTE**, um das Dialogfenster **Hervorhebungsoptionen** zu öffnen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L515-L523"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0005",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "approve",
+      "quality_score": 90,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Anfrage passt zur Quelle, und die Antwort liefert eine im Wesentlichen vollständige, dokumentationsgebundene Schrittfolge zum Erkennen und Lesen freigegebener Inhalte in Teams oder Zoom.",
+      "blocking_reasons": [],
+      "request_text": "In einer Teams- oder Zoom-Besprechung wird gerade eine Präsentation geteilt. Wie kann ich mit JAWS den Text auf diesem freigegebenen Bildschirm Schritt für Schritt erkennen und lesen?",
+      "answer_text": "1. An einem Teams- oder Zoom-Meeting mit geteilten Inhalten teilnehmen. 2. EINFÜGEN+LEERTASTE, O, EINGABE drücken, um die Hintergrund-OCR zu starten. 3. Mit den Pfeiltasten den erkannten Text erkunden. 4. Optional mit ALT+ENTFERNEN prüfen, ob die Hintergrund-OCR aktiv ist. 5. Bei Bedarf mit EINFÜGEN+LEERTASTE, O, Q die Erkennung abbrechen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L100-L110"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0008",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 95,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Plausible Anfrage und eine vollständige, klar geordnete Schrittfolge, die die Markierung von Text auf der Braillezeile mit den Routingtasten korrekt und dokumentationsgebunden beschreibt.",
+      "blocking_reasons": [],
+      "request_text": "Wie markiere ich Text auf einer Braillezeile in JAWS genau mit den Routingtasten? Ich hätte gern die einzelnen Schritte, weil ich mir die Reihenfolge nicht sicher bin.",
+      "answer_text": "Gehen Sie so vor:\n\n1. Bewegen Sie die Braillezeile so weit, bis der Text erscheint, den Sie markieren möchten.\n2. Halten Sie die LINKE UMSCHALTTASTE gedrückt und drücken Sie die Cursorroutingtaste über dem Zeichen, das Sie als Beginn der Auswahl verwenden möchten.\n3. Lesen Sie so lange weiter, bis Sie den Text erreicht haben, bei dem die Markierung enden soll.\n4. Halten Sie die LINKE UMSCHALTTASTE gedrückt und drücken Sie die Cursorroutingtaste über dem Zeichen, das Sie als Ende der Auswahl verwenden möchten. JAWS markiert dann den gesamten Text zwischen dem ersten und letzten Zeichen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L481-L490"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0003",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Realistische supportnahe Anfrage; die Antwort gibt die dokumentierte Prozedur vollständig, korrekt und in klarer Reihenfolge wieder.",
+      "blocking_reasons": [],
+      "request_text": "Ich möchte in JAWS eine bestimmte Spalte so einstellen, dass sie nicht mehr gesprochen und auch nicht in Braille angezeigt wird. Wie gehe ich dafür Schritt für Schritt vor?",
+      "answer_text": "1. Wählen Sie auf der Registerkarte Sprache mit PFEIL RAUF und RUNTER die Spalte aus. 2. Aktivieren Sie den Schalter Sprache umschalten, damit die Spalte auf Nicht sprechen gesetzt wird. 3. Drücken Sie STRG+TAB, wechseln Sie zur Registerkarte Braille und wählen Sie die Spalte aus der Liste. 4. Aktivieren Sie den Schalter Braille umschalten, damit die Spalte auf Kein Braille gesetzt wird. 5. Betätigen Sie den OK Schalter.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L156-L162"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 98,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Vollständige, klar geordnete und quellentreue Prozedur ohne Vermischung oder fehlenden Abschlussschritt.",
+      "blocking_reasons": [],
+      "request_text": "Ich nutze eine mehrzeilige Braillezeile und möchte für den geteilten Bereich nicht immer zwei Zeilen verwenden. Können Sie mir bitte Schritt für Schritt sagen, wo ich das in JAWS umstelle?",
+      "answer_text": "So stellen Sie die Zeilenanzahl für den geteilten Bereich um:\n\n1. Drücken Sie ALT+EINFÜGEN+V, um den Dialog Braille-Ansicht auswählen zu öffnen.\n2. Wählen Sie Optionen.\n3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der LEERTASTE die Anzahl der Zeilen aus.\n4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie EINGABE, um den Dialog zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+      ]
+    }
+  ]
+}

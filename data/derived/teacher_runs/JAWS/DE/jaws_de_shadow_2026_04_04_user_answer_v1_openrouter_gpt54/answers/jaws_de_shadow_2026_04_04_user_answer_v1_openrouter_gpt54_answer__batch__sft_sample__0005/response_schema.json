@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "items"
+  ],
+  "properties": {
+    "items": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "job_id",
+          "answer",
+          "task_type",
+          "needs_clarification",
+          "clarification_question",
+          "escalate",
+          "uncertainty_reason",
+          "steps",
+          "source_chunk_ids",
+          "notes"
+        ],
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "enum": [
+              "jaws_de_teacher_wave_v1::train::clarification::0001",
+              "jaws_de_teacher_wave_v1::train::clarification::0003",
+              "jaws_de_teacher_wave_v1::train::clarification::0008",
+              "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001"
+            ]
+          },
+          "task_type": {
+            "type": "string",
+            "enum": [
+              "clarification",
+              "uncertainty_escalation"
+            ]
+          },
+          "answer": {
+            "type": "string",
+            "minLength": 1
+          },
+          "needs_clarification": {
+            "type": "boolean"
+          },
+          "clarification_question": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "escalate": {
+            "type": "boolean"
+          },
+          "uncertainty_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "source_chunk_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,432 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::batch::eval_case::0004",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0002",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004"
+  ],
+  "teacher_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer",
+  "teacher_model": "openai/gpt-5.4",
+  "generation_mode": "teacher_answer_openrouter_v1",
+  "expected_output_kind": "eval_case",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+      "task_type": "troubleshooting",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::eval::troubleshooting::0007::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "troubleshooting",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_hilfe_kernfunktionen"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Ich möchte in JAWS für ein Steuerelement eine eigene Promptbezeichnung erstellen, komme aber bei dem Dialog nicht weiter. Wie gehe ich dabei laut Anleitung vor und kann man eine bereits erstellte Bezeichnung später nochmal ändern?",
+        "user_goal": "Die dokumentierte Vorgehensweise zum Erstellen und Ändern einer Promptbezeichnung verstehen.",
+        "difficulty": "intermediate",
+        "phrasing_style": "task_focused",
+        "scenario_summary": "Nutzer braucht Unterstützung beim Erstellen einer Promptbezeichnung und fragt zusätzlich nach einer Änderungsmöglichkeit für vorhandene Einträge.",
+        "notes": [
+          "soll den Dialog 'Prompt für Element erstellen' erwähnen",
+          "soll auch die Änderungsoption ansprechen"
+        ],
+        "usage": {
+          "elapsed_ms": 957,
+          "batch_elapsed_ms": 7656,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1819,
+          "source_excerpt_chars": 885
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/response.json",
+          "prompt_sha256": "27186d8caf5ce7b4cbf7ce8b63cbec5073fbf3f0a03a4d5a9f7e59fc8c3c4513",
+          "schema_sha256": "705b1d9c2e658ee57b3f244cb55551a8816bb00d764bc30f382cb89c11d79c3f",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0002",
+          "batch_size": 8,
+          "batch_index": 2
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_hilfe_kernfunktionen",
+              "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01",
+              "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen",
+              "section_title": "Eine Promptbezeichnung erstellen",
+              "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L357-L369"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Wenn Sie eine Promptbezeichnung erstellen möchten, gehen Sie bitte folgendermaßen vor:\n\n1. Gehen Sie auf das gewünschte Steuerelement.\n2. Drücken Sie **STRG+JAWS TASTE+TAB**.\n3. Der Dialog \"Prompt für Element erstellen\" wird geöffnet. Geben Sie auf der ersten Seite die Promptbezeichnung so ein, wie sie von JAWS gesprochen werden soll. Danach aktivieren Sie den Schalter Weiter.\n4. Auf der zweiten Seite geben Sie nun die Promptbezeichnung so ein, wie sie von JAWS auf der Braillezeile angezeigt werden soll. Danach aktivieren Sie den Schalter Weiter.\n5. Auf der dritten Seite können Sie nun eine individuelle Tutormeldung eingeben, die Ihnen später beim Navigieren als Erklärung für dieses Steuerelement angesagt wird. Wenn Sie keine Tutormeldung eingeben, wird eine Standardmeldung angesagt. Aktivieren Sie den Schalter Fertigstellen, um die Promptbezeichnung zu erstellen.\n\n**Hinweis:** Alternativ können Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen öffnen und aus der Liste den Eintrag Prompt erstellen wählen.\n\nWenn Sie eine Promptbezeichnung verändern möchten, die Sie bereits erstellt haben, drücken Sie erneut **STRG+JAWS TASTE+TAB** und verändern die vorhandenen Bezeichnungen.\n\nQuelle: create_a_prompt.htm",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen",
+            "section_title": "Eine Promptbezeichnung erstellen",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L357-L369"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0002",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_typische_aufbau_eines_anwendungsfensters::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_tutorial_basics"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0002::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0002",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_tutorial_basics"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_typische_aufbau_eines_anwendungsfensters::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Was zeigt JAWS in einem typischen Anwendungsfenster normalerweise an? Ich suche die wichtigsten Bereiche, die in der Übersicht genannt werden.",
+        "user_goal": "Eine knappe Übersicht über die Bestandteile eines typischen Anwendungsfensters erhalten.",
+        "difficulty": "basic",
+        "phrasing_style": "neutral",
+        "scenario_summary": "Nutzer fragt direkt nach den im Dokument genannten Hauptbereichen eines typischen Anwendungsfensters.",
+        "notes": [
+          "soll auf die aufgeführten Fensterelemente abzielen",
+          "keine ausführliche Erklärung nötig"
+        ],
+        "usage": {
+          "elapsed_ms": 957,
+          "batch_elapsed_ms": 7656,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1819,
+          "source_excerpt_chars": 885
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/response.json",
+          "prompt_sha256": "27186d8caf5ce7b4cbf7ce8b63cbec5073fbf3f0a03a4d5a9f7e59fc8c3c4513",
+          "schema_sha256": "705b1d9c2e658ee57b3f244cb55551a8816bb00d764bc30f382cb89c11d79c3f",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0002",
+          "batch_size": 8,
+          "batch_index": 2
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_tutorial_basics",
+              "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_typische_aufbau_eines_anwendungsfensters::chunk_01",
+              "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_typische_aufbau_eines_anwendungsfensters",
+              "section_title": "Der typische Aufbau eines Anwendungsfensters",
+              "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/tutorial_basics/index.md#L348-L360"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Dieser Abschnitt beschreibt den Aufbau eines typischen Anwendungsfensters, beginnend am oberen und endend am unteren Rand des Fensters. HJPad, ein einfaches Textverarbeitungsprogramm, das zusammen mit JAWS ausgeliefert wird, dient als Beispielanwendung. Öffnen Sie das Startmenü und wählen Sie Programme, dann den Menüeintrag JAWS. Gehen Sie dann mit **PFEIL RUNTER** durch das Menü auf den Eintrag HJPad starten. Drücken Sie **EINGABE**, um die Anwendung zu starten.\n\n[Titelzeile](typical_application_layout.htm#Title_Bar)\n\n[Menüleiste](typical_application_layout.htm#Menu_Bar)\n\n[Symbolleiste](typical_application_layout.htm#Toolbars)\n\n[Dokumenteingabefeld](typical_application_layout.htm#Document_Edit_Field)\n\n[Statuszeile](typical_application_layout.htm#Status_bar)\n\n[Steuerungsmenü](typical_application_layout.htm#Control_Menu)",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_tutorial_basics",
+            "chunk_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_typische_aufbau_eines_anwendungsfensters::chunk_01",
+            "section_id": "jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_typische_aufbau_eines_anwendungsfensters",
+            "section_title": "Der typische Aufbau eines Anwendungsfensters",
+            "normalized_path": "data/normalized/JAWS/DE/tutorial_basics/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/tutorial_basics/index.md#L348-L360"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Wofür ist die Einstellung „Länge des Textblocks“ in JAWS gedacht?",
+        "user_goal": "Eine direkte Erklärung des Zwecks der Einstellung erhalten.",
+        "difficulty": "basic",
+        "phrasing_style": "neutral",
+        "scenario_summary": "Nutzer fragt nach der Funktion der Einstellung für die Textblock-Länge im Bereich Navigation.",
+        "notes": [
+          "soll die Suche nach nicht verlinktem Text mit Mindestzeichenzahl betreffen",
+          "möglichst knapp beantworten"
+        ],
+        "usage": {
+          "elapsed_ms": 957,
+          "batch_elapsed_ms": 7656,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1819,
+          "source_excerpt_chars": 885
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/response.json",
+          "prompt_sha256": "27186d8caf5ce7b4cbf7ce8b63cbec5073fbf3f0a03a4d5a9f7e59fc8c3c4513",
+          "schema_sha256": "705b1d9c2e658ee57b3f244cb55551a8816bb00d764bc30f382cb89c11d79c3f",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0002",
+          "batch_size": 8,
+          "batch_index": 2
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01",
+              "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks",
+              "section_title": "Länge des Textblocks",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L2371-L2371"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Wenn Sie **JAWS TASTE+EINGABE** drücken, um zum nächsten Text zu springen, der kein Link ist, sucht JAWS nach einem Textblock, der nicht Teil eines Links ist und so viele oder mehr Zeichen aufweist, wie der Wert, der hier angegeben wird. Der Standardwert ist 25.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks",
+            "section_title": "Länge des Textblocks",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L2371-L2371"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "eval",
+        "expected_output_kind": "eval_case",
+        "task_type": "faq_direct_answer",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_hilfe_kernfunktionen"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Welche JAWS-Befehle sind für das Arbeiten in Dialogfenstern wichtig? Ich brauche vor allem die wichtigsten Ansagen und die Tipps für Listen oder Ausklapplisten.",
+        "user_goal": "Eine direkte Übersicht über die in Dialogen verwendeten JAWS-Befehle erhalten.",
+        "difficulty": "intermediate",
+        "phrasing_style": "task_focused",
+        "scenario_summary": "Nutzer will die im Dokument genannten Tastenkürzel für Dialogfenster kompakt wissen.",
+        "notes": [
+          "soll auf die Befehle aus der Tabelle hinauslaufen",
+          "kontextabhängige Hilfe könnte erwähnt werden, aber nicht nötig"
+        ],
+        "usage": {
+          "elapsed_ms": 957,
+          "batch_elapsed_ms": 7656,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 1819,
+          "source_excerpt_chars": 885
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0002/response.json",
+          "prompt_sha256": "27186d8caf5ce7b4cbf7ce8b63cbec5073fbf3f0a03a4d5a9f7e59fc8c3c4513",
+          "schema_sha256": "705b1d9c2e658ee57b3f244cb55551a8816bb00d764bc30f382cb89c11d79c3f",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0002",
+          "batch_size": 8,
+          "batch_index": 2
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_hilfe_kernfunktionen",
+              "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01",
+              "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen",
+              "section_title": "JAWS Befehle zum Arbeiten in Dialogen",
+              "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2379-L2399"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Tabelle: Befehle zum Arbeiten in Dialogen\n\n| Beschreibung | Befehl |\n| --- | --- |\n| Standardschalter ansagen | JAWS TASTE+E |\n| Kurztaste des aktuellen Steuerelements ansagen | UMSCHALT+NUM 5 |\n| Aktuelles Fenster lesen | JAWS TASTE+B |\n| Fenstertyp und Text lesen | JAWS TASTE+TAB |\n| Wort im Kontext lesen | JAWS TASTE+C |\n| Ausklappliste öffnen | ALT+PFEIL RUNTER |\n| Ausklappliste schließen | ALT+PFEIL RAUF |\n| Mehrere Listenelemente markieren | STRG+UMSCHALT oder STRG+LEERTASTE |\n| Alle Markierungen aufheben | STRG+\\ |\n| Spalten 1 bis 10 der Listenansicht lesen | STRG+JAWS TASTE+1 bis 0 |\n\n**Tipp:** Wenn Sie auf einem Steuerelement des Dialogfensters **JAWS-TASTE+F1** drücken, erhalten Sie eine kontextabhängige Hilfe.\n\n*Siehe auch:*\n[Windows Befehle für das Arbeiten in Dialogfeldern](../standard_windows_keystrokes/windows_keystrokes_for_working_in_dialog_boxes.htm)\n\nQuelle: jaws_keystrokes_for_working_in_dialog_boxes.htm",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen",
+            "section_title": "JAWS Befehle zum Arbeiten in Dialogen",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2379-L2399"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "answer",
+    "profile_name": "openrouter_gpt54_shadow_v1"
+  }
+}

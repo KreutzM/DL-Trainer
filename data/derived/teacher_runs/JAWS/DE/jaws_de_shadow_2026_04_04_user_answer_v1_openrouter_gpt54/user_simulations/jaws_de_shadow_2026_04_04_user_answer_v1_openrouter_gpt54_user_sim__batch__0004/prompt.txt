@@ -1,0 +1,179 @@
+# Teacher Prompt: JAWS-DE User Simulation
+
+## Rolle
+
+Du simulierst eine realistische deutschsprachige Support-Anfrage fuer JAWS.
+
+## Ziel
+
+Erzeuge genau eine hochwertige Nutzeranfrage, die plausibel zu einem realen Supportfall passt und sich eng am bereitgestellten Dokumentkontext orientiert.
+
+## Regeln
+
+- Nutze nur den bereitgestellten Quellkontext.
+- Erfinde keine Menues, Tastenkombinationen oder Funktionen.
+- Verwende keine Chunk-Titel als starre Schablone.
+- Formuliere die Anfrage so, wie ein echter Anwender oder Helpdesk-Nutzer sie stellen koennte.
+- Variiere Schwierigkeitsgrad und Formulierungsstil sinnvoll.
+- Die Anfrage darf unvollstaendig oder alltagsnah sein, aber sie muss zum dokumentierten Fall passen.
+- Keine Loesung in die Anfrage schreiben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- konkret statt generisch
+- supportnah statt dokumenttitelartig
+- glaubwuerdig fuer den jeweiligen `task_type`
+- bei `clarification` oder `uncertainty_escalation` darf die Anfrage bewusst etwas unklar sein
+- bei `step_by_step` sollte die Anfrage typischerweise um eine Bedienfolge oder Vorgehensweise bitten
+
+## Task-Type-spezifische Leitplanken
+
+- `faq_direct_answer`: die Anfrage soll auf eine konkrete, direkt beantwortbare Informationsfrage hinauslaufen.
+- `troubleshooting`: die Anfrage soll ein plausibles Problem, eine Einschränkung oder ein unerwartetes Verhalten schildern.
+- `step_by_step`: die Anfrage soll klar um eine Vorgehensweise, Bedienfolge oder Einrichtung bitten.
+- `clarification`: die Anfrage soll bewusst noch nicht eng genug sein, sodass eine fokussierte Rueckfrage sinnvoll bleibt.
+- `uncertainty_escalation`: die Anfrage darf einen Randfall, eine Voraussetzung oder eine Grenze ansprechen, bei der die Quelle nur begrenzt Antwort gibt.
+
+## Ausgabe
+
+JSON mit:
+- `request_text`
+- `user_goal`
+- `difficulty`
+- `phrasing_style`
+- `scenario_summary`
+- `notes`
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine eigenstaendige Nutzeranfrage.
+- Uebernimm job_id im JSON exakt.
+- Antworte fuer alle Faelle gesammelt in einem JSON-Objekt mit items[].
+- Verwende nur den pro Fall gezeigten Quellkontext.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::train::step_by_step::0005
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__braillesymbole_hinzufuegen_und_veraendern::chunk_02
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Braillesymbole hinzufügen und verändern
+- spaeteres supportziel: n/a
+- seed_request: Wie gehe ich bei Braillesymbole hinzufügen und verändern in JAWS Schritt fuer Schritt vor?
+- source_excerpt:
+Lesen Sie das Symbol in Ihrem Dokument erneut. Sollte das Symbol immer noch als leeres Modul erscheinen, gehen Sie bitte folgendermaßen vor:
+
+1. Öffnen Sie die Einstellungsverwaltung (**EINFÜGEN+F2**) und erweitern Sie die Gruppe Bilder und Symbole.
+2. Aktivieren Sie das Kontrollfeld Zeichenwert hexadezimal sprechen.
+3. Wählen Sie OK, um die Änderungen zu speichern und die Einstellungsverwaltung zu schließen.
+4. Kehren Sie in das Dokument zurück. Bewegen Sie den Cursor auf ein kleines "a" (sollte keines vorhanden sein, dann geben Sie eins ein) und drücken Sie **NUM 5** dreimal hintereinander. JAWS sollte "Zeichen U+61HEX" ansagen. Wenn Sie irgendeine andere Meldung hören, dürfen Sie diese Schritte nicht weiter ausführen.
+5. Bewegen Sie den Cursor auf das Zeichen, dessen Brailledarstellung geändert werden soll und drücken Sie **NUM 5** dreimal schnell hintereinander, damit Sie den Hexadezimal Unicode Wert des Zeichen erhalten. Notieren Sie sich sicherheitshalber den Wert, da Sie diesen für die nächsten Schritte benötigen.
+6. Öffnen Sie mit einem Texteditor wie Notepad die zur Zeit aktive Brailletabelle. Die Tabellen werden in Dateien mit der Endung.jbt im JAWS Verzeichnis (standardmäßig C:\Programme\Freedom Scientific\JAWS\ *X* (wobei *X* für Ihre JAWS Versionsnummer steht)) gespeichert.Die Standard Brailletabellen-Datei heißt EURO_Unicode.jbt. Die Tabellendateien legen die Brai
+
+### job_id: jaws_de_teacher_wave_v1::train::step_by_step::0008
+- task_type: step_by_step
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__text_auf_einer_braillezeile_markieren::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Text auf einer Braillezeile markieren
+- spaeteres supportziel: n/a
+- seed_request: Wie gehe ich bei Text auf einer Braillezeile markieren in JAWS Schritt fuer Schritt vor?
+- source_excerpt:
+JAWS verwendet die Cursorroutingtasten auf Ihrer Braillezeile auch zum Markieren von Text. Gehen Sie folgendermaßen vor, wenn Sie Text markieren möchten:
+
+1. Bewegen Sie die Braillezeile so weit, bis der Text erscheint, den Sie markieren möchten.
+2. Halten Sie die **LINKE UMSCHALTTASTE** gedrückt und drücken Sie die Cursorroutingtaste über dem Zeichen, welches Sie als Beginn der Auswahl verwenden möchten.
+3. Lesen Sie so lange weiter, bis Sie den Text erreicht haben, bei dem die Markierung enden soll.
+4. Halten Sie die **LINKE UMSCHALTTASTE** gedrückt und drücken Sie die Cursorroutingtaste über dem Zeichen, welches Sie als Ende der Auswahl verwenden möchten. JAWS markiert dann den gesamten Text zwischen dem ersten und letzten Zeichen.
+
+Unterschiedliche Braillezeilen können über andere Methoden zum Textmarkieren verfügen. Lesen Sie die Dokumentation zu Ihrer speziellen Braillezeile, um eine Liste aller Befehle zu erhalten.
+
+Quelle: Selecting_Text_on_a_Braille_Display.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::troubleshooting::0002
+- task_type: troubleshooting
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__windows_explorer__dateien_suchen::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Tutorial / Grundlagen > Windows Explorer > Dateien suchen
+- spaeteres supportziel: n/a
+- seed_request: Ich komme bei Dateien suchen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?
+- source_excerpt:
+Wenn Sie eine Datei oder Anwendung auf Ihrem Computer nicht finden können, verwenden Sie die Suchfunktion, um die Datei aufzufinden. Drücken Sie **F3** oder **STRG+F**, um das Dialogfeld Suchen zu öffnen. Geben Sie den Dateinamen teilweise oder ganz ein, und füllen Sie die anderen Felder des Dialogfeldes nach Bedarf aus. Wenn Sie den Dateinamen nicht kennen, verwenden Sie die die Suchoptionen Datum und Erweiterte Optionen in diesem Dialogfeld. Drücken Sie **STRG+TAB**, um auf die anderen Registerkarten zu springen. Drücken Sie den Schalter Jetzt suchen, so dass Windows alle Dateien sucht, die Ihren angegebenen Suchkriterien entsprechen. Sobald Sie mit **TAB** die gewünschte Datei in der Liste gefunden haben, können Sie mit **EINGABE** diese sofort öffnen.
+
+Quelle: using_windows_explorer.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::troubleshooting::0003
+- task_type: troubleshooting
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_die_gruppe_sprach_und_sound_schemata__standardeinstellungen_wiederherstellen_02::chunk_01
+- chunk_type: warning
+- section_path_text: Die Gruppe Sprach- und Sound-Schemata > Standardeinstellungen wiederherstellen
+- spaeteres supportziel: n/a
+- seed_request: Ich komme bei Standardeinstellungen wiederherstellen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?
+- source_excerpt:
+Standardeinstellungen wiederherstellen löscht lediglich alle Angaben, die auf die aktuelle Ausführlichkeitsstufe in der geladenen JCF-Datei zutreffen. Ist die Datei Default.jcf geladen, werden Werkseinstellungen wiederhergestellt. Obwohl das Dialogfeld diese Änderung widerspiegelt, werden die wiederhergestellten Standardeinstellungen erst wirksam, wenn Sie die JCF-Datei speichern.
+
+**Hinweis:** Wenn Sie einen der Dialoge Einstellungen schließen, hängt es von der Methode ab, mit der Sie den Dialog Einstellungen geöffnet haben, wo der Fokus im Dialog Ausführlichkeitsoptionen landet. Wenn Sie einen der Dialoge Einstellungen im Dialog Ausführlichkeitseinstellungen mit einer Tastenkombination geöffnet haben, landen Sie wieder auf dem Element, welches vorher den Fokus hatte. Wenn Sie mit **TAB** zu dem Schalter für die Einstellungen gesprungen sind, wird der Fokus auf den **OK** Schalter im Dialog Ausführlichkeitsoptionen gesetzt.
+
+Quelle: beginner_preferences_dialog.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::troubleshooting::0004
+- task_type: troubleshooting
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__texterkennung_eines_geoeffneten_pdf_dokuments::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Hilfe (Kernfunktionen) > Texterkennung eines geöffneten PDF Dokuments
+- spaeteres supportziel: n/a
+- seed_request: Ich komme bei Texterkennung eines geöffneten PDF Dokuments in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?
+- source_excerpt:
+Wenn Sie ein PDF im Adobe Reader öffnen und es stellt sich heraus, dass dieses nicht zugänglich ist, dann drücken Sie **EINFÜGEN+LEERTASTE, O, D**, damit JAWS mit einer Texterkennung des gesamten Dokuments startet. Nach einigen Sekunden zeigt JAWS den Inhalt der PDF Datei im Ergebnisbetrachter, in welchem Sie die Standardlesebefehle verwenden können, um den Text zu lesen, oder um diesen auszuwählen und in andere Anwendungen zu kopieren.
+
+**Hinweis:** Der OCR Vorgang dauert bei großen PDF Dateien länger. Wenn Text erkannt wird, dann wird dieser am Ende des bereits im Ergebnisbetrachter bestehenden Textes hinzugefügt. Dieses ermöglicht Ihnen, das Lesen ohne Unterbrechungen fortzusetzen, während das Dokument verarbeitet wird. Lesen Sie aktuell nicht über den Befehl Alles Lesen, dann spricht JAWS die aktuelle Zeile wenn neuer Text dem Ergebnisbetrachter hinzugefügt wurde, was anzeigt, dass die Texterkennung noch nicht abgeschlossen ist.
+
+**Hinweis:** Wenn das PDF Dokument ein Passwort erfordert, dann werden Sie zur Eingabe des Passworts aufgefordert, wenn Sie **EINFÜGEN+LEERTASTE, O, D** erstmalig drücken. Bevor der OCR Vorgang fortgesetzt werden kann, müssen Sie das Passwort korrekt eingeben.
+
+### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0001
+- task_type: faq_direct_answer
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_braille
+- source_chunk_ids: jaws_de_braille::sec_jaws_braille_allgemein_focus__focus_blue_tastatur::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Braille (Allgemein & Focus) > Focus Blue Tastatur
+- spaeteres supportziel: n/a
+- seed_request: Was sollte ich in JAWS zu Focus Blue Tastatur wissen?
+- source_excerpt:
+Direkt oberhalb der Routingtasten befinden sich 8 Tasten, die denen einer Perkins-Braille-Tastatur entsprechen. Bei den acht Brailletasten handelt es sich von links nach rechts um: 7, 3, 2, 1, 4, 5, 6, und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile befindet sich eine **LEERTASTE**. Diese Taste wird gemeinsam mit den Brailletasten bei der Eingabe von Befehlen verwendet. Direkt unter der **LEERTASTE** an der Vorderkante der Braillezeile befinden sich zwei **UMSCHALT** Tasten, die auch zum Ausführen von verschiedenen Befehlen genutzt werden. Lesen Sie das Hilfethema [Braillezeilen Eingabebefehle](Braille_Display_Input_Commands.htm) für weitere Informationen zum Ausführen von JAWS und Windows Befehlen mit der Focus Blue.
+
+### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0002
+- task_type: faq_direct_answer
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__steuerungsmenue::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Tutorial / Grundlagen > Steuerungsmenü
+- spaeteres supportziel: n/a
+- seed_request: Wofuer ist Steuerungsmenü in JAWS gedacht?
+- source_excerpt:
+Das Steuerungsmenü wird dazu verwendet, ein Fenster wiederherzustellen, es zu verschieben, die Größe zu verändern, es zu minimieren, zu maximieren und zu schließen. Das Steuerungsmenü ist meist unsichtbar, Sie können es jedoch mit **ALT+LEERTASTE** öffnen. Gehen Sie dann mit **PFEIL RAUF** und **RUNTER** durch die Menüeinträge.
+
+Quelle: typical_application_layout.htm
+
+### job_id: jaws_de_teacher_wave_v1::train::faq_direct_answer::0003
+- task_type: faq_direct_answer
+- expected_output_kind: sft_sample
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__schlauer_navigationsmodus::chunk_03
+- chunk_type: concept
+- section_path_text: Gruppe Sprachausgaben > Gruppe Navigation > Schlauer Navigationsmodus
+- spaeteres supportziel: n/a
+- seed_request: Was sollte ich in JAWS zu Schlauer Navigationsmodus wissen?
+- source_excerpt:
+Wenn Sie die schlaue Navigation verwenden, wird JAWS immer im Bildschirmlayout arbeiten. Dadurch werden die Seiten im virtuellen Speicher so dargestellt, wie sie auch visuell auf dem Bildschirm zu sehen sind. Symbole der Werkzeugleisten oder andere Auflistungen von Steuerelementen, die visuell waagerecht auf dem Bildschirm angezeigt werden, werden im virtuellen Dokument in einer Zeile dargestellt, wodurch mit einem einzelnen Druck auf **PFEIL RUNTER** die gesamte Werkzeugleiste übersprungen werden kann, anstatt dass man von Schalter zu Schalter springen muss, um hinter diese Leiste zu gelangen.
+
+Um die schlaue Navigation temporär ein- oder auszuschalten, drücken Sie **EINFÜGEN+X**. Hierdurch wird auch der Dokumentpräsentationsmodus entsprechend angepasst. Wird **EINFÜGEN+X** gedrückt, um die schlaue Navigation zu aktivieren, dann wechselt JAWS automatisch zum Bildschirmlayout. Wird die schlaue Navigation ausgeschaltet, dann wechselt JAWS zurück zum einfachen Layout. Wenn Sie mit **EINFÜGEN+X** die schlaue Navigation temporär umschalten, dann schaltet es zurück auf die vorherige Einstellung, wemm Sie einen Befehl ausführen, der den Fokus vom aktuellen Browserfenster wegbewegt, wie etwa **ALT+TAB**.

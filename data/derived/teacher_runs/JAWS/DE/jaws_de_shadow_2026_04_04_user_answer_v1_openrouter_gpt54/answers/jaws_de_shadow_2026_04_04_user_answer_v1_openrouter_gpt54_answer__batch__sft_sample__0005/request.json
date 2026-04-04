@@ -1,0 +1,436 @@
+{
+  "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer::batch::sft_sample::0005",
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::train::clarification::0001",
+    "jaws_de_teacher_wave_v1::train::clarification::0003",
+    "jaws_de_teacher_wave_v1::train::clarification::0008",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001"
+  ],
+  "teacher_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_answer",
+  "teacher_model": "openai/gpt-5.4",
+  "generation_mode": "teacher_answer_openrouter_v1",
+  "expected_output_kind": "sft_sample",
+  "jobs": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0001",
+      "task_type": "clarification",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::clarification::0001::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::clarification::0001",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "clarification",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_braille"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Ich komme mit „Gepufferter Text“ in der geteilten Braille-Ansicht nicht ganz klar: Wenn ich erst einen Text als gewählten Text puffere und dann etwas anderes markiere, bleibt in Bereich 2 dann immer der alte Inhalt stehen? Und wie aktualisiere ich den Puffer am besten wieder?",
+        "user_goal": "Verstehen, wann der gepufferte Text in der Braille-Ansicht aktualisiert wird und wie man ihn neu lädt.",
+        "difficulty": "basic",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Der Nutzer ist unsicher, ob sich die Anzeige des gewählten Textes automatisch mit einer neuen Auswahl ändert und wie der Puffer neu geladen wird.",
+        "notes": [
+          "Bezieht sich auf die Braille-Ansicht mit gepuffertem Text.",
+          "Keine Lösung vorweggenommen, nur Verhaltensfrage.",
+          "Unklar genug für eine Rückfrage zum Aktualisieren des Puffers."
+        ],
+        "usage": {
+          "elapsed_ms": 1161,
+          "batch_elapsed_ms": 9288,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 2042,
+          "source_excerpt_chars": 1187
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response.json",
+          "prompt_sha256": "947ebc615592994602040113dcc4b97097539892a76a4bd97ac926696977086c",
+          "schema_sha256": "8ca29b9c8088d7c4b2bda88edaaa774ef6abc3fe0eab2c008040b143e4b032ef",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0003",
+          "batch_size": 8,
+          "batch_index": 3
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_braille",
+              "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02",
+              "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text",
+              "section_title": "Gepufferter Text",
+              "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/braille/index.md#L524-L530"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "- **Absatz**: Puffert den aktuellen Absatz.\n- **Dokument**: Puffert bis zu 64 KB des aktuellen Dokuments.\n- **Gewählten Text**: Puffert jeden aktuell gewählten Text.\n  Beachten Sie, dass der ausgewählte Text in Bereich 2 nicht automatisch aktualisiert wird, wenn sich die Auswahl ändert. Wenn Sie einen anderen Text auswählen, dann müssen Sie im Dialogfenster Braille-Ansicht auswählen wieder **Gepufferter Text** wählen und dann **Gewählten Text** im Einstellungsdialog wählen, um den Puffer zu aktualisieren.\n- **Zwischenablagetext**: Puffert den Inhalt der Windows-Zwischenablage, so dass Sie den zweiten Bereich effektiv als Notizenbereich nutzen können, in dem Sie Inhalte von verschiedenen Positionen einbringen und leicht darauf verweisen können. So können Sie beispielsweise Text mit **STRG+C** kopieren, weiteren Text von anderen Quellen auswählen und mit **EINFÜGEN+WINDOWS+C** an die Zwischenablage anhängen, dann die Ansicht Gepufferten Text aktivieren und Zwischenablagetext auswählen, um alle Ihrer gesammelten Informationen im Bereich 2 anzuzeigen und nach Bedarf zu verwenden.\n\nUm den Puffer zu aktualisieren, öffnen Sie das Dialogfeld Braille-Ansicht auswählen und wählen Sie erneut die Option **Gepufferter Text**, um den Puffer mit den neuesten Inhalten zu aktualisieren. Aklternativ öffnen Sie das Dialogfenster Teilungs-Ansicht auswählen, stellen sicher, dass **Gepufferter Text*",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text::chunk_02",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__gepufferter_text",
+            "section_title": "Gepufferter Text",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L524-L530"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0003",
+      "task_type": "clarification",
+      "source_chunk_ids": [
+        "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_settingscenter"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::clarification::0003::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::clarification::0003",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "clarification",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_settingscenter"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Ich verliere in der Einstellungsverwaltung manchmal die Orientierung in der Strukturansicht. Mit den Pfeiltasten komme ich zwar hoch und runter, aber ich bin mir nicht sicher, wie ich Gruppen auf- und zuklappe oder nach einem Suchergebnis wieder in die normale Struktur zurückkomme. Können Sie mir sagen, wie das dort genau gedacht ist?",
+        "user_goal": "Hilfe zur Navigation in der Strukturansicht der Einstellungsverwaltung.",
+        "difficulty": "basic",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Der Nutzer beschreibt Unsicherheit bei der Navigation in der Strukturansicht, beim Erweitern/Reduzieren von Gruppen und beim Zurückkehren nach einer Suche.",
+        "notes": [
+          "Passt zu Navigation in der Strukturansicht.",
+          "Fragt allgemein nach dem Verhalten, ohne einzelne Tastenkürzel vorwegzunehmen.",
+          "Supportnah und leicht unpräzise."
+        ],
+        "usage": {
+          "elapsed_ms": 1161,
+          "batch_elapsed_ms": 9288,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 2042,
+          "source_excerpt_chars": 1187
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response.json",
+          "prompt_sha256": "947ebc615592994602040113dcc4b97097539892a76a4bd97ac926696977086c",
+          "schema_sha256": "8ca29b9c8088d7c4b2bda88edaaa774ef6abc3fe0eab2c008040b143e4b032ef",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0003",
+          "batch_size": 8,
+          "batch_index": 3
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_settingscenter",
+              "chunk_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01",
+              "section_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht",
+              "section_title": "Navigation in der Strukturansicht",
+              "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/settingscenter/index.md#L1019-L1025"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "- Drücken Sie **PFEIL RAUF** oder **PFEIL RUNTER**, um sich in der Strukturansicht auf- oder abwärts zu bewegen.\n- Drücken Sie **PFEIL RECHTS** oder **PFEIL LINKS**, um eine Gruppe der Strukturansicht zu erweitern oder zu reduzieren.\n- Um eine Gruppe oder ein Element in der Strukturansicht auszuwählen, nutzen Sie die Navigation über Anfangsbuchstaben.\n- Drücken Sie **LEERTASTE** oder **EINGABE**, um den Status des Element zu ändern, während es in der Strukturansicht fokussiert ist. Dieses funktioniert für Optionen wie Auswahlschalter, Kontrollfelder oder Schalter, ohne dass Sie **F6** drücken müssen, um in den Einstellungsbereich zu wechseln.\n- Drücken Sie **STRG+UMSCHALT+D**, um die Standardeinstellungsdatei Default.jcf zu laden und Änderungen global vorzunehmen.\n- Wenn Sie in der Einstellungsverwaltung nach einem Element suchen, dann wird das Suchergebnis in der Strukturansicht angezeigt. Drücken Sie **EINGABE** auf einem beliebigen Eintrag, um die komplette Strukturansicht wieder herzustellen und navigieren Sie dann direkt zu dem Element. Drücken Sie innerhalb des Suchergebnisses **ESCAPE**, dann wird die volle Strukturansicht mit dem vorherigen Element, bevor Sie die Suche gestartet haben, wieder hergestellt.\n- Mit **F6** wechseln Sie in den Einstellungsbereich. Drücken Sie **F6** ein weiteres Mal, um zur Strukturansicht zurückzukehren.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_settingscenter",
+            "chunk_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht::chunk_01",
+            "section_id": "jaws_de_settingscenter::sec_einstellungsverwaltung_uebersicht__kurztasten_zum_navigieren_in_der_einstellungsverwaltung__navigation_in_der_strukturansicht",
+            "section_title": "Navigation in der Strukturansicht",
+            "normalized_path": "data/normalized/JAWS/DE/settingscenter/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/settingscenter/index.md#L1019-L1025"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0008",
+      "task_type": "clarification",
+      "source_chunk_ids": [
+        "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_hilfe_kernfunktionen"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::clarification::0008::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::clarification::0008",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "clarification",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_hilfe_kernfunktionen"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "In den neuen Hinweisen zu Aria und Web: Ich sehe, dass JAWS jetzt bei manchen Webinhalten besser mit Tabellen und Regionen umgehen soll. Ich bin mir aber nicht sicher, was davon in Chrome gilt und ob das nur für bestimmte Webseiten oder Elemente gedacht ist. Können Sie das kurz einordnen?",
+        "user_goal": "Einordnung, was die neuen Aria- und Web-Verbesserungen in JAWS konkret abdecken.",
+        "difficulty": "intermediate",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Der Nutzer fragt allgemein nach den Verbesserungen bei Aria/Web und ist unsicher, worauf sie sich beziehen, besonders in Chrome.",
+        "notes": [
+          "Bleibt nah am changelogartigen Kontext.",
+          "Bewusst allgemein gehalten, damit eine fokussierte Rückfrage sinnvoll bleibt.",
+          "Keine erfundene Funktion ergänzt."
+        ],
+        "usage": {
+          "elapsed_ms": 1161,
+          "batch_elapsed_ms": 9288,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 2042,
+          "source_excerpt_chars": 1187
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response.json",
+          "prompt_sha256": "947ebc615592994602040113dcc4b97097539892a76a4bd97ac926696977086c",
+          "schema_sha256": "8ca29b9c8088d7c4b2bda88edaaa774ef6abc3fe0eab2c008040b143e4b032ef",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0003",
+          "batch_size": 8,
+          "batch_index": 3
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_hilfe_kernfunktionen",
+              "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01",
+              "section_id": "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web",
+              "section_title": "Aria und Web",
+              "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L6029-L6036"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "- JAWS bietet nun die Möglichkeit, direkt zu mathematischen Elementen auf Webseiten zu springen. Um diese Funktion zu nutzen, können Sie über den Schnellnavigationstastenmanager, der über das Dialogfenster JAWS Manager ausführen (**EINFÜGEN+F2**) aufgerufen wird, eine Tastenkombination zuweisen.\n- In Google Chrome wurde die Leistung von JAWS beim Navigieren zwischen Zellen in sehr großen Tabellen verbessert.\n- JAWS sagt nun standardmäßig Regionen mit Namen an.\n- Durch Drücken der **ANWENDUNGSTASTE** auf einem Link wird nun zuverlässig das richtige Kontextmenü geöffnet.\n- Beim Navigieren in Tabellen zeigt JAWS nun sowohl Kopfzeilen als auch Spalten- und Zeileninformationen korrekt an, selbst wenn die Tabelle Span-Elemente enthält.\n- JAWS liest nun Fortschrittsbalken, die die Aria-Fortschrittsbalkenrolle verwenden, korrekt vor.\n- Wenn Sie den Fokus auf eine Tabellenzelle in der Kopfzeile setzen, die sich über mehrere Spalten erstreckt, funktioniert das Drücken von **ALT+STRG+ENDE** nun wie erwartet, um zur letzten Zelle in der Tabelle zu gelangen.\n- In Google Chrome wird der Fokus nicht mehr unerwartet auf die Adressleiste oder das Chrome-Menü verschoben, wenn der Fokus auf einem Kombinationsfeld liegt und die Taste **ESC** gedrückt wird, um den Formularmodus zu verlassen.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_hilfe_kernfunktionen",
+            "chunk_id": "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web::chunk_01",
+            "section_id": "jaws_de_hilfe_kernfunktionen::sec_was_ist_neu_in_jaws__aria_und_web",
+            "section_title": "Aria und Web",
+            "normalized_path": "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L6029-L6036"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+      "task_type": "uncertainty_escalation",
+      "source_chunk_ids": [
+        "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01"
+      ],
+      "source_doc_ids": [
+        "jaws_de_braille"
+      ],
+      "user_simulation": {
+        "simulation_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001::simulation",
+        "job_id": "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+        "wave_id": "jaws_de_teacher_wave_v1",
+        "target_split": "train",
+        "expected_output_kind": "sft_sample",
+        "task_type": "uncertainty_escalation",
+        "product": "JAWS",
+        "language": "de",
+        "source_doc_ids": [
+          "jaws_de_braille"
+        ],
+        "source_chunk_ids": [
+          "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01"
+        ],
+        "simulator_provider": "openrouter",
+        "simulator_model": "openai/gpt-5.4-mini",
+        "simulator_run_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim",
+        "simulator_prompt_version": "jaws_de_user_simulation_v1",
+        "generation_mode": "teacher_user_simulator_openrouter_v1",
+        "simulation_status": "completed",
+        "request_text": "Ich arbeite in Word mit Kommentaren und Überarbeitungen. Kann ich mich bei der Anmerkungsansicht in JAWS darauf verlassen, dass sie immer so funktioniert, oder gibt es dabei Einschränkungen, die man kennen sollte?",
+        "user_goal": "Klären, ob die Anmerkungsansicht in JAWS allgemein zuverlässig in allen Fällen nutzbar ist.",
+        "difficulty": "basic",
+        "phrasing_style": "uncertain",
+        "scenario_summary": "Der Nutzer fragt nach der Zuverlässigkeit und möglichen Grenzen der Anmerkungsansicht, besonders bei Word und überarbeitetem Text.",
+        "notes": [
+          "Zielt auf die Anmerkungsansicht und ihre Hinweise.",
+          "Randfall-/Grenzfrage statt reiner Bedienfrage.",
+          "Keine externe Anwendung über Word hinaus behauptet."
+        ],
+        "usage": {
+          "elapsed_ms": 1161,
+          "batch_elapsed_ms": 9288,
+          "batch_size": 8,
+          "attempt_count": 1,
+          "prompt_chars": 2042,
+          "source_excerpt_chars": 1187
+        },
+        "openrouter": {
+          "api_base": "https://openrouter.ai/api/v1",
+          "request_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/request.json",
+          "prompt_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/prompt.txt",
+          "schema_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response_schema.json",
+          "request_body_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/http_request.json",
+          "response_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_runs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54/user_simulations/jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim__batch__0003/response.json",
+          "prompt_sha256": "947ebc615592994602040113dcc4b97097539892a76a4bd97ac926696977086c",
+          "schema_sha256": "8ca29b9c8088d7c4b2bda88edaaa774ef6abc3fe0eab2c008040b143e4b032ef",
+          "temperature": 0.2,
+          "max_output_tokens": 2200,
+          "request_metadata": {
+            "profile_set": "support_mvp_openrouter_gpt54_candidate",
+            "profile_stage": "user_simulation",
+            "profile_name": "openrouter_gpt54mini_shadow_v1"
+          },
+          "batch_id": "jaws_de_shadow_2026_04_04_user_answer_v1_openrouter_gpt54_user_sim::batch::0003",
+          "batch_size": 8,
+          "batch_index": 3
+        },
+        "provenance": {
+          "transform_pipeline_version": "0.8.0",
+          "source_job_path": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+          "behavior_spec_path": "docs/support_behavior_spec.md",
+          "prompt_template_path": "prompts/teacher/jaws_de_user_simulation.md",
+          "source_records": [
+            {
+              "doc_id": "jaws_de_braille",
+              "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01",
+              "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen",
+              "section_title": "Anmerkungen",
+              "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+              "source_spans": [
+                "data/normalized/JAWS/DE/braille/index.md#L536-L538"
+              ]
+            }
+          ]
+        }
+      },
+      "source_excerpt": "Diese Ansicht ist vor allem in Word nützlich, für die Überprüfung von Kommentaren, Überarbeitungen, Fußnoten oder Endnoten. Befindet sich der Cursor auf einem Text, der eine Anmerkung enthält, wird der Text des Dokuments in der ersten Region angezeigt, während der Text der Anmerkung in der zweiten Region angezeigt wird. Wenn die aktuelle Zeile oder der Text an der Cursorposition keine Anmerkungen enthält, wird die gesamte Braillezeile für die Textzeile verwendet und nicht geteilt. In dieser Ansicht kann der Text eines Kommentars, einer Überarbeitung, einer Fußnote oder einer Endnote gleichzeitig mit dem Haupttext angezeigt werden, auf den er sich beziehen. Sie können den Text des Dokuments bearbeiten und lesen, während Sie den Anmerkungstext im Blick behalten.\n\n**Hinweis:** Die besten Ergebnisse beim Überprüfen von überarbeitetem Text in der Anmerkungsansicht erzielen Sie, wenn Sie die Nachverfolgungsansicht in Word auf **Markup: alle** einstellen.",
+      "provenance": {
+        "transform_pipeline_version": "0.5.0",
+        "source_records": [
+          {
+            "doc_id": "jaws_de_braille",
+            "chunk_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen::chunk_01",
+            "section_id": "jaws_de_braille::sec_jaws_braille_allgemein_focus__auswahl_einer_geteilten_braille_ansicht__anmerkungen",
+            "section_title": "Anmerkungen",
+            "normalized_path": "data/normalized/JAWS/DE/braille/index.md",
+            "source_spans": [
+              "data/normalized/JAWS/DE/braille/index.md#L536-L538"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "_llm_request_metadata": {
+    "profile_set": "support_mvp_openrouter_gpt54_candidate",
+    "profile_stage": "answer",
+    "profile_name": "openrouter_gpt54_shadow_v1"
+  }
+}

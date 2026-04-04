@@ -1,0 +1,222 @@
+# Teacher Prompt: JAWS-DE User Simulation
+
+## Rolle
+
+Du simulierst eine realistische deutschsprachige Support-Anfrage fuer JAWS.
+
+## Ziel
+
+Erzeuge genau eine hochwertige Nutzeranfrage, die plausibel zu einem realen Supportfall passt und sich eng am bereitgestellten Dokumentkontext orientiert.
+
+## Regeln
+
+- Nutze nur den bereitgestellten Quellkontext.
+- Erfinde keine Menues, Tastenkombinationen oder Funktionen.
+- Verwende keine Chunk-Titel als starre Schablone.
+- Formuliere die Anfrage so, wie ein echter Anwender oder Helpdesk-Nutzer sie stellen koennte.
+- Variiere Schwierigkeitsgrad und Formulierungsstil sinnvoll.
+- Die Anfrage darf unvollstaendig oder alltagsnah sein, aber sie muss zum dokumentierten Fall passen.
+- Keine Loesung in die Anfrage schreiben.
+- Kein Chain-of-thought, keine Erklaerungen ausserhalb des JSON.
+
+## Gewuenschte Qualitaet
+
+- konkret statt generisch
+- supportnah statt dokumenttitelartig
+- glaubwuerdig fuer den jeweiligen `task_type`
+- bei `clarification` oder `uncertainty_escalation` darf die Anfrage bewusst etwas unklar sein
+- bei `step_by_step` sollte die Anfrage typischerweise um eine Bedienfolge oder Vorgehensweise bitten
+
+## Task-Type-spezifische Leitplanken
+
+- `faq_direct_answer`: die Anfrage soll auf eine konkrete, direkt beantwortbare Informationsfrage hinauslaufen.
+- `troubleshooting`: die Anfrage soll ein plausibles Problem, eine Einschränkung oder ein unerwartetes Verhalten schildern.
+- `step_by_step`: die Anfrage soll klar um eine Vorgehensweise, Bedienfolge oder Einrichtung bitten.
+- `clarification`: die Anfrage soll bewusst noch nicht eng genug sein, sodass eine fokussierte Rueckfrage sinnvoll bleibt.
+- `uncertainty_escalation`: die Anfrage darf einen Randfall, eine Voraussetzung oder eine Grenze ansprechen, bei der die Quelle nur begrenzt Antwort gibt.
+
+## Ausgabe
+
+JSON mit:
+- `request_text`
+- `user_goal`
+- `difficulty`
+- `phrasing_style`
+- `scenario_summary`
+- `notes`
+
+## Batch-Regeln
+- Erzeuge fuer jede job_id genau eine eigenstaendige Nutzeranfrage.
+- Uebernimm job_id im JSON exakt.
+- Antworte fuer alle Faelle gesammelt in einem JSON-Objekt mit items[].
+- Verwende nur den pro Fall gezeigten Quellkontext.
+
+## Faelle
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0003
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__sprache_und_braille_fuer_spalten_umschalten::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Hilfe (Kernfunktionen) > Sprache und Braille für Spalten umschalten
+- spaeteres supportziel: Gibt eine kurze Schrittfolge fuer Sprache und Braille für Spalten umschalten aus dem Abschnitt wieder.
+- seed_request: Wie gehe ich bei Sprache und Braille für Spalten umschalten in JAWS Schritt fuer Schritt vor?
+- source_excerpt:
+Wenn JAWS eine bestimmte Spalte nicht lesen und/oder in Braille anzeigen soll, gehen Sie bitte folgendermaßen vor:
+
+1. Wählen Sie auf der Registerkarte Sprache mit **PFEIL RAUF** und **RUNTER** die Spalte aus.
+2. Aktivieren Sie den Schalter Sprache umschalten. Dadurch wird die Spalte auf "Nicht sprechen" umgeschaltet. Sie können diesen Schalter erneut aktivieren, um die Eigenschaft wieder auf "Spalte sprechen" zu setzen.
+3. Drücken Sie **STRG+TAB**, um auf die Registerkarte Braille zu wechseln und wählen Sie die Spalte aus der Liste.
+4. Aktivieren Sie den Schalter Braille umschalten. Dadurch wird die Spalte auf "Kein Braille" umgeschaltet. Sie können diesen Schalter erneut aktivieren, um die Eigenschaft wieder auf "Braille Spalte" zu setzen.
+5. Betätigen Sie den OK Schalter.
+
+### job_id: jaws_de_teacher_wave_v1::eval::step_by_step::0005
+- task_type: step_by_step
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__erkennung_von_bildschirminhalten__beispiel_fuer_geteilte_folien_in_teams_und_zoom::chunk_01
+- chunk_type: procedure
+- section_path_text: JAWS – Hilfe (Kernfunktionen) > Erkennung von Bildschirminhalten > Beispiel für geteilte Folien in Teams und Zoom
+- spaeteres supportziel: Gibt eine kurze Schrittfolge fuer Beispiel für geteilte Folien in Teams und Zoom aus dem Abschnitt wieder.
+- seed_request: Wie gehe ich bei Beispiel für geteilte Folien in Teams und Zoom in JAWS Schritt fuer Schritt vor?
+- source_excerpt:
+So verwenden Sie die Hintergrund-OCR, um Text eines freigegebenen Bildschirms oder einer Präsentation in einer Teams- oder Zoom-Besprechung zu erkennen:
+
+1. Nehmen Sie an einem Teams- oder Zoom-Meeting teil, in dem Inhalte geteilt oder freigegeben werden.
+2. Drücken Sie **EINFÜGEN+LEERTASTE**, **O**, **EINGABE**. JAWS startet die Hintergrund-OCR, aktiviert dann den unsichtbaren Cursor und bewegt ihn zum geteilten Inhaltsbereich.
+3. Verwenden Sie Ihre **Pfeiltasten**, um den erkannten Text zu erkunden.
+4. Sie können jederzeit überprüfen, ob die Hintergrund-OCR aktiv ist, indem Sie **ALT+ENTFERNEN** drücken. Wenn die Hintergrund-OCR aktiviert ist, wird dies gefolgt von Informationen über den aktiven Cursor und dessen Position angesagt.
+5. Brechen Sie die Hintergrund-OCR ab, indem Sie einen der folgenden Schritte ausführen:
+
+- Drücken Sie **EINFÜGEN+LEERTASTE**, **O**, **Q**, um die Erkennung abzubrechen.
+- Schalten Sie auf den PC oder Virtuellen PC Cursor um.
+- Bewegen Sie den Fokus in eine andere Anwendung oder ein anderes Fenster.
+
+### job_id: jaws_de_teacher_wave_v1::eval::troubleshooting::0002
+- task_type: troubleshooting
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__taskleiste::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Tutorial / Grundlagen > Taskleiste
+- spaeteres supportziel: Leitet aus dem Abschnitt Taskleiste eine konkrete dokumentierte Hilfestellung ab.
+- seed_request: Ich komme bei Taskleiste in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?
+- source_excerpt:
+Die Taskleiste befindet sich rechts neben der Schnellstartleiste. Ist die Schnellstartleiste ausgeblendet, dann befindet sich die Taskleiste rechts neben dem Start Schalter. In der Taskleiste werden alle zur Zeit laufenden Anwendungen aufgeführt. Nachdem Sie mit **TAB** auf die Taskleiste gesprungen sind, drücken Sie **PFEIL** **RECHTS** und **LINKS**, um sich durch die laufenden Anwendungen zu bewegen. Drücken Sie **EINGABE** auf der gewünschten Anwendung, damit diese den Fokus erhält. Wenn nur ein Element in der Taskleiste angesagt wird, ist nur eine laufende Anwendung vorhanden.
+
+### job_id: jaws_de_teacher_wave_v1::eval::troubleshooting::0004
+- task_type: troubleshooting
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__gesicht_im_blick::chunk_01
+- chunk_type: warning
+- section_path_text: Schnelleinstellung Übersicht > Gesicht im Blick
+- spaeteres supportziel: Leitet aus dem Abschnitt Gesicht im Blick eine konkrete dokumentierte Hilfestellung ab.
+- seed_request: Ich komme bei Gesicht im Blick in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?
+- source_excerpt:
+Videoanrufe sind zu einer Standardform der Kommunikation am Arbeitsplatz, in der Schule und in persönlichen Beziehungen geworden. Bevor Sie sich an einem Videoanruf beteiligen, sollten Sie sicherstellen, dass Ihre Einstellung richtig ist und die Kamera richtig auf Sie ausgerichtet ist. Gesicht im Blick hilft Ihnen dabei, indem es Sie auf wichtige visuelle Details aufmerksam macht, wie zum Beispiel:
+
+- Ist mein Gesicht in der Ansicht zentriert?
+- Gucke ich direkt in die Kamera?
+- Ist die Beleuchtung ausgewogen?
+- Sind noch weitere Elemente im Bild sichtbar?
+
+Um Gesicht im Blick zu aktivieren, drücken Sie die verschachtelte Kurztaste **EINFÜGEN+LEERTASTE**, gefolgt von **F** und dann **O**. Sobald die Funktion aktiviert ist, überwacht Gesicht im Blick kontinuierlich Ihre Gesichtsposition und die Lichtverhältnisse. Wenn sich etwas ändert, wenn Sie beispielsweise Ihren Kopf nach links oder rechts neigen oder die Helligkeit abnimmt, werden Sie automatisch benachrichtigt.
+
+**Hinweis:** Gesicht im Blick ist derzeit während eines aktiven Videoanrufs nicht verfügbar, da es vollständigen Zugriff auf die Kamera benötigt.
+
+Während Gesicht im Blick aktiv ist, sind die folgenden verschachtelten Kurztasten verfügbar:
+
+- Eine andere Kamera auswählen (falls mehrere Kameras verfügbar sind): **EINFÜGEN+LEERTASTE**, **F**, **C**. Sobald die Kamera-Ebene aktiv ist, drücken Sie **PFEIL RAUF** oder *
+
+### job_id: jaws_de_teacher_wave_v1::eval::troubleshooting::0007
+- task_type: troubleshooting
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_jaws_hilfe_kernfunktionen__eine_promptbezeichnung_erstellen::chunk_01
+- chunk_type: warning
+- section_path_text: JAWS – Hilfe (Kernfunktionen) > Eine Promptbezeichnung erstellen
+- spaeteres supportziel: Leitet aus dem Abschnitt Eine Promptbezeichnung erstellen eine konkrete dokumentierte Hilfestellung ab.
+- seed_request: Ich komme bei Eine Promptbezeichnung erstellen in JAWS nicht weiter. Was sollte ich laut Dokumentation pruefen oder tun?
+- source_excerpt:
+Wenn Sie eine Promptbezeichnung erstellen möchten, gehen Sie bitte folgendermaßen vor:
+
+1. Gehen Sie auf das gewünschte Steuerelement.
+2. Drücken Sie **STRG+JAWS TASTE+TAB**.
+3. Der Dialog "Prompt für Element erstellen" wird geöffnet. Geben Sie auf der ersten Seite die Promptbezeichnung so ein, wie sie von JAWS gesprochen werden soll. Danach aktivieren Sie den Schalter Weiter.
+4. Auf der zweiten Seite geben Sie nun die Promptbezeichnung so ein, wie sie von JAWS auf der Braillezeile angezeigt werden soll. Danach aktivieren Sie den Schalter Weiter.
+5. Auf der dritten Seite können Sie nun eine individuelle Tutormeldung eingeben, die Ihnen später beim Navigieren als Erklärung für dieses Steuerelement angesagt wird. Wenn Sie keine Tutormeldung eingeben, wird eine Standardmeldung angesagt. Aktivieren Sie den Schalter Fertigstellen, um die Promptbezeichnung zu erstellen.
+
+**Hinweis:** Alternativ können Sie mit **JAWS TASTE+F2** den Dialog JAWS Manager aufrufen öffnen und aus der Liste den Eintrag Prompt erstellen wählen.
+
+Wenn Sie eine Promptbezeichnung verändern möchten, die Sie bereits erstellt haben, drücken Sie erneut **STRG+JAWS TASTE+TAB** und verändern die vorhandenen Bezeichnungen.
+
+Quelle: create_a_prompt.htm
+
+### job_id: jaws_de_teacher_wave_v1::eval::faq_direct_answer::0002
+- task_type: faq_direct_answer
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_tutorial_basics
+- source_chunk_ids: jaws_de_tutorial_basics::sec_jaws_tutorial_grundlagen__der_typische_aufbau_eines_anwendungsfensters::chunk_01
+- chunk_type: concept
+- section_path_text: JAWS – Tutorial / Grundlagen > Der typische Aufbau eines Anwendungsfensters
+- spaeteres supportziel: Beantwortet die Frage knapp und dokumentationsgestuetzt zu Der typische Aufbau eines Anwendungsfensters.
+- seed_request: Was sollte ich in JAWS zu Der typische Aufbau eines Anwendungsfensters wissen?
+- source_excerpt:
+Dieser Abschnitt beschreibt den Aufbau eines typischen Anwendungsfensters, beginnend am oberen und endend am unteren Rand des Fensters. HJPad, ein einfaches Textverarbeitungsprogramm, das zusammen mit JAWS ausgeliefert wird, dient als Beispielanwendung. Öffnen Sie das Startmenü und wählen Sie Programme, dann den Menüeintrag JAWS. Gehen Sie dann mit **PFEIL RUNTER** durch das Menü auf den Eintrag HJPad starten. Drücken Sie **EINGABE**, um die Anwendung zu starten.
+
+[Titelzeile](typical_application_layout.htm#Title_Bar)
+
+[Menüleiste](typical_application_layout.htm#Menu_Bar)
+
+[Symbolleiste](typical_application_layout.htm#Toolbars)
+
+[Dokumenteingabefeld](typical_application_layout.htm#Document_Edit_Field)
+
+[Statuszeile](typical_application_layout.htm#Status_bar)
+
+[Steuerungsmenü](typical_application_layout.htm#Control_Menu)
+
+### job_id: jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003
+- task_type: faq_direct_answer
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_settingscenter
+- source_chunk_ids: jaws_de_settingscenter::sec_gruppe_sprachausgaben__gruppe_navigation__laenge_des_textblocks::chunk_01
+- chunk_type: concept
+- section_path_text: Gruppe Sprachausgaben > Gruppe Navigation > Länge des Textblocks
+- spaeteres supportziel: Beantwortet die Frage knapp und dokumentationsgestuetzt zu Länge des Textblocks.
+- seed_request: Wofuer ist Länge des Textblocks in JAWS gedacht?
+- source_excerpt:
+Wenn Sie **JAWS TASTE+EINGABE** drücken, um zum nächsten Text zu springen, der kein Link ist, sucht JAWS nach einem Textblock, der nicht Teil eines Links ist und so viele oder mehr Zeichen aufweist, wie der Wert, der hier angegeben wird. Der Standardwert ist 25.
+
+### job_id: jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004
+- task_type: faq_direct_answer
+- expected_output_kind: eval_case
+- source_doc_ids: jaws_de_hilfe_kernfunktionen
+- source_chunk_ids: jaws_de_hilfe_kernfunktionen::sec_schnelleinstellung_uebersicht__jaws_befehle_zum_arbeiten_in_dialogen::chunk_01
+- chunk_type: concept
+- section_path_text: Schnelleinstellung Übersicht > JAWS Befehle zum Arbeiten in Dialogen
+- spaeteres supportziel: Beantwortet die Frage knapp und dokumentationsgestuetzt zu JAWS Befehle zum Arbeiten in Dialogen.
+- seed_request: Was sollte ich in JAWS zu JAWS Befehle zum Arbeiten in Dialogen wissen?
+- source_excerpt:
+Tabelle: Befehle zum Arbeiten in Dialogen
+
+| Beschreibung | Befehl |
+| --- | --- |
+| Standardschalter ansagen | JAWS TASTE+E |
+| Kurztaste des aktuellen Steuerelements ansagen | UMSCHALT+NUM 5 |
+| Aktuelles Fenster lesen | JAWS TASTE+B |
+| Fenstertyp und Text lesen | JAWS TASTE+TAB |
+| Wort im Kontext lesen | JAWS TASTE+C |
+| Ausklappliste öffnen | ALT+PFEIL RUNTER |
+| Ausklappliste schließen | ALT+PFEIL RAUF |
+| Mehrere Listenelemente markieren | STRG+UMSCHALT oder STRG+LEERTASTE |
+| Alle Markierungen aufheben | STRG+\ |
+| Spalten 1 bis 10 der Listenansicht lesen | STRG+JAWS TASTE+1 bis 0 |
+
+**Tipp:** Wenn Sie auf einem Steuerelement des Dialogfensters **JAWS-TASTE+F1** drücken, erhalten Sie eine kontextabhängige Hilfe.
+
+*Siehe auch:*
+[Windows Befehle für das Arbeiten in Dialogfeldern](../standard_windows_keystrokes/windows_keystrokes_for_working_in_dialog_boxes.htm)
+
+Quelle: jaws_keystrokes_for_working_in_dialog_boxes.htm

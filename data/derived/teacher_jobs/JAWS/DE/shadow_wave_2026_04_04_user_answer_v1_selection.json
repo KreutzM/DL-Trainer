@@ -1,0 +1,116 @@
+{
+  "selection_id": "jaws_de_shadow_wave_2026_04_04_user_answer_v1",
+  "workflow_role": "shadow_wave_user_answer_gpt54_v1",
+  "jobs_file": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+  "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v1_job_ids.txt",
+  "selected_job_count": 32,
+  "selection_summary": {
+    "train_examples": 16,
+    "eval_examples": 16,
+    "task_types": [
+      "clarification",
+      "faq_direct_answer",
+      "step_by_step",
+      "troubleshooting",
+      "uncertainty_escalation"
+    ],
+    "task_type_counts": {
+      "clarification": 6,
+      "faq_direct_answer": 6,
+      "step_by_step": 8,
+      "troubleshooting": 6,
+      "uncertainty_escalation": 6
+    },
+    "split_task_counts": {
+      "eval": {
+        "clarification": 3,
+        "faq_direct_answer": 3,
+        "step_by_step": 4,
+        "troubleshooting": 3,
+        "uncertainty_escalation": 3
+      },
+      "train": {
+        "clarification": 3,
+        "faq_direct_answer": 3,
+        "step_by_step": 4,
+        "troubleshooting": 3,
+        "uncertainty_escalation": 3
+      }
+    },
+    "seed_job_count": 20,
+    "top_off_job_count": 12,
+    "selection_strategy": "Starts from the existing 20-job current_generation_selection, then deterministically tops off wave1 jobs to a 32-job reviewable shadow wave. Each split gets one extra clarification, faq_direct_answer, troubleshooting and uncertainty_escalation case plus two extra step_by_step cases, so step_by_step reaches 8 total cases while all other task types remain at 6."
+  },
+  "historical_source": {
+    "selection_manifest": {
+      "selection_id": "jaws_de_current_generation_selection",
+      "workflow_role": "fresh_run_default",
+      "jobs_file": "data/derived/teacher_jobs/JAWS/DE/wave1_generation_jobs.jsonl",
+      "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/current_generation_job_ids.txt",
+      "selected_job_count": 20,
+      "selection_summary": {
+        "train_examples": 10,
+        "eval_examples": 10,
+        "task_types": [
+          "clarification",
+          "faq_direct_answer",
+          "step_by_step",
+          "troubleshooting",
+          "uncertainty_escalation"
+        ]
+      },
+      "historical_source": {
+        "job_ids_file": "data/derived/teacher_jobs/JAWS/DE/codex_cli_support_validation_v1_job_ids.txt",
+        "selection_report_file": "data/derived/teacher_jobs/JAWS/DE/codex_cli_support_validation_v1_selection_report.json"
+      }
+    }
+  },
+  "job_ids": [
+    "jaws_de_teacher_wave_v1::eval::clarification::0001",
+    "jaws_de_teacher_wave_v1::eval::clarification::0002",
+    "jaws_de_teacher_wave_v1::eval::clarification::0004",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0002",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0003",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0005",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0002",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0002",
+    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004",
+    "jaws_de_teacher_wave_v1::train::clarification::0001",
+    "jaws_de_teacher_wave_v1::train::clarification::0003",
+    "jaws_de_teacher_wave_v1::train::clarification::0008",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0003",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0005",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0008",
+    "jaws_de_teacher_wave_v1::train::troubleshooting::0002",
+    "jaws_de_teacher_wave_v1::train::troubleshooting::0003",
+    "jaws_de_teacher_wave_v1::train::troubleshooting::0004",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0001",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0002",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0003"
+  ],
+  "top_off_job_ids": [
+    "jaws_de_teacher_wave_v1::eval::clarification::0004",
+    "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0002",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0003",
+    "jaws_de_teacher_wave_v1::eval::step_by_step::0005",
+    "jaws_de_teacher_wave_v1::eval::troubleshooting::0002",
+    "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0002",
+    "jaws_de_teacher_wave_v1::train::clarification::0001",
+    "jaws_de_teacher_wave_v1::train::faq_direct_answer::0003",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0005",
+    "jaws_de_teacher_wave_v1::train::step_by_step::0008",
+    "jaws_de_teacher_wave_v1::train::troubleshooting::0002",
+    "jaws_de_teacher_wave_v1::train::uncertainty_escalation::0003"
+  ]
+}
