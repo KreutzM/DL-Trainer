@@ -1,0 +1,38 @@
+{
+  "export_id": "jaws_de_openrouter_gpt54_curated_pre_gold_v16",
+  "export_generated_at_utc": "2026-04-04T18:57:55.287859Z",
+  "format": "qwen_openai_messages",
+  "export_pipeline_version": "0.1.0",
+  "output_dir": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16",
+  "source_reviewed_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v16_openrouter_gpt54_curated_pre_gold_wave_reviewed_teacher_outputs.jsonl",
+  "approved_rows": 50,
+  "rejected_rows": 10,
+  "train_records": 27,
+  "eval_records": 23,
+  "train_metadata_records": 27,
+  "eval_metadata_records": 23,
+  "train_file": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16/train.jsonl",
+  "eval_file": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16/eval.jsonl",
+  "train_metadata_file": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16/train.metadata.jsonl",
+  "eval_metadata_file": "D:/Codex/DL/DL-Trainer/data/derived/pre_gold/JAWS/DE/openrouter_gpt54_curated_pre_gold_v16/eval.metadata.jsonl",
+  "file_sizes_bytes": {
+    "train_file": 60297,
+    "eval_file": 49972,
+    "train_metadata_file": 53439,
+    "eval_metadata_file": 63373
+  },
+  "hashes": {
+    "train_file_sha256": "be1d4ec7b6a2958bd9b8e18f7b539ed4e9e2ca4d16d640fcdde72cde99d9d550",
+    "eval_file_sha256": "bdd23b0c4b0035be95f43ddab569dc1c5f3620e74417e7013c53c212612523e1",
+    "train_metadata_file_sha256": "1e6a26395dbd16f0ca74c58e73d957afe02e68d066dbddf4711ead162b7fd1c6",
+    "eval_metadata_file_sha256": "0cdfa00977221451d487a3039396e4c9943f290b705cd392f4eddf3ed36cf268"
+  },
+  "split_chunk_overlap": [],
+  "source_reviewed_path_sha256": "53b8ea9c0c11a7590375aab5be2d4b1ec6a965d5f034ae804f7d81c6fa32dec5",
+  "source_doc_distribution": {
+    "jaws_de_braille": 11,
+    "jaws_de_hilfe_kernfunktionen": 8,
+    "jaws_de_settingscenter": 15,
+    "jaws_de_tutorial_basics": 16
+  }
+}
