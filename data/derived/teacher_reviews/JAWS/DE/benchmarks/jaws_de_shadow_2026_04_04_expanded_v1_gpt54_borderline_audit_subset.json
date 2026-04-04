@@ -1,0 +1,1197 @@
+{
+  "audit_scope": {
+    "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+    "included_runs": {
+      "codex": {
+        "run_name": "jaws_de_shadow_2026_04_04_expanded_v1_codex_reference",
+        "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_codex_reference_pipeline_report.json"
+      },
+      "openrouter_v1": {
+        "run_name": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1",
+        "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_pipeline_report.json"
+      },
+      "openrouter_v2": {
+        "run_name": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2",
+        "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_pipeline_report.json"
+      },
+      "openrouter_v3": {
+        "run_name": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3",
+        "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_pipeline_report.json"
+      }
+    },
+    "focus_task_types": [
+      "step_by_step",
+      "faq_direct_answer",
+      "clarification",
+      "troubleshooting",
+      "uncertainty_escalation"
+    ],
+    "selection_rules": {
+      "score_spread_threshold": 20,
+      "borderline_approve_max": 92,
+      "borderline_reject_min": 60,
+      "min_cases_per_task_type": 2,
+      "primary_selection": [
+        "decision mismatch vs codex in any openrouter version",
+        "decision disagreement across openrouter v1/v2/v3 on same answer set",
+        "score spread across codex/v1/v2/v3 at or above threshold",
+        "approve score at or below borderline approve threshold",
+        "reject score at or above borderline reject threshold"
+      ],
+      "coverage_backfill": "If a focus task type has fewer than the requested minimum cases, add the most informative remaining cases for that task type."
+    },
+    "population_size": 20
+  },
+  "selected_case_count": 12,
+  "task_type_counts": {
+    "clarification": 2,
+    "faq_direct_answer": 2,
+    "step_by_step": 3,
+    "troubleshooting": 3,
+    "uncertainty_escalation": 2
+  },
+  "selection_tag_counts": {
+    "borderline_approve<=92": 9,
+    "borderline_reject>=60": 4,
+    "decision_mismatch_vs_codex:openrouter_v1": 2,
+    "decision_mismatch_vs_codex:openrouter_v2": 1,
+    "decision_mismatch_vs_codex:openrouter_v3": 3,
+    "focus_task_type:clarification": 2,
+    "focus_task_type:faq_direct_answer": 2,
+    "focus_task_type:step_by_step": 3,
+    "focus_task_type:troubleshooting": 3,
+    "focus_task_type:uncertainty_escalation": 2,
+    "high_score_spread>=20": 5,
+    "openrouter_internal_decision_disagreement": 2,
+    "task_coverage_backfill": 1
+  },
+  "classification_hint_counts": {
+    "answer_quality_gain_or_loss": 1,
+    "reasoning_drift_same_decision": 2,
+    "same_answer_judge_instability": 2,
+    "stable_borderline": 7
+  },
+  "mismatch_patterns_vs_codex": {
+    "openrouter_v1": {
+      "approve_when_codex_rejects": [
+        "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+        "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004"
+      ],
+      "reject_when_codex_approves": [],
+      "same_decision_high_score_delta": [
+        "jaws_de_teacher_wave_v1::train::step_by_step::0002"
+      ]
+    },
+    "openrouter_v2": {
+      "approve_when_codex_rejects": [
+        "jaws_de_teacher_wave_v1::eval::step_by_step::0002"
+      ],
+      "reject_when_codex_approves": [],
+      "same_decision_high_score_delta": [
+        "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+        "jaws_de_teacher_wave_v1::train::step_by_step::0002"
+      ]
+    },
+    "openrouter_v3": {
+      "approve_when_codex_rejects": [
+        "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+        "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004"
+      ],
+      "reject_when_codex_approves": [
+        "jaws_de_teacher_wave_v1::eval::clarification::0002"
+      ],
+      "same_decision_high_score_delta": [
+        "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+        "jaws_de_teacher_wave_v1::train::step_by_step::0002"
+      ]
+    }
+  },
+  "openrouter_pattern_counts": {
+    "openrouter_internal_disagreement": 2,
+    "stable_across_openrouter_versions": 10,
+    "two_approve_one_reject": 2
+  },
+  "cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "target_split": "eval",
+      "task_type": "step_by_step",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L252-L261"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "reject",
+          "quality_score": 61,
+          "summary": "Die Antwort ist weitgehend quellennah, aber als Schrittfolge nicht sauber genug aufgebaut und durch doppelte Ausgaben sowie einen expliziten Unvollständigkeitshinweis geschwächt.",
+          "blocking_reasons": [
+            "Der Schrittblock wird zweimal ausgegeben und ist damit nicht sauber nicht dupliziert.",
+            "Die Antwort endet mit einer eigenen Einschränkung statt mit einer klaren, geschlossenen Schrittfolge.",
+            "Für einen Step-by-Step-Goldkandidaten ist die Form zu unruhig und zu wenig präzise strukturiert."
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "reject",
+          "quality_score": 61,
+          "summary": "Die Antwort folgt grundsätzlich der Quelle, ist aber als Schrittfolge unvollständig und endet bei einem unklaren, abgeschnitten wirkenden letzten Schritt, ohne das eigentliche Einschalten der Braille-Kurzschrift sauber abzuschließen.",
+          "blocking_reasons": [
+            "Die Schrittfolge ist offensichtlich unvollständig und führt das Aktivieren der Braille-Kurzschrift nicht belastbar zu Ende.",
+            "Der letzte Schritt ist unklar formuliert ('zur Einstellung für Braille-Kurzschrift wechseln') und entspricht nicht sauber einem abgeschlossenen dokumentierten Schrittblock.",
+            "Für einen Gold-Kandidaten zu unsauber, weil die Antwort das Ziel des Nutzers nicht vollständig erreicht."
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "reject",
+          "quality_score": 38,
+          "summary": "Die Schrittfolge ist unvollstaendig und bricht vor dem eigentlichen Ziel ab. Der entscheidende letzte Schritt zur Auswahl von Braille-Kurzschrift fehlt.",
+          "blocking_reasons": [
+            "Der letzte inhaltlich entscheidende Schritt fehlt; die Antwort endet bei einem Wechsel durch Einstellungen statt bei der Aktivierung von Braille-Kurzschrift",
+            "Die Prozedur ist dadurch nicht bis zum eigentlichen Nutzerziel vollstaendig"
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "reject",
+          "quality_score": 24,
+          "summary": "Die Schrittfolge ist unvollständig und bricht vor dem eigentlichen Ziel ab. Der entscheidende Abschluss zur tatsächlichen Aktivierung der Braille-Kurzschrift fehlt.",
+          "blocking_reasons": [
+            "Letzter entscheidender Schritt zur Aktivierung fehlt",
+            "Prozedur endet nicht beim eigentlichen Ziel des Nutzers",
+            "Schritt 5 ist zudem unklar formuliert und wirkt abgeschnitten"
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "rejected",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Gehen Sie so vor: 1. EINFÜGEN+F2 drücken und Einstellungsverwaltung wählen. 2. Mit STRG+UMSCHALT+D die Standardeinstellungen laden oder eine Anwendung in der Liste Anwendungen wählen. 3. Im Sucheingabefeld \"Übersetzung\" eingeben. 4. Mit PFEIL RUNTER zu Übersetzung in den gefilterten Suchergebnissen gehen, EINGABE drücken und die Gruppe mit PFEIL RECHTS erweitern. Der bereitgestellte Ausschnitt endet danach unvollständig; die abschließende Auswahl zum Aktivieren der Kurzschrift ist darin nicht vollständig belegt.\n\n1. Drücken Sie EINFÜGEN+F2 und wählen Sie Einstellungsverwaltung.\n2. Wenn die Änderung für alle Anwendungen gelten soll, drücken Sie STRG+UMSCHALT+D, um die Standardeinstellungen von JAWS zu laden. Wenn die Änderung nur für eine bestimmte Anwendung gelten soll, wählen Sie diese in der Ausklappliste Anwendungen.\n3. Geben Sie im Sucheingabefeld \"Übersetzung\" ein.\n4. Drücken Sie PFEIL RUNTER, um in den gefilterten Suchergebnissen zu Übersetzung zu gelangen, drücken Sie EINGABE, um den Fokus in die Gruppe Übersetzung zu setzen, und erweitern Sie die Gruppe mit PFEIL RECHTS."
+        },
+        "openrouter_v1": {
+          "review_status": "rejected",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "1. EINFÜGEN+F2 drücken und Einstellungsverwaltung wählen. 2. Optional Standardeinstellungen mit STRG+UMSCHALT+D laden oder Anwendung auswählen. 3. Nach „Übersetzung“ suchen. 4. Zu Übersetzung in den Suchergebnissen gehen, EINGABE drücken und die Gruppe mit PFEIL RECHTS erweitern. 5. Mit LEERTASTE zur Einstellung für Braille-Kurzschrift wechseln."
+        },
+        "openrouter_v2": {
+          "review_status": "rejected",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "1. EINFÜGEN+F2 drücken und Einstellungsverwaltung wählen. 2. Optional Standardeinstellungen mit STRG+UMSCHALT+D laden oder Anwendung auswählen. 3. Nach „Übersetzung“ suchen. 4. Zu Übersetzung in den Suchergebnissen gehen, EINGABE drücken und die Gruppe mit PFEIL RECHTS erweitern. 5. Mit LEERTASTE zur Einstellung für Braille-Kurzschrift wechseln."
+        },
+        "openrouter_v3": {
+          "review_status": "rejected",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "1. EINFÜGEN+F2 drücken und Einstellungsverwaltung wählen. 2. Optional Standardeinstellungen mit STRG+UMSCHALT+D laden oder Anwendung auswählen. 3. Nach „Übersetzung“ suchen. 4. Zu Übersetzung in den Suchergebnissen gehen, EINGABE drücken und die Gruppe mit PFEIL RECHTS erweitern. 5. Mit LEERTASTE zur Einstellung für Braille-Kurzschrift wechseln."
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:step_by_step",
+        "high_score_spread>=20",
+        "borderline_reject>=60"
+      ],
+      "score_spread": 37,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "reasoning_drift_same_decision",
+      "primary_selection": true
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "target_split": "eval",
+      "task_type": "step_by_step",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L515-L523"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "reject",
+          "quality_score": 64,
+          "summary": "Der Inhalt ist dokumentationsnah, aber die Antwort ist doppelt ausgegeben und damit als sauberer Schritt-fuer-Schritt-Kandidat zu schwach.",
+          "blocking_reasons": [
+            "Die Schrittfolge erscheint einmal als Fliesstext und danach noch einmal als nummerierte Liste.",
+            "Die Form ist dadurch redundant und erfuellt die Anforderung an einen nicht duplizierten Schrittblock nicht sauber.",
+            "Die Antwort ist insgesamt etwas unpraezise benannt, auch wenn die inhaltlichen Schritte stimmen."
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 94,
+          "summary": "Kurze, saubere und dokumentationsnahe Schrittfolge zum Öffnen der Hervorhebungsoptionen; entspricht der Quelle ohne unnötige Zusätze.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 95,
+          "summary": "Die Antwort gibt eine kurze, vollstaendige und korrekt geordnete Prozedur zum Oeffnen der Hervorhebungsoptionen wieder.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 91,
+          "summary": "Die Antwort gibt eine kurze, klare und vollständige Prozedur wieder, um die Hervorhebungsoptionen in der Einstellungsverwaltung zu öffnen.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "rejected",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Gehen Sie so vor: 1. Einstellungsverwaltung öffnen und \"Hervorhebung\" im Sucheingabefeld eingeben. 2. Mit PFEIL RUNTER in die gefilterten Ergebnisse springen und Hervorhebungsfarben konfigurieren wählen. 3. LEERTASTE drücken, um das Dialogfenster Hervorhebungsoptionen zu öffnen.\n\n1. Öffnen Sie die Einstellungsverwaltung und geben Sie \"Hervorhebung\" im Sucheingabefeld ein.\n2. Drücken Sie PFEIL RUNTER, um in die gefilterten Ergebnisse zu springen, und wählen Sie Hervorhebungsfarben konfigurieren.\n3. Drücken Sie LEERTASTE, um das Dialogfenster Hervorhebungsoptionen zu öffnen."
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "1. Einstellungsverwaltung öffnen und nach „Hervorhebung“ suchen. 2. Mit PFEIL RUNTER zu den gefilterten Ergebnissen gehen und „Hervorhebungsfarben konfigurieren“ wählen. 3. Mit LEERTASTE die Hervorhebungsoptionen öffnen."
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "1. Einstellungsverwaltung öffnen und nach „Hervorhebung“ suchen. 2. Mit PFEIL RUNTER zu den gefilterten Ergebnissen gehen und „Hervorhebungsfarben konfigurieren“ wählen. 3. Mit LEERTASTE die Hervorhebungsoptionen öffnen."
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "1. Einstellungsverwaltung öffnen und nach „Hervorhebung“ suchen. 2. Mit PFEIL RUNTER zu den gefilterten Ergebnissen gehen und „Hervorhebungsfarben konfigurieren“ wählen. 3. Mit LEERTASTE die Hervorhebungsoptionen öffnen."
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:step_by_step",
+        "decision_mismatch_vs_codex:openrouter_v1",
+        "decision_mismatch_vs_codex:openrouter_v2",
+        "decision_mismatch_vs_codex:openrouter_v3",
+        "high_score_spread>=20",
+        "borderline_approve<=92",
+        "borderline_reject>=60"
+      ],
+      "score_spread": 31,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "answer_quality_gain_or_loss",
+      "primary_selection": true
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "target_split": "train",
+      "task_type": "step_by_step",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L114-L129"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "reject",
+          "quality_score": 82,
+          "summary": "Die Antwort ist grundsätzlich quellennah, vermischt aber zwei unterschiedliche Anleitungen und enthält dadurch einen unnötig erweiterten Ablauf. Für einen Gold-Kandidaten ist das zu wenig strikt fokussiert.",
+          "blocking_reasons": [
+            "Die Nutzerfrage verlangt einen klaren Schritt-fuer-Schritt-Ablauf zum Oeffnen der Stimmeneinstellungen und Auswaehlen eines Profils, die Antwort kombiniert dafuer zwei getrennte Bedienpfade ohne klare Trennung.",
+            "Schritt 4 bis 6 fuehren ueber die Profilauswahl hinaus und wirken wie eine zusammengezogene, teilweise aus dem Kontext abgeleitete Sequenz.",
+            "Die Antwort bleibt zwar nahe an der Quelle, ist aber fuer den step_by_step-Fall nicht sauber genug segmentiert."
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "reject",
+          "quality_score": 56,
+          "summary": "Die Antwort startet zwar korrekt mit den Schritten zum Öffnen der Stimmeneinstellungen, vermischt dann aber zwei getrennte Prozeduren und driftet von der eigentlichen Anfrage ab.",
+          "blocking_reasons": [
+            "Die Antwort kombiniert das Anpassen in den Stimmeneinstellungen mit der separaten Prozedur zum Auswählen eines Stimmenprofils, statt einen sauberen, zusammenhängenden Schrittblock zur Anfrage zu liefern.",
+            "Für task_type step_by_step ist der Schrittblock nicht sauber fokussiert; nach dem Speichern springt die Antwort unnötig in ein anderes Dialogfenster.",
+            "Die Nutzerfrage zielt auf das Öffnen und Anpassen in den Stimmeneinstellungen; die zusätzlichen Schritte 6 und 7 sind dafür nicht erforderlich und wirken wie Prozedurvermischung."
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "reject",
+          "quality_score": 28,
+          "summary": "Die Antwort vermischt zwei verschiedene dokumentierte Prozeduren: Stimmeneinstellungen öffnen/anpassen und anschließend Stimmenprofil auswählen. Das verletzt die Anforderung an eine saubere, einheitliche Schrittfolge.",
+          "blocking_reasons": [
+            "Schwerwiegende Vermischung zweier separater Prozeduren aus der Quelle.",
+            "Die Schrittfolge endet nicht sauber im Zielzustand der ersten Prozedur, sondern springt danach in einen anderen Dialog.",
+            "Für step_by_step ist die Trennung der Prozeduren zentral; genau das ist hier verletzt."
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "reject",
+          "quality_score": 42,
+          "summary": "Die Antwort vermischt zwei getrennte Prozeduren: das Öffnen und Anpassen der Stimmeneinstellungen sowie das spätere Auswählen eines Stimmenprofils. Dadurch ist die Schrittfolge nicht mehr sauber auf das angefragte Ziel begrenzt.",
+          "blocking_reasons": [
+            "Vermischung verschiedener Prozeduren, was bei step_by_step schwerwiegend ist",
+            "Schritte 6 und 7 leiten in eine separate Prozedur zum Auswählen eines Stimmenprofils über",
+            "Das eigentliche Ziel ist nach Schritt 5 bereits erreicht, danach driftet die Antwort ab"
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "rejected",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "So öffnen Sie die Stimmeneinstellungen und wählen ein Stimmenprofil aus:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.\n5. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen.\n6. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen."
+        },
+        "openrouter_v1": {
+          "review_status": "rejected",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Gehen Sie so vor:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Wählen Sie hier ein bestehendes Profil oder eine Standard-Stimmenvorlage aus und konfigurieren Sie verschiedene Einstellungen wie Sprache, Stimme, Sprechgeschwindigkeit oder Satzzeichenansage.\n5. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen das Dialogfenster Stimmeneinstellungen.\n6. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.\n7. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen."
+        },
+        "openrouter_v2": {
+          "review_status": "rejected",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Gehen Sie so vor:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Wählen Sie hier ein bestehendes Profil oder eine Standard-Stimmenvorlage aus und konfigurieren Sie verschiedene Einstellungen wie Sprache, Stimme, Sprechgeschwindigkeit oder Satzzeichenansage.\n5. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen das Dialogfenster Stimmeneinstellungen.\n6. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.\n7. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen."
+        },
+        "openrouter_v3": {
+          "review_status": "rejected",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Gehen Sie so vor:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Wählen Sie hier ein bestehendes Profil oder eine Standard-Stimmenvorlage aus und konfigurieren Sie verschiedene Einstellungen wie Sprache, Stimme, Sprechgeschwindigkeit oder Satzzeichenansage.\n5. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen das Dialogfenster Stimmeneinstellungen.\n6. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.\n7. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen."
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:step_by_step",
+        "high_score_spread>=20",
+        "borderline_reject>=60"
+      ],
+      "score_spread": 54,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "reasoning_drift_same_decision",
+      "primary_selection": true
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "target_split": "eval",
+      "task_type": "faq_direct_answer",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2379-L2399"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "reject",
+          "quality_score": 52,
+          "summary": "Die Antwort ist dokumentationsnah, bleibt aber zu allgemein und nennt die relevanten Befehle nicht konkret genug.",
+          "blocking_reasons": [
+            "Fuer einen FAQ-Direktantwort-Fall ist die Antwort zu vage und liefert keine brauchbare Zusammenfassung der Befehle.",
+            "Sie paraphrasiert nur die Existenz von Tastenkombinationen, statt die in der Quelle genannten Dialog-Befehle sichtbar zu machen.",
+            "Die Formulierung wirkt eher wie eine Verweisantwort als eine konkrete Beantwortung der Nutzerfrage."
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 90,
+          "summary": "Die Antwort fasst die dokumentierten JAWS-Befehle für Dialoge korrekt zusammen und ergänzt passend den dokumentierten Hinweis zur kontextabhängigen Hilfe.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "reject",
+          "quality_score": 62,
+          "summary": "Inhaltlich weitgehend quellentreu, aber die Antwort übernimmt Tabellencharakter als lange Aufzählung und ergänzt den Tipp zu JAWS-TASTE+F1, obwohl die Nutzerfrage knapp nach den wichtigsten Befehlen fragt; insgesamt nicht streng genug als Gold-Fall.",
+          "blocking_reasons": [
+            "Die Antwort ist eher eine fast vollständige Tabellenabschrift statt einer knappen, sauber kuratierten FAQ-Antwort.",
+            "Für eine Frage nach den Befehlen 'die ich kennen sollte' fehlt eine klare Auswahl oder Rahmung; stattdessen wird nahezu alles inklusive Tipp angehängt."
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 91,
+          "summary": "Die Antwort fasst die dokumentierten Dialogbefehle korrekt zusammen und ergänzt passend den Hinweis auf die kontextabhängige Hilfe.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "rejected",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Die relevanten Dialog-Befehle sind die in der Quelle aufgefuehrten JAWS- und Windows-Tastenkombinationen inklusive `JAWS-TASTE+F1` fuer kontextabhaengige Hilfe."
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Wichtige JAWS-Befehle für Dialoge sind: Standardschalter ansagen (JAWS TASTE+E), Kurztaste des aktuellen Steuerelements ansagen (UMSCHALT+NUM 5), aktuelles Fenster lesen (JAWS TASTE+B), Fenstertyp und Text lesen (JAWS TASTE+TAB), Wort im Kontext lesen (JAWS TASTE+C), Ausklappliste öffnen (ALT+PFEIL RUNTER), Ausklappliste schließen (ALT+PFEIL RAUF), mehrere Listenelemente markieren (STRG+UMSCHALT oder STRG+LEERTASTE), alle Markierungen aufheben (STRG+\\), Spalten 1 bis 10 der Listenansicht lesen (STRG+JAWS TASTE+1 bis 0). Für kontextabhängige Hilfe: JAWS-TASTE+F1."
+        },
+        "openrouter_v2": {
+          "review_status": "rejected",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Wichtige JAWS-Befehle für Dialoge sind: Standardschalter ansagen (JAWS TASTE+E), Kurztaste des aktuellen Steuerelements ansagen (UMSCHALT+NUM 5), aktuelles Fenster lesen (JAWS TASTE+B), Fenstertyp und Text lesen (JAWS TASTE+TAB), Wort im Kontext lesen (JAWS TASTE+C), Ausklappliste öffnen (ALT+PFEIL RUNTER), Ausklappliste schließen (ALT+PFEIL RAUF), mehrere Listenelemente markieren (STRG+UMSCHALT oder STRG+LEERTASTE), alle Markierungen aufheben (STRG+\\), Spalten 1 bis 10 der Listenansicht lesen (STRG+JAWS TASTE+1 bis 0). Für kontextabhängige Hilfe: JAWS-TASTE+F1."
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Wichtige JAWS-Befehle für Dialoge sind: Standardschalter ansagen (JAWS TASTE+E), Kurztaste des aktuellen Steuerelements ansagen (UMSCHALT+NUM 5), aktuelles Fenster lesen (JAWS TASTE+B), Fenstertyp und Text lesen (JAWS TASTE+TAB), Wort im Kontext lesen (JAWS TASTE+C), Ausklappliste öffnen (ALT+PFEIL RUNTER), Ausklappliste schließen (ALT+PFEIL RAUF), mehrere Listenelemente markieren (STRG+UMSCHALT oder STRG+LEERTASTE), alle Markierungen aufheben (STRG+\\), Spalten 1 bis 10 der Listenansicht lesen (STRG+JAWS TASTE+1 bis 0). Für kontextabhängige Hilfe: JAWS-TASTE+F1."
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:faq_direct_answer",
+        "decision_mismatch_vs_codex:openrouter_v1",
+        "decision_mismatch_vs_codex:openrouter_v3",
+        "openrouter_internal_decision_disagreement",
+        "high_score_spread>=20",
+        "borderline_approve<=92",
+        "borderline_reject>=60"
+      ],
+      "score_spread": 39,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "same_answer_judge_instability",
+      "primary_selection": true
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+      "target_split": "train",
+      "task_type": "faq_direct_answer",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L1413-L1413"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 98,
+          "summary": "Die Antwort gibt die Braille-Tastenanordnung und die Funktion von Leertaste und Umschalttasten korrekt und knapp wieder.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 94,
+          "summary": "Gute direkte FAQ-Antwort: Sie beschreibt die Tastenanordnung der Focus Blue Tastatur korrekt und erklärt passend, welche Tasten zusammen mit Leertaste oder Umschalttasten für Befehle genutzt werden können.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 96,
+          "summary": "Realistische supportnahe Frage; die Antwort ist präzise, vollständig und eng an den Quelltext gebunden. Sie nennt die Tastenanordnung korrekt und beantwortet auch den Teil zur Verwendung mit Leertaste und Umschalttasten ohne erfundene Details.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 95,
+          "summary": "Direkte, präzise FAQ-Antwort mit korrekter Tastenanordnung und passender Erklärung zur Verwendung mit Leertaste und Umschalttasten.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Bei der Focus Blue sind die 8 Brailletasten von links nach rechts so angeordnet: 7, 3, 2, 1, 4, 5, 6 und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. Die Leertaste sitzt mittig an der Vorderkante unter der Braillezeile und wird zusammen mit den Brailletasten für die Eingabe von Befehlen genutzt. Direkt darunter befinden sich zwei Umschalttasten, die ebenfalls zum Ausführen verschiedener Befehle verwendet werden."
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Direkt oberhalb der Routingtasten liegen 8 Tasten wie bei einer Perkins-Braille-Tastatur. Von links nach rechts sind das: 7, 3, 2, 1, 4, 5, 6 und 8. Diese Brailletasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile, befindet sich die LEERTASTE; sie wird zusammen mit den Brailletasten für die Eingabe von Befehlen verwendet. Direkt unter der LEERTASTE befinden sich außerdem zwei UMSCHALT-Tasten, die ebenfalls zum Ausführen verschiedener Befehle genutzt werden können."
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Direkt oberhalb der Routingtasten liegen 8 Tasten wie bei einer Perkins-Braille-Tastatur. Von links nach rechts sind das: 7, 3, 2, 1, 4, 5, 6 und 8. Diese Brailletasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile, befindet sich die LEERTASTE; sie wird zusammen mit den Brailletasten für die Eingabe von Befehlen verwendet. Direkt unter der LEERTASTE befinden sich außerdem zwei UMSCHALT-Tasten, die ebenfalls zum Ausführen verschiedener Befehle genutzt werden können."
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Direkt oberhalb der Routingtasten liegen 8 Tasten wie bei einer Perkins-Braille-Tastatur. Von links nach rechts sind das: 7, 3, 2, 1, 4, 5, 6 und 8. Diese Brailletasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile, befindet sich die LEERTASTE; sie wird zusammen mit den Brailletasten für die Eingabe von Befehlen verwendet. Direkt unter der LEERTASTE befinden sich außerdem zwei UMSCHALT-Tasten, die ebenfalls zum Ausführen verschiedener Befehle genutzt werden können."
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:faq_direct_answer",
+        "task_coverage_backfill"
+      ],
+      "score_spread": 4,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "stable_borderline",
+      "primary_selection": false
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "target_split": "eval",
+      "task_type": "clarification",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1008-L1011"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 93,
+          "summary": "Die Frage ist supportnah und die Antwort fragt präzise nach dem relevanten Fokuszustand in der Anwendungsliste.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 88,
+          "summary": "Die Antwort ist eine einzelne, fokussierte Rückfrage zur Eingrenzung, ob Auswahl in der Anwendungsliste oder nur Fokusnavigation gemeint ist; insgesamt brauchbar und dokumentationsnah.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 92,
+          "summary": "Die Antwort liefert genau eine gezielte Rueckfrage, die die Unklarheit zwischen Auswahl in der Anwendungsliste und Fokusbewegung zur Liste sauber eingrenzt.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "reject",
+          "quality_score": 41,
+          "summary": "Die Rückfrage ist zwar knapp, verfehlt aber den dokumentierten Kern der Nutzerfrage. Statt zwischen Pfeiltasten und Anfangsbuchstaben zu klären, weicht sie auf Fokusbewegung versus Auswahl aus.",
+          "blocking_reasons": [
+            "Rückfrage grenzt nicht die eigentliche Unsicherheit der Anfrage ein",
+            "Antwort driftet vom dokumentierten Unterschied zwischen Pfeiltasten und Anfangsbuchstaben ab",
+            "Für clarification nicht präzise genug auf den Quellkontext zugeschnitten"
+          ],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Meinen Sie den Fall, dass der Fokus noch nicht auf der Ausklappliste für Anwendungen steht?"
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Meinen Sie die Auswahl eines Eintrags in der Anwendungsliste oder nur das Bewegen des Fokus zur Anwendungsliste?"
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Meinen Sie die Auswahl eines Eintrags in der Anwendungsliste oder nur das Bewegen des Fokus zur Anwendungsliste?"
+        },
+        "openrouter_v3": {
+          "review_status": "rejected",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Meinen Sie die Auswahl eines Eintrags in der Anwendungsliste oder nur das Bewegen des Fokus zur Anwendungsliste?"
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:clarification",
+        "decision_mismatch_vs_codex:openrouter_v3",
+        "openrouter_internal_decision_disagreement",
+        "high_score_spread>=20",
+        "borderline_approve<=92"
+      ],
+      "score_spread": 52,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "same_answer_judge_instability",
+      "primary_selection": true
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0008",
+      "target_split": "train",
+      "task_type": "clarification",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L6029-L6036"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 91,
+          "summary": "Die Rueckfrage ist eine saubere, eng gefasste Klaerung zum Alltagseinsatz von Aria und Web.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 92,
+          "summary": "Gute Rückfrage für eine breit formulierte Anfrage zu ARIA- und Web-Neuerungen; sie grenzt den gewünschten Umfang sinnvoll ein.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 94,
+          "summary": "Die Rückfrage ist fokussiert, sinnvoll und passend, weil die Nutzerfrage sehr breit auf mehrere Neuerungen im Bereich ARIA und Web zielt.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 93,
+          "summary": "Die Rückfrage ist fokussiert und sinnvoll, weil die Quelle mehrere unterschiedliche Neuerungen zu ARIA und Web bündelt.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Geht es Ihnen vor allem um die Einordnung der Web-Funktionen im Browser-Alltag, zum Beispiel bei Tabellen, Regionen, Links und Aria-Elementen?"
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Möchten Sie eine kurze Übersicht aller genannten Web- und ARIA-Neuerungen, oder geht es Ihnen um einen bestimmten Punkt wie Tabellen, Regionen, Fortschrittsbalken oder mathematische Elemente?"
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Möchten Sie eine kurze Übersicht aller genannten Web- und ARIA-Neuerungen, oder geht es Ihnen um einen bestimmten Punkt wie Tabellen, Regionen, Fortschrittsbalken oder mathematische Elemente?"
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Möchten Sie eine kurze Übersicht aller genannten Web- und ARIA-Neuerungen, oder geht es Ihnen um einen bestimmten Punkt wie Tabellen, Regionen, Fortschrittsbalken oder mathematische Elemente?"
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:clarification",
+        "borderline_approve<=92"
+      ],
+      "score_spread": 3,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "stable_borderline",
+      "primary_selection": true
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0004",
+      "target_split": "eval",
+      "task_type": "troubleshooting",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3299-L3316"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 94,
+          "summary": "Die Antwort ist quellengebunden, konkret und trifft die dokumentierte Hilfestellung zum Pruefen vor dem Einsatz von 'Gesicht im Blick' sauber.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 93,
+          "summary": "Die Antwort leitet eine konkrete Hilfe aus der Quelle ab: vor dem Anruf prüfen und beachten, dass die Funktion während eines aktiven Videoanrufs nicht verfügbar ist.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 94,
+          "summary": "Die Antwort leitet eine konkrete, dokumentierte Hilfestellung ab: Funktion vor dem Anruf pruefen und beachten, dass sie waehrend eines aktiven Videoanrufs nicht verfuegbar ist.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 89,
+          "summary": "Die Antwort leitet eine konkrete Hilfestellung aus der Quelle ab: vor dem Anruf prüfen und beachten, dass Gesicht im Blick während eines aktiven Videoanrufs nicht verfügbar ist.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Vor dem Einsatz sollten Sie laut Doku prüfen, ob die Kamera richtig auf Sie ausgerichtet ist, Ihr Gesicht zentriert ist, Sie direkt in die Kamera schauen, die Beleuchtung ausgewogen ist und keine weiteren Elemente im Bild sichtbar sind. Während eines aktiven Videoanrufs ist Gesicht im Blick nicht verfügbar, weil die Funktion vollständigen Kamerazugriff benötigt."
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Dokumentiert ist, dass Gesicht im Blick während eines aktiven Videoanrufs nicht verfügbar ist. Nutzer soll die Ausrichtung und Funktion vor dem Anruf prüfen; Aktivierung mit EINFÜGEN+LEERTASTE, F, O."
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Dokumentiert ist, dass Gesicht im Blick während eines aktiven Videoanrufs nicht verfügbar ist. Nutzer soll die Ausrichtung und Funktion vor dem Anruf prüfen; Aktivierung mit EINFÜGEN+LEERTASTE, F, O."
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Dokumentiert ist, dass Gesicht im Blick während eines aktiven Videoanrufs nicht verfügbar ist. Nutzer soll die Ausrichtung und Funktion vor dem Anruf prüfen; Aktivierung mit EINFÜGEN+LEERTASTE, F, O."
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:troubleshooting",
+        "borderline_approve<=92"
+      ],
+      "score_spread": 5,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "stable_borderline",
+      "primary_selection": true
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::troubleshooting::0007",
+      "target_split": "eval",
+      "task_type": "troubleshooting",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L357-L369"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 92,
+          "summary": "Die Antwort leitet eine klare, dokumentierte Hilfestellung aus dem Abschnitt ab und deckt den relevanten Dialogweg sowie die Alternative ab.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 95,
+          "summary": "Die Antwort gibt eine kompakte, korrekte Reihenfolge der dokumentierten Schritte zum Erstellen einer Promptbezeichnung wieder und bleibt eng an der Quelle.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 93,
+          "summary": "Die Antwort gibt eine konkrete, knapp zusammengefasste Schrittfolge wieder, die dem dokumentierten Vorgang entspricht und mit dem Abschluss ueber Fertigstellen endet.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 93,
+          "summary": "Die Antwort fasst die dokumentierte Schrittfolge zum Erstellen einer Promptbezeichnung korrekt und zielgerichtet zusammen.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Prüfen Sie, ob Sie auf dem gewünschten Steuerelement stehen, und öffnen Sie den Dialog mit STRG+JAWS TASTE+TAB. Die Anleitung beschreibt drei Seiten: erst die gesprochene Promptbezeichnung und Weiter, dann die Brailleanzeige und Weiter, danach optional die Tutormeldung und schließlich Fertigstellen. Alternativ geht es über JAWS TASTE+F2 und im JAWS Manager den Eintrag Prompt erstellen."
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Zum gewünschten Steuerelement gehen, STRG+JAWS TASTE+TAB drücken, dann auf den drei Dialogseiten nacheinander gesprochene Bezeichnung, Braille-Bezeichnung und optional Tutormeldung eingeben und mit Fertigstellen abschließen."
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Zum gewünschten Steuerelement gehen, STRG+JAWS TASTE+TAB drücken, dann auf den drei Dialogseiten nacheinander gesprochene Bezeichnung, Braille-Bezeichnung und optional Tutormeldung eingeben und mit Fertigstellen abschließen."
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Zum gewünschten Steuerelement gehen, STRG+JAWS TASTE+TAB drücken, dann auf den drei Dialogseiten nacheinander gesprochene Bezeichnung, Braille-Bezeichnung und optional Tutormeldung eingeben und mit Fertigstellen abschließen."
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:troubleshooting",
+        "borderline_approve<=92"
+      ],
+      "score_spread": 3,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "stable_borderline",
+      "primary_selection": true
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::troubleshooting::0003",
+      "target_split": "train",
+      "task_type": "troubleshooting",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1512-L1516"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 97,
+          "summary": "Die Anfrage ist realistisch und die Antwort trifft den dokumentierten Zusammenhang korrekt: Wirksam wird die Wiederherstellung erst nach dem Speichern der geladenen JCF-Datei.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 95,
+          "summary": "Realistische supportnahe Anfrage; Antwort ist präzise, vollständig und eng an den Quelltext gebunden. Sie beantwortet beide Teilfragen korrekt und ohne Halluzinationen.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 92,
+          "summary": "Realistische supportnahe Anfrage, eng am Quelltext. Die Antwort beantwortet die Frage korrekt und dokumentationsgebunden; die zusätzliche Fokus-Info ist im Quelltext belegt und als zu beachtender Punkt noch passend.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 93,
+          "summary": "Realistische Support-Anfrage, eng am Quelltext. Die Antwort beantwortet beide Teilfragen korrekt und bleibt dokumentationsgebunden.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Ja. Die wiederhergestellten Standardeinstellungen werden erst wirksam, wenn Sie die geladene JCF-Datei speichern. Das Wiederherstellen löscht nur die Angaben zur aktuellen Ausführlichkeitsstufe in der geladenen JCF-Datei; erst das Speichern übernimmt die Änderung wirksam. Wenn Default.jcf geladen ist, werden dabei die Werkseinstellungen wiederhergestellt."
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Ja. Laut Dokumentation werden die wiederhergestellten Standardeinstellungen erst wirksam, wenn Sie die JCF-Datei speichern. Das Wiederherstellen löscht nur die Angaben zur aktuellen Ausführlichkeitsstufe in der geladenen JCF-Datei. Wenn Default.jcf geladen ist, werden dabei die Werkseinstellungen wiederhergestellt. Achten Sie außerdem darauf, dass sich der Fokus nach dem Schließen eines Einstellungen-Dialogs je nach Öffnungsmethode unterschiedlich verhält: Haben Sie den Dialog per Tastenkombination geöffnet, kehrt der Fokus zum vorherigen Element zurück. Wenn Sie mit TAB zum Schalter für die Einstellungen gegangen sind, landet der Fokus im Dialog Ausführlichkeitsoptionen auf dem Schalter OK."
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Ja. Laut Dokumentation werden die wiederhergestellten Standardeinstellungen erst wirksam, wenn Sie die JCF-Datei speichern. Das Wiederherstellen löscht nur die Angaben zur aktuellen Ausführlichkeitsstufe in der geladenen JCF-Datei. Wenn Default.jcf geladen ist, werden dabei die Werkseinstellungen wiederhergestellt. Achten Sie außerdem darauf, dass sich der Fokus nach dem Schließen eines Einstellungen-Dialogs je nach Öffnungsmethode unterschiedlich verhält: Haben Sie den Dialog per Tastenkombination geöffnet, kehrt der Fokus zum vorherigen Element zurück. Wenn Sie mit TAB zum Schalter für die Einstellungen gegangen sind, landet der Fokus im Dialog Ausführlichkeitsoptionen auf dem Schalter OK."
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Ja. Laut Dokumentation werden die wiederhergestellten Standardeinstellungen erst wirksam, wenn Sie die JCF-Datei speichern. Das Wiederherstellen löscht nur die Angaben zur aktuellen Ausführlichkeitsstufe in der geladenen JCF-Datei. Wenn Default.jcf geladen ist, werden dabei die Werkseinstellungen wiederhergestellt. Achten Sie außerdem darauf, dass sich der Fokus nach dem Schließen eines Einstellungen-Dialogs je nach Öffnungsmethode unterschiedlich verhält: Haben Sie den Dialog per Tastenkombination geöffnet, kehrt der Fokus zum vorherigen Element zurück. Wenn Sie mit TAB zum Schalter für die Einstellungen gegangen sind, landet der Fokus im Dialog Ausführlichkeitsoptionen auf dem Schalter OK."
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:troubleshooting",
+        "borderline_approve<=92"
+      ],
+      "score_spread": 5,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "stable_borderline",
+      "primary_selection": true
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0003",
+      "target_split": "eval",
+      "task_type": "uncertainty_escalation",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1537-L1550"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 91,
+          "summary": "Die Antwort markiert die Evidenzgrenze sauber, benennt die dokumentierten Anwendungsfälle und vermeidet eine unbelegte Generalisierung.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 97,
+          "summary": "Saubere Evidenzgrenze: Die Antwort verweigert eine pauschale Zusage und bleibt exakt bei den ausdrücklich genannten Meldungsgruppen der Quelle.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 97,
+          "summary": "Die Antwort markiert die Evidenzgrenze klar und leitet korrekt aus der Quelle ab, dass nur bestimmte Meldungsgruppen belegt sind und keine pauschale Aussage fuer alle Meldungen getroffen werden sollte.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 96,
+          "summary": "Die Antwort markiert die Evidenzgrenze klar und bleibt eng an der Quelle: belegt sind nur die ausdrücklich aufgelisteten Meldungsgruppen, nicht alle Meldungen pauschal.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Die Quelle belegt keine generelle Wirkung für alles. Dokumentiert ist die Einstellung für JAWS Meldungen, Statusmeldungen, JAWS Fehlermeldungen, Meldungen beim Anwendungsstart, intelligente Hilfemeldungen und Hilfemeldungen. Für Hilfemeldungen steht zusätzlich ausdrücklich dabei, dass sie zwar im Listenfeld „Zu sprechende Elemente“ nicht abgeschaltet werden können, die Einstellung für kurze oder lange Meldungen aber trotzdem auf sie wirkt. Ob die Einstellung darüber hinaus in allen Situationen gleichermaßen greift, ist mit der vorliegenden Quelle nicht belegt."
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Die Quelle belegt die Wirkung nur für die ausdrücklich genannten Meldungsgruppen und nicht pauschal für alle Meldungen. Daher sollte keine allgemeine Zusage ohne Einschränkung gegeben werden."
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Die Quelle belegt die Wirkung nur für die ausdrücklich genannten Meldungsgruppen und nicht pauschal für alle Meldungen. Daher sollte keine allgemeine Zusage ohne Einschränkung gegeben werden."
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Die Quelle belegt die Wirkung nur für die ausdrücklich genannten Meldungsgruppen und nicht pauschal für alle Meldungen. Daher sollte keine allgemeine Zusage ohne Einschränkung gegeben werden."
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:uncertainty_escalation",
+        "borderline_approve<=92"
+      ],
+      "score_spread": 6,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "stable_borderline",
+      "primary_selection": true
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::uncertainty_escalation::0004",
+      "target_split": "eval",
+      "task_type": "uncertainty_escalation",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L4195-L4206"
+      ],
+      "judges": {
+        "codex": {
+          "decision": "approve",
+          "quality_score": 92,
+          "summary": "Die Antwort bleibt eng an der Quelle, nennt die dokumentierte Grenze und gibt keine allgemeine Zusage für beliebige Zeichen.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "gpt-5.4-mini",
+          "reviewer_run_id": "codex_cli_support_validation_v2_judge"
+        },
+        "openrouter_v1": {
+          "decision": "approve",
+          "quality_score": 95,
+          "summary": "Die Antwort markiert korrekt, dass die Quelle keine universelle Erfolgsgarantie gibt, sondern nur ein Verfahren mit Voraussetzungen und klarer Abbruchbedingung beschreibt.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v1",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge"
+        },
+        "openrouter_v2": {
+          "decision": "approve",
+          "quality_score": 96,
+          "summary": "Die Antwort eskaliert sauber an der Dokumentationsgrenze und behauptet nicht, dass die Funktion jedes Symbolproblem loest. Die erwaehnte Voraussetzung und Abbruchbedingung sind durch die Quelle gedeckt.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v2",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_judge"
+        },
+        "openrouter_v3": {
+          "decision": "approve",
+          "quality_score": 94,
+          "summary": "Die Antwort setzt korrekt eine Evidenzgrenze: Die Quelle beschreibt kein universelles Heilmittel, sondern ein Verfahren mit Voraussetzung und klarer Abbruchbedingung.",
+          "blocking_reasons": [],
+          "reviewer_prompt_version": "jaws_de_support_judge_v3",
+          "reviewer_model": "openai/gpt-5.4",
+          "reviewer_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_judge"
+        }
+      },
+      "answers": {
+        "codex": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "codex_cli",
+          "teacher_model": "gpt-5.4",
+          "teacher_run_id": "codex_cli_support_validation_v2_answer",
+          "answer_text": "Nein, das ist mit der Quelle nicht allgemein belegt. Dokumentiert ist nur, dass JAWS fast alle häufig genutzten Symbole spricht und dass sich weitere Symbole über das beschriebene Verfahren nachrüsten lassen können. Die Quelle nennt außerdem eine klare Grenze: Wenn bei der Prüfung auf dem kleinen „a“ nicht „Zeichen U+61HEX“ angesagt wird, sollen die Schritte nicht weiter ausgeführt werden. Eine Zusage, dass damit jedes beliebige Zeichen nachträglich korrekt gesprochen wird, gibt die Quelle nicht."
+        },
+        "openrouter_v1": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Die Quelle stützt keine pauschale Aussage, dass sich jedes falsch oder gar nicht gesprochene Symbol damit beheben lässt. Sie beschreibt nur ein Verfahren mit klarer Voraussetzung und Abbruchbedingung."
+        },
+        "openrouter_v2": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Die Quelle stützt keine pauschale Aussage, dass sich jedes falsch oder gar nicht gesprochene Symbol damit beheben lässt. Sie beschreibt nur ein Verfahren mit klarer Voraussetzung und Abbruchbedingung."
+        },
+        "openrouter_v3": {
+          "review_status": "codex_reviewed",
+          "teacher_provider": "openrouter",
+          "teacher_model": "openai/gpt-5.4",
+          "teacher_run_id": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_answer",
+          "answer_text": "Die Quelle stützt keine pauschale Aussage, dass sich jedes falsch oder gar nicht gesprochene Symbol damit beheben lässt. Sie beschreibt nur ein Verfahren mit klarer Voraussetzung und Abbruchbedingung."
+        }
+      },
+      "selection_tags": [
+        "focus_task_type:uncertainty_escalation",
+        "borderline_approve<=92"
+      ],
+      "score_spread": 4,
+      "same_openrouter_answer_across_versions": true,
+      "codex_vs_openrouter_answer_changed": true,
+      "classification_hint": "stable_borderline",
+      "primary_selection": true
+    }
+  ]
+}

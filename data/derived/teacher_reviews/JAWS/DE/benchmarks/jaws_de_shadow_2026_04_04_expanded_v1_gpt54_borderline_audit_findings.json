@@ -1,0 +1,81 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "audit_type": "judge_borderline_audit",
+  "reference_run": "jaws_de_shadow_2026_04_04_expanded_v1_codex_reference",
+  "candidate_runs": {
+    "openrouter_v1": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1",
+    "openrouter_v2": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2",
+    "openrouter_v3": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3"
+  },
+  "subset_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_borderline_audit_subset.json",
+  "subset_summary": {
+    "selected_case_count": 12,
+    "task_type_counts": {
+      "step_by_step": 3,
+      "faq_direct_answer": 2,
+      "clarification": 2,
+      "troubleshooting": 3,
+      "uncertainty_escalation": 2
+    },
+    "openrouter_internal_disagreements": 2,
+    "same_answer_internal_disagreements": [
+      "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "jaws_de_teacher_wave_v1::eval::clarification::0002"
+    ]
+  },
+  "case_assessment": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "classification": "answer_quality_gain_not_judge_mildness",
+      "assessment": "Codex rejectet eine doppelte Schrittfolge. Alle drei OpenRouter-Judge-Versionen approven dieselbe spaeter bereinigte OpenRouter-Antwort. Das Muster spricht fuer echten Antwortqualitaetsgewinn statt fuer systematische Judge-Milde."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "classification": "answer_quality_gain_plus_v2_overstrictness",
+      "assessment": "Die OpenRouter-Antwort ist klar staerker als die vage Codex-Antwort. Gleichzeitig disagreeen die Judge-Versionen auf derselben OpenRouter-Antwort: v1 und v3 approven, nur v2 rejectet. Das ist kein allgemeiner FAQ-Drift, sondern ein borderline Fall mit v2-Ueberstrenge."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "task_type": "clarification",
+      "classification": "v3_outlier_overstrictness",
+      "assessment": "Codex, v1 und v2 approven dieselbe fokussierte Rueckfrage, nur v3 rejectet. Die v3-Begruendung ist nicht frei erfunden, wirkt im Viererbild aber eher wie ein einzelner strenger Ausreisser als wie systematische Clarification-Instabilitaet."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "task_type": "step_by_step",
+      "classification": "stable_strict_reject",
+      "assessment": "Alle OpenRouter-Versionen rejecten denselben unvollstaendigen Fall und werden von v1 zu v3 deutlich haerter. Das ist keine Drift, sondern stabile Priorisierung des fehlenden letzten Schritts."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "classification": "stable_reject_with_reasoning_drift",
+      "assessment": "Alle Judge-Staende rejecten die vermischte Prozedur, aber die Score-Haerte variiert stark. Das ist eher task-spezifische Sensitivitaet innerhalb von step_by_step als eine neue globale Instabilitaet."
+    }
+  ],
+  "class_reliability": {
+    "relatively_stable": [
+      "troubleshooting",
+      "uncertainty_escalation",
+      "faq_direct_answer_mit_Ausnahme_des_bekannten_borderline_Falls",
+      "clarification_mit_einem_v3_Ausreisser"
+    ],
+    "critical": [
+      "step_by_step"
+    ]
+  },
+  "recommendation": {
+    "judge": "shadow_only",
+    "stable_enough_for_larger_shadow_waves_as_secondary_judge": true,
+    "stable_enough_for_primary_gate": false,
+    "why": [
+      "Nur zwei interne OpenRouter-Disagreements im 12-Fall-Borderline-Subset und beide auf derselben Antwortbasis",
+      "Die auffaellige v3-Clarification-Abweichung wirkt eher wie ein Einzelfall als wie breiter Drift",
+      "step_by_step bleibt wegen harter Score-Spreads und hoher Fehlerkosten die kritische Klasse"
+    ],
+    "next_step": "weiteres_shadow_audit_vor_erneutem_prompt_tuning",
+    "summary": "Der GPT-5.4-OpenRouter-Judge bleibt klar shadow_only, ist nach dem breiteren Borderline-Audit aber stabil genug fuer groessere Shadow-Wellen als Audit- oder Sekundaerjudge. Fuer einen primaeren Gate-Rollout reicht es weiter nicht, weil step_by_step die empfindlichste Klasse bleibt und v3 noch einen Clarification-Ausreisser zeigt."
+  }
+}
