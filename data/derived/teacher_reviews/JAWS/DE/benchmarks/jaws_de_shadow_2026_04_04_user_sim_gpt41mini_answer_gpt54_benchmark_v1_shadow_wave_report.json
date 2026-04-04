@@ -1,0 +1,354 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_sim_gpt41mini_answer_gpt54_benchmark_v1",
+  "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_user_sim_gpt41mini_answer_gpt54_benchmark_v1_pipeline_report.json",
+  "llm_profile_set": "support_mvp_openrouter_gpt54_answer_judge_user_sim_gpt41mini_candidate",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v4_selection.json",
+  "judge_role": {
+    "intended_role": "secondary_audit_judge",
+    "shadow_only": true,
+    "statement": "This wave treats the GPT-5.4 OpenRouter judge as a secondary audit signal only. The primary observation target is OpenRouter user_simulation plus answer quality; judge outputs are reported for calibration and triage, not for promotion or rollout gating.",
+    "judge_profile": {
+      "profile_set": "support_mvp_openrouter_gpt54_answer_judge_user_sim_gpt41mini_candidate",
+      "profile_stage": "judge",
+      "profile_name": "openrouter_gpt54_judge_shadow_v1"
+    }
+  },
+  "processing": {
+    "jobs_total": 44,
+    "task_type_distribution": {
+      "clarification": 8,
+      "faq_direct_answer": 8,
+      "step_by_step": 12,
+      "troubleshooting": 8,
+      "uncertainty_escalation": 8
+    },
+    "split_distribution": {
+      "eval": 22,
+      "train": 22
+    }
+  },
+  "approval_distribution": {
+    "approve": 42,
+    "reject": 2
+  },
+  "score_distribution": {
+    "count": 44,
+    "min": 38,
+    "median": 94.0,
+    "max": 99,
+    "score_bands": {
+      "<60": 1,
+      "60-69": 1,
+      "70-79": 0,
+      "80-89": 6,
+      "90+": 36
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 8,
+      "reject": 0
+    },
+    "faq_direct_answer": {
+      "approve": 8,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 10,
+      "reject": 2
+    },
+    "troubleshooting": {
+      "approve": 8,
+      "reject": 0
+    },
+    "uncertainty_escalation": {
+      "approve": 8,
+      "reject": 0
+    }
+  },
+  "stage_health": {
+    "user_simulation": {
+      "selected_jobs": 44,
+      "completed_jobs": 44,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 6,
+      "completed_batches": 6,
+      "avg_elapsed_ms_per_processed_job": 1713.7
+    },
+    "answering": {
+      "selected_jobs": 44,
+      "completed_jobs": 44,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 12,
+      "completed_batches": 12,
+      "avg_elapsed_ms_per_processed_job": 3827.05
+    },
+    "judge": {
+      "selected_jobs": 44,
+      "completed_jobs": 44,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 6,
+      "completed_batches": 6,
+      "avg_elapsed_ms_per_processed_job": 2745.16
+    }
+  },
+  "attempt_histograms": {
+    "user_simulation": {
+      "1": 44
+    },
+    "answer": {
+      "1": 44
+    },
+    "judge": {
+      "1": 44
+    }
+  },
+  "provider_usage": {
+    "user_simulation": {
+      "rows_with_provider_usage": 44,
+      "prompt_tokens": 166436,
+      "completion_tokens": 55284,
+      "total_tokens": 221720,
+      "reported_cost_usd_estimate": 0.155,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "answer": {
+      "rows_with_provider_usage": 44,
+      "prompt_tokens": 142826,
+      "completion_tokens": 54922,
+      "total_tokens": 197748,
+      "reported_cost_usd_estimate": 1.1809,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "judge": {
+      "rows_with_provider_usage": 44,
+      "prompt_tokens": 221460,
+      "completion_tokens": 66344,
+      "total_tokens": 287804,
+      "reported_cost_usd_estimate": 1.5488,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    }
+  },
+  "qualitative_focus_cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0003",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 38,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort gibt nur das Öffnen der Research-It-Einstellungen wieder, erfüllt aber das eigentliche Ziel der Anfrage nicht, nämlich dort ein Nachschlagewerk als Standard festzulegen.",
+      "blocking_reasons": [
+        "Für task_type=step_by_step ist die Prozedur unvollständig; der entscheidende letzte Teil zum Festlegen eines Nachschlagewerks als Standard fehlt.",
+        "Die Antwort beantwortet die konkrete Nutzerfrage daher nicht vollständig.",
+        "Die Anfrage verlangt eine Zielprozedur bis zum Endzustand, der laut Antwort nicht erreicht wird."
+      ],
+      "request_text": "Könnten Sie mir bitte Schritt für Schritt erklären, wie ich in JAWS die Einstellungen der Gruppe Research It aufrufe und dort ein Nachschlagewerk als Standard festlege?",
+      "answer_text": "So rufen Sie die Research It Einstellungen auf.\n\n1. Drücken Sie EINFÜGEN+F2 und wählen Sie Einstellungsverwaltung.\n2. Drücken Sie STRG+UMSCHALT+D, um die JAWS Standardeinstellungen zu laden.\n3. Drücken Sie TAB, um zur Strukturansicht zu springen, und wählen und öffnen Sie dann die Gruppe Research It.\n4. Drücken Sie die LEERTASTE, um den Schalter „Nachschlagewerk konfigurieren“ auszuwählen. Das Research It Optionen Dialogfenster öffnet sich.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1126-L1133"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "reject",
+      "quality_score": 62,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Weitgehend quellentreue Schrittfolge, aber der letzte entscheidende Abschluss fehlt: Es wird nicht gesagt, die Auswahl ausdrücklich zu bestätigen bzw. zu übernehmen.",
+      "blocking_reasons": [
+        "Für task_type=step_by_step fehlt ein klarer letzter Abschluss-/Übernahmeschritt; die Prozedur endet bei der Auswahl von Braille-Kurzschrift.",
+        "Die Antwort gibt die dokumentierte Schrittfolge nicht vollständig bis zum eigentlichen Ziel wieder."
+      ],
+      "request_text": "Können Sie mir bitte Schritt für Schritt erklären, wie ich in JAWS die Braille-Kurzschrift aktivieren kann? Ich möchte wissen, wie ich von der Standard-Computer-Braille-Eingabe zur Kurzschrift umschalte.",
+      "answer_text": "So schalten Sie von Computer-Braille auf Braille-Kurzschrift um: Einstellungsverwaltung öffnen, optional die Standard- oder Anwendungseinstellungen wählen, nach „Übersetzung“ suchen, zur Gruppe Übersetzung gehen, sie erweitern und die Einstellung auf Braille-Kurzschrift umschalten.\n\n1. Drücken Sie EINFÜGEN+F2 und wählen Sie Einstellungsverwaltung.\n2. Wenn sich die Änderung auf alle Anwendungen auswirken soll, drücken Sie STRG+UMSCHALT+D, um die Standardeinstellungen von JAWS zu laden. Wenn die Änderung nur für eine bestimmte Anwendung gelten soll, wählen Sie diese in der Ausklappliste Anwendungen.\n3. Geben Sie im Sucheingabefeld „Übersetzung“ ein.\n4. Drücken Sie PFEIL RUNTER, um in der Strukturansicht zu Übersetzung in den gefilterten Suchergebnissen zu gelangen, und drücken Sie dann EINGABE, um den Fokus direkt in die Gruppe Übersetzung zu platzieren.\n5. Erweitern Sie die Gruppe mit PFEIL RECHTS.\n6. Drücken Sie LEERTASTE, um durch die einzelnen Einstellungen zu wechseln, bis Braille-Kurzschrift ausgewählt ist.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L252-L261"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 92,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Prozedur zum Öffnen und Ändern der Stimmeneinstellungen ist vollständig, korrekt geordnet und quellentreu für das angefragte Ziel.",
+      "blocking_reasons": [],
+      "request_text": "Wie kann ich in JAWS die Stimmeneinstellungen für die Sprachausgabe Schritt für Schritt anpassen, zum Beispiel für PC-Cursor oder Tastaturecho?",
+      "answer_text": "So öffnen und ändern Sie die Stimmeneinstellungen in JAWS.\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Wählen Sie ein bestehendes Profil oder eine Standard-Stimmenvorlage aus und konfigurieren Sie die gewünschten Einstellungen, wie Sprache, Stimme, Sprechgeschwindigkeit oder Satzzeichenansage.\n5. Speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/tutorial_basics/index.md#L114-L129"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0012",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 92,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort bietet eine vollständige und geordnete Schritt-für-Schritt-Anleitung zum Hinzufügen einer neuen Einrückungsregel und bleibt eng an der Dokumentation.",
+      "blocking_reasons": [],
+      "request_text": "Wie kann ich in JAWS eine neue Einrückungsregel hinzufügen? Bitte führen Sie mich Schritt für Schritt durch den Vorgang.",
+      "answer_text": "So fügen Sie eine neue Einrückungsregel hinzu:\n\n1. Drücken Sie STRG+TAB, um zur Registerkarte Einrückung zu wechseln.\n2. Wählen Sie den Schalter Hinzufügen und drücken Sie LEERTASTE, um das Dialogfeld Einrückung hinzufügen zu öffnen.\n3. Geben Sie einen Wert in das Eingabefeld ein und wählen Sie Weiter.\n4. Wenn der Dialog Verhalten auswählen erscheint, wählen Sie ein Sprach- und Soundverhalten aus der Liste der Auswahlschalter und wählen Sie Weiter.\n5. Bearbeiten Sie die folgenden Dialoge entsprechend dem zuvor gewählten Verhalten, wählen Sie weitere Elemente oder vervollständigen Sie die angeforderten Eingabefelder und wählen Sie jeweils Weiter oder Fertigstellen, bis die neue Regel in der Liste der Einrückungen erscheint.\n6. Wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1345-L1362"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0006",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "approve",
+      "quality_score": 93,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Korrekte, gut geordnete Schrittfolge zum Öffnen des Hilfsprogramms und Installieren von Stimmen.",
+      "blocking_reasons": [],
+      "request_text": "Können Sie mir bitte erklären, wie ich in JAWS Stimmen hinzufügen oder entfernen kann? Ich möchte wissen, wie ich das Hilfsprogramm dafür öffne und die Stimmen installiere.",
+      "answer_text": "Öffnen Sie über ALT+O > Optionen > Stimmen > Stimmen hinzufügen/entfernen das Hilfsprogramm, wählen Sie die Sprache, markieren Sie im Listenfeld Premium Stimmen die gewünschten Stimmen mit LEERTASTE und starten Sie die Installation mit Gewählte Stimmen installieren.\n\n1. Drücken Sie im JAWS Programmfenster ALT+O, öffnen Sie das Menü Optionen, erweitern Sie das Untermenü Stimmen und wählen Sie dann Stimmen hinzufügen/entfernen, um das Hilfsprogramm zum Hinzufügen und Entfernen von Vocalizer Expressive Stimmen zu öffnen.\n2. Wählen Sie in der Ausklappliste Sprache auswählen die Sprache, für die Sie Stimmen herunterladen möchten.\n3. Drücken Sie im Listenfeld Premium Stimmen LEERTASTE auf den Stimmen, die Sie installieren möchten.\n4. Wählen Sie den Schalter Gewählte Stimmen installieren, um die Installation zu starten.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L5105-L5114"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0005",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "approve",
+      "quality_score": 94,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Dokumentationsnahe, vollständige Schrittfolge zur Nutzung der Hintergrund-OCR in Teams oder Zoom, inklusive Start, Lesen, Statusprüfung und Beenden.",
+      "blocking_reasons": [],
+      "request_text": "Wie kann ich in JAWS die Hintergrund-OCR nutzen, um Text aus geteilten Folien in Teams oder Zoom zu erkennen? Bitte geben Sie mir die genaue Schrittfolge.",
+      "answer_text": "An einem Teams- oder Zoom-Meeting mit geteilten Inhalten teilnehmen, die Hintergrund-OCR mit EINFÜGEN+LEERTASTE, O, EINGABE starten, den erkannten Text mit den Pfeiltasten lesen, optional mit ALT+ENTFERNEN den Status prüfen und die Erkennung mit EINFÜGEN+LEERTASTE, O, Q beenden.\n\n1. Nehmen Sie an einem Teams- oder Zoom-Meeting teil, in dem Inhalte geteilt oder freigegeben werden.\n2. Drücken Sie EINFÜGEN+LEERTASTE, O, EINGABE.\n3. Verwenden Sie die Pfeiltasten, um den erkannten Text zu erkunden.\n4. Sie können jederzeit ALT+ENTFERNEN drücken, um zu überprüfen, ob die Hintergrund-OCR aktiv ist.\n5. Beenden Sie die Hintergrund-OCR, indem Sie EINFÜGEN+LEERTASTE, O, Q drücken.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L100-L110"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0009",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 94,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort ist eine passende, klare und dokumentationsgebundene Prozedur zum Öffnen des Dialogfensters Satzzeichenansage.",
+      "blocking_reasons": [],
+      "request_text": "Könnten Sie mir bitte erklären, wie ich in JAWS das Dialogfenster Satzzeichenansage öffne und welche Schritte ich dafür genau durchführen muss?",
+      "answer_text": "So öffnen Sie das Dialogfenster Satzzeichenansage:\n\n1. Öffnen Sie die Einstellungsverwaltung und geben Sie „Satzzeichenansage“ im Sucheingabefeld ein.\n2. Drücken Sie PFEIL RUNTER, um zu den gefilterten Ergebnissen der Strukturansicht zu springen.\n3. Drücken Sie LEERTASTE, um das Dialogfenster Satzzeichenansage zu öffnen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1070-L1076"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "approve",
+      "quality_score": 95,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Kurze, klare und vollständig dokumentationsgebundene Schrittfolge zum Öffnen der Hervorhebungsoptionen.",
+      "blocking_reasons": [],
+      "request_text": "Wie öffne ich in JAWS die Hervorhebungsoptionen und welche Schritte sind nötig, um die Einstellungen für Hervorhebungsfarben zu konfigurieren?",
+      "answer_text": "Einstellungsverwaltung öffnen, nach „Hervorhebung“ suchen, „Hervorhebungsfarben konfigurieren“ auswählen und mit LEERTASTE das Dialogfenster Hervorhebungsoptionen öffnen.\n\n1. Öffnen Sie die Einstellungsverwaltung und geben Sie „Hervorhebung“ im Sucheingabefeld ein.\n2. Drücken Sie PFEIL RUNTER, um in die gefilterten Ergebnisse zu springen, und wählen Sie Hervorhebungsfarben konfigurieren.\n3. Drücken Sie LEERTASTE, um das Dialogfenster Hervorhebungsoptionen zu öffnen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L515-L523"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0003",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Vollständige und korrekt geordnete Schrittfolge zum Umschalten von Sprache und Braille für eine Spalte.",
+      "blocking_reasons": [],
+      "request_text": "Könnten Sie mir bitte Schritt für Schritt erklären, wie ich in JAWS für eine bestimmte Spalte die Sprache und Braille-Ausgabe umschalte?",
+      "answer_text": "Auf der Registerkarte Sprache die gewünschte Spalte auswählen, Sprache umschalten aktivieren, mit STRG+TAB zur Registerkarte Braille wechseln, dort die Spalte auswählen, Braille umschalten aktivieren und mit OK bestätigen.\n\n1. Wählen Sie auf der Registerkarte Sprache mit PFEIL RAUF und RUNTER die Spalte aus.\n2. Aktivieren Sie den Schalter Sprache umschalten.\n3. Drücken Sie STRG+TAB, um auf die Registerkarte Braille zu wechseln, und wählen Sie die Spalte aus der Liste.\n4. Aktivieren Sie den Schalter Braille umschalten.\n5. Betätigen Sie den OK Schalter.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L156-L162"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0006",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Realistische Anfrage und eine vollständige, quellentreue Schritt-für-Schritt-Anleitung zum Ein- und Ausschalten des Sprach- und Sound-Lernmodus.",
+      "blocking_reasons": [],
+      "request_text": "Wie schalte ich in JAWS den Sprach- und Sound-Lernmodus ein und aus? Bitte geben Sie mir eine genaue Schritt-für-Schritt-Anleitung.",
+      "answer_text": "So schalten Sie den Sprach- und Sound-Lernmodus ein oder aus.\n\n1. Drücken Sie ALT+JAWS TASTE+S.\n2. Um den Lernmodus einzuschalten, wählen Sie „Sprach- und Sound- Lernmodus an“. Um den Lernmodus auszuschalten, wählen Sie „Sprach- und Sound- Lernmodus aus“.\n3. Drücken Sie EINGABE.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1438-L1450"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0007",
+      "task_type": "step_by_step",
+      "target_split": "eval",
+      "decision": "approve",
+      "quality_score": 97,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Sehr gute, vollständige und quellengenaue Beispiel-Prozedur zum Virtualisieren des aktuellen Steuerelements.",
+      "blocking_reasons": [],
+      "request_text": "Wie kann ich in JAWS nur das aktuelle Steuerelement virtualisieren? Bitte geben Sie mir die genaue Schrittfolge, am besten mit einem Beispiel.",
+      "answer_text": "Öffnen Sie im Beispiel den Windows Explorer, springen Sie mit TAB auf die Dateienliste und drücken Sie EINFÜGEN+UMSCHALT+V. Damit wird nur der Text des aktuellen Steuerelements im Virtuellen Betrachter angezeigt. Danach können Sie den Inhalt mit STRG+A und STRG+C kopieren und z. B. mit STRG+V in eine E-Mail einfügen.\n\n1. Öffnen Sie den Windows Explorer mit WINDOWSTASTE+E.\n2. Drücken Sie TAB, um auf die Dateienliste zu springen.\n3. Drücken Sie EINFÜGEN+UMSCHALT+V. Jetzt erscheint nur die Dateienliste im Virtuellen Betrachter.\n4. Drücken Sie STRG+A und dann STRG+C, um den Inhalt des Virtuellen Betrachters zu markieren und zu kopieren.\n5. Öffnen Sie Ihr E-Mail-Programm und fügen Sie den Inhalt des Virtuellen Betrachters mit STRG+V in eine E-Mail ein.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L3253-L3261"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 99,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Vollständige, korrekt geordnete und exakt quellentreue Prozedur ohne Vermischung oder Auslassungen.",
+      "blocking_reasons": [],
+      "request_text": "Können Sie mir bitte Schritt für Schritt erklären, wie ich in JAWS die Anzahl der Zeilen für den geteilten Bereich bei mehrzeiligen Braillezeilen anpassen kann?",
+      "answer_text": "So passen Sie die Zeilenanzahl für den geteilten Braillebereich an.\n\n1. Drücken Sie ALT+EINFÜGEN+V, um den Dialog Braille-Ansicht auswählen zu öffnen.\n2. Wählen Sie Optionen.\n3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der LEERTASTE die Anzahl der Zeilen aus.\n4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie EINGABE, um den Dialog zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+      ]
+    }
+  ]
+}
