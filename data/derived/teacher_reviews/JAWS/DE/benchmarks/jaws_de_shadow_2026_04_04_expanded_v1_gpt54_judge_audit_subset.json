@@ -1,0 +1,307 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "reference_run": "jaws_de_shadow_2026_04_04_expanded_v1_codex_reference",
+  "candidate_run": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1",
+  "reference_report": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_codex_reference_pipeline_report.json",
+  "candidate_report": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_pipeline_report.json",
+  "focus_task_types": [
+    "step_by_step",
+    "faq_direct_answer"
+  ],
+  "score_delta_threshold": 20,
+  "selected_case_count": 8,
+  "selection_tag_counts": {
+    "decision_disagreement": 2,
+    "focus_task_type:faq_direct_answer": 4,
+    "focus_task_type:step_by_step": 4,
+    "high_score_delta>=20": 3
+  },
+  "task_type_counts": {
+    "faq_direct_answer": 4,
+    "step_by_step": 4
+  },
+  "decision_pair_counts": {
+    "approve->approve": 4,
+    "reject->approve": 2,
+    "reject->reject": 2
+  },
+  "cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "target_split": "eval",
+      "task_type": "faq_direct_answer",
+      "selection_tags": [
+        "focus_task_type:faq_direct_answer"
+      ],
+      "quality_score_delta": -1,
+      "reference": {
+        "decision": "approve",
+        "quality_score": 97,
+        "review_status": "codex_reviewed",
+        "summary": "Die Antwort ist knapp, trifft die Frage direkt und bleibt eng an der Quelle.",
+        "blocking_reasons": [],
+        "answer_text": "Die Einstellung definiert die Mindestlaenge eines nicht verlinkten Textblocks fuer den Sprung mit `JAWS TASTE+EINGABE`; Standardwert 25.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/settingscenter/index.md#L2371-L2371"
+        ]
+      },
+      "candidate": {
+        "decision": "approve",
+        "quality_score": 96,
+        "review_status": "codex_reviewed",
+        "summary": "Realistische FAQ-Frage und präzise, dokumentationsnahe Antwort zur Einstellung „Länge des Textblocks“ inklusive Zweck, Suchverhalten und Standardwert.",
+        "blocking_reasons": [],
+        "answer_text": "Die Einstellung „Länge des Textblocks“ legt fest, wie lang ein nicht verlinkter Textblock mindestens sein muss, damit JAWS ihn beim Sprung mit JAWS TASTE+EINGABE als nächsten Text findet. JAWS sucht dabei nach einem Textblock, der kein Teil eines Links ist und mindestens so viele Zeichen hat wie der hier eingestellte Wert. Der Standardwert ist 25.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/settingscenter/index.md#L2371-L2371"
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "target_split": "eval",
+      "task_type": "faq_direct_answer",
+      "selection_tags": [
+        "focus_task_type:faq_direct_answer",
+        "decision_disagreement",
+        "high_score_delta>=20"
+      ],
+      "quality_score_delta": 38,
+      "reference": {
+        "decision": "reject",
+        "quality_score": 52,
+        "review_status": "rejected",
+        "summary": "Die Antwort ist dokumentationsnah, bleibt aber zu allgemein und nennt die relevanten Befehle nicht konkret genug.",
+        "blocking_reasons": [
+          "Fuer einen FAQ-Direktantwort-Fall ist die Antwort zu vage und liefert keine brauchbare Zusammenfassung der Befehle.",
+          "Sie paraphrasiert nur die Existenz von Tastenkombinationen, statt die in der Quelle genannten Dialog-Befehle sichtbar zu machen.",
+          "Die Formulierung wirkt eher wie eine Verweisantwort als eine konkrete Beantwortung der Nutzerfrage."
+        ],
+        "answer_text": "Die relevanten Dialog-Befehle sind die in der Quelle aufgefuehrten JAWS- und Windows-Tastenkombinationen inklusive `JAWS-TASTE+F1` fuer kontextabhaengige Hilfe.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2379-L2399"
+        ]
+      },
+      "candidate": {
+        "decision": "approve",
+        "quality_score": 90,
+        "review_status": "codex_reviewed",
+        "summary": "Die Antwort fasst die dokumentierten JAWS-Befehle für Dialoge korrekt zusammen und ergänzt passend den dokumentierten Hinweis zur kontextabhängigen Hilfe.",
+        "blocking_reasons": [],
+        "answer_text": "Wichtige JAWS-Befehle für Dialoge sind: Standardschalter ansagen (JAWS TASTE+E), Kurztaste des aktuellen Steuerelements ansagen (UMSCHALT+NUM 5), aktuelles Fenster lesen (JAWS TASTE+B), Fenstertyp und Text lesen (JAWS TASTE+TAB), Wort im Kontext lesen (JAWS TASTE+C), Ausklappliste öffnen (ALT+PFEIL RUNTER), Ausklappliste schließen (ALT+PFEIL RAUF), mehrere Listenelemente markieren (STRG+UMSCHALT oder STRG+LEERTASTE), alle Markierungen aufheben (STRG+\\), Spalten 1 bis 10 der Listenansicht lesen (STRG+JAWS TASTE+1 bis 0). Für kontextabhängige Hilfe: JAWS-TASTE+F1.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L2379-L2399"
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "target_split": "eval",
+      "task_type": "step_by_step",
+      "selection_tags": [
+        "focus_task_type:step_by_step"
+      ],
+      "quality_score_delta": 0,
+      "reference": {
+        "decision": "reject",
+        "quality_score": 61,
+        "review_status": "rejected",
+        "summary": "Die Antwort ist weitgehend quellennah, aber als Schrittfolge nicht sauber genug aufgebaut und durch doppelte Ausgaben sowie einen expliziten Unvollständigkeitshinweis geschwächt.",
+        "blocking_reasons": [
+          "Der Schrittblock wird zweimal ausgegeben und ist damit nicht sauber nicht dupliziert.",
+          "Die Antwort endet mit einer eigenen Einschränkung statt mit einer klaren, geschlossenen Schrittfolge.",
+          "Für einen Step-by-Step-Goldkandidaten ist die Form zu unruhig und zu wenig präzise strukturiert."
+        ],
+        "answer_text": "Gehen Sie so vor: 1. EINFÜGEN+F2 drücken und Einstellungsverwaltung wählen. 2. Mit STRG+UMSCHALT+D die Standardeinstellungen laden oder eine Anwendung in der Liste Anwendungen wählen. 3. Im Sucheingabefeld \"Übersetzung\" eingeben. 4. Mit PFEIL RUNTER zu Übersetzung in den gefilterten Suchergebnissen gehen, EINGABE drücken und die Gruppe mit PFEIL RECHTS erweitern. Der bereitgestellte Ausschnitt endet danach unvollständig; die abschließende Auswahl zum Aktivieren der Kurzschrift ist darin nicht vollständig belegt.\n\n1. Drücken Sie EINFÜGEN+F2 und wählen Sie Einstellungsverwaltung.\n2. Wenn die Änderung für alle Anwendungen gelten soll, drücken Sie STRG+UMSCHALT+D, um die Standardeinstellungen von JAWS zu laden. Wenn die Änderung nur für eine bestimmte Anwendung gelten soll, wählen Sie diese in der Ausklappliste Anwendungen.\n3. Geben Sie im Sucheingabefeld \"Übersetzung\" ein.\n4. Drücken Sie PFEIL RUNTER, um in den gefilterten Suchergebnissen zu Übersetzung zu gelangen, drücken Sie EINGABE, um den Fokus in die Gruppe Übersetzung zu setzen, und erweitern Sie die Gruppe mit PFEIL RECHTS.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L252-L261"
+        ]
+      },
+      "candidate": {
+        "decision": "reject",
+        "quality_score": 61,
+        "review_status": "rejected",
+        "summary": "Die Antwort folgt grundsätzlich der Quelle, ist aber als Schrittfolge unvollständig und endet bei einem unklaren, abgeschnitten wirkenden letzten Schritt, ohne das eigentliche Einschalten der Braille-Kurzschrift sauber abzuschließen.",
+        "blocking_reasons": [
+          "Die Schrittfolge ist offensichtlich unvollständig und führt das Aktivieren der Braille-Kurzschrift nicht belastbar zu Ende.",
+          "Der letzte Schritt ist unklar formuliert ('zur Einstellung für Braille-Kurzschrift wechseln') und entspricht nicht sauber einem abgeschlossenen dokumentierten Schrittblock.",
+          "Für einen Gold-Kandidaten zu unsauber, weil die Antwort das Ziel des Nutzers nicht vollständig erreicht."
+        ],
+        "answer_text": "1. EINFÜGEN+F2 drücken und Einstellungsverwaltung wählen. 2. Optional Standardeinstellungen mit STRG+UMSCHALT+D laden oder Anwendung auswählen. 3. Nach „Übersetzung“ suchen. 4. Zu Übersetzung in den Suchergebnissen gehen, EINGABE drücken und die Gruppe mit PFEIL RECHTS erweitern. 5. Mit LEERTASTE zur Einstellung für Braille-Kurzschrift wechseln.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L252-L261"
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "target_split": "eval",
+      "task_type": "step_by_step",
+      "selection_tags": [
+        "focus_task_type:step_by_step",
+        "decision_disagreement",
+        "high_score_delta>=20"
+      ],
+      "quality_score_delta": 30,
+      "reference": {
+        "decision": "reject",
+        "quality_score": 64,
+        "review_status": "rejected",
+        "summary": "Der Inhalt ist dokumentationsnah, aber die Antwort ist doppelt ausgegeben und damit als sauberer Schritt-fuer-Schritt-Kandidat zu schwach.",
+        "blocking_reasons": [
+          "Die Schrittfolge erscheint einmal als Fliesstext und danach noch einmal als nummerierte Liste.",
+          "Die Form ist dadurch redundant und erfuellt die Anforderung an einen nicht duplizierten Schrittblock nicht sauber.",
+          "Die Antwort ist insgesamt etwas unpraezise benannt, auch wenn die inhaltlichen Schritte stimmen."
+        ],
+        "answer_text": "Gehen Sie so vor: 1. Einstellungsverwaltung öffnen und \"Hervorhebung\" im Sucheingabefeld eingeben. 2. Mit PFEIL RUNTER in die gefilterten Ergebnisse springen und Hervorhebungsfarben konfigurieren wählen. 3. LEERTASTE drücken, um das Dialogfenster Hervorhebungsoptionen zu öffnen.\n\n1. Öffnen Sie die Einstellungsverwaltung und geben Sie \"Hervorhebung\" im Sucheingabefeld ein.\n2. Drücken Sie PFEIL RUNTER, um in die gefilterten Ergebnisse zu springen, und wählen Sie Hervorhebungsfarben konfigurieren.\n3. Drücken Sie LEERTASTE, um das Dialogfenster Hervorhebungsoptionen zu öffnen.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/settingscenter/index.md#L515-L523"
+        ]
+      },
+      "candidate": {
+        "decision": "approve",
+        "quality_score": 94,
+        "review_status": "codex_reviewed",
+        "summary": "Kurze, saubere und dokumentationsnahe Schrittfolge zum Öffnen der Hervorhebungsoptionen; entspricht der Quelle ohne unnötige Zusätze.",
+        "blocking_reasons": [],
+        "answer_text": "1. Einstellungsverwaltung öffnen und nach „Hervorhebung“ suchen. 2. Mit PFEIL RUNTER zu den gefilterten Ergebnissen gehen und „Hervorhebungsfarben konfigurieren“ wählen. 3. Mit LEERTASTE die Hervorhebungsoptionen öffnen.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/settingscenter/index.md#L515-L523"
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+      "target_split": "train",
+      "task_type": "faq_direct_answer",
+      "selection_tags": [
+        "focus_task_type:faq_direct_answer"
+      ],
+      "quality_score_delta": -4,
+      "reference": {
+        "decision": "approve",
+        "quality_score": 98,
+        "review_status": "codex_reviewed",
+        "summary": "Die Antwort gibt die Braille-Tastenanordnung und die Funktion von Leertaste und Umschalttasten korrekt und knapp wieder.",
+        "blocking_reasons": [],
+        "answer_text": "Bei der Focus Blue sind die 8 Brailletasten von links nach rechts so angeordnet: 7, 3, 2, 1, 4, 5, 6 und 8. Diese Tasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. Die Leertaste sitzt mittig an der Vorderkante unter der Braillezeile und wird zusammen mit den Brailletasten für die Eingabe von Befehlen genutzt. Direkt darunter befinden sich zwei Umschalttasten, die ebenfalls zum Ausführen verschiedener Befehle verwendet werden.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L1413-L1413"
+        ]
+      },
+      "candidate": {
+        "decision": "approve",
+        "quality_score": 94,
+        "review_status": "codex_reviewed",
+        "summary": "Gute direkte FAQ-Antwort: Sie beschreibt die Tastenanordnung der Focus Blue Tastatur korrekt und erklärt passend, welche Tasten zusammen mit Leertaste oder Umschalttasten für Befehle genutzt werden können.",
+        "blocking_reasons": [],
+        "answer_text": "Direkt oberhalb der Routingtasten liegen 8 Tasten wie bei einer Perkins-Braille-Tastatur. Von links nach rechts sind das: 7, 3, 2, 1, 4, 5, 6 und 8. Diese Brailletasten können für die Texteingabe oder zum Ausführen von Befehlen verwendet werden. An der Vorderkante, direkt unter und mittig der Braillezeile, befindet sich die LEERTASTE; sie wird zusammen mit den Brailletasten für die Eingabe von Befehlen verwendet. Direkt unter der LEERTASTE befinden sich außerdem zwei UMSCHALT-Tasten, die ebenfalls zum Ausführen verschiedener Befehle genutzt werden können.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L1413-L1413"
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+      "target_split": "train",
+      "task_type": "faq_direct_answer",
+      "selection_tags": [
+        "focus_task_type:faq_direct_answer"
+      ],
+      "quality_score_delta": -3,
+      "reference": {
+        "decision": "approve",
+        "quality_score": 99,
+        "review_status": "codex_reviewed",
+        "summary": "Die Antwort ist präzise, dokumentationsgebunden und beantwortet Zweck sowie Aufruf des Steuerungsmenüs direkt.",
+        "blocking_reasons": [],
+        "answer_text": "Das Steuerungsmenü dient dazu, ein Fenster wiederherzustellen, zu verschieben, die Größe zu ändern, es zu minimieren, zu maximieren und zu schließen. Sie öffnen es mit ALT+LEERTASTE und gehen dann mit PFEIL RAUF und RUNTER durch die Menüeinträge.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/tutorial_basics/index.md#L386-L388"
+        ]
+      },
+      "candidate": {
+        "decision": "approve",
+        "quality_score": 96,
+        "review_status": "codex_reviewed",
+        "summary": "Saubere, quellennahe FAQ-Antwort. Sie erklärt Zweck und Aufruf des Steuerungsmenüs direkt und korrekt, ohne unnötige Zusätze.",
+        "blocking_reasons": [],
+        "answer_text": "Das Steuerungsmenü brauchen Sie, um ein Fenster wiederherzustellen, zu verschieben, die Größe zu ändern, zu minimieren, zu maximieren und zu schließen. Obwohl es meist unsichtbar ist, öffnen Sie es mit ALT+LEERTASTE. Danach gehen Sie mit PFEIL RAUF und RUNTER durch die Menüeinträge.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/tutorial_basics/index.md#L386-L388"
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "target_split": "train",
+      "task_type": "step_by_step",
+      "selection_tags": [
+        "focus_task_type:step_by_step"
+      ],
+      "quality_score_delta": 2,
+      "reference": {
+        "decision": "approve",
+        "quality_score": 96,
+        "review_status": "codex_reviewed",
+        "summary": "Die Antwort gibt die im Quelltext beschriebene Schrittfolge korrekt und in der richtigen Reihenfolge wieder. Sie ist als sauberer Procedural-Block für den Step-by-step-Fall geeignet.",
+        "blocking_reasons": [],
+        "answer_text": "So ändern Sie die Zeilenanzahl für den geteilten Bereich:\n\n1. Drücken Sie ALT+EINFÜGEN+V, um den Dialog Braille-Ansicht auswählen zu öffnen.\n2. Wählen Sie Optionen.\n3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der LEERTASTE die Anzahl der Zeilen aus.\n4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie EINGABE, um den Dialog zu schließen.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+        ]
+      },
+      "candidate": {
+        "decision": "approve",
+        "quality_score": 98,
+        "review_status": "codex_reviewed",
+        "summary": "Exakte, saubere Schritt-für-Schritt-Anleitung, die den Quelltext praktisch wörtlich und ohne Zusatzfakten umsetzt.",
+        "blocking_reasons": [],
+        "answer_text": "Gehen Sie so vor:\n\n1. Drücken Sie ALT+EINFÜGEN+V, um den Dialog Braille-Ansicht auswählen zu öffnen.\n2. Wählen Sie Optionen.\n3. Navigieren Sie in der Liste der Optionen zu Für geteilte Daten verwendete Zeilen und wählen Sie mit der LEERTASTE die Anzahl der Zeilen aus.\n4. Wenn Sie Ihre Auswahl getroffen haben, drücken Sie EINGABE, um den Dialog zu schließen.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/braille/index.md#L610-L615"
+        ]
+      }
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "target_split": "train",
+      "task_type": "step_by_step",
+      "selection_tags": [
+        "focus_task_type:step_by_step",
+        "high_score_delta>=20"
+      ],
+      "quality_score_delta": -26,
+      "reference": {
+        "decision": "reject",
+        "quality_score": 82,
+        "review_status": "rejected",
+        "summary": "Die Antwort ist grundsätzlich quellennah, vermischt aber zwei unterschiedliche Anleitungen und enthält dadurch einen unnötig erweiterten Ablauf. Für einen Gold-Kandidaten ist das zu wenig strikt fokussiert.",
+        "blocking_reasons": [
+          "Die Nutzerfrage verlangt einen klaren Schritt-fuer-Schritt-Ablauf zum Oeffnen der Stimmeneinstellungen und Auswaehlen eines Profils, die Antwort kombiniert dafuer zwei getrennte Bedienpfade ohne klare Trennung.",
+          "Schritt 4 bis 6 fuehren ueber die Profilauswahl hinaus und wirken wie eine zusammengezogene, teilweise aus dem Kontext abgeleitete Sequenz.",
+          "Die Antwort bleibt zwar nahe an der Quelle, ist aber fuer den step_by_step-Fall nicht sauber genug segmentiert."
+        ],
+        "answer_text": "So öffnen Sie die Stimmeneinstellungen und wählen ein Stimmenprofil aus:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.\n5. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen.\n6. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen Sie das Dialogfenster Stimmeneinstellungen.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/tutorial_basics/index.md#L114-L129"
+        ]
+      },
+      "candidate": {
+        "decision": "reject",
+        "quality_score": 56,
+        "review_status": "rejected",
+        "summary": "Die Antwort startet zwar korrekt mit den Schritten zum Öffnen der Stimmeneinstellungen, vermischt dann aber zwei getrennte Prozeduren und driftet von der eigentlichen Anfrage ab.",
+        "blocking_reasons": [
+          "Die Antwort kombiniert das Anpassen in den Stimmeneinstellungen mit der separaten Prozedur zum Auswählen eines Stimmenprofils, statt einen sauberen, zusammenhängenden Schrittblock zur Anfrage zu liefern.",
+          "Für task_type step_by_step ist der Schrittblock nicht sauber fokussiert; nach dem Speichern springt die Antwort unnötig in ein anderes Dialogfenster.",
+          "Die Nutzerfrage zielt auf das Öffnen und Anpassen in den Stimmeneinstellungen; die zusätzlichen Schritte 6 und 7 sind dafür nicht erforderlich und wirken wie Prozedurvermischung."
+        ],
+        "answer_text": "Gehen Sie so vor:\n\n1. Drücken Sie EINFÜGEN+J, um das JAWS Programmfenster zu öffnen.\n2. Drücken Sie ALT+O, um das Menü Optionen zu öffnen.\n3. Drücken Sie T und dann EINGABE, um das Dialogfeld Stimmeneinstellungen zu öffnen.\n4. Wählen Sie hier ein bestehendes Profil oder eine Standard-Stimmenvorlage aus und konfigurieren Sie verschiedene Einstellungen wie Sprache, Stimme, Sprechgeschwindigkeit oder Satzzeichenansage.\n5. Nach dem Ändern der Einstellungen speichern Sie das Stimmenprofil und schließen das Dialogfenster Stimmeneinstellungen.\n6. Drücken Sie JAWS TASTE+STRG+S, um das Dialogfenster Stimmenprofil auswählen zu öffnen.\n7. Nutzen Sie die Ausklappliste Standard, um ein Stimmenprofil auszuwählen.",
+        "source_spans": [
+          "data/normalized/JAWS/DE/tutorial_basics/index.md#L114-L129"
+        ]
+      }
+    }
+  ]
+}

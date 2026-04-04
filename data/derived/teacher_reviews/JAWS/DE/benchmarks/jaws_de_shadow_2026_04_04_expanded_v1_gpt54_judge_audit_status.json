@@ -1,0 +1,15 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "audit_type": "judge_audit",
+  "reference_run": "jaws_de_shadow_2026_04_04_expanded_v1_codex_reference",
+  "candidate_run": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1",
+  "subset_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_judge_audit_subset.json",
+  "findings_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_judge_audit_findings.json",
+  "notes_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_judge_audit_notes.md",
+  "selected_case_count": 8,
+  "headline_result": {
+    "judge_recommendation": "shadow_only",
+    "step_by_step_main_blocker": true,
+    "next_step": "judge_prompt_or_rubric_sharpening_before_another_model_comparison"
+  }
+}

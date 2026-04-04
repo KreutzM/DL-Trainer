@@ -1,0 +1,107 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "audit_type": "judge_audit",
+  "reference_run": "jaws_de_shadow_2026_04_04_expanded_v1_codex_reference",
+  "candidate_run": "jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1",
+  "subset_artifact": "data/derived/teacher_reviews/JAWS/DE/benchmarks/jaws_de_shadow_2026_04_04_expanded_v1_gpt54_judge_audit_subset.json",
+  "reference_artifacts": {
+    "reviewed_outputs": "data/derived/teacher_outputs/JAWS/DE/codex_cli_support_validation_v2_reviewed_teacher_outputs.jsonl",
+    "judge_results": "data/derived/teacher_reviews/JAWS/DE/codex_cli_support_validation_v2_judge_results.jsonl",
+    "benchmark_report": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_codex_reference_pipeline_report.json"
+  },
+  "candidate_artifacts": {
+    "reviewed_outputs": "data/derived/teacher_outputs/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_reviewed_teacher_outputs.jsonl",
+    "judge_results": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_judge_results.jsonl",
+    "benchmark_report": "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_pipeline_report.json"
+  },
+  "findings": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0004",
+      "task_type": "faq_direct_answer",
+      "reference_decision": "reject",
+      "candidate_decision": "approve",
+      "quality_score_delta": 38,
+      "audit_classification": "answer_quality_improvement",
+      "more_plausible_judge": "candidate",
+      "rationale": "Der Codex-Kandidat bleibt auf Meta-Ebene und nennt die angefragten Dialogbefehle nicht konkret. Die OpenRouter-Antwort listet die dokumentierten Befehle sichtbar auf. Die Freigabe wirkt daher wie eine fachlich richtige Bevorzugung der besseren Antwort und nicht wie Judge-Milde."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0002",
+      "task_type": "step_by_step",
+      "reference_decision": "reject",
+      "candidate_decision": "approve",
+      "quality_score_delta": 30,
+      "audit_classification": "answer_quality_improvement",
+      "more_plausible_judge": "candidate",
+      "rationale": "Der Codex-Kandidat dupliziert denselben Ablauf zweimal und scheitert damit formal. Die OpenRouter-Antwort reduziert den Fall auf einen sauberen Drei-Schritt-Block. Die Freigabe ist deshalb fachlich plausibel und kein offensichtlicher Kalibrierungsfehler."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::step_by_step::0001",
+      "task_type": "step_by_step",
+      "reference_decision": "reject",
+      "candidate_decision": "reject",
+      "quality_score_delta": 0,
+      "audit_classification": "correct_shared_reject",
+      "more_plausible_judge": "tie",
+      "rationale": "Beide Judges erkennen den zentralen Mangel: Der Ablauf endet vor dem eigentlichen Aktivieren der Braille-Kurzschrift. OpenRouter fällt hier nicht mehr in die frühere problematische Freigabe zurück. Der Fall bleibt aber der deutlichste Hinweis, dass step_by_step weiter die empfindlichste Klasse ist."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0002",
+      "task_type": "step_by_step",
+      "reference_decision": "reject",
+      "candidate_decision": "reject",
+      "quality_score_delta": -26,
+      "audit_classification": "correct_shared_reject_with_candidate_stricter",
+      "more_plausible_judge": "candidate",
+      "rationale": "Beide Antworten vermischen mindestens zwei Prozeduren. Der OpenRouter-Judge bewertet den Fehler schärfer und begründet die Prozedurvermischung direkter. Das wirkt eher wie nützliche Strenge als wie Überhärte."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0001",
+      "task_type": "step_by_step",
+      "reference_decision": "approve",
+      "candidate_decision": "approve",
+      "quality_score_delta": 2,
+      "audit_classification": "agreement_with_reasoning_drift",
+      "more_plausible_judge": "tie",
+      "rationale": "Beide Antworten sind sauber und dokumentationsnah. Die kleine Score-Differenz ist nicht substanziell und deutet nur auf leichte Begründungsdrift bei gleicher Grundentscheidung."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::faq_direct_answer::0003",
+      "task_type": "faq_direct_answer",
+      "reference_decision": "approve",
+      "candidate_decision": "approve",
+      "quality_score_delta": -1,
+      "audit_classification": "agreement_with_reasoning_drift",
+      "more_plausible_judge": "tie",
+      "rationale": "Beide Judges bewerten den Fall korrekt positiv. Die OpenRouter-Antwort ist etwas ausführlicher, aber weiterhin dokumentationsgebunden. Kein Kalibrierungsproblem sichtbar."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0001",
+      "task_type": "faq_direct_answer",
+      "reference_decision": "approve",
+      "candidate_decision": "approve",
+      "quality_score_delta": -4,
+      "audit_classification": "agreement_with_reasoning_drift",
+      "more_plausible_judge": "tie",
+      "rationale": "Beide Antworten sind fachlich richtig. Der OpenRouter-Judge bleibt leicht konservativer, ohne dass dadurch die Entscheidung kippt."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0002",
+      "task_type": "faq_direct_answer",
+      "reference_decision": "approve",
+      "candidate_decision": "approve",
+      "quality_score_delta": -3,
+      "audit_classification": "agreement_with_reasoning_drift",
+      "more_plausible_judge": "tie",
+      "rationale": "Beide Judges sind hier konsistent. Die Scores differieren leicht, aber nicht in einer Weise, die auf Fehlkalibrierung schließen lässt."
+    }
+  ],
+  "recommendation": {
+    "user_simulation": "not_audit_focus_but_previous_shadow_results_remain_positive",
+    "answer": "not_audit_focus_but_previous_shadow_results_remain_positive",
+    "judge": "shadow_only",
+    "step_by_step_main_blocker": true,
+    "next_step": "judge_prompt_or_rubric_sharpening_before_another_model_comparison",
+    "summary": "Der GPT-5.4-Judge über OpenRouter ist klar verbessert und in den sichtbaren Differenzfällen meist fachlich plausibel. Für eine selektive Freigabe reicht der Nachweis aber noch nicht, weil step_by_step weiter die sensibelste Klasse bleibt und die harte Grenzfallbasis klein ist."
+  }
+}
