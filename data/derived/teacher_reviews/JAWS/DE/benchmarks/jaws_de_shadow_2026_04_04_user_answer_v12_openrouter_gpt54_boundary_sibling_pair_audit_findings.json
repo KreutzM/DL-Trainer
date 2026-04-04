@@ -1,0 +1,125 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v12_openrouter_gpt54_boundary_sibling_pair_audit",
+  "comparison_to_previous_boundary_runs": {
+    "v10_boundary_bank": {
+      "overall": {
+        "approve": 7,
+        "reject": 3
+      },
+      "step_by_step": {
+        "approve": 5,
+        "reject": 3
+      }
+    },
+    "v11_boundary_prompt_pass": {
+      "overall": {
+        "approve": 6,
+        "reject": 4
+      },
+      "step_by_step": {
+        "approve": 4,
+        "reject": 4
+      }
+    },
+    "v12_boundary_sibling_pair_audit": {
+      "overall": {
+        "approve": 7,
+        "reject": 3
+      },
+      "step_by_step": {
+        "approve": 5,
+        "reject": 3
+      }
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 1,
+      "reject": 0
+    },
+    "faq_direct_answer": {
+      "approve": 1,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 5,
+      "reject": 3
+    }
+  },
+  "restpattern_summary": {
+    "boundary_pair_reproducible": false,
+    "same_family_repeated_cleanly": false,
+    "summary": "The boundary bank is still mixed. The stable sibling pairs stay green, but the import assistant does not reproduce a clean setup-vs-finish split: one side remains a task-shape failure, the other is a completeness fragment. The earlier notification-rule boundary case also moved to green."
+  },
+  "case_outcomes": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0016",
+      "decision": "reject",
+      "quality_score": 80,
+      "family": "task_shape_violation",
+      "note": "The response gives a question/deflection instead of a procedure."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0034",
+      "decision": "approve",
+      "quality_score": 97,
+      "family": "boundary_setup_missing_not_reproduced",
+      "note": "This boundary candidate is now green and no longer supports the previous early-step omission pattern."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0061",
+      "decision": "reject",
+      "quality_score": 40,
+      "family": "task_shape_violation",
+      "note": "The model again returns a non-procedural response instead of the requested step list."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+      "decision": "reject",
+      "quality_score": 58,
+      "family": "boundary_only_final_fragment",
+      "note": "Only the late import fragment is delivered; the setup is still missing."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0033",
+      "decision": "approve",
+      "quality_score": 94,
+      "family": "stable_sibling_pair_green",
+      "note": "Attribute sibling pair remains coherent."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0041",
+      "decision": "approve",
+      "quality_score": 95,
+      "family": "stable_sibling_pair_green",
+      "note": "Attribute companion chunk remains coherent."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0024",
+      "decision": "approve",
+      "quality_score": 96,
+      "family": "stable_sibling_pair_green",
+      "note": "Schriftname sibling pair remains coherent."
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0043",
+      "decision": "approve",
+      "quality_score": 98,
+      "family": "stable_sibling_pair_green",
+      "note": "Schriftname companion chunk remains coherent."
+    }
+  ],
+  "controls": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0007",
+      "decision": "approve",
+      "quality_score": 95
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::faq_direct_answer::0010",
+      "decision": "approve",
+      "quality_score": 94
+    }
+  ],
+  "conclusion": "The rest problem is still mixed and does not yet form a reproducible setup-vs-finish boundary family. This looks more like a selection / chunk-boundary issue than a prompt that can be widened safely again. Keep collecting or refining the pair bank instead of generalizing the prompt."
+}
