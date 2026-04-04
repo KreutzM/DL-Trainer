@@ -1,0 +1,323 @@
+{
+  "run_name": "jaws_de_shadow_2026_04_04_user_answer_v9_openrouter_gpt54_complete_long_dialog_step_collection",
+  "report_path": "D:/Codex/DL/DL-Trainer/data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_user_answer_v9_openrouter_gpt54_complete_long_dialog_step_collection_pipeline_report.json",
+  "llm_profile_set": "support_mvp_openrouter_gpt54_candidate",
+  "selection_manifest": "data/derived/teacher_jobs/JAWS/DE/shadow_wave_2026_04_04_user_answer_v9_complete_long_dialog_step_collection_selection.json",
+  "judge_role": {
+    "intended_role": "secondary_audit_judge",
+    "shadow_only": true,
+    "statement": "This wave treats the GPT-5.4 OpenRouter judge as a secondary audit signal only. The primary observation target is OpenRouter user_simulation plus answer quality; judge outputs are reported for calibration and triage, not for promotion or rollout gating.",
+    "judge_profile": {
+      "profile_set": "support_mvp_openrouter_gpt54_candidate",
+      "profile_stage": "judge",
+      "profile_name": "openrouter_gpt54_judge_shadow_v1"
+    }
+  },
+  "processing": {
+    "jobs_total": 13,
+    "task_type_distribution": {
+      "clarification": 1,
+      "faq_direct_answer": 1,
+      "step_by_step": 10,
+      "troubleshooting": 1
+    },
+    "split_distribution": {
+      "eval": 2,
+      "train": 11
+    }
+  },
+  "approval_distribution": {
+    "approve": 10,
+    "reject": 3
+  },
+  "score_distribution": {
+    "count": 13,
+    "min": 41,
+    "median": 95,
+    "max": 98,
+    "score_bands": {
+      "<60": 2,
+      "60-69": 0,
+      "70-79": 0,
+      "80-89": 2,
+      "90+": 9
+    }
+  },
+  "task_type_decisions": {
+    "clarification": {
+      "approve": 1,
+      "reject": 0
+    },
+    "faq_direct_answer": {
+      "approve": 1,
+      "reject": 0
+    },
+    "step_by_step": {
+      "approve": 7,
+      "reject": 3
+    },
+    "troubleshooting": {
+      "approve": 1,
+      "reject": 0
+    }
+  },
+  "stage_health": {
+    "user_simulation": {
+      "selected_jobs": 13,
+      "completed_jobs": 13,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 2,
+      "completed_batches": 2,
+      "avg_elapsed_ms_per_processed_job": 1084.77
+    },
+    "answering": {
+      "selected_jobs": 13,
+      "completed_jobs": 13,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 4,
+      "completed_batches": 4,
+      "avg_elapsed_ms_per_processed_job": 3529.31
+    },
+    "judge": {
+      "selected_jobs": 13,
+      "completed_jobs": 13,
+      "failed_jobs": [],
+      "total_retry_attempts": 0,
+      "executed_batches": 2,
+      "completed_batches": 2,
+      "avg_elapsed_ms_per_processed_job": 3025.54
+    }
+  },
+  "attempt_histograms": {
+    "user_simulation": {
+      "1": 13
+    },
+    "answer": {
+      "1": 13
+    },
+    "judge": {
+      "1": 13
+    }
+  },
+  "provider_usage": {
+    "user_simulation": {
+      "rows_with_provider_usage": 13,
+      "prompt_tokens": 45450,
+      "completion_tokens": 14259,
+      "total_tokens": 59709,
+      "reported_cost_usd_estimate": 0.0983,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "answer": {
+      "rows_with_provider_usage": 13,
+      "prompt_tokens": 41432,
+      "completion_tokens": 11355,
+      "total_tokens": 52787,
+      "reported_cost_usd_estimate": 0.2739,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    },
+    "judge": {
+      "rows_with_provider_usage": 13,
+      "prompt_tokens": 62227,
+      "completion_tokens": 19407,
+      "total_tokens": 81634,
+      "reported_cost_usd_estimate": 0.4467,
+      "note": "Approximate sum of provider-reported usage fields from saved OpenRouter responses; not a billing-grade value."
+    }
+  },
+  "qualitative_focus_cases": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0062",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 41,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Anfrage verlangt, wie der Import insgesamt durchzuführen ist, besonders bei Konflikten. Die Antwort deckt jedoch nur die abschließenden Schritte 6 bis 8 ab und ist damit für einen step_by_step-Fall fachlich unvollständig.",
+      "blocking_reasons": [
+        "Die Prozedur ist nicht vom Anfang bis zum eigentlichen Ziel vollständig.",
+        "Die Antwort benennt selbst eine Evidenzgrenze, erfüllt aber dennoch nicht die Anforderungen an task_type=step_by_step.",
+        "Wesentliche vorbereitende Importschritte vor der Konfliktbehandlung fehlen."
+      ],
+      "request_text": "Ich habe ein JAWS-Backup mit Einstellungen und möchte das importieren. Können Sie mir sagen, wie ich dabei vorgehen muss, besonders wenn es Konflikte mit vorhandenen Einstellungen gibt?",
+      "answer_text": "Die Quelle enthält nur die abschließenden Schritte des Imports und die Behandlung von Konflikten:\n\n1. Wenn Sie die Auswahl zum Zusammenführen der Einstellungen wählen, legen Sie bei einem Konflikt fest, was mit einer Einstellung geschehen soll: Wählen Sie Aktuelle Einstellung aktualisieren, um die bestehende Einstellung mit der Einstellung aus der Backup-Datei zu ersetzen, oder Aktuelle Einstellung beibehalten, damit die Einstellung in Ihrem Benutzerordner nicht ersetzt wird. Wählen Sie danach Weiter.\n2. Lesen Sie auf der letzten Seite des Assistenten die Zusammenfassung Ihrer Import-Auswahl und wählen Sie Fertigstellen, um die Einstellungen zu importieren.\n3. Lesen Sie nach Abschluss des Imports die angezeigten Ergebnisse des Importvorgangs und wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1596-L1598"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0034",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 42,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Die Antwort beginnt mitten in der Prozedur und lässt die entscheidenden vorherigen Schritte zum Erstellen der Regel aus; damit ist die angefragte Schrittfolge ab Benachrichtigungsverlauf nicht vollständig.",
+      "blocking_reasons": [
+        "Für step_by_step fehlt der vordere, entscheidende Teil der Prozedur ab dem Öffnen bzw. Bearbeiten im Benachrichtigungsverlauf",
+        "Die Antwort startet erst bei Schritt 8 der Quelle und erfüllt damit die erbetene vollständige Vorgehensweise nicht",
+        "Unklarer Bezug auf den richtigen Dialogzustand vor Aktivierung von 'Nicht im Verlauf anzeigen'"
+      ],
+      "request_text": "Bei der Regel für Benachrichtigungen bin ich unsicher: Wie stelle ich in JAWS ein, dass passende Meldungen nicht im Verlauf landen? Ich suche die Schritte ab dem Dialog Benachrichtigungsverlauf bis zum Speichern und Benennen der Regel.",
+      "answer_text": "So gehen Sie vor:\n\n1. Aktivieren Sie im Dialog Benachrichtigungsverlauf das Kontrollfeld Nicht im Verlauf anzeigen.\n2. Drücken Sie OK.\n3. Geben Sie im folgenden Dialog einen Namen für die Regel ein und drücken Sie dann OK, um ihn zu speichern.\n4. Drücken Sie ESC, um das Dialogfenster Benachrichtigungsverlauf zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L998-L1003"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0016",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "reject",
+      "quality_score": 80,
+      "selection_tags": [
+        "priority_step_by_step",
+        "reject",
+        "borderline_score",
+        "blocking_reasons_present"
+      ],
+      "judge_summary": "Statt einer Schritt-für-Schritt-Anleitung liefert die Antwort nur eine Rückfrage und erfüllt damit den Task-Typ klar nicht.",
+      "blocking_reasons": [
+        "Task-Typ step_by_step verletzt: keine Prozedur, sondern eine Rückfrage",
+        "Die geforderte vollständige Anleitung vom Öffnen des Benachrichtigungsverlaufs bis zum Speichern fehlt",
+        "Wesentlicher Großteil der dokumentierten Schritte wird nicht beantwortet"
+      ],
+      "request_text": "Ich möchte in JAWS eine Benachrichtigungsregel erstellen. Können Sie mir die genauen Schritte nennen, also vom Öffnen des Benachrichtigungsverlaufs bis zum Speichern der Regel?",
+      "answer_text": "Welche Option wählen Sie nach dem Feld Regeltyp und mit welchem abschließenden Schritt wird die Regel gespeichert?",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L964-L974"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0027",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 94,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Kurze, korrekte und vollständige Löschprozedur mit Markieren, Entfernen, Bestätigen und abschließendem OK.",
+      "blocking_reasons": [],
+      "request_text": "Wie lösche ich in JAWS eine Einrückungsregel wieder aus der Liste? Ich brauche die Schritte, um den Eintrag zu markieren, zu entfernen und das Ganze zu bestätigen.",
+      "answer_text": "So löschen Sie eine Einrückungsregel:\n\n1. Wählen Sie das entsprechende Element aus der Liste aus.\n2. Drücken Sie TAB, um zum Schalter Entfernen zu springen, und aktivieren Sie ihn.\n3. Wählen Sie Ja, um das Löschen zu bestätigen.\n4. Wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1364-L1369"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0041",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 94,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Realistische supportnahe Anfrage; die Antwort gibt eine klare, geordnete und im Wesentlichen vollständige Prozedur zum Anlegen einer neuen Attributkombination wieder und bleibt eng an der Quelle.",
+      "blocking_reasons": [],
+      "request_text": "Ich möchte in JAWS bei den Attributen eine neue Attributkombination anlegen. Können Sie mir die Schritte dafür nacheinander erklären?",
+      "answer_text": "So fügen Sie eine neue Attributkombination hinzu:\n\n1. Drücken Sie STRG+TAB, um zur Registerkarte Attribute zu wechseln.\n2. Wählen Sie den Schalter Hinzufügen und drücken Sie LEERTASTE, um das Dialogfeld Attribute hinzufügen zu öffnen.\n3. Drücken Sie LEERTASTE, um ein Element auszuwählen, das zu dieser Attributkombination hinzugefügt werden soll, und wählen Sie dann Weiter.\n4. Wenn der Dialog Verhalten auswählen erscheint, wählen Sie ein Sprach- und Soundverhalten aus der Liste der Auswahlschalter und wählen Sie Weiter.\n5. In den danach geöffneten Dialogen wählen Sie weitere Elemente aus oder vervollständigen alle abgefragten Eingabefelder. Wählen Sie jeweils Weiter oder Fertigstellen, bis die neue Attributkombination in der Liste der Attribute erscheint.\n6. Wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1232-L1241"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0012",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Saubere, vollständige und korrekt geordnete Prozedur von der Registerkarte Einrückung bis zum Speichern der neuen Regel.",
+      "blocking_reasons": [],
+      "request_text": "Wie richte ich in JAWS eine Einrückungsregel ein? Ich brauche die Schritte von der Registerkarte Einrückung bis zum Speichern der neuen Regel.",
+      "answer_text": "So fügen Sie eine Einrückungsregel hinzu:\n\n1. Drücken Sie STRG+TAB, um zur Registerkarte Einrückung zu wechseln.\n2. Wählen Sie den Schalter Hinzufügen und drücken Sie LEERTASTE, um das Dialogfeld Einrückung hinzufügen zu öffnen.\n3. Geben Sie einen Wert in das Eingabefeld ein und wählen Sie Weiter.\n4. Wenn der Dialog Verhalten auswählen erscheint, wählen Sie ein Sprach- und Soundverhalten aus der Liste der Auswahlschalter und wählen Sie Weiter.\n5. Wählen Sie in den folgenden Dialogen weitere Elemente aus oder vervollständigen Sie die angeforderten Eingabefelder. Wählen Sie jeweils Weiter oder Fertigstellen, um fortzufahren. Danach erscheint die neue Regel in der Liste der Einrückungen.\n6. Wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1345-L1362"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0043",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 96,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Anfrage ist plausibel und die Antwort bildet die dokumentierte Löschprozedur für eine Schriftartregel korrekt, vollständig und in sauberer Reihenfolge ab.",
+      "blocking_reasons": [],
+      "request_text": "Wie lösche ich in JAWS eine Schriftartregel wieder? Ich brauche die Schritte bitte der Reihe nach.",
+      "answer_text": "So löschen Sie die Schriftartregel:\n\n1. Wählen Sie das entsprechende Element aus der Liste aus.\n2. Drücken Sie TAB, um zum Schalter Entfernen zu springen, und aktivieren Sie diesen.\n3. Wählen Sie Ja, um das Löschen zu bestätigen.\n4. Wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1281-L1286"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0024",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 97,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Die Antwort entspricht der dokumentierten Prozedur präzise, vollständig und in sauberer Reihenfolge bis zum Erscheinen der Regel in der Liste.",
+      "blocking_reasons": [],
+      "request_text": "Wie lege ich in JAWS unter Schriftname eine neue Schriftartregel an? Ich suche die genaue Reihenfolge der Schritte, bis die Regel in der Liste erscheint.",
+      "answer_text": "So fügen Sie unter Schriftname eine neue Schriftartregel hinzu:\n\n1. Drücken Sie STRG+TAB, um zur Registerkarte Schriftname zu wechseln.\n2. Wählen Sie den Schalter Hinzufügen und drücken Sie LEERTASTE, um das Dialogfeld Schrift hinzufügen zu öffnen.\n3. Wählen Sie eine Schrift aus der Liste der auf Ihrem Rechner installierten Schriftarten und wählen Sie Weiter.\n4. Wenn der Dialog Verhalten auswählen erscheint, wählen Sie ein Sprach- und Soundverhalten aus der Liste der Auswahlschalter und wählen Sie Weiter.\n5. Wählen Sie in den folgenden Dialogen weitere Elemente aus oder vervollständigen Sie die angeforderten Eingabefelder. Wählen Sie jeweils Weiter oder Fertigstellen, um fortzufahren. Danach erscheint die neue Regel in der Liste der Schriftnamen.\n6. Wählen Sie OK, um das Dialogfenster zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L1261-L1279"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0052",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 97,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Sehr guter Step-by-step-Fall: Die Anfrage passt exakt zur Quelle, und die Antwort liefert die vollständige dokumentierte Prozedur zum Deaktivieren einer einzelnen Benachrichtigungsregel.",
+      "blocking_reasons": [],
+      "request_text": "Ich will in JAWS eine einzelne Benachrichtigungsregel deaktivieren. Wie gehe ich dafür Schritt für Schritt vor?",
+      "answer_text": "Gehen Sie so vor:\n\n1. Drücken Sie EINFÜGEN+LEERTASTE, N, um das Dialogfenster Benachrichtigungsverlauf zu öffnen. Der Fokus befindet sich in der Liste der letzten Benachrichtigungen.\n2. Drücken Sie TAB, um auf Regeln verwalten zu springen, und drücken Sie EINGABE. Der Fokus befindet sich in der Liste Ihrer Regeln.\n3. Wählen Sie die Regel, die Sie deaktivieren möchten, drücken Sie die ANWENDUNGSTASTE, um das Kontextmenü zu öffnen, und wählen Sie Deaktivieren.\n4. Drücken Sie Schließen, um das Dialogfenster zum Verwalten der Regeln zu schließen, und drücken Sie dann ESC, um den Benachrichtigungsverlauf zu schließen.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/hilfe_kernfunktionen/index.md#L1034-L1053"
+      ]
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::step_by_step::0030",
+      "task_type": "step_by_step",
+      "target_split": "train",
+      "decision": "approve",
+      "quality_score": 98,
+      "selection_tags": [
+        "priority_step_by_step"
+      ],
+      "judge_summary": "Sehr gute, vollständige und sauber getrennte Prozedur vom Suchen des Eintrags bis zur Änderung der Braille-Bezeichnung und dem Speichern.",
+      "blocking_reasons": [],
+      "request_text": "Ich möchte den strukturierten Modus in der JAWS-Einstellungsverwaltung erweitern und einzelne Elemente anpassen. Können Sie mir die genaue Vorgehensweise nennen, vom Suchen nach dem Eintrag bis zum Ändern der Braille-Bezeichnung und dem Speichern?",
+      "answer_text": "So gehen Sie vor:\n\n1. Öffnen Sie die Einstellungsverwaltung und geben Sie „Strukturierter Modus Erweitert“ im Sucheingabefeld ein.\n2. Drücken Sie PFEIL RUNTER, um zu den gefilterten Ergebnissen der Strukturansicht zu springen.\n3. Drücken Sie auf Erweitert die LEERTASTE, um das Dialogfenster Optionen für Elementtypen zu öffnen.\n4. Öffnen Sie mit STRG+TAB die gewünschte Registerkarte.\n5. Drücken Sie TAB und gehen Sie mit den Pfeiltasten auf das Steuerelement, den Status oder das HTML-Attribut, das Sie verändern möchten.\n6. Drücken Sie F2.\n7. Geben Sie die neue Braille-Bezeichnung für das entsprechende Element ein und drücken Sie EINGABE.\n8. Aktivieren Sie den OK Schalter, um die Änderungen zu speichern.",
+      "source_spans": [
+        "data/normalized/JAWS/DE/settingscenter/index.md#L5-L21"
+      ]
+    }
+  ]
+}
