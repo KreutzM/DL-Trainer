@@ -338,6 +338,50 @@ def test_build_benchmark_summary_rejects_mismatched_benchmark_names(tmp_path: Pa
     assert "Benchmark names do not match" in str(exc.value)
 
 
+def test_build_benchmark_summary_rejects_empty_benchmark_name(tmp_path: Path) -> None:
+    reference_report = tmp_path / "reference_pipeline_report.json"
+    candidate_report = tmp_path / "candidate_pipeline_report.json"
+    teacher_outputs = tmp_path / "teacher_outputs.jsonl"
+    reviewed_outputs = tmp_path / "reviewed_teacher_outputs.jsonl"
+    judge_results = tmp_path / "judge_results.jsonl"
+
+    _write_jsonl(teacher_outputs, [_teacher_output("job-1", review_status="teacher_generated")])
+    _write_jsonl(reviewed_outputs, [_teacher_output("job-1", review_status="codex_reviewed")])
+    _write_jsonl(judge_results, [_judge_result("job-1", decision="approve", quality_score=80)])
+    reference_payload = _pipeline_report_with_benchmark(
+        run_name="reference-run",
+        teacher_outputs=teacher_outputs,
+        reviewed_outputs=reviewed_outputs,
+        judge_results=judge_results,
+        profile_set="support_mvp_default",
+        benchmark_role="reference",
+        answer_backend="codex_cli",
+        answer_model="gpt-5.4",
+        approved_jobs=1,
+        rejected_jobs=0,
+    )
+    candidate_payload = _pipeline_report_with_benchmark(
+        run_name="candidate-run",
+        teacher_outputs=teacher_outputs,
+        reviewed_outputs=reviewed_outputs,
+        judge_results=judge_results,
+        profile_set="support_mvp_openrouter_candidate",
+        benchmark_role="candidate",
+        answer_backend="openrouter",
+        answer_model="openai/gpt-4.1",
+        approved_jobs=1,
+        rejected_jobs=0,
+    )
+    reference_payload["benchmark"]["name"] = "   "
+    reference_report.write_text(json.dumps(reference_payload), encoding="utf-8")
+    candidate_report.write_text(json.dumps(candidate_payload), encoding="utf-8")
+
+    with pytest.raises(SystemExit) as exc:
+        benchmark_compare.build_benchmark_summary(ROOT, reference_report, candidate_report)
+
+    assert "missing benchmark.name" in str(exc.value)
+
+
 def test_build_benchmark_summary_rejects_wrong_roles(tmp_path: Path) -> None:
     reference_report = tmp_path / "reference_pipeline_report.json"
     candidate_report = tmp_path / "candidate_pipeline_report.json"
