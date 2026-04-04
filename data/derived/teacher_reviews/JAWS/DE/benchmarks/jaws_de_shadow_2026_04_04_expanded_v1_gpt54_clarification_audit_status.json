@@ -1,0 +1,17 @@
+{
+  "benchmark_name": "jaws_de_shadow_2026_04_04_expanded_v1",
+  "audit_type": "clarification_judge_audit",
+  "task_type": "clarification",
+  "included_unique_cases": 4,
+  "systematic_instability": false,
+  "decision_mismatches_vs_codex": {
+    "openrouter_v1": 0,
+    "openrouter_v2": 0,
+    "openrouter_v3": 1
+  },
+  "recommendation": {
+    "judge_state": "shadow_only",
+    "prompt_change": "not_yet",
+    "next_step": "breiteren clarification-audit oder kombinierten clarification-plus-borderline-audit fahren, bevor der Prompt erneut angepasst wird"
+  }
+}

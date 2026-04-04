@@ -1,0 +1,60 @@
+{
+  "audit_scope": {
+    "task_type": "clarification",
+    "unique_job_count": 4,
+    "included_job_ids": [
+      "jaws_de_teacher_wave_v1::eval::clarification::0001",
+      "jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "jaws_de_teacher_wave_v1::train::clarification::0003",
+      "jaws_de_teacher_wave_v1::train::clarification::0008"
+    ],
+    "reference_reports": [
+      "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_codex_reference_pipeline_report.json",
+      "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_v1_pipeline_report.json",
+      "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v2_pipeline_report.json",
+      "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_expanded_v1_openrouter_gpt54_judge_rubric_v3_pipeline_report.json"
+    ],
+    "supplemental_reports": [
+      "data/derived/teacher_reviews/JAWS/DE/jaws_de_shadow_2026_04_04_small_v1_openrouter_gpt54_v1_pipeline_report.json"
+    ]
+  },
+  "summary": {
+    "is_systematic_instability": false,
+    "mismatch_counts_vs_codex": {
+      "openrouter_v1": 0,
+      "openrouter_v2": 0,
+      "openrouter_v3": 1
+    },
+    "classification_hint_counts": {
+      "stable_alignment": 3,
+      "v3_outlier": 1
+    },
+    "recommendation": "Prompt noch nicht anfassen; Judge weiter shadow_only lassen und clarification erst mit breiterem Audit erneut pruefen."
+  },
+  "case_assessment": [
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0001",
+      "classification": "begruendungsdrift_ohne_entscheidungsproblem",
+      "assessment": "Alle vier Judge-Staende approven den Fall. Das kleine Shadow-Run-Duplikat bestaetigt, dass v1 hier stabil ist.",
+      "prompt_change_signal": "none"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::eval::clarification::0002",
+      "classification": "einzelfall_ausreisser_mit_teilweise_plausibler_strenge",
+      "assessment": "Nur v3 rejectet. Die v3-Begruendung ist fachlich nicht frei erfunden, weil der Nutzer explizit nach Pfeiltasten versus Anfangsbuchstaben fragt. Gleichzeitig approven Codex, v1 und v2 denselben Kandidaten mit nur moderaten Verbesserungshinweisen. Das spricht eher fuer einen einzelnen Grenzfall als fuer systematische clarification-Instabilitaet.",
+      "prompt_change_signal": "weak"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0003",
+      "classification": "stabil",
+      "assessment": "Alle Judge-Staende approven. Score-Differenzen bleiben klein und wirken wie normale Begruendungsdrift.",
+      "prompt_change_signal": "none"
+    },
+    {
+      "job_id": "jaws_de_teacher_wave_v1::train::clarification::0008",
+      "classification": "stabil",
+      "assessment": "Alle Judge-Staende approven. Der fruehere faq-Spillover wirkt hier nicht in clarification hinein.",
+      "prompt_change_signal": "none"
+    }
+  ]
+}
