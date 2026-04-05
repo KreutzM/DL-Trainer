@@ -149,6 +149,12 @@ Vierter kontrollierter Trainingslauf:
 make jaws-de-current-fourth-train
 ```
 
+Fuenfter kontrollierter Trainingslauf:
+
+```bash
+make jaws-de-current-fifth-train
+```
+
 Frischen produktiven Lauf starten:
 
 ```bash
