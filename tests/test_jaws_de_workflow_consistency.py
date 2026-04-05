@@ -33,6 +33,22 @@ def test_core_docs_point_to_workflow_and_current_baseline() -> None:
         assert baseline_ref in text, rel
 
 
+def test_terminology_governance_mentions_current_baseline_and_reference_path() -> None:
+    agents = _read("AGENTS.md")
+    assert "## Terminologie" in agents
+    assert "JAWS-DE Current-Baseline" in agents
+    assert "Support-MVP-Referenzpfad" in agents
+    assert "Legacy" in agents
+
+    readme = _read("README.md")
+    assert "JAWS-DE Current-Baseline" in readme
+    assert "Support-MVP-Referenzpfad" in readme
+
+    rollout = _read("docs/openrouter_benchmark_rollout.md")
+    assert "Support-MVP-Referenzpfad" in rollout
+    assert "JAWS-DE-Current-Baseline" in rollout
+
+
 def test_current_baseline_is_consistent_across_docs() -> None:
     baseline = _read_json(BASELINE_PATH)
     expected_run = baseline["committed_baseline"]["run_name"]
