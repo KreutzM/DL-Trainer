@@ -1,4 +1,4 @@
-.PHONY: validate repo-consistency jaws-de-current-validate jaws-de-current-export jaws-de-current-training-smoke jaws-de-current-first-train jaws-de-training-smoke jaws-de-fresh-run support-mvp-benchmark-reference support-mvp-benchmark-candidate support-mvp-benchmark-compare
+.PHONY: validate repo-consistency jaws-de-current-validate jaws-de-current-export jaws-de-current-training-smoke jaws-de-current-first-train jaws-de-current-second-train jaws-de-training-smoke jaws-de-fresh-run support-mvp-benchmark-reference support-mvp-benchmark-candidate support-mvp-benchmark-compare
 
 CURRENT_JAWS_DE_BASELINE := docs/jaws_de_current_baseline.json
 CURRENT_JAWS_DE_RUN := openrouter_gpt54_controlled_gold_v16
@@ -37,6 +37,11 @@ jaws-de-current-first-train:
 	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_first_train.yaml --summary-output training/transformers/outputs/jaws_de_current_first_train/preflight_summary.json
 	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_first_train.yaml
 	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_first_train.yaml --adapter-dir training/transformers/outputs/jaws_de_current_first_train/final_adapter --output training/transformers/outputs/jaws_de_current_first_train/adapter_smoke.json
+
+jaws-de-current-second-train:
+	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_second_train.yaml --summary-output training/transformers/outputs/jaws_de_current_second_train/preflight_summary.json
+	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_second_train.yaml
+	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_second_train.yaml --adapter-dir training/transformers/outputs/jaws_de_current_second_train/final_adapter --output training/transformers/outputs/jaws_de_current_second_train/adapter_smoke.json
 
 jaws-de-training-smoke:
 	python scripts/smoke_test_qwen_sft.py --config $(CURRENT_JAWS_DE_TRAINING_CONFIG)
