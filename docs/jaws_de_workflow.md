@@ -143,6 +143,12 @@ Dritter kontrollierter Trainingslauf:
 make jaws-de-current-third-train
 ```
 
+Vierter kontrollierter Trainingslauf:
+
+```bash
+make jaws-de-current-fourth-train
+```
+
 Frischen produktiven Lauf starten:
 
 ```bash
