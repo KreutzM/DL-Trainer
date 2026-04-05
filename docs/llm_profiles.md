@@ -2,9 +2,9 @@
 
 Die Stage-Profile fuer den Support-MVP liegen in `config/llm_stage_profiles.json`.
 
-Aktuell sind zwei Profilsets hinterlegt:
+Aktuell sind drei Profilsets hinterlegt:
 
-- `support_mvp_default`: spiegelt den bestehenden Codex-CLI-Defaultpfad.
+- `support_mvp_default`: Legacy-Codex-CLI-Referenzprofil fuer reproduzierbare Benchmark-Laeufe im Support-MVP-Referenzpfad.
 - `support_mvp_openrouter_candidate`: nicht-default OpenRouter-Kandidat fuer kontrollierte Vergleichslaufe.
 - `support_mvp_openrouter_gpt54_candidate`: separater OpenRouter-Kandidat auf der GPT-5.4-Linie fuer spaetere Shadow-Benchmarks gegen denselben Codex-Referenzstand.
 
@@ -24,7 +24,7 @@ Jeder Stage-Eintrag trennt allgemeine von backend-spezifischen Feldern:
 
 ## Laden und Preflight
 
-Der bestehende MVP-Pfad kann optional mit `--llm-profile-set <name>` auf ein Profilset umgeschaltet werden. Ohne diesen Parameter bleibt der bisherige Codex-Default aktiv.
+Der bestehende Support-MVP-Referenzpfad kann optional mit `--llm-profile-set <name>` auf ein Profilset umgeschaltet werden. Ohne diesen Parameter bleibt der dort hinterlegte Codex-CLI-Referenzpfad aktiv.
 
 Vor dem Lauf wird das Profilset validiert:
 
@@ -45,7 +45,7 @@ Fuer Benchmark- und Rollout-Vorbereitung im Support-MVP siehe zusaetzlich `docs/
 
 ## Bewusst noch offen
 
-Schritt 2 fuehrt noch keinen produktiven Default-Wechsel auf OpenRouter durch. Ebenso bleiben groessere Rollout-Themen fuer spaeter offen:
+Schritt 2 fuehrt noch keinen produktiven Wechsel der JAWS-DE Current-Baseline auf OpenRouter durch. Ebenso bleiben groessere Rollout-Themen fuer spaeter offen:
 
 - Benchmark-Orchestrierung ueber mehrere Profilsets
 - breitere Provider-Unterstuetzung jenseits von Codex CLI und OpenRouter im Support-MVP

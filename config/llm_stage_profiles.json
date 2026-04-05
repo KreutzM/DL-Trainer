@@ -2,7 +2,7 @@
   "version": 1,
   "profile_sets": {
     "support_mvp_default": {
-      "description": "Legacy Codex CLI baseline fuer den bestehenden Support-MVP-Pfad.",
+      "description": "Legacy Codex CLI Referenzprofil fuer den bestehenden Support-MVP-Pfad.",
       "stages": {
         "user_simulation": {
           "profile_name": "codex_gpt54mini_low_v1",

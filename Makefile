@@ -1,4 +1,4 @@
-.PHONY: validate repo-consistency jaws-de-current-validate jaws-de-current-export jaws-de-training-smoke jaws-de-fresh-run support-mvp-benchmark-reference support-mvp-benchmark-candidate support-mvp-benchmark-compare
+.PHONY: validate repo-consistency jaws-de-current-validate jaws-de-current-export jaws-de-current-training-smoke jaws-de-current-first-train jaws-de-current-second-train jaws-de-current-third-train jaws-de-current-fourth-train jaws-de-current-fifth-train jaws-de-current-sixth-train jaws-de-current-seventh-train jaws-de-training-smoke jaws-de-fresh-run support-mvp-benchmark-reference support-mvp-benchmark-candidate support-mvp-benchmark-compare
 
 CURRENT_JAWS_DE_BASELINE := docs/jaws_de_current_baseline.json
 CURRENT_JAWS_DE_RUN := openrouter_gpt54_controlled_gold_v16
@@ -27,6 +27,46 @@ jaws-de-current-validate:
 jaws-de-current-export:
 	python scripts/export_qwen_sft.py --train-input $(CURRENT_JAWS_DE_TRAIN) --eval-input $(CURRENT_JAWS_DE_EVAL) --output-dir $(CURRENT_JAWS_DE_EXPORT_DIR) --export-id $(CURRENT_JAWS_DE_EXPORT_ID)
 	python scripts/validate_qwen_sft_export.py --input-dir $(CURRENT_JAWS_DE_EXPORT_DIR)
+
+jaws-de-current-training-smoke:
+	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_smoke.yaml --summary-output training/transformers/outputs/jaws_de_current_smoke/preflight_summary.json
+	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_smoke.yaml
+	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_smoke.yaml --adapter-dir training/transformers/outputs/jaws_de_current_smoke/final_adapter --output training/transformers/outputs/jaws_de_current_smoke/adapter_smoke.json
+
+jaws-de-current-first-train:
+	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_first_train.yaml --summary-output training/transformers/outputs/jaws_de_current_first_train/preflight_summary.json
+	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_first_train.yaml
+	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_first_train.yaml --adapter-dir training/transformers/outputs/jaws_de_current_first_train/final_adapter --output training/transformers/outputs/jaws_de_current_first_train/adapter_smoke.json
+
+jaws-de-current-second-train:
+	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_second_train.yaml --summary-output training/transformers/outputs/jaws_de_current_second_train/preflight_summary.json
+	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_second_train.yaml
+	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_second_train.yaml --adapter-dir training/transformers/outputs/jaws_de_current_second_train/final_adapter --output training/transformers/outputs/jaws_de_current_second_train/adapter_smoke.json
+
+jaws-de-current-third-train:
+	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_third_train.yaml --summary-output training/transformers/outputs/jaws_de_current_third_train/preflight_summary.json
+	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_third_train.yaml
+	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_third_train.yaml --adapter-dir training/transformers/outputs/jaws_de_current_third_train/final_adapter --output training/transformers/outputs/jaws_de_current_third_train/adapter_smoke.json
+
+jaws-de-current-fourth-train:
+	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_fourth_train.yaml --summary-output training/transformers/outputs/jaws_de_current_fourth_train/preflight_summary.json
+	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_fourth_train.yaml
+	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_fourth_train.yaml --adapter-dir training/transformers/outputs/jaws_de_current_fourth_train/final_adapter --output training/transformers/outputs/jaws_de_current_fourth_train/adapter_smoke.json
+
+jaws-de-current-fifth-train:
+	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_fifth_train.yaml --summary-output training/transformers/outputs/jaws_de_current_fifth_train/preflight_summary.json
+	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_fifth_train.yaml
+	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_fifth_train.yaml --adapter-dir training/transformers/outputs/jaws_de_current_fifth_train/final_adapter --output training/transformers/outputs/jaws_de_current_fifth_train/adapter_smoke.json
+
+jaws-de-current-sixth-train:
+	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_sixth_train.yaml --summary-output training/transformers/outputs/jaws_de_current_sixth_train/preflight_summary.json
+	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_sixth_train.yaml
+	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_sixth_train.yaml --adapter-dir training/transformers/outputs/jaws_de_current_sixth_train/final_adapter --output training/transformers/outputs/jaws_de_current_sixth_train/adapter_smoke.json
+
+jaws-de-current-seventh-train:
+	python scripts/preflight_qwen_lora_server.py --config training/transformers/jaws_de_current_seventh_train.yaml --summary-output training/transformers/outputs/jaws_de_current_seventh_train/preflight_summary.json
+	python scripts/run_qwen_lora_training.py --config training/transformers/jaws_de_current_seventh_train.yaml
+	python scripts/smoke_test_qwen_lora_adapter.py --config training/transformers/jaws_de_current_seventh_train.yaml --adapter-dir training/transformers/outputs/jaws_de_current_seventh_train/final_adapter --output training/transformers/outputs/jaws_de_current_seventh_train/adapter_smoke.json
 
 jaws-de-training-smoke:
 	python scripts/smoke_test_qwen_sft.py --config $(CURRENT_JAWS_DE_TRAINING_CONFIG)
