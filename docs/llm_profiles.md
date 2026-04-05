@@ -24,7 +24,7 @@ Jeder Stage-Eintrag trennt allgemeine von backend-spezifischen Feldern:
 
 ## Laden und Preflight
 
-Der bestehende Support-MVP-Referenzpfad kann optional mit `--llm-profile-set <name>` auf ein Profilset umgeschaltet werden. Ohne diesen Parameter bleibt der dort hinterlegte Codex-CLI-Referenzpfad aktiv.
+Der bestehende Support-MVP-Referenzpfad kann optional mit `--llm-profile-set <name>` auf ein Profilset umgeschaltet werden. Ohne diesen Parameter bleibt der dort hinterlegte Support-MVP-Referenzpfad aktiv.
 
 Vor dem Lauf wird das Profilset validiert:
 
