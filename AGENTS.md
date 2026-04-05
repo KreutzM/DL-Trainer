@@ -18,6 +18,13 @@ Dieses Repository erzeugt aus Produkthandb체chern versionierte Datenartefakte f�
   - `source_spans`
   - `transform_pipeline_version`
 
+## Terminologie
+
+- `JAWS-DE Current-Baseline` meint den aktuell committed und produktiv unterst체tzten Stand `openrouter_gpt54_controlled_gold_v16` zusammen mit den Pointern in `docs/jaws_de_current_baseline.json`.
+- `Support-MVP-Referenzpfad` meint den Codex-CLI-Benchmark- und Vergleichspfad rund um `scripts/run_codex_cli_support_mvp_pipeline.py` sowie `support_mvp_default`; er ist nicht die JAWS-DE Current-Baseline.
+- `Legacy` oder `historisch` meint vorhandene Vergleichs-, Probe-, Smoke- oder alte Job-Artefakte, die nur referenziert werden d체rfen, wenn ein Dokument oder ein Lauf sie ausdr체cklich ausw채hlt.
+- Verwende `default` im JAWS-DE-Kontext nur f체r explizit benannte Profilsets oder technische Defaults, nicht als Synonym f체r die Current-Baseline.
+
 ## Arbeitsregeln
 
 - Bearbeite nur Dateien im vorgesehenen Zielordner.

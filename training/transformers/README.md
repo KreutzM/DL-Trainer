@@ -1,6 +1,6 @@
 # transformers
 
-Dies ist der aktuell unterstuetzte JAWS-DE-Trainingsstack.
+Dies ist der aktuell unterstuetzte JAWS-DE-Trainingsstack fuer die Current-Baseline.
 
 Massgebliche Dateien:
 

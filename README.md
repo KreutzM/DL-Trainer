@@ -11,6 +11,12 @@ Dieses Repository baut versionierte Datenartefakte aus Produkthandbuechern fuer:
 
 Die zentrale Single Source of Truth fuer den produktiven JAWS-DE-Pfad ist [`docs/jaws_de_workflow.md`](docs/jaws_de_workflow.md). Die maschinenlesbare Current-Baseline dazu steht in [`docs/jaws_de_current_baseline.json`](docs/jaws_de_current_baseline.json).
 
+Begriffe:
+
+- `JAWS-DE Current-Baseline` meint den committed Stand `openrouter_gpt54_controlled_gold_v16`.
+- `Support-MVP-Referenzpfad` meint den Codex-CLI-Benchmark- und Vergleichspfad, nicht die Current-Baseline.
+- `Legacy` und `historisch` bezeichnen Referenz- oder Vergleichsartefakte, die nur bei expliziter Auswahl massgeblich werden.
+
 Kurzfassung:
 
 1. `data/raw/JAWS/DE/Converted-Help-Files/` ist die kanonische Rohquelle.

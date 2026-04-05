@@ -1,12 +1,12 @@
 # OpenRouter Benchmark Und Rollout
 
-Die aktuelle JAWS-DE-Current-Baseline bleibt `openrouter_gpt54_controlled_gold_v16`. Codex CLI wird im Support-MVP nur noch als Referenz fuer Benchmark- und Vergleichslaeufe gehalten; OpenRouter wird separat als Kandidat vorbereitet.
+Die aktuelle JAWS-DE-Current-Baseline bleibt `openrouter_gpt54_controlled_gold_v16`. Codex CLI wird im Support-MVP nur noch als `Support-MVP-Referenzpfad` fuer Benchmark- und Vergleichslaeufe gehalten; OpenRouter wird separat als Kandidat vorbereitet.
 
 ## Profilsets
 
 Die Benchmark-Laeufe bauen auf den bestehenden Profilsets in `config/llm_stage_profiles.json` auf:
 
-- `support_mvp_default`: Codex-Referenzprofil fuer reproduzierbare Benchmark-Laeufe
+- `support_mvp_default`: Codex-CLI-Referenzprofil fuer reproduzierbare Benchmark-Laeufe im Support-MVP-Referenzpfad
 - `support_mvp_openrouter_candidate`: OpenRouter-Kandidatenprofil fuer Shadow- und Vergleichslaeufe
 - `support_mvp_openrouter_gpt54_candidate`: separater GPT-5.4-Kandidatenpfad fuer weitere Shadow-Benchmarks ohne Ueberschreiben des ersten OpenRouter-Laufs
 
