@@ -136,5 +136,6 @@ def test_active_entrypoints_do_not_use_historical_job_ids_name() -> None:
         "Makefile",
         "docs/jaws_de_workflow.md",
         "training/transformers/README.md",
+        "data/derived/teacher_jobs/JAWS/DE/README.md",
     ]:
         assert old_ref not in _read(rel), rel

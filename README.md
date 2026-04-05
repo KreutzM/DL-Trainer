@@ -69,7 +69,7 @@ make support-mvp-benchmark-candidate BENCHMARK_NAME=jaws_de_shadow_apr2026 RUN_N
 make support-mvp-benchmark-compare BENCHMARK_NAME=jaws_de_shadow_apr2026 REFERENCE_RUN=jaws_de_shadow_apr2026_codex CANDIDATE_RUN=jaws_de_shadow_apr2026_openrouter
 ```
 
-Die Details dazu stehen in `docs/openrouter_benchmark_rollout.md`. Codex CLI bleibt bis auf Weiteres der produktive Default.
+Die Details dazu stehen in `docs/openrouter_benchmark_rollout.md`. Codex CLI bleibt dabei nur die Benchmark-Referenz fuer den Support-MVP, nicht die aktuelle JAWS-DE-Current-Baseline.
 
 ## Wichtige Pfade
 

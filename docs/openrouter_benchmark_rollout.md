@@ -1,12 +1,12 @@
 # OpenRouter Benchmark Und Rollout
 
-Der produktive Default im JAWS-DE-Support-MVP bleibt vorerst Codex CLI. OpenRouter wird in Schritt 3 nur als kontrollierter Benchmark-Kandidat vorbereitet.
+Die aktuelle JAWS-DE-Current-Baseline bleibt `openrouter_gpt54_controlled_gold_v16`. Codex CLI wird im Support-MVP nur noch als Referenz fuer Benchmark- und Vergleichslaeufe gehalten; OpenRouter wird separat als Kandidat vorbereitet.
 
 ## Profilsets
 
 Die Benchmark-Laeufe bauen auf den bestehenden Profilsets in `config/llm_stage_profiles.json` auf:
 
-- `support_mvp_default`: Codex-Referenzprofil fuer reproduzierbare Baseline-Laeufe
+- `support_mvp_default`: Codex-Referenzprofil fuer reproduzierbare Benchmark-Laeufe
 - `support_mvp_openrouter_candidate`: OpenRouter-Kandidatenprofil fuer Shadow- und Vergleichslaeufe
 - `support_mvp_openrouter_gpt54_candidate`: separater GPT-5.4-Kandidatenpfad fuer weitere Shadow-Benchmarks ohne Ueberschreiben des ersten OpenRouter-Laufs
 
@@ -71,7 +71,7 @@ Die Vergleichshilfe liest die vorhandenen Pipeline-Reports und Artefakte und fas
 
 Der vorbereitete Rollout-Pfad bleibt bewusst konservativ:
 
-1. Zuerst Shadow-/Kandidatenlauf mit `support_mvp_openrouter_candidate`, kein Default-Wechsel.
+1. Zuerst Shadow-/Kandidatenlauf mit `support_mvp_openrouter_candidate`, kein Wechsel der JAWS-DE-Current-Baseline.
 2. Danach Vergleich gegen die Codex-Referenz inklusive Report-Review.
 3. Erst bei stabilen Ergebnissen einzelne Stage-Profile gezielt anpassen.
 4. Eine produktive Default-Umstellung bleibt ein eigener, spaeterer Schritt mit separater Review.
@@ -83,4 +83,4 @@ Schritt 3 fuehrt noch nicht ein:
 - automatische Multi-Run-Benchmark-Orchestrierung
 - produktive Modell- oder Routing-Festlegung fuer OpenRouter
 - automatische Promotion oder Gold-Freigabe aus Benchmark-Laeufen
-- einen Default-Wechsel von Codex CLI auf OpenRouter
+- einen Default-Wechsel der JAWS-DE-Current-Baseline
