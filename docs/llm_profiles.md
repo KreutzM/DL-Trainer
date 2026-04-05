@@ -45,7 +45,7 @@ Fuer Benchmark- und Rollout-Vorbereitung im Support-MVP siehe zusaetzlich `docs/
 
 ## Bewusst noch offen
 
-Schritt 2 fuehrt noch keinen produktiven Wechsel der JAWS-DE-Current-Baseline auf OpenRouter durch. Ebenso bleiben groessere Rollout-Themen fuer spaeter offen:
+Schritt 2 fuehrt noch keinen produktiven Wechsel der JAWS-DE Current-Baseline auf OpenRouter durch. Ebenso bleiben groessere Rollout-Themen fuer spaeter offen:
 
 - Benchmark-Orchestrierung ueber mehrere Profilsets
 - breitere Provider-Unterstuetzung jenseits von Codex CLI und OpenRouter im Support-MVP

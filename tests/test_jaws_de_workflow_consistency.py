@@ -46,7 +46,7 @@ def test_terminology_governance_mentions_current_baseline_and_reference_path() -
 
     rollout = _read("docs/openrouter_benchmark_rollout.md")
     assert "Support-MVP-Referenzpfad" in rollout
-    assert "JAWS-DE-Current-Baseline" in rollout
+    assert "JAWS-DE Current-Baseline" in rollout
 
 
 def test_current_baseline_is_consistent_across_docs() -> None:
