@@ -125,6 +125,12 @@ Lokaler Smoke auf dem aktuellen Current-Stand:
 make jaws-de-current-training-smoke
 ```
 
+Erster kontrollierter echter Trainingslauf:
+
+```bash
+make jaws-de-current-first-train
+```
+
 Frischen produktiven Lauf starten:
 
 ```bash
