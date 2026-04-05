@@ -69,18 +69,18 @@ Produktive Runner:
 
 Produktive Metadaten:
 
-- `simulator_provider=codex_cli`
-- `teacher_provider=codex_cli`
-- `reviewer_provider=codex_cli`
-- `generation_mode=teacher_user_simulator_codex_cli_v1`
-- `generation_mode=teacher_answer_codex_cli_v1`
-- `generation_mode=teacher_judge_codex_cli_v1`
+- `simulator_provider=openrouter`
+- `teacher_provider=openrouter`
+- `reviewer_provider=openrouter`
+- `generation_mode=teacher_user_simulator_openrouter_v1`
+- `generation_mode=teacher_answer_openrouter_v1`
+- `generation_mode=teacher_judge_openrouter_v1`
 
 Stage-Defaults:
 
-- User-Simulation: `gpt-5.4-mini`, `reasoning-effort=low`, `batch-size=8`
-- Answering: `gpt-5.4`, `reasoning-effort=medium`, `batch-size=4`
-- Judge: `gpt-5.4-mini`, `reasoning-effort=medium`, `batch-size=8`
+- User-Simulation: `openai/gpt-5.4-mini`, `reasoning-effort=low`, `batch-size=8`
+- Answering: `openai/gpt-5.4`, `reasoning-effort=medium`, `batch-size=4`
+- Judge: `openai/gpt-5.4`, `shadow_only=true`, `reasoning-effort=medium`, `batch-size=8`
 
 ## Aktuell unterstuetzter Trainingspfad
 
@@ -159,6 +159,12 @@ Sechster kontrollierter Trainingslauf:
 
 ```bash
 make jaws-de-current-sixth-train
+```
+
+Siebter kontrollierter Trainingslauf:
+
+```bash
+make jaws-de-current-seventh-train
 ```
 
 Frischen produktiven Lauf starten:
