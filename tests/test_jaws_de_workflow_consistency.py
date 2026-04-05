@@ -48,6 +48,10 @@ def test_terminology_governance_mentions_current_baseline_and_reference_path() -
     assert "Support-MVP-Referenzpfad" in rollout
     assert "JAWS-DE Current-Baseline" in rollout
 
+    profiles = _read("docs/llm_profiles.md")
+    assert "Support-MVP-Referenzpfad" in profiles
+    assert "Codex-CLI-Referenzpfad" not in profiles
+
 
 def test_current_baseline_is_consistent_across_docs() -> None:
     baseline = _read_json(BASELINE_PATH)
